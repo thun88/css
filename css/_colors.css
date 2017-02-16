@@ -107,3 +107,8 @@
 }
 
 /* @end color */
+
+
+.blue {
+  background-color: var(--azure06);
+}

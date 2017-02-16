@@ -16,14 +16,11 @@
   "devDependencies": {
     "colors": "^1.1.2",
     "postcss-cli": "^2.6.0",
-    "postcss-cssnext": "^2.9.0",
-    "postcss-focus": "^1.0.0",
     "postcss-import": "^9.1.0",
-    "postcss-simple-vars": "^3.0.0",
     "postcss-style-guide": "^0.13.0"
   },
   "scripts": {
     "start": "node server.js",
-    "css": "postcss -c postcss-options.json"
+    "install": "npm run css"
   }
 }
