@@ -1,0 +1,29 @@
+{
+  "name": "@infor/soho_foundation",
+  "shortname": "sohofoundation",
+  "version": "1.0.0",
+  "description": "Hook & Loop - Soho Foundation styles",
+  "author": "Hook & Loop",
+  "license": "UNLICENSED",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hookandloop/soho-foundation.git"
+  },
+  "dependencies": {
+    "express": "^4.13.3"
+  },
+  "devDependencies": {
+    "colors": "^1.1.2",
+    "postcss-cli": "^2.6.0",
+    "postcss-cssnext": "^2.9.0",
+    "postcss-focus": "^1.0.0",
+    "postcss-import": "^9.1.0",
+    "postcss-simple-vars": "^3.0.0",
+    "postcss-style-guide": "^0.13.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "css": "postcss -c postcss-options.json"
+  }
+}
