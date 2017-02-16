@@ -1,15 +1,15 @@
 {
   "use": ["postcss-focus", "postcss-import", "postcss-style-guide", "postcss-cssnext"],
   "input": "css/app.css",
-  "output": "public/css/app.css",
+  "output": "www/css/app.css",
   "local-plugins": true,
   "postcss-import": {
     "path": "css",
     "skipDuplicates": true
   },
   "postcss-style-guide": {
-    "src": "public/css/app.css",
-    "dest": "styleguide/index.html",
+    "src": "www/css/app.css",
+    "dest": "www/index.html",
     "project": "Soho Foundation Styleguide"
   }
 }

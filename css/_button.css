@@ -27,12 +27,16 @@ Use the button classes on and `<a>`, `<button>`, `<input>` elements.
     font-size: 14px;
 }
 
+/*
+Use the button classes on and `<a>`, `<button>`, `<input>` elements.
+*/
+
 .button--red {
     color: #fff;
-    background-color: var(--red);
+    background-color: var(--ruby06);
 }
 
 .button--blue {
     color: #fff;
-    background-color: var(--blue);
+    background-color: var(--azure06);
 }
