@@ -1,1 +1,1 @@
-# soho-foundation
+# Soho Foundation
