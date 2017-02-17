@@ -12,6 +12,8 @@ var cssnano = require('cssnano');
 var customProperties = require('postcss-custom-properties');
 var styleGuide = require('postcss-style-guide');
 
+
+// Webserver
 gulp.task('webserver', function() {
   gulp.src('www')
     .pipe(server({
@@ -22,6 +24,8 @@ gulp.task('webserver', function() {
     }));
 });
 
+
+// CSS
 gulp.task('css', function () {
   var plugins = [
     atImport,
@@ -39,6 +43,14 @@ gulp.task('css', function () {
     .pipe(gulp.dest('dist/css'));
 });
 
+
+// Watch
 gulp.task('watch', function() {
   gulp.watch('src/*', ['css']);
 });
+
+// Dev
+gulp.task('dev', ['css', 'webserver', 'watch']);
+
+// Default
+gulp.task('default', ['css', 'webserver']);
