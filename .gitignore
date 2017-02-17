@@ -6,6 +6,7 @@ www/index.html
 # Packages #
 ############
 node_modules/
+npm-debug.log
 
 # OS generated files #
 ############
