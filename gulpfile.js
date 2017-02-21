@@ -12,10 +12,12 @@ var cssnano = require('cssnano');
 var customProperties = require('postcss-custom-properties');
 var styleGuide = require('postcss-style-guide');
 
+//Global Settings
+var siteRoot = "site/www"
 
 // Webserver
 gulp.task('webserver', function() {
-  gulp.src('www')
+  gulp.src(siteRoot)
     .pipe(server({
       livereload: true,
       defaultFile: 'index.html',
@@ -33,7 +35,8 @@ gulp.task('css', function () {
     autoprefixer,
     styleGuide({
       project: 'Soho Foundation',
-      dest: 'www/index.html'
+      themePath: 'site/theme',
+      dest: siteRoot + '/index.html'
     }),
     cssnano
   ];

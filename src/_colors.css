@@ -99,16 +99,11 @@
   --alert-green: #80ce4d;
   --alert-info: var(--azure06);
   --alert-neutral: #dbdbdb;
-
-  --alert01: #e84f4f;
-  --alert02: #ff9426;
-  --alert03: #ffd726;
-  --alert04: #80ce4d;
 }
 
 /* @end color */
 
 
-.blue {
+.soho-color-primary {
   background-color: var(--azure06);
 }

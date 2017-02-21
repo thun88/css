@@ -5,13 +5,13 @@
 
 Use the button classes on and `<a>`, `<button>`, `<input>` elements.
 
-<button class="button button--large button--red">Red Button</button>
+<button class="button button--large button--primary">Blue Button</button>
 
-    <button class="button button--large button--red">Red Button</button>
+    <button class="button button--large button--primary">Blue Button</button>
 
-<button class="button button--large button--blue">Red Button</button>
+<a class="button button--large button--alert-red">Red Alert Button</a>
 
-    <button class="button button--large button--blue">Red Button</button>
+    <a class="button button--large button--alert-red">Red Alert Button</a>
 */
 .button {
     display: flex;
@@ -31,14 +31,13 @@ Use the button classes on and `<a>`, `<button>`, `<input>` elements.
 Use the button classes on and `<a>`, `<button>`, `<input>` elements.
 */
 
-.button--red {
-    color: #fff;
-    background-color: var(--ruby06);
-}
 
-.button--blue {
+.button--primary {
     color: #fff;
     background-color: var(--azure06);
 }
 
-
+.button--alert-red {
+    color: #fff;
+    background-color: var(--alert-red);
+}

@@ -1,0 +1,82 @@
+<!doctype html>
+<html class="psg-theme" lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title><%= projectName %></title>
+        <style><%- codeStyle %><%- tmplStyle %><%- processedCSS %></style>
+    </head>
+
+    <body>
+      <div class="psg-wrapper">
+        <nav class="psg-menu">
+          <ul class="psg-ComponentList">
+            <% if (Array.isArray(colorPalette) && colorPalette.length !== 0) { %>
+              <a href="#color-palette" class="psg-ComponentList__item">
+                <li>Color Palette</li>
+              </a>
+            <% } %>
+            <% maps.forEach(function (map) { %>
+              <% if (map.link.title !== null) { %>
+                <a href="#<%= map.link.id %>" class="psg-ComponentList__item">
+                  <li>
+                    <%= map.link.title %>
+                  </li>
+                </a>
+              <% } %>
+            <% }) %>
+          </ul>
+
+        </nav>
+
+        <div class="psg-main">
+          <header class="psg-title soho-color-primary">
+            <h1><%= projectName %></h1>
+          </header>
+          <div class="psg-container">
+            <section class="psg-section front-matter">
+            <div class="front-matter">
+            <h1>Welcome!</h1>
+            <p>SoHo Foundation unifies the CloudSuite experience by standardizing the universal design elements like colors, text, and buttons with easy-to-follow and easy-to-implement rules and code.</p>
+
+            <h2>How Foundations Is Different than SoHo Components</h2>
+
+            <p>Foundations is the basic identity of the SoHo user experience. By having standard colors, text, and basic elements like form fields and buttons, each Infor application can share an identity. Foundations is style-only, powered by CSS and using a very generic architecture so that it's easy for any Infor application to use. (For more on this, see #Usage.) The SoHo Components add functionality to the basics of SoHo making it easier for you to bring the SoHo user experience to life. With built-in responsive features, complex UX patterns like Data Grid and Step Pattern, and a large library of different components for many use cases, the SoHo components can help you build out the SoHo experience.</p>
+
+            <p>SoHo Foundations is a more flexible and lightweight implementation of SoHo's basic design principles while the SoHo Components are a more feature-rich toolkit of common patterns which you can "drop in" to your Infor application.</p>
+            </section>
+            <% if (Array.isArray(colorPalette) && colorPalette.length !== 0) { %>
+            <section class="psg-section">
+                <h2 id="color-palette" class="psg-component-title">Color Palette</h2>
+                <div class="psg-contents">
+                  <div class="psg-colorPalette">
+                    <% colorPalette.forEach(function (palette) { %>
+                    <div class="psg-colorBox">
+                        <div class="psg-colorBox__sample" style="background-color: <%= palette.color %>">
+                        </div>
+                        <div class="psg-colorBox__name">
+                            <%= palette.name %>
+                        </div>
+                    </div>
+                    <% }) %>
+                  </div>
+                </div>
+            </section>
+            <hr class="psg-separator">
+            <% } %>
+            <% maps.forEach(function (map) { %>
+                <section class="psg-section">
+                    <h2 id="<%= map.link.id %>" class="psg-component-title"><%= map.link.title %></h2>
+
+                    <div class="psg-contents">
+                      <%- map.html %>
+                    </div>
+                </section>
+                <hr class="psg-separator">
+            <% }) %>
+          </div>
+        </div>
+
+      </div>
+
+    </body>
+</html>
