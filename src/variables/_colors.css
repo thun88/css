@@ -1,5 +1,3 @@
-/* @start color */
-
 :root {
   --white: #ffffff;
   --black: #000000;
@@ -98,12 +96,21 @@
   --alert-yellow: #ffd726;
   --alert-green: #80ce4d;
   --alert-info: var(--azure06);
-  --alert-neutral: #dbdbdb;
+  --alert-neutral: var(--graphite03);
+}
+
+/* @start color */
+
+:root {
+  --soho-color-primary: var(--azure06);
+  --soho-color-accent: var(--graphite04);
+  --soho-color-bg-primary: var(--white);
+  --soho-color-bg-secondary: var(--graphite01);
+  --soho-color-bg-tertiary: var(--slate08);
 }
 
 /* @end color */
 
-
-.soho-color-primary {
-  background-color: var(--azure06);
+.soho-color-primary{
+  background-color: var(--soho-color-primary);
 }

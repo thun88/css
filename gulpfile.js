@@ -9,6 +9,7 @@ var postcss = require('gulp-postcss');
 var atImport = require('postcss-import');
 var autoprefixer = require('autoprefixer');
 var cssnano = require('cssnano');
+var commas = require('postcss-commas');
 var customProperties = require('postcss-custom-properties');
 var styleGuide = require('postcss-style-guide');
 
@@ -31,6 +32,7 @@ gulp.task('webserver', function() {
 gulp.task('css', function () {
   var plugins = [
     atImport,
+    commas,
     customProperties({ preserve: true }),
     autoprefixer,
     styleGuide({

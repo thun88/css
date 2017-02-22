@@ -1,43 +1,61 @@
 /*
 @styleguide
-
 @title Button
 
 Use the button classes on and `<a>`, `<button>`, `<input>` elements.
 
-<button class="button button--large button--primary">Blue Button</button>
+<button class="btn btn-primary">Primary Button</button>
 
-    <button class="button button--large button--primary">Blue Button</button>
+```html
+<button class="btn btn-primary">Blue Button</button>
+```
 
-<a class="button button--large button--alert-red">Red Alert Button</a>
+<button class="btn btn-secondary">Secondary Button</button>
 
-    <a class="button button--large button--alert-red">Red Alert Button</a>
+```html
+<button class="btn btn-secondary">Secondary Button</button>
+```
+
 */
-.button {
+.btn {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 6px;
+    border-radius: 2px;
     cursor: pointer;
+    padding: 0 15px;
+    min-width: 100px;
+    width: auto;
+    height: 34px;
+    font-weight: 700;
+    font-size: 12px;
+    text-transform: uppercase;
 }
 
-.button--large {
-    width: 140px;
-    height: 40px;
-    font-size: 14px;
+.btn-primary {
+    color: var(--white);
+    background-color,
+    border-color:
+        var(--azure06);
+}
+ .btn-primary:hover {
+    background-color,
+    border-color:
+        var(--azure07);
 }
 
-/*
-Use the button classes on and `<a>`, `<button>`, `<input>` elements.
-*/
-
-
-.button--primary {
-    color: #fff;
-    background-color: var(--azure06);
+.btn-secondary {
+    background-color: var(--graphite03);
+    color: var(--graphite08);
 }
 
-.button--alert-red {
-    color: #fff;
+.btn-secondary:hover {
+    background-color,
+    border-color:
+        var(--graphite04);
+}
+
+.btn-alert {
+    color: var(--white);
     background-color: var(--alert-red);
 }
