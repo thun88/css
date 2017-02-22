@@ -9,13 +9,16 @@ var postcss = require('gulp-postcss');
 var atImport = require('postcss-import');
 var autoprefixer = require('autoprefixer');
 var cssnano = require('cssnano');
+var commas = require('postcss-commas');
 var customProperties = require('postcss-custom-properties');
 var styleGuide = require('postcss-style-guide');
 
+//Global Settings
+var siteRoot = "site/www"
 
 // Webserver
 gulp.task('webserver', function() {
-  gulp.src('www')
+  gulp.src(siteRoot)
     .pipe(server({
       livereload: true,
       defaultFile: 'index.html',
@@ -29,11 +32,13 @@ gulp.task('webserver', function() {
 gulp.task('css', function () {
   var plugins = [
     atImport,
+    commas,
     customProperties({ preserve: true }),
     autoprefixer,
     styleGuide({
       project: 'Soho Foundation',
-      dest: 'www/index.html'
+      themePath: 'site/theme',
+      dest: siteRoot + '/index.html'
     }),
     cssnano
   ];
