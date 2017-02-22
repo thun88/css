@@ -1,2 +1,10 @@
-@import "_colors";
+/* Variables */
+@import "variables/_colors";
+
+/* Components */
 @import "_button";
+@import "_forms";
+@import "_lists";
+@import "_reset";
+@import "_tables";
+@import "_typography";
