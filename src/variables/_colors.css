@@ -105,12 +105,14 @@
   --soho-color-primary: var(--azure06);
   --soho-color-accent: var(--graphite04);
   --soho-color-bg-primary: var(--white);
-  --soho-color-bg-secondary: var(--graphite01);
-  --soho-color-bg-tertiary: var(--slate08);
+
+
+  --soho-color-secondary: var(--graphite03);
+  --soho-color-bg-secondary: var(--graphite08);
+
+
+  --soho-color-tertiary: var(--slate08);
+  --soho-color-bg-tertiary: var(--white);
 }
 
 /* @end color */
-
-.soho-color-primary {
-  background-color: var(--soho-color-primary);
-}

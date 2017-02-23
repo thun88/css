@@ -7,7 +7,7 @@ Use the button classes on and `<a>`, `<button>`, `<input>` elements.
 <button class="btn btn-primary">Primary Button</button>
 
 ```html
-<button class="btn btn-primary">Blue Button</button>
+<button class="btn btn-primary">Primary Button</button>
 ```
 
 <button class="btn btn-secondary">Secondary Button</button>
@@ -16,46 +16,46 @@ Use the button classes on and `<a>`, `<button>`, `<input>` elements.
 <button class="btn btn-secondary">Secondary Button</button>
 ```
 
+<button class="btn btn-tertiary">Tertiary Button</button>
+
+```html
+<button class="btn btn-tertiary">Tertiary Button</button>
+```
+
 */
+
+
 .btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 2px;
-    cursor: pointer;
-    padding: 0 15px;
-    min-width: 100px;
-    width: auto;
-    height: 34px;
-    font-weight: 700;
-    font-size: 12px;
-    text-transform: uppercase;
+  border-radius: 2px;
+  font-size: 1.2rem;
+  font-weight: var(--font-weight-bold);
+  height: 34px;
+  min-width: 100px;
+  overflow: hidden;
+  padding: 0 15px;
+  position: relative;
+  text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
+  width: auto;
+
+  /* legacy */
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+  transition: color 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94), background-color 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
+  font-weight: 700;
 }
 
 .btn-primary {
-    color: var(--white);
-    background-color,
-    border-color:
-        var(--azure06);
-}
- .btn-primary:hover {
-    background-color,
-    border-color:
-        var(--azure07);
+  background-color: var(--btn-primary-bg);
+  border: 1px solid var(--btn-primary-bg);
+  color: var(--btn-primary-color);
 }
 
 .btn-secondary {
-    background-color: var(--graphite03);
-    color: var(--graphite08);
+  background-color: var(--btn-secondary-bg);
+  border: 1px solid var(--btn-secondary-bg);
+  color: var(--btn-secondary-color);
 }
 
-.btn-secondary:hover {
-    background-color,
-    border-color:
-        var(--graphite04);
-}
 
-.btn-alert {
-    color: var(--white);
-    background-color: var(--alert-red);
-}

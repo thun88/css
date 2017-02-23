@@ -11,6 +11,7 @@ var autoprefixer = require('autoprefixer');
 var cssnano = require('cssnano');
 var commas = require('postcss-commas');
 var customProperties = require('postcss-custom-properties');
+var mixins = require('postcss-mixins');
 var styleGuide = require('postcss-style-guide');
 
 //Global Settings
@@ -35,6 +36,7 @@ gulp.task('css', function () {
   }
   var plugins = [
     atImport,
+    mixins,
     commas,
     customProperties({ preserve: true }),
     autoprefixer,
