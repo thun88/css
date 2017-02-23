@@ -632,7 +632,8 @@ p[id] {
 }
 
 .psg-section {
-  max-width: 580px;
+  max-width: 100%;
+  padding: 0 50px;
   margin: 0 auto;
 }
 
@@ -662,7 +663,7 @@ hr.psg-separator {
 }
 
 .psg-colorBox {
-  width: 180px;
+  width: 158px;
   box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.2);
   margin: 3rem;
 }
