@@ -39,11 +39,12 @@ gulp.task('css', function () {
       project: 'Soho Foundation',
       themePath: 'site/theme',
       dest: siteRoot + '/index.html'
-    }),
-    cssnano
+    })
   ];
   return gulp.src('src/app.css')
     .pipe(postcss(plugins))
+    .pipe(gulp.dest('dist/css'))
+    .pipe(postcss(cssnano))
     .pipe(concat('app.min.css'))
     .pipe(gulp.dest('dist/css'));
 });
