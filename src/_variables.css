@@ -1,0 +1,39 @@
+/*
+
+Variables
+
+Table of Contents:
+Body
+Fonts
+Headings
+
+ */
+
+:root {
+
+  --body-bg-color:  var(--graphite01);
+  --font-color: var(--graphite06);
+
+  --font-family-base: Helvetica, Arial;
+
+
+  --font-size-base: 1rem;
+  --font-size-small: 0.75rem;
+  --font-size-h1: 2.8rem;
+  --font-size-h2: 2.4rem;
+  --font-size-h3: 2.0rem;
+  --font-size-h4: 1.6rem;
+  --font-size-h5: 1.25rem;
+  --font-size-h6: 1rem;
+
+  --font-weight-normal: normal;
+  --font-weight-bold: bold;
+
+
+  --headings-margin-bottom: 0.5rem;
+  --headings-font-family: Helvetica, Arial;
+  --headings-font-weight: 400;
+  --headings-line-height: normal;
+  --headings-color: var(--font-color);
+
+}

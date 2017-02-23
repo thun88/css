@@ -1,0 +1,91 @@
+/*
+@styleguide
+
+@title Typeography
+
+  <!-- Standard Headings -->
+  <h1>Heading</h1>
+  <h2>Heading</h2>
+  <h3>Heading</h3>
+  <h4>Heading</h4>
+  <h5>Heading</h5>
+  <h6>Heading</h6>
+
+  <!-- Base type size -->
+  <p>This is a base type paragraph.</p>
+
+  <!-- Other styled text tags -->
+  <strong>Bolded</strong><br>
+  <em>Italicized</em><br>
+  <a>Colored</a><br>
+  <u>Underlined</u><br>
+
+*/
+
+html[lang='ar-EG'] {
+  font-family: 'Helvetica', 'Arial', 'Tahoma', 'DejaVu';
+}
+
+html[lang='ar-SA'] {
+  font-family: 'Helvetica', 'Arial', 'Tahoma', 'DejaVu', 'Helvetica', 'Arial';
+}
+
+html[lang='ja-JP'] {
+  font-family: 'Helvetica', 'Arial', 'MS PGothic';
+}
+
+html[lang='ko-KR'] {
+  font-family: 'Helvetica', 'Arial', 'Batang', 'Gulim';
+}
+
+html[lang='zh-CN'] {
+  font-family: 'Helvetica', 'Arial', 'Microsoft YaHei New', '微软雅黑', '宋体', 'SimSun', 'STXihei', '华文细黑';
+}
+
+html[lang='zh-tw'] {
+  font-family: 'Helvetica', 'Arial', 'MingLiU';
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: var(--body-bg-color);
+  color: var(--font-color);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  height: 100%;
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  color: var(--headings-color);
+  font-family: var(--headings-font-family);
+  font-weight: var(--headings-font-weight);
+  line-height: var(--headings-line-height);
+  margin-bottom: var(--headings-margin-bottom);
+}
+
+h1, .h1 { font-size: var(--font-size-h1); }
+h2, .h2 { font-size: var(--font-size-h2); }
+h3, .h3 { font-size: var(--font-size-h3); }
+h4, .h4 { font-size: var(--font-size-h4); }
+h5, .h5 { font-size: var(--font-size-h5); }
+h6, .h6 { font-size: var(--font-size-h6); }
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: .5rem;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+small,
+.small {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-normal);
+}
