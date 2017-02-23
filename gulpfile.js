@@ -30,6 +30,9 @@ gulp.task('webserver', function() {
 
 // CSS
 gulp.task('css', function () {
+  var postcssOptions = {
+    map: true
+  }
   var plugins = [
     atImport,
     commas,
@@ -42,9 +45,9 @@ gulp.task('css', function () {
     })
   ];
   return gulp.src('src/app.css')
-    .pipe(postcss(plugins))
+    .pipe(postcss(plugins, postcssOptions))
     .pipe(gulp.dest('dist/css'))
-    .pipe(postcss(cssnano))
+    .pipe(postcss([cssnano], postcssOptions))
     .pipe(concat('app.min.css'))
     .pipe(gulp.dest('dist/css'));
 });
@@ -52,7 +55,7 @@ gulp.task('css', function () {
 
 // Watch
 gulp.task('watch', function() {
-  gulp.watch('src/*', ['css']);
+  gulp.watch(['src/*', 'src/**/*', 'site/theme/*'], ['css']);
 });
 
 // Dev
