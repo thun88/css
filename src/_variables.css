@@ -50,9 +50,9 @@ Headings
   --btn-primary-disabled-bg:      var(--azure02);  /* soho used opacity 0.5 */
   --btn-primary-hover:            var(--azure07);
 
-  --btn-tertiary-color:           var(--graphite06);
-  --btn-tertiary-bg:              transparent;
-  --btn-tertiary-disabled-color:  var(--graphite02);
-  --btn-tertiary-disabled-bg:     var(--btn-tertiary-bg);
-  --btn-tertiary-hover:           var(--graphite10);
+  --btn-link-color:           var(--graphite06);
+  --btn-link-bg:              transparent;
+  --btn-link-disabled-color:  var(--graphite02);
+  --btn-link-disabled-bg:     var(--btn-link-bg);
+  --btn-link-hover:           var(--graphite10);
 }
