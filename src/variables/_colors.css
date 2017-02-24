@@ -102,17 +102,9 @@
 /* @start color */
 
 :root {
-  --soho-color-primary: var(--azure06);
-  --soho-color-accent: var(--graphite04);
-  --soho-color-bg-primary: var(--white);
-
-
-  --soho-color-secondary: var(--graphite03);
-  --soho-color-bg-secondary: var(--graphite08);
-
-
-  --soho-color-tertiary: var(--slate08);
-  --soho-color-bg-tertiary: var(--white);
+  --soho-primary:   var(--azure06);
+  --soho-secondary: var(--graphite03);
+  --soho-tertiary:  var(--slate08);
 }
 
 /* @end color */

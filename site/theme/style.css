@@ -14,7 +14,7 @@
  */
 
 .psg-menu {
-  width: 240px;
+  width: 150px;
   height: 100%;
   padding: 2rem 3.2rem;
   border-right: 1px solid #ddd;
@@ -57,14 +57,6 @@
   margin: 50px 0;
 }
 
-.psg-component-title.psg-component-title {
-  margin: 2rem 0 1rem;
-  font-size: 3.2rem;
-  font-weight: bold;
-  line-height: 1.6;
-  color: #3f526b;
-}
-
 .psg-section {
   max-width: 100%;
   padding: 0 50px;
@@ -74,6 +66,14 @@
 .psg-contents > p,
 .psg-contents > pre {
     margin: 2rem 0;
+}
+
+.psg-contents > pre {
+  background-color: #f7f7f9;
+  border: 1px solid #e1e1e8;
+  border-radius: 4px;
+  margin-bottom: 14px;
+  padding: 9px 14px;
 }
 
 hr.psg-separator {

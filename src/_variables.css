@@ -17,7 +17,7 @@ Headings
   --font-family-base: Helvetica, Arial;
 
 
-  --font-size-base: 1rem;
+  --font-size-base: 1.4rem;
   --font-size-sm: 0.85rem;
 
   --font-size-small: 0.75rem;
@@ -39,25 +39,25 @@ Headings
   --headings-color: var(--font-color);
 
 
-/*  --btn-font-weight: ;
-  --btn-line-height: 0;
-  --input-btn-border-width: 0;
-  --btn-padding-y: 0;
-  --btn-padding-x: 0;
-  --btn-border-radius: 0;
-  --btn-transition: 0;
-  --btn-focus-box-shadow: 0;
-  --cursor-disabled: 0;
-  --btn-focus-box-shadow: 0;
-  --btn-active-box-shadow: 0;*/
+  --btn-primary-color:            var(--white);
+  --btn-primary-color-disabled:   var(--white);
+  --btn-primary-bg:               var(--soho-primary);
+  --btn-primary-disabled-color:   #F8F8F8; /* soho used opacity 0.5 */
+  --btn-primary-disabled-bg:      #93BDD8;  /* soho used opacity 0.5 */
+  --btn-primary-hover:            var(--azure07);
+
+  --btn-secondary-color:          var(--graphite08);
+  --btn-secondary-bg:             var(--soho-secondary);
+  --btn-secondary-disabled-color: #949494;  /* soho used opacity 0.5 */
+  --btn-secondary-disabled-bg:    #C4C4C4;  /* soho used opacity 0.5 */
+  --btn-secondary-hover:          var(--graphite04);
 
 
-  --btn-primary-color: var(--soho-color-bg-primary);
-  --btn-primary-bg: var(--soho-color-primary);
-  --btn-primary-border: 1px solid var(--btn-primary-color);
+  --btn-tertiary-color:           var(--graphite06);
+  --btn-tertiary-bg:              transparent;
+  --btn-tertiary-disabled-color:  #AAA;
+  --btn-tertiary-disabled-bg:     var(--btn-tertiary-bg);
+  --btn-tertiary-hover:           var(--graphite10);
 
-  --btn-secondary-color: var(--soho-color-bg-secondary);
-  --btn-secondary-bg: var(--soho-color-secondary);
-  --btn-secondary-border: 1px solid var(--btn-secondary-color);
 
 }
