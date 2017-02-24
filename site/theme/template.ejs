@@ -3,7 +3,11 @@
   <head>
     <meta charset="UTF-8">
     <title><%= projectName %></title>
-    <style><%- codeStyle %><%- tmplStyle %><%- processedCSS %></style>
+    <style>
+      <%- processedCSS %>
+      <%- codeStyle %>
+      <%- tmplStyle %>
+    </style>
   </head>
   <body>
     <div class="psg-wrapper">
