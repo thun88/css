@@ -50,11 +50,6 @@ button {
   text-transform: uppercase;
   text-align: center;
   white-space: nowrap;
-  width: auto;
-
-  /* legacy */
-  transform: translate3d(0, 0, 0);
-  transition: color 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94), background-color 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
 }
 
 .btn-primary {
