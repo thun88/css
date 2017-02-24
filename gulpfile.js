@@ -8,9 +8,11 @@ var postcss = require('gulp-postcss');
 // PostCss Plugins
 var atImport = require('postcss-import');
 var autoprefixer = require('autoprefixer');
-var cssnano = require('cssnano');
 var commas = require('postcss-commas');
+var cssnano = require('cssnano');
 var customProperties = require('postcss-custom-properties');
+var mixins = require('postcss-mixins');
+var nested = require('postcss-nested');
 var styleGuide = require('postcss-style-guide');
 
 //Global Settings
@@ -35,7 +37,9 @@ gulp.task('css', function () {
   }
   var plugins = [
     atImport,
+    mixins,
     commas,
+    nested,
     customProperties({ preserve: true }),
     autoprefixer,
     styleGuide({

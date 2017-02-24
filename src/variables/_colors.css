@@ -102,15 +102,10 @@
 /* @start color */
 
 :root {
-  --soho-color-primary: var(--azure06);
-  --soho-color-accent: var(--graphite04);
-  --soho-color-bg-primary: var(--white);
-  --soho-color-bg-secondary: var(--graphite01);
-  --soho-color-bg-tertiary: var(--slate08);
+  --soho-primary:  var(--azure06);
+  --soho-warning:  var(--ruby06);
+
+
 }
 
 /* @end color */
-
-.soho-color-primary {
-  background-color: var(--soho-color-primary);
-}

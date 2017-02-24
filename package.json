@@ -23,6 +23,8 @@
     "postcss-commas": "^1.0.0",
     "postcss-custom-properties": "^5.0.2",
     "postcss-import": "^9.1.0",
+    "postcss-mixins": "^5.4.1",
+    "postcss-nested": "^1.0.0",
     "postcss-style-guide": "^0.13.0"
   }
 }

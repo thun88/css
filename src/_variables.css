@@ -17,7 +17,9 @@ Headings
   --font-family-base: Helvetica, Arial;
 
 
-  --font-size-base: 1rem;
+  --font-size-base: 1.4rem;
+  --font-size-sm: 0.85rem;
+
   --font-size-small: 0.75rem;
   --font-size-h1: 2.8rem;
   --font-size-h2: 2.4rem;
@@ -29,11 +31,36 @@ Headings
   --font-weight-normal: normal;
   --font-weight-bold: bold;
 
-
   --headings-margin-bottom: 0.5rem;
   --headings-font-family: Helvetica, Arial;
   --headings-font-weight: 400;
   --headings-line-height: normal;
   --headings-color: var(--font-color);
 
+  --btn-default-color:          var(--graphite08);
+  --btn-default-bg:             var(--graphite03);
+  --btn-default-disabled-color: var(--graphite03);  /* soho used opacity 0.5 */
+  --btn-default-disabled-bg:    var(--graphite02);  /* soho used opacity 0.5 */
+  --btn-default-hover:          var(--graphite04);
+
+  --btn-primary-color:            var(--white);
+  --btn-primary-color-disabled:   var(--white);
+  --btn-primary-bg:               var(--soho-primary);
+  --btn-primary-disabled-color:   var(--graphite01); /* soho used opacity 0.5 */
+  --btn-primary-disabled-bg:      var(--azure02);  /* soho used opacity 0.5 */
+  --btn-primary-hover:            var(--azure07);
+
+  --btn-warning-color:            var(--white);
+  --btn-warning-color-disabled:   var(--white);
+  --btn-warning-bg:               var(--soho-warning);
+  --btn-warning-disabled-color:   var(--graphite01); /* soho used opacity 0.5 */
+  --btn-warning-disabled-bg:      var(--ruby02);  /* soho used opacity 0.5 */
+  --btn-warning-hover:            var(--ruby07);
+
+
+  --btn-link-color:           var(--graphite06);
+  --btn-link-bg:              transparent;
+  --btn-link-disabled-color:  var(--graphite02);
+  --btn-link-disabled-bg:     var(--btn-link-bg);
+  --btn-link-hover:           var(--graphite10);
 }

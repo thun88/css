@@ -3,7 +3,11 @@
   <head>
     <meta charset="UTF-8">
     <title><%= projectName %></title>
-    <style><%- codeStyle %><%- tmplStyle %><%- processedCSS %></style>
+    <style>
+      <%- processedCSS %>
+      <%- codeStyle %>
+      <%- tmplStyle %>
+    </style>
   </head>
   <body>
     <div class="psg-wrapper">
@@ -11,14 +15,14 @@
         <ul class="psg-ComponentList">
 
           <% if (Array.isArray(colorPalette) && colorPalette.length !== 0) { %>
-            <a href="#color-palette" class="psg-ComponentList__item">
+            <a href="#color-palette" class="psg-ComponentList--item">
               <li>Color Palette</li>
             </a>
           <% } %>
 
           <% maps.forEach(function (map) { %>
             <% if (map.link.title !== null) { %>
-              <a href="#<%= map.link.id %>" class="psg-ComponentList__item">
+              <a href="#<%= map.link.id %>" class="psg-ComponentList--item">
                 <li>
                   <%= map.link.title %>
                 </li>
@@ -45,15 +49,15 @@
 
             <% if (Array.isArray(colorPalette) && colorPalette.length !== 0) { %>
               <section class="psg-section">
-                <h2 id="color-palette" class="psg-component-title">Color Palette</h2>
+                <h2 id="color-palette">Color Palette</h2>
                 <div class="psg-contents">
                   <div class="psg-colorPalette">
 
                     <% colorPalette.forEach(function (palette) { %>
                       <div class="psg-colorBox">
-                        <div class="psg-colorBox__sample" style="background-color: <%= palette.color %>">
+                        <div class="psg-colorBox--sample" style="background-color: <%= palette.color %>">
                         </div>
-                        <div class="psg-colorBox__name">
+                        <div class="psg-colorBox--name">
                           <%= palette.name %>
                         </div>
                       </div>
@@ -67,7 +71,7 @@
 
             <% maps.forEach(function (map) { %>
               <section class="psg-section">
-                <h2 id="<%= map.link.id %>" class="psg-component-title"><%= map.link.title %></h2>
+                <h2 id="<%= map.link.id %>"><%= map.link.title %></h2>
                 <div class="psg-contents">
                   <%- map.html %>
                 </div>

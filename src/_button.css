@@ -4,58 +4,127 @@
 
 Use the button classes on and `<a>`, `<button>`, `<input>` elements.
 
-<button class="btn btn-primary">Primary Button</button>
-
+<button class="btn btn-default">Default Button</button>
+<button class="btn btn-default" disabled>Default Button</button>
 ```html
-<button class="btn btn-primary">Blue Button</button>
+<button class="btn btn-default">Default Button</button>
 ```
 
-<button class="btn btn-secondary">Secondary Button</button>
-
+<button class="btn btn-primary">Primary Button</button>
+<button class="btn btn-primary" disabled>Primary Button</button>
 ```html
-<button class="btn btn-secondary">Secondary Button</button>
+<button class="btn btn-primary">Primary Button</button>
+```
+
+<button class="btn btn-warning">Warning Button</button>
+<button class="btn btn-warning" disabled>Warning Button</button>
+```html
+<button class="btn btn-warning">Warning Button</button>
+```
+
+<a class="btn btn-link">Link Button</a>
+<a class="btn btn-link" disabled>Link Button</a>
+```html
+<a class="btn btn-link">Link Button</a>
 ```
 
 */
+
+/*
+  Note: Leave .btn without color styling so that
+  it can be easily extended for custom
+  colored buttons
+ */
 .btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 2px;
-    cursor: pointer;
-    padding: 0 15px;
-    min-width: 100px;
-    width: auto;
-    height: 34px;
-    font-weight: 700;
-    font-size: 12px;
-    text-transform: uppercase;
+  border: 0;
+  border-radius: 2px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: var(--font-weight-bold);
+  line-height: 34px;
+  min-width: 100px;
+  padding: 0 15px;
+  text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
+
+  &[disabled] {
+    cursor: default;
+  }
+}
+
+.btn-default {
+  background-color: var(--btn-default-bg);
+  color: var(--btn-default-color);
+
+  &:hover {
+    background-color: var(--btn-default-hover);
+  }
+
+  &[disabled] {
+    background-color: var(--btn-default-disabled-bg);
+    color: var(--btn-default-disabled-color);
+  }
+
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--btn-default-bg);
+  }
 }
 
 .btn-primary {
-    color: var(--white);
-    background-color,
-    border-color:
-        var(--azure06);
-}
- .btn-primary:hover {
-    background-color,
-    border-color:
-        var(--azure07);
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-color);
+
+  &:hover {
+    background-color: var(--btn-primary-hover);
+  }
+
+  &[disabled] {
+    background-color: var(--btn-primary-disabled-bg);
+    color: var(--btn-primary-disabled-color);
+  }
+
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--btn-primary-bg);
+  }
 }
 
-.btn-secondary {
-    background-color: var(--graphite03);
-    color: var(--graphite08);
+.btn-warning {
+  background-color: var(--btn-warning-bg);
+  color: var(--btn-warning-color);
+
+  &:hover {
+    background-color: var(--btn-warning-hover);
+  }
+
+  &[disabled] {
+    background-color: var(--btn-warning-disabled-bg);
+    color: var(--btn-warning-disabled-color);
+  }
+
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--btn-warning-bg);
+  }
 }
 
-.btn-secondary:hover {
-    background-color,
-    border-color:
-        var(--graphite04);
-}
+.btn-link {
+  background-color: var(--btn-link-bg);
+  color: var(--btn-link-color);
 
-.btn-alert {
-    color: var(--white);
-    background-color: var(--alert-red);
+  &:hover {
+    color: var(--btn-link-hover);
+  }
+
+  &[disabled] {
+    background-color: var(--btn-link-disabled-bg);
+    color: var(--btn-link-disabled-color);
+  }
+
+  &:focus {
+    outline: 0;
+  }
 }
