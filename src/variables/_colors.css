@@ -103,7 +103,6 @@
 
 :root {
   --soho-primary:   var(--azure06);
-  --soho-secondary: var(--graphite03);
   --soho-tertiary:  var(--slate08);
 }
 

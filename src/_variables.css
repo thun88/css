@@ -38,7 +38,7 @@ Headings
   --headings-color: var(--font-color);
 
   --btn-default-color:          var(--graphite08);
-  --btn-default-bg:             var(--soho-default);
+  --btn-default-bg:             var(--graphite03);
   --btn-default-disabled-color: #949494;  /* soho used opacity 0.5 */
   --btn-default-disabled-bg:    #C4C4C4;  /* soho used opacity 0.5 */
   --btn-default-hover:          var(--graphite04);
