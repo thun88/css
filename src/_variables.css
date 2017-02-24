@@ -39,20 +39,20 @@ Headings
 
   --btn-default-color:          var(--graphite08);
   --btn-default-bg:             var(--graphite03);
-  --btn-default-disabled-color: #949494;  /* soho used opacity 0.5 */
-  --btn-default-disabled-bg:    #C4C4C4;  /* soho used opacity 0.5 */
+  --btn-default-disabled-color: var(--graphite03);  /* soho used opacity 0.5 */
+  --btn-default-disabled-bg:    var(--graphite02);  /* soho used opacity 0.5 */
   --btn-default-hover:          var(--graphite04);
 
   --btn-primary-color:            var(--white);
   --btn-primary-color-disabled:   var(--white);
   --btn-primary-bg:               var(--soho-primary);
-  --btn-primary-disabled-color:   #F8F8F8; /* soho used opacity 0.5 */
-  --btn-primary-disabled-bg:      #93BDD8;  /* soho used opacity 0.5 */
+  --btn-primary-disabled-color:   var(--graphite01); /* soho used opacity 0.5 */
+  --btn-primary-disabled-bg:      var(--azure02);  /* soho used opacity 0.5 */
   --btn-primary-hover:            var(--azure07);
 
   --btn-tertiary-color:           var(--graphite06);
   --btn-tertiary-bg:              transparent;
-  --btn-tertiary-disabled-color:  #AAA;
+  --btn-tertiary-disabled-color:  var(--graphite02);
   --btn-tertiary-disabled-bg:     var(--btn-tertiary-bg);
   --btn-tertiary-hover:           var(--graphite10);
 }
