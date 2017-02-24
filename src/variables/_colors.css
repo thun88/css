@@ -102,8 +102,10 @@
 /* @start color */
 
 :root {
-  --soho-primary:   var(--azure06);
-  --soho-tertiary:  var(--slate08);
+  --soho-primary:  var(--azure06);
+  --soho-warning:  var(--ruby06);
+
+
 }
 
 /* @end color */

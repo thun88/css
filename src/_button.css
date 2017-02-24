@@ -6,35 +6,29 @@ Use the button classes on and `<a>`, `<button>`, `<input>` elements.
 
 <button class="btn btn-default">Default Button</button>
 <button class="btn btn-default" disabled>Default Button</button>
-
 ```html
 <button class="btn btn-default">Default Button</button>
 ```
 
 <button class="btn btn-primary">Primary Button</button>
 <button class="btn btn-primary" disabled>Primary Button</button>
-
 ```html
 <button class="btn btn-primary">Primary Button</button>
 ```
 
+<button class="btn btn-warning">Warning Button</button>
+<button class="btn btn-warning" disabled>Warning Button</button>
+```html
+<button class="btn btn-warning">Warning Button</button>
+```
+
 <a class="btn btn-link">Link Button</a>
 <a class="btn btn-link" disabled>Link Button</a>
-
 ```html
 <a class="btn btn-link">Link Button</a>
 ```
 
 */
-
-button {
-  cursor: pointer;
-
-  &[disabled] {
-    cursor: default;
-  }
-}
-
 
 /*
   Note: Leave .btn without color styling so that
@@ -44,6 +38,7 @@ button {
 .btn {
   border: 0;
   border-radius: 2px;
+  cursor: pointer;
   display: inline-block;
   font-size: 1.2rem;
   font-weight: var(--font-weight-bold);
@@ -53,6 +48,10 @@ button {
   text-transform: uppercase;
   text-align: center;
   white-space: nowrap;
+
+  &[disabled] {
+    cursor: default;
+  }
 }
 
 .btn-default {
@@ -90,6 +89,25 @@ button {
   &:focus {
     outline: 0;
     box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--btn-primary-bg);
+  }
+}
+
+.btn-warning {
+  background-color: var(--btn-warning-bg);
+  color: var(--btn-warning-color);
+
+  &:hover {
+    background-color: var(--btn-warning-hover);
+  }
+
+  &[disabled] {
+    background-color: var(--btn-warning-disabled-bg);
+    color: var(--btn-warning-disabled-color);
+  }
+
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--btn-warning-bg);
   }
 }
 

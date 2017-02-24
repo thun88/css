@@ -50,6 +50,14 @@ Headings
   --btn-primary-disabled-bg:      var(--azure02);  /* soho used opacity 0.5 */
   --btn-primary-hover:            var(--azure07);
 
+  --btn-warning-color:            var(--white);
+  --btn-warning-color-disabled:   var(--white);
+  --btn-warning-bg:               var(--soho-warning);
+  --btn-warning-disabled-color:   var(--graphite01); /* soho used opacity 0.5 */
+  --btn-warning-disabled-bg:      var(--ruby02);  /* soho used opacity 0.5 */
+  --btn-warning-hover:            var(--ruby07);
+
+
   --btn-link-color:           var(--graphite06);
   --btn-link-bg:              transparent;
   --btn-link-disabled-color:  var(--graphite02);
