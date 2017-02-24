@@ -18,7 +18,7 @@ Headings
 
 
   --font-size-base: 1rem;
-  --font-size-sm: .85rem;
+  --font-size-sm: 0.85rem;
 
   --font-size-small: 0.75rem;
   --font-size-h1: 2.8rem;
@@ -39,18 +39,17 @@ Headings
   --headings-color: var(--font-color);
 
 
-  --btn-font-weight: ;
+/*  --btn-font-weight: ;
   --btn-line-height: 0;
   --input-btn-border-width: 0;
   --btn-padding-y: 0;
   --btn-padding-x: 0;
-  --font-size-base: 0;
   --btn-border-radius: 0;
   --btn-transition: 0;
   --btn-focus-box-shadow: 0;
   --cursor-disabled: 0;
   --btn-focus-box-shadow: 0;
-  --btn-active-box-shadow: 0;
+  --btn-active-box-shadow: 0;*/
 
 
   --btn-primary-color: var(--soho-color-bg-primary);
