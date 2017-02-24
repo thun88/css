@@ -31,13 +31,17 @@ Headings
   --font-weight-normal: normal;
   --font-weight-bold: bold;
 
-
   --headings-margin-bottom: 0.5rem;
   --headings-font-family: Helvetica, Arial;
   --headings-font-weight: 400;
   --headings-line-height: normal;
   --headings-color: var(--font-color);
 
+  --btn-default-color:          var(--graphite08);
+  --btn-default-bg:             var(--soho-default);
+  --btn-default-disabled-color: #949494;  /* soho used opacity 0.5 */
+  --btn-default-disabled-bg:    #C4C4C4;  /* soho used opacity 0.5 */
+  --btn-default-hover:          var(--graphite04);
 
   --btn-primary-color:            var(--white);
   --btn-primary-color-disabled:   var(--white);
@@ -46,18 +50,9 @@ Headings
   --btn-primary-disabled-bg:      #93BDD8;  /* soho used opacity 0.5 */
   --btn-primary-hover:            var(--azure07);
 
-  --btn-secondary-color:          var(--graphite08);
-  --btn-secondary-bg:             var(--soho-secondary);
-  --btn-secondary-disabled-color: #949494;  /* soho used opacity 0.5 */
-  --btn-secondary-disabled-bg:    #C4C4C4;  /* soho used opacity 0.5 */
-  --btn-secondary-hover:          var(--graphite04);
-
-
   --btn-tertiary-color:           var(--graphite06);
   --btn-tertiary-bg:              transparent;
   --btn-tertiary-disabled-color:  #AAA;
   --btn-tertiary-disabled-bg:     var(--btn-tertiary-bg);
   --btn-tertiary-hover:           var(--graphite10);
-
-
 }

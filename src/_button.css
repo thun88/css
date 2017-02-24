@@ -4,19 +4,18 @@
 
 Use the button classes on and `<a>`, `<button>`, `<input>` elements.
 
+<button class="btn btn-default">Default Button</button>
+<button class="btn btn-default" disabled>Default Button</button>
+
+```html
+<button class="btn btn-default">Default Button</button>
+```
+
 <button class="btn btn-primary">Primary Button</button>
 <button class="btn btn-primary" disabled>Primary Button</button>
 
 ```html
 <button class="btn btn-primary">Primary Button</button>
-
-```
-
-<button class="btn btn-secondary">Secondary Button</button>
-<button class="btn btn-secondary" disabled>Secondary Button</button>
-
-```html
-<button class="btn btn-secondary">Secondary Button</button>
 ```
 
 <button class="btn btn-tertiary">Tertiary Button</button>
@@ -52,6 +51,25 @@ button {
   white-space: nowrap;
 }
 
+.btn-default {
+  background-color: var(--btn-default-bg);
+  color: var(--btn-default-color);
+
+  &:hover {
+    background-color: var(--btn-default-hover);
+  }
+
+  &[disabled] {
+    background-color: var(--btn-default-disabled-bg);
+    color: var(--btn-default-disabled-color);
+  }
+
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--btn-default-bg);
+  }
+}
+
 .btn-primary {
   background-color: var(--btn-primary-bg);
   color: var(--btn-primary-color);
@@ -68,25 +86,6 @@ button {
   &:focus {
     outline: 0;
     box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--btn-primary-bg);
-  }
-}
-
-.btn-secondary {
-  background-color: var(--btn-secondary-bg);
-  color: var(--btn-secondary-color);
-
-  &:hover {
-    background-color: var(--btn-secondary-hover);
-  }
-
-  &[disabled] {
-    background-color: var(--btn-secondary-disabled-bg);
-    color: var(--btn-secondary-disabled-color);
-  }
-
-  &:focus {
-    outline: 0;
-    box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--btn-secondary-bg);
   }
 }
 
