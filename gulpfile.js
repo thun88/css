@@ -21,13 +21,11 @@ gulp.task('css', function () {
       commas = require('postcss-commas'),
       cssnano = require('cssnano'),
       customProperties = require('postcss-custom-properties'),
-      mixins = require('postcss-mixins'),
       nested = require('postcss-nested'),
       styleGuide = require('postcss-style-guide');
 
   var plugins = [
       atImport,
-      mixins,
       commas,
       nested,
       customProperties({ preserve: true }),

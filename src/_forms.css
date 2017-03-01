@@ -2,4 +2,139 @@
 @styleguide
 
 @title Forms
+
+Some text about using form-controls.
+
+### Form States
+
+<div class="field">
+  <label for="field1">Normal & Empty</label>
+  <input type="text" id="field1" class="form-control" placeholder="Placeholder">
+</div>
+
+<div class="field">
+  <label for="field1">Normal with Text</label>
+  <input type="text" id="field1" class="form-control" placeholder="Placeholder text" value="Some Text">
+</div>
+
+<div class="field">
+  <label for="field2">Read Only</label>
+  <input type="text" id="field2" class="form-control" value="Some Text" readonly>
+</div>
+
+<div class="field">
+  <label for="field3">Disabled</label>
+  <input type="text" id="field3" class="form-control" value="Some Text" disabled>
+</div>
+
+<div class="field">
+  <label for="field1" class="required">A Required Field</label>
+  <input type="text" id="field1" class="form-control" placeholder="Placeholder">
+</div>
+
+### Form sizes
+
+<div class="field">
+  <label for="field1">Extra Small</label>
+  <input type="text" id="field1" class="form-control form-control-xs">
+</div>
+<div class="field">
+  <label for="field2">Small</label>
+  <input type="text" id="field2" class="form-control form-control-sm">
+</div>
+<div class="field">
+  <label for="field3">Normal</label>
+  <input type="text" id="field3" class="form-control">
+</div>
+<div class="field">
+  <label for="field4">Large</label>
+  <input type="text" id="field4" class="form-control form-control-lg">
+</div>
+<div class="field">
+  <label for="field5">Full width</label>
+  <input type="text" id="field5" class="form-control form-control-full">
+</div>
+
 */
+
+
+.field {
+  margin-bottom: 20px;
+
+  label {
+    font-size: 1.2rem;
+    color: var(--graphite06);
+    display: block;
+    line-height: 13px;
+    margin-bottom: 5px;
+    min-height: 13px;
+
+    &.required::after {
+      color: var(--alert-red);
+      content: '*';
+      display: inline;
+      margin-left: 2px;
+      font-size: var(--font-size-lg);
+    }
+  }
+}
+
+.form-control {
+  background-color: var(--input-bg);
+  border: var(--input-border-width) solid var(--input-border-color);
+  border-radius: var(--input-border-radius);
+  box-shadow: none;
+  color: var(--input-color);
+  display: block;
+  font-size: var(--font-size-base);
+  line-height: var(--input-line-height);
+  padding: var(--input-padding-y) var(--input-padding-x);
+  resize: none;
+  text-align: left;
+  transition: var(--input-transition);
+  width: var(--input-size-base);
+
+  &:hover {
+    border-color: var(--input-border-color-hover);
+  }
+
+  &[disabled] {
+    background-color: var(--input-bg-disabled);
+    border: solid 1px var(--input-border-color-disabled);
+    color: var(--input-color-disabled);
+    /* iOS fix for unreadable disabled content */
+    opacity: 1;
+  }
+
+  &[readonly] {
+    background-color: var(--input-bg-readonly);
+    border-color: var(--input-border-color-readonly);
+    color: var(--input-color-readonly);
+  }
+
+  &::placeholder {
+    color: var(--input-placeholder-color);
+    /* Override Firefox's unusual default opacity */
+    opacity: 1;
+  }
+
+  &:focus {
+    border: 1px solid var(--input-border-color-focus);
+    outline: 0;
+    outline-color: transparent;
+  }
+
+  &.error {
+    border-color: var(--alert-red);
+
+    &:focus {
+      border-color: var(--soho-warning);
+      color: var(--input-color);
+    }
+  }
+
+  &.form-control-xs { width: var(--input-size-xs); }
+  &.form-control-sm { width: var(--input-size-sm); }
+  &.form-control-lg { width: var(--input-size-lg); }
+  &.form-control-full { width: var(--input-size-full); }
+}

@@ -1,31 +1,33 @@
 /*
 @styleguide
+
 @title Button
 
 Use the button classes on and `<a>`, `<button>`, `<input>` elements.
 
-<button class="btn btn-default">Default Button</button>
-<button class="btn btn-default" disabled>Default Button</button>
+<button type="button" class="btn btn-default">Default Button</button>
+<button type="button" class="btn btn-default" disabled>Default Button</button>
 ```html
-<button class="btn btn-default">Default Button</button>
+<button type="button" class="btn btn-default">Default Button</button>
 ```
 
-<button class="btn btn-primary">Primary Button</button>
-<button class="btn btn-primary" disabled>Primary Button</button>
+<button type="button" class="btn btn-primary">Primary Button</button>
+<button type="button" class="btn btn-primary" disabled>Primary Button</button>
 ```html
-<button class="btn btn-primary">Primary Button</button>
+<button type="button" class="btn btn-primary">Primary Button</button>
 ```
 
-<button class="btn btn-warning">Warning Button</button>
-<button class="btn btn-warning" disabled>Warning Button</button>
+<a href="" class="btn btn-link">Link Button</a>
+<button type="button" class="btn btn-warning">Warning Button</button>
+<button type="button" class="btn btn-warning" disabled>Warning Button</button>
 ```html
-<button class="btn btn-warning">Warning Button</button>
+<button type="button" class="btn btn-warning">Warning Button</button>
 ```
 
-<a class="btn btn-link">Link Button</a>
-<a class="btn btn-link" disabled>Link Button</a>
+<a href="" class="btn btn-link">Link Button</a>
+<a href="" class="btn btn-link" disabled>Link Button</a>
 ```html
-<a class="btn btn-link">Link Button</a>
+<a href="" class="btn btn-link">Link Button</a>
 ```
 
 */
@@ -39,15 +41,16 @@ Use the button classes on and `<a>`, `<button>`, `<input>` elements.
   border: 0;
   border-radius: 2px;
   cursor: pointer;
-  display: inline-block;
+  display: block;
   font-size: 1.2rem;
   font-weight: var(--font-weight-bold);
-  line-height: 34px;
+  line-height: var(--btn-line-height);
   min-width: 100px;
   padding: 0 15px;
   text-transform: uppercase;
   text-align: center;
   white-space: nowrap;
+  width: var(--input-size-sm);
 
   &[disabled] {
     cursor: default;
@@ -63,8 +66,8 @@ Use the button classes on and `<a>`, `<button>`, `<input>` elements.
   }
 
   &[disabled] {
-    background-color: var(--btn-default-disabled-bg);
-    color: var(--btn-default-disabled-color);
+    background-color: var(--btn-default-bg-disabled);
+    color: var(--btn-default-color-disabled);
   }
 
   &:focus {
@@ -82,8 +85,8 @@ Use the button classes on and `<a>`, `<button>`, `<input>` elements.
   }
 
   &[disabled] {
-    background-color: var(--btn-primary-disabled-bg);
-    color: var(--btn-primary-disabled-color);
+    background-color: var(--btn-primary-bg-disabled);
+    color: var(--btn-primary-color-disabled);
   }
 
   &:focus {
@@ -101,8 +104,8 @@ Use the button classes on and `<a>`, `<button>`, `<input>` elements.
   }
 
   &[disabled] {
-    background-color: var(--btn-warning-disabled-bg);
-    color: var(--btn-warning-disabled-color);
+    background-color: var(--btn-warning-bg-disabled);
+    color: var(--btn-warning-color-disabled);
   }
 
   &:focus {
@@ -120,8 +123,8 @@ Use the button classes on and `<a>`, `<button>`, `<input>` elements.
   }
 
   &[disabled] {
-    background-color: var(--btn-link-disabled-bg);
-    color: var(--btn-link-disabled-color);
+    background-color: var(--btn-link-bg-disabled);
+    color: var(--btn-link-color-disabled);
   }
 
   &:focus {

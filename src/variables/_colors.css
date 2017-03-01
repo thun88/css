@@ -98,14 +98,3 @@
   --alert-info: var(--azure06);
   --alert-neutral: var(--graphite03);
 }
-
-/* @start color */
-
-:root {
-  --soho-primary:  var(--azure06);
-  --soho-warning:  var(--ruby06);
-
-
-}
-
-/* @end color */

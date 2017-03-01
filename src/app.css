@@ -1,9 +1,9 @@
 /* Variables */
 @import "variables/_colors";
-
 @import "_variables";
 
 /* Components */
+@import "_base";
 @import "_button";
 @import "_forms";
 @import "_lists";
