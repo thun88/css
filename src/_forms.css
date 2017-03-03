@@ -110,10 +110,10 @@ Some text about using form-controls.
 
 <hr>
 
-### Select boxes
+### Select box states
 
 <div class='form-group'>
-  <label form='select-normal-1'>Select Something</label>
+  <label form='select-normal-1'>Normal State</label>
   <select id='select-normal-1' class='form-control'>
     <option>Option</option>
     <option>Option</option>
@@ -123,7 +123,7 @@ Some text about using form-controls.
 </div>
 
 <div class='form-group has-error'>
-  <label form='select-normal-2' class='is-required'>Select Something</label>
+  <label form='select-normal-2' class='is-required'>Error State</label>
   <select id='select-normal-2' class='form-control'>
     <option>Option</option>
     <option>Option</option>
@@ -131,6 +131,52 @@ Some text about using form-controls.
   </select>
   <p class='info-block'>Required</p>
 </div>
+
+<hr>
+### Select box sizes
+
+<div class='form-group'>
+  <label for="select-size-0">X-Small</label>
+  <select id='select-normal-0' class='form-control form-control-xs'>
+    <option>Option</option>
+    <option>Option</option>
+    <option>Option</option>
+  </select>
+</div>
+<div class='form-group'>
+  <label for="select-size-1">Small</label>
+  <select id='select-normal-1' class='form-control form-control-sm'>
+    <option>Option</option>
+    <option>Option</option>
+    <option>Option</option>
+  </select>
+</div>
+<div class='form-group'>
+  <label for="select-size-2">Normal</label>
+  <select id='select-normal-2' class='form-control'>
+    <option>Option</option>
+    <option>Option</option>
+    <option>Option</option>
+  </select>
+</div>
+<div class='form-group'>
+  <label for="select-size-3">Large</label>
+  <select id='select-normal-3' class='form-control form-control-lg'>
+    <option>Option</option>
+    <option>Option</option>
+    <option>Option</option>
+  </select>
+</div>
+<div class='form-group'>
+  <label for="select-size-4">Full width</label>
+  <select id='select-normal-4' class='form-control form-control-full'>
+    <option>Option</option>
+    <option>Option</option>
+    <option>Option</option>
+  </select>
+</div>
+
+### Check boxes
 
 */
 
