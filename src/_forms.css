@@ -8,57 +8,57 @@ Some text about using form-controls.
 ### Input Groups
 
 <div class="form-group">
-  <label for="input0">Normal & Empty</label>
-  <input type="text" id="input0" class="form-control" placeholder="Placeholder">
+  <label for="text-normal-0">Normal & Empty</label>
+  <input type="text" id="text-normal-0" class="form-control" placeholder="Placeholder">
 </div>
 
 <div class="form-group">
-  <label for="input1">Normal with Text</label>
-  <input type="text" id="input1" class="form-control" placeholder="Placeholder text" value="Some Text">
+  <label for="text-normal-1">Normal with Text</label>
+  <input type="text" id="text-normal-1" class="form-control" placeholder="Placeholder text" value="Some Text">
 </div>
 
 <div class="form-group">
-  <label for="input2">Read Only</label>
-  <input type="text" id="input2" class="form-control" value="Some Text" readonly>
+  <label for="text-normal-2">Read Only</label>
+  <input type="text" id="text-normal-2" class="form-control" value="Some Text" readonly>
 </div>
 
 <div class="form-group">
-  <label for="input3">Disabled</label>
-  <input type="text" id="input3" class="form-control" value="Some Text" disabled>
+  <label for="text-normal-3">Disabled</label>
+  <input type="text" id="text-normal-3" class="form-control" value="Some Text" disabled>
 </div>
 
 <div class="form-group">
-  <label for="textarea0">Normal & Empty</label>
-  <textarea type="text" id="textarea0" class="form-control" placeholder="Placeholder"></textarea>
+  <label for="textarea-normal-0">Normal & Empty</label>
+  <textarea type="text" id="textarea-normal-0" class="form-control" placeholder="Placeholder"></textarea>
 </div>
 
 <div class="form-group">
-  <label for="textarea1">Normal with Text</label>
-  <textarea type="text" id="textarea1" class="form-control">Some Text</textarea>
+  <label for="textarea-normal-1">Normal with Text</label>
+  <textarea type="text" id="textarea-normal-1" class="form-control">Some Text</textarea>
 </div>
 
 <div class="form-group">
-  <label for="textarea2">Read Only</label>
-  <textarea type="text" id="textarea2" class="form-control"readonly>Some Text</textarea>
+  <label for="textarea-normal-2">Read Only</label>
+  <textarea type="text" id="textarea-normal-2" class="form-control"readonly>Some Text</textarea>
 </div>
 
 <div class="form-group">
-  <label for="textarea3">Disabled</label>
-  <textarea type="text" id="textarea3" class="form-control" value="Some Text" disabled></textarea>
+  <label for="textarea-normal-3">Disabled</label>
+  <textarea type="text" id="textarea-normal-3" class="form-control" value="Some Text" disabled></textarea>
 </div>
 
 <hr>
 ### Input Group States
 
 <div class="form-group">
-  <label for="field4" class="required">A text field</label>
-  <input type="text" id="field4" class="form-control" placeholder="Placeholder">
+  <label for="text-info-1" class="required">A text field</label>
+  <input type="text" id="text-info-1" class="form-control" placeholder="Placeholder">
   <p class="info-block">Some passive text</p>
 </div>
 
 <div class="form-group has-error">
-  <label for="field4" class="required">A Required Field With an Error</label>
-  <input type="text" id="field4" class="form-control" placeholder="Placeholder">
+  <label for="text-info-2" class="required">A Required Field With an Error</label>
+  <input type="text" id="text-info-2" class="form-control" placeholder="Placeholder">
   <p class="info-block">(!) Required</p>
 </div>
 
@@ -66,24 +66,46 @@ Some text about using form-controls.
 ### Input sizes
 
 <div class="form-group">
-  <label for="field1">Extra Small</label>
-  <input type="text" id="field1" class="form-control form-control-xs">
+  <label for="text-size-1">Extra Small</label>
+  <input type="text" id="text-size-1" class="form-control form-control-xs">
 </div>
 <div class="form-group">
-  <label for="field2">Small</label>
-  <input type="text" id="field2" class="form-control form-control-sm">
+  <label for="text-size-2">Small</label>
+  <input type="text" id="text-size-2" class="form-control form-control-sm">
 </div>
 <div class="form-group">
-  <label for="field3">Normal</label>
-  <input type="text" id="field3" class="form-control">
+  <label for="text-size-3">Normal</label>
+  <input type="text" id="text-size-3" class="form-control">
 </div>
 <div class="form-group">
-  <label for="field4">Large</label>
-  <input type="text" id="field4" class="form-control form-control-lg">
+  <label for="text-size-4">Large</label>
+  <input type="text" id="text-size-4" class="form-control form-control-lg">
 </div>
 <div class="form-group">
-  <label for="field5">Full width</label>
-  <input type="text" id="field5" class="form-control form-control-full">
+  <label for="text-size-5">Full width</label>
+  <input type="text" id="text-size-5" class="form-control form-control-full">
+</div>
+
+
+<div class="form-group">
+  <label for="textarea-size-1">Extra Small</label>
+  <textarea type="text" id="textarea-size-1" class="form-control form-control-xs"></textarea>
+</div>
+<div class="form-group">
+  <label for="textarea-size-2">Small</label>
+  <textarea type="text" id="textarea-size-2" class="form-control form-control-sm"></textarea>
+</div>
+<div class="form-group">
+  <label for="textarea-size-3">Normal</label>
+  <textarea type="text" id="textarea-size-3" class="form-control"></textarea>
+</div>
+<div class="form-group">
+  <label for="textarea-size-4">Large</label>
+  <textarea type="text" id="textarea-size-4" class="form-control form-control-lg"></textarea>
+</div>
+<div class="form-group">
+  <label for="textarea-size-5">Full width</label>
+  <textarea type="text" id="textarea-size-5" class="form-control form-control-full"></textarea>
 </div>
 
 */
@@ -169,6 +191,11 @@ Some text about using form-controls.
   }
 
   &.has-error {
+    .form-control,
+    .info-block {
+      color: var(--alert-red);
+    }
+
     .form-control {
       border-color: var(--alert-red);
     }
@@ -176,10 +203,6 @@ Some text about using form-controls.
     &:focus {
       border-color: var(--alert-red);
       color: var(--input-color);
-    }
-
-    .info-block {
-      color: var(--alert-red);
     }
   }
 }
