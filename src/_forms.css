@@ -5,45 +5,65 @@
 
 Some text about using form-controls.
 
-### Form States
+### Input Groups
 
 <div class="form-group">
-  <label for="field0">Normal & Empty</label>
-  <input type="text" id="field0" class="form-control" placeholder="Placeholder">
+  <label for="input0">Normal & Empty</label>
+  <input type="text" id="input0" class="form-control" placeholder="Placeholder">
 </div>
 
 <div class="form-group">
-  <label for="field1">Normal with Text</label>
-  <input type="text" id="field1" class="form-control" placeholder="Placeholder text" value="Some Text">
+  <label for="input1">Normal with Text</label>
+  <input type="text" id="input1" class="form-control" placeholder="Placeholder text" value="Some Text">
 </div>
 
 <div class="form-group">
-  <label for="field2">Read Only</label>
-  <input type="text" id="field2" class="form-control" value="Some Text" readonly>
+  <label for="input2">Read Only</label>
+  <input type="text" id="input2" class="form-control" value="Some Text" readonly>
 </div>
 
 <div class="form-group">
-  <label for="field3">Disabled</label>
-  <input type="text" id="field3" class="form-control" value="Some Text" disabled>
+  <label for="input3">Disabled</label>
+  <input type="text" id="input3" class="form-control" value="Some Text" disabled>
+</div>
+
+<div class="form-group">
+  <label for="textarea0">Normal & Empty</label>
+  <textarea type="text" id="textarea0" class="form-control" placeholder="Placeholder"></textarea>
+</div>
+
+<div class="form-group">
+  <label for="textarea1">Normal with Text</label>
+  <textarea type="text" id="textarea1" class="form-control">Some Text</textarea>
+</div>
+
+<div class="form-group">
+  <label for="textarea2">Read Only</label>
+  <textarea type="text" id="textarea2" class="form-control"readonly>Some Text</textarea>
+</div>
+
+<div class="form-group">
+  <label for="textarea3">Disabled</label>
+  <textarea type="text" id="textarea3" class="form-control" value="Some Text" disabled></textarea>
 </div>
 
 <hr>
-### Form States
+### Input Group States
 
 <div class="form-group">
   <label for="field4" class="required">A text field</label>
   <input type="text" id="field4" class="form-control" placeholder="Placeholder">
-  <p class="help-block">Some passive text</p>
+  <p class="info-block">Some passive text</p>
 </div>
 
 <div class="form-group has-error">
   <label for="field4" class="required">A Required Field With an Error</label>
   <input type="text" id="field4" class="form-control" placeholder="Placeholder">
-  <p class="help-block">(!) Required</p>
+  <p class="info-block">(!) Required</p>
 </div>
 
 <hr>
-### Form sizes
+### Input sizes
 
 <div class="form-group">
   <label for="field1">Extra Small</label>
@@ -123,7 +143,7 @@ Some text about using form-controls.
   margin-bottom: 20px;
 
   label,
-  .help-block {
+  .info-block {
     display: block;
     font-size: 1.2rem;
     line-height: 13px;
@@ -144,7 +164,7 @@ Some text about using form-controls.
     }
   }
 
-  .help-block {
+  .info-block {
     margin-top: 5px;
   }
 
@@ -158,7 +178,7 @@ Some text about using form-controls.
       color: var(--input-color);
     }
 
-    .help-block {
+    .info-block {
       color: var(--alert-red);
     }
   }
