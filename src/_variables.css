@@ -44,6 +44,7 @@ Headings
   --font-weight-bold: bold;
 
   --text-disabled: var(--graphite04);
+  --text-alert: var(--alert-red);
 
 
   /* Headings */

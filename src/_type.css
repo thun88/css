@@ -90,3 +90,6 @@ small,
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-normal);
 }
+
+.text-disabled { color: var(--text-disabled); }
+.text-alert    { color: var(--text-alert); }

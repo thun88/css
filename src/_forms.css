@@ -7,77 +7,66 @@ Some text about using form-controls.
 
 ### Form States
 
-<div class="field">
-  <label for="field1">Normal & Empty</label>
-  <input type="text" id="field1" class="form-control" placeholder="Placeholder">
+<div class="form-group">
+  <label for="field0">Normal & Empty</label>
+  <input type="text" id="field0" class="form-control" placeholder="Placeholder">
 </div>
 
-<div class="field">
+<div class="form-group">
   <label for="field1">Normal with Text</label>
   <input type="text" id="field1" class="form-control" placeholder="Placeholder text" value="Some Text">
 </div>
 
-<div class="field">
+<div class="form-group">
   <label for="field2">Read Only</label>
   <input type="text" id="field2" class="form-control" value="Some Text" readonly>
 </div>
 
-<div class="field">
+<div class="form-group">
   <label for="field3">Disabled</label>
   <input type="text" id="field3" class="form-control" value="Some Text" disabled>
 </div>
 
-<div class="field">
-  <label for="field1" class="required">A Required Field</label>
-  <input type="text" id="field1" class="form-control" placeholder="Placeholder">
+<hr>
+### Form States
+
+<div class="form-group">
+  <label for="field4" class="required">A text field</label>
+  <input type="text" id="field4" class="form-control" placeholder="Placeholder">
+  <p class="help-block">Some passive text</p>
 </div>
 
+<div class="form-group has-error">
+  <label for="field4" class="required">A Required Field With an Error</label>
+  <input type="text" id="field4" class="form-control" placeholder="Placeholder">
+  <p class="help-block">(!) Required</p>
+</div>
+
+<hr>
 ### Form sizes
 
-<div class="field">
+<div class="form-group">
   <label for="field1">Extra Small</label>
   <input type="text" id="field1" class="form-control form-control-xs">
 </div>
-<div class="field">
+<div class="form-group">
   <label for="field2">Small</label>
   <input type="text" id="field2" class="form-control form-control-sm">
 </div>
-<div class="field">
+<div class="form-group">
   <label for="field3">Normal</label>
   <input type="text" id="field3" class="form-control">
 </div>
-<div class="field">
+<div class="form-group">
   <label for="field4">Large</label>
   <input type="text" id="field4" class="form-control form-control-lg">
 </div>
-<div class="field">
+<div class="form-group">
   <label for="field5">Full width</label>
   <input type="text" id="field5" class="form-control form-control-full">
 </div>
 
 */
-
-
-.field {
-  margin-bottom: 20px;
-
-  label {
-    font-size: 1.2rem;
-    color: var(--graphite06);
-    display: block;
-    line-height: 13px;
-    margin-bottom: 5px;
-    min-height: 13px;
-
-    &.required::after {
-      color: var(--alert-red);
-      content: '*';
-      display: inline;
-      margin-left: 2px;
-      font-size: var(--font-size-lg);
-    }
-  }
-}
 
 .form-control {
   background-color: var(--input-bg);
@@ -124,17 +113,53 @@ Some text about using form-controls.
     outline-color: transparent;
   }
 
-  &.error {
-    border-color: var(--alert-red);
-
-    &:focus {
-      border-color: var(--soho-warning);
-      color: var(--input-color);
-    }
-  }
-
   &.form-control-xs { width: var(--input-size-xs); }
   &.form-control-sm { width: var(--input-size-sm); }
   &.form-control-lg { width: var(--input-size-lg); }
   &.form-control-full { width: var(--input-size-full); }
+}
+
+.form-group {
+  margin-bottom: 20px;
+
+  label,
+  .help-block {
+    display: block;
+    font-size: 1.2rem;
+    line-height: 13px;
+  }
+
+  label {
+    color: var(--graphite06);
+    margin-bottom: 5px;
+
+    &.required::after {
+      color: var(--alert-red);
+      content: '*';
+      display: inline;
+      position: relative;
+      left: 2px;
+      top: 2px;
+      font-size: var(--font-size-lg);
+    }
+  }
+
+  .help-block {
+    margin-top: 5px;
+  }
+
+  &.has-error {
+    .form-control {
+      border-color: var(--alert-red);
+    }
+
+    &:focus {
+      border-color: var(--alert-red);
+      color: var(--input-color);
+    }
+
+    .help-block {
+      color: var(--alert-red);
+    }
+  }
 }
