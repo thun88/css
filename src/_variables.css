@@ -116,4 +116,11 @@ Headings
   --input-size-lg:   400px;
   --input-size-full: 100%;
 
+  --checkbox-color: var(--soho-primary);
+  --checkbox-border-color: var(--graphite04);
+  --checkbox-bg-color: var(--white);
+  --checkbox-arrow-color: var(--white);
+  --checkbox-arrow-disabled-color: #f4f4f4;
+
+
 }

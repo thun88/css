@@ -136,7 +136,7 @@ Some text about using form-controls.
 ### Select box sizes
 
 <div class='form-group'>
-  <label for="select-size-0">X-Small</label>
+  <label for='select-size-0'>X-Small</label>
   <select id='select-normal-0' class='form-control form-control-xs'>
     <option>Option</option>
     <option>Option</option>
@@ -144,7 +144,7 @@ Some text about using form-controls.
   </select>
 </div>
 <div class='form-group'>
-  <label for="select-size-1">Small</label>
+  <label for='select-size-1'>Small</label>
   <select id='select-normal-1' class='form-control form-control-sm'>
     <option>Option</option>
     <option>Option</option>
@@ -152,7 +152,7 @@ Some text about using form-controls.
   </select>
 </div>
 <div class='form-group'>
-  <label for="select-size-2">Normal</label>
+  <label for='select-size-2'>Normal</label>
   <select id='select-normal-2' class='form-control'>
     <option>Option</option>
     <option>Option</option>
@@ -160,7 +160,7 @@ Some text about using form-controls.
   </select>
 </div>
 <div class='form-group'>
-  <label for="select-size-3">Large</label>
+  <label for='select-size-3'>Large</label>
   <select id='select-normal-3' class='form-control form-control-lg'>
     <option>Option</option>
     <option>Option</option>
@@ -168,7 +168,7 @@ Some text about using form-controls.
   </select>
 </div>
 <div class='form-group'>
-  <label for="select-size-4">Full width</label>
+  <label for='select-size-4'>Full width</label>
   <select id='select-normal-4' class='form-control form-control-full'>
     <option>Option</option>
     <option>Option</option>
@@ -176,7 +176,45 @@ Some text about using form-controls.
   </select>
 </div>
 
+<hr>
 ### Check boxes
+
+<div class='form-checkbox'>
+  <label>
+    <input type='checkbox' class='custom-checkbox' value=''/>
+    Checkbox
+  </label>
+</div>
+
+<div class='form-checkbox'>
+  <label>
+    <input type='checkbox' value='' disabled/>
+    Checkbox
+  </label>
+</div>
+
+<hr>
+### Radio Buttons
+
+<div class='form-radio'>
+  <label>
+    <input type='radio' name='optionsRadios' id='optionsRadios1' value='option1' checked>
+    Option one is this and that&mdash;be sure to include why it's great
+  </label>
+</div>
+<div class='form-radio'>
+  <label>
+    <input type='radio' name='optionsRadios' id='optionsRadios2' value='option2'>
+    Option two can be something else and selecting it will deselect option one
+  </label>
+</div>
+<div class='form-radio'>
+  <label>
+    <input type='radio' name='optionsRadios' id='optionsRadios3' value='option3' disabled>
+    Option three is disabled
+  </label>
+</div>
+
 
 */
 
@@ -274,6 +312,76 @@ Some text about using form-controls.
     &:focus {
       border-color: var(--alert-red);
       color: var(--input-color);
+    }
+  }
+}
+
+.form-checkbox,
+.form-radio {
+  display: block;
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+@keyframes check {
+  0% {
+    height: 0;
+    width: 0;
+  }
+  50% {
+    height: 0;
+    width: 5px;
+  }
+  100% {
+    height: 10px;
+    width: 5px;
+  }
+}
+
+
+.form-checkbox {
+
+  .custom-checkbox {
+
+    &::before {
+      background-color: var(--checkbox-bg-color);
+      border: 1px solid var(--checkbox-border-color);
+      border-radius: 2px;
+      content: '';
+      display: block;
+      height: 16px;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 16px;
+    }
+
+    &::after {
+
+      transform: scaleX(-1) rotate(135deg);
+    }
+
+    &:checked {
+
+      &::before {
+        background-color: var(--checkbox-color);
+        border-color: var(--checkbox-color);
+      }
+
+      &::after {
+        animation: check 0.15s;
+        border-color: var(--checkbox-arrow-color) var(--checkbox-arrow-color) var(--checkbox-arrow-color) transparent;
+        border-style: solid;
+        border-width: 2px 2px 0 0;
+        content: '';
+        display: block;
+        height: 10px;
+        left: 6px;
+        position: absolute;
+        top: 2px;
+        width: 5px;
+      }
     }
   }
 }
