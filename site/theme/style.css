@@ -17,11 +17,11 @@
   border-right: 1px solid #ddd;
   height: 100%;
   overflow-y: scroll;
-  padding: 2rem 3.2rem;
+  padding: 1.5rem 3.2rem;
   position: fixed;
   right: 0;
   top: 0;
-  width: 150px;
+  width: 214px;
 }
 
 .psg-ComponentList--item {
