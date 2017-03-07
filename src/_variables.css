@@ -119,26 +119,22 @@ Headings
   --checkbox-color:                 var(--soho-primary);
   --checkbox-border-color:          var(--graphite04);
   --checkbox-border-color-disabled: var(--graphite03);
-  --checkbox-bg-color:              var(--white);
-  --checkbox-bg-disabled:           var(--checkbox-bg-color);
+  --checkbox-bg:                    var(--white);
+  --checkbox-bg-disabled:           var(--checkbox-bg);
   --checkbox-bg-disabled-checked:   var(--graphite03);
   --checkbox-arrow-color:           var(--white);
   --checkbox-arrow-color-disabled:  #f4f4f4;
-
-  --checkbox-shadow-focus: 0 0 0 2px var(--body-bg), 0 0 0 3px var(--checkbox-color);
+  --checkbox-shadow-focus:          0 0 0 2px var(--body-bg), 0 0 0 3px var(--checkbox-color);
 
 
   --radio-color:                 var(--white);
-  --radio-bg-color-checked:      var(--soho-primary);
+  --radio-bg-checked:            var(--soho-primary);
   --radio-border-color:          var(--graphite04);
   --radio-border-color-disabled: var(--graphite03);
-  --radio-bg-color:              var(--white);
-  --radio-bg-disabled:           var(--radio-bg-color);
+  --radio-bg:                    var(--white);
+  --radio-bg-disabled:           var(--radio-bg);
   --radio-bg-disabled-checked:   var(--graphite03);
-  --radio-arrow-color:           var(--white);
-  --radio-arrow-color-disabled:  #f4f4f4;
-
-  --radio-shadow-focus: var(--checkbox-shadow-focus);
+  --radio-shadow-focus:          var(--checkbox-shadow-focus);
 
 
 

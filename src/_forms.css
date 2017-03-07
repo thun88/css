@@ -67,11 +67,11 @@ Some text about using form-controls.
 
 <div class='form-group'>
   <label for='text-size-1'>Extra Small</label>
-  <input type='text' id='text-size-1' class='form-control form-control-xs'>
+  <input type='text' id='text-size-1' class='form-control form-control--xs'>
 </div>
 <div class='form-group'>
   <label for='text-size-2'>Small</label>
-  <input type='text' id='text-size-2' class='form-control form-control-sm'>
+  <input type='text' id='text-size-2' class='form-control form-control--sm'>
 </div>
 <div class='form-group'>
   <label for='text-size-3'>Normal</label>
@@ -79,21 +79,21 @@ Some text about using form-controls.
 </div>
 <div class='form-group'>
   <label for='text-size-4'>Large</label>
-  <input type='text' id='text-size-4' class='form-control form-control-lg'>
+  <input type='text' id='text-size-4' class='form-control form-control--lg'>
 </div>
 <div class='form-group'>
   <label for='text-size-5'>Full width</label>
-  <input type='text' id='text-size-5' class='form-control form-control-full'>
+  <input type='text' id='text-size-5' class='form-control form-control--full'>
 </div>
 
 
 <div class='form-group'>
   <label for='textarea-size-1'>Extra Small</label>
-  <textarea type='text' id='textarea-size-1' class='form-control form-control-xs'></textarea>
+  <textarea type='text' id='textarea-size-1' class='form-control form-control--xs'></textarea>
 </div>
 <div class='form-group'>
   <label for='textarea-size-2'>Small</label>
-  <textarea type='text' id='textarea-size-2' class='form-control form-control-sm'></textarea>
+  <textarea type='text' id='textarea-size-2' class='form-control form-control--sm'></textarea>
 </div>
 <div class='form-group'>
   <label for='textarea-size-3'>Normal</label>
@@ -101,11 +101,11 @@ Some text about using form-controls.
 </div>
 <div class='form-group'>
   <label for='textarea-size-4'>Large</label>
-  <textarea type='text' id='textarea-size-4' class='form-control form-control-lg'></textarea>
+  <textarea type='text' id='textarea-size-4' class='form-control form-control--lg'></textarea>
 </div>
 <div class='form-group'>
   <label for='textarea-size-5'>Full width</label>
-  <textarea type='text' id='textarea-size-5' class='form-control form-control-full'></textarea>
+  <textarea type='text' id='textarea-size-5' class='form-control form-control--full'></textarea>
 </div>
 
 <hr>
@@ -137,7 +137,7 @@ Some text about using form-controls.
 
 <div class='form-group'>
   <label for='select-size-0'>X-Small</label>
-  <select id='select-normal-0' class='form-control form-control-xs'>
+  <select id='select-normal-0' class='form-control form-control--xs'>
     <option>Option</option>
     <option>Option</option>
     <option>Option</option>
@@ -145,7 +145,7 @@ Some text about using form-controls.
 </div>
 <div class='form-group'>
   <label for='select-size-1'>Small</label>
-  <select id='select-normal-1' class='form-control form-control-sm'>
+  <select id='select-normal-1' class='form-control form-control--sm'>
     <option>Option</option>
     <option>Option</option>
     <option>Option</option>
@@ -161,7 +161,7 @@ Some text about using form-controls.
 </div>
 <div class='form-group'>
   <label for='select-size-3'>Large</label>
-  <select id='select-normal-3' class='form-control form-control-lg'>
+  <select id='select-normal-3' class='form-control form-control--lg'>
     <option>Option</option>
     <option>Option</option>
     <option>Option</option>
@@ -169,7 +169,7 @@ Some text about using form-controls.
 </div>
 <div class='form-group'>
   <label for='select-size-4'>Full width</label>
-  <select id='select-normal-4' class='form-control form-control-full'>
+  <select id='select-normal-4' class='form-control form-control--full'>
     <option>Option</option>
     <option>Option</option>
     <option>Option</option>
@@ -181,35 +181,35 @@ Some text about using form-controls.
 
 <div class='form-checkbox'>
   <label>
-    <input type='checkbox' class='checkbox-custom' value=''/>
+    <input type='checkbox' class='form-checkbox--input' value=''/>
     Checkbox
   </label>
 </div>
 
 <div class='form-checkbox'>
   <label>
-    <input type='checkbox' value='' class='checkbox-custom checkbox-partial' checked/>
+    <input type='checkbox' value='' class='form-checkbox--input checkbox-partial' checked/>
       Checkbox Partial Check
   </label>
 </div>
 
 <div class='form-checkbox'>
   <label>
-    <input type='checkbox' class='checkbox-custom' value='' checked/>
+    <input type='checkbox' class='form-checkbox--input' value='' checked/>
     Checkbox Checked
   </label>
 </div>
 
 <div class='form-checkbox'>
   <label>
-    <input type='checkbox' value='' class='checkbox-custom' disabled/>
+    <input type='checkbox' value='' class='form-checkbox--input' disabled/>
       Checkbox Disabled
   </label>
 </div>
 
 <div class='form-checkbox'>
   <label>
-    <input type='checkbox' value='' class='checkbox-custom' disabled checked/>
+    <input type='checkbox' value='' class='form-checkbox--input' disabled checked/>
       Checkbox Disabled and Checked
   </label>
 </div>
@@ -219,19 +219,19 @@ Some text about using form-controls.
 
 <div class='form-radio'>
   <label>
-    <input type='radio' class='radio-custom' name='optionsRadios' id='optionsRadios1' value='option1' checked>
+    <input type='radio' class='form-radio--input' name='optionsRadios' id='optionsRadios1' value='option1' checked>
     Option one is this and that&mdash;be sure to include why it's great
   </label>
 </div>
 <div class='form-radio'>
   <label>
-    <input type='radio' class='radio-custom' name='optionsRadios' id='optionsRadios2' value='option2'>
+    <input type='radio' class='form-radio--input' name='optionsRadios' id='optionsRadios2' value='option2'>
     Option two can be something else and selecting it will deselect option one
   </label>
 </div>
 <div class='form-radio'>
   <label>
-    <input type='radio' class='radio-custom' name='optionsRadios' id='optionsRadios3' value='option3' disabled>
+    <input type='radio' class='form-radio--input' name='optionsRadios' id='optionsRadios3' value='option3' disabled>
     Option three is disabled
   </label>
 </div>
@@ -285,10 +285,10 @@ Some text about using form-controls.
     outline-color: transparent;
   }
 
-  &.form-control-xs { width: var(--input-size-xs); }
-  &.form-control-sm { width: var(--input-size-sm); }
-  &.form-control-lg { width: var(--input-size-lg); }
-  &.form-control-full { width: var(--input-size-full); }
+  &.form-control--xs { width: var(--input-size-xs); }
+  &.form-control--sm { width: var(--input-size-sm); }
+  &.form-control--lg { width: var(--input-size-lg); }
+  &.form-control--full { width: var(--input-size-full); }
 }
 
 .form-group {
@@ -363,7 +363,7 @@ Some text about using form-controls.
 
 .form-checkbox {
 
-  .checkbox-custom {
+  .form-checkbox--input {
     margin-right: 5px;
 
 
@@ -372,7 +372,7 @@ Some text about using form-controls.
     }
 
     &::before {
-      background-color: var(--checkbox-bg-color);
+      background-color: var(--checkbox-bg);
       border: 1px solid var(--checkbox-border-color);
       border-radius: 2px;
       content: '';
@@ -427,7 +427,7 @@ Some text about using form-controls.
       }
     }
 
-    &.checkbox-partial:checked::after {
+    &.form-checkbox--input--partial:checked::after {
       animation: none;
       border-width: 0 0 2px;
       left: 2px;
@@ -441,7 +441,7 @@ Some text about using form-controls.
 }
 
 .form-radio {
-  .radio-custom {
+  .form-radio--input {
       margin-right: 5px;
 
     &:focus::before {
@@ -450,7 +450,7 @@ Some text about using form-controls.
     }
 
     &::before {
-      background-color: var(--radio-bg-color);
+      background-color: var(--radio-bg);
       border: 1px solid var(--radio-border-color);
       border-radius: 50%;
       content: '';
@@ -476,12 +476,15 @@ Some text about using form-controls.
     }
 
     &[disabled] {
-
+      &::before {
+        background-color: var(--radio-bg-disabled);
+        border-color: var(--radio-border-color-disabled);
+      }
     }
 
     &:checked {
       &::before {
-        background-color: var(--radio-bg-color-checked);
+        background-color: var(--radio-bg-checked);
       }
       &::after {
         opacity: 1;
@@ -490,8 +493,14 @@ Some text about using form-controls.
     }
 
     &[disabled]:checked {
-
+      &::before {
+        background-color: var(--radio-border-color-disabled);
+        border-color: var(--radio-border-color-disabled);
+      }
+      &::after {
+        background-color: var(--radio-bg-disabled-checked);
+        border: 2px solid var(--radio-bg-disabled-checked);
+      }
     }
-
   }
 }
