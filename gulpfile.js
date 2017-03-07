@@ -4,9 +4,10 @@ var concat = require('gulp-concat');
 var server = require('gulp-server-livereload');
 var postcss = require('gulp-postcss');
 
-
 // Global Variables
-var siteRoot = "site/www"
+var cssSrc = 'src/css';
+var siteRoot = 'site/www';
+var siteTheme = 'site/theme';
 
 // Task: Default
 gulp.task('default', ['css', 'webserver']);
@@ -32,7 +33,7 @@ gulp.task('css', function () {
       autoprefixer,
       styleGuide({
         project: 'Soho Foundation',
-        themePath: 'site/theme',
+        themePath: siteTheme,
         dest: siteRoot + '/index.html'
       })
     ];
@@ -41,7 +42,7 @@ gulp.task('css', function () {
     map: true
   };
 
-  return gulp.src('src/app.css')
+  return gulp.src(cssSrc + '/app.css')
     .pipe(postcss(plugins, postcssOptions))
     .pipe(gulp.dest('dist/css'))
     .pipe(postcss([cssnano], postcssOptions))
@@ -52,9 +53,9 @@ gulp.task('css', function () {
 // Task: Watch
 gulp.task('watch', function() {
   var paths = [
-   'src/*',
-   'src/**/*',
-   'site/theme/*'
+   cssSrc + '/*',
+   cssSrc + '/**/*',
+   siteTheme + '/*'
   ];
   gulp.watch(paths, ['css']);
 });
@@ -68,4 +69,12 @@ gulp.task('webserver', function() {
       open: true,
       log: 'debug'
     }));
+});
+
+
+gulp.task('docs', function() {
+  var markdown = require('gulp-markdown');
+    return gulp.src('src/docs/*.md')
+        .pipe(markdown())
+        .pipe(gulp.dest(siteRoot));
 });
