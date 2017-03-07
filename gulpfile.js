@@ -70,11 +70,3 @@ gulp.task('webserver', function() {
       log: 'debug'
     }));
 });
-
-
-gulp.task('docs', function() {
-  var markdown = require('gulp-markdown');
-    return gulp.src('src/docs/*.md')
-        .pipe(markdown())
-        .pipe(gulp.dest(siteRoot));
-});
