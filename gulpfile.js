@@ -27,7 +27,7 @@ gulp.task('css', function () {
   var plugins = [
       atImport,
       commas,
-      nested({ bubble: ['keyframes'] }),
+      nested,
       customProperties({ preserve: true }),
       autoprefixer,
       styleGuide({
