@@ -5,6 +5,9 @@ var server = require('gulp-server-livereload');
 var postcss = require('gulp-postcss');
 var glob = require('glob');
 var markdown = require('gulp-markdown');
+var tap = require('gulp-tap');
+var Handlebars = require('Handlebars');
+var rename = require('gulp-rename');
 
 var paths = {
   src:  {},
@@ -39,14 +42,30 @@ gulp.task('build', ['build:css', 'build:docs']);
 
 
 // Task: Build Docs
-gulp.task('build:docs', function () {
-  return glob(paths.src.docFiles, function (err, files) {
-    files.forEach(function (demoName, i) {
-      return gulp.src(demoName)
-      .pipe(markdown())
-      .pipe(gulp.dest(paths.site.root));
-    });
-  });
+gulp.task('build:docs', function() {
+  // read the template from page.hbs
+  return gulp.src(paths.src.docs + '/templates/page.hbs')
+    .pipe(tap(function(file) {
+      // file is page.hbs so generate template from file
+      var template = Handlebars.compile(file.contents.toString());
+
+      // now read all the pages from the pages directory
+      return gulp.src(paths.src.docFiles)
+        // convert from markdown
+        .pipe(markdown())
+        .pipe(tap(function(file) {
+          // file is the converted HTML from the markdown
+          // set the contents to the contents property on data
+          var data = {
+            contents: file.contents.toString()
+          };
+          // we will pass data to the Handlebars template to create the actual HTML to use
+          var html = template(data);
+          // replace the file contents with the new HTML created from the Handlebars template + data object that contains the HTML made from the markdown conversion
+          file.contents = new Buffer(html, "utf-8");
+        }))
+        .pipe(gulp.dest(paths.site.root));
+    }));
 });
 
 // Task: Build CSS
@@ -96,3 +115,9 @@ gulp.task('webserver', function() {
       log: 'debug'
     }));
 });
+
+
+
+
+
+
