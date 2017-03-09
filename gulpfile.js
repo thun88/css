@@ -1,14 +1,25 @@
 // Gulp Plugins
 var gulp = require('gulp');
 var concat = require('gulp-concat');
-var server = require('gulp-server-livereload');
-var postcss = require('gulp-postcss');
+var del = require('del');
 var glob = require('glob');
+var handlebars = require('handlebars');
 var markdown = require('gulp-markdown');
-var tap = require('gulp-tap');
-var Handlebars = require('Handlebars');
+var postcss = require('gulp-postcss');
 var rename = require('gulp-rename');
+var server = require('gulp-server-livereload');
+var tap = require('gulp-tap');
 
+// PostCSS Plugins
+var atImport = require('postcss-import'),
+    autoprefixer = require('autoprefixer'),
+    commas = require('postcss-commas'),
+    cssnano = require('cssnano'),
+    customProperties = require('postcss-custom-properties'),
+    nested = require('postcss-nested');
+
+
+// Paths
 var paths = {
   src:  {},
   dist: {},
@@ -27,6 +38,7 @@ paths.dist.css = paths.dist.root + "/css";
 
 // Website
 paths.site.root = 'site'
+paths.site.css = paths.site.root + "/css";
 paths.site.templates = paths.site.root + "/templates";
 paths.site.www = paths.site.root + "/www";
 
@@ -39,7 +51,7 @@ gulp.task('default', ['build', 'webserver']);
 gulp.task('dev', ['build', 'webserver', 'watch']);
 
 // Task:
-gulp.task('build', ['build:css', 'build:docs']);
+gulp.task('build', ['build:css', 'build:docs', 'build:site']);
 
 
 // Task: Build Docs
@@ -48,7 +60,7 @@ gulp.task('build:docs', function() {
   return gulp.src(paths.site.templates + '/page.hbs')
     .pipe(tap(function(file) {
       // file is page.hbs so generate template from file
-      var template = Handlebars.compile(file.contents.toString());
+      var template = handlebars.compile(file.contents.toString());
 
       // now read all the pages from the pages directory
       return gulp.src(paths.src.docFiles)
@@ -60,9 +72,9 @@ gulp.task('build:docs', function() {
           var data = {
             contents: file.contents.toString()
           };
-          // we will pass data to the Handlebars template to create the actual HTML to use
+          // we will pass data to the handlebars template to create the actual HTML to use
           var html = template(data);
-          // replace the file contents with the new HTML created from the Handlebars template
+          // replace the file contents with the new HTML created from the handlebars template
           //  + data object that contains the HTML made from the markdown conversion
           file.contents = new Buffer(html, "utf-8");
         }))
@@ -72,13 +84,6 @@ gulp.task('build:docs', function() {
 
 // Task: Build CSS
 gulp.task('build:css', function () {
-  var atImport = require('postcss-import'),
-      autoprefixer = require('autoprefixer'),
-      commas = require('postcss-commas'),
-      cssnano = require('cssnano'),
-      customProperties = require('postcss-custom-properties'),
-      nested = require('postcss-nested');
-
   var plugins = [
     atImport,
     commas,
@@ -91,13 +96,32 @@ gulp.task('build:css', function () {
     map: true
   };
 
-  return gulp.src(paths.site.css + '/app.css')
+  return gulp.src(paths.src.css + '/soho-foundation.css')
     .pipe(postcss(plugins, postcssOptions))
     .pipe(gulp.dest(paths.dist.css))
     .pipe(postcss([cssnano], postcssOptions))
-    .pipe(concat('app.min.css'))
-    .pipe(gulp.dest(paths.dist.css));
+    .pipe(rename('soho-foundation.min.css'))
+    .pipe(gulp.dest(paths.dist.css))
+    .pipe(gulp.dest(paths.site.www + '/css'));
 });
+
+// Build: Site Static files
+gulp.task('build:site', function() {
+  var plugins = [
+    commas,
+    nested,
+    customProperties({ preserve: true }),
+    autoprefixer,
+    cssnano
+  ];
+
+  return gulp.src(paths.site.css + '/site.css')
+    .pipe(postcss(plugins, { map: true }))
+    .pipe(rename('site.min.css'))
+    .pipe(gulp.dest(paths.site.www + '/css'));
+});
+
+
 
 // Task: Watch
 gulp.task('watch', function() {
@@ -121,8 +145,9 @@ gulp.task('webserver', function() {
     }));
 });
 
-
-
-
-
-
+gulp.task('clean', function () {
+  return del([
+    paths.dist.root,
+    paths.site.www
+  ]);
+});
