@@ -137,7 +137,7 @@ gulp.task('watch', function() {
   var urls = [
     paths.src.root + '/**/*',
     paths.site.templates + '/*.hbs',
-    paths.site.www + '/css/*.css'
+    paths.site.css + '/*.css'
 
   ];
   gulp.watch(urls, ['build']);
