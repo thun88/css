@@ -27,7 +27,8 @@ paths.dist.css = paths.dist.root + "/css";
 
 // Website
 paths.site.root = 'site'
-paths.site.theme = paths.site.root + '/theme';
+paths.site.templates = paths.site.root + "/templates";
+paths.site.www = paths.site.root + "/www";
 
 
 
@@ -44,7 +45,7 @@ gulp.task('build', ['build:css', 'build:docs']);
 // Task: Build Docs
 gulp.task('build:docs', function() {
   // read the template from page.hbs
-  return gulp.src(paths.src.docs + '/templates/page.hbs')
+  return gulp.src(paths.site.templates + '/page.hbs')
     .pipe(tap(function(file) {
       // file is page.hbs so generate template from file
       var template = Handlebars.compile(file.contents.toString());
@@ -61,10 +62,11 @@ gulp.task('build:docs', function() {
           };
           // we will pass data to the Handlebars template to create the actual HTML to use
           var html = template(data);
-          // replace the file contents with the new HTML created from the Handlebars template + data object that contains the HTML made from the markdown conversion
+          // replace the file contents with the new HTML created from the Handlebars template
+          //  + data object that contains the HTML made from the markdown conversion
           file.contents = new Buffer(html, "utf-8");
         }))
-        .pipe(gulp.dest(paths.site.root));
+        .pipe(gulp.dest(paths.site.www));
     }));
 });
 
@@ -100,14 +102,17 @@ gulp.task('build:css', function () {
 // Task: Watch
 gulp.task('watch', function() {
   var urls = [
-    paths.src.root + '/**/*'
+    paths.src.root + '/**/*',
+    paths.site.templates + '/*.hbs',
+    paths.site.www + '/css/*.css'
+
   ];
   gulp.watch(urls, ['build']);
 });
 
 // Task: Webserver
 gulp.task('webserver', function() {
-  gulp.src(paths.site.root)
+  gulp.src(paths.site.www)
     .pipe(server({
       livereload: true,
       defaultFile: 'index.html',
