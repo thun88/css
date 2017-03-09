@@ -14,7 +14,7 @@
     "express": "^4.13.3"
   },
   "devDependencies": {
-    "autoprefixer": "^6.7.3",
+    "autoprefixer": "^6.7.6",
     "cssnano": "^3.10.0",
     "del": "^2.2.2",
     "glob": "^7.1.1",

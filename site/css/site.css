@@ -1,122 +1,71 @@
 /*
- * All selectors are named with `psg-` prefix to avoid name confliction.
+ * Website styles
  */
 
-.psg-wrapper {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
+.top-nav {
+  background-color: #368ac0;
+  color: #fff;
+  padding: 20px;
+
+  .top-nav--link {
+    color: inherit;
+    text-decoration: none;
+  }
 }
+
+.container {
+  margin: 0 auto;
+  position: relative;
+  width: 1170px;
+}
+
 
 /*
  * Menu bar
  */
 
-.psg-menu {
-  border-right: 1px solid #ddd;
+.sidebar {
   height: 100%;
   overflow-y: scroll;
   padding: 1.5rem 3.2rem;
-  position: fixed;
+  position: absolute;
   right: 0;
   top: 0;
   width: 214px;
 }
 
-.psg-ComponentList--item {
+.sidebar--list > li {
   display: block;
   color: #3f526b;
   padding: 12px 8px;
+
+  &:hover {
+    background-color: #eee;
+  }
 }
 
-.psg-ComponentList--item:hover {
-  background-color: #eee;
-}
 
 /*
  * Main contents
  */
 
-.psg-main {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1 1 0%;
-      -ms-flex: 1 1 0%;
-          flex: 1 1 0%;
+.main {
+  padding: 50px;
   height: 100%;
   background-color: #fff;
   overflow-y: scroll;
   margin-right: 215px;
 }
 
-.psg-title {
-  width: 100%;
-  padding: 40px 60px;
-  font-size: 2rem;
-  text-align: center;
-  color: #fff;
-}
-
-.psg-container {
-  margin: 50px 0;
-}
-
-.psg-section {
-  max-width: 100%;
-  padding: 0 50px;
-  margin: 0 auto;
-}
-
-.psg-contents > p,
-.psg-contents > pre {
-    margin: 2rem 0;
-}
-
-.psg-contents > pre {
-  background-color: #f7f7f9;
-  border: 1px solid #e1e1e8;
-  border-radius: 4px;
-  font-family: monospace;
-  margin-bottom: 14px;
-  padding: 9px 14px;
+pre {
+  position: relative;
+  padding: 15px;
+  font-size: 13px;
+  line-height: 1.4;
+  border: 1px solid #e5e5e5;
+  border-radius: .25rem .25rem 0 0;
 }
 
 code {
   font-family: monospace;
-}
-
-hr.psg-separator {
-  margin: 4rem 0;
-  border: 0;
-  border-top: 1px solid #ddd;
-}
-
-/*
- * Color Palette
- */
-
-.psg-colorPalette {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-flow: row wrap;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
-}
-
-.psg-colorBox {
-  width: 158px;
-  box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.2);
-  margin: 3rem;
-}
-
-.psg-colorBox--sample {
-  height: 100px;
-}
-
-.psg-colorBox--name {
-  padding: 1em;
-  font-size: 1.4rem;
-  text-align: center;
 }
