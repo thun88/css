@@ -43,7 +43,6 @@ paths.site.templates = paths.site.root + "/templates";
 paths.site.www = paths.site.root + "/www";
 
 
-
 // Task: Default
 gulp.task('default', ['build', 'webserver']);
 
@@ -82,6 +81,7 @@ gulp.task('build:docs', function() {
     }));
 });
 
+
 // Task: Build CSS
 gulp.task('build:css', function () {
   var plugins = [
@@ -105,6 +105,7 @@ gulp.task('build:css', function () {
     .pipe(gulp.dest(paths.site.www + '/css'));
 });
 
+
 // Build: Site Static files
 gulp.task('build:site', function() {
   var plugins = [
@@ -122,6 +123,14 @@ gulp.task('build:site', function() {
 });
 
 
+// Task: Clean
+gulp.task('clean', function () {
+  return del([
+    paths.dist.root,
+    paths.site.www
+  ]);
+});
+
 
 // Task: Watch
 gulp.task('watch', function() {
@@ -134,6 +143,7 @@ gulp.task('watch', function() {
   gulp.watch(urls, ['build']);
 });
 
+
 // Task: Webserver
 gulp.task('webserver', function() {
   gulp.src(paths.site.www)
@@ -143,11 +153,4 @@ gulp.task('webserver', function() {
       open: true,
       log: 'debug'
     }));
-});
-
-gulp.task('clean', function () {
-  return del([
-    paths.dist.root,
-    paths.site.www
-  ]);
 });
