@@ -69,3 +69,12 @@ pre {
 code {
   font-family: monospace;
 }
+
+blockquote {
+  border: 1px solid #eee;
+  border-left-width: 5px;
+  border-left-color: #efa836;
+  border-radius: 3px;
+  padding: 20px;
+  margin: 20px 0;
+}
