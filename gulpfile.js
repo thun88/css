@@ -4,7 +4,7 @@ var concat = require('gulp-concat');
 var del = require('del');
 var glob = require('glob');
 var handlebars = require('handlebars');
-var markdown = require('gulp-markdown');
+var pandoc = require('gulp-pandoc');
 var postcss = require('gulp-postcss');
 var rename = require('gulp-rename');
 var server = require('gulp-server-livereload');
@@ -64,7 +64,12 @@ gulp.task('build:docs', function() {
       // now read all the pages from the pages directory
       return gulp.src(paths.src.docFiles)
         // convert from markdown
-        .pipe(markdown())
+        .pipe(pandoc({
+           from: 'markdown',
+           to: 'html5',
+           ext: '.html',
+           args: ['--smart']
+        }))
         .pipe(tap(function(file) {
           // file is the converted HTML from the markdown
           // set the contents to the contents property on data
