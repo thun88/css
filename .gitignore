@@ -1,7 +1,7 @@
 # Compiled #
 ############
-dist/css/
-/site/www/index.html
+dist
+site/www
 
 # Packages #
 ############
