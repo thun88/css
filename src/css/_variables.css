@@ -136,6 +136,7 @@ Headings
   --radio-bg-disabled-checked:   var(--graphite03);
   --radio-shadow-focus:          var(--checkbox-shadow-focus);
 
-
+  /* Grid */
+  --num-columns:  12;
 
 }

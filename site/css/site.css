@@ -16,7 +16,7 @@
 .container {
   margin: 0 auto;
   position: relative;
-  width: 1170px;
+  width: 100%;
 }
 
 
@@ -27,11 +27,6 @@
 .sidebar {
   height: 100%;
   overflow-y: scroll;
-  padding: 1.5rem 3.2rem;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: 214px;
 }
 
 .sidebar--list > li {
@@ -50,11 +45,9 @@
  */
 
 .main {
-  padding: 50px;
   height: 100%;
   background-color: #fff;
   overflow-y: scroll;
-  margin-right: 215px;
 }
 
 pre {
@@ -77,4 +70,25 @@ blockquote {
   border-radius: 3px;
   padding: 20px;
   margin: 20px 0;
+}
+
+.sidebar,
+.main {
+  padding: 1.5rem 3.2rem;
+}
+
+/*
+ * Grid
+ */
+
+.demo-grid {
+  margin-bottom: 20px;
+
+  [class^="soho-grid--col-"] {
+    background: #69b5dd;
+    color:  #fff;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+  }
 }
