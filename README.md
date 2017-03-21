@@ -10,7 +10,6 @@ Foundation is a sleek, intuitive, and powerful front-end framework for faster an
 ## Dev Quick start
 1. Pull the repo
 1. "cd" into the repo
-1. `$ npm install gulp-cli -g`
 1. `$ npm install`
 1. `$ gulp`
 
