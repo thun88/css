@@ -4,6 +4,8 @@ Foundation is a sleek, intuitive, and powerful front-end framework for faster an
 
 ## Table of contents
 - [Dev Quick start](#dev-quick-start)
+- [Gulp Tasks](#other-useful-gulp-tasks)
+- [SVG Icons](#edit-icons)
 
 ## Dev Quick start
 1. Pull the repo
@@ -12,12 +14,21 @@ Foundation is a sleek, intuitive, and powerful front-end framework for faster an
 1. `$ npm install`
 1. `$ gulp`
 
-### Main Gulp Commands
-- View the website:
-> `$ gulp`
+## Other Useful Gulp Tasks
 
-- Build the site and start a watch for development
-> `$ gulp dev`
+- `$ gulp` - Build the site and run the webserver:
+- `$ gulp dev` - Build the site, run the webserver, and start a watch for development
+- `$ gulp clean` - Remove all generated/static files (`dist` & `site/www`)
 
-- Clean all generated/static files
-> `$ gulp clean`
+## SVG Icons
+
+To add an icon start with these steps, then proceed to building (below):
+1. Add the .svg file to `src/icons/svg` folder
+1. `$ gulp svg:optimize`
+
+For building the icons
+1. `$ gulp svg:store`
+2. `$ gulp`
+
+
+

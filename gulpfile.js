@@ -47,13 +47,17 @@ paths.site.www = paths.site.root + "/www";
 
 
 // Task: Default
-gulp.task('default', ['build', 'webserver']);
+// Does a full build and runs the site
+gulp.task('default', ['build:all', 'webserver']);
+
 
 // Task: Dev
-gulp.task('dev', ['build', 'webserver', 'watch']);
+gulp.task('dev', ['default', 'watch']);
 
-// Task:
-gulp.task('build', ['svg:store', 'build:css', 'build:docs', 'build:site']);
+
+// Task: Build Icons
+// Builds icons
+gulp.task('build:files', ['build:css', 'build:docs', 'build:site']);
 
 
 // Task: Build Docs
@@ -147,7 +151,7 @@ gulp.task('clean', function () {
 
 // Task: Optimize SVGs
 gulp.task('svg:optimize', function() {
-  var svgs = paths.src.icons + '/svg/*';
+  var svgs = paths.src.icons + '/svg/*.svg';
   gulp.src(svgs)
     .pipe(svgmin())
     .pipe(gulp.dest(svgs));
@@ -167,13 +171,13 @@ gulp.task('svg:store', function() {
 // Task: Watch
 gulp.task('watch', function() {
   var urls = [
-    paths.src.root + '/css/*',
-    paths.src.root + '/docs/*',
+    paths.src.root + '/css/*.css',
+    paths.src.root + '/docs/*.md',
     paths.site.templates + '/*.hbs',
     paths.site.css + '/*.css'
 
   ];
-  gulp.watch(urls, ['build']);
+  gulp.watch(urls, ['build:css', 'build:docs', 'build:site']);
 });
 
 
