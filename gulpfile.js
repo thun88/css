@@ -1,16 +1,16 @@
 // Gulp Plugins
-var gulp = require('gulp');
-var concat = require('gulp-concat');
-var del = require('del');
-var fs = require("fs");
-var glob = require('glob');
-var handlebars = require('handlebars');
-var pandoc = require('gulp-pandoc');
-var postcss = require('gulp-postcss');
-var rename = require('gulp-rename');
-var server = require('gulp-server-livereload');
-var svgstore = require('gulp-svgstore');
-var tap = require('gulp-tap');
+var gulp = require('gulp'),
+    concat = require('gulp-concat'),
+    del = require('del'),
+    fs = require("fs"),
+    glob = require('glob'),
+    handlebars = require('handlebars'),
+    pandoc = require('gulp-pandoc'),
+    postcss = require('gulp-postcss'),
+    rename = require('gulp-rename'),
+    server = require('gulp-server-livereload'),
+    svgstore = require('gulp-svgstore'),
+    tap = require('gulp-tap');
 
 // PostCSS Plugins
 var atImport = require('postcss-import'),
@@ -18,6 +18,7 @@ var atImport = require('postcss-import'),
     commas = require('postcss-commas'),
     cssnano = require('cssnano'),
     customProperties = require('postcss-custom-properties'),
+    lost = require('lost')
     nested = require('postcss-nested');
 
 
@@ -101,11 +102,14 @@ gulp.task('build:docs', function() {
 
 // Task: Build CSS
 gulp.task('build:css', function () {
+
+  // Note: plugin order matters
   var plugins = [
     atImport,
     commas,
     nested,
     customProperties({ preserve: true }),
+    lost,
     autoprefixer
   ];
 
