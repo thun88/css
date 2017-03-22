@@ -84,7 +84,7 @@ blockquote {
 .demo-grid {
   margin-bottom: 20px;
 
-  [class^="soho-grid--col-"] {
+  [class^="lost-grid--col-"] {
     outline: solid 1px #69b5dd;
     height: 50px;
     line-height: 50px;
