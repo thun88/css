@@ -49,7 +49,7 @@ paths.site.www = paths.site.root + "/www";
 
 // Task: Default
 // Does a full build and runs the site
-gulp.task('default', ['build:all', 'webserver']);
+gulp.task('default', ['build', 'webserver']);
 
 
 // Task: Dev
@@ -58,7 +58,7 @@ gulp.task('dev', ['default', 'watch']);
 
 // Task: Build Icons
 // Builds icons
-gulp.task('build:files', ['build:css', 'build:docs', 'build:site']);
+gulp.task('build', ['build:css', 'build:docs', 'build:site']);
 
 
 // Task: Build Docs
