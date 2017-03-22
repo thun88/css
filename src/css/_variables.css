@@ -137,6 +137,12 @@ Headings
   --radio-shadow-focus:          var(--checkbox-shadow-focus);
 
   /* Grid */
-  --num-columns:  12;
+  --grid-columns:  12;
 
+
+  /* Responsive Breakpoints */
+  @custom-media --viewport-xlg (max-width: 1200px);
+  @custom-media --viewport-lg  (max-width: 992px);
+  @custom-media --viewport-md  (max-width: 768px);
+  @custom-media --viewport-sm  (max-width: 480px);
 }

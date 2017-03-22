@@ -2,7 +2,7 @@
 var gulp = require('gulp'),
     concat = require('gulp-concat'),
     del = require('del'),
-    fs = require("fs"),
+    fs = require('fs'),
     glob = require('glob'),
     handlebars = require('handlebars'),
     pandoc = require('gulp-pandoc'),
@@ -17,6 +17,7 @@ var atImport = require('postcss-import'),
     autoprefixer = require('autoprefixer'),
     commas = require('postcss-commas'),
     cssnano = require('cssnano'),
+    customMedia = require('postcss-custom-media'),
     customProperties = require('postcss-custom-properties'),
     lost = require('lost')
     nested = require('postcss-nested');
@@ -37,14 +38,14 @@ paths.src.docs = paths.src.root + '/docs';
 paths.src.docFiles  = paths.src.docs + '/*.md';
 
 // Dist
-paths.dist.root = "dist";
-paths.dist.css = paths.dist.root + "/css";
+paths.dist.root = 'dist';
+paths.dist.css = paths.dist.root + '/css';
 
 // Website
 paths.site.root = 'site'
-paths.site.css = paths.site.root + "/css";
-paths.site.templates = paths.site.root + "/templates";
-paths.site.www = paths.site.root + "/www";
+paths.site.css = paths.site.root + '/css';
+paths.site.templates = paths.site.root + '/templates';
+paths.site.www = paths.site.root + '/www';
 
 
 // Task: Default
@@ -70,7 +71,7 @@ gulp.task('build:docs', function() {
       var template = handlebars.compile(templateFile.contents.toString());
 
       // Get the svg icon contents
-      var svgHTML = fs.readFileSync(paths.src.root + '/icons/icons.svg', "utf-8");
+      var svgHTML = fs.readFileSync(paths.src.root + '/icons/icons.svg', 'utf-8');
 
       // now read all the pages from the pages directory
       return gulp.src(paths.src.docFiles)
@@ -93,7 +94,7 @@ gulp.task('build:docs', function() {
           var html = template(data);
           // replace the file contents with the new HTML created from the handlebars template
           //  + data object that contains the HTML made from the markdown conversion
-          file.contents = new Buffer(html, "utf-8");
+          file.contents = new Buffer(html, 'utf-8');
         }))
         .pipe(gulp.dest(paths.site.www));
     }));
@@ -109,6 +110,7 @@ gulp.task('build:css', function () {
     commas,
     nested,
     customProperties({ preserve: true }),
+    customMedia,
     lost,
     autoprefixer
   ];
