@@ -4,11 +4,18 @@
 
 Use the button classes on and `<a>`, `<button>`, `<input>` elements.
 
-<button type="button" class="btn btn-default">Default Button</button>
-<button type="button" class="btn btn-default" disabled>Default Button</button>
+<div>
+  <a class="btn btn-default" href="#" role="button">Link</a>
+  <button class="btn btn-default" type="submit">Button</button>
+  <input class="btn btn-default" type="button" value="Input">
+  <input class="btn btn-default" type="submit" value="Submit">
+</div>
+
 ```html
-<button type="button" class="btn btn-default">Default Button</button>
-<button type="button" class="btn btn-default" disabled>Default Button</button>
+<a class="btn btn-default" href="#" role="button">Link</a>
+<button class="btn btn-default" type="submit">Button</button>
+<input class="btn btn-default" type="button" value="Input">
+<input class="btn btn-default" type="submit" value="Submit">
 
 ```
 
@@ -20,23 +27,39 @@ Use the button classes on and `<a>`, `<button>`, `<input>` elements.
 
 > Cross-browser rendering
 > As a best practice, we highly recommend using the `<button>` element whenever possible to ensure matching cross-browser rendering.
->
+
 > Among other things, there's a bug in Firefox &lt; 30 that prevents us from setting the line-height of `<input>`-based buttons, causing them to not exactly match the height of other buttons on Firefox.
 
-<button type="button" class="btn btn-primary">Primary Button</button>
-<button type="button" class="btn btn-primary" disabled>Primary Button</button>
+
+## Options
+
+Use any of the available button classes to quickly create a styled button.
+
+<button type="button" class="btn btn-default">Default</button>
+<button type="button" class="btn btn-primary">Primary</button>
+<button type="button" class="btn btn-warning">Warning</button>
+
 ```html
-<button type="button" class="btn btn-primary">Primary Button</button>
+<button type="button" class="btn btn-default">Default</button>
+<button type="button" class="btn btn-primary">Primary</button>
+<button type="button" class="btn btn-warning">Warning</button>
 ```
 
-<button type="button" class="btn btn-warning">Warning Button</button>
-<button type="button" class="btn btn-warning" disabled>Warning Button</button>
+
+## Disabled State
+<button type="button" class="btn btn-primary" disabled>Primary Button</button>
+<button type="button" class="btn btn-default" disabled>Button</button>
+
 ```html
-<button type="button" class="btn btn-warning">Warning Button</button>
+<button type="button" class="btn btn-default" disabled>Button</button>
 ```
+
+
+## Link Buttons
 
 <a href="" class="btn btn-link">Link Button</a>
 <a href="" class="btn btn-link" disabled>Link Button</a>
 ```html
 <a href="" class="btn btn-link">Link Button</a>
+<a href="" class="btn btn-link" disabled>Link Button</a>
 ```
