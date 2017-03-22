@@ -31,6 +31,7 @@
     "handlebars": "^4.0.6",
     "lost": "^8.0.0",
     "postcss-commas": "^1.0.0",
+    "postcss-custom-media": "^5.0.1",
     "postcss-custom-properties": "^5.0.2",
     "postcss-import": "^9.1.0",
     "postcss-nested": "^1.0.0",
