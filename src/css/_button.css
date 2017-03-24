@@ -1,0 +1,108 @@
+/*
+@styleguide
+
+@title Button
+*/
+
+/*
+  Note: Leave .btn without color styling so that
+  it can be easily extended for custom
+  colored buttons
+ */
+.btn {
+  border: 0;
+  border-radius: 2px;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: var(--font-weight-bold);
+  line-height: var(--btn-line-height);
+  min-width: 100px;
+  padding: 0.6rem 1.5rem;
+  text-align: center;
+  user-select: none;
+  text-transform: uppercase;
+  text-decoration: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: var(--input-size-sm);
+
+  &[disabled] {
+    cursor: default;
+  }
+}
+
+.btn-default {
+  background-color: var(--btn-default-bg);
+  color: var(--btn-default-color);
+
+  &:hover {
+    background-color: var(--btn-default-hover);
+  }
+
+  &[disabled] {
+    background-color: var(--btn-default-bg-disabled);
+    color: var(--btn-default-color-disabled);
+  }
+
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--btn-default-bg);
+  }
+}
+
+.btn-primary {
+  background-color: var(--btn-primary-bg);
+  color: var(--btn-primary-color);
+
+  &:hover {
+    background-color: var(--btn-primary-hover);
+  }
+
+  &[disabled] {
+    background-color: var(--btn-primary-bg-disabled);
+    color: var(--btn-primary-color-disabled);
+  }
+
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--btn-primary-bg);
+  }
+}
+
+.btn-warning {
+  background-color: var(--btn-warning-bg);
+  color: var(--btn-warning-color);
+
+  &:hover {
+    background-color: var(--btn-warning-hover);
+  }
+
+  &[disabled] {
+    background-color: var(--btn-warning-bg-disabled);
+    color: var(--btn-warning-color-disabled);
+  }
+
+  &:focus {
+    outline: 0;
+    box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--btn-warning-bg);
+  }
+}
+
+.btn-link {
+  background-color: var(--btn-link-bg);
+  color: var(--btn-link-color);
+
+  &:hover {
+    color: var(--btn-link-hover);
+  }
+
+  &[disabled] {
+    background-color: var(--btn-link-bg-disabled);
+    color: var(--btn-link-color-disabled);
+  }
+
+  &:focus {
+    outline: 0;
+  }
+}
