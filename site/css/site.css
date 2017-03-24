@@ -81,18 +81,29 @@ code.sourceCode span.er { color: red; font-weight: bold; }
   overflow-y: scroll;
 }
 
+.example,
 pre {
-  position: relative;
+  border: 1px solid #e1e1e8;
+  font-size: 1.3rem;
   padding: 15px;
-  font-size: 13px;
-  line-height: 1.4;
-  border: 1px solid #e5e5e5;
   border-radius: .25rem .25rem 0 0;
 }
 
-code {
-  font-family: monospace;
+.example {
+  position: relative;
+  line-height: 1.4;
 }
+
+pre {
+  background-color: #f7f7f9;
+  border-top: none;
+
+
+  code {
+    font-family: monospace;
+  }
+}
+
 
 blockquote {
   border: 1px solid #eee;
