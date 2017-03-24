@@ -176,14 +176,22 @@ gulp.task('svg:store', function() {
 
 // Task: Watch
 gulp.task('watch', function() {
-  var urls = [
-    paths.src.root + '/css/*.css',
-    paths.src.root + '/docs/*.md',
+  var styles = [
+    paths.src.root + '/css/*.css'
+  ];
+
+  var docs = [
+    paths.src.root + '/docs/*.md'
+  ];
+
+  var site = [
     paths.site.templates + '/*.hbs',
     paths.site.css + '/*.css'
-
   ];
-  gulp.watch(urls, ['build:css', 'build:docs', 'build:site']);
+
+  gulp.watch(styles, ['build:css']);
+  gulp.watch(docs, ['build:docs']);
+  gulp.watch(site, ['build:site']);
 });
 
 
