@@ -75,14 +75,22 @@ h5, .h5 { font-size: var(--font-size-h5); }
 h6, .h6 { font-size: var(--font-size-h6); }
 
 h1, h2, h3, h4, h5, h6 {
-  margin-top: 0;
-  margin-bottom: .5rem;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 
 p {
   margin-top: 0;
-  margin-bottom: 1rem;
-  line-height: normal;
+  margin-bottom: 10px;
+  line-height: 1.5rem;
+}
+
+strong {
+  font-weight: bold;
+}
+
+em {
+  font-style: italic;
 }
 
 small,
