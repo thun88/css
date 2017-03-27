@@ -28,6 +28,7 @@ Some text about using form-controls.
     background-color: var(--input-bg-disabled);
     border: solid 1px var(--input-border-color-disabled);
     color: var(--input-color-disabled);
+    cursor: not-allowed;
     /* iOS fix for unreadable disabled content */
     opacity: 1;
   }
@@ -61,6 +62,7 @@ select.form-control {
   height: var(--input-height);
   line-height: normal;
 }
+
 
 .form-group {
   margin-bottom: 20px;
@@ -114,6 +116,11 @@ select.form-control {
   position: relative;
   margin-top: 10px;
   margin-bottom: 10px;
+
+  &.is-disabled label,
+  [disabled] {
+    cursor: not-allowed;
+  }
 }
 
 @keyframes check {
@@ -198,7 +205,7 @@ select.form-control {
       }
     }
 
-    &.form-checkbox--input--partial:checked::after {
+    &.form-checkbox--input.form-checkbox--input--partial::after {
       animation: none;
       border-width: 0 0 2px;
       left: 2px;
