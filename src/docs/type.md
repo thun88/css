@@ -1,4 +1,4 @@
-# Typeography
+# Typography
 
 ## Standard headings
 

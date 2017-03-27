@@ -6,7 +6,7 @@
 
 */
 
-@lost gutter 0;
+@lost gutter 20px;
 @lost flexbox flex;
 
 .lost-grid {
