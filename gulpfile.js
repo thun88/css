@@ -57,8 +57,7 @@ gulp.task('default', ['build', 'webserver']);
 gulp.task('dev', ['default', 'watch']);
 
 
-// Task: Build Icons
-// Builds icons
+// Task: Build
 gulp.task('build', ['build:css', 'build:docs', 'build:site']);
 
 
@@ -205,3 +204,23 @@ gulp.task('webserver', function() {
       log: 'debug'
     }));
 });
+
+
+//**************************************************************************************
+//
+// Task: Deploy (Lepore only)
+// Copies the WWW folder on Lepore's machine to his dropbox folder for temporary viewing
+//
+//**************************************************************************************
+gulp.task('deploy', function() {
+  var exec = require('child_process').exec;
+
+  var src = '~/HookandLoop/git/soho/soho-foundation/site/www',
+      dest = ' ~/Dropbox/Public/soho-foundation';
+
+  return exec('cp -R ' + src + ' ' + dest, function (err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
+  });
+});
+//**************************************************************************************
