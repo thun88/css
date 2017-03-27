@@ -9,18 +9,16 @@ var gulp = require('gulp'),
     postcss = require('gulp-postcss'),
     rename = require('gulp-rename'),
     server = require('gulp-server-livereload'),
+    stylelint = require('gulp-stylelint'),
     svgstore = require('gulp-svgstore'),
     tap = require('gulp-tap');
 
 // PostCSS Plugins
 var atImport = require('postcss-import'),
-    autoprefixer = require('autoprefixer'),
     commas = require('postcss-commas'),
+    cssnext = require('postcss-cssnext'),
     cssnano = require('cssnano'),
-    customMedia = require('postcss-custom-media'),
-    customProperties = require('postcss-custom-properties'),
-    lost = require('lost')
-    nested = require('postcss-nested');
+    lost = require('lost');
 
 
 // Paths
@@ -107,11 +105,8 @@ gulp.task('build:css', function () {
   var plugins = [
     atImport,
     commas,
-    nested,
-    customProperties({ preserve: true }),
-    customMedia,
     lost,
-    autoprefixer
+    cssnext
   ];
 
   var postcssOptions = {
@@ -132,9 +127,7 @@ gulp.task('build:css', function () {
 gulp.task('build:site', function() {
   var plugins = [
     commas,
-    nested,
-    customProperties({ preserve: true }),
-    autoprefixer,
+    cssnext,
     cssnano
   ];
 
@@ -153,11 +146,31 @@ gulp.task('clean', function () {
   ]);
 });
 
+gulp.task('lint:site', function() {
+  return gulp.src(paths.site.css + '/site.css')
+    .pipe(stylelint({
+      failAfterError: true,
+      reporters: [
+        { formatter: 'verbose', console: true },
+      ]
+    }))
+});
+
+gulp.task('lint:css', function() {
+  return gulp.src(paths.src.css + '/*.css')
+    .pipe(stylelint({
+      failAfterError: true,
+      reporters: [
+        { formatter: 'verbose', console: true },
+      ]
+    }))
+});
+
 
 // Task: Optimize SVGs
 gulp.task('svg:optimize', function() {
   var svgs = paths.src.icons + '/svg/*.svg';
-  gulp.src(svgs)
+  return gulp.src(svgs)
     .pipe(svgmin())
     .pipe(gulp.dest(svgs));
 });
