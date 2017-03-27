@@ -77,7 +77,7 @@ gulp.task('build:docs', function() {
       return gulp.src(paths.src.docFiles)
         // convert from markdown
         .pipe(pandoc({
-           from: 'markdown',
+           from: 'markdown-markdown_in_html_blocks', // http://pandoc.org/MANUAL.html#raw-html
            to: 'html5',
            ext: '.html',
            args: ['--smart']
