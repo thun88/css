@@ -11,12 +11,12 @@
   <h6>h6. Soho Heading</h6>
 </div>
 ```html
-<h1>h1. Soho Heading</h1>
-<h2>h2. Soho Heading</h2>
-<h3>h3. Soho Heading</h3>
-<h4>h4. Soho Heading</h4>
-<h5>h5. Soho Heading</h5>
-<h6>h6. Soho Heading</h6>
+  <h1>h1. Soho Heading</h1>
+  <h2>h2. Soho Heading</h2>
+  <h3>h3. Soho Heading</h3>
+  <h4>h4. Soho Heading</h4>
+  <h5>h5. Soho Heading</h5>
+  <h6>h6. Soho Heading</h6>
 ```
 
 ## Body copy
@@ -55,8 +55,7 @@ The following snippet of text is <em>rendered as italicized text.</em>
 ```
 
 > Alternate elements
->
-> Feel free to use <b> and <i> in HTML5. <b> is meant to highlight words or phrases without conveying additional importance while <i> is mostly for voice, technical terms, etc.
+> Feel free to use `<b>` and `<i>` in HTML5. `<b>` is meant to highlight words or phrases without conveying additional importance while `<i>` is mostly for voice, technical terms, etc.
 
 ## Smaller Text
 <div class="example">
@@ -67,8 +66,8 @@ The following snippet of text is <em>rendered as italicized text.</em>
 ```
 
 ## Disabled text
-The following snippet of text is <span class="text-disabled">rendered as <div class="example">
-  disabled or muted text.</span>
+<div class="example">
+  The following snippet of text is <span class="text-disabled">rendered as disabled or muted text.</span>
 </div>
 ```html
 The following snippet of text is <span class="text-disabled">rendered as disabled or muted text.</span>

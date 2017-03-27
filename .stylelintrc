@@ -118,7 +118,6 @@
     "number-leading-zero": "always",
     "number-no-trailing-zeros": true,
     "property-case": "lower",
-    "property-no-unknown": true,
     "rule-empty-line-before": [
       "always-multi-line",
       {

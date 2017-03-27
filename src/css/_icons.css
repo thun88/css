@@ -1,8 +1,3 @@
-/*
-  Icons
-
- */
-
 .icon {
   display: inline-block;
   fill: var(--graphite04);
@@ -12,5 +7,5 @@
 }
 
 .btn-link span { /* Temp class - remove ASAP */
-  display:  none;
+  display: none;
 }

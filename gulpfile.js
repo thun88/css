@@ -1,27 +1,54 @@
-// Gulp Plugins
-var gulp = require('gulp'),
-    concat = require('gulp-concat'),
-    del = require('del'),
-    fs = require('fs'),
-    glob = require('glob'),
+// *************************************
+//
+//   Gulpfile
+//
+// *************************************
+//
+// Available tasks:
+//   `gulp`
+//   `gulp build`
+//      `gulp compile:css`
+//      `gulp compile:docs`
+//      `gulp compile:site`
+//   `gulp clean`
+//   `gulp dev`
+//   `gulp lint`
+//      `gulp lint:css`
+//      `gulp lint:site`
+//   `gulp svg:optimize`
+//   `gulp svg:store`
+//   `gulp watch`
+//   `gulp webserver`
+//
+// *************************************
+
+const gulp = require('gulp');
+var concat =     require('gulp-concat'),
+    del =        require('del'),
+    fs =         require('fs'),
+    glob =       require('glob'),
     handlebars = require('handlebars'),
-    pandoc = require('gulp-pandoc'),
-    postcss = require('gulp-postcss'),
-    rename = require('gulp-rename'),
-    server = require('gulp-server-livereload'),
-    stylelint = require('gulp-stylelint'),
-    svgstore = require('gulp-svgstore'),
-    tap = require('gulp-tap');
+    pandoc =     require('gulp-pandoc'),
+    postcss =    require('gulp-postcss'),
+    rename =     require('gulp-rename'),
+    server =     require('gulp-server-livereload'),
+    stylelint =  require('gulp-stylelint'),
+    svgstore =   require('gulp-svgstore'),
+    tap =        require('gulp-tap');
 
-// PostCSS Plugins
+// -------------------------------------
+//   PostCSS Plugins
+// -------------------------------------
 var atImport = require('postcss-import'),
-    commas = require('postcss-commas'),
-    cssnext = require('postcss-cssnext'),
-    cssnano = require('cssnano'),
-    lost = require('lost');
+  commas =     require('postcss-commas'),
+  cssnext =    require('postcss-cssnext'),
+  cssnano =    require('cssnano'),
+  lost =       require('lost');
 
 
-// Paths
+// -------------------------------------
+//   File Paths
+// -------------------------------------
 var paths = {
   src:  {},
   dist: {},
@@ -46,21 +73,52 @@ paths.site.templates = paths.site.root + '/templates';
 paths.site.www = paths.site.root + '/www';
 
 
-// Task: Default
+// -------------------------------------
+//   Task: Default
+// -------------------------------------
 // Does a full build and runs the site
 gulp.task('default', ['build', 'webserver']);
 
 
-// Task: Dev
-gulp.task('dev', ['default', 'watch']);
+
+// -------------------------------------
+//   Task: Build
+// -------------------------------------
+gulp.task('build', ['compile:css', 'compile:docs', 'compile:site']);
 
 
-// Task: Build
-gulp.task('build', ['build:css', 'build:docs', 'build:site']);
+// -------------------------------------
+//   Task: Build CSS
+// -------------------------------------
+gulp.task('compile:css', function () {
 
+  // Note: plugin order matters
+  var modules = [
+    atImport,
+    commas,
+    lost,
+    cssnext
+  ];
 
-// Task: Build Docs
-gulp.task('build:docs', function() {
+  var postcssOptions = {
+    map: true
+  };
+
+  return gulp.src(paths.src.css + '/soho-foundation.css')
+    .pipe(postcss(modules, postcssOptions))
+    .pipe(gulp.dest(paths.dist.css))
+    .pipe(postcss([
+      require('cssnano')({ autoprefixer: false })
+    ], postcssOptions))
+    .pipe(rename('soho-foundation.min.css'))
+    .pipe(gulp.dest(paths.dist.css))
+    .pipe(gulp.dest(paths.site.www + '/css'));
+});
+
+// -------------------------------------
+//   Task: Build Docs
+// -------------------------------------
+gulp.task('compile:docs', function() {
   // read the template from page.hbs
   return gulp.src(paths.site.templates + '/page.hbs')
     .pipe(tap(function(templateFile) {
@@ -98,37 +156,14 @@ gulp.task('build:docs', function() {
 });
 
 
-// Task: Build CSS
-gulp.task('build:css', function () {
-
-  // Note: plugin order matters
-  var plugins = [
-    atImport,
-    commas,
-    lost,
-    cssnext
-  ];
-
-  var postcssOptions = {
-    map: true
-  };
-
-  return gulp.src(paths.src.css + '/soho-foundation.css')
-    .pipe(postcss(plugins, postcssOptions))
-    .pipe(gulp.dest(paths.dist.css))
-    .pipe(postcss([cssnano], postcssOptions))
-    .pipe(rename('soho-foundation.min.css'))
-    .pipe(gulp.dest(paths.dist.css))
-    .pipe(gulp.dest(paths.site.www + '/css'));
-});
-
-
-// Build: Site Static files
-gulp.task('build:site', function() {
+// -------------------------------------
+//   Task: Build Site
+// -------------------------------------
+gulp.task('compile:site', function() {
   var plugins = [
     commas,
     cssnext,
-    cssnano
+    cssnano({ autoprefixer: false })
   ];
 
   return gulp.src(paths.site.css + '/site.css')
@@ -138,7 +173,9 @@ gulp.task('build:site', function() {
 });
 
 
-// Task: Clean
+// -------------------------------------
+//   Task: Clean
+// -------------------------------------
 gulp.task('clean', function () {
   return del([
     paths.dist.root,
@@ -146,16 +183,22 @@ gulp.task('clean', function () {
   ]);
 });
 
-gulp.task('lint:site', function() {
-  return gulp.src(paths.site.css + '/site.css')
-    .pipe(stylelint({
-      failAfterError: true,
-      reporters: [
-        { formatter: 'verbose', console: true },
-      ]
-    }))
-});
 
+// -------------------------------------
+//   Task: Dev
+// -------------------------------------
+gulp.task('dev', ['default', 'watch']);
+
+
+// -------------------------------------
+//   Task: Lint CSS
+// -------------------------------------
+gulp.task('lint', ['lint:css', 'lint:site']);
+
+
+// -------------------------------------
+//   Task: Lint src css
+// -------------------------------------
 gulp.task('lint:css', function() {
   return gulp.src(paths.src.css + '/*.css')
     .pipe(stylelint({
@@ -166,8 +209,23 @@ gulp.task('lint:css', function() {
     }))
 });
 
+// -------------------------------------
+//   Task: Lint site css
+// -------------------------------------
+gulp.task('lint:site', function() {
+  return gulp.src(paths.site.css + '/site.css')
+    .pipe(stylelint({
+      failAfterError: true,
+      reporters: [
+        { formatter: 'verbose', console: true },
+      ]
+    }))
+});
 
-// Task: Optimize SVGs
+
+// -------------------------------------
+//   Task: SVG Optimization
+// -------------------------------------
 gulp.task('svg:optimize', function() {
   var svgs = paths.src.icons + '/svg/*.svg';
   return gulp.src(svgs)
@@ -176,7 +234,9 @@ gulp.task('svg:optimize', function() {
 });
 
 
-// Task: Create svg file
+// -------------------------------------
+//   Task: SVG building
+// -------------------------------------
 gulp.task('svg:store', function() {
   return gulp.src(paths.src.icons + '/svg/*.svg')
     .pipe(svgstore({ inlineSvg: true }))
@@ -186,7 +246,9 @@ gulp.task('svg:store', function() {
 });
 
 
-// Task: Watch
+// -------------------------------------
+//   Task: Watch
+// -------------------------------------
 gulp.task('watch', function() {
   var styles = [
     paths.src.root + '/css/*.css'
@@ -201,13 +263,15 @@ gulp.task('watch', function() {
     paths.site.css + '/*.css'
   ];
 
-  gulp.watch(styles, ['build:css']);
-  gulp.watch(docs, ['build:docs']);
-  gulp.watch(site, ['build:site']);
+  gulp.watch(styles, ['compile:css']);
+  gulp.watch(docs, ['compile:docs']);
+  gulp.watch(site, ['compile:site']);
 });
 
 
-// Task: Webserver
+// -------------------------------------
+//   Task: Webserver
+// -------------------------------------
 gulp.task('webserver', function() {
   gulp.src(paths.site.www)
     .pipe(server({
@@ -219,16 +283,14 @@ gulp.task('webserver', function() {
 });
 
 
-//**************************************************************************************
-//
+// -------------------------------------
 // Task: Deploy (Lepore only)
 // Copies the WWW folder on Lepore's machine to his dropbox folder for temporary viewing
-//
-//**************************************************************************************
-gulp.task('deploy', function() {
+// -------------------------------------
+gulp.task('deploy', ['lint'], function() {
   var exec = require('child_process').exec;
 
-  var src = '~/HookandLoop/git/soho/soho-foundation/site/www',
+  var src = '~/HookandLoop/git/soho/soho-foundation/site/www/*',
       dest = ' ~/Dropbox/Public/soho-foundation';
 
   return exec('cp -R ' + src + ' ' + dest, function (err, stdout, stderr) {
@@ -236,4 +298,4 @@ gulp.task('deploy', function() {
     console.log(stderr);
   });
 });
-//**************************************************************************************
+// -------------------------------------

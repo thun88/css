@@ -2,7 +2,6 @@
  * Website styles
  */
 
-
 /*
  * Pandoc code highlight styles - customized
  * https://github.com/jgm/highlighting-kate/blob/master/css/hk-pyg.css
@@ -19,57 +18,71 @@ table.sourceCode pre {
   padding: 0;
   vertical-align: baseline;
 }
+
 td.lineNumbers {
-  border-right: 1px solid #AAAAAA;
-  color: #AAAAAA;
+  border-right: 1px solid #aaa;
+  color: #aaa;
   padding-right: 5px;
   padding-left: 5px;
   text-align: right;
 }
+
 td.sourceCode {
   padding-left: 5px;
 }
-pre.sourceCode { }
+
+/* pre.sourceCode {} */
+
 code.sourceCode span.kw {
-  color: #006699;
+  color: #069;
 }
+
 code.sourceCode span.dt {
   color: #902000;
 }
+
 code.sourceCode span.dv {
   color: #40a070;
 }
+
 code.sourceCode span.bn {
   color: #40a070;
 }
+
 code.sourceCode span.fl {
   color: #40a070;
 }
+
 code.sourceCode span.ch {
   color: #4070a0;
 }
+
 code.sourceCode span.st {
   color: #d44950;
 }
+
 code.sourceCode span.co {
   color: #60a0b0;
   font-style: italic;
 }
+
 code.sourceCode span.ot {
   color: #4f9fcf;
 }
+
 code.sourceCode span.al {
   color: red;
 }
+
 code.sourceCode span.fu {
   color: #06287e;
 }
-code.sourceCode span.re {}
+
+/* code.sourceCode span.re {} */
+
 code.sourceCode span.er {
   color: red;
 }
-
-
 
 /*
  * Top Nav
@@ -80,7 +93,7 @@ code.sourceCode span.er {
   color: #fff;
   padding: 20px;
 
-  .top-nav--link {
+  & .top-nav--link {
     color: inherit;
     text-decoration: none;
   }
@@ -91,7 +104,6 @@ code.sourceCode span.er {
   position: relative;
   width: 100%;
 }
-
 
 /*
  * Menu bar
@@ -111,7 +123,6 @@ code.sourceCode span.er {
     background-color: #eee;
   }
 }
-
 
 /*
  * Main contents
@@ -136,7 +147,7 @@ pre {
   border: 1px solid #e1e1e8;
   font-size: 1.3rem;
   padding: 15px;
-  border-radius: .25rem .25rem 0 0;
+  border-radius: 0.25rem 0.25rem 0 0;
 }
 
 .example {
@@ -150,7 +161,7 @@ pre {
   font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
   margin-bottom: 20px;
 
-  code {
+  & code {
     background-color: transparent;
     border-radius: 0;
     color: inherit;
@@ -186,7 +197,7 @@ blockquote {
 .demo-grid {
   margin-bottom: 20px;
 
-  [class^="lost-grid--col-"] {
+  & [class^="lost-grid--col-"] {
     outline: solid 1px #69b5dd;
     height: 50px;
     line-height: 50px;

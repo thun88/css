@@ -127,7 +127,7 @@ Disabled checkboxes and radios are supported, but to provide a "not-allowed" cur
           Checkbox Disabled and Checked
       </label>
     </div>
-  </form
+  </form>
 </div>
 ```html
   <div class="form-checkbox">

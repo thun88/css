@@ -14,11 +14,11 @@
     "express": "^4.13.3"
   },
   "devDependencies": {
-    "cssnano": "^3.10.0",
     "del": "^2.2.2",
-    "glob": "^7.1.1",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-load-plugins": "^1.5.0",
     "gulp-pandoc": "^0.2.2",
     "gulp-postcss": "^6.3.0",
     "gulp-rename": "^1.2.2",
@@ -31,5 +31,8 @@
     "postcss-commas": "^1.0.0",
     "postcss-cssnext": "^2.10.0",
     "postcss-import": "^9.1.0"
+  },
+  "scripts": {
+    "preinstall": "npm install -g pandoc-bin gulp-cli"
   }
 }

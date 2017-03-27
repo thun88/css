@@ -6,6 +6,7 @@ Foundation is a sleek, intuitive, and powerful front-end framework for faster an
 - [Dev Quick start](#dev-quick-start)
 - [Gulp Tasks](#other-useful-gulp-tasks)
 - [SVG Icons](#edit-icons)
+- [Lint Styles](#lint-styles)
 
 ## Dev Quick start
 1. Pull the repo
@@ -15,7 +16,8 @@ Foundation is a sleek, intuitive, and powerful front-end framework for faster an
 
 ## Other Useful Gulp Tasks
 
-- `$ gulp` - Build the site and run the webserver:
+- `$ gulp` - Build the site and run the webserver
+- `$ gulp build` - Build the files without starting the webserver
 - `$ gulp dev` - Build the site, run the webserver, and start a watch for development
 - `$ gulp clean` - Remove all generated/static files (`dist` & `site/www`)
 
@@ -29,5 +31,6 @@ For building the icons
 1. `$ gulp svg:store`
 2. `$ gulp`
 
+## Lint Styles
 
-
+- `$ gulp lint` Lints the source and site css raw files
