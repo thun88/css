@@ -22,28 +22,57 @@
 //
 // *************************************
 
+
+// -------------------------------------
+//   Modules
+// -------------------------------------
+//
+// gulp           : The streaming build system
+// gulp-concat    : Concatenate files
+// del            : Compile CoffeeScript files
+// fs             : Lint your CoffeeScript
+// glob           : File pattern matching
+// handlebars     : Template parser
+// gulp-pandoc    : File converter
+// gulp-postcss   : Transform styles with JS
+// gulp-rename    : Rename files
+// gulp-server    : Serve the website for dev
+// gulp-stylelint : Lint the styles
+// gulp-svgstore  : Combine svg files
+// gulp-tap       : Easily tap into a pipeline
+//
+// postcss-import  : Include css files with "@"
+// postcss-commas  : Allow lists of properties per value
+// postcss-cssnext : Collection of future proof plugins
+// cssnano         : CSS minify
+// lost            : Grid system
+//
+// -------------------------------------
+
 var gulp = require('gulp');
-var concat =     require('gulp-concat'),
-    del =        require('del'),
-    fs =         require('fs'),
-    glob =       require('glob'),
+var concat = require('gulp-concat'),
+    cssAnnotationBlock = require('css-annotation-block'),
+    del = require('del'),
+    fs = require('fs'),
+    glob = require('glob'),
     handlebars = require('handlebars'),
-    pandoc =     require('gulp-pandoc'),
-    postcss =    require('gulp-postcss'),
-    rename =     require('gulp-rename'),
-    server =     require('gulp-server-livereload'),
-    stylelint =  require('gulp-stylelint'),
-    svgstore =   require('gulp-svgstore'),
-    tap =        require('gulp-tap');
+    isColor = require('is-color'),
+    pandoc = require('gulp-pandoc'),
+    postcss = require('gulp-postcss'),
+    rename = require('gulp-rename'),
+    server = require('gulp-server-livereload'),
+    stylelint = require('gulp-stylelint'),
+    svgstore = require('gulp-svgstore'),
+    tap = require('gulp-tap');
 
 // -------------------------------------
 //   PostCSS Plugins
 // -------------------------------------
 var atImport = require('postcss-import'),
-  commas =     require('postcss-commas'),
-  cssnext =    require('postcss-cssnext'),
-  cssnano =    require('cssnano'),
-  lost =       require('lost');
+  commas     = require('postcss-commas'),
+  cssnext    = require('postcss-cssnext'),
+  cssnano    = require('cssnano'),
+  lost       = require('lost');
 
 
 // -------------------------------------
@@ -88,6 +117,38 @@ gulp.task('build', ['compile:css', 'compile:docs', 'compile:site']);
 
 
 // -------------------------------------
+//   Task: Build Colors
+// -------------------------------------
+gulp.task('compile:colors', function() {
+  var colorArr = getColors();
+  var svgHTML = fs.readFileSync(paths.src.root + '/icons/icons.svg', 'utf-8');
+
+  // read the template from page.hbs
+  gulp.src(paths.site.templates + '/colors.hbs')
+    .pipe(tap(function(colorTemplate) {
+      var colorTemplate = handlebars.compile(colorTemplate.contents.toString());
+      var colorHtml = colorTemplate({
+        colors: colorArr
+      });
+      colorStream = new Buffer(colorHtml, 'utf-8');
+
+      gulp.src(paths.site.templates + '/page.hbs')
+        .pipe(tap(function(pageTemplate) {
+
+          var pageTempate = handlebars.compile(pageTemplate.contents.toString());
+          var pageHtml = pageTempate({
+            contents: colorStream,
+            icons: svgHTML
+          });
+          pageTemplate.contents = new Buffer(pageHtml, 'utf-8');
+        }))
+        .pipe(rename('colors.html'))
+        .pipe(gulp.dest(paths.site.www));
+    }));
+    console.log('finish');
+});
+
+// -------------------------------------
 //   Task: Build CSS
 // -------------------------------------
 gulp.task('compile:css', function () {
@@ -118,18 +179,18 @@ gulp.task('compile:css', function () {
 // -------------------------------------
 //   Task: Build Docs
 // -------------------------------------
-gulp.task('compile:docs', function() {
+gulp.task('compile:docs', ['compile:colors'], function() {
+  // Get the svg icon contents
+  var svgHTML = fs.readFileSync(paths.src.root + '/icons/icons.svg', 'utf-8');
+
   // read the template from page.hbs
   return gulp.src(paths.site.templates + '/page.hbs')
     .pipe(tap(function(templateFile) {
       // templateFile is page.hbs so generate template from templateFile
       var template = handlebars.compile(templateFile.contents.toString());
 
-      // Get the svg icon contents
-      var svgHTML = fs.readFileSync(paths.src.root + '/icons/icons.svg', 'utf-8');
-
       // now read all the pages from the pages directory
-      return gulp.src(paths.src.docFiles)
+      gulp.src(paths.src.docFiles)
         // convert from markdown
         .pipe(pandoc({
            from: 'markdown-markdown_in_html_blocks', // http://pandoc.org/MANUAL.html#raw-html
@@ -283,6 +344,39 @@ gulp.task('webserver', function() {
       log: 'debug'
     }));
 });
+
+
+// -------------------------------------
+//   Function: getColors()
+// -------------------------------------
+function getColors() {
+  var cssPath = paths.src.css + '/variables/_colors.css';
+
+  var cssContent = fs.readFileSync(cssPath, 'utf-8').trim();
+  var results = cssAnnotationBlock(cssContent);
+  var colorRoot = [];
+
+  results.forEach(function (result) {
+    if (result.name === 'color') {
+      result.nodes.forEach(function (node) {
+        colorRoot.push(node);
+      });
+    }
+  });
+
+  var colorPalette = [];
+  colorRoot.forEach(function (color) {
+    color.walkDecls(function (decl) {
+    if (isColor(decl.value)) {
+        colorPalette.push({
+          name: decl.prop.replace(/^--/, ''),
+          color: decl.value
+        });
+      }
+    });
+  });
+  return colorPalette;
+};
 
 
 // -------------------------------------

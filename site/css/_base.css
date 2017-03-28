@@ -8,8 +8,8 @@
  */
 
 .top-nav {
-  background-color: #368ac0;
-  color: #fff;
+  background-color: var(--azure06);
+  color: var(--white);
   padding: 20px;
 
   & .top-nav--link {
@@ -35,12 +35,7 @@
 
 .sidebar--list > li {
   display: block;
-  color: #3f526b;
   padding: 12px 8px;
-
-  &:hover {
-    background-color: #eee;
-  }
 }
 
 /*
@@ -49,7 +44,7 @@
 
 .main {
   height: 100%;
-  background-color: #fff;
+  background-color: var(--white);
   overflow-y: scroll;
 }
 
@@ -94,13 +89,13 @@ pre {
 blockquote {
   border: 1px solid #eee;
   border-left-width: 5px;
-  border-left-color: #efa836;
+  border-left-color: var(--soho-primary);
   border-radius: 3px;
   padding: 20px;
   margin: 20px 0;
 
   &.info {
-    border-left-color: #1b809e;
+    border-left-color: var(--amber05);
   }
 }
 
@@ -117,7 +112,7 @@ blockquote {
   margin-bottom: 20px;
 
   & [class^="lost-grid--col-"] {
-    outline: solid 1px #69b5dd;
+    outline: solid 1px var(--soho-primary);
     height: 50px;
     line-height: 50px;
     text-align: center;

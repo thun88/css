@@ -2,6 +2,15 @@
   --soho-primary: var(--azure06);
   --soho-warning: var(--ruby06);
 
+  /* Alert color aliases */
+  --alert-red: #e84f4f;
+  --alert-bg-color: rgba(232, 79, 79, 0.1);
+  --alert-orange: #ff9426;
+  --alert-yellow: #ffd726;
+  --alert-green: #80ce4d;
+  --alert-info: var(--azure06);
+  --alert-neutral: var(--graphite03);
+
   /* Body - Settings for the `<body>` element. */
   --body-bg: var(--graphite01);
   --body-color: var(--graphite06);
