@@ -22,7 +22,7 @@
 //
 // *************************************
 
-const gulp = require('gulp');
+var gulp = require('gulp');
 var concat =     require('gulp-concat'),
     del =        require('del'),
     fs =         require('fs'),
@@ -93,7 +93,7 @@ gulp.task('build', ['compile:css', 'compile:docs', 'compile:site']);
 gulp.task('compile:css', function () {
 
   // Note: plugin order matters
-  var modules = [
+  var plugins = [
     atImport,
     commas,
     lost,
@@ -105,7 +105,7 @@ gulp.task('compile:css', function () {
   };
 
   return gulp.src(paths.src.css + '/soho-foundation.css')
-    .pipe(postcss(modules, postcssOptions))
+    .pipe(postcss(plugins, postcssOptions))
     .pipe(gulp.dest(paths.dist.css))
     .pipe(postcss([
       require('cssnano')({ autoprefixer: false })
@@ -159,9 +159,13 @@ gulp.task('compile:docs', function() {
 // -------------------------------------
 //   Task: Build Site
 // -------------------------------------
-gulp.task('compile:site', function() {
+gulp.task('compile:site', function () {
+
+  // Note: plugin order matters
   var plugins = [
+    atImport,
     commas,
+    lost,
     cssnext,
     cssnano({ autoprefixer: false })
   ];
@@ -251,21 +255,19 @@ gulp.task('svg:store', function() {
 // -------------------------------------
 gulp.task('watch', function() {
   var styles = [
-    paths.src.root + '/css/*.css'
-  ];
-
-  var docs = [
-    paths.src.root + '/docs/*.md'
-  ];
-
-  var site = [
-    paths.site.templates + '/*.hbs',
+    paths.src.root + '/css/*.css',
+    paths.src.root + '/css/**/*.css',
     paths.site.css + '/*.css'
   ];
 
-  gulp.watch(styles, ['compile:css']);
-  gulp.watch(docs, ['compile:docs']);
-  gulp.watch(site, ['compile:site']);
+  var docs = [
+    paths.src.root + '/docs/*.md',
+    paths.site.templates + '/*.hbs'
+  ];
+
+
+  gulp.watch(styles, ['compile:css', 'compile:site']); // Compiles css
+  gulp.watch(docs, ['compile:docs']);  // Compiles markdown & site template
 });
 
 
