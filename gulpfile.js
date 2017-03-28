@@ -9,6 +9,7 @@
 //   `gulp build`
 //      `gulp compile:css`
 //      `gulp compile:docs`
+//      `gulp compile:colors`
 //      `gulp compile:site`
 //   `gulp clean`
 //   `gulp dev`
@@ -29,10 +30,12 @@
 //
 // gulp           : The streaming build system
 // gulp-concat    : Concatenate files
+// annotateBlock  : Parse css comments
 // del            : Compile CoffeeScript files
 // fs             : Lint your CoffeeScript
 // glob           : File pattern matching
 // handlebars     : Template parser
+// is-color       : Validate hex colors
 // gulp-pandoc    : File converter
 // gulp-postcss   : Transform styles with JS
 // gulp-rename    : Rename files
@@ -51,7 +54,7 @@
 
 var gulp = require('gulp');
 var concat = require('gulp-concat'),
-    cssAnnotationBlock = require('css-annotation-block'),
+    annotateBlock = require('css-annotation-block'),
     del = require('del'),
     fs = require('fs'),
     glob = require('glob'),
@@ -353,7 +356,7 @@ function getColors() {
   var cssPath = paths.src.css + '/variables/_colors.css';
 
   var cssContent = fs.readFileSync(cssPath, 'utf-8').trim();
-  var results = cssAnnotationBlock(cssContent);
+  var results = annotateBlock(cssContent);
   var colorRoot = [];
 
   results.forEach(function (result) {
