@@ -9,7 +9,6 @@
 //   `gulp build`
 //      `gulp compile:css`
 //      `gulp compile:docs`
-//      `gulp compile:colors`
 //      `gulp compile:site`
 //   `gulp clean`
 //   `gulp dev`
@@ -34,7 +33,7 @@
 // del            : Compile CoffeeScript files
 // fs             : Lint your CoffeeScript
 // glob           : File pattern matching
-// handlebars     : Template parser
+// hb             : Template parser
 // is-color       : Validate hex colors
 // gulp-pandoc    : File converter
 // gulp-postcss   : Transform styles with JS
@@ -43,6 +42,7 @@
 // gulp-stylelint : Lint the styles
 // gulp-svgstore  : Combine svg files
 // gulp-tap       : Easily tap into a pipeline
+// gulp-wrap      : Wrap stream contents to template
 //
 // postcss-import  : Include css files with "@"
 // postcss-commas  : Allow lists of properties per value
@@ -58,7 +58,7 @@ var concat = require('gulp-concat'),
     del = require('del'),
     fs = require('fs'),
     glob = require('glob'),
-    handlebars = require('handlebars'),
+    hb = require('gulp-hb'),
     isColor = require('is-color'),
     pandoc = require('gulp-pandoc'),
     postcss = require('gulp-postcss'),
@@ -66,7 +66,8 @@ var concat = require('gulp-concat'),
     server = require('gulp-server-livereload'),
     stylelint = require('gulp-stylelint'),
     svgstore = require('gulp-svgstore'),
-    tap = require('gulp-tap');
+    tap = require('gulp-tap'),
+    wrap = require('gulp-wrap');
 
 // -------------------------------------
 //   PostCSS Plugins
@@ -120,39 +121,7 @@ gulp.task('build', ['compile:css', 'compile:docs', 'compile:site']);
 
 
 // -------------------------------------
-//   Task: Build Colors
-// -------------------------------------
-gulp.task('compile:colors', function() {
-  var colorArr = getColors();
-  var svgHTML = fs.readFileSync(paths.src.root + '/icons/icons.svg', 'utf-8');
-
-  // read the template from page.hbs
-  gulp.src(paths.site.templates + '/colors.hbs')
-    .pipe(tap(function(colorTemplate) {
-      var colorTemplate = handlebars.compile(colorTemplate.contents.toString());
-      var colorHtml = colorTemplate({
-        colors: colorArr
-      });
-      colorStream = new Buffer(colorHtml, 'utf-8');
-
-      gulp.src(paths.site.templates + '/page.hbs')
-        .pipe(tap(function(pageTemplate) {
-
-          var pageTempate = handlebars.compile(pageTemplate.contents.toString());
-          var pageHtml = pageTempate({
-            contents: colorStream,
-            icons: svgHTML
-          });
-          pageTemplate.contents = new Buffer(pageHtml, 'utf-8');
-        }))
-        .pipe(rename('colors.html'))
-        .pipe(gulp.dest(paths.site.www));
-    }));
-    console.log('finish');
-});
-
-// -------------------------------------
-//   Task: Build CSS
+//   Task: Compile CSS
 // -------------------------------------
 gulp.task('compile:css', function () {
 
@@ -174,54 +143,47 @@ gulp.task('compile:css', function () {
     .pipe(postcss([
       require('cssnano')({ autoprefixer: false })
     ], postcssOptions))
-    .pipe(rename('soho-foundation.min.css'))
+    .pipe(rename({ extname: '.min.css' }))
     .pipe(gulp.dest(paths.dist.css))
     .pipe(gulp.dest(paths.site.www + '/css'));
 });
 
 // -------------------------------------
-//   Task: Build Docs
+//   Task: Compile Docs
 // -------------------------------------
-gulp.task('compile:docs', ['compile:colors'], function() {
-  // Get the svg icon contents
+gulp.task('compile:docs', function() {
   var svgHTML = fs.readFileSync(paths.src.root + '/icons/icons.svg', 'utf-8');
 
-  // read the template from page.hbs
-  return gulp.src(paths.site.templates + '/page.hbs')
-    .pipe(tap(function(templateFile) {
-      // templateFile is page.hbs so generate template from templateFile
-      var template = handlebars.compile(templateFile.contents.toString());
+  var colorArr = getColors();
 
-      // now read all the pages from the pages directory
-      gulp.src(paths.src.docFiles)
-        // convert from markdown
-        .pipe(pandoc({
-           from: 'markdown-markdown_in_html_blocks', // http://pandoc.org/MANUAL.html#raw-html
-           to: 'html5',
-           ext: '.html',
-           args: ['--smart']
-        }))
-        .pipe(tap(function(file) {
-          // file is the converted HTML from the markdown
-          // set the contents to the contents property on data
-          // and add the svg icons too
-          var data = {
-            contents: file.contents.toString(),
-            icons: svgHTML
-          };
-          // we will pass data to the handlebars template to create the actual HTML to use
-          var html = template(data);
-          // replace the file contents with the new HTML created from the handlebars template
-          //  + data object that contains the HTML made from the markdown conversion
-          file.contents = new Buffer(html, 'utf-8');
-        }))
-        .pipe(gulp.dest(paths.site.www));
-    }));
+  var hbStream = hb()
+    .partials(paths.site.templates + '/*.hbs')
+    .data({
+      colors: colorArr
+    });
+
+  gulp.src(paths.src.docs + '/*.md')
+    .pipe(hbStream)
+    .pipe(pandoc({
+       from: 'markdown-markdown_in_html_blocks', // http://pandoc.org/MANUAL.html#raw-html
+       to: 'html5',
+       ext: '.html',
+       args: ['--smart']
+    }))
+    .pipe(wrap({
+        src: paths.site.templates + '/page.hbs'
+      }, {
+        icons: svgHTML
+      }, {
+        engine: 'handlebars'
+      }
+    ))
+    .pipe(gulp.dest(paths.site.www));
 });
 
 
 // -------------------------------------
-//   Task: Build Site
+//   Task: Compile Site
 // -------------------------------------
 gulp.task('compile:site', function () {
 
@@ -236,7 +198,7 @@ gulp.task('compile:site', function () {
 
   return gulp.src(paths.site.css + '/site.css')
     .pipe(postcss(plugins, { map: true }))
-    .pipe(rename('site.min.css'))
+    .pipe(rename({ extname: '.min.css' }))
     .pipe(gulp.dest(paths.site.www + '/css'));
 });
 

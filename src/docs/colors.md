@@ -1,3 +1,5 @@
+# Colors
+
 <ul class="psg-colorPalette">
   {{#each colors}}
     <li>
