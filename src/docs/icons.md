@@ -63,12 +63,12 @@ The examples below are shown in buttons, as that is their most common use.
 
 
 {{#each icons}}
-<button type="button" class="btn btn-link" title="{{this.name}}">
-  <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-    <use xlink:href="#{{this.name}}"></use>
-  </svg>
-  <span>{{this.name}}</span>
-</button>
+  <button type="button" class="btn btn-link" title="{{this}}">
+    <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+      <use xlink:href="#{{this}}"></use>
+    </svg>
+    <span>{{this}}</span>
+  </button>
 {{else}}
   <p class="empty">No icons</p>
 {{/each}}

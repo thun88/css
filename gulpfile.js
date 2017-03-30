@@ -371,14 +371,10 @@ function getColors() {
 //   Function: getIcons()
 // -------------------------------------
 function getIcons() {
-  let iconPath = `${PATHS.src.icons}/svg/`
-  let iconFiles = fs.readdirSync(iconPath);
-  let iconSet = [];
-  iconFiles.forEach(file => {
-    // Remove the file extension to use in HTML
-    iconSet.push({ name: file.substring(0, file.lastIndexOf(`.`)) });
+  let iconFiles = glob.sync(`*.svg`, { cwd: `${PATHS.src.icons}/svg` })
+  return iconSet = iconFiles.map(file => {
+    return file.substring(0, file.lastIndexOf(`.`));
   });
-  return iconSet;
 };
 
 
