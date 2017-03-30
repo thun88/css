@@ -1,5 +1,16 @@
 # Buttons
 
+## Button Style Specs
+
+<table>
+  {{#each buttons}}
+    <tr>
+      <td>{{this.name}}</td><td>{{this.value}}</td>
+    </tr>
+  {{/each}}
+</table>
+
+
 ## Button Tags
 
 Use the button classes on and `<a>`, `<button>`, `<input>` elements.

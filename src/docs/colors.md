@@ -1,13 +1,11 @@
 # Colors
 
 <ul class="psg-colorPalette">
-  {{#each colors}}
+  {{#each colorSwatches}}
     <li>
       <div style="background-color: {{this.color}}; height:40px; width: 40px;">
       </div>
       {{this.name}}
     </li>
-  {{else}}
-    <p class="empty">No content</p>
   {{/each}}
 </ul>

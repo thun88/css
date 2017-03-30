@@ -61,14 +61,11 @@ As an inline icon:
 
 The examples below are shown in buttons, as that is their most common use.
 
-
-{{#each icons}}
+{{#each svgIcons}}
   <button type="button" class="btn btn-link" title="{{this}}">
     <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
       <use xlink:href="#{{this}}"></use>
     </svg>
     <span>{{this}}</span>
   </button>
-{{else}}
-  <p class="empty">No icons</p>
 {{/each}}

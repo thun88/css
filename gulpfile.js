@@ -29,7 +29,7 @@
 //
 // gulp           : The streaming build system
 // gulp-concat    : Concatenate files
-// annotateBlock  : Parse css comments
+// annotateBlock  : Parse css for 1 comment block
 // del            : Compile CoffeeScript files
 // fs             : Lint your CoffeeScript
 // glob           : File pattern matching
@@ -107,8 +107,9 @@ PATHS.site.templates = `${PATHS.site.root}/templates`;
 PATHS.site.www       = `${PATHS.site.root}/www`;
 
 
-let COLORS_ARR = getColors();
-let ICONS_ARR = getIcons();
+let STYLE_COMMENTS = parseCssAnnotations();
+let COLORS_ARR = parseColorAnnotations();
+let ICONS_ARR = parseIcons();
 let SVG_HTML = fs.readFileSync(`${PATHS.src.root}/icons/icons.svg`, `utf-8`);
 
 
@@ -131,7 +132,7 @@ gulp.task(`build`, [`svg:store`, `compile:colors`, `compile:css`, `compile:docs`
 //   Task: Compile Colors List
 // -------------------------------------
 gulp.task(`compile:colors`, function () {
-  COLORS_ARR = getColors();
+  COLORS_ARR = parseColorAnnotations();
 });
 
 
@@ -167,12 +168,13 @@ gulp.task(`compile:css`, function () {
 //   Task: Compile Docs
 // -------------------------------------
 gulp.task(`compile:docs`, function() {
+  var templateData = STYLE_COMMENTS;
+  templateData.colorSwatches = COLORS_ARR;
+  templateData.svgIcons = ICONS_ARR;
+
   let hbStream = hb()
     .partials(`${PATHS.site.templates}/*.hbs`)
-    .data({
-      colors: COLORS_ARR,
-      icons: ICONS_ARR
-    });
+    .data(templateData);
 
   return gulp.src(`${PATHS.src.docs}/*.md`)
     .pipe(hbStream)
@@ -282,7 +284,7 @@ gulp.task(`svg:optimize`, function() {
 //   Task: SVG building / listing
 // -------------------------------------
 gulp.task(`svg:store`, function() {
-  ICONS_ARR = getIcons(); // Refresh icons list
+  ICONS_ARR = parseIcons(); // Refresh icons list
 
   return gulp.src(`${PATHS.src.icons}/svg/*.svg`)
     .pipe(svgstore({ inlineSvg: true }))
@@ -336,10 +338,41 @@ gulp.task(`webserver`, function() {
 });
 
 
+
+gulp.task('go', () => {
+  console.log(getCssComments());
+});
+// -------------------------------------
+//   Function: getCssComments()
+// -------------------------------------
+function parseCssAnnotations() {
+  let cssPath = `${PATHS.src.css}/_variables.css`;
+  let cssContent = fs.readFileSync(cssPath, `utf-8`).trim();
+  let parsedBlocks = annotateBlock(cssContent);
+  let cssComments = {};
+
+  parsedBlocks.forEach(block => {
+
+    cssComments[block.name] = [];
+
+    block.nodes.forEach(node => {
+      node.walkDecls(decl => {
+        cssComments[block.name].push({
+          name: decl.prop.replace(/^--/, ``),
+          value: decl.value
+        });
+      });
+    });
+  });
+
+  return cssComments;
+};
+
+
 // -------------------------------------
 //   Function: getColors()
 // -------------------------------------
-function getColors() {
+function parseColorAnnotations() {
   let cssPath = `${PATHS.src.css}/variables/_colors.css`;
   let cssContent = fs.readFileSync(cssPath, `utf-8`).trim();
   let results = annotateBlock(cssContent);
@@ -371,7 +404,7 @@ function getColors() {
 // -------------------------------------
 //   Function: getIcons()
 // -------------------------------------
-function getIcons() {
+function parseIcons() {
   let iconFiles = glob.sync(`*.svg`, { cwd: `${PATHS.src.icons}/svg` })
   return iconSet = iconFiles.map(file => {
     return file.substring(0, file.lastIndexOf(`.`));

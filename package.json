@@ -14,7 +14,7 @@
     "express": "^4.13.3"
   },
   "devDependencies": {
-    "css-annotation-block": "^0.1.0",
+    "css-annotation-block": "git+https://github.com/clepore/css-annotation-block.git",
     "del": "^2.2.2",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
