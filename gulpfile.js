@@ -80,30 +80,35 @@ var atImport = require('postcss-import'),
 
 
 // -------------------------------------
-//   File Paths
+//   Globals
 // -------------------------------------
-var paths = {
+var PATHS = {
   src:  {},
   dist: {},
   site: {}
 };
 
 // Source
-paths.src.root = 'src';
-paths.src.css = paths.src.root + '/css';
-paths.src.icons = paths.src.root + '/icons';
-paths.src.docs = paths.src.root + '/docs';
-paths.src.docFiles  = paths.src.docs + '/*.md';
+PATHS.src.root = 'src';
+PATHS.src.css = PATHS.src.root + '/css';
+PATHS.src.icons = PATHS.src.root + '/icons';
+PATHS.src.docs = PATHS.src.root + '/docs';
+PATHS.src.docFiles  = PATHS.src.docs + '/*.md';
 
 // Dist
-paths.dist.root = 'dist';
-paths.dist.css = paths.dist.root + '/css';
+PATHS.dist.root = 'dist';
+PATHS.dist.css = PATHS.dist.root + '/css';
 
 // Website
-paths.site.root = 'site'
-paths.site.css = paths.site.root + '/css';
-paths.site.templates = paths.site.root + '/templates';
-paths.site.www = paths.site.root + '/www';
+PATHS.site.root = 'site'
+PATHS.site.css = PATHS.site.root + '/css';
+PATHS.site.templates = PATHS.site.root + '/templates';
+PATHS.site.www = PATHS.site.root + '/www';
+
+
+var COLORS_ARR = getColors();
+var ICONS_ARR = getIcons();
+var SVG_HTML = fs.readFileSync(PATHS.src.root + '/icons/icons.svg', 'utf-8');
 
 
 // -------------------------------------
@@ -117,7 +122,16 @@ gulp.task('default', ['build', 'webserver']);
 // -------------------------------------
 //   Task: Build
 // -------------------------------------
-gulp.task('build', ['compile:css', 'compile:docs', 'compile:site']);
+gulp.task('build', ['compile:colors', 'compile:css', 'compile:docs', 'compile:site']);
+
+
+
+// -------------------------------------
+//   Task: Compile Colors List
+// -------------------------------------
+gulp.task('compile:colors', function () {
+  COLORS_ARR = getColors();
+});
 
 
 // -------------------------------------
@@ -137,34 +151,34 @@ gulp.task('compile:css', function () {
     map: true
   };
 
-  return gulp.src(paths.src.css + '/soho-foundation.css')
+  return gulp.src(PATHS.src.css + '/soho-foundation.css')
     .pipe(postcss(plugins, postcssOptions))
-    .pipe(gulp.dest(paths.dist.css))
+    .pipe(gulp.dest(PATHS.dist.css))
     .pipe(postcss([
       require('cssnano')({ autoprefixer: false })
     ], postcssOptions))
     .pipe(rename({ extname: '.min.css' }))
-    .pipe(gulp.dest(paths.dist.css))
-    .pipe(gulp.dest(paths.site.www + '/css'));
+    .pipe(gulp.dest(PATHS.dist.css))
+    .pipe(gulp.dest(PATHS.site.www + '/css'));
 });
 
 // -------------------------------------
 //   Task: Compile Docs
 // -------------------------------------
 gulp.task('compile:docs', function() {
-  var svgHTML = fs.readFileSync(paths.src.root + '/icons/icons.svg', 'utf-8');
+  // var svgHTML = fs.readFileSync(PATHS.src.root + '/icons/icons.svg', 'utf-8');
 
-  var colorArr = getColors();
-  var iconArr = getIcons();
+  // var colorArr = getColors();
+  // var iconArr = getIcons();
 
   var hbStream = hb()
-    .partials(paths.site.templates + '/*.hbs')
+    .partials(PATHS.site.templates + '/*.hbs')
     .data({
-      colors: colorArr,
-      icons: iconArr
+      colors: COLORS_ARR,
+      icons: ICONS_ARR
     });
 
-  gulp.src(paths.src.docs + '/*.md')
+  return gulp.src(PATHS.src.docs + '/*.md')
     .pipe(hbStream)
     .pipe(pandoc({
        from: 'markdown-markdown_in_html_blocks', // http://pandoc.org/MANUAL.html#raw-html
@@ -173,14 +187,14 @@ gulp.task('compile:docs', function() {
        args: ['--smart']
     }))
     .pipe(wrap({
-        src: paths.site.templates + '/page.hbs'
+        src: PATHS.site.templates + '/page.hbs'
       }, {
-        icons: svgHTML
+        icons: SVG_HTML
       }, {
         engine: 'handlebars'
       }
     ))
-    .pipe(gulp.dest(paths.site.www));
+    .pipe(gulp.dest(PATHS.site.www));
 });
 
 
@@ -198,10 +212,10 @@ gulp.task('compile:site', function () {
     cssnano({ autoprefixer: false })
   ];
 
-  return gulp.src(paths.site.css + '/site.css')
+  return gulp.src(PATHS.site.css + '/site.css')
     .pipe(postcss(plugins, { map: true }))
     .pipe(rename({ extname: '.min.css' }))
-    .pipe(gulp.dest(paths.site.www + '/css'));
+    .pipe(gulp.dest(PATHS.site.www + '/css'));
 });
 
 
@@ -210,8 +224,8 @@ gulp.task('compile:site', function () {
 // -------------------------------------
 gulp.task('clean', function () {
   return del([
-    paths.dist.root,
-    paths.site.www
+    PATHS.dist.root,
+    PATHS.site.www
   ]);
 });
 
@@ -232,7 +246,7 @@ gulp.task('lint', ['lint:css', 'lint:site']);
 //   Task: Lint src css
 // -------------------------------------
 gulp.task('lint:css', function() {
-  return gulp.src(paths.src.css + '/*.css')
+  return gulp.src(PATHS.src.css + '/*.css')
     .pipe(stylelint({
       failAfterError: true,
       reporters: [
@@ -245,7 +259,7 @@ gulp.task('lint:css', function() {
 //   Task: Lint site css
 // -------------------------------------
 gulp.task('lint:site', function() {
-  return gulp.src(paths.site.css + '/site.css')
+  return gulp.src(PATHS.site.css + '/site.css')
     .pipe(stylelint({
       failAfterError: true,
       reporters: [
@@ -259,7 +273,7 @@ gulp.task('lint:site', function() {
 //   Task: SVG Optimization
 // -------------------------------------
 gulp.task('svg:optimize', function() {
-  var svgs = paths.src.icons + '/svg/*.svg';
+  var svgs = PATHS.src.icons + '/svg/*.svg';
   return gulp.src(svgs)
     .pipe(svgmin())
     .pipe(gulp.dest(svgs));
@@ -267,14 +281,16 @@ gulp.task('svg:optimize', function() {
 
 
 // -------------------------------------
-//   Task: SVG building
+//   Task: SVG building / listing
 // -------------------------------------
 gulp.task('svg:store', function() {
-  return gulp.src(paths.src.icons + '/svg/*.svg')
+  ICONS_ARR = getIcons(); // Refresh icons list
+
+  return gulp.src(PATHS.src.icons + '/svg/*.svg')
     .pipe(svgstore({ inlineSvg: true }))
     .pipe(rename('icons.svg'))
-    .pipe(gulp.dest(paths.src.icons))
-    .pipe(gulp.dest(paths.dist.root));
+    .pipe(gulp.dest(PATHS.src.icons))
+    .pipe(gulp.dest(PATHS.dist.root));
 });
 
 
@@ -282,20 +298,29 @@ gulp.task('svg:store', function() {
 //   Task: Watch
 // -------------------------------------
 gulp.task('watch', function() {
+  var colors = [
+    PATHS.src.css + '/**/_colors.css'
+  ]
+
   var styles = [
-    paths.src.root + '/css/*.css',
-    paths.src.root + '/css/**/*.css',
-    paths.site.css + '/*.css'
+    PATHS.src.css + '/**/*.css',
+    '!' + PATHS.src.css + '/**/_colors.css',
+    PATHS.site.css + '/*.css'
   ];
 
   var docs = [
-    paths.src.root + '/docs/*.md',
-    paths.site.templates + '/*.hbs'
+    PATHS.src.root + '/docs/*.md',
+    PATHS.site.templates + '/*.hbs'
   ];
 
+  // Refresh color list and compile css
+  gulp.watch(colors, ['compile:colors', 'compile:css', 'compile:site']);
 
-  gulp.watch(styles, ['compile:css', 'compile:site']); // Compiles css
-  gulp.watch(docs, ['compile:docs']);  // Compiles markdown & site template
+  // Compiles all css
+  gulp.watch(styles, ['compile:css', 'compile:site']);
+
+  // Compiles markdown & site template
+  gulp.watch(docs, ['compile:docs']);
 });
 
 
@@ -303,7 +328,7 @@ gulp.task('watch', function() {
 //   Task: Webserver
 // -------------------------------------
 gulp.task('webserver', function() {
-  gulp.src(paths.site.www)
+  gulp.src(PATHS.site.www)
     .pipe(server({
       livereload: true,
       defaultFile: 'index.html',
@@ -317,7 +342,7 @@ gulp.task('webserver', function() {
 //   Function: getColors()
 // -------------------------------------
 function getColors() {
-  var cssPath = paths.src.css + '/variables/_colors.css';
+  var cssPath = PATHS.src.css + '/variables/_colors.css';
 
   var cssContent = fs.readFileSync(cssPath, 'utf-8').trim();
   var results = annotateBlock(cssContent);
@@ -345,19 +370,23 @@ function getColors() {
   return colorPalette;
 };
 
+
 // -------------------------------------
 //   Function: getIcons()
 // -------------------------------------
 function getIcons() {
-  var iconPath = paths.src.icons + "/svg/"
+  var iconPath = PATHS.src.icons + "/svg/"
   var iconFiles = fs.readdirSync(iconPath);
   var iconSet = [];
   iconFiles.forEach(file => {
     // Remove the file extension to use in HTML
-    iconSet.push({name: file.substring(0, file.lastIndexOf("."))});
+    iconSet.push({ name: file.substring(0, file.lastIndexOf(".")) });
   });
   return iconSet;
 };
+
+
+
 // -------------------------------------
 // Task: Deploy (Lepore only)
 // Copies the WWW folder on Lepore's machine to his dropbox folder for temporary viewing
