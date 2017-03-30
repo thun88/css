@@ -122,7 +122,7 @@ gulp.task(`default`, [`build`, `webserver`]);
 // -------------------------------------
 //   Task: Build
 // -------------------------------------
-gulp.task(`build`, [`compile:colors`, `compile:css`, `compile:docs`, `compile:site`]);
+gulp.task(`build`, [`svg:store`, `compile:colors`, `compile:css`, `compile:docs`, `compile:site`]);
 
 
 
@@ -325,7 +325,7 @@ gulp.task(`watch`, function() {
 //   Task: Webserver
 // -------------------------------------
 gulp.task(`webserver`, function() {
-  gulp.src(PATHS.site.www)
+  return gulp.src(PATHS.site.www)
     .pipe(server({
       livereload: true,
       defaultFile: `index.html`,
