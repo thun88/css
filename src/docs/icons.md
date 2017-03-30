@@ -67,7 +67,7 @@ The examples below are shown in buttons, as that is their most common use.
   <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
     <use xlink:href="#{{this.name}}"></use>
   </svg>
-  <span>align-bottom</span>
+  <span>{{this.name}}</span>
 </button>
 {{else}}
   <p class="empty">No icons</p>
