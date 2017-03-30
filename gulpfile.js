@@ -22,28 +22,61 @@
 //
 // *************************************
 
-const gulp = require('gulp');
-var concat =     require('gulp-concat'),
-    del =        require('del'),
-    fs =         require('fs'),
-    glob =       require('glob'),
-    handlebars = require('handlebars'),
-    pandoc =     require('gulp-pandoc'),
-    postcss =    require('gulp-postcss'),
-    rename =     require('gulp-rename'),
-    server =     require('gulp-server-livereload'),
-    stylelint =  require('gulp-stylelint'),
-    svgstore =   require('gulp-svgstore'),
-    tap =        require('gulp-tap');
+
+// -------------------------------------
+//   Modules
+// -------------------------------------
+//
+// gulp           : The streaming build system
+// gulp-concat    : Concatenate files
+// annotateBlock  : Parse css comments
+// del            : Compile CoffeeScript files
+// fs             : Lint your CoffeeScript
+// glob           : File pattern matching
+// hb             : Template parser
+// is-color       : Validate hex colors
+// gulp-pandoc    : File converter
+// gulp-postcss   : Transform styles with JS
+// gulp-rename    : Rename files
+// gulp-server    : Serve the website for dev
+// gulp-stylelint : Lint the styles
+// gulp-svgstore  : Combine svg files
+// gulp-tap       : Easily tap into a pipeline
+// gulp-wrap      : Wrap stream contents to template
+//
+// postcss-import  : Include css files with "@"
+// postcss-commas  : Allow lists of properties per value
+// postcss-cssnext : Collection of future proof plugins
+// cssnano         : CSS minify
+// lost            : Grid system
+//
+// -------------------------------------
+
+var gulp = require('gulp');
+var concat = require('gulp-concat'),
+    annotateBlock = require('css-annotation-block'),
+    del = require('del'),
+    fs = require('fs'),
+    glob = require('glob'),
+    hb = require('gulp-hb'),
+    isColor = require('is-color'),
+    pandoc = require('gulp-pandoc'),
+    postcss = require('gulp-postcss'),
+    rename = require('gulp-rename'),
+    server = require('gulp-server-livereload'),
+    stylelint = require('gulp-stylelint'),
+    svgstore = require('gulp-svgstore'),
+    tap = require('gulp-tap'),
+    wrap = require('gulp-wrap');
 
 // -------------------------------------
 //   PostCSS Plugins
 // -------------------------------------
 var atImport = require('postcss-import'),
-  commas =     require('postcss-commas'),
-  cssnext =    require('postcss-cssnext'),
-  cssnano =    require('cssnano'),
-  lost =       require('lost');
+  commas     = require('postcss-commas'),
+  cssnext    = require('postcss-cssnext'),
+  cssnano    = require('cssnano'),
+  lost       = require('lost');
 
 
 // -------------------------------------
@@ -88,12 +121,12 @@ gulp.task('build', ['compile:css', 'compile:docs', 'compile:site']);
 
 
 // -------------------------------------
-//   Task: Build CSS
+//   Task: Compile CSS
 // -------------------------------------
 gulp.task('compile:css', function () {
 
   // Note: plugin order matters
-  var modules = [
+  var plugins = [
     atImport,
     commas,
     lost,
@@ -105,70 +138,67 @@ gulp.task('compile:css', function () {
   };
 
   return gulp.src(paths.src.css + '/soho-foundation.css')
-    .pipe(postcss(modules, postcssOptions))
+    .pipe(postcss(plugins, postcssOptions))
     .pipe(gulp.dest(paths.dist.css))
     .pipe(postcss([
       require('cssnano')({ autoprefixer: false })
     ], postcssOptions))
-    .pipe(rename('soho-foundation.min.css'))
+    .pipe(rename({ extname: '.min.css' }))
     .pipe(gulp.dest(paths.dist.css))
     .pipe(gulp.dest(paths.site.www + '/css'));
 });
 
 // -------------------------------------
-//   Task: Build Docs
+//   Task: Compile Docs
 // -------------------------------------
 gulp.task('compile:docs', function() {
-  // read the template from page.hbs
-  return gulp.src(paths.site.templates + '/page.hbs')
-    .pipe(tap(function(templateFile) {
-      // templateFile is page.hbs so generate template from templateFile
-      var template = handlebars.compile(templateFile.contents.toString());
+  var svgHTML = fs.readFileSync(paths.src.root + '/icons/icons.svg', 'utf-8');
 
-      // Get the svg icon contents
-      var svgHTML = fs.readFileSync(paths.src.root + '/icons/icons.svg', 'utf-8');
+  var colorArr = getColors();
 
-      // now read all the pages from the pages directory
-      return gulp.src(paths.src.docFiles)
-        // convert from markdown
-        .pipe(pandoc({
-           from: 'markdown-markdown_in_html_blocks', // http://pandoc.org/MANUAL.html#raw-html
-           to: 'html5',
-           ext: '.html',
-           args: ['--smart']
-        }))
-        .pipe(tap(function(file) {
-          // file is the converted HTML from the markdown
-          // set the contents to the contents property on data
-          // and add the svg icons too
-          var data = {
-            contents: file.contents.toString(),
-            icons: svgHTML
-          };
-          // we will pass data to the handlebars template to create the actual HTML to use
-          var html = template(data);
-          // replace the file contents with the new HTML created from the handlebars template
-          //  + data object that contains the HTML made from the markdown conversion
-          file.contents = new Buffer(html, 'utf-8');
-        }))
-        .pipe(gulp.dest(paths.site.www));
-    }));
+  var hbStream = hb()
+    .partials(paths.site.templates + '/*.hbs')
+    .data({
+      colors: colorArr
+    });
+
+  gulp.src(paths.src.docs + '/*.md')
+    .pipe(hbStream)
+    .pipe(pandoc({
+       from: 'markdown-markdown_in_html_blocks', // http://pandoc.org/MANUAL.html#raw-html
+       to: 'html5',
+       ext: '.html',
+       args: ['--smart']
+    }))
+    .pipe(wrap({
+        src: paths.site.templates + '/page.hbs'
+      }, {
+        icons: svgHTML
+      }, {
+        engine: 'handlebars'
+      }
+    ))
+    .pipe(gulp.dest(paths.site.www));
 });
 
 
 // -------------------------------------
-//   Task: Build Site
+//   Task: Compile Site
 // -------------------------------------
-gulp.task('compile:site', function() {
+gulp.task('compile:site', function () {
+
+  // Note: plugin order matters
   var plugins = [
+    atImport,
     commas,
+    lost,
     cssnext,
     cssnano({ autoprefixer: false })
   ];
 
   return gulp.src(paths.site.css + '/site.css')
     .pipe(postcss(plugins, { map: true }))
-    .pipe(rename('site.min.css'))
+    .pipe(rename({ extname: '.min.css' }))
     .pipe(gulp.dest(paths.site.www + '/css'));
 });
 
@@ -251,21 +281,19 @@ gulp.task('svg:store', function() {
 // -------------------------------------
 gulp.task('watch', function() {
   var styles = [
-    paths.src.root + '/css/*.css'
-  ];
-
-  var docs = [
-    paths.src.root + '/docs/*.md'
-  ];
-
-  var site = [
-    paths.site.templates + '/*.hbs',
+    paths.src.root + '/css/*.css',
+    paths.src.root + '/css/**/*.css',
     paths.site.css + '/*.css'
   ];
 
-  gulp.watch(styles, ['compile:css']);
-  gulp.watch(docs, ['compile:docs']);
-  gulp.watch(site, ['compile:site']);
+  var docs = [
+    paths.src.root + '/docs/*.md',
+    paths.site.templates + '/*.hbs'
+  ];
+
+
+  gulp.watch(styles, ['compile:css', 'compile:site']); // Compiles css
+  gulp.watch(docs, ['compile:docs']);  // Compiles markdown & site template
 });
 
 
@@ -281,6 +309,39 @@ gulp.task('webserver', function() {
       log: 'debug'
     }));
 });
+
+
+// -------------------------------------
+//   Function: getColors()
+// -------------------------------------
+function getColors() {
+  var cssPath = paths.src.css + '/variables/_colors.css';
+
+  var cssContent = fs.readFileSync(cssPath, 'utf-8').trim();
+  var results = annotateBlock(cssContent);
+  var colorRoot = [];
+
+  results.forEach(function (result) {
+    if (result.name === 'color') {
+      result.nodes.forEach(function (node) {
+        colorRoot.push(node);
+      });
+    }
+  });
+
+  var colorPalette = [];
+  colorRoot.forEach(function (color) {
+    color.walkDecls(function (decl) {
+    if (isColor(decl.value)) {
+        colorPalette.push({
+          name: decl.prop.replace(/^--/, ''),
+          color: decl.value
+        });
+      }
+    });
+  });
+  return colorPalette;
+};
 
 
 // -------------------------------------
