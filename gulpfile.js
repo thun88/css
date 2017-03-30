@@ -166,11 +166,6 @@ gulp.task('compile:css', function () {
 //   Task: Compile Docs
 // -------------------------------------
 gulp.task('compile:docs', function() {
-  // var svgHTML = fs.readFileSync(PATHS.src.root + '/icons/icons.svg', 'utf-8');
-
-  // var colorArr = getColors();
-  // var iconArr = getIcons();
-
   var hbStream = hb()
     .partials(PATHS.site.templates + '/*.hbs')
     .data({
