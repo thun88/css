@@ -155,11 +155,13 @@ gulp.task('compile:docs', function() {
   var svgHTML = fs.readFileSync(paths.src.root + '/icons/icons.svg', 'utf-8');
 
   var colorArr = getColors();
+  var iconArr = getIcons();
 
   var hbStream = hb()
     .partials(paths.site.templates + '/*.hbs')
     .data({
-      colors: colorArr
+      colors: colorArr,
+      icons: iconArr
     });
 
   gulp.src(paths.src.docs + '/*.md')
@@ -343,7 +345,19 @@ function getColors() {
   return colorPalette;
 };
 
-
+// -------------------------------------
+//   Function: getIcons()
+// -------------------------------------
+function getIcons() {
+  var iconPath = paths.src.icons + "/svg/"
+  var iconFiles = fs.readdirSync(iconPath);
+  var iconSet = [];
+  iconFiles.forEach(file => {
+    // Remove the file extension to use in HTML
+    iconSet.push({name: file.substring(0, file.lastIndexOf("."))});
+  });
+  return iconSet;
+};
 // -------------------------------------
 // Task: Deploy (Lepore only)
 // Copies the WWW folder on Lepore's machine to his dropbox folder for temporary viewing
