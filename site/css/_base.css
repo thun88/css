@@ -2,7 +2,6 @@
  * Website styles
  */
 
-
 /*
  * Top Nav
  */
@@ -43,8 +42,8 @@
  */
 
 .main {
-  height: 100%;
   background-color: var(--white);
+  height: 100%;
   overflow-y: scroll;
 }
 
@@ -59,14 +58,14 @@ code {
 .example,
 pre {
   border: 1px solid #e1e1e8;
+  border-radius: 0.25rem 0.25rem 0 0;
   font-size: 1.3rem;
   padding: 15px;
-  border-radius: 0.25rem 0.25rem 0 0;
 }
 
 .example {
-  position: relative;
   line-height: 1.4;
+  position: relative;
 }
 
 pre {
@@ -88,11 +87,11 @@ pre {
 
 blockquote {
   border: 1px solid #eee;
-  border-left-width: 5px;
   border-left-color: var(--soho-primary);
+  border-left-width: 5px;
   border-radius: 3px;
-  padding: 20px;
   margin: 20px 0;
+  padding: 20px;
 
   &.info {
     border-left-color: var(--amber05);
@@ -112,9 +111,9 @@ blockquote {
   margin-bottom: 20px;
 
   & [class^="lost-grid--col-"] {
-    outline: solid 1px var(--soho-primary);
     height: 50px;
     line-height: 50px;
+    outline: solid 1px var(--soho-primary);
     text-align: center;
   }
 }

@@ -40,6 +40,7 @@
 // gulp-rename    : Rename files
 // gulp-server    : Serve the website for dev
 // gulp-stylelint : Lint the styles
+// stylelint-order: Stylelint plugin
 // gulp-svgstore  : Combine svg files
 // gulp-tap       : Easily tap into a pipeline
 // gulp-wrap      : Wrap stream contents to template
@@ -255,7 +256,7 @@ gulp.task(`lint:css`, function() {
 //   Task: Lint site css
 // -------------------------------------
 gulp.task(`lint:site`, function() {
-  return gulp.src(`${PATHS.site.css}/site.css`)
+  return gulp.src(`${PATHS.site.css}/*.css`)
     .pipe(stylelint({
       failAfterError: true,
       reporters: [{

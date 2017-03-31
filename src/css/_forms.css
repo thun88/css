@@ -75,10 +75,10 @@ select.form-control {
       color: var(--alert-red);
       content: '*';
       display: inline;
-      position: relative;
-      left: 2px;
-      top: 2px;
       font-size: var(--font-size-lg);
+      left: 2px;
+      position: relative;
+      top: 2px;
     }
   }
 
@@ -106,9 +106,9 @@ select.form-control {
 .form-checkbox,
 .form-radio {
   display: block;
-  position: relative;
-  margin-top: 10px;
   margin-bottom: 10px;
+  margin-top: 10px;
+  position: relative;
 
   &.is-disabled label,
   &[disabled] {
@@ -148,9 +148,9 @@ select.form-control {
       content: '';
       display: block;
       height: 16px;
+      left: 0;
       position: absolute;
       top: 0;
-      left: 0;
       width: 16px;
     }
 
@@ -183,8 +183,8 @@ select.form-control {
       &::after {
         animation: check 0.15s;
         display: block;
-        transform-origin: left top 0;
         transform: scaleX(-1) rotate(135deg);
+        transform-origin: left top 0;
       }
     }
 
@@ -202,8 +202,8 @@ select.form-control {
     &.form-checkbox--input.form-checkbox--input--partial::after {
       animation: none;
       border-width: 0 0 2px;
-      left: 2px;
       height: 2px;
+      left: 2px;
       margin-left: 1px;
       top: 7px;
       transform: none;

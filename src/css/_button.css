@@ -14,9 +14,9 @@
   min-width: 100px;
   padding: 0.6rem 1.5rem;
   text-align: center;
-  user-select: none;
-  text-transform: uppercase;
   text-decoration: none;
+  text-transform: uppercase;
+  user-select: none;
   vertical-align: middle;
   white-space: nowrap;
   width: var(--input-size-sm);
@@ -40,8 +40,8 @@
   }
 
   &:focus {
-    outline: 0;
     box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--btn-default-bg);
+    outline: 0;
   }
 }
 
@@ -59,8 +59,8 @@
   }
 
   &:focus {
-    outline: 0;
     box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--btn-primary-bg);
+    outline: 0;
   }
 }
 
@@ -78,8 +78,8 @@
   }
 
   &:focus {
-    outline: 0;
     box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--btn-warning-bg);
+    outline: 0;
   }
 }
 
