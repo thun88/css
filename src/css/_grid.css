@@ -54,7 +54,7 @@
 }
 
 @media (--viewport-sm) {
-  .lost-grid > [class^="lost-grid--col-"] {
+  .lost-grid > [class^='lost-grid--col-'] {
     lost-column: 1;
   }
 }

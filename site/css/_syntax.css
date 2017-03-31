@@ -67,7 +67,7 @@ code.sourceCode span.ot {
 }
 
 code.sourceCode span.al {
-  color: red;
+  color: #f00;
 }
 
 code.sourceCode span.fu {
@@ -77,5 +77,5 @@ code.sourceCode span.fu {
 /* code.sourceCode span.re {} */
 
 code.sourceCode span.er {
-  color: red;
+  color: #f00;
 }

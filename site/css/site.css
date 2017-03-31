@@ -1,7 +1,7 @@
 /* Variables */
-@import "../../src/css/variables/_colors";
-@import "../../src/css/_variables";
+@import '../../src/css/variables/_colors';
+@import '../../src/css/_variables';
 
 /* Site Styles */
-@import "_base";
-@import "_syntax";
+@import '_base';
+@import '_syntax';

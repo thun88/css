@@ -68,7 +68,7 @@ pre {
 pre {
   background-color: #f7f7f9;
   border-top: none;
-  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
   margin-bottom: 20px;
 
   & code {
@@ -106,7 +106,7 @@ blockquote {
 .demo-grid {
   margin-bottom: 20px;
 
-  & [class^="lost-grid--col-"] {
+  & [class^='lost-grid--col-'] {
     height: 50px;
     line-height: 50px;
     outline: solid 1px var(--soho-primary);

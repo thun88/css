@@ -28,7 +28,7 @@
 
 /* @start font  */
 :root {
-  --font-family-base: Helvetica, Arial;
+  --font-family-base: helvetica, arial;
   --font-size-lg: 1.8rem;
   --font-size-base: 1.4rem;
   --font-size-sm: 0.85rem;
@@ -49,7 +49,7 @@
 /* @start headings */
 :root {
   --headings-margin-bottom: 0.5rem;
-  --headings-font-family: Helvetica, Arial;
+  --headings-font-family: helvetica, arial;
   --headings-font-weight: 400;
   --headings-line-height: normal;
   --headings-color: var(--body-color);

@@ -1,16 +1,16 @@
 /* Variables */
-@import "variables/_colors";
-@import "_variables";
+@import 'variables/_colors';
+@import '_variables';
 
 /* Initial Styles */
-@import "_reset";
-@import "_base";
+@import '_reset';
+@import '_base';
 
 /* Components */
-@import "_button";
-@import "_forms";
-@import "_grid";
-@import "_helpers";
-@import "_icons";
-@import "_tables";
-@import "_type";
+@import '_button';
+@import '_forms';
+@import '_grid';
+@import '_helpers';
+@import '_icons';
+@import '_tables';
+@import '_type';
