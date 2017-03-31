@@ -107,7 +107,7 @@ PATHS.site.templates = `${PATHS.site.root}/templates`;
 PATHS.site.www       = `${PATHS.site.root}/www`;
 
 
-let STYLE_COMMENTS = parseCssAnnotations();
+let CSS_VAR_ANNOTATIONS = parseVarAnnotations();
 let COLORS_ARR = parseColorAnnotations();
 let ICONS_ARR = parseIcons();
 let SVG_HTML = fs.readFileSync(`${PATHS.src.root}/icons/icons.svg`, `utf-8`);
@@ -168,7 +168,7 @@ gulp.task(`compile:css`, function () {
 //   Task: Compile Docs
 // -------------------------------------
 gulp.task(`compile:docs`, function() {
-  var templateData = STYLE_COMMENTS;
+  var templateData = CSS_VAR_ANNOTATIONS;
   templateData.colorSwatches = COLORS_ARR;
   templateData.svgIcons = ICONS_ARR;
 
@@ -338,71 +338,40 @@ gulp.task(`webserver`, function() {
 });
 
 
-
-gulp.task('go', () => {
-  console.log(getCssComments());
-});
 // -------------------------------------
-//   Function: getCssComments()
-// -------------------------------------
-function parseCssAnnotations() {
-  let cssPath = `${PATHS.src.css}/_variables.css`;
-  let cssContent = fs.readFileSync(cssPath, `utf-8`).trim();
-  let parsedBlocks = annotateBlock(cssContent);
-  let cssComments = {};
-
-  parsedBlocks.forEach(block => {
-
-    cssComments[block.name] = [];
-
-    block.nodes.forEach(node => {
-      node.walkDecls(decl => {
-        cssComments[block.name].push({
-          name: decl.prop.replace(/^--/, ``),
-          value: decl.value
-        });
-      });
-    });
-  });
-
-  return cssComments;
-};
-
-
-// -------------------------------------
-//   Function: getColors()
+//   Function: parseColorAnnotations()
 // -------------------------------------
 function parseColorAnnotations() {
-  let cssPath = `${PATHS.src.css}/variables/_colors.css`;
-  let cssContent = fs.readFileSync(cssPath, `utf-8`).trim();
-  let results = annotateBlock(cssContent);
-  let colorRoot = [];
+  let path = `${PATHS.src.css}/variables/_colors.css`;
+  let content = fs.readFileSync(path, `utf-8`).trim();
+  let blocks = annotateBlock(content);
+  let colorBlock = [];
 
-  results.forEach(result => {
-    if (result.name === `color`) {
-      result.nodes.forEach(node => {
-        colorRoot.push(node);
+  blocks.forEach(block => {
+    if (block.name === `color`) {
+      block.nodes.forEach(node => {
+        colorBlock.push(node);
       });
     }
   });
 
-  let colorPalette = [];
-  colorRoot.forEach(color => {
+  let colorSwatches = [];
+  colorBlock.forEach(color => {
     color.walkDecls(decl => {
-    if (isColor(decl.value)) {
-        colorPalette.push({
+      if (isColor(decl.value)) {
+        colorSwatches.push({
           name: decl.prop.replace(/^--/, ``),
           color: decl.value
         });
       }
     });
   });
-  return colorPalette;
+  return colorSwatches;
 };
 
 
 // -------------------------------------
-//   Function: getIcons()
+//   Function: parseIcons()
 // -------------------------------------
 function parseIcons() {
   let iconFiles = glob.sync(`*.svg`, { cwd: `${PATHS.src.icons}/svg` })
@@ -412,18 +381,47 @@ function parseIcons() {
 };
 
 
+// -------------------------------------
+//   Function: parseVarAnnotations()
+// -------------------------------------
+function parseVarAnnotations() {
+  let path = `${PATHS.src.css}/_variables.css`;
+  let content = fs.readFileSync(path, `utf-8`).trim();
+  let blocks = annotateBlock(content);
+  let annotationsData = {};
+
+  blocks.forEach(block => {
+
+    annotationsData[block.name] = [];
+
+    block.nodes.forEach(node => {
+      node.walkDecls(decl => {
+        annotationsData[block.name].push({
+          name: decl.prop.replace(/^--/, ``),
+          value: decl.value
+        });
+      });
+    });
+  });
+
+  return annotationsData;
+};
+
 
 // -------------------------------------
 // Task: Deploy (Lepore only)
 // Copies the WWW folder on Lepore`s machine to his dropbox folder for temporary viewing
 // -------------------------------------
 gulp.task(`deploy`, [`lint`], function() {
+  let gutil = require('gulp-util');
   let exec = require(`child_process`).exec;
 
   let src = `~/HookandLoop/git/soho/soho-foundation/site/www/*`,
       dest = ` ~/Dropbox/Public/soho-foundation`;
 
   return exec(`cp -R ${src} ${dest}`, function (err, stdout, stderr) {
+    gutil.log('Deployed to https://dl.dropboxusercontent.com/u/21521721/soho-foundation/index.html');
+
     console.log(stdout);
     console.log(stderr);
   });
