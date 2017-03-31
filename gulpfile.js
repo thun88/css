@@ -309,6 +309,7 @@ gulp.task(`watch`, function() {
   ];
 
   let docs = [
+    `${PATHS.src.css}/_variables.css`,
     `${PATHS.src.root}/docs/*.md`,
     `${PATHS.site.templates}/*.hbs`
   ];
@@ -319,7 +320,7 @@ gulp.task(`watch`, function() {
   // Compiles all css
   gulp.watch(styles, [`compile:css`, `compile:site`]);
 
-  // Compiles markdown & site template
+  // Compiles css annotations, markdown & site template
   gulp.watch(docs, [`compile:docs`]);
 });
 
