@@ -5,7 +5,6 @@
 /*
  * Top Nav
  */
-
 .top-nav {
   background-color: var(--azure06);
   color: var(--white);
@@ -26,7 +25,6 @@
 /*
  * Menu bar
  */
-
 .sidebar {
   height: 100%;
   overflow-y: scroll;
@@ -40,7 +38,6 @@
 /*
  * Main contents
  */
-
 .main {
   background-color: var(--white);
   height: 100%;
@@ -106,7 +103,6 @@ blockquote {
 /*
  * Grid
  */
-
 .demo-grid {
   margin-bottom: 20px;
 
@@ -118,11 +114,9 @@ blockquote {
   }
 }
 
-
 /*
  * Colors specific grid
  */
-
 @lost gutter 3px;
 @lost flexbox flex;
 
@@ -132,13 +126,13 @@ blockquote {
   & .lost-grid--col-1:nth-child(10n + 1),
   & .lost-grid--col-1:nth-child(10n + 2),
   & .lost-grid--col-1:nth-child(10n + 3) {
-    color:  inherit;
+    color: inherit;
   }
 
   & > .lost-grid--col-1 {
-    lost-column: 1/10;
     color: var(--white);
     line-height: 100px;
+    lost-column: 1/10;
     margin-bottom: 20px;
     text-align: center;
 
@@ -150,5 +144,4 @@ blockquote {
       color: var(--white);
     }
   }
-
 }
