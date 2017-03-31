@@ -1,5 +1,15 @@
 # Typography
 
+## Specs
+
+<table>
+  {{#each headings}}
+    <tr>
+      <td>{{this.name}}</td><td>{{this.value}}</td>
+    </tr>
+  {{/each}}
+</table>
+
 ## Standard headings
 
 <div class="example">
