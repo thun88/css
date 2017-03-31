@@ -2,9 +2,9 @@
 
 To be able to x:link the icons into your app, you will need to copy `dist/icons.svg` contents into the top of your `<body>` tag for your html pages.
 
-### Examples of icon use:
+## Examples of icon use:
 
-As a button:
+### As a button:
 <div class="example">
   <button type="button" class="btn btn-link" title="star-filled icon">
     <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
@@ -22,7 +22,7 @@ As a button:
 </button>
 ```
 
-As a standalone icon:
+### As a standalone icon:
 <div class="example">
   <div title="star-filled icon">
     <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
@@ -38,7 +38,7 @@ As a standalone icon:
 </div>
 ```
 
-As an inline icon:
+### As an inline icon:
 <div class="example">
   This icon
   <span title="star-filled icon">

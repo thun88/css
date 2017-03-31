@@ -2,22 +2,29 @@
 
 ## Brand color specs
 
-<table>
-  {{#each brandColors}}
-    <tr>
-      <td>{{this.name}}</td><td>{{this.value}}</td>
-    </tr>
-  {{/each}}
-</table>
+```css
+{
+{{#each brandColors}}
+  {{this.name}}: {{this.value}};
+{{/each}}
+}
+```
 
+## Alert color specs
+
+```css
+{
+{{#each alertColors}}
+  {{this.name}}: {{this.value}};
+{{/each}}
+}
+```
 ## Color swatches
 
-<ul class="psg-colorPalette">
+<div class="color-grid">
   {{#each colorSwatches}}
-    <li>
-      <div style="background-color: {{this.color}}; height:40px; width: 40px;">
-      </div>
-      {{this.name}}
-    </li>
+    <div class="lost-grid--col-1 swatch-{{this.name}}" style="background-color: {{this.color}};">
+      <div>{{this.name}}</div>
+    </div>
   {{/each}}
-</ul>
+</div>

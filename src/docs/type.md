@@ -2,13 +2,13 @@
 
 ## Specs
 
-<table>
-  {{#each headings}}
-    <tr>
-      <td>{{this.name}}</td><td>{{this.value}}</td>
-    </tr>
-  {{/each}}
-</table>
+```css
+{
+{{#each headings}}
+  {{this.name}}: {{this.value}};
+{{/each}}
+}
+```
 
 ## Standard headings
 

@@ -117,3 +117,38 @@ blockquote {
     text-align: center;
   }
 }
+
+
+/*
+ * Colors specific grid
+ */
+
+@lost gutter 3px;
+@lost flexbox flex;
+
+.color-grid {
+  lost-center: 100%;
+
+  & .lost-grid--col-1:nth-child(10n + 1),
+  & .lost-grid--col-1:nth-child(10n + 2),
+  & .lost-grid--col-1:nth-child(10n + 3) {
+    color:  inherit;
+  }
+
+  & > .lost-grid--col-1 {
+    lost-column: 1/10;
+    color: var(--white);
+    line-height: 100px;
+    margin-bottom: 20px;
+    text-align: center;
+
+    &.swatch-white {
+      border: solid 1px var(--black);
+    }
+
+    &.swatch-black {
+      color: var(--white);
+    }
+  }
+
+}

@@ -1,14 +1,14 @@
 # Buttons
 
-## Button Style Specs
+## Specs
 
-<table>
-  {{#each buttons}}
-    <tr>
-      <td>{{this.name}}</td><td>{{this.value}}</td>
-    </tr>
-  {{/each}}
-</table>
+```css
+{
+{{#each buttons}}
+  {{this.name}}: {{this.value}};
+{{/each}}
+}
+```
 
 
 ## Button Tags

@@ -315,7 +315,7 @@ gulp.task(`watch`, function() {
   ];
 
   // Refresh color list and compile css
-  gulp.watch(colors, [`compile:colors`, `compile:css`, `compile:site`]);
+  gulp.watch(colors, [`compile:colors`, `compile:css`, `compile:docs`, `compile:site`]);
 
   // Compiles all css
   gulp.watch(styles, [`compile:css`, `compile:site`]);

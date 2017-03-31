@@ -1,8 +1,5 @@
 /* @start color */
 :root {
-  --white: #ffffff;
-  --black: #000000;
-
   --azure01: #c8e9f4;
   --azure02: #addbeb;
   --azure03: #8dc9e6;
@@ -90,5 +87,8 @@
   --slate08: #313236;
   --slate09: #212224;
   --slate10: #1c1819;
+
+  --white: #ffffff;
+  --black: #000000;
 }
 /* @end color */
