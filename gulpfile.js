@@ -413,7 +413,7 @@ function parseVarAnnotations() {
 // Task: Deploy (Lepore only)
 // Copies the WWW folder on Lepore`s machine to his dropbox folder for temporary viewing
 // -------------------------------------
-gulp.task(`deploy`, [`lint`], function() {
+gulp.task(`deploy`, [`lint`, `build`], function() {
   let gutil = require('gulp-util');
   let exec = require(`child_process`).exec;
 
