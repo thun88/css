@@ -1,3 +1,5 @@
+/* stylelint-disable comment-empty-line-before */
+
 :root {
   --soho-primary: var(--azure06);
   --soho-warning: var(--ruby06);
@@ -123,3 +125,5 @@
   @custom-media --viewport-md  (max-width: 768px);
   @custom-media --viewport-sm  (max-width: 480px);
 }
+
+/* stylelint-enable comment-empty-line-before */
