@@ -1,5 +1,16 @@
 # Buttons
 
+## Specs
+
+```css
+{
+{{#each buttons}}
+  {{this.name}}: {{this.value}};
+{{/each}}
+}
+```
+
+
 ## Button Tags
 
 Use the button classes on and `<a>`, `<button>`, `<input>` elements.

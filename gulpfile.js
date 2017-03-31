@@ -29,7 +29,7 @@
 //
 // gulp           : The streaming build system
 // gulp-concat    : Concatenate files
-// annotateBlock  : Parse css comments
+// annotateBlock  : Parse css for 1 comment block
 // del            : Compile CoffeeScript files
 // fs             : Lint your CoffeeScript
 // glob           : File pattern matching
@@ -107,8 +107,9 @@ PATHS.site.templates = `${PATHS.site.root}/templates`;
 PATHS.site.www       = `${PATHS.site.root}/www`;
 
 
-let COLORS_ARR = getColors();
-let ICONS_ARR = getIcons();
+let CSS_VAR_ANNOTATIONS = parseVarAnnotations();
+let COLORS_ARR = parseColorAnnotations();
+let ICONS_ARR = parseIcons();
 let SVG_HTML = fs.readFileSync(`${PATHS.src.root}/icons/icons.svg`, `utf-8`);
 
 
@@ -131,7 +132,7 @@ gulp.task(`build`, [`svg:store`, `compile:colors`, `compile:css`, `compile:docs`
 //   Task: Compile Colors List
 // -------------------------------------
 gulp.task(`compile:colors`, function () {
-  COLORS_ARR = getColors();
+  COLORS_ARR = parseColorAnnotations();
 });
 
 
@@ -167,12 +168,13 @@ gulp.task(`compile:css`, function () {
 //   Task: Compile Docs
 // -------------------------------------
 gulp.task(`compile:docs`, function() {
+  var templateData = CSS_VAR_ANNOTATIONS;
+  templateData.colorSwatches = COLORS_ARR;
+  templateData.svgIcons = ICONS_ARR;
+
   let hbStream = hb()
     .partials(`${PATHS.site.templates}/*.hbs`)
-    .data({
-      colors: COLORS_ARR,
-      icons: ICONS_ARR
-    });
+    .data(templateData);
 
   return gulp.src(`${PATHS.src.docs}/*.md`)
     .pipe(hbStream)
@@ -282,7 +284,7 @@ gulp.task(`svg:optimize`, function() {
 //   Task: SVG building / listing
 // -------------------------------------
 gulp.task(`svg:store`, function() {
-  ICONS_ARR = getIcons(); // Refresh icons list
+  ICONS_ARR = parseIcons(); // Refresh icons list
 
   return gulp.src(`${PATHS.src.icons}/svg/*.svg`)
     .pipe(svgstore({ inlineSvg: true }))
@@ -307,17 +309,18 @@ gulp.task(`watch`, function() {
   ];
 
   let docs = [
+    `${PATHS.src.css}/_variables.css`,
     `${PATHS.src.root}/docs/*.md`,
     `${PATHS.site.templates}/*.hbs`
   ];
 
   // Refresh color list and compile css
-  gulp.watch(colors, [`compile:colors`, `compile:css`, `compile:site`]);
+  gulp.watch(colors, [`compile:colors`, `compile:css`, `compile:docs`, `compile:site`]);
 
   // Compiles all css
   gulp.watch(styles, [`compile:css`, `compile:site`]);
 
-  // Compiles markdown & site template
+  // Compiles css annotations, markdown & site template
   gulp.watch(docs, [`compile:docs`]);
 });
 
@@ -337,41 +340,41 @@ gulp.task(`webserver`, function() {
 
 
 // -------------------------------------
-//   Function: getColors()
+//   Function: parseColorAnnotations()
 // -------------------------------------
-function getColors() {
-  let cssPath = `${PATHS.src.css}/variables/_colors.css`;
-  let cssContent = fs.readFileSync(cssPath, `utf-8`).trim();
-  let results = annotateBlock(cssContent);
-  let colorRoot = [];
+function parseColorAnnotations() {
+  let path = `${PATHS.src.css}/variables/_colors.css`;
+  let content = fs.readFileSync(path, `utf-8`).trim();
+  let blocks = annotateBlock(content);
+  let colorBlock = [];
 
-  results.forEach(result => {
-    if (result.name === `color`) {
-      result.nodes.forEach(node => {
-        colorRoot.push(node);
+  blocks.forEach(block => {
+    if (block.name === `color`) {
+      block.nodes.forEach(node => {
+        colorBlock.push(node);
       });
     }
   });
 
-  let colorPalette = [];
-  colorRoot.forEach(color => {
+  let colorSwatches = [];
+  colorBlock.forEach(color => {
     color.walkDecls(decl => {
-    if (isColor(decl.value)) {
-        colorPalette.push({
+      if (isColor(decl.value)) {
+        colorSwatches.push({
           name: decl.prop.replace(/^--/, ``),
           color: decl.value
         });
       }
     });
   });
-  return colorPalette;
+  return colorSwatches;
 };
 
 
 // -------------------------------------
-//   Function: getIcons()
+//   Function: parseIcons()
 // -------------------------------------
-function getIcons() {
+function parseIcons() {
   let iconFiles = glob.sync(`*.svg`, { cwd: `${PATHS.src.icons}/svg` })
   return iconSet = iconFiles.map(file => {
     return file.substring(0, file.lastIndexOf(`.`));
@@ -379,18 +382,47 @@ function getIcons() {
 };
 
 
+// -------------------------------------
+//   Function: parseVarAnnotations()
+// -------------------------------------
+function parseVarAnnotations() {
+  let path = `${PATHS.src.css}/_variables.css`;
+  let content = fs.readFileSync(path, `utf-8`).trim();
+  let blocks = annotateBlock(content);
+  let annotationsData = {};
+
+  blocks.forEach(block => {
+
+    annotationsData[block.name] = [];
+
+    block.nodes.forEach(node => {
+      node.walkDecls(decl => {
+        annotationsData[block.name].push({
+          name: decl.prop.replace(/^--/, ``),
+          value: decl.value
+        });
+      });
+    });
+  });
+
+  return annotationsData;
+};
+
 
 // -------------------------------------
 // Task: Deploy (Lepore only)
 // Copies the WWW folder on Lepore`s machine to his dropbox folder for temporary viewing
 // -------------------------------------
 gulp.task(`deploy`, [`lint`], function() {
+  let gutil = require('gulp-util');
   let exec = require(`child_process`).exec;
 
   let src = `~/HookandLoop/git/soho/soho-foundation/site/www/*`,
       dest = ` ~/Dropbox/Public/soho-foundation`;
 
   return exec(`cp -R ${src} ${dest}`, function (err, stdout, stderr) {
+    gutil.log('Deployed to https://dl.dropboxusercontent.com/u/21521721/soho-foundation/index.html');
+
     console.log(stdout);
     console.log(stderr);
   });

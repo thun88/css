@@ -2,6 +2,16 @@
 
 Some text about using form-controls.
 
+## Specs
+
+```css
+{
+{{#each inputs}}
+  {{this.name}}: {{this.value}};
+{{/each}}
+}
+```
+
 
 ## Basic Example
 

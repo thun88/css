@@ -1,5 +1,15 @@
 # Typography
 
+## Specs
+
+```css
+{
+{{#each headings}}
+  {{this.name}}: {{this.value}};
+{{/each}}
+}
+```
+
 ## Standard headings
 
 <div class="example">
