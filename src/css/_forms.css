@@ -60,14 +60,14 @@ select.form-control {
 .form-group {
   margin-bottom: 20px;
 
-  label,
-  .info-block {
+  & label,
+  & .info-block {
     display: block;
     font-size: 1.2rem;
     line-height: 13px;
   }
 
-  label {
+  & label {
     color: var(--graphite06);
     margin-bottom: 5px;
 
@@ -82,7 +82,7 @@ select.form-control {
     }
   }
 
-  .info-block {
+  & .info-block {
     margin-top: 5px;
   }
 
@@ -92,7 +92,7 @@ select.form-control {
       color: var(--alert-red);
     }
 
-    .form-control {
+    & .form-control {
       border-color: var(--alert-red);
     }
 
@@ -134,7 +134,7 @@ select.form-control {
 }
 
 .form-checkbox {
-  .form-checkbox--input {
+  & .form-checkbox--input {
     margin-right: 5px;
 
     &:focus::before {
@@ -213,7 +213,7 @@ select.form-control {
 }
 
 .form-radio {
-  .form-radio--input {
+  & .form-radio--input {
     margin-right: 5px;
 
     &:focus::before {
