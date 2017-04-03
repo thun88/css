@@ -23,7 +23,7 @@
 
 <div class="color-grid">
   {{#each colorSwatches}}
-    <div class="lost-grid--col-1 swatch-{{this.name}}" style="background-color: {{this.color}};">
+    <div class="color-grid--col-1 swatch-{{this.name}}" style="background-color: {{this.color}};">
       <div>{{this.name}}</div>
     </div>
   {{/each}}

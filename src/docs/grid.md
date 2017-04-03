@@ -1,100 +1,161 @@
 # Grid - Lost Grid
+
 The grids used run off of the [lost grid](http://lostgrid.org/docs.html) postcss plugin.
 
+## Grid
 
-```css
-{
-{{#each breakpoints}}
-  {{this.name}}: {{this.value}};
-{{/each}}
-}
-```
-
-```css
-{
-{{#each lostgrid}}
-  {{this.name}}: {{this.value}};
-{{/each}}
-}
-```
-
-## Even columns
-
-<div class="lost-grid demo-grid">
-  <div class="lost-grid--col-1">Col 1</div>
-  <div class="lost-grid--col-1">Col 1</div>
-  <div class="lost-grid--col-1">Col 1</div>
-  <div class="lost-grid--col-1">Col 1</div>
-  <div class="lost-grid--col-1">Col 1</div>
-  <div class="lost-grid--col-1">Col 1</div>
-  <div class="lost-grid--col-1">Col 1</div>
-  <div class="lost-grid--col-1">Col 1</div>
-  <div class="lost-grid--col-1">Col 1</div>
-  <div class="lost-grid--col-1">Col 1</div>
-  <div class="lost-grid--col-1">Col 1</div>
-  <div class="lost-grid--col-1">Col 1</div>
+<div class="fnd-grid demo-grid">
+  <div class="fnd-grid--col-1">col-1</div>
+  <div class="fnd-grid--col-1">col-1</div>
+  <div class="fnd-grid--col-1">col-1</div>
+  <div class="fnd-grid--col-1">col-1</div>
+  <div class="fnd-grid--col-1">col-1</div>
+  <div class="fnd-grid--col-1">col-1</div>
+  <div class="fnd-grid--col-1">col-1</div>
+  <div class="fnd-grid--col-1">col-1</div>
+  <div class="fnd-grid--col-1">col-1</div>
+  <div class="fnd-grid--col-1">col-1</div>
+  <div class="fnd-grid--col-1">col-1</div>
+  <div class="fnd-grid--col-1">col-1</div>
 </div>
 
-<div class="lost-grid demo-grid">
-  <div class="lost-grid--col-2">Col 2</div>
-  <div class="lost-grid--col-2">Col 2</div>
-  <div class="lost-grid--col-2">Col 2</div>
-  <div class="lost-grid--col-2">Col 2</div>
-  <div class="lost-grid--col-2">Col 2</div>
-  <div class="lost-grid--col-2">Col 2</div>
+<div class="fnd-grid demo-grid">
+  <div class="fnd-grid--col-2">col-2</div>
+  <div class="fnd-grid--col-2">col-2</div>
+  <div class="fnd-grid--col-2">col-2</div>
+  <div class="fnd-grid--col-2">col-2</div>
+  <div class="fnd-grid--col-2">col-2</div>
+  <div class="fnd-grid--col-2">col-2</div>
 </div>
 
-
-<div class="lost-grid demo-grid">
-  <div class="lost-grid--col-3">Col 3</div>
-  <div class="lost-grid--col-3">Col 3</div>
-  <div class="lost-grid--col-3">Col 3</div>
-  <div class="lost-grid--col-3">Col 3</div>
+<div class="fnd-grid demo-grid">
+  <div class="fnd-grid--col-3">col-3</div>
+  <div class="fnd-grid--col-3">col-3</div>
+  <div class="fnd-grid--col-3">col-3</div>
+  <div class="fnd-grid--col-3">col-3</div>
 </div>
 
-<div class="lost-grid demo-grid">
-  <div class="lost-grid--col-4">Col 4</div>
-  <div class="lost-grid--col-4">Col 4</div>
-  <div class="lost-grid--col-4">Col 4</div>
+<div class="fnd-grid demo-grid">
+  <div class="fnd-grid--col-4">col-4</div>
+  <div class="fnd-grid--col-4">col-4</div>
+  <div class="fnd-grid--col-4">col-4</div>
 </div>
 
-<div class="lost-grid demo-grid">
-  <div class="lost-grid--col-6">Col 6</div>
-  <div class="lost-grid--col-6">Col 6</div>
+<div class="fnd-grid demo-grid">
+  <div class="fnd-grid--col-5">col-5</div>
+  <div class="fnd-grid--col-7">col-7</div>
 </div>
 
-<div class="lost-grid demo-grid">
-  <div class="lost-grid--col-12">Col 12</div>
+<div class="fnd-grid demo-grid">
+  <div class="fnd-grid--col-6">col-6</div>
+  <div class="fnd-grid--col-6">col-6</div>
 </div>
 
-## Column sizes
-
-<div class="lost-grid demo-grid">
-  <div class="lost-grid--col-1">Col 1</div>
-  <div class="lost-grid--col-11">Col 11</div>
+<div class="fnd-grid demo-grid">
+  <div class="fnd-grid--col-7">col-7</div>
+  <div class="fnd-grid--col-5">col-5</div>
 </div>
 
-<div class="lost-grid demo-grid">
-  <div class="lost-grid--col-2">Col 2</div>
-  <div class="lost-grid--col-10">Col 10</div>
+<div class="fnd-grid demo-grid">
+  <div class="fnd-grid--col-8">col-8</div>
+  <div class="fnd-grid--col-4">col-4</div>
 </div>
 
-<div class="lost-grid demo-grid">
-  <div class="lost-grid--col-3">Col 3</div>
-  <div class="lost-grid--col-9">Col 9</div>
+<div class="fnd-grid demo-grid">
+  <div class="fnd-grid--col-9">col-9</div>
+  <div class="fnd-grid--col-3">col-3</div>
 </div>
 
-<div class="lost-grid demo-grid">
-  <div class="lost-grid--col-4">Col 4</div>
-  <div class="lost-grid--col-8">Col 8</div>
+<div class="fnd-grid demo-grid">
+  <div class="fnd-grid--col-10">col-10</div>
+  <div class="fnd-grid--col-2">col-2</div>
 </div>
 
-<div class="lost-grid demo-grid">
-  <div class="lost-grid--col-5">Col 5</div>
-  <div class="lost-grid--col-7">Col 7</div>
+<div class="fnd-grid demo-grid">
+  <div class="fnd-grid--col-11">col-11</div>
+  <div class="fnd-grid--col-1">col-1</div>
 </div>
 
-<div class="lost-grid demo-grid">
-  <div class="lost-grid--col-6">Col 6</div>
-  <div class="lost-grid--col-6">Col 6</div>
+<div class="fnd-grid demo-grid">
+  <div class="fnd-grid--col-12">col-12</div>
+</div>
+
+## Grid with gutter
+
+If you would like gutters with your grid use grid class `.fnd-grid--gutter`.
+
+<div class="fnd-grid--gutter demo-grid">
+  <div class="fnd-grid--col-1">col-1</div>
+  <div class="fnd-grid--col-1">col-1</div>
+  <div class="fnd-grid--col-1">col-1</div>
+  <div class="fnd-grid--col-1">col-1</div>
+  <div class="fnd-grid--col-1">col-1</div>
+  <div class="fnd-grid--col-1">col-1</div>
+  <div class="fnd-grid--col-1">col-1</div>
+  <div class="fnd-grid--col-1">col-1</div>
+  <div class="fnd-grid--col-1">col-1</div>
+  <div class="fnd-grid--col-1">col-1</div>
+  <div class="fnd-grid--col-1">col-1</div>
+  <div class="fnd-grid--col-1">col-1</div>
+</div>
+
+<div class="fnd-grid--gutter demo-grid">
+  <div class="fnd-grid--col-2">col-2</div>
+  <div class="fnd-grid--col-2">col-2</div>
+  <div class="fnd-grid--col-2">col-2</div>
+  <div class="fnd-grid--col-2">col-2</div>
+  <div class="fnd-grid--col-2">col-2</div>
+  <div class="fnd-grid--col-2">col-2</div>
+</div>
+
+<div class="fnd-grid--gutter demo-grid">
+  <div class="fnd-grid--col-3">col-3</div>
+  <div class="fnd-grid--col-3">col-3</div>
+  <div class="fnd-grid--col-3">col-3</div>
+  <div class="fnd-grid--col-3">col-3</div>
+</div>
+
+<div class="fnd-grid--gutter demo-grid">
+  <div class="fnd-grid--col-4">col-4</div>
+  <div class="fnd-grid--col-4">col-4</div>
+  <div class="fnd-grid--col-4">col-4</div>
+</div>
+
+<div class="fnd-grid--gutter demo-grid">
+  <div class="fnd-grid--col-5">col-5</div>
+  <div class="fnd-grid--col-7">col-7</div>
+</div>
+
+<div class="fnd-grid--gutter demo-grid">
+  <div class="fnd-grid--col-6">col-6</div>
+  <div class="fnd-grid--col-6">col-6</div>
+</div>
+
+<div class="fnd-grid--gutter demo-grid">
+  <div class="fnd-grid--col-7">col-7</div>
+  <div class="fnd-grid--col-5">col-5</div>
+</div>
+
+<div class="fnd-grid--gutter demo-grid">
+  <div class="fnd-grid--col-8">col-8</div>
+  <div class="fnd-grid--col-4">col-4</div>
+</div>
+
+<div class="fnd-grid--gutter demo-grid">
+  <div class="fnd-grid--col-9">col-9</div>
+  <div class="fnd-grid--col-3">col-3</div>
+</div>
+
+<div class="fnd-grid--gutter demo-grid">
+  <div class="fnd-grid--col-10">col-10</div>
+  <div class="fnd-grid--col-2">col-2</div>
+</div>
+
+<div class="fnd-grid--gutter demo-grid">
+  <div class="fnd-grid--col-11">col-11</div>
+  <div class="fnd-grid--col-1">col-1</div>
+</div>
+
+<div class="fnd-grid--gutter demo-grid">
+  <div class="fnd-grid--col-12">col-12</div>
 </div>

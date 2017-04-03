@@ -1,60 +1,27 @@
-@lost gutter 20px;
 @lost flexbox flex;
 
-.lost-grid {
+.fnd-grid {
   lost-center: 100%;
 
-  & > .lost-grid--col-1 {
-    lost-column: 1/var(--grid-columns);
+  @for $i from 1 to 12 {
+    & > .fnd-grid--col-$i {
+      lost-column: $(i)/12 0 0;
+    }
   }
+}
 
-  & > .lost-grid--col-2 {
-    lost-column: 2/var(--grid-columns);
-  }
+.fnd-grid--gutter {
+  lost-center: 100%;
 
-  & > .lost-grid--col-3 {
-    lost-column: 3/var(--grid-columns);
-  }
-
-  & > .lost-grid--col-4 {
-    lost-column: 4/var(--grid-columns);
-  }
-
-  & > .lost-grid--col-5 {
-    lost-column: 5/var(--grid-columns);
-  }
-
-  & > .lost-grid--col-6 {
-    lost-column: 6/var(--grid-columns);
-  }
-
-  & > .lost-grid--col-7 {
-    lost-column: 7/var(--grid-columns);
-  }
-
-  & > .lost-grid--col-8 {
-    lost-column: 8/var(--grid-columns);
-  }
-
-  & > .lost-grid--col-9 {
-    lost-column: 9/var(--grid-columns);
-  }
-
-  & > .lost-grid--col-10 {
-    lost-column: 10/var(--grid-columns);
-  }
-
-  & > .lost-grid--col-11 {
-    lost-column: 11/var(--grid-columns);
-  }
-
-  & > .lost-grid--col-12 {
-    lost-column: 1;
+  @for $i from 1 to 12 {
+    & > .fnd-grid--col-$i {
+      lost-column: $(i)/12 auto 10px;
+    }
   }
 }
 
 @media (--viewport-sm) {
-  .lost-grid > [class^='lost-grid--col-'] {
+  .fnd-grid > [class^='fnd-grid--'] {
     lost-column: 1;
   }
 }
