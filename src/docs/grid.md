@@ -1,6 +1,23 @@
 # Grid - Lost Grid
 The grids used run off of the [lost grid](http://lostgrid.org/docs.html) postcss plugin.
 
+
+```css
+{
+{{#each breakpoints}}
+  {{this.name}}: {{this.value}};
+{{/each}}
+}
+```
+
+```css
+{
+{{#each lostgrid}}
+  {{this.name}}: {{this.value}};
+{{/each}}
+}
+```
+
 ## Even columns
 
 <div class="lost-grid demo-grid">
@@ -81,4 +98,3 @@ The grids used run off of the [lost grid](http://lostgrid.org/docs.html) postcss
   <div class="lost-grid--col-6">Col 6</div>
   <div class="lost-grid--col-6">Col 6</div>
 </div>
-
