@@ -31,8 +31,10 @@
     "gulp-wrap": "^0.13.0",
     "is-color": "^0.2.0",
     "lost": "^8.0.0",
+    "postcss-at-rules-variables": "0.0.27",
     "postcss-commas": "^1.0.0",
     "postcss-cssnext": "^2.10.0",
+    "postcss-for": "^2.1.1",
     "postcss-import": "^9.1.0",
     "stylelint-order": "^0.4.3"
   },

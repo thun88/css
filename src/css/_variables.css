@@ -148,12 +148,6 @@
 }
 /* @end radios */
 
-/* @start lostgrid */
-:root {
-  --grid-columns: 12;
-}
-/* @end lostgrid */
-
 /* @start breakpoints */
 :root {
   --breakpoint-xlg: 1200px;

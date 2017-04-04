@@ -45,11 +45,13 @@
 // gulp-tap       : Easily tap into a pipeline
 // gulp-wrap      : Wrap stream contents to template
 //
-// postcss-import  : Include css files with `@`
-// postcss-commas  : Allow lists of properties per value
-// postcss-cssnext : Collection of future proof plugins
-// cssnano         : CSS minify
-// lost            : Grid system
+// postcss-for       : Allow at-for loops
+// postcss-variables : Allow at-vars in at-for loops
+// postcss-import    : Include css files with `@`
+// postcss-commas    : Allow lists of properties per value
+// postcss-cssnext   : Collection of future proof plugins
+// cssnano           : CSS minify
+// lost              : Grid system
 //
 // -------------------------------------
 
@@ -73,7 +75,9 @@ let concat = require(`gulp-concat`),
 // -------------------------------------
 //   PostCSS Plugins
 // -------------------------------------
-let atImport = require(`postcss-import`),
+let atFor = require(`postcss-for`),
+  atImport = require(`postcss-import`),
+  atVariables = require('postcss-at-rules-variables'),
   commas     = require(`postcss-commas`),
   cssnext    = require(`postcss-cssnext`),
   cssnano    = require(`cssnano`),
@@ -145,6 +149,8 @@ gulp.task(`compile:css`, function () {
   let plugins = [
     atImport,
     commas,
+    atVariables,
+    atFor,
     lost,
     cssnext
   ];
@@ -205,6 +211,8 @@ gulp.task(`compile:site`, function () {
   let plugins = [
     atImport,
     commas,
+    atVariables,
+    atFor,
     lost,
     cssnext,
     cssnano({ autoprefixer: false })
