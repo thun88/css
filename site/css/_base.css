@@ -120,6 +120,36 @@ blockquote {
 }
 
 /*
+ * Cards
+ */
+
+.card {
+  background-color: var(--white);
+  border: 1px solid var(--graphite03);
+  border-radius: 2px;
+
+  & .card--header {
+    border-bottom: 1px solid var(--graphite03);
+    height: 50px;
+
+    & .card--header--title {
+      font-size: var(--font-size-h4);
+      font-weight: 300;
+      line-height: 50px;
+      margin: 0;
+      padding: 0 20px;
+    }
+  }
+
+  & .card--content {
+    height: 200px;
+    min-height: 200px;
+    overflow: auto;
+    width: 100%;
+  }
+}
+
+/*
  * Colors specific grid
  */
 .color-grid {

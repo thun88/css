@@ -15,7 +15,7 @@
 
   @for $i from 1 to 12 {
     & > .fnd-grid--col-$i {
-      lost-column: $(i)/12 auto 10px;
+      lost-column: $(i)/12 auto 20px;
     }
   }
 }
