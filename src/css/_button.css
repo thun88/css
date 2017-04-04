@@ -23,6 +23,7 @@
 
   &[disabled] {
     cursor: default;
+    opacity: var(--btn-disabled-opacity);
   }
 }
 
@@ -32,14 +33,14 @@
 
   &:hover {
     background-color: var(--btn-default-hover);
+
+    &[disabled] {
+      background-color: var(--btn-default-bg);
+    }
   }
 
-  &[disabled] {
-    background-color: var(--btn-default-bg-disabled);
-    color: var(--btn-default-color-disabled);
-  }
-
-  &:focus {
+  &:focus,
+  &.has-focus {
     box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--btn-default-bg);
     outline: 0;
   }
@@ -51,14 +52,15 @@
 
   &:hover {
     background-color: var(--btn-primary-hover);
+
+    &[disabled] {
+      background-color: var(--btn-primary-bg);
+    }
   }
 
-  &[disabled] {
-    background-color: var(--btn-primary-bg-disabled);
-    color: var(--btn-primary-color-disabled);
-  }
 
-  &:focus {
+  &:focus,
+  &.has-focus {
     box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--btn-primary-bg);
     outline: 0;
   }
@@ -70,14 +72,14 @@
 
   &:hover {
     background-color: var(--btn-warning-hover);
+
+    &[disabled] {
+      background-color: var(--btn-warning-bg);
+    }
   }
 
-  &[disabled] {
-    background-color: var(--btn-warning-bg-disabled);
-    color: var(--btn-warning-color-disabled);
-  }
-
-  &:focus {
+  &:focus,
+  &.has-focus {
     box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--btn-warning-bg);
     outline: 0;
   }
@@ -89,14 +91,15 @@
 
   &:hover {
     color: var(--btn-link-hover);
+
+    &[disabled] {
+      color: var(--btn-link-color);
+    }
   }
 
-  &[disabled] {
-    background-color: var(--btn-link-bg-disabled);
-    color: var(--btn-link-color-disabled);
-  }
-
-  &:focus {
+  &:focus,
+  &.has-focus {
+    box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--btn-default-bg);
     outline: 0;
   }
 }

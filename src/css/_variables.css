@@ -58,11 +58,10 @@
 
 /* @start buttons */
 :root {
+  --btn-disabled-opacity: 0.5;
   --btn-line-height: 2.2rem;
   --btn-default-color: var(--graphite08);
-  --btn-default-color-disabled: var(--white); /* soho used opacity 0.5 */
   --btn-default-bg: var(--graphite03);
-  --btn-default-bg-disabled: var(--graphite02); /* soho used opacity 0.5 */
   --btn-default-hover: var(--graphite04);
 }
 /* @end buttons */
@@ -70,9 +69,7 @@
 /* @start buttonPrimary */
 :root {
   --btn-primary-color: var(--white);
-  --btn-primary-color-disabled: var(--white); /* soho used opacity 0.5 */
   --btn-primary-bg: var(--soho-primary);
-  --btn-primary-bg-disabled: var(--azure02); /* soho used opacity 0.5 */
   --btn-primary-hover: var(--azure07);
 }
 /* @end buttonPrimary */
@@ -80,9 +77,7 @@
 /* @start buttonWarning */
 :root {
   --btn-warning-color: var(--white);
-  --btn-warning-color-disabled: var(--white); /* soho used opacity 0.5 */
   --btn-warning-bg: var(--soho-warning);
-  --btn-warning-bg-disabled: var(--ruby02); /* soho used opacity 0.5 */
   --btn-warning-hover: var(--ruby07);
 }
 /* @end buttonWarning */
@@ -90,9 +85,7 @@
 /* @start buttonLink */
 :root {
   --btn-link-color: var(--graphite06);
-  --btn-link-color-disabled: var(--graphite03);
   --btn-link-bg: transparent;
-  --btn-link-bg-disabled: var(--btn-link-bg);
   --btn-link-hover: var(--graphite10);
 }
 /* @end buttonLink */

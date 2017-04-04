@@ -4,6 +4,7 @@
   height: 18px;
   position: relative;
   width: 22px;
+  vertical-align: top;
 }
 
 .btn-link span { /* Temp class - remove ASAP */

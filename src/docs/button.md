@@ -46,8 +46,8 @@ Use the button classes on and `<a>`, `<button>`, `<input>` elements.
 Use any of the available button classes to quickly create a styled button.
 
 <div class="example">
-  <button type="button" class="btn btn-default">Default</button>
-  <button type="button" class="btn btn-primary">Primary</button>
+  <button type="button" class="btn btn-default">Default</button>&nbsp;
+  <button type="button" class="btn btn-primary">Primary</button>&nbsp;
   <button type="button" class="btn btn-warning">Warning</button>
 </div>
 ```html
@@ -60,11 +60,23 @@ Use any of the available button classes to quickly create a styled button.
 ## Disabled State
 
 <div class="example">
-  <button type="button" class="btn btn-primary" disabled>Primary Button</button>
-  <button type="button" class="btn btn-default" disabled>Button</button>
+  <button type="button" class="btn btn-default" disabled>Button</button>&nbsp;
+  <button type="button" class="btn btn-primary" disabled>Primary Button</button>&nbsp;
+  <button type="button" class="btn btn-warning" disabled>Warning Button</button>
 </div>
 ```html
 <button type="button" class="btn btn-default" disabled>Button</button>
+```
+
+## Focused State
+
+<div class="example">
+  <button type="button" class="btn btn-default has-focus">Button</button>&nbsp;
+  <button type="button" class="btn btn-primary has-focus">Primary Button</button>&nbsp;
+  <button type="button" class="btn btn-warning has-focus">Warning Button</button>
+</div>
+```html
+<button type="button" class="btn btn-default has-focus">Button</button>
 ```
 
 
@@ -73,8 +85,29 @@ Use any of the available button classes to quickly create a styled button.
 <div class="example">
   <a href="" class="btn btn-link">Link Button</a>
   <a href="" class="btn btn-link" disabled>Link Button</a>
+  <a href="" class="btn btn-link has-focus">Link Button</a>
 </div>
 ```html
 <a href="" class="btn btn-link">Link Button</a>
 <a href="" class="btn btn-link" disabled>Link Button</a>
+```
+
+
+## Icon Buttons
+
+<div class="example">
+  <a href="" class="btn btn-default">
+    Button Icon
+    <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+      <use xlink:href="#star-filled"></use>
+    </svg>
+  </a>
+</div>
+```html
+<a href="" class="btn btn-default">
+  Button Icon
+  <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+    <use xlink:href="#star-filled"></use>
+  </svg>
+</a>
 ```
