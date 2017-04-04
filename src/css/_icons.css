@@ -3,8 +3,8 @@
   fill: var(--graphite04);
   height: 18px;
   position: relative;
-  width: 22px;
   vertical-align: top;
+  width: 22px;
 }
 
 .btn-link span { /* Temp class - remove ASAP */
