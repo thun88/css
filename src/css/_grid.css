@@ -20,8 +20,9 @@
   }
 }
 
-@media (--viewport-sm) {
-  .fnd-grid > [class^='fnd-grid--'] {
+@media (--viewport-md) {
+  .fnd-grid > [class^='fnd-grid--'],
+  .fnd-grid--gutter > [class^='fnd-grid--'] {
     lost-column: 1;
   }
 }
