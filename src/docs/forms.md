@@ -243,7 +243,7 @@ Disabled checkboxes and radios are supported, but to provide a "not-allowed" cur
 ```html
   <div class="form-group">
     <label form="select-normal-1">Normal State</label>
-    <select id="select-normal-1" class="form-control" multiple>
+    <select id="select-normal-1" class="form-control">
       <option>Option</option>
       <option>Option</option>
       <option>Option</option>
