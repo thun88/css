@@ -14,11 +14,11 @@ Foundation is a sleek, intuitive, and powerful front-end framework for faster an
 1. `$ npm install`
 1. `$ gulp`
 
-## Other Useful Gulp Tasks
+## Basic Gulp Tasks
 
-- `$ gulp` - Build the site and run the webserver
-- `$ gulp build` - Build the files without starting the webserver
-- `$ gulp dev` - Build the site, run the webserver, and start a watch for development
+- `$ gulp` - Build the site, run the webserver, start a watch
+- `$ gulp serve` - Run the webserver and watch
+- `$ gulp build` - Build the files
 - `$ gulp clean` - Remove all generated/static files (`dist` & `site/www`)
 
 ## SVG Icons
@@ -33,4 +33,4 @@ For building the icons
 
 ## Lint Styles
 
-- `$ gulp lint` Lints the source and site css raw files
+- `$ gulp lint` Lints the **source** and **site** css raw files
