@@ -18,7 +18,7 @@
 //   `gulp svg:optimize`
 //   `gulp svg:store`
 //   `gulp watch`
-//   `gulp webserver`
+//   `gulp serve`
 //
 // *************************************
 
@@ -56,7 +56,8 @@
 // -------------------------------------
 
 let gulp = require(`gulp`);
-let concat = require(`gulp-concat`),
+let browserSync = require(`browser-sync`).create(),
+    concat = require(`gulp-concat`),
     annotateBlock = require(`css-annotation-block`),
     del = require(`del`),
     fs = require(`fs`),
@@ -72,12 +73,13 @@ let concat = require(`gulp-concat`),
     tap = require(`gulp-tap`),
     wrap = require(`gulp-wrap`);
 
+
 // -------------------------------------
 //   PostCSS Plugins
 // -------------------------------------
 let atFor = require(`postcss-for`),
   atImport = require(`postcss-import`),
-  atVariables = require('postcss-at-rules-variables'),
+  atVariables = require(`postcss-at-rules-variables`),
   commas     = require(`postcss-commas`),
   cssnext    = require(`postcss-cssnext`),
   cssnano    = require(`cssnano`),
@@ -95,10 +97,9 @@ let PATHS = {
 
 // Source
 PATHS.src.root      = `src`;
+PATHS.src.docs      = `${PATHS.src.root}/docs`;
 PATHS.src.css       = `${PATHS.src.root}/css`;
 PATHS.src.icons     = `${PATHS.src.root}/icons`;
-PATHS.src.docs      = `${PATHS.src.root}/docs`;
-PATHS.src.docFiles  = `${PATHS.src.docs}/*.md`;
 
 // Dist
 PATHS.dist.root = `dist`;
@@ -121,7 +122,7 @@ let SVG_HTML = fs.readFileSync(`${PATHS.src.root}/icons/icons.svg`, `utf-8`);
 //   Task: Default
 // -------------------------------------
 // Does a full build and runs the site
-gulp.task(`default`, [`build`, `webserver`]);
+gulp.task(`default`, [`build`, `serve`]);
 
 
 
@@ -130,6 +131,16 @@ gulp.task(`default`, [`build`, `webserver`]);
 // -------------------------------------
 gulp.task(`build`, [`svg:store`, `compile:colors`, `compile:css`, `compile:docs`, `compile:site`]);
 
+
+// -------------------------------------
+//   Task: build-watch
+//   A task that ensures reload after
+//   everything is built (for serve task)
+// -------------------------------------
+gulp.task(`build-watch`, [`compile:colors`, `compile:css`, `compile:docs`, `compile:site`], function (done) {
+    browserSync.reload();
+    done();
+});
 
 
 // -------------------------------------
@@ -303,47 +314,28 @@ gulp.task(`svg:store`, function() {
 
 
 // -------------------------------------
-//   Task: Watch
+//   Task: Serve
 // -------------------------------------
-gulp.task(`watch`, function() {
-  let colors = [
-    `${PATHS.src.css}/**/_colors.css`
-  ]
+gulp.task(`serve`, function() {
+  browserSync.init({
+    codesync: false,
+    injectChanges: false,
+    open: `local`,
+    server: {
+      baseDir: PATHS.site.www
+    },
+    logLevel: `basic`,
+    logPrefix: `Soho-Fnd`
+  });
 
-  let styles = [
+  let files = [
     `${PATHS.src.css}/**/*.css`,
-    `!${PATHS.src.css}/**/_colors.css`,
-    `${PATHS.site.css}/*.css`
-  ];
-
-  let docs = [
-    `${PATHS.src.css}/_variables.css`,
-    `${PATHS.src.root}/docs/*.md`,
+    `${PATHS.src.docs}/*.md`,
+    `${PATHS.site.css}/*.css`,
     `${PATHS.site.templates}/*.hbs`
   ];
 
-  // Refresh color list and compile css
-  gulp.watch(colors, [`compile:colors`, `compile:css`, `compile:docs`, `compile:site`]);
-
-  // Compiles all css
-  gulp.watch(styles, [`compile:css`, `compile:site`]);
-
-  // Compiles css annotations, markdown & site template
-  gulp.watch(docs, [`compile:docs`]);
-});
-
-
-// -------------------------------------
-//   Task: Webserver
-// -------------------------------------
-gulp.task(`webserver`, function() {
-  return gulp.src(PATHS.site.www)
-    .pipe(server({
-      livereload: true,
-      defaultFile: `index.html`,
-      open: true,
-      log: `debug`
-    }));
+  gulp.watch(files, [`build-watch`]);
 });
 
 
@@ -422,14 +414,14 @@ function parseVarAnnotations() {
 // Copies the WWW folder on Lepore`s machine to his dropbox folder for temporary viewing
 // -------------------------------------
 gulp.task(`deploy`, [`lint`, `build`], function() {
-  let gutil = require('gulp-util');
+  let gutil = require(`gulp-util`);
   let exec = require(`child_process`).exec;
 
   let src = `~/HookandLoop/git/soho/soho-foundation/site/www/*`,
       dest = ` ~/Dropbox/Public/soho-foundation`;
 
   return exec(`cp -R ${src} ${dest}`, function (err, stdout, stderr) {
-    gutil.log('Deployed to https://dl.dropboxusercontent.com/u/21521721/soho-foundation/index.html');
+    gutil.log(`Deployed to https://dl.dropboxusercontent.com/u/21521721/soho-foundation/index.html`);
 
     console.log(stdout);
     console.log(stderr);
