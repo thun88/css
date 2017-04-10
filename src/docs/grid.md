@@ -322,28 +322,3 @@ If you would like gutters with your grid use grid class `.fnd-grid--gutter`.
 <div class="fnd-grid--gutter demo-grid">
   <div class="fnd-grid--col-xlg-12">col-12</div>
 </div>
-
-## Example with "cards"
-
-Taken from soho, this is an example using the grid to control cards.
-
-<div class="fnd-grid--gutter card-grid">
-  <div class="fnd-grid--col-xlg-4">
-    <div class="card">
-      <div class="card--header">
-        <h2 class="card--header--title">This is a card contained by col-4</h2>
-      </div>
-      <div class="card--content">
-      </div>
-    </div>
-  </div>
-  <div class="fnd-grid--col-xlg-8">
-    <div class="card">
-      <div class="card--header">
-        <h2 class="card--header--title">This is a card contained by col-8</h2>
-      </div>
-      <div class="card--content">
-      </div>
-    </div>
-  </div>
-</div>
