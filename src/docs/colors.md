@@ -1,3 +1,8 @@
+---
+title: Colors
+description: Soho Foundation Styleguide
+---
+
 # Colors
 
 ## Brand color specs

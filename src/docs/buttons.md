@@ -1,3 +1,8 @@
+---
+title: Buttons
+description: Soho Foundation Styleguide
+---
+
 # Buttons
 
 ## Specs

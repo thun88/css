@@ -1,3 +1,8 @@
+---
+title: Icons
+description: Soho Foundation Styleguide
+---
+
 # Standard Icons
 
 To be able to x:link the icons into your app, you will need to copy `dist/icons.svg` contents into the top of your `<body>` tag for your html pages.

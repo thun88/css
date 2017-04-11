@@ -1,3 +1,8 @@
+---
+title: Typeography
+description: Soho Foundation Styleguide
+---
+
 # Typography
 
 ## Specs

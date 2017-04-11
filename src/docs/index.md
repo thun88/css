@@ -1,3 +1,8 @@
+---
+title: Home
+---
+
+
 # Home Page Index for StyleGuide
 
 ## Welcome!

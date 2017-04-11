@@ -35,6 +35,7 @@
 // glob           : File pattern matching
 // hb             : Template parser
 // is-color       : Validate hex colors
+// frontMatter    : Used to extract meta yaml
 // gulp-pandoc    : File converter
 // gulp-postcss   : Transform styles with JS
 // gulp-rename    : Rename files
@@ -42,7 +43,7 @@
 // gulp-stylelint : Lint the styles
 // stylelint-order: Stylelint plugin
 // gulp-svgstore  : Combine svg files
-// gulp-tap       : Easily tap into a pipeline
+// gulp-tap       : Easily tap into a pipeline (debug)
 // gulp-wrap      : Wrap stream contents to template
 //
 // postcss-for       : Allow at-for loops
@@ -60,6 +61,7 @@ let browserSync = require(`browser-sync`).create(),
     concat = require(`gulp-concat`),
     annotateBlock = require(`css-annotation-block`),
     del = require(`del`),
+    frontMatter = require('gulp-front-matter'),
     fs = require(`fs`),
     glob = require(`glob`),
     hb = require(`gulp-hb`),
@@ -189,12 +191,14 @@ gulp.task(`compile:docs`, function() {
   templateData.colorSwatches = COLORS_ARR;
   templateData.svgIcons = ICONS_ARR;
 
-  let hbStream = hb()
-    .partials(`${PATHS.site.templates}/*.hbs`)
-    .data(templateData);
+  let hbStream = hb().data(templateData);
 
   return gulp.src(`${PATHS.src.docs}/*.md`)
     .pipe(hbStream)
+    .pipe(frontMatter({
+      property: 'meta',
+      remove: true
+    }))
     .pipe(pandoc({
        from: `markdown-markdown_in_html_blocks`, // http://pandoc.org/MANUAL.html#raw-html
        to: `html5`,
@@ -204,7 +208,7 @@ gulp.task(`compile:docs`, function() {
     .pipe(wrap({
         src: `${PATHS.site.templates}/page.hbs`
       }, {
-        icons: SVG_HTML
+        icons: SVG_HTML,
       }, {
         engine: `handlebars`
       }
@@ -320,7 +324,7 @@ gulp.task(`serve`, function() {
   browserSync.init({
     codesync: false,
     injectChanges: false,
-    open: `local`,
+    open: false,
     server: {
       baseDir: PATHS.site.www
     },
