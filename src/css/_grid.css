@@ -6,7 +6,6 @@
 }
 
 @for $i from 1 to 12 {
-
   .fnd-grid .fnd-grid--col-$i,
   .fnd-grid--gutter .fnd-grid--col-$i {
     lost-column: 1 0 0;
