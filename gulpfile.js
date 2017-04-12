@@ -194,17 +194,21 @@ gulp.task(`compile:docs`, function() {
   let hbStream = hb().data(templateData);
 
   return gulp.src(`${PATHS.src.docs}/*.md`)
+    // Parse any handlebar templates in the markdown
     .pipe(hbStream)
+    // Get meta from top of markdown files
     .pipe(frontMatter({
       property: 'meta',
       remove: true
     }))
+    // Convert markdown to html
     .pipe(pandoc({
        from: `markdown-markdown_in_html_blocks`, // http://pandoc.org/MANUAL.html#raw-html
        to: `html5`,
        ext: `.html`,
        args: [`--smart`]
     }))
+    // Wrap the HTML into a handlebars template and parse
     .pipe(wrap({
         src: `${PATHS.site.templates}/page.hbs`
       }, {
