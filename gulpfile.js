@@ -7,17 +7,17 @@
 // Available tasks:
 //   `gulp`
 //   `gulp build`
+//      `gulp build-watch`
+//      `gulp compile:colors`
 //      `gulp compile:css`
 //      `gulp compile:docs`
 //      `gulp compile:site`
 //   `gulp clean`
-//   `gulp dev`
 //   `gulp lint`
 //      `gulp lint:css`
 //      `gulp lint:site`
 //   `gulp svg:optimize`
 //   `gulp svg:store`
-//   `gulp watch`
 //   `gulp serve`
 //
 // *************************************
@@ -42,6 +42,7 @@
 // gulp-server    : Serve the website for dev
 // gulp-stylelint : Lint the styles
 // stylelint-order: Stylelint plugin
+// gulp-svgmin    : SVGO for gulp
 // gulp-svgstore  : Combine svg files
 // gulp-tap       : Easily tap into a pipeline (debug)
 // gulp-wrap      : Wrap stream contents to template
@@ -71,6 +72,7 @@ let browserSync = require(`browser-sync`).create(),
     rename = require(`gulp-rename`),
     server = require(`gulp-server-livereload`),
     stylelint = require(`gulp-stylelint`),
+    svgmin = require('gulp-svgmin'),
     svgstore = require(`gulp-svgstore`),
     tap = require(`gulp-tap`),
     wrap = require(`gulp-wrap`);
@@ -256,12 +258,6 @@ gulp.task(`clean`, function () {
 
 
 // -------------------------------------
-//   Task: Dev
-// -------------------------------------
-gulp.task(`dev`, [`default`, `watch`]);
-
-
-// -------------------------------------
 //   Task: Lint CSS
 // -------------------------------------
 gulp.task(`lint`, [`lint:css`, `lint:site`]);
@@ -300,10 +296,9 @@ gulp.task(`lint:site`, function() {
 //   Task: SVG Optimization
 // -------------------------------------
 gulp.task(`svg:optimize`, function() {
-  let svgs = `${PATHS.src.icons}/svg/*.svg`;
-  return gulp.src(svgs)
+  return gulp.src(`${PATHS.src.icons}/svg/*.svg`)
     .pipe(svgmin())
-    .pipe(gulp.dest(svgs));
+    .pipe(gulp.dest(`${PATHS.src.icons}/svg`));
 });
 
 
