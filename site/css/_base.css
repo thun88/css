@@ -23,11 +23,12 @@
 }
 
 /*
- * Menu bar
+ * Side Nav
  */
 .site-sidebar {
   height: 100%;
   overflow-y: scroll;
+  position: fixed;
 }
 
 .site-sidebar--list > li {
