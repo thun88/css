@@ -68,27 +68,35 @@
 
 /* @start buttonPrimary */
 :root {
-  --btn-primary-color: var(--white);
   --btn-primary-bg: var(--soho-primary);
+  --btn-primary-color: var(--white);
   --btn-primary-hover: var(--azure07);
 }
 /* @end buttonPrimary */
 
 /* @start buttonWarning */
 :root {
-  --btn-warning-color: var(--white);
   --btn-warning-bg: var(--soho-warning);
+  --btn-warning-color: var(--white);
   --btn-warning-hover: var(--ruby07);
 }
 /* @end buttonWarning */
 
 /* @start buttonLink */
 :root {
-  --btn-link-color: var(--graphite06);
   --btn-link-bg: transparent;
+  --btn-link-color: var(--graphite06);
   --btn-link-hover: var(--graphite10);
 }
 /* @end buttonLink */
+
+/* @start icons */
+:root {
+  --icon-height: 16px;
+  --icon-fill: var(--graphite04);
+  --icon-width: 22px;
+}
+/* @end icons */
 
 /* @start inputs */
 :root {

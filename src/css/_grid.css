@@ -6,9 +6,12 @@
 }
 
 @for $i from 1 to 12 {
-  .fnd-row .fnd-row--col-$i,
-  .fnd-row--gutter .fnd-row--col-$i {
-    lost-column: 1 0 0;
+  .fnd-row .fnd-row--col-xl-$i {
+    lost-column: $(i)/12 0 0;
+  }
+
+  .fnd-row--gutter .fnd-row--col-xl-$i {
+    lost-column: $(i)/12 auto 20px;
   }
 
   @media (--viewport-xl) {
