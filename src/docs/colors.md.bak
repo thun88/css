@@ -26,9 +26,9 @@ description: Soho Foundation Styleguide
 ```
 ## Color swatches
 
-<div class="color-grid">
+<div class="color-row">
   {{#each colorSwatches}}
-    <div class="color-grid--col-1 swatch-{{this.name}}" style="background-color: {{this.color}};">
+    <div class="color-row--col-1 swatch-{{this.name}}" style="background-color: {{this.color}};">
       <div>{{this.name}}</div>
     </div>
   {{/each}}

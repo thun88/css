@@ -39,8 +39,7 @@
     }
   }
 
-  &:focus,
-  &.has-focus {
+  &:focus {
     box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--btn-default-bg);
     outline: 0;
   }
@@ -58,8 +57,7 @@
     }
   }
 
-  &:focus,
-  &.has-focus {
+  &:focus {
     box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--btn-primary-bg);
     outline: 0;
   }
@@ -77,8 +75,7 @@
     }
   }
 
-  &:focus,
-  &.has-focus {
+  &:focus {
     box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--btn-warning-bg);
     outline: 0;
   }
@@ -96,8 +93,7 @@
     }
   }
 
-  &:focus,
-  &.has-focus {
+  &:focus {
     box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--btn-default-bg);
     outline: 0;
   }

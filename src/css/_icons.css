@@ -1,12 +1,8 @@
 .icon {
   display: inline-block;
   fill: var(--graphite04);
-  height: 18px;
+  height: 16px;
   position: relative;
-  vertical-align: top;
+  vertical-align: text-bottom;
   width: 22px;
-}
-
-.btn-link span { /* Temp class - remove ASAP */
-  display: none;
 }

@@ -66,11 +66,17 @@ To be able to x:link the icons into your app, you will need to copy `dist/icons.
 
 The examples below are shown in buttons, as that is their most common use.
 
-{{#each svgIcons}}
-  <button type="button" class="btn btn-link" title="{{this}}">
-    <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-      <use xlink:href="#{{this}}"></use>
-    </svg>
-    <span>{{this}}</span>
-  </button>
-{{/each}}
+<div class='fnd-row'>
+  {{#each svgIcons}}
+    <div class="fnd-row--col-md-2 text-center">
+      <div class="example">
+        <button type="button" class="btn btn-link" title="{{this}}">
+          <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+            <use xlink:href="#{{this}}"></use>
+          </svg>
+        </button>
+        {{this}}
+      </div>
+    </div>
+  {{/each}}
+</div>
