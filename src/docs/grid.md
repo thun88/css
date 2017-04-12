@@ -1,3 +1,8 @@
+---
+title: Grid
+description: Soho Foundation Styleguide
+---
+
 # Grid - Lost Grid
 
 The grids used run off of the [lost grid](http://lostgrid.org/docs.html) postcss plugin.

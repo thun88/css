@@ -2,10 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Soho Foundation</title>
+    <title>{{{ file.meta.title }}} - Soho Foundation</title>
     <link rel="stylesheet" type="text/css" href="css/soho-foundation.min.css">
     <link rel="stylesheet" type="text/css" href="css/site.min.css">
-    <meta name="description" content="Soho Foundation Styles">
+    <meta name="description" content="{{{ file.meta.description }}}">
     <meta name="author" content="Hook & Loop">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
@@ -20,7 +20,6 @@
     </nav>
 
     <div class="container fnd-grid">
-
       <nav class="fnd-grid--col-2 fnd-grid--col-md-2 sidebar">
         <h2>Elements</h2>
         <ul class="sidebar--list">
@@ -36,7 +35,7 @@
       <section class="fnd-grid--col-10 fnd-grid--col-md-10 main">
         {{{ contents }}}
       </section>
-
     </div>
+
   </body>
 </html>

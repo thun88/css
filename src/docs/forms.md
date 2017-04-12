@@ -1,3 +1,8 @@
+---
+title: Form Controls
+description: Soho Foundation Styleguide
+---
+
 # Forms
 
 Some text about using form-controls.
