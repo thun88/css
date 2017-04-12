@@ -250,9 +250,13 @@ gulp.task(`compile:site`, function () {
 //   Task: Clean
 // -------------------------------------
 gulp.task(`clean`, function () {
+  // Delete contents of /www but not /www/examples
   return del([
     PATHS.dist.root,
-    PATHS.site.www
+    `${PATHS.site.www}/**`,
+    `!${PATHS.site.www}`,
+    `!${PATHS.site.www}/examples/`,
+    `!${PATHS.site.www}/examples/**`,
   ]);
 });
 
