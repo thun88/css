@@ -76,29 +76,27 @@ Use any of the available button classes to quickly create a styled button.
 ## Focused State
 
 <div class="example">
-  <button type="button" class="btn btn-default has-focus">Button</button>&nbsp;
-  <button type="button" class="btn btn-primary has-focus">Primary Button</button>&nbsp;
-  <button type="button" class="btn btn-warning has-focus">Warning Button</button>
+  <button type="button" class="btn btn-default example-focus">Button</button>&nbsp;
 </div>
 ```html
-<button type="button" class="btn btn-default has-focus">Button</button>
+<button type="button" class="btn btn-default">Button</button>
 ```
 
 
-## Link Buttons
+## Button Links
 
 <div class="example">
-  <a href="" class="btn btn-link">Link Button</a>
-  <a href="" class="btn btn-link" disabled>Link Button</a>
-  <a href="" class="btn btn-link has-focus">Link Button</a>
+  <a href="" class="btn btn-link">Button</a>
+  <a href="" class="btn btn-link" disabled>Button</a>
+  <a href="" class="btn btn-link example-focus">Button (focused)</a>
 </div>
 ```html
-<a href="" class="btn btn-link">Link Button</a>
-<a href="" class="btn btn-link" disabled>Link Button</a>
+<a href="" class="btn btn-link">Button</a>
+<a href="" class="btn btn-link" disabled>Button</a>
 ```
 
 
-## Icon Buttons
+## Button Icons
 
 <div class="example">
   <a href="" class="btn btn-default">

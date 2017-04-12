@@ -5,18 +5,18 @@
 /*
  * Top Nav
  */
-.top-nav {
+.site-nav {
   background-color: var(--azure06);
   color: var(--white);
   padding: 20px;
 
-  & .top-nav--link {
+  & .site-nav--link {
     color: inherit;
     text-decoration: none;
   }
 }
 
-.container {
+.site-container {
   margin: 0 auto;
   position: relative;
   width: 100%;
@@ -25,12 +25,12 @@
 /*
  * Menu bar
  */
-.sidebar {
+.site-sidebar {
   height: 100%;
   overflow-y: scroll;
 }
 
-.sidebar--list > li {
+.site-sidebar--list > li {
   display: block;
   padding: 12px 8px;
 }
@@ -38,7 +38,7 @@
 /*
  * Main contents
  */
-.main {
+.site-main {
   background-color: var(--white);
   height: 100%;
   overflow-y: scroll;
@@ -65,10 +65,14 @@ pre {
   position: relative;
 }
 
+pre,
+code {
+  font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
 pre {
   background-color: #f7f7f9;
   border-top: none;
-  font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
   margin-bottom: 20px;
 
   & code {
@@ -95,19 +99,19 @@ blockquote {
   }
 }
 
-.sidebar,
-.main {
+.site-sidebar,
+.site-main {
   padding: 1.5rem 3.2rem;
 }
 
 /*
  * Grid
  */
-.demo-grid.fnd-grid,
-.demo-grid.fnd-grid--gutter {
+.example-row.fnd-row,
+.example-row.fnd-row--gutter {
   margin-bottom: 20px;
 
-  & [class^='fnd-grid--'] {
+  & [class^='fnd-row--'] {
     background-color: var(--azure01);
     height: 30px;
     line-height: 30px;
@@ -115,23 +119,23 @@ blockquote {
   }
 }
 
-.demo-grid.fnd-grid > [class^='fnd-grid--'] {
+.example-row.fnd-row > [class^='fnd-row--'] {
   outline: solid 1px var(--soho-primary);
 }
 
 /*
  * Colors specific grid
  */
-.color-grid {
+.color-row {
   lost-center: 100%;
 
-  & .color-grid--col-1:nth-child(10n + 1),
-  & .color-grid--col-1:nth-child(10n + 2),
-  & .color-grid--col-1:nth-child(10n + 3) {
+  & .color-row--col-1:nth-child(10n + 1),
+  & .color-row--col-1:nth-child(10n + 2),
+  & .color-row--col-1:nth-child(10n + 3) {
     color: inherit;
   }
 
-  & > .color-grid--col-1 {
+  & > .color-row--col-1 {
     color: var(--white);
     line-height: 100px;
     lost-column: 1/10 10 3px;
@@ -146,4 +150,12 @@ blockquote {
       color: var(--white);
     }
   }
+}
+
+/*
+ * Mock focus state for example
+ */
+.example-focus {
+  box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--btn-default-bg);
+  outline: 0;
 }
