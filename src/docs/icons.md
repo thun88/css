@@ -9,24 +9,6 @@ To be able to x:link the icons into your app, you will need to copy `dist/icons.
 
 ## Examples of icon use:
 
-### As a button:
-<div class="example">
-  <button type="button" class="btn btn-link" title="star-filled icon">
-    <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-      <use xlink:href="#star-filled"></use>
-    </svg>
-    <span>star-filled</span>
-  </button>
-</div>
-```html
-<button type="button" class="btn btn-link" title="star-filled icon">
-  <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-    <use xlink:href="#star-filled"></use>
-  </svg>
-  <span>star-filled</span>
-</button>
-```
-
 ### As a standalone icon:
 <div class="example">
   <div title="star-filled icon">

@@ -99,18 +99,46 @@ Use any of the available button classes to quickly create a styled button.
 ## Button Icons
 
 <div class="example">
-  <a href="" class="btn btn-default">
-    Button Icon
+  <button type="button" class="btn btn-icon" title="save icon">
     <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-      <use xlink:href="#star-filled"></use>
+      <use xlink:href="#save"></use>
     </svg>
-  </a>
+  </button>
+  <button type="button" class="btn btn-default" title="save icon">
+    <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+      <use xlink:href="#save"></use>
+    </svg>
+    <span>Button</span>
+  </button>
+  <button type="button" class="btn btn-primary btn-icon" title="save icon">
+    <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+      <use xlink:href="#save"></use>
+    </svg>
+  </button>
+  <button type="button" class="btn btn-primary" title="save icon">
+    <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+      <use xlink:href="#save"></use>
+    </svg>
+    <span>Button</span>
+  </button>
+  <button type="button" class="btn btn-link" title="link icon">
+    <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+      <use xlink:href="#link"></use>
+    </svg>
+    <span>Button</span>
+  </button>
 </div>
 ```html
-<a href="" class="btn btn-default">
-  Button Icon
+ <button type="button" class="btn btn-default" title="save icon">
   <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-    <use xlink:href="#star-filled"></use>
+    <use xlink:href="#save"></use>
   </svg>
-</a>
+  <span>Button</span>
+</button>
+<button type="button" class="btn btn-link" title="link icon">
+  <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+    <use xlink:href="#link"></use>
+  </svg>
+  <span>Button</span>
+</button>
 ```
