@@ -110,7 +110,7 @@ a {
     color: var(--graphite04);
 
     & .icon {
-      fill: var(--graphite04)
+      fill: var(--graphite04);
     }
   }
 
