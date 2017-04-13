@@ -208,7 +208,12 @@ gulp.task(`compile:docs`, function() {
        from: `markdown-markdown_in_html_blocks`, // http://pandoc.org/MANUAL.html#raw-html
        to: `html5`,
        ext: `.html`,
-       args: [`--smart`]
+       args: [
+         `--data-dir=${PATHS.site.root}`, // looks for template dir inside data-dir so don't use path.site.templates
+         `--template=_markdown.html`,
+         `--smart`,
+         `--table-of-contents`
+       ]
     }))
     // Wrap the HTML into a handlebars template and parse
     .pipe(wrap({

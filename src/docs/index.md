@@ -2,7 +2,7 @@
 title: Home
 ---
 
-# Welcome to SoHo Foundation
+<style>#TOC {display: none;}</style>
 
 SoHo unifies the CloudSuite experience by standardizing the universal design elements like colors, text, and buttons. SoHo Foundations is a simple CSS library to help implement SoHo design principles with easy-to-follow and easy-to-implement rules and code.
 
