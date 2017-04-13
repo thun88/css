@@ -35,7 +35,6 @@
 // glob           : File pattern matching
 // hb             : Template parser
 // is-color       : Validate hex colors
-// frontMatter    : Used to extract meta yaml
 // gulp-pandoc    : File converter
 // gulp-postcss   : Transform styles with JS
 // gulp-rename    : Rename files
@@ -45,7 +44,6 @@
 // gulp-svgmin    : SVGO for gulp
 // gulp-svgstore  : Combine svg files
 // gulp-tap       : Easily tap into a pipeline (debug)
-// gulp-wrap      : Wrap stream contents to template
 //
 // postcss-for       : Allow at-for loops
 // postcss-variables : Allow at-vars in at-for loops
@@ -62,7 +60,6 @@ let browserSync = require(`browser-sync`).create(),
     concat = require(`gulp-concat`),
     annotateBlock = require(`css-annotation-block`),
     del = require(`del`),
-    frontMatter = require('gulp-front-matter'),
     fs = require(`fs`),
     glob = require(`glob`),
     hb = require(`gulp-hb`),
@@ -74,8 +71,7 @@ let browserSync = require(`browser-sync`).create(),
     stylelint = require(`gulp-stylelint`),
     svgmin = require('gulp-svgmin'),
     svgstore = require(`gulp-svgstore`),
-    tap = require(`gulp-tap`),
-    wrap = require(`gulp-wrap`);
+    tap = require(`gulp-tap`);
 
 
 // -------------------------------------
@@ -198,27 +194,20 @@ gulp.task(`compile:docs`, function() {
   return gulp.src(`${PATHS.src.docs}/*.md`)
     // Parse any handlebar templates in the markdown
     .pipe(hbStream)
-    // Get meta from top of markdown files
-    .pipe(frontMatter({
-      property: 'meta',
-      remove: true
-    }))
-    // Convert markdown to html
+
+    // Convert markdown to html and insert into layout template
     .pipe(pandoc({
-       from: `markdown-markdown_in_html_blocks`, // http://pandoc.org/MANUAL.html#raw-html
-       to: `html5`,
-       ext: `.html`,
-       args: [`--smart`]
+      from: `markdown-markdown_in_html_blocks`, // http://pandoc.org/MANUAL.html#raw-html
+      to: `html5+yaml_metadata_block`,
+      ext: `.html`,
+      args: [
+        `--data-dir=${PATHS.site.root}`, // looks for template dir inside data-dir so don't use path.site.templates
+        `--template=layout.html`,
+        `--smart`,
+        `--table-of-contents`,
+        `--variable=icons:${SVG_HTML}`
+      ]
     }))
-    // Wrap the HTML into a handlebars template and parse
-    .pipe(wrap({
-        src: `${PATHS.site.templates}/page.hbs`
-      }, {
-        icons: SVG_HTML,
-      }, {
-        engine: `handlebars`
-      }
-    ))
     .pipe(gulp.dest(PATHS.site.www));
 });
 
@@ -339,7 +328,7 @@ gulp.task(`serve`, function() {
     `${PATHS.src.css}/**/*.css`,
     `${PATHS.src.docs}/*.md`,
     `${PATHS.site.css}/*.css`,
-    `${PATHS.site.templates}/*.hbs`
+    `${PATHS.site.templates}/*`
   ];
 
   gulp.watch(files, [`build-watch`]);

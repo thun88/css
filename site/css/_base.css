@@ -19,10 +19,26 @@ ul {
   background-color: var(--azure06);
   color: var(--white);
   padding: 20px;
+}
 
-  & .site-nav--link {
-    color: inherit;
-    text-decoration: none;
+.site-nav--list {
+  list-style-type: none;
+  margin-bottom: 0;
+  overflow: hidden;
+  position: relative;
+
+  & > li {
+    float: left;
+    margin-left: 30px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    & a {
+      color: inherit;
+      text-decoration: none;
+    }
   }
 }
 
