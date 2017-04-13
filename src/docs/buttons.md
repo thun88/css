@@ -7,9 +7,9 @@ description: Soho Foundation Styleguide
 
 ```css
 {
-{{#each buttons}}
-  {{this.name}}: {{this.value}};
-{{/each}}
+    {{#each buttons}}
+    {{this.name}}: {{this.value}};
+    {{/each}}
 }
 ```
 
@@ -19,10 +19,10 @@ description: Soho Foundation Styleguide
 Use the button classes on and `<a>`, `<button>`, `<input>` elements.
 
 <div class="example">
-  <a class="btn btn-default" href="#" role="button">Link</a>
-  <button class="btn btn-default" type="submit">Button</button>
-  <input class="btn btn-default" type="button" value="Input">
-  <input class="btn btn-default" type="submit" value="Submit">
+    <a class="btn btn-default" href="#" role="button">Link</a>
+    <button class="btn btn-default" type="submit">Button</button>
+    <input class="btn btn-default" type="button" value="Input">
+    <input class="btn btn-default" type="submit" value="Submit">
 </div>
 ```html
 <a class="btn btn-default" href="#" role="button">Link</a>
@@ -49,9 +49,9 @@ Use the button classes on and `<a>`, `<button>`, `<input>` elements.
 Use any of the available button classes to quickly create a styled button.
 
 <div class="example">
-  <button type="button" class="btn btn-default">Default</button>&nbsp;
-  <button type="button" class="btn btn-primary">Primary</button>&nbsp;
-  <button type="button" class="btn btn-warning">Warning</button>
+    <button type="button" class="btn btn-default">Default</button>&nbsp;
+    <button type="button" class="btn btn-primary">Primary</button>&nbsp;
+    <button type="button" class="btn btn-warning">Warning</button>
 </div>
 ```html
 <button type="button" class="btn btn-default">Default</button>
@@ -63,9 +63,9 @@ Use any of the available button classes to quickly create a styled button.
 ## Disabled State
 
 <div class="example">
-  <button type="button" class="btn btn-default" disabled>Button</button>&nbsp;
-  <button type="button" class="btn btn-primary" disabled>Primary Button</button>&nbsp;
-  <button type="button" class="btn btn-warning" disabled>Warning Button</button>
+    <button type="button" class="btn btn-default" disabled>Button</button>&nbsp;
+    <button type="button" class="btn btn-primary" disabled>Primary Button</button>&nbsp;
+    <button type="button" class="btn btn-warning" disabled>Warning Button</button>
 </div>
 ```html
 <button type="button" class="btn btn-default" disabled>Button</button>
@@ -74,69 +74,84 @@ Use any of the available button classes to quickly create a styled button.
 ## Focused State
 
 <div class="example">
-  <button type="button" class="btn btn-default example-focus">Button</button>&nbsp;
+    <button type="button" class="btn btn-default example-focus">Button</button>&nbsp;
 </div>
 ```html
 <button type="button" class="btn btn-default">Button</button>
 ```
 
+## Button Icons
+
+<div class="example">
+    <button type="button" class="btn btn-icon" title="save icon">
+        <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+            <use xlink:href="#save"></use>
+        </svg>
+    </button>
+<button type="button" class="btn btn-default" title="save icon">
+    <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+        <use xlink:href="#save"></use>
+    </svg>
+    <span>Button</span>
+</button>
+<button type="button" class="btn btn-primary btn-icon" title="save icon">
+    <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+        <use xlink:href="#save"></use>
+    </svg>
+</button>
+<button type="button" class="btn btn-primary" title="save icon">
+    <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+        <use xlink:href="#save"></use>
+    </svg>
+    <span>Button</span>
+</button>
+<button type="button"  title="link icon">
+    <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+        <use xlink:href="#link"></use>
+    </svg>
+    <span>Button</span>
+</button>
+</div>
+```html
+<button type="button" class="btn btn-default" title="save icon">
+    <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+        <use xlink:href="#save"></use>
+    </svg>
+    <span>Button</span>
+</button>
+<button type="button" class="btn btn-link" title="link icon">
+    <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+        <use xlink:href="#link"></use>
+    </svg>
+<span>Button</span>
+</button>
+```
 
 ## Button Links
 
 <div class="example">
-  <a href="" class="btn btn-link">Button</a>
-  <a href="" class="btn btn-link" disabled>Button</a>
-  <a href="" class="btn btn-link example-focus">Button (focused)</a>
+    <a href="" class="btn btn-link">Button</a>
+    <a href="" class="btn btn-link" disabled>Button</a>
+    <a href="" class="btn btn-link example-focus">Button (focused)</a>
 </div>
 ```html
 <a href="" class="btn btn-link">Button</a>
 <a href="" class="btn btn-link" disabled>Button</a>
 ```
 
-
-## Button Icons
+## Links
 
 <div class="example">
-  <button type="button" class="btn btn-icon" title="save icon">
-    <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-      <use xlink:href="#save"></use>
-    </svg>
-  </button>
-  <button type="button" class="btn btn-default" title="save icon">
-    <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-      <use xlink:href="#save"></use>
-    </svg>
-    <span>Button</span>
-  </button>
-  <button type="button" class="btn btn-primary btn-icon" title="save icon">
-    <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-      <use xlink:href="#save"></use>
-    </svg>
-  </button>
-  <button type="button" class="btn btn-primary" title="save icon">
-    <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-      <use xlink:href="#save"></use>
-    </svg>
-    <span>Button</span>
-  </button>
-  <button type="button" class="btn btn-link" title="link icon">
-    <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-      <use xlink:href="#link"></use>
-    </svg>
-    <span>Button</span>
-  </button>
+    <a href="#example-link">Link</a><br>
+    <a href="#example-link" disabled>Link</a><br>
+    <a href="#example-link">
+        Link
+        <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+            <use xlink:href="#link"></use>
+        </svg>
+    </a>
 </div>
 ```html
- <button type="button" class="btn btn-default" title="save icon">
-  <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-    <use xlink:href="#save"></use>
-  </svg>
-  <span>Button</span>
-</button>
-<button type="button" class="btn btn-link" title="link icon">
-  <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-    <use xlink:href="#link"></use>
-  </svg>
-  <span>Button</span>
-</button>
+<a href="#example-link">Link</a>
+<a href="#example-link" disabled>Disabled Link</a>
 ```
