@@ -198,32 +198,20 @@ gulp.task(`compile:docs`, function() {
   return gulp.src(`${PATHS.src.docs}/*.md`)
     // Parse any handlebar templates in the markdown
     .pipe(hbStream)
-    // Get meta from top of markdown files
-    .pipe(frontMatter({
-      property: 'meta',
-      remove: true
-    }))
-    // Convert markdown to html
+
+    // Convert markdown to html and insert into layout template
     .pipe(pandoc({
-       from: `markdown-markdown_in_html_blocks`, // http://pandoc.org/MANUAL.html#raw-html
-       to: `html5`,
-       ext: `.html`,
-       args: [
-         `--data-dir=${PATHS.site.root}`, // looks for template dir inside data-dir so don't use path.site.templates
-         `--template=_markdown.html`,
-         `--smart`,
-         `--table-of-contents`
-       ]
+      from: `markdown-markdown_in_html_blocks`, // http://pandoc.org/MANUAL.html#raw-html
+      to: `html5+yaml_metadata_block`,
+      ext: `.html`,
+      args: [
+        `--data-dir=${PATHS.site.root}`, // looks for template dir inside data-dir so don't use path.site.templates
+        `--template=layout.html`,
+        `--smart`,
+        `--table-of-contents`,
+        `--variable=icons:${SVG_HTML}`
+      ]
     }))
-    // Wrap the HTML into a handlebars template and parse
-    .pipe(wrap({
-        src: `${PATHS.site.templates}/page.hbs`
-      }, {
-        icons: SVG_HTML,
-      }, {
-        engine: `handlebars`
-      }
-    ))
     .pipe(gulp.dest(PATHS.site.www));
 });
 
@@ -344,7 +332,7 @@ gulp.task(`serve`, function() {
     `${PATHS.src.css}/**/*.css`,
     `${PATHS.src.docs}/*.md`,
     `${PATHS.site.css}/*.css`,
-    `${PATHS.site.templates}/*.hbs`
+    `${PATHS.site.templates}/*`
   ];
 
   gulp.watch(files, [`build-watch`]);
