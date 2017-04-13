@@ -35,7 +35,6 @@
 // glob           : File pattern matching
 // hb             : Template parser
 // is-color       : Validate hex colors
-// frontMatter    : Used to extract meta yaml
 // gulp-pandoc    : File converter
 // gulp-postcss   : Transform styles with JS
 // gulp-rename    : Rename files
@@ -45,7 +44,6 @@
 // gulp-svgmin    : SVGO for gulp
 // gulp-svgstore  : Combine svg files
 // gulp-tap       : Easily tap into a pipeline (debug)
-// gulp-wrap      : Wrap stream contents to template
 //
 // postcss-for       : Allow at-for loops
 // postcss-variables : Allow at-vars in at-for loops
@@ -62,7 +60,6 @@ let browserSync = require(`browser-sync`).create(),
     concat = require(`gulp-concat`),
     annotateBlock = require(`css-annotation-block`),
     del = require(`del`),
-    frontMatter = require('gulp-front-matter'),
     fs = require(`fs`),
     glob = require(`glob`),
     hb = require(`gulp-hb`),
@@ -74,8 +71,7 @@ let browserSync = require(`browser-sync`).create(),
     stylelint = require(`gulp-stylelint`),
     svgmin = require('gulp-svgmin'),
     svgstore = require(`gulp-svgstore`),
-    tap = require(`gulp-tap`),
-    wrap = require(`gulp-wrap`);
+    tap = require(`gulp-tap`);
 
 
 // -------------------------------------
