@@ -1,0 +1,24 @@
+/*
+ * Adaptive Styles
+ */
+
+
+.state-adaptive {
+
+  & input.form-control,
+  & select.form-control {
+    height: var(--input-height-adaptive);
+  }
+
+  & input.form-control,
+  & select.form-control,
+  & textarea.form-control {
+    line-height: var(--input-height-adaptive);
+  }
+
+  & .form-checkbox label,
+  & .form-radio label {
+    padding: var(--input-margin-y) var(--input-margin-x);
+  }
+}
+

@@ -116,8 +116,18 @@
   --input-border-radius: 2px;
   --input-height: 3.4rem;
   --input-placeholder-color: var(--graphite04);
+  --input-margin-x: 0;
+  --input-margin-y: 10px;
 }
 /* @end inputs */
+
+
+/* @start adaptiveInputs */
+:root {
+  --input-height-adaptive: 4.4rem;
+}
+/* @end adaptiveInputs */
+
 
 /* @start inputSizes */
 :root {

@@ -106,8 +106,7 @@ select.form-control {
 .form-checkbox,
 .form-radio {
   display: block;
-  margin-bottom: 10px;
-  margin-top: 10px;
+  margin: var(--input-margin-y) var(--input-margin-x);
   position: relative;
 
   &.is-disabled label,
