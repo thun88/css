@@ -199,20 +199,20 @@ Disabled checkboxes and radios are supported, but to provide a "not-allowed" cur
 <div class="example">
     <form>
         <div class="form-radio">
-            <label>
-                <input type="radio" class="form-radio--input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+            <label for="optionsRadios1">
                 Option one is this and that&mdash;be sure to include why it"s great
             </label>
         </div>
         <div class="form-radio">
-            <label>
-                <input type="radio" class="form-radio--input" name="optionsRadios" id="optionsRadios2" value="option2">
+            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+            <label for="optionsRadios2">
                 Option two can be something else and selecting it will deselect option one
             </label>
         </div>
         <div class="form-radio is-disabled">
-            <label>
-                <input type="radio" class="form-radio--input" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
+            <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
+            <label for="optionsRadios3">
                 Option three is disabled
             </label>
         </div>
@@ -220,20 +220,20 @@ Disabled checkboxes and radios are supported, but to provide a "not-allowed" cur
 </div>
 ```html
 <div class="form-radio">
+    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
     <label for="optionsRadios1">
-        <input type="radio" class="form-radio--input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-        Option one is this and that&mdash;be sure to include why it"s great
+        Option one is this and that&mdash;be sure to include why it's great
     </label>
 </div>
 <div class="form-radio">
+    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
     <label for="optionsRadios2">
-        <input type="radio" class="form-radio--input" name="optionsRadios" id="optionsRadios2" value="option2">
         Option two can be something else and selecting it will deselect option one
     </label>
 </div>
 <div class="form-radio is-disabled">
+    <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
     <label for="optionsRadios3">
-        <input type="radio" class="form-radio--input" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
         Option three is disabled
     </label>
 </div>

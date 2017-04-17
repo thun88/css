@@ -132,10 +132,13 @@ select.form-control {
   }
 }
 
+.form-checkbox input,
+.form-radio input {
+  margin-right: 5px;
+}
+
 .form-checkbox {
   & label {
-    margin-right: 5px;
-
     &::before {
       background-color: var(--checkbox-bg);
       border: 1px solid var(--checkbox-border-color);
@@ -214,17 +217,8 @@ select.form-control {
   }
 }
 
-
-
 .form-radio {
-  & .form-radio--input {
-    margin-right: 5px;
-
-    &:focus::before {
-      border-radius: 50%;
-      box-shadow: var(--radio-shadow-focus);
-    }
-
+  & label {
     &::before {
       background-color: var(--radio-bg);
       border: 1px solid var(--radio-border-color);
@@ -232,7 +226,7 @@ select.form-control {
       content: '';
       display: block;
       height: 16px;
-      left: 2px;
+      left: 3px;
       position: absolute;
       top: 1px;
       width: 16px;
@@ -244,41 +238,44 @@ select.form-control {
       border-radius: 50%;
       content: '';
       height: 8px;
-      left: 6px;
+      left: 7px;
       opacity: 0;
       position: absolute;
       top: 5px;
       width: 8px;
     }
+  }
 
-    &:disabled {
-      &::before {
-        background-color: var(--radio-bg-disabled);
-        border-color: var(--radio-border-color-disabled);
-      }
+  & input:focus + label::before {
+    border-radius: 50%;
+    box-shadow: var(--radio-shadow-focus);
+  }
+
+  & input:disabled + label::before {
+    background-color: var(--radio-bg-disabled);
+    border-color: var(--radio-border-color-disabled);
+  }
+
+  & input:checked + label {
+    &::before {
+      background-color: var(--radio-bg-checked);
     }
 
-    &:checked {
-      &::before {
-        background-color: var(--radio-bg-checked);
-      }
+    &::after {
+      opacity: 1;
+      transition: all 0.2s ease 0s;
+    }
+  }
 
-      &::after {
-        opacity: 1;
-        transition: all 0.2s ease 0s;
-      }
+  & input:disabled:checked + label {
+    &::before {
+      background-color: var(--radio-border-color-disabled);
+      border-color: var(--radio-border-color-disabled);
     }
 
-    &:disabled:checked {
-      &::before {
-        background-color: var(--radio-border-color-disabled);
-        border-color: var(--radio-border-color-disabled);
-      }
-
-      &::after {
-        background-color: var(--radio-bg-disabled-checked);
-        border: 2px solid var(--radio-bg-disabled-checked);
-      }
+    &::after {
+      background-color: var(--radio-bg-disabled-checked);
+      border: 2px solid var(--radio-bg-disabled-checked);
     }
   }
 }
