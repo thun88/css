@@ -10,7 +10,7 @@ This is a page dedicated to showcase adaptive states. Adaptive states can be def
 ```css
 {
     {{#each adaptiveInputs}}
-    {{this.name}}: {{this.value}};
+        {{this.name}}: {{this.value}};
     {{/each}}
 }
 ```
@@ -27,8 +27,8 @@ The dashed outline around the check box and radio controls simply shows the incr
     <form>
         <input type="text" class="form-control" placeholder="Text">
         <div class="form-checkbox">
+            <input type="checkbox" id="exampleCheckbox1" value=""/>
             <label for="exampleCheckbox1" class="example-padding">
-                <input type="checkbox" class="form-checkbox--input" id="exampleCheckbox1" value=""/>
                 Checkbox
             </label>
         </div>
@@ -40,8 +40,8 @@ The dashed outline around the check box and radio controls simply shows the incr
         <!-- This input and checkbox will have a larger touch point since it's in an adaptive parent -->
         <input type="text" class="form-control" placeholder="Text">
         <div class="form-checkbox">
-            <label for="exampleCheckbox1" class="example-padding">
-                <input type="checkbox" class="form-checkbox--input" id="exampleCheckbox1" value=""/>
+            <input type="checkbox" id="exampleCheckbox1" value=""/>
+            <label for="exampleCheckbox1">
                 Checkbox
             </label>
         </div>
@@ -55,14 +55,14 @@ The elements `input`, `select`, `radio`, and `checkbox` all support the touch ad
     <form>
         <textarea class="form-control" placeholder="Placeholder" rows="3"></textarea>
         <div class="form-radio">
-            <label class="example-padding">
-                <input type="radio" class="form-radio--input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+            <label for="optionsRadios1" class="example-padding">
                 Option one is this and that&mdash;be sure to include why it"s great
             </label>
         </div>
         <div class="form-radio">
-            <label class="example-padding">
-                <input type="radio" class="form-radio--input" name="optionsRadios" id="optionsRadios2" value="option2">
+            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+            <label for="optionsRadios2" class="example-padding">
                 Option two can be something else and selecting it will deselect option one
             </label>
         </div>
