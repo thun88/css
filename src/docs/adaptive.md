@@ -41,12 +41,16 @@ Form control which supports multiple lines of text. Change `rows` attribute as n
 <textarea class="form-control" placeholder="Placeholder" rows="3"></textarea>
 ```
 
+### Checkboxes and Radio Buttons
+
+The dashed outline simply shows the increased clickable/touchable area around the control for better accessibility.
+
 #### Checkboxes
 
 <div class="example">
     <form class="state-adaptive">
         <div class="form-checkbox">
-            <label for="exampleCheckbox1">
+            <label for="exampleCheckbox1" class="example-padding">
                 <input type="checkbox" class="form-checkbox--input" id="exampleCheckbox1" value=""/>
                 Checkbox
             </label>
@@ -67,13 +71,14 @@ Form control which supports multiple lines of text. Change `rows` attribute as n
 <div class="example">
     <form class="state-adaptive">
         <div class="form-radio">
-            <label>
+            <label class="example-padding">
                 <input type="radio" class="form-radio--input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
                 Option one is this and that&mdash;be sure to include why it"s great
             </label>
         </div>
+        <br>
         <div class="form-radio">
-            <label>
+            <label class="example-padding">
                 <input type="radio" class="form-radio--input" name="optionsRadios" id="optionsRadios2" value="option2">
                 Option two can be something else and selecting it will deselect option one
             </label>
