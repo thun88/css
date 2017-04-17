@@ -2,16 +2,16 @@
  * Adaptive Styles
  */
 
-.state-adaptive {
+.adaptive--touch {
   & input.form-control,
   & select.form-control {
-    height: var(--input-height-adaptive);
+    height: var(--input-height-adaptive-touch);
   }
 
   & input.form-control,
   & select.form-control,
   & textarea.form-control {
-    line-height: var(--input-height-adaptive);
+    line-height: var(--input-height-adaptive-touch);
   }
 
   & .form-checkbox label,
