@@ -14,6 +14,8 @@
     line-height: var(--input-height-adaptive-touch);
   }
 
+  & .form-checkbox,
+  & .form-radio,
   & .form-checkbox label,
   & .form-radio label {
     padding: var(--input-margin-y) var(--input-margin-x);

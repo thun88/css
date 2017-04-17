@@ -16,7 +16,7 @@
     border-color: var(--input-border-color-hover);
   }
 
-  &[disabled] {
+  &:disabled {
     background-color: var(--input-bg-disabled);
     border: solid 1px var(--input-border-color-disabled);
     color: var(--input-color-disabled);
@@ -110,7 +110,7 @@ select.form-control {
   position: relative;
 
   &.is-disabled label,
-  &[disabled] {
+  &:disabled {
     cursor: not-allowed;
   }
 }
@@ -132,25 +132,24 @@ select.form-control {
   }
 }
 
+.form-checkbox input,
+.form-radio input {
+  margin-right: 5px;
+}
+
 .form-checkbox {
-  & .form-checkbox--input {
-    margin-right: 5px;
-
-    &:focus::before {
-      box-shadow: var(--checkbox-shadow-focus);
-    }
-
+  & label {
     &::before {
       background-color: var(--checkbox-bg);
       border: 1px solid var(--checkbox-border-color);
       border-radius: 2px;
       content: '';
       display: block;
-      height: 16px;
-      left: 0;
+      height: var(--checkbox-box-h);
+      left: 1px;
       position: absolute;
-      top: 0;
-      width: 16px;
+      top: calc(50% - 0.5 * var(--checkbox-box-h));
+      width: var(--checkbox-box-w);
     }
 
     &::after {
@@ -159,78 +158,78 @@ select.form-control {
       border-width: 2px 2px 0 0;
       content: '';
       display: none;
-      height: 10px;
-      left: 3px;
+      height: var(--checkbox-check-h);
+      left: 4px;
       position: absolute;
-      top: 8px;
-      width: 5px;
+      top: calc(50% - 0.5 * var(--checkbox-check-h));
+      width: var(--checkbox-check-w);
+    }
+  }
+
+  & input:focus + label::before {
+    box-shadow: var(--checkbox-shadow-focus);
+  }
+
+
+  & input:disabled + label::before {
+    background-color: var(--checkbox-bg-disabled);
+    border-color: var(--checkbox-border-color-disabled);
+  }
+
+  & input:checked + label {
+    &::before {
+      background-color: var(--checkbox-color);
+      border-color: var(--checkbox-color);
     }
 
-    &[disabled] {
-      &::before {
-        background-color: var(--checkbox-bg-disabled);
-        border-color: var(--checkbox-border-color-disabled);
-      }
+    &::after {
+      animation: check 0.15s;
+      display: block;
+      transform: scaleX(-1) rotate(135deg);
+      transform-origin: left top 0;
+    }
+  }
+
+  &.form-checkbox--partial input:checked + label::after {
+    animation: none;
+    border-width: 0 0 2px;
+    height: 2px;
+    left: 3px;
+    margin-left: 1px;
+    top: 7px;
+    transform: none;
+    width: 10px;
+  }
+
+  & input:disabled:checked + label {
+    &::before {
+      background-color: var(--checkbox-bg-disabled-checked);
+      border-color: var(--checkbox-bg-disabled-checked);
     }
 
-    &:checked {
-      &::before {
-        background-color: var(--checkbox-color);
-        border-color: var(--checkbox-color);
-      }
-
-      &::after {
-        animation: check 0.15s;
-        display: block;
-        transform: scaleX(-1) rotate(135deg);
-        transform-origin: left top 0;
-      }
+    &::after {
+      border-color: var(--checkbox-arrow-color-disabled) var(--checkbox-arrow-color-disabled) var(--checkbox-arrow-color-disabled) transparent;
     }
+  }
 
-    &[disabled]:checked {
-      &::before {
-        background-color: var(--checkbox-bg-disabled-checked);
-        border-color: var(--checkbox-bg-disabled-checked);
-      }
-
-      &::after {
-        border-color: var(--checkbox-arrow-color-disabled) var(--checkbox-arrow-color-disabled) var(--checkbox-arrow-color-disabled) transparent;
-      }
-    }
-
-    &.form-checkbox--input.form-checkbox--input--partial::after {
-      animation: none;
-      border-width: 0 0 2px;
-      height: 2px;
-      left: 2px;
-      margin-left: 1px;
-      top: 7px;
-      transform: none;
-      width: 10px;
-    }
+  & input:focus + label::before {
+    box-shadow: var(--checkbox-shadow-focus);
   }
 }
 
 .form-radio {
-  & .form-radio--input {
-    margin-right: 5px;
-
-    &:focus::before {
-      border-radius: 50%;
-      box-shadow: var(--radio-shadow-focus);
-    }
-
+  & label {
     &::before {
       background-color: var(--radio-bg);
       border: 1px solid var(--radio-border-color);
       border-radius: 50%;
       content: '';
       display: block;
-      height: 16px;
-      left: 2px;
+      height: var(--radio-circle-h);
+      left: 1px;
       position: absolute;
-      top: 1px;
-      width: 16px;
+      top: calc(50% - 0.5 * var(--radio-circle-h));
+      width: var(--radio-circle-w);
     }
 
     &::after {
@@ -238,42 +237,45 @@ select.form-control {
       border: 2px solid var(--radio-color);
       border-radius: 50%;
       content: '';
-      height: 8px;
-      left: 6px;
+      height: var(--radio-dot-h);
+      left: 5px;
       opacity: 0;
       position: absolute;
-      top: 5px;
-      width: 8px;
+      top: calc(50% - 0.5 * var(--radio-dot-h));
+      width: var(--radio-dot-w);
+    }
+  }
+
+  & input:focus + label::before {
+    border-radius: 50%;
+    box-shadow: var(--radio-shadow-focus);
+  }
+
+  & input:disabled + label::before {
+    background-color: var(--radio-bg-disabled);
+    border-color: var(--radio-border-color-disabled);
+  }
+
+  & input:checked + label {
+    &::before {
+      background-color: var(--radio-bg-checked);
     }
 
-    &[disabled] {
-      &::before {
-        background-color: var(--radio-bg-disabled);
-        border-color: var(--radio-border-color-disabled);
-      }
+    &::after {
+      opacity: 1;
+      transition: all 0.2s ease 0s;
+    }
+  }
+
+  & input:disabled:checked + label {
+    &::before {
+      background-color: var(--radio-border-color-disabled);
+      border-color: var(--radio-border-color-disabled);
     }
 
-    &:checked {
-      &::before {
-        background-color: var(--radio-bg-checked);
-      }
-
-      &::after {
-        opacity: 1;
-        transition: all 0.2s ease 0s;
-      }
-    }
-
-    &[disabled]:checked {
-      &::before {
-        background-color: var(--radio-border-color-disabled);
-        border-color: var(--radio-border-color-disabled);
-      }
-
-      &::after {
-        background-color: var(--radio-bg-disabled-checked);
-        border: 2px solid var(--radio-bg-disabled-checked);
-      }
+    &::after {
+      background-color: var(--radio-bg-disabled-checked);
+      border: 2px solid var(--radio-bg-disabled-checked);
     }
   }
 }

@@ -139,14 +139,18 @@
 
 /* @start checkboxes */
 :root {
-  --checkbox-color: var(--soho-primary);
+  --checkbox-arrow-color: var(--white);
+  --checkbox-arrow-color-disabled: #f4f4f4;
   --checkbox-border-color: var(--graphite04);
   --checkbox-border-color-disabled: var(--graphite03);
+  --checkbox-color: var(--soho-primary);
   --checkbox-bg: var(--white);
   --checkbox-bg-disabled: var(--checkbox-bg);
   --checkbox-bg-disabled-checked: var(--graphite03);
-  --checkbox-arrow-color: var(--white);
-  --checkbox-arrow-color-disabled: #f4f4f4;
+  --checkbox-box-h: 16px;
+  --checkbox-box-w: var(--checkbox-box-h);
+  --checkbox-check-h: 10px;
+  --checkbox-check-w: 5px;
   --checkbox-shadow-focus: 0 0 0 2px var(--body-bg), 0 0 0 3px var(--checkbox-color);
 }
 /* @end checkboxes */
@@ -161,6 +165,10 @@
   --radio-bg-disabled: var(--radio-bg);
   --radio-bg-disabled-checked: var(--graphite03);
   --radio-shadow-focus: var(--checkbox-shadow-focus);
+  --radio-circle-h: 18px;
+  --radio-circle-w: var(--radio-circle-h);
+  --radio-dot-h: 10px;
+  --radio-dot-w: var(--radio-dot-h);
 }
 /* @end radios */
 
