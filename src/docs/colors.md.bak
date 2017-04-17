@@ -9,9 +9,9 @@ description: Soho Foundation Styleguide
 
 ```css
 {
-{{#each brandColors}}
-  {{this.name}}: {{this.value}};
-{{/each}}
+    {{#each brandColors}}
+        {{this.name}}: {{this.value}};
+    {{/each}}
 }
 ```
 
@@ -19,17 +19,17 @@ description: Soho Foundation Styleguide
 
 ```css
 {
-{{#each alertColors}}
-  {{this.name}}: {{this.value}};
-{{/each}}
+    {{#each alertColors}}
+        {{this.name}}: {{this.value}};
+    {{/each}}
 }
 ```
 ## Color swatches
 
 <div class="color-row">
-  {{#each colorSwatches}}
-    <div class="color-row--col-1 swatch-{{this.name}}" style="background-color: {{this.color}};">
-      <div>{{this.name}}</div>
-    </div>
-  {{/each}}
+    {{#each colorSwatches}}
+        <div class="color-row--col-1 swatch-{{this.name}}" style="background-color: {{this.color}};">
+            <div>{{this.name}}</div>
+        </div>
+    {{/each}}
 </div>

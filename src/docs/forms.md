@@ -9,62 +9,61 @@ Some text about using form-controls.
 
 ```css
 {
-{{#each inputs}}
-  {{this.name}}: {{this.value}};
-{{/each}}
+    {{#each inputs}}
+    {{this.name}}: {{this.value}};
+    {{/each}}
 }
 ```
-
 
 ## Basic Example
 
 Individual form controls automatically receive some global styling. All textual `<input>`, `<textarea>`, and `<select>` elements with `.form-control` are set to `width: 100%;` by default. Wrap labels and controls in `.form-group` for optimum spacing.
 
 <div class="example">
-  <form>
-    <div class="form-group">
-      <label for="exampleInputEmail1">Email address</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
-    </div>
-    <div class="form-group">
-      <label for="exampleInputPassword1">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-    </div>
-    <div class="form-group">
-      <label for="exampleInputFile">File input</label>
-      <input type="file" id="exampleInputFile">
-      <p class="help-block">Example block-level help text here.</p>
-    </div>
-    <div class="form-checkbox">
-      <label>
-        <input type="checkbox" class="form-checkbox--input"> Check me out
-      </label>
-    </div>
-    <button type="submit" class="btn btn-default">Submit</button>
-  </form>
+    <form>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputFile">File input</label>
+            <input type="file" id="exampleInputFile">
+            <p class="help-block">Example block-level help text here.</p>
+        </div>
+        <div class="form-checkbox">
+            <label>
+                <input type="checkbox" class="form-checkbox--input"> Check me out
+            </label>
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
 </div>
 ```html
-  <form>
+<form>
     <div class="form-group">
-      <label for="exampleInputEmail1">Email address</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+        <label for="exampleInputEmail1">Email address</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
     </div>
     <div class="form-group">
-      <label for="exampleInputPassword1">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        <label for="exampleInputPassword1">Password</label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
     </div>
     <div class="form-group">
-      <label for="exampleInputFile">File input</label>
-      <input type="file" id="exampleInputFile">
-      <p class="help-block">Example block-level help text here.</p>
+        <label for="exampleInputFile">File input</label>
+        <input type="file" id="exampleInputFile">
+        <p class="help-block">Example block-level help text here.</p>
     </div>
     <div class="form-checkbox">
-      <label>
-        <input type="checkbox" class="form-checkbox--input"> Check me out
-      </label>
+        <label>
+            <input type="checkbox" class="form-checkbox--input"> Check me out
+        </label>
     </div>
     <button type="submit" class="btn btn-default">Submit</button>
-  </form>
+</form>
 ```
 
 ## Inline Forms
@@ -74,12 +73,12 @@ Individual form controls automatically receive some global styling. All textual 
 ### Inputs
 
 <div class="example">
-  <form>
-    <input type="text" class="form-control" placeholder="Text">
-  </form>
+    <form>
+        <input type="text" class="form-control" placeholder="Text">
+    </form>
 </div>
 ```html
-  <input type="text" class="form-control" placeholder="Text">
+<input type="text" class="form-control" placeholder="Text">
 ```
 
 
@@ -88,12 +87,12 @@ Individual form controls automatically receive some global styling. All textual 
 Form control which supports multiple lines of text. Change `rows` attribute as necessary.
 
 <div class="example">
-  <form>
-    <textarea class="form-control" placeholder="Placeholder" rows="3"></textarea>
-  </form>
+    <form>
+        <textarea class="form-control" placeholder="Placeholder" rows="3"></textarea>
+    </form>
 </div>
 ```html
-  <textarea class="form-control" placeholder="Placeholder" rows="3"></textarea>
+<textarea class="form-control" placeholder="Placeholder" rows="3"></textarea>
 ```
 
 ## Check boxes and Radios
@@ -105,214 +104,213 @@ Disabled checkboxes and radios are supported, but to provide a "not-allowed" cur
 #### Checkboxes
 
 <div class="example">
-  <form>
-    <div class="form-checkbox">
-      <label for="exampleCheckbox1">
-        <input type="checkbox" class="form-checkbox--input" id="exampleCheckbox1" value=""/>
-        Checkbox
-      </label>
-    </div>
+    <form>
+        <div class="form-checkbox">
+            <label for="exampleCheckbox1">
+                <input type="checkbox" class="form-checkbox--input" id="exampleCheckbox1" value=""/>
+                Checkbox
+            </label>
+        </div>
 
-    <div class="form-checkbox">
-      <label for="exampleCheckbox2">
-        <input type="checkbox" value="" class="form-checkbox--input form-checkbox--input--partial" id="exampleCheckbox2" checked/>
-        Checkbox Partial Check
-      </label>
-    </div>
+        <div class="form-checkbox">
+            <label for="exampleCheckbox2">
+                <input type="checkbox" value="" class="form-checkbox--input form-checkbox--input--partial" id="exampleCheckbox2" checked/>
+                Checkbox Partial Check
+            </label>
+        </div>
 
-    <div class="form-checkbox">
-      <label for="exampleCheckbox3">
-        <input type="checkbox" class="form-checkbox--input" id="exampleCheckbox3" value="" checked/>
-        Checkbox Checked
-      </label>
-    </div>
+        <div class="form-checkbox">
+            <label for="exampleCheckbox3">
+                <input type="checkbox" class="form-checkbox--input" id="exampleCheckbox3" value="" checked/>
+                Checkbox Checked
+            </label>
+        </div>
 
-    <div class="form-checkbox is-disabled">
-      <label for="exampleCheckbox4">
-        <input type="checkbox" value="" class="form-checkbox--input" id="exampleCheckbox4" disabled/>
-        Checkbox Disabled
-      </label>
-    </div>
+        <div class="form-checkbox is-disabled">
+            <label for="exampleCheckbox4">
+                <input type="checkbox" value="" class="form-checkbox--input" id="exampleCheckbox4" disabled/>
+                Checkbox Disabled
+            </label>
+        </div>
 
-    <div class="form-checkbox is-disabled">
-      <label for="exampleCheckbox5">
-        <input type="checkbox" value="" class="form-checkbox--input" id="exampleCheckbox5" disabled checked/>
-          Checkbox Disabled and Checked
-      </label>
-    </div>
-  </form>
+        <div class="form-checkbox is-disabled">
+            <label for="exampleCheckbox5">
+                <input type="checkbox" value="" class="form-checkbox--input" id="exampleCheckbox5" disabled checked/>
+                Checkbox Disabled and Checked
+            </label>
+        </div>
+    </form>
 </div>
 ```html
-  <div class="form-checkbox">
+<div class="form-checkbox">
     <label for="exampleCheckbox1">
-      <input type="checkbox" class="form-checkbox--input" id="exampleCheckbox1" value=""/>
-      Checkbox
+        <input type="checkbox" class="form-checkbox--input" id="exampleCheckbox1" value=""/>
+        Checkbox
     </label>
-  </div>
+</div>
 
-  <div class="form-checkbox">
+<div class="form-checkbox">
     <label for="exampleCheckbox2">
-      <input type="checkbox" value="" class="form-checkbox--input checkbox-partial" id="exampleCheckbox2" checked/>
-      Checkbox Partial Check
+        <input type="checkbox" value="" class="form-checkbox--input checkbox-partial" id="exampleCheckbox2" checked/>
+        Checkbox Partial Check
     </label>
-  </div>
+</div>
 
-  <div class="form-checkbox">
+<div class="form-checkbox">
     <label for="exampleCheckbox3">
-      <input type="checkbox" class="form-checkbox--input" id="exampleCheckbox3" value="" checked/>
-      Checkbox Checked
+        <input type="checkbox" class="form-checkbox--input" id="exampleCheckbox3" value="" checked/>
+        Checkbox Checked
     </label>
-  </div>
+</div>
 
-  <div class="form-checkbox is-disabled">
+<div class="form-checkbox is-disabled">
     <label for="exampleCheckbox4">
-      <input type="checkbox" value="" class="form-checkbox--input" id="exampleCheckbox4" disabled/>
-      Checkbox Disabled
+        <input type="checkbox" value="" class="form-checkbox--input" id="exampleCheckbox4" disabled/>
+        Checkbox Disabled
     </label>
-  </div>
+</div>
 
-  <div class="form-checkbox is-disabled">
+<div class="form-checkbox is-disabled">
     <label for="exampleCheckbox5">
-      <input type="checkbox" value="" class="form-checkbox--input" id="exampleCheckbox5" disabled checked/>
+        <input type="checkbox" value="" class="form-checkbox--input" id="exampleCheckbox5" disabled checked/>
         Checkbox Disabled and Checked
     </label>
-  </div>
+</div>
 ```
 
 ### Radio Buttons
 
 <div class="example">
-  <form>
-    <div class="form-radio">
-      <label>
-        <input type="radio" class="form-radio--input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-        Option one is this and that&mdash;be sure to include why it"s great
-      </label>
-    </div>
-    <div class="form-radio">
-      <label>
-        <input type="radio" class="form-radio--input" name="optionsRadios" id="optionsRadios2" value="option2">
-        Option two can be something else and selecting it will deselect option one
-      </label>
-    </div>
-    <div class="form-radio is-disabled">
-      <label>
-        <input type="radio" class="form-radio--input" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
-        Option three is disabled
-      </label>
-    </div>
-  </form>
+    <form>
+        <div class="form-radio">
+            <label>
+                <input type="radio" class="form-radio--input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+                Option one is this and that&mdash;be sure to include why it"s great
+            </label>
+        </div>
+        <div class="form-radio">
+            <label>
+                <input type="radio" class="form-radio--input" name="optionsRadios" id="optionsRadios2" value="option2">
+                Option two can be something else and selecting it will deselect option one
+            </label>
+        </div>
+        <div class="form-radio is-disabled">
+            <label>
+                <input type="radio" class="form-radio--input" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
+                Option three is disabled
+            </label>
+        </div>
+    </form>
 </div>
 ```html
-  <div class="form-radio">
+<div class="form-radio">
     <label for="optionsRadios1">
-      <input type="radio" class="form-radio--input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-      Option one is this and that&mdash;be sure to include why it"s great
+        <input type="radio" class="form-radio--input" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+        Option one is this and that&mdash;be sure to include why it"s great
     </label>
-  </div>
-  <div class="form-radio">
+</div>
+<div class="form-radio">
     <label for="optionsRadios2">
-      <input type="radio" class="form-radio--input" name="optionsRadios" id="optionsRadios2" value="option2">
-      Option two can be something else and selecting it will deselect option one
+        <input type="radio" class="form-radio--input" name="optionsRadios" id="optionsRadios2" value="option2">
+        Option two can be something else and selecting it will deselect option one
     </label>
-  </div>
-  <div class="form-radio is-disabled">
+</div>
+<div class="form-radio is-disabled">
     <label for="optionsRadios3">
-      <input type="radio" class="form-radio--input" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
-      Option three is disabled
+        <input type="radio" class="form-radio--input" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
+        Option three is disabled
     </label>
-  </div>
+</div>
 ```
 
 ### Inline checkboxes and radios
 
 [TODO]
 
-
 ### Selects
 <div class="example">
-  <form>
-    <div class="form-group">
-      <label form="select-normal-1">Label</label>
-      <select id="select-normal-1" class="form-control">
-        <option>Option</option>
-        <option>Option</option>
-        <option>Option</option>
-      </select>
-      <p class="info-block">Some info text</p>
-    </div>
-  </form>
+    <form>
+        <div class="form-group">
+            <label form="select-normal-1">Label</label>
+            <select id="select-normal-1" class="form-control">
+                <option>Option</option>
+                <option>Option</option>
+                <option>Option</option>
+            </select>
+            <p class="info-block">Some info text</p>
+        </div>
+    </form>
 </div>
 ```html
-  <div class="form-group">
+<div class="form-group">
     <label form="select-normal-1">Normal State</label>
     <select id="select-normal-1" class="form-control">
-      <option>Option</option>
-      <option>Option</option>
-      <option>Option</option>
+        <option>Option</option>
+        <option>Option</option>
+        <option>Option</option>
     </select>
     <p class="info-block">Some passive text</p>
-  </div>
+</div>
 ```
 
 For `<select>` controls with the `multiple` attribute, multiple options are shown by default.
 
 <div class="example">
-  <form>
-    <div class="form-group">
-      <label form="select-normal-1">Label</label>
-      <select id="select-normal-1" class="form-control" multiple>
-        <option>Option</option>
-        <option>Option</option>
-        <option>Option</option>
-      </select>
-      <p class="info-block">Some info text</p>
-    </div>
-  </form>
+    <form>
+        <div class="form-group">
+            <label form="select-normal-1">Label</label>
+            <select id="select-normal-1" class="form-control" multiple>
+                <option>Option</option>
+                <option>Option</option>
+                <option>Option</option>
+            </select>
+            <p class="info-block">Some info text</p>
+        </div>
+    </form>
 </div>
 ```html
-  <div class="form-group">
+<div class="form-group">
     <label form="select-normal-1">Normal State</label>
     <select id="select-normal-1" class="form-control" multiple>
-      <option>Option</option>
-      <option>Option</option>
-      <option>Option</option>
+        <option>Option</option>
+        <option>Option</option>
+        <option>Option</option>
     </select>
     <p class="info-block">Some passive text</p>
-  </div>
+</div>
 ```
 
 ## Disabled state
 
 <div class="example">
-  <form>
-    <div class="form-group">
-      <label for="text-normal-3">Disabled</label>
-      <input type="text" id="text-normal-3" class="form-control" value="Some Text" disabled>
-    </div>
-  </form>
+    <form>
+        <div class="form-group">
+            <label for="text-normal-3">Disabled</label>
+            <input type="text" id="text-normal-3" class="form-control" value="Some Text" disabled>
+        </div>
+    </form>
 </div>
 ```html
 <div class="form-group">
-  <label for="text-normal-3">Disabled</label>
-  <input type="text" id="text-normal-3" class="form-control" value="Some Text" disabled>
+    <label for="text-normal-3">Disabled</label>
+    <input type="text" id="text-normal-3" class="form-control" value="Some Text" disabled>
 </div>
 ```
 
 ## Read only state
 
 <div class="example">
-  <form>
-    <div class="form-group">
-      <label for="text-normal-2">Read Only</label>
-      <input type="text" id="text-normal-2" class="form-control" value="Some Text" readonly>
-    </div>
-  </form>
+    <form>
+        <div class="form-group">
+            <label for="text-normal-2">Read Only</label>
+            <input type="text" id="text-normal-2" class="form-control" value="Some Text" readonly>
+        </div>
+    </form>
 </div>
 ```html
 <div class="form-group">
-  <label for="text-normal-2">Read Only</label>
-  <input type="text" id="text-normal-2" class="form-control" value="Some Text" readonly>
+    <label for="text-normal-2">Read Only</label>
+    <input type="text" id="text-normal-2" class="form-control" value="Some Text" readonly>
 </div>
 ```
 
@@ -321,103 +319,98 @@ For `<select>` controls with the `multiple` attribute, multiple options are show
 Block level help text for form controls.
 
 <blockquote class="info">
-  Associating help text with form controls
-  Help text should be explicitly associated with the form control it relates to using the aria-describedby attribute. This will ensure that assistive technologies – such as screen readers – will announce this help text when the user focuses or enters the control.
+    Associating help text with form controls
+    Help text should be explicitly associated with the form control it relates to using the aria-describedby attribute. This will ensure that assistive technologies – such as screen readers – will announce this help text when the user focuses or enters the control.
 </blockquote>
 
 <div class="example">
-  <form>
-    <div class="form-group">
-      <label for="exampeInputWithHelp">Input with help text</label>
-      <input type="email" class="form-control" id="exampeInputWithHelp" aria-describedby="helpBlock">
-      <p class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</p>
-    </div>
-  </form>
+    <form>
+        <div class="form-group">
+            <label for="exampeInputWithHelp">Input with help text</label>
+            <input type="email" class="form-control" id="exampeInputWithHelp" aria-describedby="helpBlock">
+            <p class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</p>
+        </div>
+    </form>
 </div>
 ```html
 <div class="form-group">
     <label for="exampeInputWithHelp">Input with help text</label>
     <input type="email" class="form-control" id="exampeInputWithHelp" aria-describedby="helpBlock">
     <p id="helpBlock" class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</p>
-  </div>
+</div>
 ```
 
 ## Input States
-
 
 ## Validation States
 
 Soho Foundation includes validation styles for errors on form controls. To use, add `.has-error` to the parent element. Any `.form-control` and `.help-block` within that element will receive the validation styles.
 
 <blockquote>
-  <strong>Conveying validation state to assistive technologies and colorblind users</strong>
-  <p>Using these validation styles to denote the state of a form control only provides a visual, color-based indication, which will not be conveyed to users of assistive technologies - such as screen readers - or to colorblind users.</p>
-  <p>Ensure that an alternative indication of state is also provided. For instance, you can include a hint about state in the form control's <label> text itself (as is the case in the following code example), include a Glyphicon (with appropriate alternative text using the .sr-only class - see the Glyphicon examples), or by providing an additional help text block. Specifically for assistive technologies, invalid form controls can also be assigned an aria-invalid="true" attribute.</p>
+    <strong>Conveying validation state to assistive technologies and colorblind users</strong>
+    <p>Using these validation styles to denote the state of a form control only provides a visual, color-based indication, which will not be conveyed to users of assistive technologies - such as screen readers - or to colorblind users.</p>
+    <p>Ensure that an alternative indication of state is also provided. For instance, you can include a hint about state in the form control's <label> text itself (as is the case in the following code example), include a Glyphicon (with appropriate alternative text using the .sr-only class - see the Glyphicon examples), or by providing an additional help text block. Specifically for assistive technologies, invalid form controls can also be assigned an aria-invalid="true" attribute.</p>
 </blockquote>
 
 <div class="example">
-  <form>
-    <div class="form-group has-error">
-      <label for="text-info-2" class="is-required">Input with Error</label>
-      <input type="text" id="text-info-2" class="form-control" placeholder="Placeholder">
-      <p class="info-block">(!) Required</p>
-    </div>
+    <form>
+        <div class="form-group has-error">
+            <label for="text-info-2" class="is-required">Input with Error</label>
+            <input type="text" id="text-info-2" class="form-control" placeholder="Placeholder">
+            <p class="info-block">(!) Required</p>
+        </div>
 
-    <div class="form-group has-error">
-      <label form="select-normal-2" class="is-required">Error State</label>
-      <select id="select-normal-2" class="form-control">
-        <option>Option</option>
-        <option>Option</option>
-        <option>Option</option>
-      </select>
-      <p class="info-block">Required</p>
-    </div>
-  </form>
+        <div class="form-group has-error">
+            <label form="select-normal-2" class="is-required">Error State</label>
+            <select id="select-normal-2" class="form-control">
+                <option>Option</option>
+                <option>Option</option>
+                <option>Option</option>
+            </select>
+            <p class="info-block">Required</p>
+        </div>
+    </form>
 </div>
 ```html
 <div class="form-group has-error">
     <label for="text-info-2" class="is-required">Input with Error</label>
     <input type="text" id="text-info-2" class="form-control" placeholder="Placeholder">
     <p class="info-block">(!) Required</p>
-  </div>
+</div>
 
-  <div class="form-group has-error">
+<div class="form-group has-error">
     <label form="select-normal-2" class="is-required">Error State</label>
     <select id="select-normal-2" class="form-control">
-      <option>Option</option>
-      <option>Option</option>
-      <option>Option</option>
+        <option>Option</option>
+        <option>Option</option>
+        <option>Option</option>
     </select>
     <p class="info-block">Required</p>
-  </div>
+</div>
 ```
-
-
 
 ### Input sizes
 
 These can be used with `<select>`, `<input>`, and `<textarea>` elements.
 <form>
-  <div class="form-group">
-    <label for="text-size-1">Extra Small</label>
-    <input type="text" id="text-size-1" class="form-control form-control--xs">
-  </div>
-  <div class="form-group">
-    <label for="text-size-2">Small</label>
-    <input type="text" id="text-size-2" class="form-control form-control--sm">
-  </div>
-  <div class="form-group">
-    <label for="text-size-3">Normal</label>
-    <input type="text" id="text-size-3" class="form-control">
-  </div>
-  <div class="form-group">
-    <label for="text-size-4">Large</label>
-    <input type="text" id="text-size-4" class="form-control form-control--lg">
-  </div>
-  <div class="form-group">
-    <label for="text-size-5">Full width</label>
-    <input type="text" id="text-size-5" class="form-control form-control--full">
-  </div>
+    <div class="form-group">
+        <label for="text-size-1">Extra Small</label>
+        <input type="text" id="text-size-1" class="form-control form-control--xs">
+    </div>
+    <div class="form-group">
+        <label for="text-size-2">Small</label>
+        <input type="text" id="text-size-2" class="form-control form-control--sm">
+    </div>
+    <div class="form-group">
+        <label for="text-size-3">Normal</label>
+        <input type="text" id="text-size-3" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="text-size-4">Large</label>
+        <input type="text" id="text-size-4" class="form-control form-control--lg">
+    </div>
+    <div class="form-group">
+        <label for="text-size-5">Full width</label>
+        <input type="text" id="text-size-5" class="form-control form-control--full">
+    </div>
 </form>
-
-
