@@ -123,7 +123,7 @@
 
 /* @start adaptiveInputs */
 :root {
-  --input-height-adaptive: 4.4rem;
+  --input-height-adaptive-touch: 4.4rem;
 }
 /* @end adaptiveInputs */
 
