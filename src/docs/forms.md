@@ -35,8 +35,9 @@ Individual form controls automatically receive some global styling. All textual 
             <p class="help-block">Example block-level help text here.</p>
         </div>
         <div class="form-checkbox">
-            <label>
-                <input type="checkbox" class="form-checkbox--input"> Check me out
+            <input type="checkbox" id="exampleCheckMeOut" value=""/>
+            <label for="exampleCheckMeOut">
+                Check me out
             </label>
         </div>
         <button type="submit" class="btn btn-default">Submit</button>
@@ -58,8 +59,9 @@ Individual form controls automatically receive some global styling. All textual 
         <p class="help-block">Example block-level help text here.</p>
     </div>
     <div class="form-checkbox">
-        <label>
-            <input type="checkbox" class="form-checkbox--input"> Check me out
+        <input type="checkbox" id="exampleCheckMeOut" value=""/>
+        <label for="exampleCheckMeOut">
+            Check me out
         </label>
     </div>
     <button type="submit" class="btn btn-default">Submit</button>
@@ -101,79 +103,93 @@ Checkboxes are for selecting one or several options in a list, while radios are 
 
 Disabled checkboxes and radios are supported, but to provide a "not-allowed" cursor on hover of the parent <label>, you'll need to add the `.is-disabled` class to the parent `.form-radio` or `.form-checkbox`.
 
-#### Checkboxes
+### Checkboxes
 
 <div class="example">
     <form>
         <div class="form-checkbox">
+            <input type="checkbox" id="exampleCheckbox1" value=""/>
             <label for="exampleCheckbox1">
-                <input type="checkbox" class="form-checkbox--input" id="exampleCheckbox1" value=""/>
-                Checkbox
+                Empty
             </label>
         </div>
 
-        <div class="form-checkbox">
+        <div class="form-checkbox form-checkbox--partial">
+            <input type="checkbox" value="" id="exampleCheckbox2" checked/>
             <label for="exampleCheckbox2">
-                <input type="checkbox" value="" class="form-checkbox--input form-checkbox--input--partial" id="exampleCheckbox2" checked/>
-                Checkbox Partial Check
+                Partially Check
             </label>
         </div>
 
         <div class="form-checkbox">
+            <input type="checkbox" id="exampleCheckbox3" value="" checked/>
             <label for="exampleCheckbox3">
-                <input type="checkbox" class="form-checkbox--input" id="exampleCheckbox3" value="" checked/>
-                Checkbox Checked
+                Checked
             </label>
         </div>
 
         <div class="form-checkbox is-disabled">
+            <input type="checkbox" value="" id="exampleCheckbox4" disabled/>
             <label for="exampleCheckbox4">
-                <input type="checkbox" value="" class="form-checkbox--input" id="exampleCheckbox4" disabled/>
-                Checkbox Disabled
+                Empty Disabled
+            </label>
+        </div>
+
+        <div class="form-checkbox form-checkbox--partial">
+            <input type="checkbox" value="" id="exampleCheckbox2" checked disabled/>
+            <label for="exampleCheckbox2">
+                Partially Checked &amp; Disabled
             </label>
         </div>
 
         <div class="form-checkbox is-disabled">
+            <input type="checkbox" value="" id="exampleCheckbox5" checked disabled/>
             <label for="exampleCheckbox5">
-                <input type="checkbox" value="" class="form-checkbox--input" id="exampleCheckbox5" disabled checked/>
-                Checkbox Disabled and Checked
+                Checked and Disabled
             </label>
         </div>
     </form>
 </div>
 ```html
 <div class="form-checkbox">
+    <input type="checkbox" id="exampleCheckbox1" value=""/>
     <label for="exampleCheckbox1">
-        <input type="checkbox" class="form-checkbox--input" id="exampleCheckbox1" value=""/>
-        Checkbox
+        Empty
     </label>
 </div>
 
-<div class="form-checkbox">
+<div class="form-checkbox form-checkbox--partial">
+    <input type="checkbox" value="" id="exampleCheckbox2" checked/>
     <label for="exampleCheckbox2">
-        <input type="checkbox" value="" class="form-checkbox--input checkbox-partial" id="exampleCheckbox2" checked/>
-        Checkbox Partial Check
+        Partially Check
     </label>
 </div>
 
 <div class="form-checkbox">
+    <input type="checkbox" id="exampleCheckbox3" value="" checked/>
     <label for="exampleCheckbox3">
-        <input type="checkbox" class="form-checkbox--input" id="exampleCheckbox3" value="" checked/>
-        Checkbox Checked
+        Checked
     </label>
 </div>
 
 <div class="form-checkbox is-disabled">
+    <input type="checkbox" value="" id="exampleCheckbox4" disabled/>
     <label for="exampleCheckbox4">
-        <input type="checkbox" value="" class="form-checkbox--input" id="exampleCheckbox4" disabled/>
-        Checkbox Disabled
+        Empty Disabled
+    </label>
+</div>
+
+<div class="form-checkbox form-checkbox--partial">
+    <input type="checkbox" value="" id="exampleCheckbox2" checked disabled/>
+    <label for="exampleCheckbox2">
+        Partially Checked &amp; Disabled
     </label>
 </div>
 
 <div class="form-checkbox is-disabled">
+    <input type="checkbox" value="" id="exampleCheckbox5" checked disabled/>
     <label for="exampleCheckbox5">
-        <input type="checkbox" value="" class="form-checkbox--input" id="exampleCheckbox5" disabled checked/>
-        Checkbox Disabled and Checked
+        Checked and Disabled
     </label>
 </div>
 ```

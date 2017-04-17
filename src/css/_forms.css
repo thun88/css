@@ -16,7 +16,7 @@
     border-color: var(--input-border-color-hover);
   }
 
-  &[disabled] {
+  &:disabled {
     background-color: var(--input-bg-disabled);
     border: solid 1px var(--input-border-color-disabled);
     color: var(--input-color-disabled);
@@ -110,7 +110,7 @@ select.form-control {
   position: relative;
 
   &.is-disabled label,
-  &[disabled] {
+  &:disabled {
     cursor: not-allowed;
   }
 }
@@ -133,12 +133,8 @@ select.form-control {
 }
 
 .form-checkbox {
-  & .form-checkbox--input {
+  & label {
     margin-right: 5px;
-
-    &:focus::before {
-      box-shadow: var(--checkbox-shadow-focus);
-    }
 
     &::before {
       background-color: var(--checkbox-bg);
@@ -147,7 +143,7 @@ select.form-control {
       content: '';
       display: block;
       height: 16px;
-      left: 0;
+      left: 1px;
       position: absolute;
       top: 0;
       width: 16px;
@@ -160,56 +156,65 @@ select.form-control {
       content: '';
       display: none;
       height: 10px;
-      left: 3px;
+      left: 4px;
       position: absolute;
       top: 8px;
       width: 5px;
     }
+  }
 
-    &[disabled] {
-      &::before {
-        background-color: var(--checkbox-bg-disabled);
-        border-color: var(--checkbox-border-color-disabled);
-      }
+  & input:focus + label::before {
+    box-shadow: var(--checkbox-shadow-focus);
+  }
+
+
+  & input:disabled + label::before {
+    background-color: var(--checkbox-bg-disabled);
+    border-color: var(--checkbox-border-color-disabled);
+  }
+
+  & input:checked + label {
+    &::before {
+      background-color: var(--checkbox-color);
+      border-color: var(--checkbox-color);
     }
 
-    &:checked {
-      &::before {
-        background-color: var(--checkbox-color);
-        border-color: var(--checkbox-color);
-      }
-
-      &::after {
-        animation: check 0.15s;
-        display: block;
-        transform: scaleX(-1) rotate(135deg);
-        transform-origin: left top 0;
-      }
-    }
-
-    &[disabled]:checked {
-      &::before {
-        background-color: var(--checkbox-bg-disabled-checked);
-        border-color: var(--checkbox-bg-disabled-checked);
-      }
-
-      &::after {
-        border-color: var(--checkbox-arrow-color-disabled) var(--checkbox-arrow-color-disabled) var(--checkbox-arrow-color-disabled) transparent;
-      }
-    }
-
-    &.form-checkbox--input.form-checkbox--input--partial::after {
-      animation: none;
-      border-width: 0 0 2px;
-      height: 2px;
-      left: 2px;
-      margin-left: 1px;
-      top: 7px;
-      transform: none;
-      width: 10px;
+    &::after {
+      animation: check 0.15s;
+      display: block;
+      transform: scaleX(-1) rotate(135deg);
+      transform-origin: left top 0;
     }
   }
+
+  &.form-checkbox--partial input:checked + label::after {
+    animation: none;
+    border-width: 0 0 2px;
+    height: 2px;
+    left: 3px;
+    margin-left: 1px;
+    top: 7px;
+    transform: none;
+    width: 10px;
+  }
+
+  & input:disabled:checked + label {
+    &::before {
+      background-color: var(--checkbox-bg-disabled-checked);
+      border-color: var(--checkbox-bg-disabled-checked);
+    }
+
+    &::after {
+      border-color: var(--checkbox-arrow-color-disabled) var(--checkbox-arrow-color-disabled) var(--checkbox-arrow-color-disabled) transparent;
+    }
+  }
+
+  & input:focus + label::before {
+    box-shadow: var(--checkbox-shadow-focus);
+  }
 }
+
+
 
 .form-radio {
   & .form-radio--input {
@@ -246,7 +251,7 @@ select.form-control {
       width: 8px;
     }
 
-    &[disabled] {
+    &:disabled {
       &::before {
         background-color: var(--radio-bg-disabled);
         border-color: var(--radio-border-color-disabled);
@@ -264,7 +269,7 @@ select.form-control {
       }
     }
 
-    &[disabled]:checked {
+    &:disabled:checked {
       &::before {
         background-color: var(--radio-border-color-disabled);
         border-color: var(--radio-border-color-disabled);
