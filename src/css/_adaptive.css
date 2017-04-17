@@ -2,9 +2,7 @@
  * Adaptive Styles
  */
 
-
 .state-adaptive {
-
   & input.form-control,
   & select.form-control {
     height: var(--input-height-adaptive);

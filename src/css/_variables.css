@@ -121,13 +121,11 @@
 }
 /* @end inputs */
 
-
 /* @start adaptiveInputs */
 :root {
   --input-height-adaptive: 4.4rem;
 }
 /* @end adaptiveInputs */
-
 
 /* @start inputSizes */
 :root {
