@@ -170,7 +170,6 @@ select.form-control {
     box-shadow: var(--checkbox-shadow-focus);
   }
 
-
   & input:disabled + label::before {
     background-color: var(--checkbox-bg-disabled);
     border-color: var(--checkbox-border-color-disabled);
