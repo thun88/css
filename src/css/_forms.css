@@ -161,13 +161,22 @@ select.form-control {
   }
 }
 
-.form-checkbox input,
-.form-radio input {
-  margin-right: 5px;
+.form-checkbox,
+.form-radio {
+  & label {
+    display: block;
+    position: relative;
+  }
+
+  & input {
+    visibility: hidden;
+  }
 }
 
 .form-checkbox {
   & label {
+    padding-left: calc(var(--checkbox-box-w) + 5);
+
     &::before {
       background-color: var(--checkbox-bg);
       border: 1px solid var(--checkbox-border-color);
@@ -175,7 +184,7 @@ select.form-control {
       content: '';
       display: block;
       height: var(--checkbox-box-h);
-      left: 1px;
+      left: 0;
       position: absolute;
       top: calc(50% - 0.5 * var(--checkbox-box-h));
       width: var(--checkbox-box-w);
@@ -188,7 +197,7 @@ select.form-control {
       content: '';
       display: none;
       height: var(--checkbox-check-h);
-      left: 4px;
+      left: 3px;
       position: absolute;
       top: 50%;
       width: var(--checkbox-check-w);
@@ -222,7 +231,7 @@ select.form-control {
     animation: none;
     border-width: 0 0 2px;
     height: 2px;
-    left: 3px;
+    left: 2px;
     margin-left: 1px;
     top: calc(50% - (0.5 * 2px));
     transform: none;
@@ -247,17 +256,19 @@ select.form-control {
 
 .form-radio {
   & label {
+    padding-left: calc(var(--radio-outer-w) + 5);
+
     &::before {
       background-color: var(--radio-bg);
       border: 1px solid var(--radio-border-color);
       border-radius: 50%;
       content: '';
       display: block;
-      height: var(--radio-circle-h);
-      left: 1px;
+      height: var(--radio-outer-h);
+      left: 0;
       position: absolute;
-      top: calc(50% - 0.5 * var(--radio-circle-h));
-      width: var(--radio-circle-w);
+      top: calc(50% - 0.5 * var(--radio-outer-h));
+      width: var(--radio-outer-w);
     }
 
     &::after {
@@ -265,12 +276,12 @@ select.form-control {
       border: 2px solid var(--radio-color);
       border-radius: 50%;
       content: '';
-      height: var(--radio-dot-h);
-      left: 5px;
+      height: var(--radio-inner-h);
+      left: calc(var(--radio-outer-w) / 2 - var(--radio-inner-w) / 2);
       opacity: 0;
       position: absolute;
-      top: calc(50% - 0.5 * var(--radio-dot-h));
-      width: var(--radio-dot-w);
+      top: calc(50% - 0.5 * var(--radio-inner-h));
+      width: var(--radio-inner-w);
     }
   }
 
