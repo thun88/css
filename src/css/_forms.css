@@ -6,7 +6,7 @@
   color: var(--input-color);
   display: block;
   font-size: var(--font-size-base);
-  padding: 0.6rem 0.8rem;
+  padding: 0 0.8rem;
   resize: none;
   text-align: left;
   transition: var(--input-transition);
@@ -54,7 +54,11 @@
 input.form-control,
 select.form-control {
   height: var(--input-height);
-  line-height: normal;
+  line-height: var(--input-height);
+}
+
+textarea.form-control {
+  line-height: auto;
 }
 
 .form-group {
@@ -161,7 +165,7 @@ select.form-control {
       height: var(--checkbox-check-h);
       left: 4px;
       position: absolute;
-      top: calc(50% - 0.5 * var(--checkbox-check-h));
+      top: 50%;
       width: var(--checkbox-check-w);
     }
   }
@@ -195,7 +199,7 @@ select.form-control {
     height: 2px;
     left: 3px;
     margin-left: 1px;
-    top: 7px;
+    top: calc(50% - (0.5 * 2px));
     transform: none;
     width: 10px;
   }
