@@ -1,8 +1,9 @@
 .form-control {
+  background-clip: padding-box;
+  background-color: var(--input-bg);
+
   /* Reset unusual Firefox-on-Android default style background-image */
   background-image: none;
-  background-color: var(--input-bg);
-  background-clip: padding-box;
   border: var(--input-border-width) solid var(--input-border-color);
   border-radius: var(--input-border-radius);
   box-shadow: none;
@@ -24,6 +25,7 @@
 
   &::placeholder {
     color: $input-color-placeholder;
+
     /* Override Firefox's unusual default opacity */
     opacity: 1;
   }
@@ -74,8 +76,8 @@ select.form-control {
        in IE and (under certain conditions) Edge, as it looks bad and cannot be made to
        match the appearance of the native widget.
     */
-    color: $input-color;
     background-color: $input-bg;
+    color: $input-color;
   }
 }
 
