@@ -1,16 +1,32 @@
 .form-control {
+  /* Reset unusual Firefox-on-Android default style background-image */
+  background-image: none;
   background-color: var(--input-bg);
+  background-clip: padding-box;
   border: var(--input-border-width) solid var(--input-border-color);
   border-radius: var(--input-border-radius);
   box-shadow: none;
   color: var(--input-color);
   display: block;
   font-size: var(--font-size-base);
-  padding: 0 0.8rem;
+  line-height: var(--input-line-height);
+  padding: var(--input-padding-y) var(--input-padding-x);
   resize: none;
   text-align: left;
   transition: var(--input-transition);
-  width: var(--input-size-base);
+  width: 100%;
+
+  /* Unstyle the caret on `<select>`s in IE10+. */
+  &::-ms-expand {
+    background-color: transparent;
+    border: 0;
+  }
+
+  &::placeholder {
+    color: $input-color-placeholder;
+    /* Override Firefox's unusual default opacity */
+    opacity: 1;
+  }
 
   &:hover {
     border-color: var(--input-border-color-hover);
@@ -22,7 +38,7 @@
     color: var(--input-color-disabled);
     cursor: not-allowed;
 
-    /* iOS fix for unreadable disabled content */
+    /* iOS fix for unreadable disabled/readonly content */
     opacity: 1;
   }
 
@@ -30,12 +46,8 @@
     background-color: var(--input-bg-readonly);
     border-color: var(--input-border-color-readonly);
     color: var(--input-color-readonly);
-  }
 
-  &::placeholder {
-    color: var(--input-placeholder-color);
-
-    /* Override Firefox's unusual default opacity */
+    /* iOS fix for unreadable disabled/readonly content */
     opacity: 1;
   }
 
@@ -47,18 +59,29 @@
 
   &.form-control--xs { width: var(--input-size-xs); }
   &.form-control--sm { width: var(--input-size-sm); }
+  &.form-control--md { width: var(--input-size-md); }
   &.form-control--lg { width: var(--input-size-lg); }
-  &.form-control--full { width: var(--input-size-full); }
 }
 
-input.form-control,
 select.form-control {
-  height: var(--input-height);
-  line-height: var(--input-height);
+  &:not([size]):not([multiple]).form-control {
+    height: var(--input-height);
+  }
+
+  &:focus::-ms-value {
+    /* Suppress the nested default white text on blue background highlight given to
+       the selected option text when the (still closed) <select> receives focus
+       in IE and (under certain conditions) Edge, as it looks bad and cannot be made to
+       match the appearance of the native widget.
+    */
+    color: $input-color;
+    background-color: $input-bg;
+  }
 }
 
-textarea.form-control {
-  line-height: auto;
+.form-control-file,
+.form-control-range {
+  display: block;
 }
 
 .form-group {
@@ -110,7 +133,7 @@ textarea.form-control {
 .form-checkbox,
 .form-radio {
   display: block;
-  margin: var(--input-margin-y) var(--input-margin-x);
+  margin: 10px 0;
   position: relative;
 
   &.is-disabled label,

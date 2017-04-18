@@ -79,7 +79,7 @@ h6 {
 }
 
 p {
-  line-height: 1.5rem;
+  line-height: var(--line-height-base);
   margin-bottom: 10px;
   margin-top: 0;
 }

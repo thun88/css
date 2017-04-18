@@ -419,14 +419,10 @@ These can be used with `<select>`, `<input>`, and `<textarea>` elements.
     </div>
     <div class="form-group">
         <label for="text-size-3">Normal</label>
-        <input type="text" id="text-size-3" class="form-control">
+        <input type="text" id="text-size-3" class="form-control form-control--md">
     </div>
     <div class="form-group">
         <label for="text-size-4">Large</label>
         <input type="text" id="text-size-4" class="form-control form-control--lg">
-    </div>
-    <div class="form-group">
-        <label for="text-size-5">Full width</label>
-        <input type="text" id="text-size-5" class="form-control form-control--full">
     </div>
 </form>

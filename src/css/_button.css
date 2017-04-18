@@ -10,15 +10,14 @@
   display: inline-block;
   font-size: 1.2rem;
   font-weight: var(--font-weight-bold);
-  line-height: var(--btn-line-height);
-  padding: 0.6rem 1.5rem;
+  line-height: var(--input-line-height);
+  padding: var(--input-padding-y) var(--input-padding-x);
   text-align: center;
   text-decoration: none;
   text-transform: uppercase;
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
-  width: var(--input-size-sm);
 
   &[disabled] {
     cursor: default;
@@ -118,4 +117,9 @@
   padding-left: 0;
   padding-right: 0;
   width: calc(var(--icon-width) + 14);
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
 }

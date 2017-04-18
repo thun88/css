@@ -7,9 +7,17 @@ description: Soho Foundation Styleguide
 
 ```css
 {
-    {{#each buttons}}
+{{#each buttons}}
     {{this.name}}: {{this.value}};
-    {{/each}}
+{{/each}}
+}
+```
+
+```css
+{
+{{#each inputSizes}}
+    {{this.name}}: {{this.value}};
+{{/each}}
 }
 ```
 
@@ -83,7 +91,7 @@ Use any of the available button classes to quickly create a styled button.
 ## Button Icons
 
 <div class="example">
-    <button type="button" class="btn btn-icon" title="save icon">
+    <button type="button" class="btn btn-default btn-icon" title="save icon">
         <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
             <use xlink:href="#save"></use>
         </svg>
@@ -105,7 +113,7 @@ Use any of the available button classes to quickly create a styled button.
     </svg>
     <span>Button</span>
 </button>
-<button type="button"  title="link icon">
+<button type="button" class="btn btn-link btn-icon" title="link icon">
     <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
         <use xlink:href="#link"></use>
     </svg>

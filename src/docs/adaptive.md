@@ -9,9 +9,9 @@ This is a page dedicated to showcase adaptive states. Adaptive states can be def
 
 ```css
 {
-    {{#each adaptiveInputs}}
-        {{this.name}}: {{this.value}};
-    {{/each}}
+{{#each adaptiveInputs}}
+    {{this.name}}: {{this.value}};
+{{/each}}
 }
 ```
 
@@ -57,7 +57,7 @@ The elements `input`, `select`, `radio`, and `checkbox` all support the touch ad
         <div class="form-radio">
             <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
             <label for="optionsRadios1" class="example-padding">
-                Option one is this and that&mdash;be sure to include why it"s great
+                Option one is this and that&mdash;be sure to include why it's great
             </label>
         </div>
         <div class="form-radio">
@@ -75,6 +75,7 @@ The elements `input`, `select`, `radio`, and `checkbox` all support the touch ad
             </select>
             <p class="info-block">Some info text</p>
         </div>
+        <button type="button" class="btn btn-primary btn-block">Save</button>
     </form>
 </div>
 
