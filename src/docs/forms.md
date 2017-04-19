@@ -408,21 +408,30 @@ Soho Foundation includes validation styles for errors on form controls. To use, 
 ### Input sizes
 
 These can be used with `<select>`, `<input>`, and `<textarea>` elements.
-<form>
-    <div class="form-group">
-        <label for="text-size-1">Extra Small</label>
-        <input type="text" id="text-size-1" class="form-control form-control--xs">
-    </div>
-    <div class="form-group">
-        <label for="text-size-2">Small</label>
-        <input type="text" id="text-size-2" class="form-control form-control--sm">
-    </div>
-    <div class="form-group">
-        <label for="text-size-3">Normal</label>
-        <input type="text" id="text-size-3" class="form-control form-control--md">
-    </div>
-    <div class="form-group">
-        <label for="text-size-4">Large</label>
-        <input type="text" id="text-size-4" class="form-control form-control--lg">
-    </div>
-</form>
+
+<div class="example">
+    <form>
+        <div class="form-group">
+            <label for="text-size-1">Extra Small</label>
+            <input type="text" id="text-size-1" class="form-control form-control--xs">
+        </div>
+        <div class="form-group">
+            <label for="text-size-2">Small</label>
+            <input type="text" id="text-size-2" class="form-control form-control--sm">
+        </div>
+        <div class="form-group">
+            <label for="text-size-3">Normal</label>
+            <input type="text" id="text-size-3" class="form-control form-control--md">
+        </div>
+        <div class="form-group">
+            <label for="text-size-4">Large</label>
+            <input type="text" id="text-size-4" class="form-control form-control--lg">
+        </div>
+    </form>
+</div>
+```html
+<input type="text" id="text-size-1" class="form-control form-control--xs">
+<input type="text" id="text-size-2" class="form-control form-control--sm">
+<input type="text" id="text-size-3" class="form-control form-control--md">
+<input type="text" id="text-size-4" class="form-control form-control--lg">
+```

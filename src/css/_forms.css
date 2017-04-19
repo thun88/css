@@ -24,10 +24,9 @@
   }
 
   &::placeholder {
-    color: $input-color-placeholder;
-
-    /* Override Firefox's unusual default opacity */
-    opacity: 1;
+    color: var(--input-color-placeholder);
+    font-family: inherit;
+    opacity: 1; /* Override Firefox's unusual default opacity */
   }
 
   &:hover {
@@ -39,18 +38,17 @@
     border: solid 1px var(--input-border-color-disabled);
     color: var(--input-color-disabled);
     cursor: not-allowed;
-
-    /* iOS fix for unreadable disabled/readonly content */
-    opacity: 1;
   }
 
   &[readonly] {
     background-color: var(--input-bg-readonly);
     border-color: var(--input-border-color-readonly);
     color: var(--input-color-readonly);
+  }
 
-    /* iOS fix for unreadable disabled/readonly content */
-    opacity: 1;
+  &:disabled,
+  &[readonly] {
+    opacity: 1; /* iOS fix for unreadable disabled/readonly content */
   }
 
   &:focus {
