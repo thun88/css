@@ -31,7 +31,7 @@ Individual form controls automatically receive some global styling. All textual 
         </div>
         <div class="form-group">
             <label for="exampleInputFile">File input</label>
-            <input type="file" id="exampleInputFile">
+            <input type="file" id="exampleInputFile" class="form-control-file">
             <p class="help-block">Example block-level help text here.</p>
         </div>
         <div class="form-checkbox">
@@ -55,7 +55,7 @@ Individual form controls automatically receive some global styling. All textual 
     </div>
     <div class="form-group">
         <label for="exampleInputFile">File input</label>
-        <input type="file" id="exampleInputFile">
+        <input type="file" id="exampleInputFile" class="form-control-file">
         <p class="help-block">Example block-level help text here.</p>
     </div>
     <div class="form-checkbox">
