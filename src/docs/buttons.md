@@ -24,7 +24,7 @@ description: Soho Foundation Styleguide
 
 ## Button Tags
 
-Use the button classes on and `<a>`, `<button>`, `<input>` elements.
+Use the button classes on and `<a>`, `<button>`, `<input>` elements. As a best practice, we highly recommend using the `<button>` element whenever possible to ensure matching cross-browser rendering. If the `<a>` elements are used to act as buttons – triggering in-page functionality, rather than navigating to another document or section within the current page – they should also be given an appropriate `role="button"`.
 
 <div class="example">
     <a class="btn btn-default" href="#" role="button">Link</a>
@@ -39,18 +39,6 @@ Use the button classes on and `<a>`, `<button>`, `<input>` elements.
 <input class="btn btn-default" type="submit" value="Submit">
 
 ```
-
-> Context-specific usage
-> While button classes can be used on `<a>` and `<button>` elements, only `<button>` elements are supported within our nav and navbar components.
-
-> Links acting as buttons
-> If the <a> elements are used to act as buttons – triggering in-page functionality, rather than navigating to another document or section within the current page – they should also be given an appropriate role="button".
-
-> Cross-browser rendering
-> As a best practice, we highly recommend using the `<button>` element whenever possible to ensure matching cross-browser rendering.
-
-> Among other things, there"s a bug in Firefox &lt; 30 that prevents us from setting the line-height of `<input>`-based buttons, causing them to not exactly match the height of other buttons on Firefox.
-
 
 ## Options
 
