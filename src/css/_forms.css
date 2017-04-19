@@ -169,6 +169,8 @@ select.form-control {
   }
 
   & input {
+    position: absolute;
+    top: calc(50% - 9px);
     visibility: hidden;
   }
 }
