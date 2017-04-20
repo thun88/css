@@ -20,7 +20,9 @@ description: Soho Foundation Styleguide
 {{/each}}
 }
 ```
-
+<blockquote>
+    <strong>Note</strong> that buttons can be made to extend the width of their container (aka width: 100%) by using the <code>btn-block</code> class.
+</blockquote>
 
 ## Button Tags
 
