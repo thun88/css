@@ -124,6 +124,15 @@
 }
 /* @end inputs */
 
+/* @start inputSizes */
+:root {
+  --input-size-xs: 75px;
+  --input-size-sm: 150px;
+  --input-size-md: 300px;
+  --input-size-lg: 400px;
+}
+/* @end inputSizes */
+
 /* @start adaptiveInputs */
 :root {
   --input-height-adaptive-touch: calc(var(--input-height) + 1rem);
@@ -136,15 +145,6 @@
   --radio-inner-w-adaptive-touch: var(--radio-inner-h-adaptive-touch);
 }
 /* @end adaptiveInputs */
-
-/* @start inputSizes */
-:root {
-  --input-size-xs: 75px;
-  --input-size-sm: 150px;
-  --input-size-md: 300px;
-  --input-size-lg: 400px;
-}
-/* @end inputSizes */
 
 /* @start checkboxes */
 :root {
@@ -184,17 +184,17 @@
 
 /* @start breakpoints */
 :root {
-  --breakpoint-sm: 480px;
-  --breakpoint-md: 768px;
-  --breakpoint-lg: 992px;
-  --breakpoint-xl: 1200px;
+  --breakpoint-sm: 400px;
+  --breakpoint-md: 840px;
+  --breakpoint-lg: 1280px;
+  --breakpoint-xl: 1440px;
 }
 /* @end breakpoints */
 
 :root {
-  @custom-media --viewport-sm (min-width: 480px);
-  @custom-media --viewport-md (min-width: 768px);
-  @custom-media --viewport-lg (min-width: 992px);
-  @custom-media --viewport-xl (min-width: 1200px);
+  @custom-media --viewport-sm (min-width: 400px);
+  @custom-media --viewport-md (min-width: 840px);
+  @custom-media --viewport-lg (min-width: 1280px);
+  @custom-media --viewport-xl (min-width: 1440px);
 }
 /* stylelint-enable comment-empty-line-before, custom-property-empty-line-before */
