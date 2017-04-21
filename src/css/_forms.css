@@ -17,12 +17,6 @@
   transition: var(--input-transition);
   width: 100%;
 
-  /* Unstyle the caret on `<select>`s in IE10+. */
-  &::-ms-expand {
-    background-color: transparent;
-    border: 0;
-  }
-
   &::placeholder {
     color: var(--input-color-placeholder);
     font-family: inherit;
@@ -65,7 +59,19 @@
 
 select.form-control {
   &:not([size]):not([multiple]).form-control {
+    appearance: none;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHZpZXdCb3g9IjAgMCAxOCAxOCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+ZHJvcGRvd248L3RpdGxlPjxwYXRoIGQ9Ik00IDZsNSA2IDUtNkg0eiIvPjwvc3ZnPg==);
+    background-position: calc(100% - 10px) center;
+    background-repeat: no-repeat;
     height: var(--input-height);
+    padding-right: calc(var(--input-padding-x) + 25px);
+  }
+
+  /* Unstyle the caret on `<select>`s in IE10+. */
+  &::-ms-expand {
+    background-color: transparent;
+    border: 0;
+    display: none;
   }
 
   &:focus::-ms-value {
