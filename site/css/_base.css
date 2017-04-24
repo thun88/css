@@ -29,6 +29,7 @@ ul {
 
   & > li {
     float: left;
+    line-height: var(--input-height);
     margin-left: 30px;
 
     &:first-child {
