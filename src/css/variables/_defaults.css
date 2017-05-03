@@ -9,13 +9,12 @@
 
 /* @start alertColors */
 :root {
-  --alert-red: #e84f4f;
-  --alert-bg-color: rgba(232, 79, 79, 0.1);
-  --alert-orange: #ff9426;
-  --alert-yellow: #ffd726;
   --alert-green: #80ce4d;
   --alert-info: var(--azure06);
   --alert-neutral: var(--graphite03);
+  --alert-orange: #ff9426;
+  --alert-red: #e84f4f;
+  --alert-yellow: #ffd726;
 }
 /* @end alertColors */
 
@@ -29,10 +28,9 @@
 /* @start font  */
 :root {
   --font-family-base: helvetica, arial;
-  --font-size-lg: 1.8rem;
   --font-size-base: 1.4rem;
+  --font-size-lg: 1.8rem;
   --font-size-sm: 0.85rem;
-  --font-size-small: 0.75rem;
   --font-size-h1: 2.8rem;
   --font-size-h2: 2.4rem;
   --font-size-h3: 2rem;
@@ -42,28 +40,28 @@
   --font-weight-normal: normal;
   --font-weight-bold: bold;
   --line-height-base: 1.5;
-  --text-disabled: var(--graphite04);
   --text-alert: var(--alert-red);
+  --text-disabled: var(--graphite04);
 }
 /* @end font  */
 
 /* @start headings */
 :root {
-  --headings-margin-bottom: 0.5rem;
+  --headings-color: var(--body-color);
   --headings-font-family: helvetica, arial;
   --headings-font-weight: 400;
   --headings-line-height: normal;
-  --headings-color: var(--body-color);
+  --headings-margin-bottom: 0.5rem;
 }
 /* @end headings */
 
 /* @start buttons */
 :root {
+  --btn-default-bg: var(--graphite03);
+  --btn-default-color: var(--graphite08);
+  --btn-default-hover: var(--graphite04);
   --btn-disabled-opacity: 0.5;
   --btn-line-height: 2.2rem;
-  --btn-default-color: var(--graphite08);
-  --btn-default-bg: var(--graphite03);
-  --btn-default-hover: var(--graphite04);
 }
 /* @end buttons */
 
@@ -93,18 +91,14 @@
 
 /* @start icons */
 :root {
-  --icon-height: 16px;
   --icon-fill: var(--graphite04);
+  --icon-height: 16px;
   --icon-width: 22px;
 }
 /* @end icons */
 
 /* @start inputs */
 :root {
-  --input-transition: border 300ms ease 0s, box-shadow 300ms ease 0s;
-  --input-color: var(--graphite10);
-  --input-color-readonly: var(--graphite10);
-  --input-color-disabled: var(--text-disabled);
   --input-bg: transparent;
   --input-bg-disabled: transparent;
   --input-bg-readonly: var(--graphite02);
@@ -113,14 +107,20 @@
   --input-border-color-focus: var(--soho-primary);
   --input-border-color-hover: var(--graphite08);
   --input-border-color-readonly: var(--input-border-color);
+  --input-border-radius: 2px;
   --input-border-size: 1px;
   --input-border-width: 1px;
-  --input-border-radius: 2px;
-  --input-height: 3.4rem;
-  --input-line-height: calc(var(--input-height) - (2 * var(--input-padding-y)) - (2 * var(--input-border-size)));
+  --input-color: var(--graphite10);
+  --input-color-disabled: var(--text-disabled);
+  --input-color-readonly: var(--graphite10);
   --input-color-placeholder: var(--graphite04);
+  --input-height: 3.4rem;
+  --input-info-block-color: var(--graphite04);
+  --input-label-color: var(--graphite06);
+  --input-line-height: calc(var(--input-height) - (2 * var(--input-padding-y)) - (2 * var(--input-border-size)));
   --input-padding-x: 6px;
   --input-padding-y: 8px;
+  --input-transition: border 300ms ease 0s, box-shadow 300ms ease 0s;
 }
 /* @end inputs */
 
@@ -138,11 +138,10 @@
   --input-height-adaptive-touch: calc(var(--input-height) + 1rem);
   --input-line-height-adaptive-touch: calc(var(--input-height-adaptive-touch) - (2 * var(--input-padding-y)) - (2 * var(--input-border-size)));
   --input-padding-adaptive-touch: calc((var(--input-height-adaptive-touch) - var(--line-height-base)) / 2);
-
-  --radio-outer-h-adaptive-touch: calc(var(--radio-outer-h) * 1.3);
-  --radio-outer-w-adaptive-touch: calc(var(--radio-outer-h-adaptive-touch) + 1);
   --radio-inner-h-adaptive-touch: calc(var(--radio-outer-h-adaptive-touch) - 8);
   --radio-inner-w-adaptive-touch: var(--radio-inner-h-adaptive-touch);
+  --radio-outer-h-adaptive-touch: calc(var(--radio-outer-h) * 1.3);
+  --radio-outer-w-adaptive-touch: calc(var(--radio-outer-h-adaptive-touch) + 1);
 }
 /* @end adaptiveInputs */
 
@@ -152,27 +151,28 @@
   --checkbox-arrow-color-disabled: #f4f4f4;
   --checkbox-border-color: var(--graphite04);
   --checkbox-border-color-disabled: var(--graphite03);
-  --checkbox-color: var(--soho-primary);
   --checkbox-bg: var(--white);
   --checkbox-bg-disabled: var(--checkbox-bg);
   --checkbox-bg-disabled-checked: var(--graphite03);
+  --checkbox-shadow-focus: 0 0 0 2px var(--body-bg), 0 0 0 3px var(--checkbox-color);
+  --checkbox-color: var(--soho-primary);
+
   --checkbox-box-h: 16px;
   --checkbox-box-w: var(--checkbox-box-h);
   --checkbox-check-h: 10px;
   --checkbox-check-w: 5px;
-  --checkbox-shadow-focus: 0 0 0 2px var(--body-bg), 0 0 0 3px var(--checkbox-color);
 }
 /* @end checkboxes */
 
 /* @start radios */
 :root {
-  --radio-color: var(--white);
-  --radio-bg-checked: var(--soho-primary);
-  --radio-border-color: var(--graphite04);
-  --radio-border-color-disabled: var(--graphite03);
   --radio-bg: var(--white);
+  --radio-bg-checked: var(--soho-primary);
   --radio-bg-disabled: var(--radio-bg);
   --radio-bg-disabled-checked: var(--graphite03);
+  --radio-border-color: var(--graphite04);
+  --radio-border-color-disabled: var(--graphite03);
+  --radio-color: var(--white);
   --radio-shadow-focus: var(--checkbox-shadow-focus);
 
   --radio-outer-h: 18px;

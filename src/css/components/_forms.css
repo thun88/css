@@ -101,7 +101,7 @@ select.form-control {
   }
 
   & label {
-    color: var(--graphite06);
+    color: var(--input-label-color);
     margin-bottom: 5px;
 
     &.is-required::after {
@@ -116,6 +116,7 @@ select.form-control {
   }
 
   & .info-block {
+    color: var(--input-info-block-color);
     margin-top: 5px;
   }
 

@@ -98,6 +98,10 @@
   &:hover {
     color: var(--btn-link-hover);
 
+    & .icon {
+      fill: var(--btn-link-hover);
+    }
+
     &[disabled] {
       color: var(--btn-link-color);
     }

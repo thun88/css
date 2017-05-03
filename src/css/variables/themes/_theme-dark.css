@@ -1,35 +1,15 @@
 /* stylelint-disable comment-empty-line-before, custom-property-empty-line-before */
 
-/* @start brandColors */
-:root {
-  --soho-primary: var(--azure06);
-  --soho-warning: var(--ruby06);
-}
-/* @end brandColors */
-
-/* @start alertColors */
-:root {
-  --alert-red: #e84f4f;
-  --alert-bg-color: rgba(232, 79, 79, 0.1);
-  --alert-orange: #ff9426;
-  --alert-yellow: #ffd726;
-  --alert-green: #80ce4d;
-  --alert-info: var(--azure06);
-  --alert-neutral: var(--graphite03);
-}
-/* @end alertColors */
-
 /* @start bodySettings */
 :root {
-  --body-bg: var(--graphite08);
-  --body-color: var(--graphite02);
+  --body-bg: var(--slate07);
+  --body-color: var(--white);
 }
 /* @end bodySettings */
 
 /* @start font  */
 :root {
-  --text-disabled: var(--graphite04);
-  --text-alert: var(--alert-red);
+  --text-disabled: var(--graphite05);
 }
 /* @end font  */
 
@@ -41,84 +21,35 @@
 
 /* @start buttons */
 :root {
-  --btn-disabled-opacity: 0.5;
-  --btn-default-color: var(--graphite08);
-  --btn-default-bg: var(--graphite03);
-  --btn-default-hover: var(--graphite04);
+  --btn-default-bg: var(--slate03);
+  --btn-default-color: var(--slate10);
+  --btn-default-hover: var(--slate04);
 }
 /* @end buttons */
 
-/* @start buttonPrimary */
-:root {
-  --btn-primary-bg: var(--soho-primary);
-  --btn-primary-color: var(--white);
-  --btn-primary-hover: var(--azure07);
-}
-/* @end buttonPrimary */
-
-/* @start buttonWarning */
-:root {
-  --btn-warning-bg: var(--soho-warning);
-  --btn-warning-color: var(--white);
-  --btn-warning-hover: var(--ruby07);
-}
-/* @end buttonWarning */
-
 /* @start buttonLink */
 :root {
-  --btn-link-bg: transparent;
-  --btn-link-color: var(--graphite06);
-  --btn-link-hover: var(--graphite10);
+  --btn-link-color: var(--graphite04);
+  --btn-link-hover: var(--white);
 }
 /* @end buttonLink */
 
 /* @start icons */
 :root {
-  --icon-fill: var(--graphite04);
+  --icon-fill: var(--slate03);
 }
 /* @end icons */
 
 /* @start inputs */
 :root {
-  --input-color: var(--graphite10);
-  --input-color-readonly: var(--graphite10);
-  --input-color-disabled: var(--text-disabled);
-  --input-bg: transparent;
-  --input-bg-disabled: transparent;
-  --input-bg-readonly: var(--graphite02);
-  --input-border-color: var(--graphite04);
-  --input-border-color-disabled: var(--graphite03);
-  --input-border-color-focus: var(--soho-primary);
-  --input-border-color-hover: var(--graphite08);
+  --input-border-color: var(--slate04);
+  --input-border-color-disabled: var(--slate05);
+  --input-border-color-hover: var(--slate02);
   --input-border-color-readonly: var(--input-border-color);
-  --input-color-placeholder: var(--graphite04);
+  --input-color: var(--body-color);
+  --input-info-block-color: var(--slate04);
+  --input-label-color: var(--slate03);
 }
 /* @end inputs */
-
-/* @start checkboxes */
-:root {
-  --checkbox-arrow-color: var(--white);
-  --checkbox-arrow-color-disabled: #f4f4f4;
-  --checkbox-border-color: var(--graphite04);
-  --checkbox-border-color-disabled: var(--graphite03);
-  --checkbox-color: var(--soho-primary);
-  --checkbox-bg: var(--white);
-  --checkbox-bg-disabled: var(--checkbox-bg);
-  --checkbox-bg-disabled-checked: var(--graphite03);
-}
-/* @end checkboxes */
-
-/* @start radios */
-:root {
-  --radio-color: var(--white);
-  --radio-bg-checked: var(--soho-primary);
-  --radio-border-color: var(--graphite04);
-  --radio-border-color-disabled: var(--graphite03);
-  --radio-bg: var(--white);
-  --radio-bg-disabled: var(--radio-bg);
-  --radio-bg-disabled-checked: var(--graphite03);
-  --radio-shadow-focus: var(--checkbox-shadow-focus);
-}
-/* @end radios */
 
 /* stylelint-enable comment-empty-line-before, custom-property-empty-line-before */
