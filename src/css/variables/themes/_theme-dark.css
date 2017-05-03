@@ -52,4 +52,10 @@
 }
 /* @end inputs */
 
+/* @start selects */
+:root {
+  --select-bg-caret: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHZpZXdCb3g9IjAgMCAxOCAxOCIgZmlsbD0id2hpdGUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHRpdGxlPmRyb3Bkb3duPC90aXRsZT48cGF0aCBkPSJNNCA2bDUgNiA1LTZINHoiLz48L3N2Zz4=);
+}
+/* @end selects */
+
 /* stylelint-enable comment-empty-line-before, custom-property-empty-line-before */
