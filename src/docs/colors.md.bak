@@ -5,16 +5,6 @@ description: Soho Foundation Styleguide
 
 # Colors
 
-## Brand color specs
-
-```css
-{
-    {{#each brandColors}}
-        {{this.name}}: {{this.value}};
-    {{/each}}
-}
-```
-
 ## Alert color specs
 
 ```css

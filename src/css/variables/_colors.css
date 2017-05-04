@@ -1,3 +1,5 @@
+/* stylelint-disable comment-empty-line-before, custom-property-empty-line-before */
+
 /* @start color */
 :root {
   --azure01: #c8e9f4;
@@ -69,7 +71,7 @@
   --graphite01: #f0f0f0;
   --graphite02: #d8d8d8;
   --graphite03: #bdbdbd;
-  --graphite04: #999999;
+  --graphite04: #999;
   --graphite05: #737373;
   --graphite06: #5c5c5c;
   --graphite07: #454545;
@@ -88,7 +90,9 @@
   --slate09: #212224;
   --slate10: #1c1819;
 
-  --white: #ffffff;
-  --black: #000000;
+  --white: #fff;
+  --black: #000;
 }
 /* @end color */
+
+/* stylelint-enable comment-empty-line-before, custom-property-empty-line-before */

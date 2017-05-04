@@ -125,7 +125,6 @@ let SVG_HTML = fs.readFileSync(`${PATHS.src.root}/icons/icons.svg`, `utf-8`);
 gulp.task(`default`, [`build`, `serve`]);
 
 
-
 // -------------------------------------
 //   Task: Build
 // -------------------------------------
@@ -170,7 +169,7 @@ gulp.task(`compile:css`, function () {
     map: true
   };
 
-  return gulp.src(`${PATHS.src.css}/soho-foundation.css`)
+  return gulp.src(`${PATHS.src.css}/*.css`)
     .pipe(postcss(plugins, postcssOptions))
     .pipe(gulp.dest(PATHS.dist.css))
     .pipe(postcss([
@@ -260,7 +259,7 @@ gulp.task(`lint`, [`lint:css`, `lint:site`]);
 //   Task: Lint src css
 // -------------------------------------
 gulp.task(`lint:css`, function() {
-  return gulp.src(`${PATHS.src.css}/*.css`)
+  return gulp.src(`${PATHS.src.css}/**/*.css`)
     .pipe(stylelint({
       failAfterError: true,
       reporters: [{
@@ -382,7 +381,7 @@ function parseIcons() {
 //   Function: parseVarAnnotations()
 // -------------------------------------
 function parseVarAnnotations() {
-  let path = `${PATHS.src.css}/_variables.css`;
+  let path = `${PATHS.src.css}/variables/_defaults.css`;
   let content = fs.readFileSync(path, `utf-8`).trim();
   let blocks = annotateBlock(content);
   let annotationsData = {};

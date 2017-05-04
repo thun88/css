@@ -102,27 +102,31 @@ small,
 .text-alert { color: var(--text-alert); }
 
 a {
-  color: var(--azure06);
+  color: var(--link-color);
   cursor: pointer;
   text-decoration: none;
 
+  &:hover {
+    color:  var(--link-color-hover);
+  }
+
   &[disabled] {
-    color: var(--graphite04);
+    color: var(--link-color-disabled);
 
     & .icon {
-      fill: var(--graphite04);
+      fill: var(--link-color-disabled);
     }
   }
 
   &:visited {
-    color: var(--amethyst06);
+    color: var(--link-color-visited);
 
     & .icon {
-      fill: var(--amethyst06);
+      fill: var(--link-color-visited);
     }
   }
 
   & .icon {
-    fill: var(--azure06);
+    fill: var(--link-color-hover);
   }
 }

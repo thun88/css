@@ -32,7 +32,7 @@ Individual form controls automatically receive some global styling. All textual 
         <div class="form-group">
             <label for="exampleInputFile">File input</label>
             <input type="file" id="exampleInputFile" class="form-control-file">
-            <p class="help-block">Example block-level help text here.</p>
+            <p class="info-block">Example block-level help text here.</p>
         </div>
         <div class="form-checkbox">
             <input type="checkbox" id="exampleCheckMeOut" value=""/>
@@ -56,7 +56,7 @@ Individual form controls automatically receive some global styling. All textual 
     <div class="form-group">
         <label for="exampleInputFile">File input</label>
         <input type="file" id="exampleInputFile" class="form-control-file">
-        <p class="help-block">Example block-level help text here.</p>
+        <p class="info-block">Example block-level help text here.</p>
     </div>
     <div class="form-checkbox">
         <input type="checkbox" id="exampleCheckMeOut" value=""/>
@@ -344,7 +344,7 @@ Block level help text for form controls.
         <div class="form-group">
             <label for="exampeInputWithHelp">Input with help text</label>
             <input type="email" class="form-control" id="exampeInputWithHelp" aria-describedby="helpBlock">
-            <p class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</p>
+            <p class="info-block">A block of help text that breaks onto a new line and may extend beyond one line.</p>
         </div>
     </form>
 </div>
@@ -352,7 +352,7 @@ Block level help text for form controls.
 <div class="form-group">
     <label for="exampeInputWithHelp">Input with help text</label>
     <input type="email" class="form-control" id="exampeInputWithHelp" aria-describedby="helpBlock">
-    <p id="helpBlock" class="help-block">A block of help text that breaks onto a new line and may extend beyond one line.</p>
+    <p id="helpBlock" class="info-block">A block of help text that breaks onto a new line and may extend beyond one line.</p>
 </div>
 ```
 
@@ -360,7 +360,7 @@ Block level help text for form controls.
 
 ## Validation States
 
-Soho Foundation includes validation styles for errors on form controls. To use, add `.has-error` to the parent element. Any `.form-control` and `.help-block` within that element will receive the validation styles.
+Soho Foundation includes validation styles for errors on form controls. To use, add `.has-error` to the parent element. Any `.form-control` and `.info-block` within that element will receive the validation styles.
 
 <blockquote>
     <strong>Conveying validation state to assistive technologies and colorblind users</strong>

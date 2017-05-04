@@ -3,6 +3,7 @@
 @import 'variables/_defaults';
 
 /* 2. Color-Theme Variables */
+@import 'variables/themes/_theme-high-contrast.css';
 
 /* 3. Reset */
 @import 'utilities/_reset';
