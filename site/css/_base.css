@@ -106,7 +106,7 @@ pre {
 
 blockquote {
   border: 1px solid #eee;
-  border-left-color: var(--soho-primary);
+  border-left-color: var(--azure06);
   border-left-width: 5px;
   border-radius: 3px;
   margin: 20px 0;
@@ -138,7 +138,7 @@ blockquote {
 }
 
 .example-row.fnd-row > [class^='fnd-row--'] {
-  outline: solid 1px var(--soho-primary);
+  outline: solid 1px var(--azure06);
 }
 
 /*

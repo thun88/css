@@ -46,6 +46,7 @@
           <select class="form-control" onchange="onThemeChange(this)">
             <option value="default" selected>Default Theme</option>
             <option value="dark">Dark Theme</option>
+            <option value="hc">High-contrast</option>
           </select>
         </form>
       </div>
@@ -86,11 +87,18 @@
     <script>
       function onThemeChange(elem) {
         var cssTheme = 'css/soho-foundation.min.css';
-        if (elem.value === 'dark') {
-          cssTheme = 'css/soho-foundation--dark.min.css';
+
+        switch (elem.value) {
+          case 'dark':
+            cssTheme = 'css/soho-foundation--dark.min.css';
+            break;
+
+          case 'hc':
+            cssTheme = 'css/soho-foundation--high-contrast.min.css';
+            break;
         }
         document.getElementById('soho-theme').href = cssTheme;
-      };
+      }
     </script>
 
   </body>

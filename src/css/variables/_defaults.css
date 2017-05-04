@@ -1,17 +1,8 @@
 /* stylelint-disable comment-empty-line-before, custom-property-empty-line-before */
 
-/* @start brandColors */
-:root {
-  --soho-primary: var(--azure06);
-  --soho-warning: var(--ruby06);
-}
-/* @end brandColors */
-
 /* @start alertColors */
 :root {
   --alert-green: #80ce4d;
-  --alert-info: var(--azure06);
-  --alert-neutral: var(--graphite03);
   --alert-orange: #ff9426;
   --alert-red: #e84f4f;
   --alert-yellow: #ffd726;
@@ -22,6 +13,10 @@
 :root {
   --body-bg: var(--graphite01);
   --body-color: var(--graphite06);
+  --link-color: var(--azure06);
+  --link-color-disabled: var(--graphite04);
+  --link-color-hover: var(--link-color);
+  --link-color-visited: var(--amethyst06);
 }
 /* @end bodySettings */
 
@@ -67,7 +62,7 @@
 
 /* @start buttonPrimary */
 :root {
-  --btn-primary-bg: var(--soho-primary);
+  --btn-primary-bg: var(--azure06);
   --btn-primary-color: var(--white);
   --btn-primary-hover: var(--azure07);
 }
@@ -75,7 +70,7 @@
 
 /* @start buttonWarning */
 :root {
-  --btn-warning-bg: var(--soho-warning);
+  --btn-warning-bg: var(--ruby06);
   --btn-warning-color: var(--white);
   --btn-warning-hover: var(--ruby07);
 }
@@ -99,20 +94,9 @@
 
 /* @start inputs */
 :root {
-  --input-bg: transparent;
-  --input-bg-disabled: transparent;
-  --input-bg-readonly: var(--graphite02);
-  --input-border-color: var(--graphite04);
-  --input-border-color-disabled: var(--graphite03);
-  --input-border-color-focus: var(--soho-primary);
-  --input-border-color-hover: var(--graphite08);
-  --input-border-color-readonly: var(--input-border-color);
   --input-border-radius: 2px;
   --input-border-size: 1px;
   --input-border-width: 1px;
-  --input-color: var(--graphite10);
-  --input-color-disabled: var(--text-disabled);
-  --input-color-readonly: var(--graphite10);
   --input-color-placeholder: var(--graphite04);
   --input-height: 3.4rem;
   --input-info-block-color: var(--graphite04);
@@ -123,6 +107,46 @@
   --input-transition: border 300ms ease 0s, box-shadow 300ms ease 0s;
 }
 /* @end inputs */
+
+/* @start inputNormal */
+:root {
+  --input-bg: transparent;
+  --input-border-color: var(--graphite04);
+  --input-color: var(--graphite10);
+}
+/* @end inputNormal */
+
+/* @start inputDisabled */
+:root {
+  --input-bg-disabled: var(--input-bg);
+  --input-border-color-disabled: var(--graphite03);
+  --input-color-disabled: var(--text-disabled);
+}
+/* @end inputDisabled */
+
+/* @start inputHover */
+:root {
+  --input-bg-hover: var(--input-bg);
+  --input-border-color-hover: var(--graphite10);
+  --input-color-hover: var(--input-color);
+}
+/* @end inputHover */
+
+/* @start inputFocus */
+:root {
+  --input-bg-focus: var(--input-bg);
+  --input-border-color-focus: var(--azure06);
+  --input-color-focus: var(--input-color);
+}
+/* @end inputFocus */
+
+/* @start inputReadonly */
+:root {
+  --input-bg-readonly: var(--graphite02);
+  --input-border-color-readonly: var(--input-border-color-disabled);
+  --input-color-readonly: var(--input-color-disabled);
+}
+/* @end inputReadonly */
 
 /* @start selects */
 :root {
@@ -161,7 +185,7 @@
   --checkbox-bg-disabled: var(--checkbox-bg);
   --checkbox-bg-disabled-checked: var(--graphite03);
   --checkbox-shadow-focus: 0 0 0 2px var(--body-bg), 0 0 0 3px var(--checkbox-color);
-  --checkbox-color: var(--soho-primary);
+  --checkbox-color: var(--azure06);
 
   --checkbox-box-h: 16px;
   --checkbox-box-w: var(--checkbox-box-h);
@@ -173,7 +197,7 @@
 /* @start radios */
 :root {
   --radio-bg: var(--white);
-  --radio-bg-checked: var(--soho-primary);
+  --radio-bg-checked: var(--azure06);
   --radio-bg-disabled: var(--radio-bg);
   --radio-bg-disabled-checked: var(--graphite03);
   --radio-border-color: var(--graphite04);

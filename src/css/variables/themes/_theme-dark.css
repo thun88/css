@@ -4,6 +4,9 @@
 :root {
   --body-bg: var(--slate07);
   --body-color: var(--white);
+  --link-color: var(--azure04);
+  --link-color-disabled:  var(--graphite04);
+  --link-color-hover:  var(--azure04);
 }
 /* @end bodySettings */
 
@@ -29,7 +32,7 @@
 
 /* @start buttonLink */
 :root {
-  --btn-link-color: var(--graphite04);
+  --btn-link-color: var(--slate03);
   --btn-link-hover: var(--white);
 }
 /* @end buttonLink */
@@ -42,15 +45,35 @@
 
 /* @start inputs */
 :root {
-  --input-border-color: var(--slate04);
-  --input-border-color-disabled: var(--slate05);
-  --input-border-color-hover: var(--slate02);
-  --input-border-color-readonly: var(--input-border-color);
-  --input-color: var(--body-color);
   --input-info-block-color: var(--slate04);
   --input-label-color: var(--slate03);
 }
 /* @end inputs */
+
+/* @start inputNormal */
+:root {
+  --input-border-color: var(--slate04);
+  --input-color: var(--body-color);
+}
+/* @end inputNormal */
+
+/* @start inputDisabled */
+:root {
+  --input-border-color-disabled: var(--slate05);
+}
+/* @end inputDisabled */
+
+/* @start inputHover */
+:root {
+  --input-border-color-hover: var(--slate02);
+}
+/* @end inputHover */
+
+/* @start inputFocus */
+:root {
+  --input-border-color-focus: var(--azure06);
+}
+/* @end inputFocus */
 
 /* @start selects */
 :root {
