@@ -5,8 +5,8 @@
   --body-bg: var(--slate07);
   --body-color: var(--white);
   --link-color: var(--azure04);
-  --link-color-disabled:  var(--graphite04);
-  --link-color-hover:  var(--azure04);
+  --link-color-disabled: var(--graphite04);
+  --link-color-hover: var(--azure04);
 }
 /* @end bodySettings */
 

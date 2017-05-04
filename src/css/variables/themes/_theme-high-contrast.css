@@ -11,7 +11,7 @@
   --body-bg: var(--graphite02);
   --body-color: var(--black);
   --link-color: var(--azure09);
-  --link-color-hover:  var(--link-color);
+  --link-color-hover: var(--link-color);
 }
 /* @end bodySettings */
 

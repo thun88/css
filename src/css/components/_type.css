@@ -107,7 +107,7 @@ a {
   text-decoration: none;
 
   &:hover {
-    color:  var(--link-color-hover);
+    color: var(--link-color-hover);
   }
 
   &[disabled] {
