@@ -23,19 +23,19 @@ Individual form controls automatically receive some global styling. All textual 
     <form>
         <div class="form-group">
             <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+            <input type="email" class="form-control" id="exampleInputEmail1" name="exampleInputEmail1" placeholder="Email">
         </div>
         <div class="form-group">
             <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            <input type="password" class="form-control" id="exampleInputPassword1" name="exampleInputPassword1" placeholder="Password">
         </div>
         <div class="form-group">
             <label for="exampleInputFile">File input</label>
-            <input type="file" id="exampleInputFile" class="form-control-file">
+            <input type="file" id="exampleInputFile" name="exampleInputFile" class="form-control-file">
             <p class="info-block">Example block-level help text here.</p>
         </div>
         <div class="form-checkbox">
-            <input type="checkbox" id="exampleCheckMeOut" value=""/>
+            <input type="checkbox" id="exampleCheckMeOut" name="exampleCheckMeOut" value=""/>
             <label for="exampleCheckMeOut">
                 Check me out
             </label>
@@ -47,19 +47,19 @@ Individual form controls automatically receive some global styling. All textual 
 <form>
     <div class="form-group">
         <label for="exampleInputEmail1">Email address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+        <input type="email" class="form-control" id="exampleInputEmail1" name="exampleInputEmail1" placeholder="Email">
     </div>
     <div class="form-group">
         <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+        <input type="password" class="form-control" id="exampleInputPassword1" name="exampleInputPassword1" placeholder="Password">
     </div>
     <div class="form-group">
         <label for="exampleInputFile">File input</label>
-        <input type="file" id="exampleInputFile" class="form-control-file">
+        <input type="file" id="exampleInputFile" name="exampleInputFile" class="form-control-file">
         <p class="info-block">Example block-level help text here.</p>
     </div>
     <div class="form-checkbox">
-        <input type="checkbox" id="exampleCheckMeOut" value=""/>
+        <input type="checkbox" id="exampleCheckMeOut" name="exampleCheckMeOut" value=""/>
         <label for="exampleCheckMeOut">
             Check me out
         </label>
