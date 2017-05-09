@@ -9,8 +9,8 @@ Some text about using form-controls.
 
 ```css
 {
-    {{#each inputs}}
-    {{this.name}}: {{this.value}};
+    {{#each default.inputs}}
+        {{@key}}: {{this}};
     {{/each}}
 }
 ```

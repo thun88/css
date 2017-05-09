@@ -9,7 +9,7 @@ description: Soho Foundation Styleguide
 
 ```css
 {
-    {{#each headings}}
+    {{#each default.headings}}
         {{this.name}}: {{this.value}};
     {{/each}}
 }

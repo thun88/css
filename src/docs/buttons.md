@@ -7,19 +7,15 @@ description: Soho Foundation Styleguide
 
 ```css
 {
-{{#each buttons}}
-    {{this.name}}: {{this.value}};
+{{#each default.buttons}}
+    {{@key}}: {{this}};
+{{/each}}
+{{#each default.buttonPrimary}}
+    {{@key}}: {{this}};
 {{/each}}
 }
 ```
 
-```css
-{
-{{#each inputSizes}}
-    {{this.name}}: {{this.value}};
-{{/each}}
-}
-```
 <blockquote>
     <strong>Note</strong> that buttons can be made to extend the width of their container (aka width: 100%) by using the <code>btn-block</code> class.
 </blockquote>

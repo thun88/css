@@ -1,8 +1,5 @@
 /* Borrow Soho Foundation Variables */
-@import '../../src/css/variables/_colors';
-
-/* Borrow Soho Foundation Theme */
-@import '../../src/css/variables/_defaults';
+@import '../../src/css/components/_variables';
 
 /* Site Styles */
 @import '_base';
