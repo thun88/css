@@ -222,9 +222,9 @@
 /* @end breakpoints */
 
 :root {
-  @custom-media --viewport-sm (min-width: 400px);
-  @custom-media --viewport-md (min-width: 840px);
-  @custom-media --viewport-lg (min-width: 1280px);
-  @custom-media --viewport-xl (min-width: 1440px);
+  @custom-media --viewport-sm (min-width: var(--breakpoint-sm));
+  @custom-media --viewport-md (min-width: var(--breakpoint-md));
+  @custom-media --viewport-lg (min-width: var(--breakpoint-lg));
+  @custom-media --viewport-xl (min-width: var(--breakpoint-xl));
 }
 /* stylelint-enable comment-empty-line-before, custom-property-empty-line-before */
