@@ -19,6 +19,18 @@
   }
 }
 
+@media (--viewport-xs) {
+  @for $i from 1 to 12 {
+    .fnd-row .fnd-row--col-xs-$i {
+      lost-column: $(i)/12 0 0;
+    }
+
+    .fnd-row--gutter .fnd-row--col-xs-$i {
+      lost-column: $(i)/12 auto 10px;
+    }
+  }
+}
+
 @media (--viewport-sm) {
   @for $i from 1 to 12 {
     .fnd-row .fnd-row--col-sm-$i {
