@@ -69,28 +69,6 @@
   }
 }
 
-.btn-warning {
-  background-color: var(--btn-warning-bg);
-  color: var(--btn-warning-color);
-
-  &:hover {
-    background-color: var(--btn-warning-hover);
-
-    &[disabled] {
-      background-color: var(--btn-warning-bg);
-    }
-  }
-
-  &:focus {
-    box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--btn-warning-bg);
-    outline: 0;
-  }
-
-  & .icon {
-    fill: var(--btn-warning-color);
-  }
-}
-
 .btn-link {
   background-color: var(--btn-link-bg);
   color: var(--btn-link-color);

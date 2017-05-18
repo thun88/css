@@ -9,8 +9,8 @@ This is a page dedicated to showcase adaptive states. Adaptive states can be def
 
 ```css
 {
-{{#each adaptiveInputs}}
-    {{this.name}}: {{this.value}};
+{{#each default.adaptiveInputs}}
+    {{@key}}: {{this}};
 {{/each}}
 }
 ```

@@ -40,5 +40,9 @@
   },
   "scripts": {
     "preinstall": "npm install -g pandoc-bin gulp-cli"
-  }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
 }

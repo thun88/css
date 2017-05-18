@@ -1,99 +1,47 @@
 /* stylelint-disable comment-empty-line-before, custom-property-empty-line-before */
 
-/* @start alertColors */
+/* @start cssVariables */
 :root {
   --alert-green: var(--emerald10);
-}
-/* @end alertColors */
 
-/* @start bodySettings */
-:root {
   --body-bg: var(--graphite02);
   --body-color: var(--black);
   --link-color: var(--azure09);
   --link-color-hover: var(--link-color);
-}
-/* @end bodySettings */
 
-/* @start font  */
-:root {
   --text-disabled: var(--graphite04);
-}
-/* @end font  */
 
-/* @start headings */
-:root {
   --headings-color: var(--body-color);
-}
-/* @end headings */
 
-/* @start buttons */
-:root {
   --btn-default-bg: var(--slate03);
   --btn-default-color: var(--slate10);
   --btn-default-hover: var(--slate04);
-}
-/* @end buttons */
 
-/* @start buttonDefault */
-:root {
   --btn-primary-bg: var(--graphite07);
-}
-/* @end buttonDefault */
 
-/* @start buttonPrimary */
-:root {
   --btn-primary-bg: var(--azure09);
-}
-/* @end buttonPrimary */
 
-/* @start buttonLink */
-:root {
   --btn-link-color: var(--graphite09);
   --btn-link-hover: var(--black);
-}
-/* @end buttonLink */
 
-/* @start icons */
-:root {
   --icon-fill: var(--slate03);
-}
-/* @end icons */
 
-/* @start inputs */
-:root {
   --input-info-block-color: var(--graphite05);
   --input-label-color: var(--graphite09);
-}
-/* @end inputs */
 
-/* @start inputNormal */
-:root {
   --input-bg: var(--white);
   --input-border-color: var(--graphite04);
   --input-color: var(--body-color);
-}
-/* @end inputNormal */
 
-/* @start inputDisabled */
-:root {
   --input-bg: var(--white);
   --input-border-color-disabled: var(--slate05);
-}
-/* @end inputDisabled */
 
-/* @start inputHover */
-:root {
   --input-bg: var(--white);
   --input-border-color-hover: var(--graphite10);
-}
-/* @end inputHover */
 
-/* @start inputFocus */
-:root {
   --input-bg: var(--white);
   --input-border-color-focus: var(--azure06);
 }
-/* @end inputFocus */
+/* @end cssVariables */
 
 /* stylelint-enable comment-empty-line-before, custom-property-empty-line-before */

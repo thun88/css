@@ -9,8 +9,8 @@ The grids used run off of the [lost grid](http://lostgrid.org/docs.html) postcss
 
 ```css
 {
-    {{#each breakpoints}}
-    {{this.name}}: {{this.value}};
+    {{#each default.breakpoints}}
+        {{@key}}: {{this}};
     {{/each}}
 }
 ```

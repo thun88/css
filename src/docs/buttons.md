@@ -7,19 +7,15 @@ description: Soho Foundation Styleguide
 
 ```css
 {
-{{#each buttons}}
-    {{this.name}}: {{this.value}};
+{{#each default.buttons}}
+    {{@key}}: {{this}};
+{{/each}}
+{{#each default.buttonPrimary}}
+    {{@key}}: {{this}};
 {{/each}}
 }
 ```
 
-```css
-{
-{{#each inputSizes}}
-    {{this.name}}: {{this.value}};
-{{/each}}
-}
-```
 <blockquote>
     <strong>Note</strong> that buttons can be made to extend the width of their container (aka width: 100%) by using the <code>btn-block</code> class.
 </blockquote>
@@ -49,12 +45,10 @@ Use any of the available button classes to quickly create a styled button.
 <div class="example">
     <button type="button" class="btn btn-default">Default</button>&nbsp;
     <button type="button" class="btn btn-primary">Primary</button>&nbsp;
-    <button type="button" class="btn btn-warning">Warning</button>
 </div>
 ```html
 <button type="button" class="btn btn-default">Default</button>
 <button type="button" class="btn btn-primary">Primary</button>
-<button type="button" class="btn btn-warning">Warning</button>
 ```
 
 
@@ -63,7 +57,6 @@ Use any of the available button classes to quickly create a styled button.
 <div class="example">
     <button type="button" class="btn btn-default" disabled>Button</button>&nbsp;
     <button type="button" class="btn btn-primary" disabled>Primary Button</button>&nbsp;
-    <button type="button" class="btn btn-warning" disabled>Warning Button</button>
 </div>
 ```html
 <button type="button" class="btn btn-default" disabled>Button</button>

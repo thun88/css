@@ -154,19 +154,22 @@ blockquote {
   }
 
   & > .color-row--col-1 {
-    color: var(--white);
-    line-height: 100px;
+    color: var(--graphite02);
     lost-column: 1/10 10 3px;
     margin-bottom: 20px;
     text-align: center;
+  }
 
-    &.swatch-white {
-      border: solid 1px var(--black);
-    }
+  & .swatch {
+    display: table;
+    height: 100px;
+    margin-top: 5px;
+  }
 
-    &.swatch-black {
-      color: var(--white);
-    }
+  & .swatch-text {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
   }
 }
 

@@ -1,84 +1,38 @@
 /* stylelint-disable comment-empty-line-before, custom-property-empty-line-before */
 
-/* @start bodySettings */
+/* @start cssVariables */
 :root {
   --body-bg: var(--slate07);
   --body-color: var(--white);
   --link-color: var(--azure04);
   --link-color-disabled: var(--graphite04);
   --link-color-hover: var(--azure04);
-}
-/* @end bodySettings */
 
-/* @start font  */
-:root {
   --text-disabled: var(--graphite05);
-}
-/* @end font  */
 
-/* @start headings */
-:root {
   --headings-color: var(--body-color);
-}
-/* @end headings */
 
-/* @start buttons */
-:root {
   --btn-default-bg: var(--slate03);
   --btn-default-color: var(--slate10);
   --btn-default-hover: var(--slate04);
-}
-/* @end buttons */
 
-/* @start buttonLink */
-:root {
   --btn-link-color: var(--slate03);
   --btn-link-hover: var(--white);
-}
-/* @end buttonLink */
 
-/* @start icons */
-:root {
   --icon-fill: var(--slate03);
-}
-/* @end icons */
 
-/* @start inputs */
-:root {
   --input-info-block-color: var(--slate04);
   --input-label-color: var(--slate03);
-}
-/* @end inputs */
 
-/* @start inputNormal */
-:root {
   --input-border-color: var(--slate04);
   --input-color: var(--body-color);
-}
-/* @end inputNormal */
 
-/* @start inputDisabled */
-:root {
   --input-border-color-disabled: var(--slate05);
-}
-/* @end inputDisabled */
-
-/* @start inputHover */
-:root {
   --input-border-color-hover: var(--slate02);
-}
-/* @end inputHover */
-
-/* @start inputFocus */
-:root {
   --input-border-color-focus: var(--azure06);
-}
-/* @end inputFocus */
 
-/* @start selects */
-:root {
   --select-bg-caret: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHZpZXdCb3g9IjAgMCAxOCAxOCIgZmlsbD0id2hpdGUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHRpdGxlPmRyb3Bkb3duPC90aXRsZT48cGF0aCBkPSJNNCA2bDUgNiA1LTZINHoiLz48L3N2Zz4=);
 }
-/* @end selects */
+/* @end cssVariables */
 
 /* stylelint-enable comment-empty-line-before, custom-property-empty-line-before */

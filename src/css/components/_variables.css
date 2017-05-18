@@ -1,27 +1,115 @@
 /* stylelint-disable comment-empty-line-before, custom-property-empty-line-before */
 
-/* @start alertColors */
+/* @start cssVariables */
 :root {
+
+  /* colors */
+  --azure01: #c8e9f4;
+  --azure02: #addbeb;
+  --azure03: #8dc9e6;
+  --azure04: #69b5dd;
+  --azure05: #54a1d3;
+  --azure06: #368ac0;
+  --azure07: #2578a9;
+  --azure08: #1d5f8a;
+  --azure09: #134d71;
+  --azure10: #133c59;
+
+  --amber01: #fbe9bf;
+  --amber02: #f8e09c;
+  --amber03: #f7d475;
+  --amber04: #f4c951;
+  --amber05: #f2bc41;
+  --amber06: #efa836;
+  --amber07: #ee9a36;
+  --amber08: #e4882b;
+  --amber09: #db7726;
+  --amber10: #d66221;
+
+  --amethyst01: #ede3fc;
+  --amethyst02: #daccec;
+  --amethyst03: #c7b4db;
+  --amethyst04: #b59eca;
+  --amethyst05: #a38db7;
+  --amethyst06: #9279a6;
+  --amethyst07: #806594;
+  --amethyst08: #6e5282;
+  --amethyst09: #5d3e70;
+  --amethyst10: #4b2a5e;
+
+  --turquoise01: #c0ede3;
+  --turquoise02: #a9e1d6;
+  --turquoise03: #8ed1c6;
+  --turquoise04: #7cc0b5;
+  --turquoise05: #69ada3;
+  --turquoise06: #579e95;
+  --turquoise07: #448d83;
+  --turquoise08: #317c73;
+  --turquoise09: #206b62;
+  --turquoise10: #0e5b52;
+
+  --ruby01: #f4bcbc;
+  --ruby02: #eb9d9d;
+  --ruby03: #de8181;
+  --ruby04: #d26d6d;
+  --ruby05: #c65f5f;
+  --ruby06: #b94e4a;
+  --ruby07: #ad4242;
+  --ruby08: #a13030;
+  --ruby09: #941e1e;
+  --ruby10: #880e0e;
+
+  --emerald01: #d5f6c0;
+  --emerald02: #c3e8ac;
+  --emerald03: #afdc91;
+  --emerald04: #9cce7c;
+  --emerald05: #89bf65;
+  --emerald06: #76b051;
+  --emerald07: #66a140;
+  --emerald08: #56932e;
+  --emerald09: #488421;
+  --emerald10: #397514;
+
+  --graphite01: #f0f0f0;
+  --graphite02: #d8d8d8;
+  --graphite03: #bdbdbd;
+  --graphite04: #999;
+  --graphite05: #737373;
+  --graphite06: #5c5c5c;
+  --graphite07: #454545;
+  --graphite08: #383838;
+  --graphite09: #292929;
+  --graphite10: #1a1a1a;
+
+  --slate01: #dee1e8;
+  --slate02: #c8cbd4;
+  --slate03: #abaeb7;
+  --slate04: #888b94;
+  --slate05: #656871;
+  --slate06: #50535a;
+  --slate07: #414247;
+  --slate08: #313236;
+  --slate09: #212224;
+  --slate10: #1c1819;
+
+  --white: #fff;
+  --black: #000;
+
+  /* @start alertColors */
   --alert-green: #80ce4d;
   --alert-orange: #ff9426;
   --alert-red: #e84f4f;
   --alert-yellow: #ffd726;
-}
-/* @end alertColors */
 
-/* @start bodySettings */
-:root {
+  /* bodySettings */
   --body-bg: var(--graphite01);
   --body-color: var(--graphite06);
   --link-color: var(--azure06);
   --link-color-disabled: var(--graphite04);
   --link-color-hover: var(--link-color);
   --link-color-visited: var(--amethyst06);
-}
-/* @end bodySettings */
 
-/* @start font  */
-:root {
+  /* font  */
   --font-family-base: helvetica, arial;
   --font-size-base: 1.4rem;
   --font-size-lg: 1.8rem;
@@ -37,63 +125,37 @@
   --line-height-base: 1.5;
   --text-alert: var(--alert-red);
   --text-disabled: var(--graphite04);
-}
-/* @end font  */
 
-/* @start headings */
-:root {
+  /* headings */
   --headings-color: var(--body-color);
   --headings-font-family: helvetica, arial;
   --headings-font-weight: 400;
   --headings-line-height: normal;
   --headings-margin-bottom: 0.5rem;
-}
-/* @end headings */
 
-/* @start buttons */
-:root {
+  /* buttons */
   --btn-default-bg: var(--graphite03);
   --btn-default-color: var(--graphite08);
   --btn-default-hover: var(--graphite04);
   --btn-disabled-opacity: 0.5;
   --btn-line-height: 2.2rem;
-}
-/* @end buttons */
 
-/* @start buttonPrimary */
-:root {
+  /* buttonPrimary */
   --btn-primary-bg: var(--azure06);
   --btn-primary-color: var(--white);
   --btn-primary-hover: var(--azure07);
-}
-/* @end buttonPrimary */
 
-/* @start buttonWarning */
-:root {
-  --btn-warning-bg: var(--ruby06);
-  --btn-warning-color: var(--white);
-  --btn-warning-hover: var(--ruby07);
-}
-/* @end buttonWarning */
-
-/* @start buttonLink */
-:root {
+  /* buttonLink */
   --btn-link-bg: transparent;
   --btn-link-color: var(--graphite06);
   --btn-link-hover: var(--graphite10);
-}
-/* @end buttonLink */
 
-/* @start icons */
-:root {
+  /* icons */
   --icon-fill: var(--graphite04);
   --icon-height: 16px;
   --icon-width: 22px;
-}
-/* @end icons */
 
-/* @start inputs */
-:root {
+  /* inputs */
   --input-border-radius: 2px;
   --input-border-size: 1px;
   --input-border-width: 1px;
@@ -105,66 +167,42 @@
   --input-padding-x: 6px;
   --input-padding-y: 8px;
   --input-transition: border 300ms ease 0s, box-shadow 300ms ease 0s;
-}
-/* @end inputs */
 
-/* @start inputNormal */
-:root {
+  /* inputNormal */
   --input-bg: transparent;
   --input-border-color: var(--graphite04);
   --input-color: var(--graphite10);
-}
-/* @end inputNormal */
 
-/* @start inputDisabled */
-:root {
+  /* inputDisabled */
   --input-bg-disabled: var(--input-bg);
   --input-border-color-disabled: var(--graphite03);
   --input-color-disabled: var(--text-disabled);
-}
-/* @end inputDisabled */
 
-/* @start inputHover */
-:root {
+  /* inputHover */
   --input-bg-hover: var(--input-bg);
   --input-border-color-hover: var(--graphite10);
   --input-color-hover: var(--input-color);
-}
-/* @end inputHover */
 
-/* @start inputFocus */
-:root {
+  /* inputFocus */
   --input-bg-focus: var(--input-bg);
   --input-border-color-focus: var(--azure06);
   --input-color-focus: var(--input-color);
-}
-/* @end inputFocus */
 
-/* @start inputReadonly */
-:root {
+  /* inputReadonly */
   --input-bg-readonly: var(--graphite02);
   --input-border-color-readonly: var(--input-border-color-disabled);
   --input-color-readonly: var(--input-color-disabled);
-}
-/* @end inputReadonly */
 
-/* @start selects */
-:root {
+  /* Selects */
   --select-bg-caret: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHZpZXdCb3g9IjAgMCAxOCAxOCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+ZHJvcGRvd248L3RpdGxlPjxwYXRoIGQ9Ik00IDZsNSA2IDUtNkg0eiIvPjwvc3ZnPg==);
-}
-/* @end selects */
 
-/* @start inputSizes */
-:root {
+  /* inputSizes */
   --input-size-xs: 75px;
   --input-size-sm: 150px;
   --input-size-md: 300px;
   --input-size-lg: 400px;
-}
-/* @end inputSizes */
 
-/* @start adaptiveInputs */
-:root {
+  /* adaptiveInputs */
   --input-height-adaptive-touch: calc(var(--input-height) + 1rem);
   --input-line-height-adaptive-touch: calc(var(--input-height-adaptive-touch) - (2 * var(--input-padding-y)) - (2 * var(--input-border-size)));
   --input-padding-adaptive-touch: calc((var(--input-height-adaptive-touch) - var(--line-height-base)) / 2);
@@ -172,11 +210,8 @@
   --radio-inner-w-adaptive-touch: var(--radio-inner-h-adaptive-touch);
   --radio-outer-h-adaptive-touch: calc(var(--radio-outer-h) * 1.3);
   --radio-outer-w-adaptive-touch: calc(var(--radio-outer-h-adaptive-touch) + 1);
-}
-/* @end adaptiveInputs */
 
-/* @start checkboxes */
-:root {
+  /* checkboxes */
   --checkbox-arrow-color: var(--white);
   --checkbox-arrow-color-disabled: #f4f4f4;
   --checkbox-border-color: var(--graphite04);
@@ -191,11 +226,8 @@
   --checkbox-box-w: var(--checkbox-box-h);
   --checkbox-check-h: 10px;
   --checkbox-check-w: 5px;
-}
-/* @end checkboxes */
 
-/* @start radios */
-:root {
+  /* radios */
   --radio-bg: var(--white);
   --radio-bg-checked: var(--azure06);
   --radio-bg-disabled: var(--radio-bg);
@@ -209,19 +241,17 @@
   --radio-outer-w: var(--radio-outer-h);
   --radio-inner-h: calc(var(--radio-outer-h) - 8);
   --radio-inner-w: var(--radio-inner-h);
-}
-/* @end radios */
 
-/* @start breakpoints */
-:root {
+  /* breakpoints */
   --breakpoint-xs: 400px;
   --breakpoint-sm: 600px;
   --breakpoint-md: 840px;
   --breakpoint-lg: 1280px;
   --breakpoint-xl: 1440px;
 }
-/* @end breakpoints */
+/* @end cssVariables */
 
+/* Media definitions */
 :root {
   @custom-media --viewport-xs (min-width: var(--breakpoint-xs));
   @custom-media --viewport-sm (min-width: var(--breakpoint-sm));
@@ -229,4 +259,5 @@
   @custom-media --viewport-lg (min-width: var(--breakpoint-lg));
   @custom-media --viewport-xl (min-width: var(--breakpoint-xl));
 }
+
 /* stylelint-enable comment-empty-line-before, custom-property-empty-line-before */

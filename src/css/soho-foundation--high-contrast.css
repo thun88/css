@@ -1,14 +1,11 @@
-/* 1. Variables */
-@import 'variables/_colors';
-@import 'variables/_defaults';
+/* Variables */
+@import 'components/_variables';
+@import 'themes/_theme-high-contrast.css';
 
-/* 2. Color-Theme Variables */
-@import 'variables/themes/_theme-high-contrast.css';
+/*  Reset */
+@import 'components/_reset';
 
-/* 3. Reset */
-@import 'utilities/_reset';
-
-/* 4. Components */
+/* Components */
 @import 'components/_base';
 @import 'components/_button';
 @import 'components/_forms';
@@ -17,6 +14,6 @@
 @import 'components/_tables';
 @import 'components/_type';
 
-/* 5. Utilities */
-@import 'utilities/_helpers';
-@import 'utilities/_adaptive';
+/* Utilities */
+@import 'components/_helpers';
+@import 'components/_adaptive';

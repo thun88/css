@@ -111,9 +111,6 @@ PATHS.site.css       = `${PATHS.site.root}/css`;
 PATHS.site.templates = `${PATHS.site.root}/templates`;
 PATHS.site.www       = `${PATHS.site.root}/www`;
 
-
-let CSS_VAR_ANNOTATIONS = parseVarAnnotations();
-let COLORS_ARR = parseColorAnnotations();
 let ICONS_ARR = parseIcons();
 let SVG_HTML = fs.readFileSync(`${PATHS.src.root}/icons/icons.svg`, `utf-8`);
 
@@ -128,7 +125,7 @@ gulp.task(`default`, [`build`, `serve`]);
 // -------------------------------------
 //   Task: Build
 // -------------------------------------
-gulp.task(`build`, [`svg:store`, `compile:colors`, `compile:css`, `compile:docs`, `compile:site`]);
+gulp.task(`build`, [`svg:store`, `compile:css`, `compile:docs`, `compile:site`]);
 
 
 // -------------------------------------
@@ -136,17 +133,9 @@ gulp.task(`build`, [`svg:store`, `compile:colors`, `compile:css`, `compile:docs`
 //   A task that ensures reload after
 //   everything is built (for serve task)
 // -------------------------------------
-gulp.task(`build-watch`, [`compile:colors`, `compile:css`, `compile:docs`, `compile:site`], function (done) {
+gulp.task(`build-watch`, [`compile:css`, `compile:docs`, `compile:site`], function (done) {
     browserSync.reload();
     done();
-});
-
-
-// -------------------------------------
-//   Task: Compile Colors List
-// -------------------------------------
-gulp.task(`compile:colors`, function () {
-  COLORS_ARR = parseColorAnnotations();
 });
 
 
@@ -162,6 +151,7 @@ gulp.task(`compile:css`, function () {
     atVariables,
     atFor,
     lost,
+    // cssnext({ features: { customProperties: { preserve: true, appendVariables: true }}})
     cssnext
   ];
 
@@ -184,8 +174,7 @@ gulp.task(`compile:css`, function () {
 //   Task: Compile Docs
 // -------------------------------------
 gulp.task(`compile:docs`, function() {
-  var templateData = CSS_VAR_ANNOTATIONS;
-  templateData.colorSwatches = COLORS_ARR;
+  var templateData = parseVarAnnotations();
   templateData.svgIcons = ICONS_ARR;
 
   let hbStream = hb().data(templateData);
@@ -335,38 +324,6 @@ gulp.task(`serve`, function() {
 
 
 // -------------------------------------
-//   Function: parseColorAnnotations()
-// -------------------------------------
-function parseColorAnnotations() {
-  let path = `${PATHS.src.css}/variables/_colors.css`;
-  let content = fs.readFileSync(path, `utf-8`).trim();
-  let blocks = annotateBlock(content);
-  let colorBlock = [];
-
-  blocks.forEach(block => {
-    if (block.name === `color`) {
-      block.nodes.forEach(node => {
-        colorBlock.push(node);
-      });
-    }
-  });
-
-  let colorSwatches = [];
-  colorBlock.forEach(color => {
-    color.walkDecls(decl => {
-      if (isColor(decl.value)) {
-        colorSwatches.push({
-          name: decl.prop.replace(/^--/, ``),
-          color: decl.value
-        });
-      }
-    });
-  });
-  return colorSwatches;
-};
-
-
-// -------------------------------------
 //   Function: parseIcons()
 // -------------------------------------
 function parseIcons() {
@@ -381,27 +338,95 @@ function parseIcons() {
 //   Function: parseVarAnnotations()
 // -------------------------------------
 function parseVarAnnotations() {
-  let path = `${PATHS.src.css}/variables/_defaults.css`;
-  let content = fs.readFileSync(path, `utf-8`).trim();
-  let blocks = annotateBlock(content);
-  let annotationsData = {};
+  let content, blocks, cssVarAnnotations = {};
 
-  blocks.forEach(block => {
+  // Parse the defaults first
+  let defaultVarsObj = parseCss(`${PATHS.src.css}/components/_variables.css`);
 
-    annotationsData[block.name] = [];
+  let themes = [
+    { name: `themeDark`,         path: `${PATHS.src.css}/themes/_theme-dark.css` },
+    { name: `themeHighContrast`, path: `${PATHS.src.css}/themes/_theme-high-contrast.css` }
+  ];
 
-    block.nodes.forEach(node => {
-      node.walkDecls(decl => {
-        annotationsData[block.name].push({
-          name: decl.prop.replace(/^--/, ``),
-          value: decl.value
-        });
-      });
-    });
+  cssVarAnnotations = {
+    default: cloneSimpleObj(defaultVarsObj)
+  };
+
+  // Build the theme objects
+  themes.forEach(theme => {
+    cssVarAnnotations[theme.name] = cloneSimpleObj(cssVarAnnotations['default']);
+    parseCss(theme.path, cssVarAnnotations[theme.name]);
   });
 
-  return annotationsData;
+  return cssVarAnnotations;
 };
+
+// -------------------------------------
+//   Function: parseCss()
+// -------------------------------------
+function parseCss(cssPath, themeAnnotationsObj = {}) {
+  let content,
+      blocks;
+
+  content = fs.readFileSync(cssPath, `utf-8`).trim();
+  blocks = annotateBlock(content);
+
+  blocks.forEach(block => {
+    if (block.name === 'cssVariables') {
+      block.nodes.forEach(node => {
+        node.walkDecls(decl => {
+
+          // parse "var(--var-name)" into "varName"
+          let prop = cssVarToCamelCase(decl.prop);
+          let val = decl.value;
+
+          themeAnnotationsObj[prop] = val;
+        });
+      });
+    }
+  });
+
+  // Evaluate all values that are variables
+  let propVal = '',
+      propValueParsed = '';
+
+  for (let prop in themeAnnotationsObj) {
+
+    propValue = themeAnnotationsObj[prop];
+
+    if (isCssVar(propValue)) {
+
+      // parse "var(--var-name)" into "varName"
+      propValueParsed = cssVarToCamelCase(propValue);
+
+      // Set the current prop to the evaluated property
+      themeAnnotationsObj[prop] = themeAnnotationsObj[propValueParsed];
+    }
+  }
+  return themeAnnotationsObj;
+};
+
+
+function isCssVar(str) {
+  return str.substr(0, 3) === 'var';
+}
+
+function cloneSimpleObj(obj) {
+  return JSON.parse(JSON.stringify(obj));
+}
+
+function cssVarToCamelCase(str) {
+  // parse "var(--var-name)" into "--var-name"
+  str = str.replace('var(', '').replace(')', '')
+  str = str.substr(str.indexOf('--') + 2);
+
+  // parse "var-name" into "varName"
+  return str.replace(/-([a-z])/g, function (g) {
+    return g[1].toUpperCase();
+  });
+}
+
+
 
 
 // -------------------------------------
