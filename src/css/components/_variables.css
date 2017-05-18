@@ -251,7 +251,6 @@
 }
 /* @end cssVariables */
 
-
 /* Media definitions */
 :root {
   @custom-media --viewport-xs (min-width: var(--breakpoint-xs));
