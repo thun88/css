@@ -29,11 +29,11 @@
 //
 // gulp           : The streaming build system
 // gulp-concat    : Concatenate files
-// annotateBlock  : Parse css for 1 comment block
-// del            : Compile CoffeeScript files
-// fs             : Lint your CoffeeScript
+// annotateBlock  : Parse css for comment blocks
+// del            : Delete files
+// fs             : Read/sync file stream
 // glob           : File pattern matching
-// hb             : Template parser
+// hb             : Handlebars Template parser
 // is-color       : Validate hex colors
 // gulp-pandoc    : File converter
 // gulp-postcss   : Transform styles with JS
