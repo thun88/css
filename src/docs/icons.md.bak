@@ -51,7 +51,7 @@ The examples below are shown in buttons, as that is their most common use.
 
 <div class='fnd-row'>
     {{#each svgIcons}}
-        <div class="fnd-row--col-md-2 text-center">
+        <div class="fnd-row--col-md-2 text--center">
             <div class="example">
                 <button type="button" class="btn btn-link" title="{{this}}">
                 <svg class="icon" focusable="false" aria-hidden="true" role="presentation">

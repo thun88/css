@@ -1,19 +1,5 @@
-/* Variables */
-@import 'components/_variables';
+/* Include regular soho foundation */
+@import 'soho-foundation.css';
+
+/* Modify with themed variable values */
 @import 'themes/_theme-high-contrast.css';
-
-/*  Reset */
-@import 'components/_reset';
-
-/* Components */
-@import 'components/_base';
-@import 'components/_button';
-@import 'components/_forms';
-@import 'components/_grid';
-@import 'components/_icons';
-@import 'components/_tables';
-@import 'components/_type';
-
-/* Utilities */
-@import 'components/_helpers';
-@import 'components/_adaptive';
