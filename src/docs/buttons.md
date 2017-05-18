@@ -45,12 +45,10 @@ Use any of the available button classes to quickly create a styled button.
 <div class="example">
     <button type="button" class="btn btn-default">Default</button>&nbsp;
     <button type="button" class="btn btn-primary">Primary</button>&nbsp;
-    <button type="button" class="btn btn-warning">Warning</button>
 </div>
 ```html
 <button type="button" class="btn btn-default">Default</button>
 <button type="button" class="btn btn-primary">Primary</button>
-<button type="button" class="btn btn-warning">Warning</button>
 ```
 
 
@@ -59,7 +57,6 @@ Use any of the available button classes to quickly create a styled button.
 <div class="example">
     <button type="button" class="btn btn-default" disabled>Button</button>&nbsp;
     <button type="button" class="btn btn-primary" disabled>Primary Button</button>&nbsp;
-    <button type="button" class="btn btn-warning" disabled>Warning Button</button>
 </div>
 ```html
 <button type="button" class="btn btn-default" disabled>Button</button>

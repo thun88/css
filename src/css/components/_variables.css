@@ -145,11 +145,6 @@
   --btn-primary-color: var(--white);
   --btn-primary-hover: var(--azure07);
 
-  /* buttonWarning */
-  --btn-warning-bg: var(--ruby06);
-  --btn-warning-color: var(--white);
-  --btn-warning-hover: var(--ruby07);
-
   /* buttonLink */
   --btn-link-bg: transparent;
   --btn-link-color: var(--graphite06);
