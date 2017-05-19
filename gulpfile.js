@@ -372,35 +372,38 @@ function parseCss(cssPath, themeAnnotationsObj = {}) {
   blocks = annotateBlock(content);
 
   blocks.forEach(block => {
-    if (block.name === 'cssVariables') {
-      block.nodes.forEach(node => {
-        node.walkDecls(decl => {
+    block.nodes.forEach(node => {
+      node.walkDecls(decl => {
 
-          // parse "var(--var-name)" into "varName"
-          let prop = cssVarToCamelCase(decl.prop);
-          let val = decl.value;
+        let propStr = cssVarToCamelCaseStr(decl.prop);
 
-          themeAnnotationsObj[prop] = val;
-        });
+        themeAnnotationsObj[propStr] = {
+          originalDeclaration: decl.prop,
+          originalValue: decl.value,
+          value: decl.value
+        };
+
+        if (block.name === 'colorPalette') {
+          themeAnnotationsObj[propStr].isColor = true;
+        }
       });
-    }
+    });
   });
 
-  // Evaluate all values that are variables
-  let propVal = '',
-      propValueParsed = '';
+  // Replace all values that are variables with actual values
+  let val,
+      varNameToLookUp = '';
 
-  for (let prop in themeAnnotationsObj) {
+  for (let cssProp in themeAnnotationsObj) {
 
-    propValue = themeAnnotationsObj[prop];
+    val = themeAnnotationsObj[cssProp].value;
 
-    if (isCssVar(propValue)) {
+    if (isCssVar(val)) {
 
-      // parse "var(--var-name)" into "varName"
-      propValueParsed = cssVarToCamelCase(propValue);
+      varNameToLookUp = cssVarToCamelCaseStr(val);
 
-      // Set the current prop to the evaluated property
-      themeAnnotationsObj[prop] = themeAnnotationsObj[propValueParsed];
+      // Set the current prop value of the variable
+      themeAnnotationsObj[cssProp].value = themeAnnotationsObj[varNameToLookUp].value;
     }
   }
   return themeAnnotationsObj;
@@ -415,7 +418,7 @@ function cloneSimpleObj(obj) {
   return JSON.parse(JSON.stringify(obj));
 }
 
-function cssVarToCamelCase(str) {
+function cssVarToCamelCaseStr(str) {
   // parse "var(--var-name)" into "--var-name"
   str = str.replace('var(', '').replace(')', '')
   str = str.substr(str.indexOf('--') + 2);

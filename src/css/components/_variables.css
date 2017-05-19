@@ -1,6 +1,6 @@
 /* stylelint-disable comment-empty-line-before, custom-property-empty-line-before */
 
-/* @start cssVariables */
+/* @start colorPalette */
 :root {
 
   /* colors */
@@ -94,6 +94,11 @@
 
   --white: #fff;
   --black: #000;
+
+}
+/* @end colorPalette */
+/* @start cssVariables */
+:root {
 
   /* alertColors */
   --alert-green: #80ce4d;
