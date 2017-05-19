@@ -177,7 +177,9 @@ gulp.task(`compile:docs`, function() {
   var templateData = parseVarAnnotations();
   templateData.svgIcons = ICONS_ARR;
 
-  let hbStream = hb().data(templateData);
+  let hbStream = hb()
+    .partials(`${PATHS.site.templates}/partials/*.hbs`)
+    .data(templateData);
 
   return gulp.src(`${PATHS.src.docs}/*.md`)
     // Parse any handlebar templates in the markdown
@@ -316,7 +318,7 @@ gulp.task(`serve`, function() {
     `${PATHS.src.css}/**/*.css`,
     `${PATHS.src.docs}/*.md`,
     `${PATHS.site.css}/*.css`,
-    `${PATHS.site.templates}/*`
+    `${PATHS.site.templates}/**/*`
   ];
 
   gulp.watch(files, [`build-watch`]);
