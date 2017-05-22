@@ -6,24 +6,24 @@ description: Soho Foundation Styleguide
 ## Colors
 
 <div class="color-row">
-    {{> _colors cssObj=themeDark.bodyBg title="bodyBg"}}
-    {{> _colors cssObj=themeDark.bodyColor title="bodyColor"}}
-    {{> _colors cssObj=themeDark.linkColor title="linkColor"}}
-    {{> _colors cssObj=themeDark.linkColorDisabled title="linkColorDisabled"}}
-    {{> _colors cssObj=themeDark.linkColorHover title="linkColorHover"}}
-    {{> _colors cssObj=themeDark.textDisabled title="textDisabled"}}
-    {{> _colors cssObj=themeDark.headingsColor title="headingsColor"}}
-    {{> _colors cssObj=themeDark.btnDefaultBg title="btnDefaultBg"}}
-    {{> _colors cssObj=themeDark.btnDefaultColor title="btnDefaultColor"}}
-    {{> _colors cssObj=themeDark.btnDefaultHover title="btnDefaultHover"}}
-    {{> _colors cssObj=themeDark.btnLinkColor title="btnLinkColor"}}
-    {{> _colors cssObj=themeDark.btnLinkHover title="btnLinkHover"}}
-    {{> _colors cssObj=themeDark.iconFill title="iconFill"}}
-    {{> _colors cssObj=themeDark.inputInfoBlockColor title="inputInfoBlockColor"}}
-    {{> _colors cssObj=themeDark.inputLabelColor title="inputLabelColor"}}
-    {{> _colors cssObj=themeDark.inputBorderColor title="inputBorderColor"}}
-    {{> _colors cssObj=themeDark.inputColor title="inputColor"}}
-    {{> _colors cssObj=themeDark.inputBorderColorDisabled title="inputBorderColorDisabled"}}
-    {{> _colors cssObj=themeDark.inputBorderColorHover title="inputBorderColorHover"}}
-    {{> _colors cssObj=themeDark.inputBorderColorFocus title="inputBorderColorFocus"}}
+    {{> _color-swatch colorData=themeDark.bodyBg title="bodyBg"}}
+    {{> _color-swatch colorData=themeDark.bodyColor title="bodyColor"}}
+    {{> _color-swatch colorData=themeDark.linkColor title="linkColor"}}
+    {{> _color-swatch colorData=themeDark.linkColorDisabled title="linkColorDisabled"}}
+    {{> _color-swatch colorData=themeDark.linkColorHover title="linkColorHover"}}
+    {{> _color-swatch colorData=themeDark.textDisabled title="textDisabled"}}
+    {{> _color-swatch colorData=themeDark.headingsColor title="headingsColor"}}
+    {{> _color-swatch colorData=themeDark.btnDefaultBg title="btnDefaultBg"}}
+    {{> _color-swatch colorData=themeDark.btnDefaultColor title="btnDefaultColor"}}
+    {{> _color-swatch colorData=themeDark.btnDefaultHover title="btnDefaultHover"}}
+    {{> _color-swatch colorData=themeDark.btnLinkColor title="btnLinkColor"}}
+    {{> _color-swatch colorData=themeDark.btnLinkHover title="btnLinkHover"}}
+    {{> _color-swatch colorData=themeDark.iconFill title="iconFill"}}
+    {{> _color-swatch colorData=themeDark.inputInfoBlockColor title="inputInfoBlockColor"}}
+    {{> _color-swatch colorData=themeDark.inputLabelColor title="inputLabelColor"}}
+    {{> _color-swatch colorData=themeDark.inputBorderColor title="inputBorderColor"}}
+    {{> _color-swatch colorData=themeDark.inputColor title="inputColor"}}
+    {{> _color-swatch colorData=themeDark.inputBorderColorDisabled title="inputBorderColorDisabled"}}
+    {{> _color-swatch colorData=themeDark.inputBorderColorHover title="inputBorderColorHover"}}
+    {{> _color-swatch colorData=themeDark.inputBorderColorFocus title="inputBorderColorFocus"}}
 </div>
