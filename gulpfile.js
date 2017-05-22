@@ -193,7 +193,6 @@ gulp.task(`compile:docs`, function() {
       args: [
         `--data-dir=${PATHS.site.root}`, // looks for template dir inside data-dir so don't use path.site.templates
         `--template=layout.html`,
-        `--smart`,
         `--table-of-contents`,
         `--variable=icons:${SVG_HTML}`
       ]

@@ -55,9 +55,29 @@ ul {
   padding: 12px 8px;
 }
 
+
+.site-sidebar--right {
+  position: fixed;
+}
+
 /*
  * Main contents
  */
+
+.site-spec--title,
+.site-spec--value {
+  display: inline-block;
+}
+
+.site-spec--color {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  border-radius: 16px;
+  top: 3px;
+  position: relative;
+}
+
 code {
   background-color: #f9f2f4;
   border-radius: 4px;

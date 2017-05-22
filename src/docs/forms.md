@@ -7,13 +7,8 @@ Some text about using form-controls.
 
 ## Specs
 
-```css
-{
-    {{#each default.inputs}}
-        {{@key}}: {{this}};
-    {{/each}}
-}
-```
+{{> specColor title="Border Color" spec=default.inputBorderColor }}
+{{> specValue title="Corner Radius" spec=default.inputBorderRadius }}
 
 ## Basic Example
 
