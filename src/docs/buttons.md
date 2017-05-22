@@ -5,12 +5,16 @@ description: Soho Foundation Styleguide
 
 ## Specs
 
+**Default Button**:
 {{> specColor title="Default Button Color" spec=default.btnDefaultBg }}
 {{> specColor title="Default Button Label Color" spec=default.btnDefaultColor }}
 {{> specColor title="Default Button Hover Color" spec=default.btnDefaultHover }}
-{{> specColor title="Primary Button Color" spec=default.btnPrimaryBg }}
-{{> specColor title="Primary Button Label Color" spec=default.btnPrimaryColor }}
-{{> specColor title="Primary Button Hover Color" spec=default.btnPrimaryHover }}
+{{> specValue title="Disabled State Opacity" spec=default.btnDisabledOpacity }}
+
+**Primary Button**
+{{> specColor title="Background Color" spec=default.btnPrimaryBg }}
+{{> specColor title="Label Color" spec=default.btnPrimaryColor }}
+{{> specColor title="Hover Color" spec=default.btnPrimaryHover }}
 {{> specValue title="Disabled State Opacity" spec=default.btnDisabledOpacity }}
 
 <blockquote>

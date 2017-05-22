@@ -46,6 +46,22 @@ ul {
 /*
  * Side Nav
  */
+
+.site-nav--header {
+  display: inline;
+  margin: 0;
+  padding: 0;
+  float: left;
+  margin-right: 20px;
+  line-height: 3.4rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.site-nav--header a {
+  color: #ffffff;
+}
+
 .site-sidebar {
   overflow-y: scroll;
 }
@@ -63,6 +79,10 @@ ul {
 /*
  * Main contents
  */
+
+.site-spec {
+  line-height: 1.8rem;
+}
 
 .site-spec--title,
 .site-spec--value {

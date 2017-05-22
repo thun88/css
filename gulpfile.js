@@ -176,6 +176,7 @@ gulp.task(`compile:css`, function () {
 gulp.task(`compile:docs`, function() {
   var templateData = parseVarAnnotations();
   templateData.svgIcons = ICONS_ARR;
+  var packageData = require('./package.json')
 
   let hbStream = hb()
     .partials(`${PATHS.site.templates}/partials/*.hbs`)
@@ -194,7 +195,8 @@ gulp.task(`compile:docs`, function() {
         `--data-dir=${PATHS.site.root}`, // looks for template dir inside data-dir so don't use path.site.templates
         `--template=layout.html`,
         `--table-of-contents`,
-        `--variable=icons:${SVG_HTML}`
+        `--variable=icons:${SVG_HTML}`,
+        `--variable=releaseversion:${packageData.version}`
       ]
     }))
     .pipe(gulp.dest(PATHS.site.www));
