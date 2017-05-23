@@ -5,20 +5,21 @@
 // *************************************
 //
 // Available tasks:
-//   `gulp`
+//   `gulp default`
 //   `gulp build`
-//      `gulp compile:colors`
-//      `gulp compile:css`
 //      `gulp compile:docs`
 //      `gulp compile:site`
+//      `gulp compile:src`
 //   `gulp clean`
 //   `gulp lint`
 //      `gulp lint:css`
 //      `gulp lint:site`
-//   `gulp reload`
 //   `gulp serve`
 //   `gulp svg:optimize`
 //   `gulp svg:store`
+//   `gulp watch-docs`
+//   `gulp watch-site`
+//   `gulp watch-src`
 //
 // *************************************
 
@@ -55,123 +56,81 @@
 //
 // -------------------------------------
 
-let gulp = require(`gulp`);
+let gulp       = require(`gulp`),
+  gConfig      = require('./gulp-config.js'),
+  sources      = gConfig.paths.sources,
+  destinations = gConfig.paths.destinations;
+
+
 let browserSync = require(`browser-sync`).create(),
-    concat = require(`gulp-concat`),
-    annotateBlock = require(`css-annotation-block`),
-    del = require(`del`),
-    fs = require(`fs`),
-    glob = require(`glob`),
-    hb = require(`gulp-hb`),
-    isColor = require(`is-color`),
-    pandoc = require(`gulp-pandoc`),
-    postcss = require(`gulp-postcss`),
-    rename = require(`gulp-rename`),
-    server = require(`gulp-server-livereload`),
-    stylelint = require(`gulp-stylelint`),
-    svgmin = require('gulp-svgmin'),
-    svgstore = require(`gulp-svgstore`),
-    tap = require(`gulp-tap`);
+  concat = require(`gulp-concat`),
+  annotateBlock = require(`css-annotation-block`),
+  del = require(`del`),
+  fs = require(`fs`),
+  glob = require(`glob`),
+  hb = require(`gulp-hb`),
+  isColor = require(`is-color`),
+  pandoc = require(`gulp-pandoc`),
+  postcss = require(`gulp-postcss`),
+  rename = require(`gulp-rename`),
+  server = require(`gulp-server-livereload`),
+  stylelint = require(`gulp-stylelint`),
+  svgmin = require('gulp-svgmin'),
+  svgstore = require(`gulp-svgstore`),
+  tap = require(`gulp-tap`);
 
 
 // -------------------------------------
 //   PostCSS Plugins
 // -------------------------------------
-let atFor = require(`postcss-for`),
-  atImport = require(`postcss-import`),
-  atVariables = require(`postcss-at-rules-variables`),
-  commas     = require(`postcss-commas`),
-  cssnext    = require(`postcss-cssnext`),
-  cssnano    = require(`cssnano`),
-  lost       = require(`lost`);
+let atFor      = require(`postcss-for`),
+  atImport     = require(`postcss-import`),
+  atVariables  = require(`postcss-at-rules-variables`),
+  commas       = require(`postcss-commas`),
+  cssnext      = require(`postcss-cssnext`),
+  cssnano      = require(`cssnano`),
+  lost         = require(`lost`);
 
 
 // -------------------------------------
 //   Globals
 // -------------------------------------
-let PATHS = {
-  src:  {},
-  dist: {},
-  site: {}
-};
-
-// Source
-PATHS.src.root      = `src`;
-PATHS.src.docs      = `${PATHS.src.root}/docs`;
-PATHS.src.css       = `${PATHS.src.root}/css`;
-PATHS.src.icons     = `${PATHS.src.root}/icons`;
-
-// Dist
-PATHS.dist.root = `dist`;
-PATHS.dist.css  = `${PATHS.dist.root}/css`;
-
-// Website
-PATHS.site.root      = `site`
-PATHS.site.css       = `${PATHS.site.root}/css`;
-PATHS.site.templates = `${PATHS.site.root}/templates`;
-PATHS.site.www       = `${PATHS.site.root}/www`;
-
-let ICONS_ARR = parseIcons();
-let SVG_HTML = fs.readFileSync(`${PATHS.src.root}/icons/icons.svg`, `utf-8`);
+let ICONS_ARR = [];
+let SVG_HTML = fs.readFileSync(`${sources.root}/icons/icons.svg`, `utf-8`);
 
 
 // -------------------------------------
 //   Task: Default
+//   Does a build and serves the website
 // -------------------------------------
-// Does a full build and runs the site
 gulp.task(`default`, [`build`, `serve`]);
 
 
 // -------------------------------------
 //   Task: Build
 // -------------------------------------
-gulp.task(`build`, [`svg:store`, `compile:css`, `compile:docs`, `compile:site`]);
+gulp.task(`build`, [`svg:store`, `compile:src`, `compile:docs`, `compile:site`]);
 
-
-// -------------------------------------
-//   Task: Compile CSS
-// -------------------------------------
-gulp.task(`compile:css`, function () {
-
-  // Note: plugin order matters
-  let plugins = [
-    atImport,
-    commas,
-    atVariables,
-    atFor,
-    lost,
-    // cssnext({ features: { customProperties: { preserve: true, appendVariables: true }}})
-    cssnext
-  ];
-
-  let postcssOptions = {
-    map: true
-  };
-
-  return gulp.src(`${PATHS.src.css}/*.css`)
-    .pipe(postcss(plugins, postcssOptions))
-    .pipe(gulp.dest(PATHS.dist.css))
-    .pipe(postcss([
-      require(`cssnano`)({ autoprefixer: false })
-    ], postcssOptions))
-    .pipe(rename({ extname: `.min.css` }))
-    .pipe(gulp.dest(PATHS.dist.css))
-    .pipe(gulp.dest(PATHS.site.www + `/css`));
-});
 
 // -------------------------------------
 //   Task: Compile Docs
+//   Compile foundation markdown files
 // -------------------------------------
 gulp.task(`compile:docs`, function() {
-  var templateData = parseVarAnnotations();
+  let packageData = require('./package.json')
+  let templateData = createCssAnnotations();
+
+  if (ICONS_ARR.length === 0) {
+    ICONS_ARR = parseIcons();;
+  }
   templateData.svgIcons = ICONS_ARR;
-  var packageData = require('./package.json')
+
 
   let hbStream = hb()
-    .partials(`${PATHS.site.templates}/partials/*.hbs`)
+    .partials(`${sources.templates}/partials/*.hbs`)
     .data(templateData);
 
-  return gulp.src(`${PATHS.src.docs}/*.md`)
+  return gulp.src(`${sources.docs}/*.md`)
     // Parse any handlebar templates in the markdown
     .pipe(hbStream)
 
@@ -181,19 +140,20 @@ gulp.task(`compile:docs`, function() {
       to: `html5+yaml_metadata_block`,
       ext: `.html`,
       args: [
-        `--data-dir=${PATHS.site.root}`, // looks for template dir inside data-dir so don't use path.site.templates
+        `--data-dir=${sources.site}`, // looks for template dir inside data-dir so don't use path.site.templates
         `--template=layout.html`,
         `--table-of-contents`,
         `--variable=icons:${SVG_HTML}`,
         `--variable=releaseversion:${packageData.version}`
       ]
     }))
-    .pipe(gulp.dest(PATHS.site.www));
+    .pipe(gulp.dest(destinations.www));
 });
 
 
 // -------------------------------------
 //   Task: Compile Site
+//   Compile the website css
 // -------------------------------------
 gulp.task(`compile:site`, function () {
 
@@ -208,39 +168,74 @@ gulp.task(`compile:site`, function () {
     cssnano({ autoprefixer: false })
   ];
 
-  return gulp.src(`${PATHS.site.css}/site.css`)
+  return gulp.src(`${sources.siteCss}/site.css`)
     .pipe(postcss(plugins, { map: true }))
     .pipe(rename({ extname: `.min.css` }))
-    .pipe(gulp.dest(`${PATHS.site.www}/css`));
+    .pipe(gulp.dest(`${destinations.www}/css`));
+});
+
+
+// -------------------------------------
+//   Task: Compile Src
+//   Compile Foundation source css
+// -------------------------------------
+gulp.task(`compile:src`, function () {
+
+  // Note: plugin order matters
+  let plugins = [
+    atImport,
+    commas,
+    atVariables,
+    atFor,
+    lost,
+    // Possible in the future to preserve the css vars to others' use
+    // cssnext({ features: { customProperties: { preserve: true, appendVariables: true }}})
+    cssnext
+  ];
+
+  let postcssOptions = {
+    map: true
+  };
+
+  return gulp.src(`${sources.css}/*.css`)
+    .pipe(postcss(plugins, postcssOptions))
+    .pipe(gulp.dest(destinations.css))
+    .pipe(postcss([
+      require(`cssnano`)({ autoprefixer: false })
+    ], postcssOptions))
+    .pipe(rename({ extname: `.min.css` }))
+    .pipe(gulp.dest(destinations.css))
+    .pipe(gulp.dest(`${destinations.www}/css`));
 });
 
 
 // -------------------------------------
 //   Task: Clean
+//   Delete contents of '/www'
+//   but not '/www/examples'
 // -------------------------------------
 gulp.task(`clean`, function () {
-  // Delete contents of /www but not /www/examples
   return del([
-    PATHS.dist.root,
-    `${PATHS.site.www}/**`,
-    `!${PATHS.site.www}`,
-    `!${PATHS.site.www}/examples/`,
-    `!${PATHS.site.www}/examples/**`,
+    destinations.root,
+    `${destinations.www}/**`,
+    `!${destinations.www}`,
+    `!${destinations.www}/examples/**`,
   ]);
 });
 
 
 // -------------------------------------
-//   Task: Lint CSS
+//   Task: Lint
 // -------------------------------------
 gulp.task(`lint`, [`lint:css`, `lint:site`]);
 
 
 // -------------------------------------
-//   Task: Lint src css
+//   Task: Lint:css
+//   Lint the foundation source css
 // -------------------------------------
 gulp.task(`lint:css`, function() {
-  return gulp.src(`${PATHS.src.css}/**/*.css`)
+  return gulp.src(`${sources.css}/**/*.css`)
     .pipe(stylelint({
       failAfterError: true,
       reporters: [{
@@ -251,10 +246,11 @@ gulp.task(`lint:css`, function() {
 });
 
 // -------------------------------------
-//   Task: Lint site css
+//   Task: Lint:site
+//   Lint the website css
 // -------------------------------------
 gulp.task(`lint:site`, function() {
-  return gulp.src(`${PATHS.site.css}/*.css`)
+  return gulp.src(`${sources.siteCss}/*.css`)
     .pipe(stylelint({
       failAfterError: true,
       reporters: [{
@@ -262,35 +258,12 @@ gulp.task(`lint:site`, function() {
         console: true
       }]
     }))
-});
-
-
-// -------------------------------------
-//   Task: SVG Optimization
-// -------------------------------------
-gulp.task(`svg:optimize`, function() {
-  return gulp.src(`${PATHS.src.icons}/svg/*.svg`)
-    .pipe(svgmin())
-    .pipe(gulp.dest(`${PATHS.src.icons}/svg`));
-});
-
-
-// -------------------------------------
-//   Task: SVG building / listing
-// -------------------------------------
-gulp.task(`svg:store`, function() {
-  ICONS_ARR = parseIcons(); // Refresh icons list
-
-  return gulp.src(`${PATHS.src.icons}/svg/*.svg`)
-    .pipe(svgstore({ inlineSvg: true }))
-    .pipe(rename(`icons.svg`))
-    .pipe(gulp.dest(PATHS.src.icons))
-    .pipe(gulp.dest(PATHS.dist.root));
 });
 
 
 // -------------------------------------
 //   Task: Serve
+//   Serve and watch files
 // -------------------------------------
 gulp.task(`serve`, function() {
   browserSync.init({
@@ -298,65 +271,122 @@ gulp.task(`serve`, function() {
     injectChanges: false,
     open: false,
     server: {
-      baseDir: PATHS.site.www
+      baseDir: destinations.www
     },
     logLevel: `basic`,
     logPrefix: `Soho-Fnd`
   });
 
-  let srcCss = [
-    `${PATHS.src.css}/**/*.css`
-  ];
 
   let srcDocs = [
-    `${PATHS.src.docs}/*.md`,
-    `${PATHS.site.templates}/**/*`
+    `${sources.docs}/*.md`,
+    `${sources.templates}/**/*`
   ];
 
   let siteCss = [
-    `${PATHS.site.css}/*.css`
+    `${sources.siteCss}/*.css`
   ];
 
-  gulp.watch(srcCss, [`compile:css`, `compile:docs`, `compile:site`], reloadBrowser);
+  let srcCss = [
+    `${sources.css}/**/*.css`
+  ];
 
-  gulp.watch(srcDocs, [`compile:docs`, `compile:site`], reloadBrowser
-
-  gulp.watch(siteCss, [`compile:site`], reloadBrowser
+  gulp.watch(srcDocs, [`watch-docs`]);
+  gulp.watch(siteCss, [`watch-site`]);
+  gulp.watch(srcCss, [`watch-src`]);
 });
 
 
 // -------------------------------------
-//   Function: reloadBrowser
+//   Task: SVG Optimization
+//   Optimizes the svg icon markup
 // -------------------------------------
-function reloadBrowser(done) {
+gulp.task(`svg:optimize`, function() {
+  return gulp.src(`${sources.icons}/svg/*.svg`)
+    .pipe(svgmin())
+    .pipe(gulp.dest(`${sources.icons}/svg`));
+});
+
+
+// -------------------------------------
+//   Task: SVG Store
+//   Creates and builds the svg icons
+// -------------------------------------
+gulp.task(`svg:store`, function() {
+  ICONS_ARR = parseIcons(); // Refresh icons list
+
+  return gulp.src(`${sources.icons}/svg/*.svg`)
+    .pipe(svgstore({ inlineSvg: true }))
+    .pipe(rename(`icons.svg`))
+    .pipe(gulp.dest(sources.icons))
+    .pipe(gulp.dest(destinations.root));
+});
+
+
+// -------------------------------------
+//   Task: watch-docs
+//   Guarantees reload is last task
+// -------------------------------------
+gulp.task('watch-docs', [`compile:docs`, `compile:site`], function(done) {
   browserSync.reload();
   done();
+});
+
+
+// -------------------------------------
+//   Task: watch-site
+//   Guarantees reload is last task
+// -------------------------------------
+gulp.task('watch-site', [`compile:site`], function(done) {
+  browserSync.reload();
+  done();
+});
+
+
+// -------------------------------------
+//   Task: watch-src
+//   Guarantees reload is last task
+// -------------------------------------
+gulp.task('watch-src', [`compile:src`, `compile:docs`, `compile:site`], function(done) {
+  browserSync.reload();
+  done();
+});
+
+
+// -------------------------------------
+//   Function: cloneSimpleObj()
+// -------------------------------------
+function cloneSimpleObj(obj) {
+  return JSON.parse(JSON.stringify(obj));
 }
 
 
 // -------------------------------------
-//   Function: parseIcons()
+//   Function: cssVarToCamelCaseStr()
 // -------------------------------------
-function parseIcons() {
-  let iconFiles = glob.sync(`*.svg`, { cwd: `${PATHS.src.icons}/svg` })
-  return iconSet = iconFiles.map(file => {
-    return file.substring(0, file.lastIndexOf(`.`));
+function cssVarToCamelCaseStr(str) {
+  // parse "var(--var-name)" into "--var-name"
+  str = str.replace('var(', '').replace(')', '')
+  str = str.substr(str.indexOf('--') + 2);
+
+  // parse "var-name" into "varName"
+  return str.replace(/-([a-z])/g, function (g) {
+    return g[1].toUpperCase();
   });
-};
-
+}
 
 // -------------------------------------
-//   Function: parseVarAnnotations()
+//   Function: createCssAnnotations()
 // -------------------------------------
-function parseVarAnnotations() {
+function createCssAnnotations() {
   let content, blocks, cssVarAnnotations = {};
 
   // Parse the defaults first
-  let defaultVarsObj = parseCss(`${PATHS.src.css}/components/_variables.css`);
+  let defaultVarsObj = parseCss(`${sources.css}/components/_variables.css`);
 
   let themes = [
-    { name: `themeDark`,         path: `${PATHS.src.css}/themes/_theme-dark.css` },
-    { name: `themeHighContrast`, path: `${PATHS.src.css}/themes/_theme-high-contrast.css` }
+    { name: `themeDark`,         path: `${sources.css}/themes/_theme-dark.css` },
+    { name: `themeHighContrast`, path: `${sources.css}/themes/_theme-high-contrast.css` }
   ];
 
   cssVarAnnotations = {
@@ -371,6 +401,15 @@ function parseVarAnnotations() {
 
   return cssVarAnnotations;
 };
+
+
+// -------------------------------------
+//   Function: isCssVar()
+// -------------------------------------
+function isCssVar(str) {
+  return str.substr(0, 3) === 'var';
+}
+
 
 // -------------------------------------
 //   Function: parseCss()
@@ -403,12 +442,10 @@ function parseCss(cssPath, themeAnnotationsObj = {}) {
 
   // Replace all values that are variables with actual values
   let val,
-      varNameToLookUp = '';
+    varNameToLookUp = '';
 
   for (let cssProp in themeAnnotationsObj) {
-
     val = themeAnnotationsObj[cssProp].value;
-
     if (isCssVar(val)) {
 
       varNameToLookUp = cssVarToCamelCaseStr(val);
@@ -420,35 +457,16 @@ function parseCss(cssPath, themeAnnotationsObj = {}) {
   return themeAnnotationsObj;
 };
 
-// -------------------------------------
-//   Function: isCssVar()
-// -------------------------------------
-function isCssVar(str) {
-  return str.substr(0, 3) === 'var';
-}
 
 // -------------------------------------
-//   Function: cloneSimpleObj()
+//   Function: parseIcons()
 // -------------------------------------
-function cloneSimpleObj(obj) {
-  return JSON.parse(JSON.stringify(obj));
-}
-
-// -------------------------------------
-//   Function: cssVarToCamelCaseStr()
-// -------------------------------------
-function cssVarToCamelCaseStr(str) {
-  // parse "var(--var-name)" into "--var-name"
-  str = str.replace('var(', '').replace(')', '')
-  str = str.substr(str.indexOf('--') + 2);
-
-  // parse "var-name" into "varName"
-  return str.replace(/-([a-z])/g, function (g) {
-    return g[1].toUpperCase();
+function parseIcons() {
+  let iconFiles = glob.sync(`*.svg`, { cwd: `${sources.icons}/svg` })
+  return iconSet = iconFiles.map(file => {
+    return file.substring(0, file.lastIndexOf(`.`));
   });
-}
-
-
+};
 
 
 // -------------------------------------
