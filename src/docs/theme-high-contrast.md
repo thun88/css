@@ -1,6 +1,8 @@
 ---
 title: High Contrast Theme
 description: Soho Foundation Styleguide
+stylesheet: soho-foundation-high-contrast.min.css
+
 ---
 
 ## Colors

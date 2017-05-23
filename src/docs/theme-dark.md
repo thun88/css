@@ -1,6 +1,7 @@
 ---
 title: Dark Theme
 description: Soho Foundation Styleguide
+stylesheet: soho-foundation-dark.min.css
 ---
 
 ## Colors

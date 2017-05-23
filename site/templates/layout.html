@@ -18,7 +18,12 @@
       </style>
     $endif$
 
-    <link rel="stylesheet" type="text/css" href="css/soho-foundation.min.css" id="soho-theme">
+
+    $if(stylesheet)$
+      <link rel="stylesheet" type="text/css" href="css/$stylesheet$" id="soho-theme">
+    $else$
+      <link rel="stylesheet" type="text/css" href="css/soho-foundation.min.css" id="soho-theme">
+    $endif$
     <link rel="stylesheet" type="text/css" href="css/site.min.css">
   </head>
   <body>
@@ -27,9 +32,9 @@
     </div>
 
     <div class="fnd-row site-nav">
-      <nav class="fnd-row--col-md-10">
+      <nav class="fnd-row--col-md-12">
           <ul class="site-nav--list">
-            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html">&#9829; Home</a></li>
             <li><a href="buttons.html">Buttons</a></li>
             <li><a href="grid.html">Grid</a></li>
             <li><a href="forms.html">Forms</a></li>
@@ -41,15 +46,6 @@
             <!-- <li><a href="type.html">Typography</a></li> -->
           </ul>
       </nav>
-      <div class="fnd-row--col-md-2">
-        <form>
-          <select class="form-control" onchange="onThemeChange(this)">
-            <option value="default" selected>Default</option>
-            <option value="dark">Dark Theme</option>
-            <option value="hc">High-contrast</option>
-          </select>
-        </form>
-      </div>
     </div>
 
     <div class="fnd-row">
@@ -80,22 +76,5 @@
         <div>$body$</div>
       </section>
     </div>
-
-    <script>
-      function onThemeChange(elem) {
-        var cssTheme = 'css/soho-foundation.min.css';
-
-        switch (elem.value) {
-          case 'dark':
-            cssTheme = 'css/soho-foundation--dark.min.css';
-            break;
-
-          case 'hc':
-            cssTheme = 'css/soho-foundation--high-contrast.min.css';
-            break;
-        }
-        document.getElementById('soho-theme').href = cssTheme;
-      }
-    </script>
   </body>
 </html>
