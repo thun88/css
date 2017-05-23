@@ -10,7 +10,7 @@
       <meta name="date" content="$date-meta$" />
     $endif$
 
-    <title>$pagetitle$ - Hook &amp; Loop</title>
+    <title>$pagetitle$ - Infor SoHo Foundation</title>
 
     $if(highlighting-css)$
       <style type="text/css">
@@ -27,30 +27,20 @@
     </div>
 
     <div class="fnd-row site-nav">
-      <nav class="fnd-row--col-md-10">
+      <nav class="fnd-row--col-md-12">
         <h2 class="site-nav--header"><a href="#">Infor SoHo</a></h2>
           <ul class="site-nav--list">
             <li><a href="#">Learn</a></li>
             <li><a href="index.html">Style</a></li>
             <li><a href="#">Build</a></li>
           </ul>
-          <div class="site-version">Version $releaseversion$ (Alpha Pre-release)</div>
       </nav>
-      <div class="fnd-row--col-md-2">
-        <form>
-          <select class="form-control" onchange="onThemeChange(this)">
-            <option value="default" selected>Default</option>
-            <option value="dark">Dark Theme</option>
-            <option value="hc">High-contrast</option>
-          </select>
-        </form>
-      </div>
     </div>
 
     <div class="fnd-row">
       <nav class="fnd-row--col-md-2">
         <div class="site-sidebar">
-          <h2>Elements</h2>
+          <h2 class="site-version">Version $releaseversion$</h2>
           <ul>
             <li><a href="grid.html">Grid</a></li>
             <li><a href="adaptive.html">Adaptive States</a></li>
@@ -91,22 +81,5 @@
         </div>
       </nav>
     </div>
-
-    <script>
-      function onThemeChange(elem) {
-        var cssTheme = 'css/soho-foundation.min.css';
-
-        switch (elem.value) {
-          case 'dark':
-            cssTheme = 'css/soho-foundation--dark.min.css';
-            break;
-
-          case 'hc':
-            cssTheme = 'css/soho-foundation--high-contrast.min.css';
-            break;
-        }
-        document.getElementById('soho-theme').href = cssTheme;
-      }
-    </script>
   </body>
 </html>

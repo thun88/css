@@ -2,6 +2,17 @@
  * Website styles
  */
 
+body {
+  background-color: #F0F1F5;
+  font-family: "Proxima Nova";
+  color: #222427;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Proxima Nova";
+  color: #222427;
+}
+
 ul {
   list-style-type: disc;
   margin-bottom: 10px;
@@ -16,9 +27,9 @@ ul {
  * Top Nav
  */
 .site-nav {
-  background-color: var(--azure06);
+  background-color: #222427;
   color: var(--white);
-  padding: 20px;
+  padding: 8px 20px;
 }
 
 .site-nav--list {
@@ -74,6 +85,8 @@ ul {
 
 .site-sidebar--right {
   position: fixed;
+  background-color: var(--white);
+  width: 100%;
 }
 
 /*
@@ -95,13 +108,14 @@ ul {
   display: inline-block;
   border-radius: 16px;
   top: 3px;
+  border: 1px solid var(--graphite03);
   position: relative;
 }
 
 code {
-  background-color: #f9f2f4;
+  background-color: #F0F1F5;
   border-radius: 4px;
-  color: #c7254e;
+  color: #6B6E76;
   font-size: 90%;
   padding: 2px 4px;
 }
@@ -155,6 +169,10 @@ blockquote {
   &.info {
     border-left-color: var(--amber05);
   }
+}
+
+.site-main {
+  background-color: var(--white);
 }
 
 .site-sidebar,
