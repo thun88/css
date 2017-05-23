@@ -7,7 +7,6 @@
 // Available tasks:
 //   `gulp`
 //   `gulp build`
-//      `gulp build-watch`
 //      `gulp compile:colors`
 //      `gulp compile:css`
 //      `gulp compile:docs`
@@ -16,9 +15,10 @@
 //   `gulp lint`
 //      `gulp lint:css`
 //      `gulp lint:site`
+//   `gulp reload`
+//   `gulp serve`
 //   `gulp svg:optimize`
 //   `gulp svg:store`
-//   `gulp serve`
 //
 // *************************************
 
@@ -126,17 +126,6 @@ gulp.task(`default`, [`build`, `serve`]);
 //   Task: Build
 // -------------------------------------
 gulp.task(`build`, [`svg:store`, `compile:css`, `compile:docs`, `compile:site`]);
-
-
-// -------------------------------------
-//   Task: build-watch
-//   A task that ensures reload after
-//   everything is built (for serve task)
-// -------------------------------------
-gulp.task(`build-watch`, [`compile:css`, `compile:docs`, `compile:site`], function (done) {
-    browserSync.reload();
-    done();
-});
 
 
 // -------------------------------------
@@ -315,15 +304,34 @@ gulp.task(`serve`, function() {
     logPrefix: `Soho-Fnd`
   });
 
-  let files = [
-    `${PATHS.src.css}/**/*.css`,
+  let srcCss = [
+    `${PATHS.src.css}/**/*.css`
+  ];
+
+  let srcDocs = [
     `${PATHS.src.docs}/*.md`,
-    `${PATHS.site.css}/*.css`,
     `${PATHS.site.templates}/**/*`
   ];
 
-  gulp.watch(files, [`build-watch`]);
+  let siteCss = [
+    `${PATHS.site.css}/*.css`
+  ];
+
+  gulp.watch(srcCss, [`compile:css`, `compile:docs`, `compile:site`], reloadBrowser);
+
+  gulp.watch(srcDocs, [`compile:docs`, `compile:site`], reloadBrowser
+
+  gulp.watch(siteCss, [`compile:site`], reloadBrowser
 });
+
+
+// -------------------------------------
+//   Function: reloadBrowser
+// -------------------------------------
+function reloadBrowser(done) {
+  browserSync.reload();
+  done();
+}
 
 
 // -------------------------------------
