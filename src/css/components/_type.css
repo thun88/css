@@ -104,7 +104,6 @@ small,
 a {
   color: var(--link-color);
   cursor: pointer;
-  text-decoration: none;
 
   &:hover {
     color: var(--link-color-hover);
