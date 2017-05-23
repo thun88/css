@@ -412,15 +412,23 @@ function parseCss(cssPath, themeAnnotationsObj = {}) {
   return themeAnnotationsObj;
 };
 
-
+// -------------------------------------
+//   Function: isCssVar()
+// -------------------------------------
 function isCssVar(str) {
   return str.substr(0, 3) === 'var';
 }
 
+// -------------------------------------
+//   Function: cloneSimpleObj()
+// -------------------------------------
 function cloneSimpleObj(obj) {
   return JSON.parse(JSON.stringify(obj));
 }
 
+// -------------------------------------
+//   Function: cssVarToCamelCaseStr()
+// -------------------------------------
 function cssVarToCamelCaseStr(str) {
   // parse "var(--var-name)" into "--var-name"
   str = str.replace('var(', '').replace(')', '')

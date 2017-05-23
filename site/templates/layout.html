@@ -18,7 +18,12 @@
       </style>
     $endif$
 
-    <link rel="stylesheet" type="text/css" href="css/soho-foundation.min.css" id="soho-theme">
+
+    $if(stylesheet)$
+      <link rel="stylesheet" type="text/css" href="css/$stylesheet$" id="soho-theme">
+    $else$
+      <link rel="stylesheet" type="text/css" href="css/soho-foundation.min.css" id="soho-theme">
+    $endif$
     <link rel="stylesheet" type="text/css" href="css/site.min.css">
   </head>
   <body>

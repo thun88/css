@@ -8,7 +8,7 @@ description: Soho Foundation Styleguide
 <div class="color-row">
     {{#each default}}
         {{#if this.isColor}}
-            {{> _colors cssObj=this title=this.originalDeclaration}}
+            {{> _color-swatch colorData=this title=this.originalDeclaration}}
         {{/if}}
     {{/each}}
 </div>
