@@ -136,15 +136,15 @@ Disabled checkboxes and radios are supported, but to provide a "not-allowed" cur
         </div>
 
         <div class="form-checkbox form-checkbox--partial">
-            <input type="checkbox" value="" id="exampleCheckbox2" checked disabled/>
-            <label for="exampleCheckbox2">
+            <input type="checkbox" value="" id="exampleCheckbox5" checked disabled/>
+            <label for="exampleCheckbox5">
                 Partially Checked &amp; Disabled
             </label>
         </div>
 
         <div class="form-checkbox is-disabled">
-            <input type="checkbox" value="" id="exampleCheckbox5" checked disabled/>
-            <label for="exampleCheckbox5">
+            <input type="checkbox" value="" id="exampleCheckbox6" checked disabled/>
+            <label for="exampleCheckbox6">
                 Checked and Disabled
             </label>
         </div>
@@ -180,15 +180,15 @@ Disabled checkboxes and radios are supported, but to provide a "not-allowed" cur
 </div>
 
 <div class="form-checkbox form-checkbox--partial">
-    <input type="checkbox" value="" id="exampleCheckbox2" checked disabled/>
-    <label for="exampleCheckbox2">
+    <input type="checkbox" value="" id="exampleCheckbox5" checked disabled/>
+    <label for="exampleCheckbox5">
         Partially Checked &amp; Disabled
     </label>
 </div>
 
 <div class="form-checkbox is-disabled">
-    <input type="checkbox" value="" id="exampleCheckbox5" checked disabled/>
-    <label for="exampleCheckbox5">
+    <input type="checkbox" value="" id="exampleCheckbox6" checked disabled/>
+    <label for="exampleCheckbox6">
         Checked and Disabled
     </label>
 </div>
