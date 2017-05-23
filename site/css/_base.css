@@ -15,8 +15,8 @@ h5,
 h6,
 p,
 li {
-  font-family: "Proxima Nova";
   color: #222427;
+  font-family: "Proxima Nova";
 }
 
 ul {
@@ -54,8 +54,7 @@ ul {
     }
 
     & a {
-      color: inherit;
-      text-decoration: none;
+      color: var(--white);
     }
   }
 }
@@ -66,13 +65,12 @@ ul {
 
 .site-nav--header {
   display: inline;
-  margin: 0;
-  padding: 0;
   float: left;
-  margin-right: 20px;
-  line-height: 3.4rem;
   font-size: 1.8rem;
   font-weight: bold;
+  line-height: 3.4rem;
+  margin: 0 0 20px 0;
+  padding: 0;
 }
 
 .site-nav--header a {
@@ -109,13 +107,13 @@ ul {
 }
 
 .site-spec--color {
-  width: 16px;
-  height: 16px;
-  display: inline-block;
   border-radius: 16px;
-  top: 3px;
   border: 1px solid var(--graphite03);
+  display: inline-block;
+  height: 16px;
   position: relative;
+  top: 3px;
+  width: 16px;
 }
 
 code {
