@@ -43,7 +43,7 @@ Individual form controls automatically receive some global styling. All textual 
                 Check me out
             </label>
         </div>
-        <button type="submit" class="btn btn-default">Submit</button>
+        <button type="submit" class="btn btn--default">Submit</button>
     </form>
 </div>
 ```html
@@ -70,7 +70,7 @@ Individual form controls automatically receive some global styling. All textual 
             Check me out
         </label>
     </div>
-    <button type="submit" class="btn btn-default">Submit</button>
+    <button type="submit" class="btn btn--default">Submit</button>
 </form>
 ```
 
