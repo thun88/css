@@ -144,8 +144,8 @@ select.form-control {
   }
 
   &.has-error {
-    .form-control,
-    .info-block {
+    & .form-control,
+    & .info-block {
       color: var(--alert-red);
     }
 
