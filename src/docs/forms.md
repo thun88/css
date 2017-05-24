@@ -29,9 +29,12 @@ Individual form controls automatically receive some global styling. All textual 
             <label for="exampleInputPassword1">Password</label>
             <input type="password" class="form-control" id="exampleInputPassword1" name="exampleInputPassword1" placeholder="Password">
         </div>
-        <div class="form-group">
+        <div class="form-group form-control-file">
             <label for="exampleInputFile">File input</label>
-            <input type="file" id="exampleInputFile" name="exampleInputFile" class="form-control-file">
+            <input type="file" id="exampleInputFile" name="exampleInputFile">
+            <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+                <use xlink:href="#folder"></use>
+            </svg>
             <p class="info-block">Example block-level help text here.</p>
         </div>
         <div class="form-checkbox">
@@ -53,9 +56,12 @@ Individual form controls automatically receive some global styling. All textual 
         <label for="exampleInputPassword1">Password</label>
         <input type="password" class="form-control" id="exampleInputPassword1" name="exampleInputPassword1" placeholder="Password">
     </div>
-    <div class="form-group">
+    <div class="form-group form-control-file">
         <label for="exampleInputFile">File input</label>
         <input type="file" id="exampleInputFile" name="exampleInputFile" class="form-control-file">
+        <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+            <use xlink:href="#folder"></use>
+        </svg>
         <p class="info-block">Example block-level help text here.</p>
     </div>
     <div class="form-checkbox">

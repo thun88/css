@@ -90,6 +90,29 @@ select.form-control {
   display: block;
 }
 
+.form-control-file {
+  position: relative;
+
+  & [type=file] {
+    border: var(--input-border-width) solid var(--input-border-color);
+    border-radius: var(--input-border-radius);
+    padding: var(--input-padding-y) var(--input-padding-x);
+    width: 100%;
+
+    &:focus {
+      border: 1px solid var(--input-border-color-focus);
+      outline: 0;
+      outline-color: transparent;
+    }
+  }
+
+  & .icon {
+    position: absolute;
+    right: var(--input-padding-x);
+    top: calc(50% - 8px);
+  }
+}
+
 .form-group {
   margin-bottom: 20px;
 
@@ -176,7 +199,6 @@ select.form-control {
   & input {
     position: absolute;
     top: calc(50% - 9px);
-    visibility: hidden;
   }
 }
 
