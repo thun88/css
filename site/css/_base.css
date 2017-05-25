@@ -176,11 +176,6 @@ blockquote {
 /*
  * Showcase states for examples
  */
-.example-focus {
-  box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--btn-default-bg);
-  outline: 0;
-}
-
 .example-padding {
   outline: dashed 1px var(--emerald04);
 }

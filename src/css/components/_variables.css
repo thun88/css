@@ -141,18 +141,23 @@
   /* buttons */
   --btn-default-bg: var(--graphite03);
   --btn-default-color: var(--graphite08);
+  --btn-default-focus: var(--azure06);
   --btn-default-hover: var(--graphite04);
   --btn-disabled-opacity: 0.5;
   --btn-line-height: 2.2rem;
+  --btn-padding-x: 6px;
+  --btn-padding-y: 8px;
 
   /* buttonPrimary */
   --btn-primary-bg: var(--azure06);
   --btn-primary-color: var(--white);
+  --btn-primary-focus: var(--btn-default-focus);
   --btn-primary-hover: var(--azure07);
 
   /* buttonLink */
   --btn-link-bg: transparent;
   --btn-link-color: var(--graphite06);
+  --btn-link-focus: var(--btn-default-focus);
   --btn-link-hover: var(--graphite10);
 
   /* icons */
@@ -169,7 +174,7 @@
   --input-info-block-color: var(--graphite04);
   --input-label-color: var(--graphite06);
   --input-line-height: calc(var(--input-height) - (2 * var(--input-padding-y)) - (2 * var(--input-border-size)));
-  --input-padding-x: 6px;
+  --input-padding-x: 12px;
   --input-padding-y: 8px;
   --input-transition: border 300ms ease 0s, box-shadow 300ms ease 0s;
 

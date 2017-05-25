@@ -19,7 +19,7 @@
 
   &::placeholder {
     color: var(--input-color-placeholder);
-    font-family: inherit;
+    font-family: var(--font-family-base);
     opacity: 1; /* Override Firefox's unusual default opacity */
   }
 
@@ -160,18 +160,6 @@ select.form-control {
   }
 }
 
-.form-checkbox,
-.form-radio {
-  display: block;
-  margin: 10px 0;
-  position: relative;
-
-  &.is-disabled label,
-  &:disabled {
-    cursor: not-allowed;
-  }
-}
-
 @keyframes check {
   0% {
     height: 0;
@@ -191,14 +179,28 @@ select.form-control {
 
 .form-checkbox,
 .form-radio {
+  display: block;
+  margin: 10px 0;
+  position: relative;
+
+  & label,
+  & input {
+    cursor: pointer;
+  }
+
   & label {
-    display: block;
+    display: inline-block;
     position: relative;
   }
 
   & input {
     position: absolute;
     top: calc(50% - 9px);
+  }
+
+  &.is-disabled label,
+  & input:disabled {
+    cursor: not-allowed;
   }
 }
 

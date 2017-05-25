@@ -141,7 +141,7 @@ Disabled checkboxes and radios are supported, but to provide a "not-allowed" cur
             </label>
         </div>
 
-        <div class="form-checkbox form-checkbox--partial">
+        <div class="form-checkbox form-checkbox--partial is-disabled">
             <input type="checkbox" value="" id="exampleCheckbox5" checked disabled/>
             <label for="exampleCheckbox5">
                 Partially Checked &amp; Disabled
