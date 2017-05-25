@@ -65,8 +65,10 @@ Use any of the available button classes to quickly create a styled button.
 
 ## Focused State
 
+To mimic the "focus" state, you can use the class `has-focus` on a button or link.
+
 <div class="example">
-    <button type="button" class="btn btn--default example-focus">Button</button>&nbsp;
+    <button type="button" class="btn btn--default has-focus">Button</button>&nbsp;
 </div>
 ```html
 <button type="button" class="btn btn--default">Button</button>
@@ -119,31 +121,33 @@ Use any of the available button classes to quickly create a styled button.
 </button>
 ```
 
-## Button Links
+## Button Hyperlinks
 
-<div class="example">
+Can be used with `<a>` or `<button>` tags.
+
+<div class="example">t
     <a href="" class="btn btn--link">Button</a>
     <a href="" class="btn btn--link" disabled>Button</a>
-    <a href="" class="btn btn--link example-focus">Button (focused)</a>
+    <a href="" class="btn btn--link has-focus">Button (focused)</a>
 </div>
 ```html
 <a href="" class="btn btn--link">Button</a>
 <a href="" class="btn btn--link" disabled>Button</a>
 ```
 
-## Links
+## Hyperlinks
 
 <div class="example">
-    <a href="#example-link">Link</a><br>
-    <a href="#example-link" disabled>Link</a><br>
+    <a href="#example-link">Hyperlink</a><br>
+    <a href="#example-link" disabled>Hyperlink</a><br>
     <a href="#example-link">
-        Link
+        Hyperlink
         <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
             <use xlink:href="#link"></use>
         </svg>
     </a>
 </div>
 ```html
-<a href="#example-link">Link</a>
-<a href="#example-link" disabled>Disabled Link</a>
+<a href="#example-link">Hyperlink</a>
+<a href="#example-link" disabled>Disabled Hyperlink</a>
 ```
