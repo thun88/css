@@ -124,8 +124,8 @@
   --text-alert: var(--alert-red);
   --text-disabled: var(--graphite04);
   --text-label: var(--graphite06);
-  --header-primary: 1.8rem;
-  --header-secondary: 1.6rem;
+  --header-primary-font-size: 1.8rem;
+  --header-secondary-font-size: 1.6rem;
 
   /* buttons */
   --btn-default-bg: var(--graphite03);
