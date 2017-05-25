@@ -374,7 +374,7 @@ gulp.task('watch-src', ['compile:src', 'compile:docs', 'compile:site'], function
 //   Function: changeEvent()
 // -------------------------------------
 function changeEvent(evt) {
-    gutil.log('File', gutil.colors.cyan(evt.path.replace(new RegExp('/.*(?=/' + basePath + ')/'), '')), 'was', gutil.colors.magneta(evt.type));
+    gutil.log('File', gutil.colors.cyan(evt.path.replace(new RegExp('/.*(?=/' + basePath + ')/'), '')), 'was', gutil.colors.magenta(evt.type));
 }
 
 
