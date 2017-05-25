@@ -69,7 +69,7 @@ small,
   font-weight: var(--font-weight-normal);
 }
 
-.text-disabled { color: var(--text-disabled); }
+.text-muted { color: var(--text-muted); }
 .text-alert { color: var(--text-alert); }
 
 a {
