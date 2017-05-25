@@ -5,118 +5,121 @@
 // *************************************
 //
 // Available tasks:
-//   `gulp default`
-//   `gulp build`
-//      `gulp compile:docs`
-//      `gulp compile:site`
-//      `gulp compile:src`
-//   `gulp clean`
-//   `gulp lint`
-//      `gulp lint:css`
-//      `gulp lint:site`
-//   `gulp serve`
-//   `gulp svg:optimize`
-//   `gulp svg:store`
-//   `gulp watch-docs`
-//   `gulp watch-site`
-//   `gulp watch-src`
+
+//   'gulp default'
+//   'gulp build'
+//      'gulp compile:docs'
+//      'gulp compile:site'
+//      'gulp compile:src'
+//   'gulp clean'
+//   'gulp lint'
+//      'gulp lint:css'
+//      'gulp lint:site'
+//   'gulp serve'
+//   'gulp svg:optimize'
+//   'gulp svg:store'
+//   'gulp watch-docs'
+//   'gulp watch-site'
+//   'gulp watch-src'
 //
 // *************************************
 
+let gulp       = require('gulp'),
+  gConfig      = require('./gulp-config.js'),
+  basePath     = gConfig.paths.base.root;
+  sources      = gConfig.paths.sources,
+  destinations = gConfig.paths.destinations;
 
 // -------------------------------------
-//   Modules
+// Load "gulp-" plugins
 // -------------------------------------
-//
 // gulp           : The streaming build system
 // gulp-concat    : Concatenate files
+// gulp-pandoc    : File converter
+// gulp-postcss   : Transform styles with JS
+// gulp-rename    : Rename files
+// gulp-stylelint : Lint the styles
+// gulp-svgmin    : SVGO for gulp
+// gulp-svgstore  : Combine svg files
+// gulp-tap       : Easily tap into a pipeline (debug)
+// gulp-util      : Utility functions for gulp plugins
+// -------------------------------------
+let concat = require('gulp-concat'),
+  hb = require('gulp-hb'),
+  pandoc = require('gulp-pandoc'),
+  postcss = require('gulp-postcss'),
+  rename = require('gulp-rename'),
+  stylelint = require('gulp-stylelint'),
+  svgmin = require('gulp-svgmin'),
+  svgstore = require('gulp-svgstore'),
+  tap = require('gulp-tap'),
+  gutil = require('gulp-util');
+
+
+// -------------------------------------
+//   Utility NPM Plugins
+// -------------------------------------
 // annotateBlock  : Parse css for comment blocks
 // del            : Delete files
 // fs             : Read/sync file stream
 // glob           : File pattern matching
 // hb             : Handlebars Template parser
 // is-color       : Validate hex colors
-// gulp-pandoc    : File converter
-// gulp-postcss   : Transform styles with JS
-// gulp-rename    : Rename files
-// gulp-server    : Serve the website for dev
-// gulp-stylelint : Lint the styles
 // stylelint-order: Stylelint plugin
-// gulp-svgmin    : SVGO for gulp
-// gulp-svgstore  : Combine svg files
-// gulp-tap       : Easily tap into a pipeline (debug)
-//
-// postcss-for       : Allow at-for loops
-// postcss-variables : Allow at-vars in at-for loops
-// postcss-import    : Include css files with `@`
-// postcss-commas    : Allow lists of properties per value
-// postcss-cssnext   : Collection of future proof plugins
-// cssnano           : CSS minify
-// lost              : Grid system
-//
 // -------------------------------------
-
-let gulp       = require(`gulp`),
-  gConfig      = require('./gulp-config.js'),
-  sources      = gConfig.paths.sources,
-  destinations = gConfig.paths.destinations;
-
-
-let browserSync = require(`browser-sync`).create(),
-  concat = require(`gulp-concat`),
-  annotateBlock = require(`css-annotation-block`),
-  del = require(`del`),
-  fs = require(`fs`),
-  glob = require(`glob`),
-  hb = require(`gulp-hb`),
-  isColor = require(`is-color`),
-  pandoc = require(`gulp-pandoc`),
-  postcss = require(`gulp-postcss`),
-  rename = require(`gulp-rename`),
-  server = require(`gulp-server-livereload`),
-  stylelint = require(`gulp-stylelint`),
-  svgmin = require('gulp-svgmin'),
-  svgstore = require(`gulp-svgstore`),
-  tap = require(`gulp-tap`);
+let annotateBlock = require('css-annotation-block'),
+  browserSync = require('browser-sync').create(),
+  del = require('del'),
+  fs = require('fs'),
+  glob = require('glob'),
+  isColor = require('is-color');
 
 
 // -------------------------------------
 //   PostCSS Plugins
 // -------------------------------------
-let atFor      = require(`postcss-for`),
-  atImport     = require(`postcss-import`),
-  atVariables  = require(`postcss-at-rules-variables`),
-  commas       = require(`postcss-commas`),
-  cssnext      = require(`postcss-cssnext`),
-  cssnano      = require(`cssnano`),
-  lost         = require(`lost`);
+// postcss-for       : Allow at-for loops
+// postcss-variables : Allow at-vars in at-for loops
+// postcss-import    : Include css files with '@'
+// postcss-commas    : Allow lists of properties per value
+// postcss-cssnext   : Collection of future proof plugins
+// cssnano           : CSS minify
+// lost              : Grid system
+// -------------------------------------
+let atFor      = require('postcss-for'),
+  atImport     = require('postcss-import'),
+  atVariables  = require('postcss-at-rules-variables'),
+  commas       = require('postcss-commas'),
+  cssnext      = require('postcss-cssnext'),
+  cssnano      = require('cssnano'),
+  lost         = require('lost');
 
 
 // -------------------------------------
-//   Globals
+//   Global Variables
 // -------------------------------------
 let ICONS_ARR = [];
-let SVG_HTML = fs.readFileSync(`${sources.root}/icons/icons.svg`, `utf-8`);
+let SVG_HTML = fs.readFileSync(`${sources.root}/icons/icons.svg`, 'utf-8');
 
 
 // -------------------------------------
 //   Task: Default
 //   Does a build and serves the website
 // -------------------------------------
-gulp.task(`default`, [`build`, `serve`]);
+gulp.task('default', ['build', 'serve']);
 
 
 // -------------------------------------
 //   Task: Build
 // -------------------------------------
-gulp.task(`build`, [`svg:store`, `compile:src`, `compile:docs`, `compile:site`]);
+gulp.task('build', ['svg:store', 'compile:src', 'compile:docs', 'compile:site']);
 
 
 // -------------------------------------
 //   Task: Compile Docs
 //   Compile foundation markdown files
 // -------------------------------------
-gulp.task(`compile:docs`, function() {
+gulp.task('compile:docs', function() {
   let packageData = require('./package.json')
   let templateData = createCssAnnotations();
 
@@ -136,13 +139,13 @@ gulp.task(`compile:docs`, function() {
 
     // Convert markdown to html and insert into layout template
     .pipe(pandoc({
-      from: `markdown-markdown_in_html_blocks`, // http://pandoc.org/MANUAL.html#raw-html
-      to: `html5+yaml_metadata_block`,
-      ext: `.html`,
+      from: 'markdown-markdown_in_html_blocks', // http://pandoc.org/MANUAL.html#raw-html
+      to: 'html5+yaml_metadata_block',
+      ext: '.html',
       args: [
         `--data-dir=${sources.site}`, // looks for template dir inside data-dir so don't use path.site.templates
-        `--template=layout.html`,
-        `--table-of-contents`,
+        '--template=layout.html',
+        '--table-of-contents',
         `--variable=icons:${SVG_HTML}`,
         `--variable=releaseversion:${packageData.version}`
       ]
@@ -155,7 +158,7 @@ gulp.task(`compile:docs`, function() {
 //   Task: Compile Site
 //   Compile the website css
 // -------------------------------------
-gulp.task(`compile:site`, function () {
+gulp.task('compile:site', function () {
 
   // Note: plugin order matters
   let plugins = [
@@ -170,7 +173,7 @@ gulp.task(`compile:site`, function () {
 
   return gulp.src(`${sources.siteCss}/site.css`)
     .pipe(postcss(plugins, { map: true }))
-    .pipe(rename({ extname: `.min.css` }))
+    .pipe(rename({ extname: '.min.css' }))
     .pipe(gulp.dest(`${destinations.www}/css`));
 });
 
@@ -179,7 +182,7 @@ gulp.task(`compile:site`, function () {
 //   Task: Compile Src
 //   Compile Foundation source css
 // -------------------------------------
-gulp.task(`compile:src`, function () {
+gulp.task('compile:src', function () {
 
   // Note: plugin order matters
   let plugins = [
@@ -201,9 +204,9 @@ gulp.task(`compile:src`, function () {
     .pipe(postcss(plugins, postcssOptions))
     .pipe(gulp.dest(destinations.css))
     .pipe(postcss([
-      require(`cssnano`)({ autoprefixer: false })
+      require('cssnano')({ autoprefixer: false })
     ], postcssOptions))
-    .pipe(rename({ extname: `.min.css` }))
+    .pipe(rename({ extname: '.min.css' }))
     .pipe(gulp.dest(destinations.css))
     .pipe(gulp.dest(`${destinations.www}/css`));
 });
@@ -214,7 +217,7 @@ gulp.task(`compile:src`, function () {
 //   Delete contents of '/www'
 //   but not '/www/examples'
 // -------------------------------------
-gulp.task(`clean`, function () {
+gulp.task('clean', function () {
   return del([
     destinations.root,
     `${destinations.www}/**`,
@@ -227,19 +230,19 @@ gulp.task(`clean`, function () {
 // -------------------------------------
 //   Task: Lint
 // -------------------------------------
-gulp.task(`lint`, [`lint:css`, `lint:site`]);
+gulp.task('lint', ['lint:css', 'lint:site']);
 
 
 // -------------------------------------
 //   Task: Lint:css
 //   Lint the foundation source css
 // -------------------------------------
-gulp.task(`lint:css`, function() {
+gulp.task('lint:css', function() {
   return gulp.src(`${sources.css}/**/*.css`)
     .pipe(stylelint({
       failAfterError: true,
       reporters: [{
-        formatter: `verbose`,
+        formatter: 'verbose',
         console: true
       }]
     }))
@@ -249,12 +252,12 @@ gulp.task(`lint:css`, function() {
 //   Task: Lint:site
 //   Lint the website css
 // -------------------------------------
-gulp.task(`lint:site`, function() {
+gulp.task('lint:site', function() {
   return gulp.src(`${sources.siteCss}/*.css`)
     .pipe(stylelint({
       failAfterError: true,
       reporters: [{
-        formatter: `verbose`,
+        formatter: 'verbose',
         console: true
       }]
     }))
@@ -265,7 +268,7 @@ gulp.task(`lint:site`, function() {
 //   Task: Serve
 //   Serve and watch files
 // -------------------------------------
-gulp.task(`serve`, function() {
+gulp.task('serve', function() {
   browserSync.init({
     codesync: false,
     injectChanges: false,
@@ -273,8 +276,8 @@ gulp.task(`serve`, function() {
     server: {
       baseDir: destinations.www
     },
-    logLevel: `basic`,
-    logPrefix: `Soho-Fnd`
+    logLevel: 'basic',
+    logPrefix: 'Soho-Fnd'
   });
 
 
@@ -291,9 +294,23 @@ gulp.task(`serve`, function() {
     `${sources.css}/**/*.css`
   ];
 
-  gulp.watch(srcDocs, [`watch-docs`]);
-  gulp.watch(siteCss, [`watch-site`]);
-  gulp.watch(srcCss, [`watch-src`]);
+  gulp
+    .watch(srcDocs, ['watch-docs'])
+    .on('change', function(evt) {
+      changeEvent(evt);
+    });
+
+  gulp
+    .watch(siteCss, ['watch-site'])
+    .on('change', function(evt) {
+      changeEvent(evt);
+    });
+
+  gulp
+    .watch(srcCss, ['watch-src'])
+    .on('change', function(evt) {
+      changeEvent(evt);
+    });
 });
 
 
@@ -301,7 +318,7 @@ gulp.task(`serve`, function() {
 //   Task: SVG Optimization
 //   Optimizes the svg icon markup
 // -------------------------------------
-gulp.task(`svg:optimize`, function() {
+gulp.task('svg:optimize', function() {
   return gulp.src(`${sources.icons}/svg/*.svg`)
     .pipe(svgmin())
     .pipe(gulp.dest(`${sources.icons}/svg`));
@@ -312,12 +329,12 @@ gulp.task(`svg:optimize`, function() {
 //   Task: SVG Store
 //   Creates and builds the svg icons
 // -------------------------------------
-gulp.task(`svg:store`, function() {
+gulp.task('svg:store', function() {
   ICONS_ARR = parseIcons(); // Refresh icons list
 
   return gulp.src(`${sources.icons}/svg/*.svg`)
     .pipe(svgstore({ inlineSvg: true }))
-    .pipe(rename(`icons.svg`))
+    .pipe(rename('icons.svg'))
     .pipe(gulp.dest(sources.icons))
     .pipe(gulp.dest(destinations.root));
 });
@@ -327,7 +344,7 @@ gulp.task(`svg:store`, function() {
 //   Task: watch-docs
 //   Guarantees reload is last task
 // -------------------------------------
-gulp.task('watch-docs', [`compile:docs`, `compile:site`], function(done) {
+gulp.task('watch-docs', ['compile:docs', 'compile:site'], function(done) {
   browserSync.reload();
   done();
 });
@@ -337,7 +354,7 @@ gulp.task('watch-docs', [`compile:docs`, `compile:site`], function(done) {
 //   Task: watch-site
 //   Guarantees reload is last task
 // -------------------------------------
-gulp.task('watch-site', [`compile:site`], function(done) {
+gulp.task('watch-site', ['compile:site'], function(done) {
   browserSync.reload();
   done();
 });
@@ -347,10 +364,18 @@ gulp.task('watch-site', [`compile:site`], function(done) {
 //   Task: watch-src
 //   Guarantees reload is last task
 // -------------------------------------
-gulp.task('watch-src', [`compile:src`, `compile:docs`, `compile:site`], function(done) {
+gulp.task('watch-src', ['compile:src', 'compile:docs', 'compile:site'], function(done) {
   browserSync.reload();
   done();
 });
+
+
+// -------------------------------------
+//   Function: changeEvent()
+// -------------------------------------
+function changeEvent(evt) {
+    gutil.log('File', gutil.colors.cyan(evt.path.replace(new RegExp('/.*(?=/' + basePath + ')/'), '')), 'was', gutil.colors.magneta(evt.type));
+}
 
 
 // -------------------------------------
@@ -385,8 +410,8 @@ function createCssAnnotations() {
   let defaultVarsObj = parseCss(`${sources.css}/components/_variables.css`);
 
   let themes = [
-    { name: `themeDark`,         path: `${sources.css}/themes/_theme-dark.css` },
-    { name: `themeHighContrast`, path: `${sources.css}/themes/_theme-high-contrast.css` }
+    { name: 'themeDark',         path: `${sources.css}/themes/_theme-dark.css` },
+    { name: 'themeHighContrast', path: `${sources.css}/themes/_theme-high-contrast.css` }
   ];
 
   cssVarAnnotations = {
@@ -418,7 +443,7 @@ function parseCss(cssPath, themeAnnotationsObj = {}) {
   let content,
       blocks;
 
-  content = fs.readFileSync(cssPath, `utf-8`).trim();
+  content = fs.readFileSync(cssPath, 'utf-8').trim();
   blocks = annotateBlock(content);
 
   blocks.forEach(block => {
@@ -462,26 +487,25 @@ function parseCss(cssPath, themeAnnotationsObj = {}) {
 //   Function: parseIcons()
 // -------------------------------------
 function parseIcons() {
-  let iconFiles = glob.sync(`*.svg`, { cwd: `${sources.icons}/svg` })
+  let iconFiles = glob.sync('*.svg', { cwd: `${sources.icons}/svg` })
   return iconSet = iconFiles.map(file => {
-    return file.substring(0, file.lastIndexOf(`.`));
+    return file.substring(0, file.lastIndexOf('.'));
   });
 };
 
 
 // -------------------------------------
 // Task: Deploy (Lepore only)
-// Copies the WWW folder on Lepore`s machine to his dropbox folder for temporary viewing
+// Copies the WWW folder on Lepore's machine to his dropbox folder for temporary viewing
 // -------------------------------------
-gulp.task(`deploy`, [`lint`, `build`], function() {
-  let gutil = require(`gulp-util`);
-  let exec = require(`child_process`).exec;
+gulp.task('deploy', ['lint', 'build'], function() {
+  let exec = require('child_process').exec;
 
-  let src = `~/HookandLoop/git/soho/soho-foundation/site/www/*`,
-      dest = ` ~/Dropbox/Public/soho-foundation`;
+  let src = '~/HookandLoop/git/soho/soho-foundation/site/www/*',
+      dest = ' ~/Dropbox/Public/soho-foundation';
 
   return exec(`cp -R ${src} ${dest}`, function (err, stdout, stderr) {
-    gutil.log(`Deployed to https://dl.dropboxusercontent.com/u/21521721/soho-foundation/index.html`);
+    gutil.log('Deployed to https://dl.dropboxusercontent.com/u/21521721/soho-foundation/index.html');
 
     console.log(stdout);
     console.log(stderr);

@@ -19,7 +19,7 @@
 
   &::placeholder {
     color: var(--input-color-placeholder);
-    font-family: inherit;
+    font-family: var(--font-family-base);
     opacity: 1; /* Override Firefox's unusual default opacity */
   }
 
@@ -90,13 +90,36 @@ select.form-control {
   display: block;
 }
 
+.form-control-file {
+  position: relative;
+
+  & [type=file] {
+    border: var(--input-border-width) solid var(--input-border-color);
+    border-radius: var(--input-border-radius);
+    padding: var(--input-padding-y) var(--input-padding-x);
+    width: 100%;
+
+    &:focus {
+      border: 1px solid var(--input-border-color-focus);
+      outline: 0;
+      outline-color: transparent;
+    }
+  }
+
+  & .icon {
+    position: absolute;
+    right: var(--input-padding-x);
+    top: calc(50% - 8px);
+  }
+}
+
 .form-group {
   margin-bottom: 20px;
 
   & label,
   & .info-block {
     display: block;
-    font-size: 1.2rem;
+    font-size: var(--text-small);
     line-height: 13px;
   }
 
@@ -108,7 +131,7 @@ select.form-control {
       color: var(--alert-red);
       content: '*';
       display: inline;
-      font-size: var(--font-size-lg);
+      font-size: var(--font-size-base);
       left: 2px;
       position: relative;
       top: 2px;
@@ -121,8 +144,8 @@ select.form-control {
   }
 
   &.has-error {
-    .form-control,
-    .info-block {
+    & .form-control,
+    & .info-block {
       color: var(--alert-red);
     }
 
@@ -134,18 +157,6 @@ select.form-control {
       border-color: var(--alert-red);
       color: var(--input-color);
     }
-  }
-}
-
-.form-checkbox,
-.form-radio {
-  display: block;
-  margin: 10px 0;
-  position: relative;
-
-  &.is-disabled label,
-  &:disabled {
-    cursor: not-allowed;
   }
 }
 
@@ -168,15 +179,28 @@ select.form-control {
 
 .form-checkbox,
 .form-radio {
+  display: block;
+  margin: 10px 0;
+  position: relative;
+
+  & label,
+  & input {
+    cursor: pointer;
+  }
+
   & label {
-    display: block;
+    display: inline-block;
     position: relative;
   }
 
   & input {
     position: absolute;
     top: calc(50% - 9px);
-    visibility: hidden;
+  }
+
+  &.is-disabled label,
+  & input:disabled {
+    cursor: not-allowed;
   }
 }
 

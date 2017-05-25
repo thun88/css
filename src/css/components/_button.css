@@ -36,8 +36,9 @@
       }
     }
 
-    &:focus {
-      box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--btn-default-bg);
+    &:focus,
+    &.has-focus {
+      box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--btn-default-focus);
       outline: 0;
     }
 
@@ -58,8 +59,9 @@
       }
     }
 
-    &:focus {
-      box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--btn-primary-bg);
+    &:focus,
+    &.has-focus {
+      box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--btn-primary-focus);
       outline: 0;
     }
 
@@ -84,8 +86,9 @@
       }
     }
 
-    &:focus {
-      box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--btn-default-bg);
+    &:focus,
+    &.has-focus {
+      box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--btn-link-focus);
       outline: 0;
     }
 
