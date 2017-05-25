@@ -25,6 +25,7 @@
 
 let gulp       = require('gulp'),
   gConfig      = require('./gulp-config.js'),
+  basePath     = gConfig.paths.base.root;
   sources      = gConfig.paths.sources,
   destinations = gConfig.paths.destinations;
 
@@ -291,9 +292,23 @@ gulp.task('serve', function() {
     `${sources.css}/**/*.css`
   ];
 
-  gulp.watch(srcDocs, ['watch-docs']);
-  gulp.watch(siteCss, ['watch-site']);
-  gulp.watch(srcCss, ['watch-src']);
+  gulp
+    .watch(srcDocs, ['watch-docs'])
+    .on('change', function(evt) {
+      changeEvent(evt);
+    });
+
+  gulp
+    .watch(siteCss, ['watch-site'])
+    .on('change', function(evt) {
+      changeEvent(evt);
+    });
+
+  gulp
+    .watch(srcCss, ['watch-src'])
+    .on('change', function(evt) {
+      changeEvent(evt);
+    });
 });
 
 
@@ -351,6 +366,14 @@ gulp.task('watch-src', ['compile:src', 'compile:docs', 'compile:site'], function
   browserSync.reload();
   done();
 });
+
+
+// -------------------------------------
+//   Function: changeEvent()
+// -------------------------------------
+function changeEvent(evt) {
+    gutil.log('File', gutil.colors.cyan(evt.path.replace(new RegExp('/.*(?=/' + basePath + ')/'), '')), 'was', gutil.colors.magneta(evt.type));
+}
 
 
 // -------------------------------------
