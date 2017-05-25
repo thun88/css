@@ -100,15 +100,17 @@
 /* @start cssVariables */
 :root {
 
-  /* alertColors */
+  /* alert colors */
   --alert-green: #80ce4d;
   --alert-orange: #ff9426;
   --alert-red: #e84f4f;
   --alert-yellow: #ffd726;
 
-  /* bodySettings */
+  /* body */
   --body-bg: var(--graphite01);
   --body-color: var(--graphite10);
+
+  /* links */
   --link-color: var(--azure06);
   --link-color-disabled: var(--text-disabled);
   --link-color-hover: var(--link-color);
@@ -124,6 +126,8 @@
   --text-alert: var(--alert-red);
   --text-disabled: var(--graphite04);
   --text-label: var(--graphite06);
+
+  /* headers */
   --header-primary-font-size: 1.8rem;
   --header-secondary-font-size: 1.6rem;
 
@@ -137,13 +141,13 @@
   --btn-padding-x: 6px;
   --btn-padding-y: 8px;
 
-  /* buttonPrimary */
+  /* button primary */
   --btn-primary-bg: var(--azure06);
   --btn-primary-color: var(--white);
   --btn-primary-focus: var(--btn-default-focus);
   --btn-primary-hover: var(--azure07);
 
-  /* buttonLink */
+  /* button links */
   --btn-link-bg: transparent;
   --btn-link-color: var(--graphite06);
   --btn-link-focus: var(--btn-default-focus);
@@ -167,41 +171,41 @@
   --input-padding-y: 8px;
   --input-transition: border 300ms ease 0s, box-shadow 300ms ease 0s;
 
-  /* inputNormal */
+  /* input normal */
   --input-bg: transparent;
   --input-border-color: var(--graphite04);
   --input-color: var(--graphite10);
 
-  /* inputDisabled */
+  /* input disabled */
   --input-bg-disabled: var(--input-bg);
   --input-border-color-disabled: var(--graphite03);
   --input-color-disabled: var(--text-disabled);
 
-  /* inputHover */
+  /* input hover */
   --input-bg-hover: var(--input-bg);
   --input-border-color-hover: var(--graphite10);
   --input-color-hover: var(--input-color);
 
-  /* inputFocus */
+  /* input focus */
   --input-bg-focus: var(--input-bg);
   --input-border-color-focus: var(--azure06);
   --input-color-focus: var(--input-color);
 
-  /* inputReadonly */
+  /* input readonly */
   --input-bg-readonly: var(--graphite02);
   --input-border-color-readonly: var(--input-border-color-disabled);
   --input-color-readonly: var(--input-color-disabled);
 
-  /* Selects */
+  /* selects */
   --select-bg-caret: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHZpZXdCb3g9IjAgMCAxOCAxOCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+ZHJvcGRvd248L3RpdGxlPjxwYXRoIGQ9Ik00IDZsNSA2IDUtNkg0eiIvPjwvc3ZnPg==);
 
-  /* inputSizes */
+  /* input sizes */
   --input-size-xs: 75px;
   --input-size-sm: 150px;
   --input-size-md: 300px;
   --input-size-lg: 400px;
 
-  /* adaptiveInputs */
+  /* adaptive inputs */
   --input-height-adaptive-touch: calc(var(--input-height) + 1rem);
   --input-line-height-adaptive-touch: calc(var(--input-height-adaptive-touch) - (2 * var(--input-padding-y)) - (2 * var(--input-border-size)));
   --input-padding-adaptive-touch: calc((var(--input-height-adaptive-touch) - var(--line-height-base)) / 2);
