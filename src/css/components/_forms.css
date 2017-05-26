@@ -9,6 +9,7 @@
   box-shadow: none;
   color: var(--input-color);
   display: block;
+  font-family: var(--font-family-base);
   font-size: var(--font-size-base);
   line-height: var(--input-line-height);
   padding: var(--input-padding-y) var(--input-padding-x);
@@ -19,7 +20,6 @@
 
   &::placeholder {
     color: var(--input-color-placeholder);
-    font-family: var(--font-family-base);
     opacity: 1; /* Override Firefox's unusual default opacity */
   }
 
@@ -239,9 +239,13 @@ select.form-control {
     box-shadow: var(--checkbox-shadow-focus);
   }
 
-  & input:disabled + label::before {
-    background-color: var(--checkbox-bg-disabled);
-    border-color: var(--checkbox-border-color-disabled);
+  & input:disabled + label {
+    color: var(--graphite04);
+
+    &::before {
+      background-color: var(--checkbox-bg-disabled);
+      border-color: var(--checkbox-border-color-disabled);
+    }
   }
 
   & input:checked + label {

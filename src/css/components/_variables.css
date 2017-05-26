@@ -138,8 +138,8 @@
   --btn-default-hover: var(--graphite04);
   --btn-disabled-opacity: 0.5;
   --btn-line-height: 2.2rem;
-  --btn-padding-x: 6px;
-  --btn-padding-y: 8px;
+  --btn-padding-x: 30px;
+  --btn-padding-y: 9px;
 
   /* button primary */
   --btn-primary-bg: var(--azure06);
@@ -222,7 +222,7 @@
   --checkbox-bg: var(--white);
   --checkbox-bg-disabled: var(--checkbox-bg);
   --checkbox-bg-disabled-checked: var(--graphite03);
-  --checkbox-shadow-focus: 0 0 0 2px var(--body-bg), 0 0 0 3px var(--checkbox-color);
+  --checkbox-shadow-focus: 0 0 0 1px var(--body-bg), 0 0 0 2px var(--checkbox-color);
   --checkbox-color: var(--azure06);
 
   --checkbox-box-h: 16px;
