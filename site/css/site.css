@@ -1,6 +1,12 @@
-/* Borrow Soho Foundation Variables */
-@import '../../src/css/components/_variables';
+/* Variables */
+@import '_variables';
 
-/* Site Styles */
+/* General Styles */
 @import '_base';
-@import '_syntax';
+@import '_nav';
+@import '_syntax-highlighting';
+
+/* Page-specific styles */
+@import 'pages/_adaptive';
+@import 'pages/_colors';
+@import 'pages/_grid';
