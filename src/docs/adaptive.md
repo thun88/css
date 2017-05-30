@@ -68,7 +68,7 @@ The elements `input`, `select`, `radio`, and `checkbox` all support the touch ad
                 <option>Option</option>
                 <option>Option</option>
             </select>
-            <p class="info-block">Some info text</p>
+            <div class="info-block">Some info text</div>
         </div>
         <button type="button" class="btn btn-primary btn-block">Save</button>
     </form>
