@@ -59,30 +59,35 @@
         </ul>
       </nav>
 
-      <section class="fnd-row--col-md-8 site-main">
-        $if(title)$
-          <div id="$idprefix$header">
-            <h1 class="title">$title$</h1>
-            $if(subtitle)$
-              <h1 class="subtitle">$subtitle$</h1>
-            $endif$
-            $for(author)$
-              <h2 class="author">$author$</h2>
-            $endfor$
-            $if(date)$
-              <h3 class="date">$date$</h3>
+      <div class="fnd-row--col-md-10 fnd-row site-main">
+
+        <section class="fnd-row--col-md-9">
+          $if(title)$
+            <div id="$idprefix$header">
+              <h1 class="title">$title$</h1>
+              $if(subtitle)$
+                <h1 class="subtitle">$subtitle$</h1>
+              $endif$
+              $for(author)$
+                <h2 class="author">$author$</h2>
+              $endfor$
+              $if(date)$
+                <h3 class="date">$date$</h3>
+              $endif$
+            </div>
+          $endif$
+          <div>$body$</div>
+        </section>
+
+        <nav class="fnd-row--col-md-3 site-main--sidebar">
+          <div class="site-main--sidebar--inner">
+            <h2>Contents</h2>
+            $if(toc)$
+              $toc$
             $endif$
           </div>
-        $endif$
-        <div>$body$</div>
-      </section>
-
-      <nav class="fnd-row--col-md-2 site-sidebar--right">
-        <h2>Contents</h2>
-        $if(toc)$
-          $toc$
-        $endif$
-      </nav>
+        </nav>
+      </div>
 
     </main>
   </body>

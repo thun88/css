@@ -32,7 +32,23 @@
   --font-family-mono: menlo, monaco, consolas, 'courier new', monospace;
   --font-size-base: 1.4rem;
   --line-height-base: 1.5;
+
+  /* breakpoints */
+  --breakpoint-xs: 400px;
+  --breakpoint-sm: 600px;
+  --breakpoint-md: 840px;
+  --breakpoint-lg: 1280px;
+  --breakpoint-xl: 1440px;
 }
 /* @end cssVariables */
+
+/* Media definitions */
+:root {
+  @custom-media --viewport-xs (min-width: var(--breakpoint-xs));
+  @custom-media --viewport-sm (min-width: var(--breakpoint-sm));
+  @custom-media --viewport-md (min-width: var(--breakpoint-md));
+  @custom-media --viewport-lg (min-width: var(--breakpoint-lg));
+  @custom-media --viewport-xl (min-width: var(--breakpoint-xl));
+}
 
 /* stylelint-enable comment-empty-line-before, custom-property-empty-line-before */

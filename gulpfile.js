@@ -264,6 +264,13 @@ gulp.task('lint:site', function() {
 
 
 // -------------------------------------
+//   Task: Pre-commit
+//   Run things before committing
+// -------------------------------------
+gulp.task('pre-commit', ['lint']);
+
+
+// -------------------------------------
 //   Task: Serve
 //   Serve and watch files
 // -------------------------------------
@@ -500,7 +507,7 @@ function parseIcons() {
 gulp.task('deploy', ['lint', 'build'], function() {
   let exec = require('child_process').exec;
 
-  let src = '~/HookandLoop/git/soho/soho-foundation/site/www/*',
+  let src = '~/HookandLoop/git/github/soho-foundation/site/www/*',
       dest = ' ~/Dropbox/Public/soho-foundation';
 
   return exec(`cp -R ${src} ${dest}`, function (err, stdout, stderr) {

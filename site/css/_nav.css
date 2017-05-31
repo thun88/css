@@ -56,6 +56,13 @@
   padding: 12px 8px;
 }
 
-.site-sidebar--right {
+.site-main--sidebar {
   background-color: var(--white);
+}
+
+@media (--viewport-lg) {
+  .site-main--sidebar--inner {
+    position: fixed;
+    right: 3.2rem;
+  }
 }
