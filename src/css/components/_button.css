@@ -8,6 +8,7 @@
   border-radius: 2px;
   cursor: pointer;
   display: inline-block;
+  font-family: var(--font-family-base);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-bold);
   line-height: var(--input-line-height);
