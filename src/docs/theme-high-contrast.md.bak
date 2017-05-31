@@ -1,0 +1,37 @@
+---
+title: High Contrast Theme
+description: Soho Foundation Styleguide
+stylesheet: soho-foundation-high-contrast.min.css
+
+---
+
+## Colors
+
+<div class="color-row">
+    {{> _colorSwatch colorData=themeHighContrast.alertGreen title="alert green"}}
+    {{> _colorSwatch colorData=themeHighContrast.bodyBg title="body bg"}}
+    {{> _colorSwatch colorData=themeHighContrast.bodyColor title="body color"}}
+    {{> _colorSwatch colorData=themeHighContrast.linkColor title="link color"}}
+    {{> _colorSwatch colorData=themeHighContrast.linkColorHover title="link color hover"}}
+    {{> _colorSwatch colorData=themeHighContrast.textDisabled title="text disabled"}}
+    {{> _colorSwatch colorData=themeHighContrast.headingsColor title="headings color"}}
+    {{> _colorSwatch colorData=themeHighContrast.btnDefaultBg title="btn default bg"}}
+    {{> _colorSwatch colorData=themeHighContrast.btnDefaultColor title="btn default color"}}
+    {{> _colorSwatch colorData=themeHighContrast.btnDefaultHover title="btn default hover"}}
+    {{> _colorSwatch colorData=themeHighContrast.btnPrimaryBg title="btn primary bg"}}
+    {{> _colorSwatch colorData=themeHighContrast.btnPrimaryBg title="btn primary bg"}}
+    {{> _colorSwatch colorData=themeHighContrast.btnLinkColor title="btnLinkColor"}}
+    {{> _colorSwatch colorData=themeHighContrast.btnLinkHover title="btn link hover"}}
+    {{> _colorSwatch colorData=themeHighContrast.iconFill title="icon fill"}}
+    {{> _colorSwatch colorData=themeHighContrast.inputInfoBlockColor title="input info block color"}}
+    {{> _colorSwatch colorData=themeHighContrast.inputLabelColor title="input label color"}}
+    {{> _colorSwatch colorData=themeHighContrast.inputBg title="inputBg"}}
+    {{> _colorSwatch colorData=themeHighContrast.inputBorderColor title="input border color"}}
+    {{> _colorSwatch colorData=themeHighContrast.inputColor title="input color"}}
+    {{> _colorSwatch colorData=themeHighContrast.inputBg title="inputBg"}}
+    {{> _colorSwatch colorData=themeHighContrast.inputBorderColorDisabled title="input border color disabled"}}
+    {{> _colorSwatch colorData=themeHighContrast.inputBg title="input bg"}}
+    {{> _colorSwatch colorData=themeHighContrast.inputBorderColorHover title="input border color hover"}}
+    {{> _colorSwatch colorData=themeHighContrast.inputBg title="inputBg"}}
+    {{> _colorSwatch colorData=themeHighContrast.inputBorderColorFocus title="input border color focus"}}
+</div>

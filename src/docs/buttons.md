@@ -5,10 +5,17 @@ description: Soho Foundation Styleguide
 
 ## Specs
 
-**Default Button Color**: <span style="background-color: {{ default.btnDefaultBg.value }}" title="{{default.btnDefaultBg.value}}">&nbsp;&nbsp;&nbsp;</span> {{default.btnDefaultBg.originalValue}}<br>
-**Default Button Label Color**: <span style="background-color: {{ default.btnDefaultColor.value }}" title="{{ default.btnDefaultColor.value }}">&nbsp;&nbsp;&nbsp;</span> {{ default.btnDefaultColor.originalValue }}<br>
-**Primary Button Color**: <span style="background-color: {{ default.btnPrimaryBg.value }}" title="{{default.btnPrimaryBg.value}}">&nbsp;&nbsp;&nbsp;</span> {{default.btnPrimaryBg.originalValue}}<br>
-**Primary Button Label Color**: <span style="background-color: {{ default.btnPrimaryColor.value }}" title="{{ default.btnPrimaryColor.value }}">&nbsp;&nbsp;&nbsp;</span> {{ default.btnPrimaryColor.originalValue }}
+**Default Button**:
+{{> specColor title="Default Button Color" spec=default.btnDefaultBg }}
+{{> specColor title="Default Button Label Color" spec=default.btnDefaultColor }}
+{{> specColor title="Default Button Hover Color" spec=default.btnDefaultHover }}
+{{> specValue title="Disabled State Opacity" spec=default.btnDisabledOpacity }}
+
+**Primary Button**
+{{> specColor title="Background Color" spec=default.btnPrimaryBg }}
+{{> specColor title="Label Color" spec=default.btnPrimaryColor }}
+{{> specColor title="Hover Color" spec=default.btnPrimaryHover }}
+{{> specValue title="Disabled State Opacity" spec=default.btnDisabledOpacity }}
 
 <blockquote>
     <strong>Note</strong> that buttons can be made to extend the width of their container (aka width: 100%) by using the <code>btn--block</code> class.
@@ -118,7 +125,7 @@ To mimic the "focus" state, you can use the class `has-focus` on a button or lin
 
 Can be used with `<a>` or `<button>` tags.
 
-<div class="example">t
+<div class="example">
     <a href="" class="btn btn--link">Button</a>
     <a href="" class="btn btn--link" disabled>Button</a>
     <a href="" class="btn btn--link has-focus">Button (focused)</a>

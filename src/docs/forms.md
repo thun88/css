@@ -7,13 +7,8 @@ Some text about using form-controls.
 
 ## Specs
 
-```css
-{
-    {{#each default.inputs}}
-        {{@key}}: {{this}};
-    {{/each}}
-}
-```
+{{> specColor title="Border Color" spec=default.inputBorderColor }}
+{{> specValue title="Corner Radius" spec=default.inputBorderRadius }}
 
 ## Basic Example
 
@@ -35,7 +30,7 @@ Individual form controls automatically receive some global styling. All textual 
             <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
                 <use xlink:href="#folder"></use>
             </svg>
-            <p class="info-block">Example block-level help text here.</p>
+            <div class="info-block">Example block-level help text here.</div>
         </div>
         <div class="form-checkbox">
             <input type="checkbox" id="exampleCheckMeOut" name="exampleCheckMeOut" value=""/>
@@ -62,7 +57,7 @@ Individual form controls automatically receive some global styling. All textual 
         <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
             <use xlink:href="#folder"></use>
         </svg>
-        <p class="info-block">Example block-level help text here.</p>
+        <div class="info-block">Example block-level help text here.</div>
     </div>
     <div class="form-checkbox">
         <input type="checkbox" id="exampleCheckMeOut" name="exampleCheckMeOut" value=""/>
@@ -259,7 +254,7 @@ Disabled checkboxes and radios are supported, but to provide a "not-allowed" cur
                 <option>Option</option>
                 <option>Option</option>
             </select>
-            <p class="info-block">Some info text</p>
+            <div class="info-block">Some info text</div>
         </div>
     </form>
 </div>
@@ -271,7 +266,7 @@ Disabled checkboxes and radios are supported, but to provide a "not-allowed" cur
         <option>Option</option>
         <option>Option</option>
     </select>
-    <p class="info-block">Some passive text</p>
+    <div class="info-block">Some passive text</div>
 </div>
 ```
 
@@ -286,7 +281,7 @@ For `<select>` controls with the `multiple` attribute, multiple options are show
                 <option>Option</option>
                 <option>Option</option>
             </select>
-            <p class="info-block">Some info text</p>
+            <div class="info-block">Some info text</div>
         </div>
     </form>
 </div>
@@ -298,7 +293,7 @@ For `<select>` controls with the `multiple` attribute, multiple options are show
         <option>Option</option>
         <option>Option</option>
     </select>
-    <p class="info-block">Some passive text</p>
+    <div class="info-block">Some passive text</div>
 </div>
 ```
 
@@ -350,7 +345,7 @@ Block level help text for form controls.
         <div class="form-group">
             <label for="exampeInputWithHelp">Input with help text</label>
             <input type="email" class="form-control" id="exampeInputWithHelp" aria-describedby="helpBlock">
-            <p class="info-block">A block of help text that breaks onto a new line and may extend beyond one line.</p>
+            <div class="info-block">A block of help text that breaks onto a new line and may extend beyond one line.</div>
         </div>
     </form>
 </div>
@@ -379,7 +374,7 @@ Soho Foundation includes validation styles for errors on form controls. To use, 
         <div class="form-group has-error">
             <label for="text-info-2" class="is-required">Input with Error</label>
             <input type="text" id="text-info-2" class="form-control" placeholder="Placeholder">
-            <p class="info-block">(!) Required</p>
+            <div class="info-block">(!) Required</div>
         </div>
 
         <div class="form-group has-error">
@@ -389,7 +384,7 @@ Soho Foundation includes validation styles for errors on form controls. To use, 
                 <option>Option</option>
                 <option>Option</option>
             </select>
-            <p class="info-block">Required</p>
+            <div class="info-block">Required</div>
         </div>
     </form>
 </div>
@@ -397,7 +392,7 @@ Soho Foundation includes validation styles for errors on form controls. To use, 
 <div class="form-group has-error">
     <label for="text-info-2" class="is-required">Input with Error</label>
     <input type="text" id="text-info-2" class="form-control" placeholder="Placeholder">
-    <p class="info-block">(!) Required</p>
+    <div class="info-block">(!) Required</div>
 </div>
 
 <div class="form-group has-error">
@@ -407,7 +402,7 @@ Soho Foundation includes validation styles for errors on form controls. To use, 
         <option>Option</option>
         <option>Option</option>
     </select>
-    <p class="info-block">Required</p>
+    <div class="info-block">Required</div>
 </div>
 ```
 

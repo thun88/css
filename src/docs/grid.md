@@ -7,13 +7,12 @@ The grids used run off of the [lost grid](http://lostgrid.org/docs.html) postcss
 
 ## Specs
 
-```css
-{
-    {{#each default.breakpoints}}
-        {{@key}}: {{this}};
-    {{/each}}
-}
-```
+{{> specValue title="Extra Small" spec=default.breakpointXs }}
+{{> specValue title="Small" spec=default.breakpointSm }}
+{{> specValue title="Medium" spec=default.breakpointMd }}
+{{> specValue title="Large" spec=default.breakpointLg }}
+{{> specValue title="Extra Large" spec=default.breakpointXl }}
+
 
 ## Grid
 

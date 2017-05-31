@@ -1,23 +1,18 @@
 ---
-title: Adaptive Styles
+title: Adaptive States
 description: Soho Foundation Styleguide
 ---
 
 This is a page dedicated to showcase adaptive states. Adaptive states can be defined within any scope of the DOM to modify style of supported elements for different environment factors like touch input.
 
-## Specs
-
-```css
-{
-{{#each default.adaptiveInputs}}
-    {{@key}}: {{this}};
-{{/each}}
-}
-```
-
 ## Touch Adaptive State
 
 Use the class `adaptive--touch` to trigger the "touch" adaptive state to the inner elements that support it. The "touch" adaptive state primarily increases the size of touch points like fields and buttons to make it easier to tap these elements when using a device with touch input like a phone or tablet.
+
+### Specs
+
+{{> specValue title="Touch Input Height" spec=default.inputHeightAdaptiveTouch }}
+
 
 ### Forms and Form Controls
 
@@ -73,7 +68,7 @@ The elements `input`, `select`, `radio`, and `checkbox` all support the touch ad
                 <option>Option</option>
                 <option>Option</option>
             </select>
-            <p class="info-block">Some info text</p>
+            <div class="info-block">Some info text</div>
         </div>
         <button type="button" class="btn btn-primary btn-block">Save</button>
     </form>

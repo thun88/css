@@ -127,6 +127,7 @@ gulp.task('compile:docs', function() {
   }
   templateData.svgIcons = ICONS_ARR;
 
+
   let hbStream = hb()
     .partials(`${sources.templates}/partials/*.hbs`)
     .data(templateData);
