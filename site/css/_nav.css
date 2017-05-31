@@ -23,7 +23,7 @@
     }
 
     & a {
-      color: inherit;
+      color: var(--azure06);
       text-decoration: none;
     }
   }
