@@ -25,6 +25,12 @@
     opacity: var(--btn-disabled-opacity);
   }
 
+  &:focus,
+  &.has-focus {
+    box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--btn-default-focus);
+    outline: 0;
+  }
+
   &.btn--default {
     background-color: var(--btn-default-bg);
     color: var(--btn-default-color);
@@ -35,12 +41,6 @@
       &[disabled] {
         background-color: var(--btn-default-bg);
       }
-    }
-
-    &:focus,
-    &.has-focus {
-      box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--btn-default-focus);
-      outline: 0;
     }
 
     & .icon {
@@ -58,12 +58,6 @@
       &[disabled] {
         background-color: var(--btn-primary-bg);
       }
-    }
-
-    &:focus,
-    &.has-focus {
-      box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--btn-primary-focus);
-      outline: 0;
     }
 
     & .icon {
@@ -96,12 +90,6 @@
     & .icon {
       fill: var(--btn-link-color);
     }
-  }
-
-  &.btn--icon {
-    padding-left: 0;
-    padding-right: 0;
-    width: calc(var(--icon-width) + 14);
   }
 
   &.btn--block {
