@@ -22,6 +22,8 @@ Foundation is a sleek, intuitive, and powerful front-end framework for faster an
 - `$ gulp build` - Build the files
 - `$ gulp clean` - Remove all generated/static files
 
+> The website is served at `http://localhost:3000/`
+
 ## SVG Icons
 
 To add an icon start with these steps, then proceed to building (below):
