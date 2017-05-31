@@ -225,7 +225,7 @@
   --checkbox-shadow-focus: 0 0 0 1px var(--body-bg), 0 0 0 2px var(--checkbox-color);
   --checkbox-color: var(--azure06);
 
-  --checkbox-box-h: 16px;
+  --checkbox-box-h: 17px;
   --checkbox-box-w: var(--checkbox-box-h);
   --checkbox-check-h: 10px;
   --checkbox-check-w: 5px;
@@ -240,7 +240,7 @@
   --radio-color: var(--white);
   --radio-shadow-focus: var(--checkbox-shadow-focus);
 
-  --radio-outer-h: 18px;
+  --radio-outer-h: 19px;
   --radio-outer-w: var(--radio-outer-h);
   --radio-inner-h: calc(var(--radio-outer-h) - 8);
   --radio-inner-w: var(--radio-inner-h);
