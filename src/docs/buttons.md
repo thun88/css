@@ -125,7 +125,7 @@ To mimic the "focus" state, you can use the class `has-focus` on a button or lin
 
 Can be used with `<a>` or `<button>` tags.
 
-<div class="example">t
+<div class="example">
     <a href="" class="btn btn--link">Button</a>
     <a href="" class="btn btn--link" disabled>Button</a>
     <a href="" class="btn btn--link has-focus">Button (focused)</a>
