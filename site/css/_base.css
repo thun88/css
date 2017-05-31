@@ -32,6 +32,8 @@ ul {
  */
 .site-main {
   background-color: var(--white);
+  height: 100%;
+  overflow: auto;
 }
 
 .site-sidebar,

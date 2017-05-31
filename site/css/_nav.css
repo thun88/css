@@ -58,6 +58,4 @@
 
 .site-sidebar--right {
   background-color: var(--white);
-  position: fixed;
-  width: 100%;
 }
