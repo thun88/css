@@ -14,6 +14,7 @@
 //   'gulp lint'
 //      'gulp lint:css'
 //      'gulp lint:site'
+//   `gulp pre-commit'
 //   'gulp serve'
 //   'gulp svg:optimize'
 //   'gulp svg:store'
