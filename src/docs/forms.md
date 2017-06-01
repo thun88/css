@@ -80,7 +80,7 @@ Individual form controls automatically receive some global styling. All textual 
 
 ### Inputs
 
-By default, inputs take 100% width of their parent container. This is so they are become the width of the [grid](grid.html) column they are in.
+By default, inputs take 100% width of their parent container. This is so they are become the width of the [layout](layout.html) column they are in.
 
 <div class="example">
     <form>

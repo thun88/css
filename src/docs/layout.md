@@ -1,9 +1,9 @@
 ---
-title: Responsive Grid
+title: Responsive Layout
 description: Soho Foundation Styleguide
 ---
 
-A 12-column grid is the base infrastructure of modern, responsive application layouts. On this page, you'll learn how to use the responsive grid to build layouts and how to adjust your layouts on different browser-width breakpoints.
+A 12-column layout is the base infrastructure of modern, responsive application layouts. On this page, you'll learn how to use the responsive layout to build layouts and how to adjust your layouts on different browser-width breakpoints.
 
 ## Breakpoint Specs
 
@@ -14,9 +14,9 @@ A 12-column grid is the base infrastructure of modern, responsive application la
 {{> specValue title="Extra Large" spec=default.breakpointXl }}
 
 
-## Basic Grid (Fixed)
+## Basic Layout (Fixed)
 
-By default, the grid is fixed so that each column is `1/N` of the parent container where `N` is the `fnd-row--col-N` number 1-12. Use `.fnd-row` to create a grid row wrapper and then add your rows.
+By default, the layout is fixed so that each column is `1/N` of the parent container where `N` is the `fnd-row--col-N` number 1-12. Use `.fnd-row` to create a layout row wrapper and then add your rows.
 
 <div class="example">
     <div class="fnd-row example-row">
@@ -51,9 +51,9 @@ By default, the grid is fixed so that each column is `1/N` of the parent contain
 </div>
 ```
 
-## Responsive Grid
+## Responsive Layout
 
-The grid is responsive based on the breakpoints applied. When you apply a breakpoint `col` class, such as `.fnd-row--col-md-1`, that column will change from the fixed default to become 100% full width of the parent container starting at the smallest breakpoint, until the browser gets wider and hits the `medium` breakpoint. At that point,it will then become its respective percentage of the width.
+The layout is responsive based on the breakpoints applied. When you apply a breakpoint `col` class, such as `.fnd-row--col-md-1`, that column will change from the fixed default to become 100% full width of the parent container starting at the smallest breakpoint, until the browser gets wider and hits the `medium` breakpoint. At that point,it will then become its respective percentage of the width.
 
 <div class="example">
     <div class="fnd-row example-row">
@@ -64,7 +64,7 @@ The grid is responsive based on the breakpoints applied. When you apply a breakp
         <div class="fnd-row--col-sm-2">col-2</div>
         <div class="fnd-row--col-sm-2">col-2</div>
     </div>
-    <small>Note: Resize your browser width to see the grid change at the SM breakpoint.</small>
+    <small>Note: Resize your browser width to see the layout change at the SM breakpoint.</small>
 </div>
 ```html
 <div class="fnd-row">
@@ -98,9 +98,9 @@ You can also use the breakpoint `col` classes `.fnd-row--col-[xs|sm|md|lg|xl]-*`
 </div>
 ```
 
-## Grid with Gutters
+## Layout with Gutters
 
-A grid with gutters helps you layout out content and maintain consistent spacing between elements. Use grid class `.fnd-row--gutter` to create a grid row with a gutter. There are two different sizes of gutters (Small and Large) which are automatic based on the breakpoint size classes you're using.
+A layout with gutters helps you layout out content and maintain consistent spacing between elements. Use layout class `.fnd-row--gutter` to create a layout row with a gutter. There are two different sizes of gutters (Small and Large) which are automatic based on the breakpoint size classes you're using.
 
 <div class="example">
     <div class="fnd-row--gutter example-row">
