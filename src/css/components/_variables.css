@@ -152,6 +152,7 @@
   --btn-link-color: var(--graphite06);
   --btn-link-focus: var(--btn-default-focus);
   --btn-link-hover: var(--graphite10);
+  --btn-link-active: var(--azure06);
 
   /* icons */
   --icon-fill: var(--graphite04);

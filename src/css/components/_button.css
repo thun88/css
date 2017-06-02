@@ -79,6 +79,15 @@
       outline: 0;
     }
 
+    &:active,
+    &.is-active {
+      color: var(--btn-link-active);
+
+      & .icon {
+        fill: var(--btn-link-active);
+      }
+    }
+
     & .icon {
       fill: var(--btn-link-color);
     }
