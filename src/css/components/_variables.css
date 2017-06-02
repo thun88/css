@@ -117,7 +117,7 @@
   --link-color-visited: var(--amethyst06);
 
   /* font  */
-  --font-family-base: helvetica, arial;
+  --font-family-base: "Helvetica", "Arial", san-serif;
   --header-primary-font-size: 1.8rem;
   --header-secondary-font-size: 1.6rem;
   --font-size-base: 1.4rem;
@@ -127,8 +127,8 @@
   --text-alert: var(--alert-red);
   --text-descriptive: var(--graphite06);
   --text-muted: var(--graphite04);
-  --text-bold: bold;
-  --text-italic: italic;
+  --text-strong: bold;
+  --text-emphasis: italic;
 
   /* buttons */
   --btn-default-bg: var(--graphite03);

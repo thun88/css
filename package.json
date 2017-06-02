@@ -1,7 +1,7 @@
 {
   "name": "@infor/soho_foundation",
   "shortname": "sohofoundation",
-  "version": "0.2.0-rc",
+  "version": "0.3.0-rc",
   "description": "Hook & Loop - Soho Foundation styles",
   "author": "Hook & Loop",
   "license": "UNLICENSED",

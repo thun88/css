@@ -10,7 +10,8 @@
   display: inline-block;
   font-family: var(--font-family-base);
   font-size: var(--font-size-base);
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--text-strong);
+  -webkit-font-smoothing: antialiased;
   line-height: var(--input-line-height);
   padding: var(--btn-padding-y) var(--btn-padding-x);
   text-align: center;
