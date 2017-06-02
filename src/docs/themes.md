@@ -48,13 +48,10 @@ description: Soho Foundation Styleguide
     {{> colorSwatch colorData=themeHighContrast.iconFill title="icon fill"}}
     {{> colorSwatch colorData=themeHighContrast.inputInfoBlockColor title="input info block color"}}
     {{> colorSwatch colorData=themeHighContrast.inputLabelColor title="input label color"}}
-    {{> colorSwatch colorData=themeHighContrast.inputBg title="inputBg"}}
-    {{> colorSwatch colorData=themeHighContrast.inputBorderColor title="input border color"}}
     {{> colorSwatch colorData=themeHighContrast.inputColor title="input color"}}
     {{> colorSwatch colorData=themeHighContrast.inputBg title="inputBg"}}
-    {{> colorSwatch colorData=themeHighContrast.inputBorderColorDisabled title="input border color disabled"}}
-    {{> colorSwatch colorData=themeHighContrast.inputBg title="input bg"}}
+    {{> colorSwatch colorData=themeHighContrast.inputBorderColor title="input border color"}}
     {{> colorSwatch colorData=themeHighContrast.inputBorderColorHover title="input border color hover"}}
-    {{> colorSwatch colorData=themeHighContrast.inputBg title="inputBg"}}
+    {{> colorSwatch colorData=themeHighContrast.inputBorderColorDisabled title="input border color disabled"}}
     {{> colorSwatch colorData=themeHighContrast.inputBorderColorFocus title="input border color focus"}}
 </div>
