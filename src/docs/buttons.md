@@ -82,21 +82,31 @@ Can be used with `<a>` or `<button>` tags.
     <a href="" class="btn btn--link">Button</a>
     <a href="" class="btn btn--link" disabled>Button</a>
     <a href="" class="btn btn--link has-focus">Button (focused)</a>
-    <button type="button" class="btn btn--link btn--icon" title="link icon">
+    <button type="button" class="btn btn--link" title="link icon">
         <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
             <use xlink:href="#link"></use>
         </svg>
         <span>Button</span>
     </button>
+    <button type="button" class="btn btn--link" title="save icon">
+        <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+            <use xlink:href="#save"></use>
+        </svg>
+    </button>
 </div>
 ```html
 <a href="" class="btn btn--link">Button</a>
 <a href="" class="btn btn--link" disabled>Button</a>
-<button type="button" class="btn btn--link btn--icon" title="link icon">
+<button type="button" class="btn btn--link" title="link icon">
     <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
         <use xlink:href="#link"></use>
     </svg>
     <span>Button</span>
+</button>
+<button type="button" class="btn btn--link" title="save icon">
+    <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+        <use xlink:href="#save"></use>
+    </svg>
 </button>
 ```
 
