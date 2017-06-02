@@ -42,10 +42,6 @@
         background-color: var(--btn-default-bg);
       }
     }
-
-    & .icon {
-      fill: var(--btn-default-color);
-    }
   }
 
   &.btn--primary {
@@ -58,10 +54,6 @@
       &[disabled] {
         background-color: var(--btn-primary-bg);
       }
-    }
-
-    & .icon {
-      fill: var(--btn-primary-color);
     }
   }
 

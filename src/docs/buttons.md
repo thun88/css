@@ -74,53 +74,6 @@ To mimic the "focus" state, you can use the class `has-focus` on a button or lin
 <button type="button" class="btn btn--default">Button</button>
 ```
 
-## Button Icons
-
-<div class="example">
-    <button type="button" class="btn btn--default btn--icon" title="save icon">
-        <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-            <use xlink:href="#save"></use>
-        </svg>
-    </button>
-<button type="button" class="btn btn--default" title="save icon">
-    <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-        <use xlink:href="#save"></use>
-    </svg>
-    <span>Button</span>
-</button>
-<button type="button" class="btn btn--primary btn--icon" title="save icon">
-    <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-        <use xlink:href="#save"></use>
-    </svg>
-</button>
-<button type="button" class="btn btn--primary" title="save icon">
-    <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-        <use xlink:href="#save"></use>
-    </svg>
-    <span>Button</span>
-</button>
-<button type="button" class="btn btn--link btn--icon" title="link icon">
-    <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-        <use xlink:href="#link"></use>
-    </svg>
-    <span>Button</span>
-</button>
-</div>
-```html
-<button type="button" class="btn btn--default" title="save icon">
-    <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-        <use xlink:href="#save"></use>
-    </svg>
-    <span>Button</span>
-</button>
-<button type="button" class="btn btn--link" title="link icon">
-    <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-        <use xlink:href="#link"></use>
-    </svg>
-<span>Button</span>
-</button>
-```
-
 ## Button Hyperlinks
 
 Can be used with `<a>` or `<button>` tags.
@@ -129,10 +82,22 @@ Can be used with `<a>` or `<button>` tags.
     <a href="" class="btn btn--link">Button</a>
     <a href="" class="btn btn--link" disabled>Button</a>
     <a href="" class="btn btn--link has-focus">Button (focused)</a>
+    <button type="button" class="btn btn--link btn--icon" title="link icon">
+        <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+            <use xlink:href="#link"></use>
+        </svg>
+        <span>Button</span>
+    </button>
 </div>
 ```html
 <a href="" class="btn btn--link">Button</a>
 <a href="" class="btn btn--link" disabled>Button</a>
+<button type="button" class="btn btn--link btn--icon" title="link icon">
+    <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+        <use xlink:href="#link"></use>
+    </svg>
+    <span>Button</span>
+</button>
 ```
 
 ## Hyperlinks
