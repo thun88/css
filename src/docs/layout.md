@@ -3,7 +3,7 @@ title: Responsive Layout
 description: Soho Foundation Styleguide
 ---
 
-A 12-column layout is the base infrastructure of modern, responsive application layouts. On this page, you'll learn how to use the responsive layout to build layouts and how to adjust your layouts on different browser-width breakpoints.
+A 12-column layout is the base infrastructure of modern, responsive application. On this page, you'll learn how to use the responsive layout to build pages and how to adjust your layouts on different browser-width breakpoints.
 
 ## Breakpoint Specs
 
@@ -16,7 +16,7 @@ A 12-column layout is the base infrastructure of modern, responsive application 
 
 ## Basic Layout (Fixed)
 
-By default, the layout is fixed so that each column is `1/N` of the parent container where `N` is the `fnd-row--col-N` number 1-12. Use `.fnd-row` to create a layout row wrapper and then add your rows.
+By default, the layout is fixed so that each column is 1/`N`th of the parent container where `N` is the `fnd-row--col-N` number from 1 to 12. Use `.fnd-row` to create a layout row wrapper and then add your rows.
 
 <div class="example">
     <div class="fnd-row example-row">
@@ -53,7 +53,7 @@ By default, the layout is fixed so that each column is `1/N` of the parent conta
 
 ## Responsive Layout
 
-The layout is responsive based on the breakpoints applied. When you apply a breakpoint `col` class, such as `.fnd-row--col-md-1`, that column will change from the fixed default to become 100% full width of the parent container starting at the smallest breakpoint, until the browser gets wider and hits the `medium` breakpoint. At that point,it will then become its respective percentage of the width.
+The layout is responsive based on the breakpoints applied. When you apply a breakpoint `col` class, such as `.fnd-row--col-md-1`, that column will change from the fixed default to become 100% full width of the parent container from the smallest breakpoint, until the browser gets wider and hits the `medium` breakpoint. At that point,it will then become its respective percentage of the width.
 
 <div class="example">
     <div class="fnd-row example-row">
@@ -100,7 +100,7 @@ You can also use the breakpoint `col` classes `.fnd-row--col-[xs|sm|md|lg|xl]-*`
 
 ## Layout with Gutters
 
-A layout with gutters helps you layout out content and maintain consistent spacing between elements. Use layout class `.fnd-row--gutter` to create a layout row with a gutter. There are two different sizes of gutters (Small and Large) which are automatic based on the breakpoint size classes you're using.
+A layout with gutters helps you layout content and maintain consistent spacing between elements. Use layout class `.fnd-row--gutter` to create a layout row with a gutter. There are two different sizes of gutters (Small and Large) which are automatic based on the breakpoint size classes you're using. Below are standard, recommended SoHo layouts which will provide the best flexibility and content structure for most applications.
 
 <div class="example">
     <div class="fnd-row--gutter example-row">
