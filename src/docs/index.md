@@ -18,12 +18,12 @@ SoHo Foundations is a more flexible and lightweight implementation of SoHo's bas
 
 **ETA: End of April**
 
-* 12-column grid with responsive classes
+* 12-column layout with responsive classes
 * Buttons
-    * Compatible with responsive grid
+    * Compatible with responsive layout
 * Form fields and form controls
     * Currently: basic styling with browser native drop-downs
-    * Compatible with responsive grid
+    * Compatible with responsive layout
 
 ## Roadmap
 

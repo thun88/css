@@ -50,7 +50,7 @@
     }
 
     .fnd-row--gutter .fnd-row--col-md-$i {
-      lost-column: $(i)/12 auto 24px;
+      lost-column: $(i)/12 auto 20px;
     }
   }
 }
@@ -62,7 +62,7 @@
     }
 
     .fnd-row--gutter .fnd-row--col-lg-$i {
-      lost-column: $(i)/12 auto 24px;
+      lost-column: $(i)/12 auto 20px;
     }
   }
 }
@@ -74,7 +74,7 @@
     }
 
     .fnd-row--gutter .fnd-row--col-xl-$i {
-      lost-column: $(i)/12 auto 24px;
+      lost-column: $(i)/12 auto 20px;
     }
   }
 }

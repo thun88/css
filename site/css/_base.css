@@ -1,67 +1,67 @@
 /*
- * Website styles
+ * Base Styles
  */
+body {
+  background-color: var(--body-bg);
+  color: var(--body-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li {
+  color: var(--body-color);
+  font-family: var(--font-family-base);
+}
 
 ul {
-  list-style-type: disc;
   margin-bottom: 10px;
   padding-left: 15px;
 
   & > li {
-    line-height: 1.4;
+    line-height: var(--line-height-base);
   }
 }
 
 /*
- * Top Nav
+ * General Classes
  */
-.site-nav {
-  background-color: var(--azure06);
-  color: var(--white);
-  padding: 20px;
+.site-main {
+  background-color: var(--white);
 }
 
-.site-nav--list {
-  list-style-type: none;
-  margin-bottom: 0;
-  overflow: hidden;
+.site-sidebar,
+.site-main {
+  padding: 1.5rem 3.2rem;
+}
+
+.site-spec {
+  line-height: 1.8rem;
+}
+
+.site-spec--title,
+.site-spec--value {
+  display: inline-block;
+}
+
+.site-spec--color {
+  border: 1px solid var(--graphite03);
+  border-radius: 16px;
+  display: inline-block;
+  height: 16px;
   position: relative;
-
-  & > li {
-    float: left;
-    line-height: var(--input-height);
-    margin-left: 30px;
-
-    &:first-child {
-      margin-left: 0;
-    }
-
-    & a {
-      color: inherit;
-      text-decoration: none;
-    }
-  }
+  top: 3px;
+  width: 16px;
 }
 
-/*
- * Side Nav
- */
-.site-sidebar {
-  overflow-y: scroll;
-}
-
-.site-sidebar--list > li {
-  display: block;
-  padding: 12px 8px;
-}
-
-/*
- * Main contents
- */
 code {
-  background-color: #f9f2f4;
+  background-color: #f0f1f5;
   border-radius: 4px;
-  color: #c7254e;
+  color: #6b6e76;
   font-size: 90%;
   padding: 2px 4px;
 }
@@ -115,72 +115,4 @@ blockquote {
   &.info {
     border-left-color: var(--amber05);
   }
-}
-
-.site-sidebar,
-.site-main {
-  padding: 1.5rem 3.2rem;
-}
-
-/*
- * Grid
- */
-.example-row.fnd-row,
-.example-row.fnd-row--gutter {
-  margin-bottom: 20px;
-
-  & [class^='fnd-row--'] {
-    background-color: var(--azure01);
-    height: 30px;
-    line-height: 30px;
-    text-align: center;
-  }
-}
-
-.example-row.fnd-row > [class^='fnd-row--'] {
-  outline: solid 1px var(--azure06);
-}
-
-/*
- * Colors specific grid
- */
-.color-row {
-  lost-center: 100%;
-
-  & .color-row--col-1:nth-child(10n + 1),
-  & .color-row--col-1:nth-child(10n + 2),
-  & .color-row--col-1:nth-child(10n + 3) {
-    color: inherit;
-  }
-
-  & > .color-row--col-1 {
-    color: var(--graphite02);
-    lost-column: 1/10 10 3px;
-    margin-bottom: 20px;
-    text-align: center;
-  }
-
-  & .swatch {
-    display: table;
-    height: 100px;
-    margin-top: 5px;
-  }
-
-  & .swatch-text {
-    display: table-cell;
-    text-align: center;
-    vertical-align: middle;
-  }
-}
-
-/*
- * Showcase states for examples
- */
-.example-focus {
-  box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--btn-default-bg);
-  outline: 0;
-}
-
-.example-padding {
-  outline: dashed 1px var(--emerald04);
 }

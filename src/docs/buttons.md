@@ -5,10 +5,17 @@ description: Soho Foundation Styleguide
 
 ## Specs
 
-**Default Button Color**: <span style="background-color: {{ default.btnDefaultBg.value }}" title="{{default.btnDefaultBg.value}}">&nbsp;&nbsp;&nbsp;</span> {{default.btnDefaultBg.originalValue}}<br>
-**Default Button Label Color**: <span style="background-color: {{ default.btnDefaultColor.value }}" title="{{ default.btnDefaultColor.value }}">&nbsp;&nbsp;&nbsp;</span> {{ default.btnDefaultColor.originalValue }}<br>
-**Primary Button Color**: <span style="background-color: {{ default.btnPrimaryBg.value }}" title="{{default.btnPrimaryBg.value}}">&nbsp;&nbsp;&nbsp;</span> {{default.btnPrimaryBg.originalValue}}<br>
-**Primary Button Label Color**: <span style="background-color: {{ default.btnPrimaryColor.value }}" title="{{ default.btnPrimaryColor.value }}">&nbsp;&nbsp;&nbsp;</span> {{ default.btnPrimaryColor.originalValue }}
+**Default Button**:
+{{> specColor title="Default Button Color" spec=default.btnDefaultBg }}
+{{> specColor title="Default Button Label Color" spec=default.btnDefaultColor }}
+{{> specColor title="Default Button Hover Color" spec=default.btnDefaultHover }}
+{{> specValue title="Disabled State Opacity" spec=default.btnDisabledOpacity }}
+
+**Primary Button**
+{{> specColor title="Background Color" spec=default.btnPrimaryBg }}
+{{> specColor title="Label Color" spec=default.btnPrimaryColor }}
+{{> specColor title="Hover Color" spec=default.btnPrimaryHover }}
+{{> specValue title="Disabled State Opacity" spec=default.btnDisabledOpacity }}
 
 <blockquote>
     <strong>Note</strong> that buttons can be made to extend the width of their container (aka width: 100%) by using the <code>btn--block</code> class.
@@ -58,85 +65,64 @@ Use any of the available button classes to quickly create a styled button.
 
 ## Focused State
 
+To mimic the "focus" state, you can use the class `has-focus` on a button or link.
+
 <div class="example">
-    <button type="button" class="btn btn--default example-focus">Button</button>&nbsp;
+    <button type="button" class="btn btn--default has-focus">Button</button>&nbsp;
 </div>
 ```html
 <button type="button" class="btn btn--default">Button</button>
 ```
 
-## Button Icons
+## Button Hyperlinks
 
-<div class="example">
-    <button type="button" class="btn btn--default btn--icon" title="save icon">
-        <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-            <use xlink:href="#save"></use>
-        </svg>
-    </button>
-<button type="button" class="btn btn--default" title="save icon">
-    <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-        <use xlink:href="#save"></use>
-    </svg>
-    <span>Button</span>
-</button>
-<button type="button" class="btn btn--primary btn--icon" title="save icon">
-    <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-        <use xlink:href="#save"></use>
-    </svg>
-</button>
-<button type="button" class="btn btn--primary" title="save icon">
-    <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-        <use xlink:href="#save"></use>
-    </svg>
-    <span>Button</span>
-</button>
-<button type="button" class="btn btn--link btn--icon" title="link icon">
-    <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-        <use xlink:href="#link"></use>
-    </svg>
-    <span>Button</span>
-</button>
-</div>
-```html
-<button type="button" class="btn btn--default" title="save icon">
-    <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-        <use xlink:href="#save"></use>
-    </svg>
-    <span>Button</span>
-</button>
-<button type="button" class="btn btn--link" title="link icon">
-    <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-        <use xlink:href="#link"></use>
-    </svg>
-<span>Button</span>
-</button>
-```
-
-## Button Links
+Can be used with `<a>` or `<button>` tags.
 
 <div class="example">
     <a href="" class="btn btn--link">Button</a>
     <a href="" class="btn btn--link" disabled>Button</a>
-    <a href="" class="btn btn--link example-focus">Button (focused)</a>
+    <a href="" class="btn btn--link has-focus">Button (focused)</a>
+    <button type="button" class="btn btn--link" title="link icon">
+        <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+            <use xlink:href="#link"></use>
+        </svg>
+        <span>Button</span>
+    </button>
+    <button type="button" class="btn btn--link" title="save icon">
+        <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+            <use xlink:href="#save"></use>
+        </svg>
+    </button>
 </div>
 ```html
 <a href="" class="btn btn--link">Button</a>
 <a href="" class="btn btn--link" disabled>Button</a>
+<button type="button" class="btn btn--link" title="link icon">
+    <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+        <use xlink:href="#link"></use>
+    </svg>
+    <span>Button</span>
+</button>
+<button type="button" class="btn btn--link" title="save icon">
+    <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+        <use xlink:href="#save"></use>
+    </svg>
+</button>
 ```
 
-## Links
+## Hyperlinks
 
 <div class="example">
-    <a href="#example-link">Link</a><br>
-    <a href="#example-link" disabled>Link</a><br>
+    <a href="#example-link">Hyperlink</a><br>
+    <a href="#example-link" disabled>Hyperlink</a><br>
     <a href="#example-link">
-        Link
+        Hyperlink
         <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
             <use xlink:href="#link"></use>
         </svg>
     </a>
 </div>
 ```html
-<a href="#example-link">Link</a>
-<a href="#example-link" disabled>Disabled Link</a>
+<a href="#example-link">Hyperlink</a>
+<a href="#example-link" disabled>Disabled Hyperlink</a>
 ```
