@@ -108,6 +108,7 @@
 
   /* body */
   --body-bg: var(--graphite01);
+  --body-bg-secondary: var(--white);
   --body-color: var(--graphite10);
 
   /* links */

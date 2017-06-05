@@ -1,0 +1,30 @@
+<div class="fnd-row--gutter theme-spec--group" style="background-color: {{spec.bodyBg.value}};">
+  <div class="fnd-row--col-lg-3">
+    <h2 style="color: {{spec.bodyColor.value}};">Background Colors</h2>
+    {{> themeElement title="Body Background" data=spec.bodyBg }}
+    {{> themeElement title="Body Background (Secondary)" data=spec.bodyBgSecondary }}
+  </div>
+  <div class="fnd-row--col-lg-3">
+    <h2 style="color: {{spec.bodyColor.value}};">Buttons</h2>
+    {{> themeElement title="Default Button Background" data=spec.btnDefaultBg }}
+    {{> themeElement title="Default Button Text" data=spec.btnDefaultColor }}
+    {{> themeElement title="Default Button Hover Color" data=spec.btnDefaultHover }}
+    {{> themeElement title="Primary Button Background" data=spec.btnPrimaryBg }}
+    {{> themeElement title="Primary Button Text" data=spec.btnPrimaryColor }}
+    {{> themeElement title="Primary Button Hover Color" data=spec.btnPrimaryHover }}
+  </div>
+  <div class="fnd-row--col-lg-3">
+    <h2 style="color: {{spec.bodyColor.value}};">Forms</h2>
+    {{> themeElement title="Input Field" data=spec.inputBg border=spec.inputBorderColor }}
+    {{> themeElement title="Input Field (Hover)" data=spec.inputBgHover border=spec.inputBorderColorHover }}
+    {{> themeElement title="Input Field (Focus)" data=spec.inputBgFocus border=spec.inputBorderColorFocus }}
+    {{> themeElement title="Input Field (Disabled)" data=spec.inputBgDisabled border=spec.inputBorderColorDisabled }}
+  </div>
+  <div class="fnd-row--col-lg-3">
+    <h2 style="color: {{spec.bodyColor.value}};">Alert Colors</h2>
+    {{> themeElement title="Alert Green" data=spec.alertGreen }}
+    {{> themeElement title="Alert Orange" data=spec.alertOrange }}
+    {{> themeElement title="Alert Yellow" data=spec.alertYellow }}
+    {{> themeElement title="Alert Red" data=spec.alertRed }}
+  </div>
+</div>

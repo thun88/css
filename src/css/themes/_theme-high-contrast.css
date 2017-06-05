@@ -4,7 +4,8 @@
 :root {
   --alert-green: var(--emerald10);
 
-  --body-bg: var(--graphite02);
+  --body-bg: var(--graphite03);
+  --body-bg-secondary: var(--graphite02);
   --body-color: var(--black);
   --link-color: var(--azure09);
   --link-color-hover: var(--link-color);
