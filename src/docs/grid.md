@@ -127,3 +127,23 @@ A grid with gutters helps you layout content and maintain consistent spacing bet
 <div class="fnd-row--gutter example-row">
     <div class="fnd-row--col-sm-12 fnd-row--col-md-12">col-12</div>
 </div>
+
+## Basic Page Layout
+
+### Responsive List/Detail
+
+```html
+<body>
+    <div><!--- Your header here --></div>
+    <div class="fnd-container">
+        <div class="fnd-row">
+            <div class="fnd-row--col-sm-4 fnd-row--col-lg-3">
+                <!--- Left Column Contents Here -->
+            </div>
+            <div class="fnd-row--col-sm-8 fnd-row--col-lg-9">
+                <!--- Main Body Contents Here -->
+            </div>
+        </div>
+    </div>
+</body>
+```
