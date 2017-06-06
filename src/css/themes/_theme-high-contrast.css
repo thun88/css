@@ -18,9 +18,8 @@
   --btn-default-color: var(--slate10);
   --btn-default-hover: var(--slate04);
 
-  --btn-primary-bg: var(--graphite07);
-
   --btn-primary-bg: var(--azure09);
+  --btn-primary-hover: var(--azure10);
 
   --btn-link-color: var(--graphite09);
   --btn-link-hover: var(--black);
