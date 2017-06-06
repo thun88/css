@@ -130,6 +130,14 @@ A grid with gutters helps you layout content and maintain consistent spacing bet
 
 ## Basic Page Layout
 
+### Fluid Container
+```html
+<div class="fnd-container">
+    <!-- content here -->
+</div>
+```
+
+
 ### Responsive List/Detail
 
 ```html

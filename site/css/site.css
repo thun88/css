@@ -9,4 +9,4 @@
 /* Page-specific styles */
 @import 'pages/_adaptive';
 @import 'pages/_colors';
-@import 'pages/_layout';
+@import 'pages/_grid';
