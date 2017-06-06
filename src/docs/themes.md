@@ -5,12 +5,12 @@ description: Soho Foundation Styleguide
 
 ## Default
 
-{{> themeSpec spec=default }}
+{{> themeDetails spec=default }}
 
 ## Dark
 
-{{> themeSpec spec=themeDark }}
+{{> themeDetails spec=themeDark }}
 
 ## High-Contrast
 
-{{> themeSpec spec=themeHighContrast }}
+{{> themeDetails spec=themeHighContrast }}

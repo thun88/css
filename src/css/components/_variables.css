@@ -118,7 +118,7 @@
   --link-color-visited: var(--amethyst06);
 
   /* font  */
-  --font-family-base: "Helvetica", "Arial", san-serif;
+  --font-family-base: 'Helvetica', 'Arial', san-serif;
   --header-primary-font-size: 1.8rem;
   --header-secondary-font-size: 1.6rem;
   --font-size-base: 1.4rem;

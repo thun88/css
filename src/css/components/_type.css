@@ -56,12 +56,12 @@ p {
 }
 
 strong,
-.text-strong{
+.text-strong {
   font-weight: var(--text-strong);
 }
 
 em,
-.text-emphasis{
+.text-emphasis {
   font-style: var(--text-emphasis);
 }
 

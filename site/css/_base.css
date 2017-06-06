@@ -40,7 +40,7 @@ ul {
 }
 
 .site-version {
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .site-spec {
@@ -138,32 +138,30 @@ blockquote {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  -webkit-flex-flow: row wrap;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
+  flex-flow: row wrap;
 }
 
 .swatch {
-  width: 200px;
   box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.2);
   margin: 3rem;
   position: relative;
+  width: 200px;
 }
 
 .swatch-block {
-  height: 225px;
   display: block;
+  height: 225px;
 }
 
 .swatch-text {
   background-color: var(--white);
-  padding: 1em;
-  font-size: 1.4rem;
-  text-align: center;
-  position: absolute;
   bottom: 0;
+  font-size: 1.4rem;
   left: 0;
+  padding: 1rem;
+  position: absolute;
   right: 0;
+  text-align: center;
 }
 
 .theme-spec--group {
@@ -171,18 +169,16 @@ blockquote {
 }
 
 .theme-spec--block {
-  margin-bottom: 10px;
   -webkit-font-smoothing: antialiased;
+  margin-bottom: 10px;
 }
 
 .theme-spec--swatch {
-  border-style: solid;
-  border-width: 1px;
-  border-color: transparent;
+  border: solid 1px transparent;
   border-radius: 50px;
+  box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.2);
   height: 50px;
   width: 50px;
-  box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.2);
 }
 
 .theme-spec--details {
