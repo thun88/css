@@ -127,6 +127,7 @@ gulp.task('compile:docs', function() {
     ICONS_ARR = parseIcons();;
   }
   templateData.svgIcons = ICONS_ARR;
+  templateData.packageData = packageData;
 
 
   let hbStream = hb()
