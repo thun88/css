@@ -131,25 +131,27 @@ A grid with gutters helps you layout content and maintain consistent spacing bet
 ## Basic Page Layout
 
 ### Fluid Container
+
+The `fnd-container` class will provide a main content container for your application. This is usually used to set an outer page margin for a full-width layout or margin for the main content pane created by a grid layout.
+
 ```html
 <div class="fnd-container">
-    <!-- content here -->
+    <!-- content here will be inside a page margin -->
 </div>
 ```
-
 
 ### Responsive List/Detail
 
 ```html
 <body>
-    <div><!--- Your header here --></div>
-    <div class="fnd-container">
-        <div class="fnd-row">
-            <div class="fnd-row--col-sm-4 fnd-row--col-lg-3">
-                <!--- Left Column Contents Here -->
-            </div>
-            <div class="fnd-row--col-sm-8 fnd-row--col-lg-9">
-                <!--- Main Body Contents Here -->
+    <div><!--- your header here --></div>
+    <div class="fnd-row">
+        <div class="fnd-row--col-sm-4 fnd-row--col-lg-3">
+            <!--- left column contents here -->
+        </div>
+        <div class="fnd-row--col-sm-8 fnd-row--col-lg-9">
+            <div class="fnd-container">
+            <!--- main body contents here will be inside a page margin -->
             </div>
         </div>
     </div>
