@@ -24,6 +24,10 @@
 //
 // *************************************
 
+// -------------------------------------
+// Load gulp & config
+// gulp: The streaming build system
+// -------------------------------------
 const gulp   = require('gulp'),
   gConfig    = require('./gulp-config.js'),
   basePath   = gConfig.paths.base.root;
@@ -33,7 +37,7 @@ const gulp   = require('gulp'),
 // -------------------------------------
 // Load "gulp-" plugins
 // -------------------------------------
-// gulp           : The streaming build system
+// gulp-accessibility: Access Standards
 // gulp-concat    : Concatenate files
 // gulp-pandoc    : File converter
 // gulp-postcss   : Transform styles with JS
@@ -42,18 +46,19 @@ const gulp   = require('gulp'),
 // gulp-svgmin    : SVGO for gulp
 // gulp-svgstore  : Combine svg files
 // gulp-tap       : Easily tap into a pipeline (debug)
-// gulp-util      : Utility functions for gulp plugins
+// gulp-util      : Utility functions
 // -------------------------------------
-const concat = require('gulp-concat'),
-  hb = require('gulp-hb'),
-  pandoc = require('gulp-pandoc'),
-  postcss = require('gulp-postcss'),
-  rename = require('gulp-rename'),
-  stylelint = require('gulp-stylelint'),
-  svgmin = require('gulp-svgmin'),
-  svgstore = require('gulp-svgstore'),
-  tap = require('gulp-tap'),
-  gutil = require('gulp-util');
+const access = require('gulp-accessibility');
+  concat     = require('gulp-concat'),
+  hb         = require('gulp-hb'),
+  pandoc     = require('gulp-pandoc'),
+  postcss    = require('gulp-postcss'),
+  rename     = require('gulp-rename'),
+  stylelint  = require('gulp-stylelint'),
+  svgmin     = require('gulp-svgmin'),
+  svgstore   = require('gulp-svgstore'),
+  tap        = require('gulp-tap'),
+  gutil      = require('gulp-util');
 
 
 // -------------------------------------
@@ -68,11 +73,11 @@ const concat = require('gulp-concat'),
 // stylelint-order: Stylelint plugin
 // -------------------------------------
 const annotateBlock = require('css-annotation-block'),
-  browserSync = require('browser-sync').create(),
-  del = require('del'),
-  fs = require('fs'),
-  glob = require('glob'),
-  isColor = require('is-color');
+  browserSync       = require('browser-sync').create(),
+  del               = require('del'),
+  fs                = require('fs'),
+  glob              = require('glob'),
+  isColor           = require('is-color');
 
 
 // -------------------------------------
@@ -349,6 +354,24 @@ gulp.task('svg:store', function() {
 
 
 // -------------------------------------
+//   Task: Test
+//   Test accessibility
+// -------------------------------------
+gulp.task('test', function() {
+  return gulp.src(`${destinations.www}/*.html`)
+    .pipe(access({
+      force: true
+    }))
+    .on('error', console.log);
+    // .pipe(access.report({reportType: 'txt'}))
+    // .pipe(rename({
+    //   extname: '.txt'
+    // }))
+    // .pipe(gulp.dest('reports/txt'));
+});
+
+
+// -------------------------------------
 //   Task: watch-docs
 //   Guarantees reload is last task
 // -------------------------------------
@@ -513,6 +536,14 @@ gulp.task('deploy', ['lint', 'build'], function() {
     dest = ' ~/Dropbox/Public/soho-foundation';
 
   return exec(`cp -R ${src} ${dest}`, function (err, stdout, stderr) {
+    gutil.log('Deployed to https://dl.dropboxusercontent.com/u/21521721/soho-foundation/index.html');
+
+    console.log(stdout);
+    console.log(stderr);
+  });
+});
+// -------------------------------------
+p -R ${src} ${dest}`, function (err, stdout, stderr) {
     gutil.log('Deployed to https://dl.dropboxusercontent.com/u/21521721/soho-foundation/index.html');
 
     console.log(stdout);
