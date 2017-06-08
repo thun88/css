@@ -1,0 +1,5 @@
+/* Include regular soho foundation */
+@import 'soho-foundation.css';
+
+/* Modify with themed variable values */
+@import 'themes/_theme-high-contrast.css';

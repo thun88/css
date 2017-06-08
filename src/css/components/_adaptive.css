@@ -1,0 +1,41 @@
+/*
+ * Adaptive Styles
+ */
+
+.adaptive--touch {
+  & .btn,
+  & input.form-control {
+    line-height: var(--input-line-height-adaptive-touch);
+  }
+
+  & select:not([size]):not([multiple]).form-control {
+    height: var(--input-height-adaptive-touch);
+  }
+
+  & .form-checkbox,
+  & .form-radio,
+  & .form-checkbox label,
+  & .form-radio label {
+    padding-bottom: var(--input-padding-adaptive-touch);
+    padding-top: var(--input-padding-adaptive-touch);
+  }
+
+  & .form-radio {
+    & label {
+      padding-left: calc(var(--radio-outer-w-adaptive-touch) + 5);
+
+      &::before {
+        height: var(--radio-outer-h-adaptive-touch);
+        top: calc(50% - 0.5 * var(--radio-outer-h-adaptive-touch));
+        width: var(--radio-outer-w-adaptive-touch);
+      }
+
+      &::after {
+        height: var(--radio-inner-h-adaptive-touch);
+        left: calc(var(--radio-outer-w-adaptive-touch) / 2 - var(--radio-inner-w-adaptive-touch) / 2);
+        top: calc(50% - 0.5 * var(--radio-inner-h-adaptive-touch));
+        width: var(--radio-inner-w-adaptive-touch);
+      }
+    }
+  }
+}

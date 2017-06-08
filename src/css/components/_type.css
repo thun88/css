@@ -1,0 +1,102 @@
+html[lang='ar-EG'],
+html[lang='ar-SA'] {
+  font-family: 'Helvetica', 'Arial', 'Tahoma', 'DejaVu';
+}
+
+html[lang='ja-JP'] {
+  font-family: 'Helvetica', 'Arial', 'MS PGothic';
+}
+
+html[lang='ko-KR'] {
+  font-family: 'Helvetica', 'Arial', 'Batang', 'Gulim';
+}
+
+html[lang='zh-CN'] {
+  font-family: 'Helvetica', 'Arial', 'Microsoft YaHei New', '微软雅黑', '宋体', 'SimSun', 'STXihei', '华文细黑';
+}
+
+html[lang='zh-tw'] {
+  font-family: 'Helvetica', 'Arial', 'MingLiU';
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background-color: var(--body-bg);
+  color: var(--body-color);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  height: 100%;
+}
+
+h1,
+.header--primary {
+  font-size: var(--header-primary-font-size);
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+h2,
+h3,
+h4,
+h5,
+h6,
+.header--secondary {
+  font-size: var(--header-secondary-font-size);
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+p {
+  line-height: var(--line-height-base);
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+strong {
+  font-weight: 700;
+}
+
+em {
+  font-style: italic;
+}
+
+small,
+.small {
+  font-size: var(--text-small);
+  font-weight: var(--font-weight-normal);
+}
+
+.text-disabled { color: var(--text-disabled); }
+.text-alert { color: var(--text-alert); }
+
+a {
+  color: var(--link-color);
+  cursor: pointer;
+
+  &:hover {
+    color: var(--link-color-hover);
+  }
+
+  &[disabled] {
+    color: var(--link-color-disabled);
+
+    & .icon {
+      fill: var(--link-color-disabled);
+    }
+  }
+
+  &:visited {
+    color: var(--link-color-visited);
+
+    & .icon {
+      fill: var(--link-color-visited);
+    }
+  }
+
+  & .icon {
+    fill: var(--link-color-hover);
+  }
+}

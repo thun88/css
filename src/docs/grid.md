@@ -1,84 +1,159 @@
-# Grid - Lost Grid
-The grids used run off of the [lost grid](http://lostgrid.org/docs.html) postcss plugin.
+---
+title: Responsive Grid
+description: Soho Foundation Styleguide
+---
 
-## Even columns
+A 12-column grid is the base infrastructure of modern, responsive application. On this page, you'll learn how to use the responsive grid to build page layouts and how to adjust your layouts on different browser-width breakpoints.
 
-<div class="lost-grid demo-grid">
-  <div class="lost-grid--col-1">Col 1</div>
-  <div class="lost-grid--col-1">Col 1</div>
-  <div class="lost-grid--col-1">Col 1</div>
-  <div class="lost-grid--col-1">Col 1</div>
-  <div class="lost-grid--col-1">Col 1</div>
-  <div class="lost-grid--col-1">Col 1</div>
-  <div class="lost-grid--col-1">Col 1</div>
-  <div class="lost-grid--col-1">Col 1</div>
-  <div class="lost-grid--col-1">Col 1</div>
-  <div class="lost-grid--col-1">Col 1</div>
-  <div class="lost-grid--col-1">Col 1</div>
-  <div class="lost-grid--col-1">Col 1</div>
+## Breakpoint Specs
+
+{{> specValue title="Extra Small" spec=default.breakpointXs }}
+{{> specValue title="Small" spec=default.breakpointSm }}
+{{> specValue title="Medium" spec=default.breakpointMd }}
+{{> specValue title="Large" spec=default.breakpointLg }}
+{{> specValue title="Extra Large" spec=default.breakpointXl }}
+
+
+## Basic Grid (Fixed)
+
+By default, the grid is fixed so that each column is 1/`N`th of the parent container where `N` is the `fnd-row--col-N` number from 1 to 12. Use `.fnd-row` to create a layout row wrapper and then add your rows.
+
+<div class="example">
+    <div class="fnd-row example-row">
+        <div class="fnd-row--col-1">col-1</div>
+        <div class="fnd-row--col-1">col-1</div>
+        <div class="fnd-row--col-1">col-1</div>
+        <div class="fnd-row--col-1">col-1</div>
+        <div class="fnd-row--col-1">col-1</div>
+        <div class="fnd-row--col-1">col-1</div>
+        <div class="fnd-row--col-1">col-1</div>
+        <div class="fnd-row--col-1">col-1</div>
+        <div class="fnd-row--col-1">col-1</div>
+        <div class="fnd-row--col-1">col-1</div>
+        <div class="fnd-row--col-1">col-1</div>
+        <div class="fnd-row--col-1">col-1</div>
+    </div>
+</div>
+```html
+<div class="fnd-row">
+    <div class="fnd-row--col-1">col-1</div>
+    <div class="fnd-row--col-1">col-1</div>
+    <div class="fnd-row--col-1">col-1</div>
+    <div class="fnd-row--col-1">col-1</div>
+    <div class="fnd-row--col-1">col-1</div>
+    <div class="fnd-row--col-1">col-1</div>
+    <div class="fnd-row--col-1">col-1</div>
+    <div class="fnd-row--col-1">col-1</div>
+    <div class="fnd-row--col-1">col-1</div>
+    <div class="fnd-row--col-1">col-1</div>
+    <div class="fnd-row--col-1">col-1</div>
+    <div class="fnd-row--col-1">col-1</div>
+</div>
+```
+
+## Responsive Grid
+
+The grid is responsive based on the breakpoints applied. When you apply a breakpoint `col` class, such as `.fnd-row--col-md-1`, that column will change from the fixed default to become 100% full width of the parent container from the smallest breakpoint, until the browser gets wider and hits the `medium` breakpoint. At that point, it will then become its respective percentage of the width.
+
+Below, if you change your browser width you should see the columns stack when the browser width is smaller than {{default.breakpointSm.value}} and then become 1/6th width when the browser is {{default.breakpointSm.value}} wide or wider.
+
+<div class="example">
+    <div class="fnd-row example-row">
+        <div class="fnd-row--col-sm-2">col-2</div>
+        <div class="fnd-row--col-sm-2">col-2</div>
+        <div class="fnd-row--col-sm-2">col-2</div>
+        <div class="fnd-row--col-sm-2">col-2</div>
+        <div class="fnd-row--col-sm-2">col-2</div>
+        <div class="fnd-row--col-sm-2">col-2</div>
+    </div>
+    <small>Note: Resize your browser width to see the layout change at the SM breakpoint.</small>
+</div>
+```html
+<div class="fnd-row">
+    <div class="fnd-row--col-sm-2">col-2</div>
+    <div class="fnd-row--col-sm-2">col-2</div>
+    <div class="fnd-row--col-sm-2">col-2</div>
+    <div class="fnd-row--col-sm-2">col-2</div>
+    <div class="fnd-row--col-sm-2">col-2</div>
+    <div class="fnd-row--col-sm-2">col-2</div>
+</div>
+```
+
+## Changing Layout at Breakpoints
+
+You can also use the breakpoint `col` classes `.fnd-row--col-[xs|sm|md|lg|xl]-*` to define different layouts between different breakpoints. For example, below, stacked columns on XS, at SM breakpoint it changes to a two column "4|8" layout and on LG and XL it's a "3|9" layout.
+
+
+<div class="example">
+    <div class="fnd-row example-row">
+        <div class="fnd-row--col-sm-4 fnd-row--col-lg-3">Column 1</div>
+        <div class="fnd-row--col-sm-8 fnd-row--col-lg-9">Column 2</div>
+    </div>
+    <small>Note: Resize your browser to different widths to see the columns flow based on different breakpoints.</small>
+</div>
+```html
+<div class="fnd-row">
+    <div class="fnd-row--col-sm-4 fnd-row--col-lg-3">Column 1</div>
+    <div class="fnd-row--col-sm-8 fnd-row--col-lg-9">Column 2</div>
+</div>
+```
+
+## Grid with Gutters
+
+A grid with gutters helps you layout content and maintain consistent spacing between elements. Use grid class `.fnd-row--gutter` to create a layout row with a gutter. There are two different sizes of gutters (Small and Large) which are automatic based on the breakpoint size classes you're using. Below are standard, recommended SoHo layouts which will provide the best flexibility and content structure for most applications.
+
+<div class="example">
+    <div class="fnd-row--gutter example-row">
+        <div class="fnd-row--col-sm-3 fnd-row--col-md-3">col-3</div>
+        <div class="fnd-row--col-sm-9 fnd-row--col-md-9">col-9</div>
+    </div>
+</div>
+```html
+<div class="fnd-row--gutter">
+    <div class="fnd-row--col-sm-3 fnd-row--col-md-3">col-3</div>
+    <div class="fnd-row--col-sm-9 fnd-row--col-md-9">col-9</div>
+</div>
+```
+<div class="fnd-row--gutter example-row">
+    <div class="fnd-row--col-sm-3 fnd-row--col-md-3">col-3</div>
+    <div class="fnd-row--col-sm-9 fnd-row--col-md-9">col-9</div>
 </div>
 
-<div class="lost-grid demo-grid">
-  <div class="lost-grid--col-2">Col 2</div>
-  <div class="lost-grid--col-2">Col 2</div>
-  <div class="lost-grid--col-2">Col 2</div>
-  <div class="lost-grid--col-2">Col 2</div>
-  <div class="lost-grid--col-2">Col 2</div>
-  <div class="lost-grid--col-2">Col 2</div>
+<div class="fnd-row--gutter example-row">
+    <div class="fnd-row--col-sm-6 fnd-row--col-md-6">col-6</div>
+    <div class="fnd-row--col-sm-6 fnd-row--col-md-6">col-6</div>
 </div>
 
-
-<div class="lost-grid demo-grid">
-  <div class="lost-grid--col-3">Col 3</div>
-  <div class="lost-grid--col-3">Col 3</div>
-  <div class="lost-grid--col-3">Col 3</div>
-  <div class="lost-grid--col-3">Col 3</div>
+<div class="fnd-row--gutter example-row">
+    <div class="fnd-row--col-sm-12 fnd-row--col-md-12">col-12</div>
 </div>
 
-<div class="lost-grid demo-grid">
-  <div class="lost-grid--col-4">Col 4</div>
-  <div class="lost-grid--col-4">Col 4</div>
-  <div class="lost-grid--col-4">Col 4</div>
+## Basic Page Layout
+
+### Fluid Container
+
+The `fnd-container` class will provide a main content container for your application. This is usually used to set an outer page margin for a full-width layout or margin for the main content pane created by a grid layout.
+
+```html
+<div class="fnd-container">
+    <!-- content here will be inside a page margin -->
 </div>
+```
 
-<div class="lost-grid demo-grid">
-  <div class="lost-grid--col-6">Col 6</div>
-  <div class="lost-grid--col-6">Col 6</div>
-</div>
+### Responsive List/Detail
 
-<div class="lost-grid demo-grid">
-  <div class="lost-grid--col-12">Col 12</div>
-</div>
-
-## Column sizes
-
-<div class="lost-grid demo-grid">
-  <div class="lost-grid--col-1">Col 1</div>
-  <div class="lost-grid--col-11">Col 11</div>
-</div>
-
-<div class="lost-grid demo-grid">
-  <div class="lost-grid--col-2">Col 2</div>
-  <div class="lost-grid--col-10">Col 10</div>
-</div>
-
-<div class="lost-grid demo-grid">
-  <div class="lost-grid--col-3">Col 3</div>
-  <div class="lost-grid--col-9">Col 9</div>
-</div>
-
-<div class="lost-grid demo-grid">
-  <div class="lost-grid--col-4">Col 4</div>
-  <div class="lost-grid--col-8">Col 8</div>
-</div>
-
-<div class="lost-grid demo-grid">
-  <div class="lost-grid--col-5">Col 5</div>
-  <div class="lost-grid--col-7">Col 7</div>
-</div>
-
-<div class="lost-grid demo-grid">
-  <div class="lost-grid--col-6">Col 6</div>
-  <div class="lost-grid--col-6">Col 6</div>
-</div>
-
+```html
+<body>
+    <div><!--- your header here --></div>
+    <div class="fnd-row">
+        <div class="fnd-row--col-sm-4 fnd-row--col-lg-3">
+            <!--- left column contents here -->
+        </div>
+        <div class="fnd-row--col-sm-8 fnd-row--col-lg-9">
+            <div class="fnd-container">
+            <!--- main body contents here will be inside a page margin -->
+            </div>
+        </div>
+    </div>
+</body>
+```

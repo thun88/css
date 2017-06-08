@@ -1,0 +1,118 @@
+/*
+ * Base Styles
+ */
+body {
+  background-color: var(--body-bg);
+  color: var(--body-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+li {
+  color: var(--body-color);
+  font-family: var(--font-family-base);
+}
+
+ul {
+  margin-bottom: 10px;
+  padding-left: 15px;
+
+  & > li {
+    line-height: var(--line-height-base);
+  }
+}
+
+/*
+ * General Classes
+ */
+.site-main {
+  background-color: var(--white);
+}
+
+.site-sidebar,
+.site-main {
+  padding: 1.5rem 3.2rem;
+}
+
+.site-spec {
+  line-height: 1.8rem;
+}
+
+.site-spec--title,
+.site-spec--value {
+  display: inline-block;
+}
+
+.site-spec--color {
+  border: 1px solid var(--graphite03);
+  border-radius: 16px;
+  display: inline-block;
+  height: 16px;
+  position: relative;
+  top: 3px;
+  width: 16px;
+}
+
+code {
+  background-color: #f0f1f5;
+  border-radius: 4px;
+  color: #6b6e76;
+  font-size: 90%;
+  padding: 2px 4px;
+}
+
+.example,
+pre {
+  border: 1px solid #e1e1e8;
+  border-radius: 0.25rem 0.25rem 0 0;
+  font-size: 1.3rem;
+  padding: 15px;
+}
+
+.example {
+  line-height: 1.4;
+  overflow-x: scroll;
+  position: relative;
+}
+
+pre,
+code {
+  font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+pre {
+  background-color: #f7f7f9;
+  margin-bottom: 20px;
+
+  & code {
+    background-color: transparent;
+    border-radius: 0;
+    color: var(--graphite06);
+    font-size: inherit;
+    line-height: 1.4;
+    padding: 0;
+    white-space: pre-wrap;
+  }
+}
+
+.example + pre {
+  border-top: none;
+}
+
+blockquote {
+  border: 1px solid #eee;
+  border-left-color: var(--azure06);
+  border-left-width: 5px;
+  border-radius: 3px;
+  margin: 20px 0;
+  padding: 20px;
+
+  &.info {
+    border-left-color: var(--amber05);
+  }
+}

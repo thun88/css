@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Soho Foundation</title>
+    <link rel="stylesheet" type="text/css" href="..//css/soho-foundation.min.css">
+    <link rel="stylesheet" type="text/css" href="..//css/site.min.css">
+    <meta name="description" content="Soho Foundation Styles">
+    <meta name="author" content="Hook & Loop">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    #demo-container {
+      border-right: 30px solid lightgreen;
+      border-left: 30px solid lightgreen;
+    }
+    .demo-row-border-red {
+      outline: 1px solid red;
+      height: 100px;
+    }
+    .demo-row-border-blue {
+      outline: 1px solid blue;
+      height: 100px;
+    }
+    .demo-row-container {
+      outline: 3px solid grey;
+      height: 100px;
+      margin-top: 20px;
+    }
+    </style>
+    <script>
+      window.onload = getStats;
+      window.onresize = getStats;
+      function getStats()
+      {
+        var w = window,
+        d = document,
+        e = d.documentElement,
+        g = d.getElementsByTagName('body')[0],
+        x = w.innerWidth || e.clientWidth || g.clientWidth,
+        y = w.innerHeight|| e.clientHeight|| g.clientHeight;
+        document.getElementById("stat-window-width").innerHTML = x;
+        var containerWidth = document.getElementById("demo-container").clientWidth;
+        document.getElementById("stat-container-width").innerHTML = containerWidth;
+        var colWidth = document.getElementById("grid-col").clientWidth;
+        document.getElementById("stat-col-width").innerHTML = Math.ceil((colWidth / containerWidth) * 100);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="demo-container">
+      <p>The page padding <span style="background-color: lightgreen;">(in green)</span> is often set first, usually on a <code>container</code> class. Within that container, a grid is established.</p>
+      <div class="fnd-row--gutter">
+        <div id="grid-col" class="fnd-row--col-1 demo-row-border-red"></div>
+        <div class="fnd-row--col-1 demo-row-border-red"></div>
+        <div class="fnd-row--col-1 demo-row-border-red"></div>
+        <div class="fnd-row--col-1 demo-row-border-red"></div>
+        <div class="fnd-row--col-1 demo-row-border-red"></div>
+        <div class="fnd-row--col-1 demo-row-border-red"></div>
+        <div class="fnd-row--col-1 demo-row-border-red"></div>
+        <div class="fnd-row--col-1 demo-row-border-red"></div>
+        <div class="fnd-row--col-1 demo-row-border-red"></div>
+        <div class="fnd-row--col-1 demo-row-border-red"></div>
+        <div class="fnd-row--col-1 demo-row-border-red"></div>
+        <div class="fnd-row--col-1 demo-row-border-red"></div>
+      </div>
+      <p>The grid isn't a "layer" like in a Sketch file, in which you place elements on top of. It's more like a "ruler" where you line containers up to along each row.</p>
+      <div class="fnd-row--gutter">
+        <div class="fnd-row--col-2 demo-row-container">This is a 2-col container.
+          <p>Once you establish a container on a grid, the contents of that container <span style="color: blue;">(in blue)</span> no longer have a concept of the parent grid. <span style="color: red;">(in red)</span></p>
+        </div>
+        <div class="fnd-row--col-3 demo-row-container">This is a 3-col container.
+          <p>If the numbers work out nicely, you can line up a <span style="color: blue;">child grid</span> to the <span style="color: red;">parent grid</span> (see example on right), but it doesn't always work out nicely. (See examples below.)</p>
+        </div>
+        <div class="fnd-row--col-4 demo-row-container">
+          <div class="fnd-row--gutter">
+            <div class="fnd-row--col-3 demo-row-border-blue"></div>
+            <div class="fnd-row--col-3 demo-row-border-blue"></div>
+            <div class="fnd-row--col-3 demo-row-border-blue"></div>
+            <div class="fnd-row--col-3 demo-row-border-blue"></div>
+          </div>
+        </div>
+        <div class="fnd-row--col-3 demo-row-container">
+          <div class="fnd-row--gutter">
+            <div class="fnd-row--col-4 demo-row-border-blue"></div>
+            <div class="fnd-row--col-4 demo-row-border-blue"></div>
+            <div class="fnd-row--col-4 demo-row-border-blue"></div>
+          </div>
+        </div>
+      </div>
+      <div class="fnd-row--gutter">
+        <div class="fnd-row--col-5 demo-row-container">
+          <div class="fnd-row--gutter">
+            <div class="fnd-row--col-2 demo-row-border-blue"></div>
+            <div class="fnd-row--col-2 demo-row-border-blue"></div>
+            <div class="fnd-row--col-2 demo-row-border-blue"></div>
+            <div class="fnd-row--col-2 demo-row-border-blue"></div>
+            <div class="fnd-row--col-2 demo-row-border-blue"></div>
+            <div class="fnd-row--col-2 demo-row-border-blue"></div>
+          </div>
+        </div>
+        <div class="fnd-row--col-7 demo-row-container">
+          <div class="fnd-row--gutter">
+            <div class="fnd-row--col-2 demo-row-border-blue"></div>
+            <div class="fnd-row--col-2 demo-row-border-blue"></div>
+            <div class="fnd-row--col-2 demo-row-border-blue"></div>
+            <div class="fnd-row--col-2 demo-row-border-blue"></div>
+            <div class="fnd-row--col-2 demo-row-border-blue"></div>
+            <div class="fnd-row--col-2 demo-row-border-blue"></div>
+          </div>
+        </div>
+      </div>
+      <div class="fnd-row--gutter" style="margin-top: 20px;">
+        <div class="fnd-row--col-1 demo-row-border-red"></div>
+        <div class="fnd-row--col-1 demo-row-border-red"></div>
+        <div class="fnd-row--col-1 demo-row-border-red"></div>
+        <div class="fnd-row--col-1 demo-row-border-red"></div>
+        <div class="fnd-row--col-1 demo-row-border-red"></div>
+        <div class="fnd-row--col-1 demo-row-border-red"></div>
+        <div class="fnd-row--col-1 demo-row-border-red"></div>
+        <div class="fnd-row--col-1 demo-row-border-red"></div>
+        <div class="fnd-row--col-1 demo-row-border-red"></div>
+        <div class="fnd-row--col-1 demo-row-border-red"></div>
+        <div class="fnd-row--col-1 demo-row-border-red"></div>
+        <div class="fnd-row--col-1 demo-row-border-red"></div>
+      </div>
+    </div>
+    <br>
+    <div class="demo-page-stats">
+      <p>Window width: <span id="stat-window-width"></span>px</p>
+      <p>Container/grid width: <span id="stat-container-width"></span>px</p>
+      <p>1 Col width: <span id="stat-col-width"></span>%</p>
+    </div>
+  </body>
+</html>

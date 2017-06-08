@@ -1,0 +1,38 @@
+/* stylelint-disable comment-empty-line-before, custom-property-empty-line-before */
+
+/* @start cssVariables */
+:root {
+  --body-bg: var(--slate07);
+  --body-color: var(--white);
+  --link-color: var(--azure04);
+  --link-color-disabled: var(--graphite04);
+  --link-color-hover: var(--azure04);
+
+  --text-disabled: var(--graphite05);
+
+  --headings-color: var(--body-color);
+
+  --btn-default-bg: var(--slate03);
+  --btn-default-color: var(--slate10);
+  --btn-default-hover: var(--slate04);
+
+  --btn-link-color: var(--slate03);
+  --btn-link-hover: var(--white);
+
+  --icon-fill: var(--slate03);
+
+  --input-info-block-color: var(--slate04);
+  --input-label-color: var(--slate03);
+
+  --input-border-color: var(--slate04);
+  --input-color: var(--body-color);
+
+  --input-border-color-disabled: var(--slate05);
+  --input-border-color-hover: var(--slate02);
+  --input-border-color-focus: var(--azure06);
+
+  --select-bg-caret: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHZpZXdCb3g9IjAgMCAxOCAxOCIgZmlsbD0id2hpdGUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHRpdGxlPmRyb3Bkb3duPC90aXRsZT48cGF0aCBkPSJNNCA2bDUgNiA1LTZINHoiLz48L3N2Zz4=);
+}
+/* @end cssVariables */
+
+/* stylelint-enable comment-empty-line-before, custom-property-empty-line-before */
