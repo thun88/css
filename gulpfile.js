@@ -284,7 +284,7 @@ gulp.task('serve', function() {
     server: {
       baseDir: destPath.www
     },
-    logLevel: 'basic',
+    logLevel: 'info',
     logPrefix: 'Soho-Fnd'
   });
 
