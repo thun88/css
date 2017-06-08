@@ -40,8 +40,9 @@ For building the icons
 
 ## Site Directory
 
-- `dist` The distributed versions of the stylesheets.
-- `site` The site, templates, and site styles to display the documentation.
-- `site/www` The generated files for the website.
-- `site/examples` [Temp] Currently holds a few static, stand-alone examples.
 - `src` The raw files for foundation's css, documentation, and icons.
+- `site/www` The generated files for the served website.
+- `site/www/dist` The distributed/downloadable versions of the stylesheets.
+- `site/css` The CSS for the site only
+- `site/templates` The templates for generating the site html
+- `site/examples` [Temp] Currently holds a few static, stand-alone examples.

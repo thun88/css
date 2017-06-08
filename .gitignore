@@ -1,6 +1,6 @@
 # Compiled #
 ############
-dist
+/site/dist
 /site/www/*
 !/site/www/examples/
 

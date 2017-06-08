@@ -1,5 +1,19 @@
 @lost flexbox flex;
 
+.fnd-container {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: none;
+  min-width: 16rem;
+  padding: 10px;
+}
+
+@media (--viewport-md) {
+  .fnd-container {
+    padding: 20px;
+  }
+}
+
 .fnd-row,
 .fnd-row--gutter {
   lost-center: 100%;

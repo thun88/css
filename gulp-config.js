@@ -14,9 +14,9 @@ module.exports = {
       siteCss:   'site/css'
     },
     destinations: {
-      root: 'dist',
-      css:  'dist/css',
-      www:  'site/www'
+      www:  'site/www',
+      css:  'site/www/css',
+      dist: 'site/www/dist'
     }
   }
 };
