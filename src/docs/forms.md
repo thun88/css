@@ -144,11 +144,6 @@ Form control which supports multiple lines of text. Change `rows` attribute as n
 
 Block level help text for form controls.
 
-<blockquote class="info">
-    Associating help text with form controls
-    Help text should be explicitly associated with the form control it relates to using the aria-describedby attribute. This will ensure that assistive technologies – such as screen readers – will announce this help text when the user focuses or enters the control.
-</blockquote>
-
 <div class="example">
     <form>
         <div class="form-group">
@@ -169,12 +164,6 @@ Block level help text for form controls.
 ### Validation States
 
 Soho Foundation includes validation styles for errors on form controls. To use, add `.has-error` to the parent element. Any `.form-control` and `.info-block` within that element will receive the validation styles.
-
-<blockquote>
-    <strong>Conveying validation state to assistive technologies and colorblind users</strong>
-    <p>Using these validation styles to denote the state of a form control only provides a visual, color-based indication, which will not be conveyed to users of assistive technologies - such as screen readers - or to colorblind users.</p>
-    <p>Ensure that an alternative indication of state is also provided. For instance, you can include a hint about state in the form control's <label> text itself (as is the case in the following code example), include a Glyphicon (with appropriate alternative text using the .sr-only class - see the Glyphicon examples), or by providing an additional help text block. Specifically for assistive technologies, invalid form controls can also be assigned an aria-invalid="true" attribute.</p>
-</blockquote>
 
 <div class="example">
     <form>
