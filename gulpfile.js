@@ -542,12 +542,3 @@ gulp.task('deploy', ['lint', 'build'], function() {
     console.log(stderr);
   });
 });
-// -------------------------------------
-p -R ${src} ${dest}`, function (err, stdout, stderr) {
-    gutil.log('Deployed to https://dl.dropboxusercontent.com/u/21521721/soho-foundation/index.html');
-
-    console.log(stdout);
-    console.log(stderr);
-  });
-});
-// -------------------------------------
