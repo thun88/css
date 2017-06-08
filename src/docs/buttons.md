@@ -17,10 +17,6 @@ description: Soho Foundation Styleguide
 {{> specColor title="Hover Color" spec=default.btnPrimaryHover }}
 {{> specValue title="Disabled State Opacity" spec=default.btnDisabledOpacity }}
 
-<blockquote>
-    <strong>Note</strong> that buttons can be made to extend the width of their container (aka width: 100%) by using the <code>btn--block</code> class.
-</blockquote>
-
 ## Button Tags
 
 Use the button classes on and `<a>`, `<button>`, `<input>` elements. As a best practice, we highly recommend using the `<button>` element whenever possible to ensure matching cross-browser rendering. If the `<a>` elements are used to act as buttons – triggering in-page functionality, rather than navigating to another document or section within the current page – they should also be given an appropriate `role="button"`.
@@ -52,6 +48,7 @@ Use any of the available button classes to quickly create a styled button.
 <button type="button" class="btn btn--primary">Primary</button>
 ```
 
+By default, buttons are a dynamic width and the size will be as wide as the button text, with some additional padding. Buttons can be made to extend 100% of the width of their container by using the <code>btn--block</code> class.
 
 ## Disabled State
 
