@@ -39,11 +39,19 @@ ul {
   padding: 1.5rem 3.2rem;
 }
 
+.site-version {
+  font-weight: 700;
+}
+
 .site-spec {
   line-height: 1.8rem;
 }
 
-.site-spec--title,
+.site-spec--title {
+  display: inline-block;
+  font-family: var(--font-family-base);
+}
+
 .site-spec--value {
   display: inline-block;
 }
@@ -74,6 +82,13 @@ pre {
   padding: 15px;
 }
 
+.example h1,
+.example h2,
+.example p,
+.example small {
+  font-family: inherit;
+}
+
 .example {
   line-height: 1.4;
   overflow-x: scroll;
@@ -83,6 +98,7 @@ pre {
 pre,
 code {
   font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
+  line-height: 2rem;
 }
 
 pre {
@@ -115,4 +131,57 @@ blockquote {
   &.info {
     border-left-color: var(--amber05);
   }
+}
+
+.color-swatches {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.swatch {
+  box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.2);
+  margin: 3rem;
+  position: relative;
+  width: 200px;
+}
+
+.swatch-block {
+  display: block;
+  height: 225px;
+}
+
+.swatch-text {
+  background-color: var(--white);
+  bottom: 0;
+  font-size: 1.4rem;
+  left: 0;
+  padding: 1rem;
+  position: absolute;
+  right: 0;
+  text-align: center;
+}
+
+.theme-spec--group {
+  padding: 10px 30px;
+}
+
+.theme-spec--block {
+  -webkit-font-smoothing: antialiased;
+  margin-bottom: 10px;
+}
+
+.theme-spec--swatch {
+  border: solid 1px transparent;
+  border-radius: 50px;
+  box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.2);
+  height: 50px;
+  width: 50px;
+}
+
+.theme-spec--details {
+  font-size: 13px;
+  padding-top: 10px;
 }

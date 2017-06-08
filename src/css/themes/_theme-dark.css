@@ -2,12 +2,14 @@
 
 /* @start cssVariables */
 :root {
-  --body-bg: var(--slate07);
+  --body-bg: var(--slate08);
+  --body-bg-secondary: var(--slate07);
   --body-color: var(--white);
   --link-color: var(--azure04);
   --link-color-disabled: var(--graphite04);
   --link-color-hover: var(--azure04);
 
+  --alert-red: var(--ruby09);
   --text-disabled: var(--graphite05);
 
   --headings-color: var(--body-color);

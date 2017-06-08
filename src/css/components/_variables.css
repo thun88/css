@@ -108,28 +108,27 @@
 
   /* body */
   --body-bg: var(--graphite01);
+  --body-bg-secondary: var(--white);
   --body-color: var(--graphite10);
 
   /* links */
   --link-color: var(--azure06);
-  --link-color-disabled: var(--text-disabled);
+  --link-color-disabled: var(--text-muted);
   --link-color-hover: var(--link-color);
   --link-color-visited: var(--amethyst06);
 
   /* font  */
-  --font-family-base: helvetica, arial;
+  --font-family-base: 'Helvetica', 'Arial', san-serif;
+  --header-primary-font-size: 1.8rem;
+  --header-secondary-font-size: 1.6rem;
   --font-size-base: 1.4rem;
   --font-weight-normal: normal;
-  --font-weight-bold: bold;
   --line-height-base: 1.5;
   --text-small: 1.2rem;
   --text-alert: var(--alert-red);
-  --text-disabled: var(--graphite04);
-  --text-label: var(--graphite06);
-
-  /* headers */
-  --header-primary-font-size: 1.8rem;
-  --header-secondary-font-size: 1.6rem;
+  --text-descriptive: var(--graphite06);
+  --text-muted: var(--graphite04);
+  --text-strong: 700;
 
   /* buttons */
   --btn-default-bg: var(--graphite03);
@@ -165,8 +164,8 @@
   --input-border-width: 1px;
   --input-color-placeholder: var(--graphite04);
   --input-height: 3.4rem;
-  --input-info-block-color: var(--text-disabled);
-  --input-label-color: var(--text-label);
+  --input-info-block-color: var(--text-muted);
+  --input-label-color: var(--text-descriptive);
   --input-line-height: calc(var(--input-height) - (2 * var(--input-padding-y)) - (2 * var(--input-border-size)));
   --input-padding-x: 12px;
   --input-padding-y: 8px;
@@ -180,7 +179,7 @@
   /* input disabled */
   --input-bg-disabled: var(--input-bg);
   --input-border-color-disabled: var(--graphite03);
-  --input-color-disabled: var(--text-disabled);
+  --input-color-disabled: var(--text-muted);
 
   /* input hover */
   --input-bg-hover: var(--input-bg);
