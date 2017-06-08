@@ -128,8 +128,7 @@
   --text-alert: var(--alert-red);
   --text-descriptive: var(--graphite06);
   --text-muted: var(--graphite04);
-  --text-strong: bold;
-  --text-emphasis: italic;
+  --text-strong: 700;
 
   /* buttons */
   --btn-default-bg: var(--graphite03);

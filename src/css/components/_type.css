@@ -62,7 +62,7 @@ strong,
 
 em,
 .text-emphasis {
-  font-style: var(--text-emphasis);
+  font-style: italic;
 }
 
 small,
