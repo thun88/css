@@ -116,14 +116,16 @@ select.form-control {
 .form-group {
   margin-bottom: 20px;
 
-  & label,
+  & > label,
+  & > legend,
   & .info-block {
     display: block;
     font-size: var(--text-small);
-    line-height: 13px;
+    line-height: 1.3rem;
   }
 
-  & label {
+  & > label,
+  & > legend {
     color: var(--input-label-color);
     margin-bottom: 5px;
 
@@ -136,6 +138,10 @@ select.form-control {
       position: relative;
       top: 2px;
     }
+  }
+
+  & > legend + div {
+    margin-top: 0;
   }
 
   & .info-block {
@@ -230,7 +236,7 @@ select.form-control {
       height: var(--checkbox-check-h);
       left: 3px;
       position: absolute;
-      top: 50%;
+      top: 53%;
       width: var(--checkbox-check-w);
     }
   }
@@ -270,7 +276,7 @@ select.form-control {
     margin-left: 1px;
     top: calc(50% - (0.5 * 2px));
     transform: none;
-    width: 10px;
+    width: 11px;
   }
 
   & input:disabled:checked + label {

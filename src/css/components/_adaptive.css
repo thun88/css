@@ -12,12 +12,19 @@
     height: var(--input-height-adaptive-touch);
   }
 
+  & fieldset {
+    margin-bottom: var(--input-padding-adaptive-touch);
+    margin-top: var(--input-padding-adaptive-touch);
+  }
+
   & .form-checkbox,
-  & .form-radio,
-  & .form-checkbox label,
-  & .form-radio label {
-    padding-bottom: var(--input-padding-adaptive-touch);
-    padding-top: var(--input-padding-adaptive-touch);
+  & .form-radio {
+    margin-bottom: var(--input-padding-adaptive-touch);
+
+    & label {
+      padding-bottom: var(--input-padding-adaptive-touch);
+      padding-top: var(--input-padding-adaptive-touch);
+    }
   }
 
   & .form-radio {

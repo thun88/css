@@ -18,6 +18,7 @@
 //   'gulp serve'
 //   'gulp svg:optimize'
 //   'gulp svg:store'
+//   `gulp test`
 //   'gulp watch-docs'
 //   'gulp watch-site'
 //   'gulp watch-src'
@@ -153,7 +154,8 @@ gulp.task('compile:docs', function() {
         '--template=layout.html',
         '--table-of-contents',
         `--variable=icons:${SVG_HTML}`,
-        `--variable=releaseversion:${packageData.version}`
+        `--variable=releaseversion:${packageData.version}`,
+        '--variable=lang:en'
       ]
     }))
     .pipe(gulp.dest(destPath.www));
@@ -229,6 +231,7 @@ gulp.task('clean', function () {
     `${destPath.www}/**`,
     `!${destPath.www}`,
     `!${destPath.www}/examples/**`,
+    `log`
   ]);
 });
 
@@ -355,19 +358,28 @@ gulp.task('svg:store', function() {
 
 // -------------------------------------
 //   Task: Test
-//   Test accessibility
+//   Test accessibility level WCAG2A
 // -------------------------------------
-gulp.task('test', function() {
-  return gulp.src(`${destinations.www}/*.html`)
+gulp.task('test', ['build'], function() {
+
+  del(['log/accessibility']);
+
+  return gulp.src(`${destPath.www}/*.html`)
     .pipe(access({
-      force: true
+      accessibilityLevel: 'WCAG2A',
+      force: true,
+      reportLevels: {
+        notice: false,
+        warning: false,
+        error: true
+      }
     }))
-    .on('error', console.log);
-    // .pipe(access.report({reportType: 'txt'}))
-    // .pipe(rename({
-    //   extname: '.txt'
-    // }))
-    // .pipe(gulp.dest('reports/txt'));
+    .on('error', console.log)
+    .pipe(access.report({ reportType: 'txt' }))
+    .pipe(rename({
+      extname: '.html'
+    }))
+    .pipe(gulp.dest('log/accessibility'));
 });
 
 

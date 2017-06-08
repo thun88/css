@@ -227,7 +227,7 @@
 
   --checkbox-box-h: 17px;
   --checkbox-box-w: var(--checkbox-box-h);
-  --checkbox-check-h: 10px;
+  --checkbox-check-h: 11px;
   --checkbox-check-w: 5px;
 
   /* radios */
