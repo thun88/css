@@ -252,35 +252,30 @@ Disabled checkboxes and radios are supported, but to provide a "not-allowed" cur
             Empty
         </label>
     </div>
-
     <div class="form-checkbox form-checkbox--partial">
         <input type="checkbox" value="" id="exampleCheckbox2" checked/>
         <label for="exampleCheckbox2">
             Partially Check
         </label>
     </div>
-
     <div class="form-checkbox">
         <input type="checkbox" id="exampleCheckbox3" value="" checked/>
         <label for="exampleCheckbox3">
             Checked
         </label>
     </div>
-
     <div class="form-checkbox is-disabled">
         <input type="checkbox" value="" id="exampleCheckbox4" disabled/>
         <label for="exampleCheckbox4">
             Empty Disabled
         </label>
     </div>
-
     <div class="form-checkbox form-checkbox--partial">
         <input type="checkbox" value="" id="exampleCheckbox5" checked disabled/>
         <label for="exampleCheckbox5">
             Partially Checked &amp; Disabled
         </label>
     </div>
-
     <div class="form-checkbox is-disabled">
         <input type="checkbox" value="" id="exampleCheckbox6" checked disabled/>
         <label for="exampleCheckbox6">
@@ -357,31 +352,6 @@ Disabled checkboxes and radios are supported, but to provide a "not-allowed" cur
     <select id="select-normal-1" class="form-control">
         <option selected>Option</option>
         <option>Option 1</option>
-        <option>Option 2</option>
-    </select>
-    <div class="info-block">Some passive text</div>
-</div>
-```
-
-For `<select>` controls with the `multiple` attribute, multiple options are shown by default.
-
-<div class="example">
-    <div class="form-group">
-        <label for="select-multiple-1">Label</label>
-        <select id="select-multiple-1" class="form-control" multiple>
-            <option selected>Option</option>
-            <option selected>Option 1</option>
-            <option>Option 2</option>
-        </select>
-        <div class="info-block">Some info text</div>
-    </div>
-</div>
-```html
-<div class="form-group">
-    <label for="select-multiple-1">Normal State</label>
-    <select id="select-multiple-1" class="form-control" multiple>
-        <option selected>Option</option>
-        <option selected>Option 1</option>
         <option>Option 2</option>
     </select>
     <div class="info-block">Some passive text</div>
