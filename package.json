@@ -13,10 +13,10 @@
   "dependencies": {},
   "devDependencies": {
     "browser-sync": "^2.18.8",
-    "css-annotation-block": "git+https://github.com/clepore/css-annotation-block.git",
+    "css-annotation-block": "git+http://clepore@git.infor.com/scm/~clepore/css-annotation-block.git",
     "del": "^2.2.2",
-    "git-guppy": "^2.1.0",
     "git-branch-name": "^1.1.0",
+    "git-guppy": "^2.1.0",
     "gulp": "^3.9.1",
     "gulp-accessibility": "^3.0.1",
     "gulp-concat": "^2.6.1",
