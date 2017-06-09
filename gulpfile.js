@@ -542,15 +542,23 @@ function parseIcons() {
 // Copies the WWW folder on Lepore's machine to his dropbox folder for temporary viewing
 // -------------------------------------
 gulp.task('deploy', ['lint', 'build'], function() {
-  const exec = require('child_process').exec;
+  const path = require('path');
 
-  const src = '~/HookandLoop/git/github/soho-foundation/site/www/*',
-    dest = ' ~/Dropbox/Public/soho-foundation';
+  const getGitBranchName = require('git-branch-name');
+  const dirPath = path.resolve(__dirname, '.');
 
-  return exec(`cp -R ${src} ${dest}`, function (err, stdout, stderr) {
-    gutil.log('Deployed to https://dl.dropboxusercontent.com/u/21521721/soho-foundation/index.html');
+  return getGitBranchName(dirPath, function(err, branchName) {
+    const exec = require('child_process').exec;
 
-    console.log(stdout);
-    console.log(stderr);
+    const src = `~/HookandLoop/git/github/soho-foundation/site/www/*`,
+      dest = `~/Dropbox/Public/soho-foundation/${branchName}`;
+
+    return exec(`mkdir ${dest} && cp -R ${src} ${dest}`, function (err, stdout, stderr) {
+      gutil.log(`Deployed to https://dl.dropboxusercontent.com/u/21521721/soho-foundation/${branchName}/index.html`);
+
+      console.log(stdout);
+      console.log(stderr);
+    });
   });
+
 });
