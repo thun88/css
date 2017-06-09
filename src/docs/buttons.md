@@ -76,9 +76,9 @@ To mimic the "focus" state, you can use the class `has-focus` on a button or lin
 Can be used with `<a>` or `<button>` tags.
 
 <div class="example">
-    <a href="" class="btn btn--link">Button</a>
-    <a href="" class="btn btn--link" disabled>Button</a>
-    <a href="" class="btn btn--link has-focus">Button (focused)</a>
+    <a href="#" class="btn btn--link">Button</a>
+    <a href="#" class="btn btn--link" disabled>Button</a>
+    <a href="#" class="btn btn--link has-focus">Button (focused)</a>
     <button type="button" class="btn btn--link" title="link icon">
         <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
             <use xlink:href="#link"></use>
@@ -92,8 +92,8 @@ Can be used with `<a>` or `<button>` tags.
     </button>
 </div>
 ```html
-<a href="" class="btn btn--link">Button</a>
-<a href="" class="btn btn--link" disabled>Button</a>
+<a href="#" class="btn btn--link">Button</a>
+<a href="#" class="btn btn--link" disabled>Button</a>
 <button type="button" class="btn btn--link" title="link icon">
     <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
         <use xlink:href="#link"></use>
@@ -110,9 +110,9 @@ Can be used with `<a>` or `<button>` tags.
 ## Hyperlinks
 
 <div class="example">
-    <a href="#example-link">Hyperlink</a><br>
-    <a href="#example-link" disabled>Hyperlink</a><br>
-    <a href="#example-link">
+    <a href="#">Hyperlink</a><br>
+    <a href="#" disabled>Hyperlink</a><br>
+    <a href="#">
         Hyperlink
         <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
             <use xlink:href="#link"></use>
@@ -120,6 +120,6 @@ Can be used with `<a>` or `<button>` tags.
     </a>
 </div>
 ```html
-<a href="#example-link">Hyperlink</a>
-<a href="#example-link" disabled>Disabled Hyperlink</a>
+<a href="#">Hyperlink</a>
+<a href="#" disabled>Disabled Hyperlink</a>
 ```
