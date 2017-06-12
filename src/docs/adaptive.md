@@ -16,7 +16,7 @@ Use the class `adaptive--touch` to trigger the "touch" adaptive state to the inn
 
 ### Forms and Form Controls
 
-The dashed outline around the check box and radio controls simply shows the increased touch target area around the control for better accessibility.
+The <span class="example-padding">dashed outline around the check box and radio controls</span> simply shows the increased touch target area around the control for better accessibility.
 
 <div class="adaptive--touch example">
     <input type="text" class="form-control" placeholder="Text" aria-label="Adaptive text input">
