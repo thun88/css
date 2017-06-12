@@ -4,7 +4,8 @@
 .site-nav {
   background-color: #222427;
   color: var(--white);
-  padding: 8px 20px;
+  padding-bottom: 8px;
+  padding-top: 8px;
 }
 
 .site-nav--list {
@@ -33,13 +34,11 @@
  * Side Nav
  */
 .site-nav--header {
-  display: inline;
-  float: left;
+  display: inline-block;
   font-size: 1.8rem;
   font-weight: 700;
   line-height: 3.4rem;
-  margin: 0;
-  margin-right: 20px;
+  margin: 0 20px;
   padding: 0;
 }
 
@@ -63,6 +62,6 @@
 @media (--viewport-lg) {
   .site-main--sidebar--inner {
     position: fixed;
-    right: 3.2rem;
+    right: 2rem;
   }
 }

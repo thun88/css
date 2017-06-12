@@ -93,6 +93,11 @@ pre {
   line-height: 1.4;
   overflow-x: scroll;
   position: relative;
+
+  & .example--info {
+    display: block;
+    margin-top: 20px;
+  }
 }
 
 pre,

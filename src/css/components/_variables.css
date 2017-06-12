@@ -111,6 +111,10 @@
   --body-bg-secondary: var(--white);
   --body-color: var(--graphite10);
 
+  /* layout */
+  --grid-gutter-sm: 10px;
+  --grid-gutter-lg: 20px;
+
   /* links */
   --link-color: var(--azure06);
   --link-color-disabled: var(--text-muted);

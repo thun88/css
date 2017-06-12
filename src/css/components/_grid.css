@@ -3,20 +3,42 @@
 .fnd-container {
   margin-left: auto;
   margin-right: auto;
-  max-width: none;
+  max-width: 100%;
   min-width: 16rem;
-  padding: 10px;
+  padding-left: var(--grid-gutter-sm);
+  padding-right: var(--grid-gutter-sm);
+
+  & .fnd-row {
+    lost-center: 100%;
+    margin-left: calc(-1 * var(--grid-gutter-sm));
+    margin-right: calc(-1 * var(--grid-gutter-sm));
+    max-width: none;
+
+    & [class^='fnd-row--col-'],
+    & [class^='fnd-row--col-sm-'] {
+      padding-left: var(--grid-gutter-sm);
+      padding-right: var(--grid-gutter-sm);
+    }
+
+    & [class^='fnd-row--col-md-'],
+    & [class^='fnd-row--col-lg-'],
+    & [class^='fnd-row--col-xl-'] {
+      padding-left: var(--grid-gutter-lg);
+      padding-right: var(--grid-gutter-lg);
+    }
+  }
 }
 
 @media (--viewport-md) {
   .fnd-container {
-    padding: 20px;
-  }
-}
+    padding-left: var(--grid-gutter-lg);
+    padding-right: var(--grid-gutter-lg);
 
-.fnd-row,
-.fnd-row--gutter {
-  lost-center: 100%;
+    & .fnd-row {
+      margin-left: calc(-1 * var(--grid-gutter-lg));
+      margin-right: calc(-1 * var(--grid-gutter-lg));
+    }
+  }
 }
 
 @for $i from 1 to 12 {
@@ -33,26 +55,10 @@
   }
 }
 
-@media (--viewport-xs) {
-  @for $i from 1 to 12 {
-    .fnd-row .fnd-row--col-xs-$i {
-      lost-column: $(i)/12 0 0;
-    }
-
-    .fnd-row--gutter .fnd-row--col-xs-$i {
-      lost-column: $(i)/12 auto 10px;
-    }
-  }
-}
-
 @media (--viewport-sm) {
   @for $i from 1 to 12 {
     .fnd-row .fnd-row--col-sm-$i {
       lost-column: $(i)/12 0 0;
-    }
-
-    .fnd-row--gutter .fnd-row--col-sm-$i {
-      lost-column: $(i)/12 auto 10px;
     }
   }
 }
@@ -62,10 +68,6 @@
     .fnd-row .fnd-row--col-md-$i {
       lost-column: $(i)/12 0 0;
     }
-
-    .fnd-row--gutter .fnd-row--col-md-$i {
-      lost-column: $(i)/12 auto 20px;
-    }
   }
 }
 
@@ -74,10 +76,6 @@
     .fnd-row .fnd-row--col-lg-$i {
       lost-column: $(i)/12 0 0;
     }
-
-    .fnd-row--gutter .fnd-row--col-lg-$i {
-      lost-column: $(i)/12 auto 20px;
-    }
   }
 }
 
@@ -85,10 +83,6 @@
   @for $i from 1 to 12 {
     .fnd-row .fnd-row--col-xl-$i {
       lost-column: $(i)/12 0 0;
-    }
-
-    .fnd-row--gutter .fnd-row--col-xl-$i {
-      lost-column: $(i)/12 auto 20px;
     }
   }
 }

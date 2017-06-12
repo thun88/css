@@ -1,18 +1,11 @@
 /*
- * Pages: Layout
+ * Pages: Grid Layout
  */
-.example-row.fnd-row,
-.example-row.fnd-row--gutter {
-  margin-bottom: 20px;
 
-  & [class^='fnd-row--'] {
-    background-color: var(--azure01);
-    height: 30px;
-    line-height: 30px;
-    text-align: center;
-  }
-}
-
-.example-row.fnd-row > [class^='fnd-row--'] {
+.example .fnd-row [class^='fnd-row--'] {
+  background-color: var(--azure01);
+  height: 30px;
+  line-height: 30px;
   outline: solid 1px var(--azure06);
+  text-align: left;
 }

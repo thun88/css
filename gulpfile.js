@@ -303,7 +303,7 @@ gulp.task('serve', function() {
   ];
 
   const siteCss = [
-    `${sourcePath.siteCss}/*.css`
+    `${sourcePath.siteCss}/**/*.css`
   ];
 
   const srcCss = [
