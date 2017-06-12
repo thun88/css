@@ -11,9 +11,9 @@ Foundation is a sleek, intuitive, and powerful front-end framework for faster an
 
 ## Dev Quick start
 1. Pull the repo
-1. "cd" into the repo
+1. `cd` into the repo
 1. `$ npm install`
-1. `$ gulp`
+1. `$ npm start`
 
 ## Basic Gulp Tasks
 
@@ -21,7 +21,7 @@ Foundation is a sleek, intuitive, and powerful front-end framework for faster an
 - `$ gulp serve` - Run the webserver and watch
 - `$ gulp build` - Build the files
 - `$ gulp clean` - Remove all generated/static files
-- `$ gulp test` - Build, then run the accessibility tests on the built html files (reports are in `log/accessibility)
+- `$ gulp test` - Build, then run the accessibility tests on the built html files (reports are in `log/accessibility`)
 
 > The website is served at `http://localhost:3000/`
 
