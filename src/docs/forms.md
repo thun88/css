@@ -357,3 +357,5 @@ Disabled checkboxes and radios are supported, but to provide a "not-allowed" cur
     <div class="info-block">Some passive text</div>
 </div>
 ```
+
+`<select multiple>` is also supported to select one or more items from a list.
