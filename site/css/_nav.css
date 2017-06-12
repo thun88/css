@@ -46,22 +46,14 @@
   color: var(--white);
 }
 
-.site-sidebar {
-  overflow-y: scroll;
-}
-
 .site-sidebar--list > li {
   display: block;
   padding: 12px 8px;
 }
 
-.site-main--sidebar {
-  background-color: var(--white);
-}
-
 @media (--viewport-lg) {
-  .site-main--sidebar--inner {
+  .site-main--sidebar {
     position: fixed;
-    right: 2rem;
+    right: 0;
   }
 }

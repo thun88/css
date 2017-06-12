@@ -25,3 +25,13 @@ html {
 *::after {
   box-sizing: inherit;
 }
+
+.fnd-container {
+  padding: var(--container-padding-sm);
+}
+
+@media (--viewport-md) {
+  .fnd-container {
+    padding: var(--container-padding-lg);
+  }
+}

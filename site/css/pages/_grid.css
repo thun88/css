@@ -2,10 +2,12 @@
  * Pages: Grid Layout
  */
 
-.example .fnd-row [class^='fnd-row--'] {
-  background-color: var(--azure01);
-  height: 30px;
-  line-height: 30px;
-  outline: solid 1px var(--azure06);
-  text-align: left;
+.example {
+  & .fnd-row > [class^='fnd-row--'] {
+    background-color: var(--azure01);
+    outline: solid 1px var(--azure06);
+    padding-bottom: .75em;
+    padding-top: .75em;
+    text-align: left
+  }
 }

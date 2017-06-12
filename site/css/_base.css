@@ -34,11 +34,6 @@ ul {
   background-color: var(--white);
 }
 
-.site-sidebar,
-.site-main {
-  padding: 1.5rem 3.2rem;
-}
-
 .site-version {
   font-weight: 700;
 }

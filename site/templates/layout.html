@@ -26,28 +26,29 @@
     $endif$
     <link rel="stylesheet" type="text/css" href="css/site.min.css">
   </head>
+
   <body>
     <div class="visuallyhidden">
       $icons$
     </div>
 
-    <section class="fnd-container">
-      <header class="fnd-row site-nav">
-        <nav class="fnd-row--col-md-12">
-          <h1 class="site-nav--header"><a href="/">Infor SoHo Foundation</a></h1>
-            <ul class="site-nav--list">
-              <!---
-              <li><a href="#">Learn</a></li>
-              <li><a href="index.html">Style</a></li>
-              <li><a href="#">Build</a></li>
-              -->
-            </ul>
-        </nav>
-      </header>
+    <header class="fnd-row site-nav">
+      <nav class="fnd-row--col-md-12">
+        <h1 class="site-nav--header"><a href="/">Infor SoHo Foundation</a></h1>
+          <ul class="site-nav--list">
+            <!---
+            <li><a href="#">Learn</a></li>
+            <li><a href="index.html">Style</a></li>
+            <li><a href="#">Build</a></li>
+            -->
+          </ul>
+      </nav>
+    </header>
 
-      <main class="fnd-row">
+    <main class="fnd-row fnd-row--no-gutter">
 
-        <nav class="fnd-row--col-md-2 site-sidebar">
+      <div class="fnd-row--col-md-2">
+        <nav class="fnd-container">
           <h2 class="site-version">Version $releaseversion$</h2>
           <ul>
             <li><a href="grid.html">Responsive Grid</a></li>
@@ -60,30 +61,34 @@
             <li><a href="forms.html">Forms</a></li>
           </ul>
         </nav>
+      </div>
 
-        <div class="fnd-row--col-md-10 site-main">
-          <div class="fnd-row">
+      <div class="fnd-row--col-md-10 site-main">
+
+          <div class="fnd-row fnd-row--no-gutter">
 
             <section class="fnd-row--col-md-9">
-              $if(title)$
-                <div id="$idprefix$header">
-                  <h1 class="title">$title$</h1>
-                  $if(subtitle)$
-                    <h1 class="subtitle">$subtitle$</h1>
-                  $endif$
-                  $for(author)$
-                    <h2 class="author">$author$</h2>
-                  $endfor$
-                  $if(date)$
-                    <h3 class="date">$date$</h3>
-                  $endif$
-                </div>
-              $endif$
-              <div>$body$</div>
+              <div class="fnd-container">
+                $if(title)$
+                  <div id="$idprefix$header">
+                    <h1 class="title">$title$</h1>
+                    $if(subtitle)$
+                      <h1 class="subtitle">$subtitle$</h1>
+                    $endif$
+                    $for(author)$
+                      <h2 class="author">$author$</h2>
+                    $endfor$
+                    $if(date)$
+                      <h3 class="date">$date$</h3>
+                    $endif$
+                  </div>
+                $endif$
+                <div>$body$</div>
+              </div>
             </section>
 
-            <nav class="fnd-row--col-md-3 site-main--sidebar">
-              <div class="site-main--sidebar--inner">
+            <nav class="fnd-row--col-md-3">
+              <div class="site-main--sidebar">
                 <h2>Contents</h2>
                 $if(toc)$
                   $toc$
@@ -93,7 +98,7 @@
 
           </div>
         </div>
-      </main>
-    </section>
+      </div>
+    </main>
   </body>
 </html>
