@@ -19,6 +19,25 @@ A 12-column grid is the base infrastructure of modern, responsive application. O
 By default, the grid is fixed so that each column is 1/`N`th of the parent container where `N` is the `fnd-row--col-N` number from 1 to 12. Use `.fnd-row` to create a layout row wrapper and then add your rows.
 
 <div class="example">
+    <div class="fnd-container">
+        <div class="fnd-row">
+            <div class="fnd-row--col-1">col-1</div>
+            <div class="fnd-row--col-1">col-1</div>
+            <div class="fnd-row--col-1">col-1</div>
+            <div class="fnd-row--col-1">col-1</div>
+            <div class="fnd-row--col-1">col-1</div>
+            <div class="fnd-row--col-1">col-1</div>
+            <div class="fnd-row--col-1">col-1</div>
+            <div class="fnd-row--col-1">col-1</div>
+            <div class="fnd-row--col-1">col-1</div>
+            <div class="fnd-row--col-1">col-1</div>
+            <div class="fnd-row--col-1">col-1</div>
+            <div class="fnd-row--col-1">col-1</div>
+        </div>
+    </div>
+</div>
+```html
+<div class="fnd-container">
     <div class="fnd-row">
         <div class="fnd-row--col-1">col-1</div>
         <div class="fnd-row--col-1">col-1</div>
@@ -33,21 +52,6 @@ By default, the grid is fixed so that each column is 1/`N`th of the parent conta
         <div class="fnd-row--col-1">col-1</div>
         <div class="fnd-row--col-1">col-1</div>
     </div>
-</div>
-```html
-<div class="fnd-row">
-    <div class="fnd-row--col-1">col-1</div>
-    <div class="fnd-row--col-1">col-1</div>
-    <div class="fnd-row--col-1">col-1</div>
-    <div class="fnd-row--col-1">col-1</div>
-    <div class="fnd-row--col-1">col-1</div>
-    <div class="fnd-row--col-1">col-1</div>
-    <div class="fnd-row--col-1">col-1</div>
-    <div class="fnd-row--col-1">col-1</div>
-    <div class="fnd-row--col-1">col-1</div>
-    <div class="fnd-row--col-1">col-1</div>
-    <div class="fnd-row--col-1">col-1</div>
-    <div class="fnd-row--col-1">col-1</div>
 </div>
 ```
 
@@ -58,6 +62,20 @@ The grid is responsive based on the breakpoints applied. When you apply a breakp
 Below, if you change your browser width you should see the columns stack when the browser width is smaller than {{default.breakpointSm.value}} and then become 1/6th width when the browser is {{default.breakpointSm.value}} wide or wider.
 
 <div class="example">
+    <div class="fnd-container">
+        <div class="fnd-row">
+            <div class="fnd-row--col-sm-2">col-2</div>
+            <div class="fnd-row--col-sm-2">col-2</div>
+            <div class="fnd-row--col-sm-2">col-2</div>
+            <div class="fnd-row--col-sm-2">col-2</div>
+            <div class="fnd-row--col-sm-2">col-2</div>
+            <div class="fnd-row--col-sm-2">col-2</div>
+        </div>
+    </div>
+    <small class="example--info">Note: Resize your browser width to see the layout change at the SM breakpoint.</small>
+</div>
+```html
+<div class="fnd-container">
     <div class="fnd-row">
         <div class="fnd-row--col-sm-2">col-2</div>
         <div class="fnd-row--col-sm-2">col-2</div>
@@ -66,16 +84,6 @@ Below, if you change your browser width you should see the columns stack when th
         <div class="fnd-row--col-sm-2">col-2</div>
         <div class="fnd-row--col-sm-2">col-2</div>
     </div>
-    <small class="example--info">Note: Resize your browser width to see the layout change at the SM breakpoint.</small>
-</div>
-```html
-<div class="fnd-row">
-    <div class="fnd-row--col-sm-2">col-2</div>
-    <div class="fnd-row--col-sm-2">col-2</div>
-    <div class="fnd-row--col-sm-2">col-2</div>
-    <div class="fnd-row--col-sm-2">col-2</div>
-    <div class="fnd-row--col-sm-2">col-2</div>
-    <div class="fnd-row--col-sm-2">col-2</div>
 </div>
 ```
 
