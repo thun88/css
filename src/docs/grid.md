@@ -98,35 +98,35 @@ You can also use the breakpoint `col` classes `.fnd-row--col-[xs|sm|md|lg|xl]-*`
 </div>
 ```
 
-## Grid without Gutters
+## Grid with Gutters
 
 A grid with gutters helps you layout content and maintain consistent spacing between elements. Use grid class `.fnd-row fnd-row--gutter` to create a layout row with a gutter. There are two different sizes of gutters (Small and Large) which are automatic based on the breakpoint size classes you're using. Below are standard, recommended SoHo layouts which will provide the best flexibility and content structure for most applications.
 
 <div class="example">
-    <div class="fnd-row fnd-row--no-gutter">
+    <div class="fnd-row fnd-row--gutter">
         <div class="fnd-row--col-sm-3 fnd-row--col-md-3">col-3</div>
         <div class="fnd-row--col-sm-9 fnd-row--col-md-9">col-9</div>
     </div>
 </div>
 ```html
-<div class="fnd-row fnd-row--no-gutter">
+<div class="fnd-row fnd-row--gutter">
     <div class="fnd-row--col-sm-3 fnd-row--col-md-3">col-3</div>
     <div class="fnd-row--col-sm-9 fnd-row--col-md-9">col-9</div>
 </div>
 ```
 
 <div class="example">
-    <div class="fnd-row fnd-row--no-gutter">
+    <div class="fnd-row fnd-row--gutter">
         <div class="fnd-row--col-sm-3 fnd-row--col-md-3">col-3</div>
         <div class="fnd-row--col-sm-9 fnd-row--col-md-9">col-9</div>
     </div>
 
-    <div class="fnd-row fnd-row--no-gutter">
+    <div class="fnd-row fnd-row--gutter">
         <div class="fnd-row--col-sm-6 fnd-row--col-md-6">col-6</div>
         <div class="fnd-row--col-sm-6 fnd-row--col-md-6">col-6</div>
     </div>
 
-    <div class="fnd-row fnd-row--no-gutter">
+    <div class="fnd-row fnd-row--gutter">
         <div class="fnd-row--col-sm-12 fnd-row--col-md-12">col-12</div>
     </div>
 </div>

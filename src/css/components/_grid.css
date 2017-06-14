@@ -2,28 +2,21 @@
 
 .fnd-row {
   lost-center: 100%;
-  margin-left: calc(-1 * var(--grid-gutter-sm) / 2);
-  margin-right: calc(-1 * var(--grid-gutter-sm) / 2);
-  max-width: none;
 
-  & > [class^='fnd-row--col-'] {
-    padding-left: calc(var(--grid-gutter-sm) / 2);
-    padding-right: calc(var(--grid-gutter-sm) / 2);
-  }
-
-  &.fnd-row--no-gutter {
-    margin-left: 0;
-    margin-right: 0;
+  &.fnd-row--gutter {
+    margin-left: calc(-1 * var(--grid-gutter-sm) / 2);
+    margin-right: calc(-1 * var(--grid-gutter-sm) / 2);
+    max-width: none;
 
     & > [class^='fnd-row--col-'] {
-      padding-left: 0;
-      padding-right: 0;
+      padding-left: calc(var(--grid-gutter-sm) / 2);
+      padding-right: calc(var(--grid-gutter-sm) / 2);
     }
   }
 }
 
 @media (--viewport-md) {
-  .fnd-row {
+  .fnd-row.fnd-row--gutter {
     margin-left: calc(-1 * var(--grid-gutter-lg) / 2);
     margin-right: calc(-1 * var(--grid-gutter-lg) / 2);
 
