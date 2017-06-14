@@ -54,6 +54,5 @@
 @media (--viewport-lg) {
   .site-main--sidebar {
     position: fixed;
-    right: 0;
   }
 }
