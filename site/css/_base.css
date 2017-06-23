@@ -34,11 +34,6 @@ ul {
   background-color: var(--white);
 }
 
-.site-sidebar,
-.site-main {
-  padding: 1.5rem 3.2rem;
-}
-
 .site-version {
   font-weight: 700;
 }
@@ -93,6 +88,11 @@ pre {
   line-height: 1.4;
   overflow-x: scroll;
   position: relative;
+
+  & .example--info {
+    display: block;
+    margin-top: 20px;
+  }
 }
 
 pre,
