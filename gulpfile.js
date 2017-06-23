@@ -303,7 +303,7 @@ gulp.task('serve', function() {
   ];
 
   const siteCss = [
-    `${sourcePath.siteCss}/*.css`
+    `${sourcePath.siteCss}/**/*.css`
   ];
 
   const srcCss = [
@@ -541,7 +541,7 @@ function parseIcons() {
 // Task: Deploy (Lepore only)
 // Copies the WWW folder on Lepore's machine to his dropbox folder for temporary viewing
 // -------------------------------------
-gulp.task('deploy', ['lint', 'build'], function() {
+gulp.task('deploy', ['build'], function() {
   let path = require('path');
 
   let getGitBranchName = require('git-branch-name');

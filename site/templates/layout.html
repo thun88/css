@@ -26,6 +26,7 @@
     $endif$
     <link rel="stylesheet" type="text/css" href="css/site.min.css">
   </head>
+
   <body>
     <div class="visuallyhidden">
       $icons$
@@ -46,50 +47,58 @@
 
     <main class="fnd-row">
 
-      <nav class="fnd-row--col-md-2 site-sidebar">
-        <h2 class="site-version">Version $releaseversion$</h2>
-        <ul>
-          <li><a href="grid.html">Responsive Grid</a></li>
-          <li><a href="adaptive.html">Adaptive States</a></li>
-          <li><a href="type.html">Typography</a></li>
-          <li><a href="icons.html">Icons</a></li>
-          <li><a href="themes.html">Themes</a></li>
-          <li><a href="colors.html">Color Palette</a></li>
-          <li><a href="buttons.html">Buttons</a></li>
-          <li><a href="forms.html">Forms</a></li>
-        </ul>
-      </nav>
-
-      <div class="fnd-row--col-md-10 fnd-row site-main">
-
-        <section class="fnd-row--col-md-10">
-          $if(title)$
-            <div id="$idprefix$header">
-              <h1 class="title">$title$</h1>
-              $if(subtitle)$
-                <h1 class="subtitle">$subtitle$</h1>
-              $endif$
-              $for(author)$
-                <h2 class="author">$author$</h2>
-              $endfor$
-              $if(date)$
-                <h3 class="date">$date$</h3>
-              $endif$
-            </div>
-          $endif$
-          <div>$body$</div>
-        </section>
-
-        <nav class="fnd-row--col-md-2 site-main--sidebar">
-          <div class="site-main--sidebar--inner">
-            <h2>Contents</h2>
-            $if(toc)$
-              $toc$
-            $endif$
-          </div>
+      <div class="fnd-row--col-md-2">
+        <nav class="fnd-container">
+          <h2 class="site-version">Version $releaseversion$</h2>
+          <ul>
+            <li><a href="grid.html">Responsive Grid</a></li>
+            <li><a href="adaptive.html">Adaptive States</a></li>
+            <li><a href="type.html">Typography</a></li>
+            <li><a href="icons.html">Icons</a></li>
+            <li><a href="themes.html">Themes</a></li>
+            <li><a href="colors.html">Color Palette</a></li>
+            <li><a href="buttons.html">Buttons</a></li>
+            <li><a href="forms.html">Forms</a></li>
+          </ul>
         </nav>
       </div>
 
+      <div class="fnd-row--col-md-10 site-main">
+
+          <div class="fnd-row">
+
+            <section class="fnd-row--col-md-9">
+              <div class="fnd-container">
+                $if(title)$
+                  <div id="$idprefix$header">
+                    <h1 class="title">$title$</h1>
+                    $if(subtitle)$
+                      <h1 class="subtitle">$subtitle$</h1>
+                    $endif$
+                    $for(author)$
+                      <h2 class="author">$author$</h2>
+                    $endfor$
+                    $if(date)$
+                      <h3 class="date">$date$</h3>
+                    $endif$
+                  </div>
+                $endif$
+                <div>$body$</div>
+              </div>
+            </section>
+
+            <nav class="fnd-row--col-md-3">
+              <div class="site-main--sidebar">
+                <h2>Contents</h2>
+                $if(toc)$
+                  $toc$
+                $endif$
+              </div>
+            </nav>
+
+          </div>
+        </div>
+      </div>
     </main>
   </body>
 </html>
