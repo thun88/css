@@ -1,10 +1,16 @@
-<div class="fnd-row--gutter theme-spec--group" style="background-color: {{spec.bodyBg.value}};">
-  <div class="fnd-row--col-lg-3">
+<div class="fnd-row fnd-row--gutter theme-spec--group" style="background-color: {{spec.bodyBg.value}};">
+  <div class="fnd-row--col-lg-4">
     <h2 style="color: {{spec.bodyColor.value}};">Background Colors</h2>
     {{> themeDetailsSpec title="Body Background" data=spec.bodyBg }}
     {{> themeDetailsSpec title="Body Background (Secondary)" data=spec.bodyBgSecondary }}
+
+    <h2 style="color: {{spec.bodyColor.value}};">Alert Colors</h2>
+    {{> themeDetailsSpec title="Alert Green" data=spec.alertGreen }}
+    {{> themeDetailsSpec title="Alert Orange" data=spec.alertOrange }}
+    {{> themeDetailsSpec title="Alert Yellow" data=spec.alertYellow }}
+    {{> themeDetailsSpec title="Alert Red" data=spec.alertRed }}
   </div>
-  <div class="fnd-row--col-lg-3">
+  <div class="fnd-row--col-lg-4">
     <h2 style="color: {{spec.bodyColor.value}};">Buttons</h2>
     {{> themeDetailsSpec title="Default Button Background" data=spec.btnDefaultBg }}
     {{> themeDetailsSpec title="Default Button Text" data=spec.btnDefaultColor }}
@@ -13,18 +19,11 @@
     {{> themeDetailsSpec title="Primary Button Text" data=spec.btnPrimaryColor }}
     {{> themeDetailsSpec title="Primary Button Hover Color" data=spec.btnPrimaryHover }}
   </div>
-  <div class="fnd-row--col-lg-3">
+  <div class="fnd-row--col-lg-4">
     <h2 style="color: {{spec.bodyColor.value}};">Forms</h2>
     {{> themeDetailsSpec title="Input Field" data=spec.inputBg border=spec.inputBorderColor }}
     {{> themeDetailsSpec title="Input Field (Hover)" data=spec.inputBgHover border=spec.inputBorderColorHover }}
     {{> themeDetailsSpec title="Input Field (Focus)" data=spec.inputBgFocus border=spec.inputBorderColorFocus }}
     {{> themeDetailsSpec title="Input Field (Disabled)" data=spec.inputBgDisabled border=spec.inputBorderColorDisabled }}
-  </div>
-  <div class="fnd-row--col-lg-3">
-    <h2 style="color: {{spec.bodyColor.value}};">Alert Colors</h2>
-    {{> themeDetailsSpec title="Alert Green" data=spec.alertGreen }}
-    {{> themeDetailsSpec title="Alert Orange" data=spec.alertOrange }}
-    {{> themeDetailsSpec title="Alert Yellow" data=spec.alertYellow }}
-    {{> themeDetailsSpec title="Alert Red" data=spec.alertRed }}
   </div>
 </div>
