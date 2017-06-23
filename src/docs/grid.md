@@ -133,6 +133,16 @@ A grid with gutters helps you layout content and maintain consistent spacing bet
 
 ## Basic Page Layout
 
+### Full Width Page
+
+```html
+<body>
+    <div class="fnd-container">
+        <!--- main body contents here will be inside a page margin -->
+    </div>
+</body
+```
+
 ### Responsive List/Detail
 
 ```html
@@ -143,8 +153,8 @@ A grid with gutters helps you layout content and maintain consistent spacing bet
             <!--- left column contents here -->
         </div>
         <div class="fnd-row--col-sm-8 fnd-row--col-lg-9">
-            <div class="fnd-grid">
-            <!--- main body contents here will be inside a page margin -->
+            <div class="fnd-container">
+                <!--- main body contents here will be inside a page margin -->
             </div>
         </div>
     </div>
