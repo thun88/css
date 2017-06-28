@@ -1,9 +1,7 @@
 ---
 title: Adaptive States
-description: Soho Foundation Styleguide
+description: This is a page dedicated to showcase adaptive states. Adaptive states can be defined within any scope of the DOM to modify style of supported elements for different environment factors like touch input.
 ---
-
-This is a page dedicated to showcase adaptive states. Adaptive states can be defined within any scope of the DOM to modify style of supported elements for different environment factors like touch input.
 
 ## Touch Adaptive State
 

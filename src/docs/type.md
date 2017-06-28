@@ -1,6 +1,6 @@
 ---
 title: Typography
-description: Soho Foundation Styleguide
+description: These are typical type classes you'll have available in foundation.
 ---
 
 {{> specValue title="Base Font Family" spec=default.fontFamilyBase }}
@@ -19,13 +19,13 @@ description: Soho Foundation Styleguide
 <div class="example">
     <h1>SoHo Primary Header</h1>
     <h2>SoHo Secondary Header</h2>
-    <p>Default Base Text</p>
+    <div>Default Base Text</div>
     <small>Small Text</small>
 </div>
 ```html
 <h1>SoHo Primary Header</h1>
 <h2>SoHo Secondary Header</h2>
-<p>Default Base Text</p>
+<div>Default Base Text</div>
 <small>Small Text</small>
 ```
 

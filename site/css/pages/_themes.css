@@ -1,0 +1,24 @@
+/*
+ * Page: Themes
+ */
+.theme-spec--group {
+  padding: 10px 30px;
+}
+
+.theme-spec--block {
+  -webkit-font-smoothing: antialiased;
+  margin-bottom: 10px;
+}
+
+.theme-spec--swatch {
+  border: solid 1px transparent;
+  border-radius: 50px;
+  box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.2);
+  height: 50px;
+  width: 50px;
+}
+
+.theme-spec--details {
+  font-size: 13px;
+  padding-top: 10px;
+}

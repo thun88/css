@@ -1,58 +1,119 @@
 /*
  * Top Nav
  */
-.site-nav {
-  background-color: #222427;
-  color: var(--white);
-  padding-bottom: 8px;
-  padding-top: 8px;
-}
+nav ul,
+nav ol {
+  list-style: none;
+  margin-left: 0;
 
-.site-nav--list {
-  list-style-type: none;
-  margin-bottom: 0;
-  overflow: hidden;
-  position: relative;
-
-  & > li {
-    float: left;
-    line-height: 34px;
-    margin-left: 30px;
-
-    &:first-child {
-      margin-left: 0;
-    }
-
-    & a {
-      color: var(--azure06);
-      text-decoration: none;
-    }
+  & ul,
+  & ol {
+    margin-left: 15px;
   }
 }
 
-/*
- * Side Nav
- */
-.site-nav--header {
+.site-nav {
+  @apply --text-styles;
+
+  height: 100px;
+  padding: 26px 0;
+}
+
+.site-nav--brand {
   display: inline-block;
   font-size: 1.8rem;
   font-weight: 700;
   line-height: 3.4rem;
   margin: 0 20px;
   padding: 0;
+
+  & img {
+    height: 48px;
+    width: 149px;
+  }
 }
 
-.site-nav--header a {
-  color: var(--white);
+.site-nav--list {
+  display: inline-block;
+  position: relative;
+
+  & > li {
+    float: left;
+    line-height: 48px;
+    margin-left: 30px;
+    position: relative;
+    top: 1px;
+
+    &.is-active a {
+      border-bottom: 2px solid var(--brand-primary);
+      color: var(--brand-primary);
+    }
+
+    & a {
+      line-height: 20px;
+      margin: 0 20px;
+      padding: 16px 5px 2px;
+      text-decoration: none;
+
+      &:focus,
+      &:hover {
+        border-bottom: 2px solid var(--brand-primary);
+      }
+    }
+  }
 }
 
-.site-sidebar--list > li {
-  display: block;
-  padding: 12px 8px;
+/*
+ * Left Side Nav
+ */
+.site-sidebar {
+  @apply --text-styles;
+
+  & .site-sidebar--heading {
+    color: var(--brand-primary);
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    padding-top: 20px;
+    text-transform: uppercase;
+  }
+
+  & .site-sidebar--nav a {
+    color: #727272;
+    display: block;
+    font-size: 16px;
+    line-height: 1.4;
+    padding: 5px 0;
+    text-decoration: none;
+
+    &:hover {
+      color: #333;
+    }
+  }
 }
 
-@media (--viewport-lg) {
-  .site-main--sidebar {
-    position: fixed;
+/*
+* Main Content Right nav
+*/
+.site-main--toc {
+  @apply --text-styles;
+
+  padding-top: 23px;
+
+  & h3 {
+    @apply --h3-styles;
+  }
+
+  & a {
+    @apply --link-styles;
+
+    &:hover {
+      @apply --link-hover-styles;
+    }
+  }
+
+  & a,
+  & a:hover {
+    color: #484a51;
   }
 }

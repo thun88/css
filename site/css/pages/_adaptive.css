@@ -2,5 +2,5 @@
  * Page: Adaptive
  */
 .example-padding {
-  outline: dashed 1px var(--emerald04);
+  outline: dashed 1px var(--brand-primary);
 }

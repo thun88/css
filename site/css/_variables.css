@@ -1,54 +1,47 @@
 /* stylelint-disable comment-empty-line-before, custom-property-empty-line-before */
 
 :root {
-  /* colors */
-  --amethyst06: #9279a6;
-
-  --azure01: #c8e9f4;
-  --azure06: #368ac0;
-
-  --amber05: #f2bc41;
-
-  --emerald04: #9cce7c;
-
-  --graphite02: #d8d8d8;
-  --graphite03: #bdbdbd;
-  --graphite04: #999;
-  --graphite06: #5c5c5c;
-
+  --brand-primary: #0060d4;
   --white: #fff;
   --black: #000;
 
-  /* bodySettings */
-  --body-bg: #f0f1f5;
-  --body-color: #222427;
-  --link-color: var(--azure06);
-  --link-color-disabled: var(--graphite04);
+  --body-bg: var(--white);
+  --body-color: #484a51;
+  --link-color: var(--brand-primary);
   --link-color-hover: var(--link-color);
-  --link-color-visited: var(--amethyst06);
 
-  /* font  */
   --font-family-base: proxima nova, arial;
   --font-family-mono: menlo, monaco, consolas, 'courier new', monospace;
-  --font-size-base: 1.4rem;
+  --font-size-base: 1.6rem;
   --line-height-base: 1.5;
 
-  /* breakpoints */
-  --breakpoint-xs: 400px;
-  --breakpoint-sm: 600px;
-  --breakpoint-md: 840px;
-  --breakpoint-lg: 1280px;
-  --breakpoint-xl: 1440px;
-}
-/* @end cssVariables */
+  /*
+   * Custom property groups
+   */
+  --text-styles: {
+    color: var(--body-color);
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+  };
 
-/* Media definitions */
-:root {
-  @custom-media --viewport-xs (min-width: var(--breakpoint-xs));
-  @custom-media --viewport-sm (min-width: var(--breakpoint-sm));
-  @custom-media --viewport-md (min-width: var(--breakpoint-md));
-  @custom-media --viewport-lg (min-width: var(--breakpoint-lg));
-  @custom-media --viewport-xl (min-width: var(--breakpoint-xl));
+  --link-styles: {
+    color: var(--link-color);
+    text-decoration: none;
+  };
+
+  --link-hover-styles: {
+    color: var(--link-color-hover);
+    text-decoration: underline;
+  };
+
+  --h3-styles: {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    margin-top: 10px;
+    text-transform: uppercase;
+  };
 }
 
 /* stylelint-enable comment-empty-line-before, custom-property-empty-line-before */
