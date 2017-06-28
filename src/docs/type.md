@@ -19,13 +19,13 @@ description: These are typical type classes you'll have available in foundation.
 <div class="example">
     <h1>SoHo Primary Header</h1>
     <h2>SoHo Secondary Header</h2>
-    <p>Default Base Text</p>
+    <div>Default Base Text</div>
     <small>Small Text</small>
 </div>
 ```html
 <h1>SoHo Primary Header</h1>
 <h2>SoHo Secondary Header</h2>
-<p>Default Base Text</p>
+<div>Default Base Text</div>
 <small>Small Text</small>
 ```
 

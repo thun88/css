@@ -1,6 +1,38 @@
 /*
  * Page: Colors
  */
+.color-swatches {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.swatch {
+  box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.2);
+  margin: 3rem;
+  position: relative;
+  width: 200px;
+}
+
+.swatch-block {
+  display: block;
+  height: 225px;
+}
+
+.swatch-text {
+  @apply --text-styles;
+  background-color: var(--white);
+  bottom: 0;
+  font-size: 1.4rem;
+  left: 0;
+  padding: 1rem;
+  position: absolute;
+  right: 0;
+  text-align: center;
+}
+
 .color-row {
   lost-center: 100%;
 

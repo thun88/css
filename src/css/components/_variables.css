@@ -100,11 +100,11 @@
 /* @start cssVariables */
 :root {
 
-  /* alert colors */
-  --alert-green: #80ce4d;
-  --alert-orange: #ff9426;
-  --alert-red: #e84f4f;
-  --alert-yellow: #ffd726;
+  /* status colors */
+  --status-green: #80ce4d;
+  --status-orange: #ff9426;
+  --status-red: #e84f4f;
+  --status-yellow: #ffd726;
 
   /* body */
   --body-bg: var(--graphite01);
@@ -131,7 +131,7 @@
   --font-weight-normal: normal;
   --line-height-base: 1.5;
   --text-small: 1.2rem;
-  --text-alert: var(--alert-red);
+  --text-alert: var(--status-red);
   --text-descriptive: var(--graphite06);
   --text-muted: var(--graphite04);
   --text-strong: 700;

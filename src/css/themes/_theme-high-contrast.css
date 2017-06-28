@@ -2,7 +2,7 @@
 
 /* @start cssVariables */
 :root {
-  --alert-green: var(--emerald10);
+  --status-green: var(--emerald10);
 
   --body-bg: var(--graphite03);
   --body-bg-secondary: var(--graphite02);
@@ -14,11 +14,11 @@
 
   --headings-color: var(--body-color);
 
-  --btn-default-bg: var(--slate03);
+  --btn-default-bg: var(--graphite07);
   --btn-default-color: var(--slate10);
   --btn-default-hover: var(--slate04);
 
-  --btn-primary-bg: var(--azure09);
+  --btn-primary-bg: var(--azure06);
   --btn-primary-hover: var(--azure10);
 
   --btn-link-color: var(--graphite09);
@@ -34,13 +34,13 @@
   --input-color: var(--body-color);
 
   --input-bg: var(--white);
-  --input-border-color-disabled: var(--slate05);
+  --input-border-color-disabled: var(--graphite04);
 
   --input-bg: var(--white);
   --input-border-color-hover: var(--graphite10);
 
   --input-bg: var(--white);
-  --input-border-color-focus: var(--azure06);
+  --input-border-color-focus: var(--azure07);
 }
 /* @end cssVariables */
 

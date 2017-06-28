@@ -66,7 +66,7 @@
 
         <div class="fnd-container">
           $if(title)$
-            <div id="$idprefix$header">
+            <div id="$idprefix$header" class="hero">
               <h1 class="page-title">$title$</h1>
               $if(subtitle)$
                 <h1 class="page-subtitle">$subtitle$</h1>
@@ -78,14 +78,14 @@
                 <h3 class="page-date">$date$</h3>
               $endif$
               $if(description)$
-                <p class="page-date">$description$</p>
+                <p class="page-description">$description$</p>
               $endif$
             </div>
           $endif$
 
           <div class="fnd-row fnd-row--gutter">
             <section class="fnd-row--col-md-9">
-              <div>$body$</div>
+              <div class="use-site-styles">$body$</div>
             </section>
 
             <nav class="fnd-row--col-md-3">
