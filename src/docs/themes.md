@@ -1,6 +1,6 @@
 ---
 title: Themes
-description: Soho Foundation Styleguide
+description: These document how to utilize the themes in foundation.
 ---
 
 ## Default

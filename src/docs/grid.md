@@ -1,9 +1,7 @@
 ---
 title: Responsive Grid
-description: Soho Foundation Styleguide
+description: A 12-column grid is the base infrastructure of modern, responsive application. On this page, you'll learn how to use the responsive grid to build page layouts and how to adjust your layouts on different browser-width breakpoints.
 ---
-
-A 12-column grid is the base infrastructure of modern, responsive application. On this page, you'll learn how to use the responsive grid to build page layouts and how to adjust your layouts on different browser-width breakpoints.
 
 ## Breakpoint Specs
 

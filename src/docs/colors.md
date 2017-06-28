@@ -1,6 +1,6 @@
 ---
 title: Colors
-description: Soho Foundation Styleguide
+description: These are color swatches for foundation.
 ---
 
 ## Color swatches

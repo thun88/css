@@ -4,6 +4,11 @@
 body {
   background-color: var(--body-bg);
   color: var(--body-color);
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  padding-left: 40px;
+  padding-right: 40px;
 }
 
 h1,
@@ -18,18 +23,74 @@ li {
   font-family: var(--font-family-base);
 }
 
-ul {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 500;
   margin-bottom: 10px;
-  padding-left: 15px;
+  margin-top: 20px;
+}
 
-  & > li {
-    line-height: var(--line-height-base);
+h1 {
+  font-size: 3.6rem;
+}
+
+h2 {
+  color: var(--black);
+  font-size: 2.8rem;
+}
+
+h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+  margin-top: 10px;
+  text-transform: uppercase;
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--link-color-hover);
+    text-decoration: underline;
   }
+}
+
+ul {
+  list-style-type: disc;
+  margin-left: 15px;
+}
+
+ol {
+  list-style-type: decimal;
+  margin-left: 15px;
+}
+
+ul ul,
+ol ul {
+  list-style-type: circle;
+}
+
+ol ol,
+ul ol {
+  list-style-type: lower-latin;
 }
 
 /*
  * General Classes
  */
+.page-title {
+  color: var(--brand-primary);
+  font-size: 5rem;
+  font-weight: 400;
+  text-align: left;
+}
+
 .site-main {
   background-color: var(--white);
 }
@@ -52,7 +113,7 @@ ul {
 }
 
 .site-spec--color {
-  border: 1px solid var(--graphite03);
+  border: 1px solid #bdbdbd;
   border-radius: 16px;
   display: inline-block;
   height: 16px;
@@ -108,7 +169,6 @@ pre {
   & code {
     background-color: transparent;
     border-radius: 0;
-    color: var(--graphite06);
     font-size: inherit;
     line-height: 1.4;
     padding: 0;
@@ -122,14 +182,14 @@ pre {
 
 blockquote {
   border: 1px solid #eee;
-  border-left-color: var(--azure06);
+  border-left-color: var(--brand-primary);
   border-left-width: 5px;
   border-radius: 3px;
   margin: 20px 0;
   padding: 20px;
 
   &.info {
-    border-left-color: var(--amber05);
+    border-left-color: #f2bc41;
   }
 }
 

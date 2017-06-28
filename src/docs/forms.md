@@ -1,9 +1,7 @@
 ---
 title: Form Controls
-description: Soho Foundation Styleguide
+description: Some text about using form-controls.
 ---
-
-Some text about using form-controls.
 
 ## Specs
 

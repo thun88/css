@@ -4,8 +4,7 @@
 
 .example {
   & .fnd-row > [class^='fnd-row--'] {
-    background-color: var(--azure01);
-    outline: solid 1px var(--azure06);
+    outline: solid 1px #ccc;
     padding-bottom: .75em;
     padding-top: .75em;
     text-align: left
