@@ -79,18 +79,27 @@ a,
 .text-link {
   color: var(--link-color);
   cursor: pointer;
-  text-decoration: underline;
+  text-decoration: none;
 
   &:hover {
     color: var(--link-color-hover);
+    text-decoration: underline;
   }
 
   &[disabled] {
     color: var(--link-color-disabled);
+    cursor: not-allowed;
 
     & .icon {
       fill: var(--link-color-disabled);
     }
+  }
+
+  &:focus,
+  &.has-focus {
+    border-radius: 2px;
+    box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--btn-link-focus);
+    outline: 0;
   }
 
   &:visited {
