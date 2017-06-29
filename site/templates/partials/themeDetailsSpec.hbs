@@ -1,0 +1,20 @@
+<div class="fnd-row theme-spec--block" {{#if altBg}} style='background-color: {{ altBg.value }}'{{/if}}>
+  {{#if border }}
+    <div class="fnd-row--col-3">
+      <div class="theme-spec--swatch" style="background: {{data.value}}; border-color: {{border.value}}" title="{{data.value}}">&nbsp;</div>
+    </div>
+    <div class="fnd-row--col-9 theme-spec--details" style="color: {{spec.bodyColor.value}};">
+      <div>{{title}}</div>
+      <div>Background: {{data.originalValue}}</div>
+      <div>Border: {{border.originalValue}}</div>
+    </div>
+  {{else}}
+    <div class="fnd-row--col-3">
+      <div class="theme-spec--swatch" style="background: {{data.value}};" title="{{data.value}}">&nbsp;</div>
+    </div>
+    <div class="fnd-row--col-9 theme-spec--details" style="color: {{spec.bodyColor.value}};">
+      <div>{{title}}</div>
+      <div>{{data.originalValue}}</div>
+    </div>
+  {{/if}}
+</div>

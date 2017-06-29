@@ -26,6 +26,7 @@
     $endif$
     <link rel="stylesheet" type="text/css" href="css/site.min.css">
   </head>
+
   <body>
     <div class="visuallyhidden">
       $icons$
@@ -33,64 +34,71 @@
 
     <header class="fnd-row site-nav">
       <nav class="fnd-row--col-md-12">
-        <h2 class="site-nav--header"><a href="/">Infor SoHo Foundation</a></h2>
-          <ul class="site-nav--list">
-            <!---
-            <li><a href="#">Learn</a></li>
-            <li><a href="index.html">Style</a></li>
-            <li><a href="#">Build</a></li>
-            -->
-          </ul>
+        <h1 class="site-nav--brand">
+          <a href="/"><img src="img/infor_soho_xi.png" alt="Infor SoHo Foundation"></a>
+        </h1>
+        <ul class="site-nav--list">
+          <li><a href="/learn/">Learn</a></li>
+          <li><a href="#">Build</a></li>
+          <li class="is-active"><a href="index.html">Foundations</a></li>
+        </ul>
       </nav>
     </header>
 
     <main class="fnd-row">
 
-      <nav class="fnd-row--col-md-2 site-sidebar">
-        <h2 class="site-version">Version $releaseversion$</h2>
-        <ul>
-          <li><a href="grid.html">Responsive Grid</a></li>
-          <li><a href="adaptive.html">Adaptive States</a></li>
-          <li><a href="buttons.html">Buttons</a></li>
-          <li><a href="forms.html">Forms</a></li>
-          <!--- <li><a href="colors.html">Colors</a></li> -->
-          <!--- <li><a href="theme-dark.html">Dark Theme</a></li> -->
-          <!--- <li><a href="theme-high-contrast.html">High-Contrast Theme</a></li> -->
-          <!-- <li><a href="icons.html">Icons</a></li> -->
-          <!-- <li><a href="type.html">Typography</a></li> -->
-        </ul>
-      </nav>
-
-      <div class="fnd-row--col-md-10 fnd-row site-main">
-
-        <section class="fnd-row--col-md-9">
-          $if(title)$
-            <div id="$idprefix$header">
-              <h1 class="title">$title$</h1>
-              $if(subtitle)$
-                <h1 class="subtitle">$subtitle$</h1>
-              $endif$
-              $for(author)$
-                <h2 class="author">$author$</h2>
-              $endfor$
-              $if(date)$
-                <h3 class="date">$date$</h3>
-              $endif$
-            </div>
-          $endif$
-          <div>$body$</div>
-        </section>
-
-        <nav class="fnd-row--col-md-3 site-main--sidebar">
-          <div class="site-main--sidebar--inner">
-            <h2>Contents</h2>
-            $if(toc)$
-              $toc$
-            $endif$
-          </div>
+      <div class="fnd-row--col-md-2">
+        <nav class="site-sidebar">
+          <h2 class="site-sidebar--heading">Version $releaseversion$</h2>
+          <ul class="list-plain site-sidebar--nav">
+            <li><a href="grid.html">Responsive Grid</a></li>
+            <li><a href="adaptive.html">Adaptive States</a></li>
+            <li><a href="type.html">Typography</a></li>
+            <li><a href="themes.html">Themes</a></li>
+            <li><a href="colors.html">Color Palette</a></li>
+            <li><a href="buttons.html">Buttons</a></li>
+            <li><a href="forms.html">Forms</a></li>
+          </ul>
         </nav>
       </div>
 
+      <div class="fnd-row--col-md-10 site-main">
+
+        <div class="fnd-container">
+          $if(title)$
+            <div id="$idprefix$header" class="hero">
+              <h1 class="page-title">$title$</h1>
+              $if(subtitle)$
+                <h1 class="page-subtitle">$subtitle$</h1>
+              $endif$
+              $for(author)$
+                <h2 class="page-author">$author$</h2>
+              $endfor$
+              $if(date)$
+                <h3 class="page-date">$date$</h3>
+              $endif$
+              $if(description)$
+                <p class="page-description">$description$</p>
+              $endif$
+            </div>
+          $endif$
+
+          <div class="fnd-row fnd-row--gutter">
+            <section class="fnd-row--col-md-9">
+              <div class="use-site-styles">$body$</div>
+            </section>
+
+            <nav class="fnd-row--col-md-3">
+              <div class="site-main--toc">
+                <h3>Contents</h3>
+                $if(toc)$
+                  $toc$
+                $endif$
+              </div>
+            </nav>
+          </div>
+        </div>
+      </div>
     </main>
   </body>
 </html>

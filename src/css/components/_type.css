@@ -55,37 +55,51 @@ p {
   margin-top: 0;
 }
 
-strong {
-  font-weight: 700;
+strong,
+.text-strong {
+  font-weight: var(--text-strong);
 }
 
-em {
+em,
+.text-emphasis {
   font-style: italic;
 }
 
 small,
-.small {
+.text-small {
   font-size: var(--text-small);
   font-weight: var(--font-weight-normal);
 }
 
-.text-disabled { color: var(--text-disabled); }
+.text-descriptive { color: var(--text-descriptive); }
+.text-muted { color: var(--text-muted); }
 .text-alert { color: var(--text-alert); }
 
-a {
+a,
+.text-link {
   color: var(--link-color);
   cursor: pointer;
+  text-decoration: none;
 
   &:hover {
     color: var(--link-color-hover);
+    text-decoration: underline;
   }
 
   &[disabled] {
     color: var(--link-color-disabled);
+    cursor: not-allowed;
 
     & .icon {
       fill: var(--link-color-disabled);
     }
+  }
+
+  &:focus,
+  &.has-focus {
+    border-radius: 2px;
+    box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--btn-link-focus);
+    outline: 0;
   }
 
   &:visited {

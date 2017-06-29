@@ -3,6 +3,8 @@
 /site/dist
 /site/www/*
 !/site/www/examples/
+!/site/www/img/
+log/
 
 # Packages #
 ############

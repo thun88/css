@@ -18,12 +18,17 @@
 //   'gulp serve'
 //   'gulp svg:optimize'
 //   'gulp svg:store'
+//   `gulp test`
 //   'gulp watch-docs'
 //   'gulp watch-site'
 //   'gulp watch-src'
 //
 // *************************************
 
+// -------------------------------------
+// Load gulp & config
+// gulp: The streaming build system
+// -------------------------------------
 const gulp   = require('gulp'),
   gConfig    = require('./gulp-config.js'),
   basePath   = gConfig.paths.base.root;
@@ -33,7 +38,7 @@ const gulp   = require('gulp'),
 // -------------------------------------
 // Load "gulp-" plugins
 // -------------------------------------
-// gulp           : The streaming build system
+// gulp-accessibility: Access Standards
 // gulp-concat    : Concatenate files
 // gulp-pandoc    : File converter
 // gulp-postcss   : Transform styles with JS
@@ -42,18 +47,19 @@ const gulp   = require('gulp'),
 // gulp-svgmin    : SVGO for gulp
 // gulp-svgstore  : Combine svg files
 // gulp-tap       : Easily tap into a pipeline (debug)
-// gulp-util      : Utility functions for gulp plugins
+// gulp-util      : Utility functions
 // -------------------------------------
-const concat = require('gulp-concat'),
-  hb = require('gulp-hb'),
-  pandoc = require('gulp-pandoc'),
-  postcss = require('gulp-postcss'),
-  rename = require('gulp-rename'),
-  stylelint = require('gulp-stylelint'),
-  svgmin = require('gulp-svgmin'),
-  svgstore = require('gulp-svgstore'),
-  tap = require('gulp-tap'),
-  gutil = require('gulp-util');
+const access = require('gulp-accessibility');
+  concat     = require('gulp-concat'),
+  hb         = require('gulp-hb'),
+  pandoc     = require('gulp-pandoc'),
+  postcss    = require('gulp-postcss'),
+  rename     = require('gulp-rename'),
+  stylelint  = require('gulp-stylelint'),
+  svgmin     = require('gulp-svgmin'),
+  svgstore   = require('gulp-svgstore'),
+  tap        = require('gulp-tap'),
+  gutil      = require('gulp-util');
 
 
 // -------------------------------------
@@ -68,11 +74,11 @@ const concat = require('gulp-concat'),
 // stylelint-order: Stylelint plugin
 // -------------------------------------
 const annotateBlock = require('css-annotation-block'),
-  browserSync = require('browser-sync').create(),
-  del = require('del'),
-  fs = require('fs'),
-  glob = require('glob'),
-  isColor = require('is-color');
+  browserSync       = require('browser-sync').create(),
+  del               = require('del'),
+  fs                = require('fs'),
+  glob              = require('glob'),
+  isColor           = require('is-color');
 
 
 // -------------------------------------
@@ -148,7 +154,8 @@ gulp.task('compile:docs', function() {
         '--template=layout.html',
         '--table-of-contents',
         `--variable=icons:${SVG_HTML}`,
-        `--variable=releaseversion:${packageData.version}`
+        `--variable=releaseversion:${packageData.version}`,
+        '--variable=lang:en'
       ]
     }))
     .pipe(gulp.dest(destPath.www));
@@ -224,6 +231,8 @@ gulp.task('clean', function () {
     `${destPath.www}/**`,
     `!${destPath.www}`,
     `!${destPath.www}/examples/**`,
+    `!${destPath.www}/img/**`,
+    `log`
   ]);
 });
 
@@ -284,7 +293,7 @@ gulp.task('serve', function() {
     server: {
       baseDir: destPath.www
     },
-    logLevel: 'basic',
+    logLevel: 'info',
     logPrefix: 'Soho-Fnd'
   });
 
@@ -295,7 +304,7 @@ gulp.task('serve', function() {
   ];
 
   const siteCss = [
-    `${sourcePath.siteCss}/*.css`
+    `${sourcePath.siteCss}/**/*.css`
   ];
 
   const srcCss = [
@@ -345,6 +354,33 @@ gulp.task('svg:store', function() {
     .pipe(rename('icons.svg'))
     .pipe(gulp.dest(sourcePath.icons))
     .pipe(gulp.dest(destPath.www));
+});
+
+
+// -------------------------------------
+//   Task: Test
+//   Test accessibility level WCAG2A
+// -------------------------------------
+gulp.task('test', ['build'], function() {
+
+  del(['log/accessibility']);
+
+  return gulp.src(`${destPath.www}/*.html`)
+    .pipe(access({
+      accessibilityLevel: 'WCAG2A',
+      force: true,
+      reportLevels: {
+        notice: false,
+        warning: false,
+        error: true
+      }
+    }))
+    .on('error', console.log)
+    .pipe(access.report({ reportType: 'txt' }))
+    .pipe(rename({
+      extname: '.html'
+    }))
+    .pipe(gulp.dest('log/accessibility'));
 });
 
 
@@ -506,17 +542,62 @@ function parseIcons() {
 // Task: Deploy (Lepore only)
 // Copies the WWW folder on Lepore's machine to his dropbox folder for temporary viewing
 // -------------------------------------
-gulp.task('deploy', ['lint', 'build'], function() {
-  const exec = require('child_process').exec;
+gulp.task('deploy', ['build'], function() {
+  let path = require('path');
 
-  const src = '~/HookandLoop/git/github/soho-foundation/site/www/*',
-    dest = ' ~/Dropbox/Public/soho-foundation';
+  let getGitBranchName = require('git-branch-name');
+  let dirPath = path.resolve(__dirname, '.');
 
-  return exec(`cp -R ${src} ${dest}`, function (err, stdout, stderr) {
-    gutil.log('Deployed to https://dl.dropboxusercontent.com/u/21521721/soho-foundation/index.html');
+  return getGitBranchName(dirPath, function(err, branchName) {
+    let exec = require('child_process').exec;
 
-    console.log(stdout);
-    console.log(stderr);
+    let src = `~/HookandLoop/git/github/soho-foundation/site/www/*`,
+      dest = `~/Dropbox/Public/soho-foundation`;
+
+    if (branchName.substr(branchName.length - 2) === '.x') {
+      dest += `/${packageData.version}`;
+    } else {
+      dest += `/${branchName}`;
+    }
+
+    return exec(`rm -rf ${dest} && mkdir ${dest} && cp -R ${src} ${dest}`, function (err, stdout, stderr) {
+      gutil.log(`Deployed to https://dl.dropboxusercontent.com/u/21521721/soho-foundation/${branchName}/index.html`);
+
+      console.log(stdout);
+      console.log(stderr);
+    });
   });
+
 });
+
 // -------------------------------------
+// Task: Push
+// rsync www to soho site in branchName dir
+// -------------------------------------
+gulp.task('push', ['build'], function() {
+  let path = require('path');
+
+  let getGitBranchName = require('git-branch-name');
+  let dirPath = path.resolve(__dirname, '.');
+
+  return getGitBranchName(dirPath, function(err, branchName) {
+    let exec = require('child_process').exec;
+
+    let src = `${dirPath}/site/www/`,
+      dest = `deploy@alphasohodemo:/opt/mediawiki/data/static`;
+
+    if (branchName.substr(branchName.length - 2) === '.x') {
+      dest += `/${packageData.version}`;
+    } else {
+      dest += `/${branchName}`;
+    }
+
+    return exec(`rsync -avz ${src} ${dest}`, function (err, stdout, stderr) {
+      gutil.log(`Deployed to ${branchName}/index.html`);
+
+      console.log(stdout);
+      console.log(stderr);
+    });
+  });
+
+});
