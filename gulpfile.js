@@ -231,6 +231,7 @@ gulp.task('clean', function () {
     `${destPath.www}/**`,
     `!${destPath.www}`,
     `!${destPath.www}/examples/**`,
+    `!${destPath.www}/img/**`,
     `log`
   ]);
 });
@@ -561,6 +562,38 @@ gulp.task('deploy', ['build'], function() {
 
     return exec(`rm -rf ${dest} && mkdir ${dest} && cp -R ${src} ${dest}`, function (err, stdout, stderr) {
       gutil.log(`Deployed to https://dl.dropboxusercontent.com/u/21521721/soho-foundation/${branchName}/index.html`);
+
+      console.log(stdout);
+      console.log(stderr);
+    });
+  });
+
+});
+
+// -------------------------------------
+// Task: Push
+// rsync www to soho site in branchName dir
+// -------------------------------------
+gulp.task('push', ['build'], function() {
+  let path = require('path');
+
+  let getGitBranchName = require('git-branch-name');
+  let dirPath = path.resolve(__dirname, '.');
+
+  return getGitBranchName(dirPath, function(err, branchName) {
+    let exec = require('child_process').exec;
+
+    let src = `${dirPath}/site/www/`,
+      dest = `deploy@alphasohodemo:/opt/mediawiki/data/static`;
+
+    if (branchName.substr(branchName.length - 2) === '.x') {
+      dest += `/${packageData.version}`;
+    } else {
+      dest += `/${branchName}`;
+    }
+
+    return exec(`rsync -avz ${src} ${dest}`, function (err, stdout, stderr) {
+      gutil.log(`Deployed to ${branchName}/index.html`);
 
       console.log(stdout);
       console.log(stderr);

@@ -1,4 +1,4 @@
-<div class="fnd-row theme-spec--block">
+<div class="fnd-row theme-spec--block" {{#if altBg}} style='background-color: {{ altBg.value }}'{{/if}}>
   {{#if border }}
     <div class="fnd-row--col-3">
       <div class="theme-spec--swatch" style="background: {{data.value}}; border-color: {{border.value}}" title="{{data.value}}">&nbsp;</div>
