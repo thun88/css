@@ -28,21 +28,28 @@
   </head>
 
   <body>
+
     <div class="visuallyhidden">
       $icons$
     </div>
 
-    <header class="site-nav">
-      <nav class="fnd-row--col-md-12">
+    <header class="fnd-row site-nav">
+      <nav class="fnd-row--col-md-9">
         <h1 class="site-nav--brand">
           <a href="/"><img src="img/infor_soho_xi.png" alt="Infor SoHo Foundation"></a>
         </h1>
-        <ul class="site-nav--list">
+        <ul class="site-nav--list site-nav--list--main">
           <li><a href="/learn/">Learn</a></li>
           <li><a href="#">Build</a></li>
           <li class="is-active"><a href="index.html">Foundations</a></li>
         </ul>
       </nav>
+      <div class="fnd-row--col-md-3">
+        <ul class="site-nav--list">
+          <li><a href="mediawiki">change log</a></li>
+          <li><a href="mailto:nick.wynja@infor.com">contact</a></li>
+        </ul>
+      </div>
     </header>
 
     <main class="site-main">
@@ -81,7 +88,6 @@
         </div>
       </div>
 
-
       <!-- Leave this below to mimic other doc sites -->
       <nav class="site-main--sidebar">
         <h2 class="site-sidebar--heading">Version $releaseversion$</h2>
@@ -95,7 +101,6 @@
           <li><a href="forms.html">Forms</a></li>
         </ul>
       </nav>
-
 
     </main>
   </body>
