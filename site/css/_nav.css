@@ -67,10 +67,12 @@ nav ol {
 /*
  * Left Side Nav
  */
-.site-sidebar {
+.site-main--sidebar {
   @apply --text-styles;
 
-  margin-top: 35px;
+  position: fixed;
+  top: 120px;
+  width: 180px;
 
   & .site-sidebar--heading {
     color: var(--brand-primary);

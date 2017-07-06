@@ -87,6 +87,10 @@ body {
   }
 }
 
+.site-main--content {
+  margin-left: 220px;
+}
+
 /*
  * Specification styles
  */

@@ -32,7 +32,7 @@
       $icons$
     </div>
 
-    <header class="fnd-row site-nav">
+    <header class="site-nav">
       <nav class="fnd-row--col-md-12">
         <h1 class="site-nav--brand">
           <a href="/"><img src="img/infor_soho_xi.png" alt="Infor SoHo Foundation"></a>
@@ -45,60 +45,58 @@
       </nav>
     </header>
 
-    <main class="fnd-row">
+    <main class="site-main">
 
-      <div class="fnd-row--col-md-2">
-        <nav class="site-sidebar">
-          <h2 class="site-sidebar--heading">Version $releaseversion$</h2>
-          <ul class="list-plain site-sidebar--nav">
-            <li><a href="grid.html">Responsive Grid</a></li>
-            <li><a href="adaptive.html">Adaptive States</a></li>
-            <li><a href="type.html">Typography</a></li>
-            <li><a href="themes.html">Themes</a></li>
-            <li><a href="colors.html">Color Palette</a></li>
-            <li><a href="buttons.html">Buttons</a></li>
-            <li><a href="forms.html">Forms</a></li>
-          </ul>
-        </nav>
-      </div>
+      <div class="site-main--content fnd-container">
+        $if(title)$
+          <div id="$idprefix$header" class="hero">
+            <h1 class="page-title">$title$</h1>
+            $if(subtitle)$
+              <h1 class="page-subtitle">$subtitle$</h1>
+            $endif$
+            $for(author)$
+              <h2 class="page-author">$author$</h2>
+            $endfor$
+            $if(date)$
+              <h3 class="page-date">$date$</h3>
+            $endif$
+            $if(description)$
+              <p class="page-description">$description$</p>
+            $endif$
+          </div>
+        $endif$
 
-      <div class="fnd-row--col-md-10 site-main">
-
-        <div class="fnd-container">
-          $if(title)$
-            <div id="$idprefix$header" class="hero">
-              <h1 class="page-title">$title$</h1>
-              $if(subtitle)$
-                <h1 class="page-subtitle">$subtitle$</h1>
-              $endif$
-              $for(author)$
-                <h2 class="page-author">$author$</h2>
-              $endfor$
-              $if(date)$
-                <h3 class="page-date">$date$</h3>
-              $endif$
-              $if(description)$
-                <p class="page-description">$description$</p>
+        <div class="fnd-row fnd-row--gutter">
+          <section class="fnd-row--col-md-9">
+            <div class="use-site-styles">$body$</div>
+          </section>
+          <nav class="fnd-row--col-md-3">
+            <div class="site-main--toc">
+              <h3>Contents</h3>
+              $if(toc)$
+                $toc$
               $endif$
             </div>
-          $endif$
-
-          <div class="fnd-row fnd-row--gutter">
-            <section class="fnd-row--col-md-9">
-              <div class="use-site-styles">$body$</div>
-            </section>
-
-            <nav class="fnd-row--col-md-3">
-              <div class="site-main--toc">
-                <h3>Contents</h3>
-                $if(toc)$
-                  $toc$
-                $endif$
-              </div>
-            </nav>
-          </div>
+          </nav>
         </div>
       </div>
+
+
+      <!-- Leave this below to mimic other doc sites -->
+      <nav class="site-main--sidebar">
+        <h2 class="site-sidebar--heading">Version $releaseversion$</h2>
+        <ul class="list-plain site-sidebar--nav">
+          <li><a href="grid.html">Responsive Grid</a></li>
+          <li><a href="adaptive.html">Adaptive States</a></li>
+          <li><a href="type.html">Typography</a></li>
+          <li><a href="themes.html">Themes</a></li>
+          <li><a href="colors.html">Color Palette</a></li>
+          <li><a href="buttons.html">Buttons</a></li>
+          <li><a href="forms.html">Forms</a></li>
+        </ul>
+      </nav>
+
+
     </main>
   </body>
 </html>
