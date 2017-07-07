@@ -59,11 +59,6 @@ nav ol {
   }
 }
 
-.site-nav--list.site-nav--list--right {
-  /* @TODO: Fix me by removing grid in nav */
-  padding-left: 0;
-}
-
 .site-nav--list.site-nav--list--main {
   & > li {
     &.is-active a {
@@ -80,6 +75,10 @@ nav ol {
       }
     }
   }
+}
+
+.site-nav--list.site-nav--list--right {
+  float: right;
 }
 
 /*
