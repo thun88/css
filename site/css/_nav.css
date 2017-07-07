@@ -79,6 +79,7 @@ nav ol {
 
 .site-nav--list.site-nav--list--right {
   float: right;
+  padding-right: 49px;
 }
 
 /*
@@ -87,7 +88,7 @@ nav ol {
 .site-main--sidebar {
   @apply --text-styles;
 
-  position: fixed;
+  position: absolute;
   top: 110px;
   width: 180px;
 

@@ -584,7 +584,7 @@ gulp.task('push', ['build'], function() {
     let exec = require('child_process').exec;
 
     let src = `${dirPath}/site/www/`,
-      dest = `deploy@alphasohodemo:/opt/mediawiki/data/static`;
+      dest = `~/Projects/mediawiki/data/static/foundation`;
 
     if (branchName.substr(branchName.length - 2) === '.x') {
       dest += `/${packageData.version}`;
