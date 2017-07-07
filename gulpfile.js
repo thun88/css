@@ -283,7 +283,7 @@ gulp.task('lint:site', () => {
 gulp.task('pre-commit', () => {
 
   // Lint only modified css files
-  gulp.src([`${sourcePath.css}/**/*.css`, `${sourcePath.siteCss}/**/*.css`])
+  return gulp.src([`${sourcePath.css}/**/*.css`, `${sourcePath.siteCss}/**/*.css`])
     .pipe(gitmodified(['modified']))
     .pipe(stylelint({
       failAfterError: true,
