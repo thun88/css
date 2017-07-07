@@ -586,11 +586,11 @@ gulp.task('push', ['build'], function() {
     let src = `${dirPath}/site/www/`,
       dest = `~/Projects/mediawiki/data/static/foundation`;
 
-    if (branchName.substr(branchName.length - 2) === '.x') {
-      dest += `/${packageData.version}`;
-    } else {
-      dest += `/${branchName}`;
-    }
+//    if (branchName.substr(branchName.length - 2) === '.x') {
+//      dest += `/${packageData.version}`;
+//    } else {
+//      dest += `/${branchName}`;
+//    }
 
     return exec(`rsync -avz ${src} ${dest}`, function (err, stdout, stderr) {
       gutil.log(`Deployed to ${branchName}/index.html`);
