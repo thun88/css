@@ -39,18 +39,20 @@ const gulp   = require('gulp'),
 // Load "gulp-" plugins
 // -------------------------------------
 // gulp-accessibility: Access Standards
-// gulp-concat    : Concatenate files
-// gulp-pandoc    : File converter
-// gulp-postcss   : Transform styles with JS
-// gulp-rename    : Rename files
-// gulp-stylelint : Lint the styles
-// gulp-svgmin    : SVGO for gulp
-// gulp-svgstore  : Combine svg files
-// gulp-tap       : Easily tap into a pipeline (debug)
-// gulp-util      : Utility functions
+// gulp-concat       : Concatenate files
+// gulp-gitmodified  : List modified files
+// gulp-pandoc       : File converter
+// gulp-postcss      : Transform styles with JS
+// gulp-rename       : Rename files
+// gulp-stylelint    : Lint the styles
+// gulp-svgmin       : SVGO for gulp
+// gulp-svgstore     : Combine svg files
+// gulp-tap          : Easily tap into a pipeline (debug)
+// gulp-util         : Utility functions
 // -------------------------------------
 const access = require('gulp-accessibility');
   concat     = require('gulp-concat'),
+  gitmodified = require('gulp-gitmodified'),
   hb         = require('gulp-hb'),
   pandoc     = require('gulp-pandoc'),
   postcss    = require('gulp-postcss'),
@@ -125,7 +127,7 @@ gulp.task('build', ['svg:store', 'compile:src', 'compile:docs', 'compile:site'])
 //   Task: Compile Docs
 //   Compile foundation markdown files
 // -------------------------------------
-gulp.task('compile:docs', function() {
+gulp.task('compile:docs', () => {
   const packageData = require('./package.json')
   let templateData = createCssAnnotations();
 
@@ -247,7 +249,7 @@ gulp.task('lint', ['lint:css', 'lint:site']);
 //   Task: Lint:css
 //   Lint the foundation source css
 // -------------------------------------
-gulp.task('lint:css', function() {
+gulp.task('lint:css', () => {
   return gulp.src(`${sourcePath.css}/**/*.css`)
     .pipe(stylelint({
       failAfterError: true,
@@ -262,7 +264,7 @@ gulp.task('lint:css', function() {
 //   Task: Lint:site
 //   Lint the website css
 // -------------------------------------
-gulp.task('lint:site', function() {
+gulp.task('lint:site', () => {
   return gulp.src(`${sourcePath.siteCss}/*.css`)
     .pipe(stylelint({
       failAfterError: true,
@@ -278,14 +280,26 @@ gulp.task('lint:site', function() {
 //   Task: Pre-commit
 //   Run things before committing
 // -------------------------------------
-gulp.task('pre-commit', ['lint']);
+gulp.task('pre-commit', () => {
+
+  // Lint only modified css files
+  gulp.src([`${sourcePath.css}/**/*.css`, `${sourcePath.siteCss}/**/*.css`])
+    .pipe(gitmodified(['modified']))
+    .pipe(stylelint({
+      failAfterError: true,
+      reporters: [{
+        formatter: 'verbose',
+        console: true
+      }]
+    }));
+})
 
 
 // -------------------------------------
 //   Task: Serve
 //   Serve and watch files
 // -------------------------------------
-gulp.task('serve', function() {
+gulp.task('serve', () => {
   browserSync.init({
     codesync: false,
     injectChanges: false,
@@ -313,19 +327,19 @@ gulp.task('serve', function() {
 
   gulp
     .watch(srcDocs, ['watch-docs'])
-    .on('change', function(evt) {
+    .on('change', (evt) => {
       changeEvent(evt);
     });
 
   gulp
     .watch(siteCss, ['watch-site'])
-    .on('change', function(evt) {
+    .on('change', (evt) => {
       changeEvent(evt);
     });
 
   gulp
     .watch(srcCss, ['watch-src'])
-    .on('change', function(evt) {
+    .on('change', (evt) => {
       changeEvent(evt);
     });
 });
@@ -335,7 +349,7 @@ gulp.task('serve', function() {
 //   Task: SVG Optimization
 //   Optimizes the svg icon markup
 // -------------------------------------
-gulp.task('svg:optimize', function() {
+gulp.task('svg:optimize', () => {
   return gulp.src(`${sourcePath.icons}/svg/*.svg`)
     .pipe(svgmin())
     .pipe(gulp.dest(`${sourcePath.icons}/svg`));
@@ -346,7 +360,7 @@ gulp.task('svg:optimize', function() {
 //   Task: SVG Store
 //   Creates and builds the svg icons
 // -------------------------------------
-gulp.task('svg:store', function() {
+gulp.task('svg:store', () => {
   ICONS_ARR = parseIcons(); // Refresh icons list
 
   return gulp.src(`${sourcePath.icons}/svg/*.svg`)
@@ -361,7 +375,7 @@ gulp.task('svg:store', function() {
 //   Task: Test
 //   Test accessibility level WCAG2A
 // -------------------------------------
-gulp.task('test', ['build'], function() {
+gulp.task('test', ['build'], () => {
 
   del(['log/accessibility']);
 
@@ -388,7 +402,7 @@ gulp.task('test', ['build'], function() {
 //   Task: watch-docs
 //   Guarantees reload is last task
 // -------------------------------------
-gulp.task('watch-docs', ['compile:docs', 'compile:site'], function(done) {
+gulp.task('watch-docs', ['compile:docs', 'compile:site'], (done) => {
   browserSync.reload();
   done();
 });
@@ -398,7 +412,7 @@ gulp.task('watch-docs', ['compile:docs', 'compile:site'], function(done) {
 //   Task: watch-site
 //   Guarantees reload is last task
 // -------------------------------------
-gulp.task('watch-site', ['compile:site'], function(done) {
+gulp.task('watch-site', ['compile:site'], (done) => {
   browserSync.reload();
   done();
 });
@@ -408,7 +422,7 @@ gulp.task('watch-site', ['compile:site'], function(done) {
 //   Task: watch-src
 //   Guarantees reload is last task
 // -------------------------------------
-gulp.task('watch-src', ['compile:src', 'compile:docs', 'compile:site'], function(done) {
+gulp.task('watch-src', ['compile:src', 'compile:docs', 'compile:site'], (done) => {
   browserSync.reload();
   done();
 });
@@ -542,13 +556,13 @@ function parseIcons() {
 // Task: Deploy (Lepore only)
 // Copies the WWW folder on Lepore's machine to his dropbox folder for temporary viewing
 // -------------------------------------
-gulp.task('deploy', ['build'], function() {
+gulp.task('deploy', ['build'], () => {
   let path = require('path');
 
   let getGitBranchName = require('git-branch-name');
   let dirPath = path.resolve(__dirname, '.');
 
-  return getGitBranchName(dirPath, function(err, branchName) {
+  return getGitBranchName(dirPath, (err, branchName) => {
     let exec = require('child_process').exec;
 
     let src = `~/HookandLoop/git/github/soho-foundation/site/www/*`,
@@ -574,13 +588,13 @@ gulp.task('deploy', ['build'], function() {
 // Task: Push
 // rsync www to soho site in branchName dir
 // -------------------------------------
-gulp.task('push', ['build'], function() {
+gulp.task('push', ['build'], () => {
   let path = require('path');
 
   let getGitBranchName = require('git-branch-name');
   let dirPath = path.resolve(__dirname, '.');
 
-  return getGitBranchName(dirPath, function(err, branchName) {
+  return getGitBranchName(dirPath, (err, branchName) => {
     let exec = require('child_process').exec;
 
     let src = `${dirPath}/site/www/`,
