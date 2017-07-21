@@ -265,7 +265,7 @@ gulp.task('lint:css', () => {
 //   Lint the website css
 // -------------------------------------
 gulp.task('lint:site', () => {
-  return gulp.src(`${sourcePath.siteCss}/*.css`)
+  return gulp.src(`${sourcePath.siteCss}/**/*.css`)
     .pipe(stylelint({
       failAfterError: true,
       reporters: [{
