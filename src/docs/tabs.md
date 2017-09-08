@@ -92,5 +92,3 @@ description: Description here
     </div>
 </div>
 ```
-
-## Header Tabs
