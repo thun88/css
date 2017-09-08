@@ -7,7 +7,7 @@ module.exports = {
     sources: {
       root:      'src',
       docs:      'src/docs',
-      css:       'src/css',
+      packages:  'src/packages',
       icons:     'src/icons',
       templates: 'site/templates',
       site:      'site',

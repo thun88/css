@@ -50,18 +50,19 @@ const gulp   = require('gulp'),
 // gulp-tap          : Easily tap into a pipeline (debug)
 // gulp-util         : Utility functions
 // -------------------------------------
-const access = require('gulp-accessibility');
-  concat     = require('gulp-concat'),
+const access  = require('gulp-accessibility');
+  concat      = require('gulp-concat'),
+  flatten     = require('gulp-flatten'),
   gitmodified = require('gulp-gitmodified'),
-  hb         = require('gulp-hb'),
-  pandoc     = require('gulp-pandoc'),
-  postcss    = require('gulp-postcss'),
-  rename     = require('gulp-rename'),
-  stylelint  = require('gulp-stylelint'),
-  svgmin     = require('gulp-svgmin'),
-  svgstore   = require('gulp-svgstore'),
-  tap        = require('gulp-tap'),
-  gutil      = require('gulp-util');
+  hb          = require('gulp-hb'),
+  pandoc      = require('gulp-pandoc'),
+  postcss     = require('gulp-postcss'),
+  rename      = require('gulp-rename'),
+  stylelint   = require('gulp-stylelint'),
+  svgmin      = require('gulp-svgmin'),
+  svgstore    = require('gulp-svgstore'),
+  tap         = require('gulp-tap'),
+  gutil       = require('gulp-util');
 
 
 // -------------------------------------
@@ -142,7 +143,7 @@ gulp.task('compile:docs', () => {
     .partials(`${sourcePath.templates}/partials/*.hbs`)
     .data(templateData);
 
-  return gulp.src(`${sourcePath.docs}/*.md`)
+  return gulp.src([`${sourcePath.docs}/*.md`, `${sourcePath.packages}/**/*.md`])
     // Parse any handlebar templates in the markdown
     .pipe(hbStream)
 
@@ -160,6 +161,7 @@ gulp.task('compile:docs', () => {
         '--variable=lang:en'
       ]
     }))
+    .pipe(flatten())
     .pipe(gulp.dest(destPath.www));
 });
 
@@ -211,7 +213,7 @@ gulp.task('compile:src', function () {
     map: true
   };
 
-  return gulp.src(`${sourcePath.css}/*.css`)
+  return gulp.src(`${sourcePath.packages}/fnd-components-webapp/*.css`)
     .pipe(postcss(plugins, postcssOptions))
     .pipe(rename({ extname: `_${packageData.version}.css` }))
     .pipe(gulp.dest(destPath.dist))
@@ -250,7 +252,7 @@ gulp.task('lint', ['lint:css', 'lint:site']);
 //   Lint the foundation source css
 // -------------------------------------
 gulp.task('lint:css', () => {
-  return gulp.src(`${sourcePath.css}/**/*.css`)
+  return gulp.src(`${sourcePath.packages}/**/*.css`)
     .pipe(stylelint({
       failAfterError: true,
       reporters: [{
@@ -283,7 +285,7 @@ gulp.task('lint:site', () => {
 gulp.task('pre-commit', () => {
 
   // Lint only modified css files
-  return gulp.src([`${sourcePath.css}/**/*.css`, `${sourcePath.siteCss}/**/*.css`])
+  return gulp.src([`${sourcePath.packages}/**/*.css`, `${sourcePath.siteCss}/**/*.css`])
     .pipe(gitmodified(['modified']))
     .pipe(stylelint({
       failAfterError: true,
@@ -322,7 +324,7 @@ gulp.task('serve', () => {
   ];
 
   const srcCss = [
-    `${sourcePath.css}/**/*.css`
+    `${sourcePath.packages}/**/*.css`
   ];
 
   gulp
@@ -465,11 +467,11 @@ function createCssAnnotations() {
   let content, blocks, cssVarAnnotations = {};
 
   // Parse the defaults first
-  const defaultVarsObj = parseCss(`${sourcePath.css}/components/_variables.css`);
+  const defaultVarsObj = parseCss(`${sourcePath.packages}/fnd-base/variables.css`);
 
   const themes = [
-    { name: 'themeDark',         path: `${sourcePath.css}/themes/_theme-dark.css` },
-    { name: 'themeHighContrast', path: `${sourcePath.css}/themes/_theme-high-contrast.css` }
+    { name: 'themeDark',         path: `${sourcePath.packages}/fnd-theme/theme-dark.css` },
+    { name: 'themeHighContrast', path: `${sourcePath.packages}/fnd-theme/theme-high-contrast.css` }
   ];
 
   cssVarAnnotations = {
