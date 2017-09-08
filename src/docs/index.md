@@ -16,20 +16,3 @@ description: SoHo unifies the CloudSuite experience by standardizing the univers
 Foundations is the basic identity of the SoHo user experience. By having standard colors, text, and basic elements like form fields and buttons, each Infor application can share an identity. Foundations is style-only, powered by CSS and using a very generic architecture so that it's easy for any Infor application to use. The SoHo Components add functionality to the basics of SoHo making it easier for you to bring the SoHo user experience to life. With built-in responsive features, complex UX patterns like Data Grid and Step Pattern, and a large library of different components for many use cases, the SoHo components can help you build out the SoHo experience.
 
 SoHo Foundations is lightweight implementation of SoHo's basic design principles while the SoHo Components are a more feature-rich toolkit of common patterns which you can "drop in" to your Infor application.
-
-
-## Some Text
-
-### This is a bulleted list:
-
-- An item
-- Another item
-- One more item
-- More Text
-
-
-### This is a ordered list:
-
-1. First item
-1. Second item
-1. Third item

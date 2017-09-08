@@ -87,6 +87,10 @@ body {
   }
 }
 
+.site-main--content {
+  margin-left: 285px;
+}
+
 /*
  * Specification styles
  */
@@ -128,7 +132,7 @@ code {
 
 .example,
 pre {
-  border: 1px solid #e1e1e8;
+  border: 1px solid var(--example-border-color);
   border-radius: 0.25rem 0.25rem 0 0;
   padding: 15px;
 }
@@ -141,6 +145,10 @@ pre {
   & .example--info {
     display: block;
     margin-top: 20px;
+  }
+
+  & .example--inner-frame {
+    border: solid 1px var(--example-border-color);
   }
 }
 

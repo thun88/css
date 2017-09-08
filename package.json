@@ -1,7 +1,7 @@
 {
   "name": "@infor/soho_foundation",
   "shortname": "sohofoundation",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Hook & Loop - Soho Foundation styles",
   "author": "Hook & Loop",
   "license": "UNLICENSED",
@@ -12,6 +12,7 @@
   },
   "dependencies": {},
   "devDependencies": {
+    "@angular/cli": "^1.2.1",
     "browser-sync": "^2.18.8",
     "css-annotation-block": "git+http://clepore@git.infor.com/scm/~clepore/css-annotation-block.git",
     "del": "^2.2.2",
@@ -22,6 +23,7 @@
     "gulp-concat": "^2.6.1",
     "gulp-cssnano": "^2.1.2",
     "gulp-front-matter": "^1.3.0",
+    "gulp-gitmodified": "^1.1.1",
     "gulp-hb": "^6.0.2",
     "gulp-pandoc": "^0.2.2",
     "gulp-postcss": "^6.3.0",

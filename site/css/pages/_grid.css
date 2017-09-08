@@ -2,11 +2,11 @@
  * Pages: Grid Layout
  */
 
-.example {
+.example--grid {
   & .fnd-row > [class^='fnd-row--'] {
     outline: solid 1px #ccc;
-    padding-bottom: .75em;
-    padding-top: .75em;
-    text-align: left
+    padding-bottom: 0.75rem;
+    padding-top: 0.75rem;
+    text-align: left;
   }
 }

@@ -23,6 +23,7 @@
 
 .swatch-text {
   @apply --text-styles;
+
   background-color: var(--white);
   bottom: 0;
   font-size: 1.4rem;

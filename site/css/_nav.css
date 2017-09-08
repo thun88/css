@@ -35,7 +35,7 @@ nav ol {
 
 .site-nav--list {
   display: inline-block;
-  padding-left: 16px;
+  padding-left: 126px;
   position: relative;
 
   & > li {
@@ -44,6 +44,23 @@ nav ol {
     position: relative;
     top: 4px;
 
+    & a {
+      color: #727272;
+      line-height: 20px;
+      margin: 0 20px;
+      padding: 16px 5px 2px;
+      text-decoration: none;
+
+      &:focus,
+      &:hover {
+        color: #333;
+      }
+    }
+  }
+}
+
+.site-nav--list.site-nav--list--main {
+  & > li {
     &.is-active a {
       border-bottom: 2px solid var(--brand-primary);
       color: var(--brand-primary);
@@ -51,10 +68,6 @@ nav ol {
 
     & a {
       color: var(--black);
-      line-height: 20px;
-      margin: 0 20px;
-      padding: 16px 5px 2px;
-      text-decoration: none;
 
       &:focus,
       &:hover {
@@ -64,13 +77,20 @@ nav ol {
   }
 }
 
+.site-nav--list.site-nav--list--right {
+  float: right;
+  padding-right: 49px;
+}
+
 /*
  * Left Side Nav
  */
-.site-sidebar {
+.site-main--sidebar {
   @apply --text-styles;
 
-  margin-top: 35px;
+  position: absolute;
+  top: 110px;
+  width: 180px;
 
   & .site-sidebar--heading {
     color: var(--brand-primary);
