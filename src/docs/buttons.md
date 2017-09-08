@@ -32,7 +32,6 @@ Use the button classes on and `<a>`, `<button>`, `<input>` elements. As a best p
 <button class="btn btn--default" type="submit">Button</button>
 <input class="btn btn--default" type="button" value="Input">
 <input class="btn btn--default" type="submit" value="Submit">
-
 ```
 
 ## Options
