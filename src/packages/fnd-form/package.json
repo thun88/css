@@ -1,0 +1,17 @@
+{
+  "name": "@soho-foundation/form",
+  "version": "1.0.0",
+  "description": "Form classes, mixins, and variables for Soho Foundation Components for the web",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hookandloop/soho-foundation.git"
+  },
+  "keywords": [
+    "form",
+    "font",
+    "soho-foundation",
+    "components"
+  ],
+  "author": "Hook & Loop",
+  "license": "UNLICENSED"
+}
