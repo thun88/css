@@ -22,7 +22,7 @@
     $if(stylesheet)$
       <link rel="stylesheet" type="text/css" href="/css/$stylesheet$" id="soho-theme">
     $else$
-      <link rel="stylesheet" type="text/css" href="/dist/soho-foundation_$releaseversion$.css" id="soho-theme">
+      <link rel="stylesheet" type="text/css" href="/dist/soho-foundation_$releaseversion$.min.css" id="soho-theme">
     $endif$
     <link rel="stylesheet" type="text/css" href="/css/site.min.css">
   </head>
@@ -33,24 +33,22 @@
       $icons$
     </div>
 
-    <header class="site-nav">
-      <ul class="site-nav--list site-nav--list--right">
-        <li><a href="http://git.infor.com/projects/SOHO/repos/controls/browse/CHANGELOG.md" target="_blank">change log</a></li>
-        <li><a href="https://jira.infor.com/secure/CreateIssue.jspa?pid=10980&issuetype=38" target="_blank">contact</a></li>
-      </ul>
-      <nav>
-        <h1 class="site-nav--brand">
-          <a href="/"><img src="/img/infor_soho_xi.png" alt="Infor SoHo Foundation"></a>
-        </h1>
-        <ul class="site-nav--list site-nav--list--main">
-          <li><a href="/learn/">Learn</a></li>
-          <li><a href="/build/4.3.1-rc/components/">Build</a></li>
-          <li class="is-active"><a href="/foundation/0.4-rc/">Foundations</a></li>
+    <main class="site-main">
+
+      <!-- Leave this below to mimic other doc sites -->
+      <nav class="site-main--sidebar fnd-container">
+        <h2 class="site-sidebar--heading">Version $releaseversion$</h2>
+        <ul class="list-plain site-sidebar--nav">
+          <li><a href="/grid.html">Responsive Grid</a></li>
+          <li><a href="/adaptive.html">Adaptive States</a></li>
+          <li><a href="/typography.html">Typography</a></li>
+          <li><a href="/theme.html">Themes</a></li>
+          <li><a href="/colors.html">Color Palette</a></li>
+          <li><a href="/button.html">Buttons</a></li>
+          <li><a href="/form.html">Forms</a></li>
+          <li><a href="/tab.html">Tabs</a></li>
         </ul>
       </nav>
-    </header>
-
-    <main class="site-main">
 
       <div class="site-main--content fnd-container">
         $if(title)$
@@ -85,21 +83,6 @@
           </nav>
         </div>
       </div>
-
-      <!-- Leave this below to mimic other doc sites -->
-      <nav class="site-main--sidebar">
-        <h2 class="site-sidebar--heading">Version $releaseversion$</h2>
-        <ul class="list-plain site-sidebar--nav">
-          <li><a href="/grid.html">Responsive Grid</a></li>
-          <li><a href="/adaptive.html">Adaptive States</a></li>
-          <li><a href="/typography.html">Typography</a></li>
-          <li><a href="/theme.html">Themes</a></li>
-          <li><a href="/colors.html">Color Palette</a></li>
-          <li><a href="/button.html">Buttons</a></li>
-          <li><a href="/form.html">Forms</a></li>
-          <li><a href="/tab.html">Tabs</a></li>
-        </ul>
-      </nav>
 
     </main>
   </body>

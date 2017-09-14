@@ -21,7 +21,7 @@
 //   `gulp test`
 //   'gulp watch-docs'
 //   'gulp watch-site'
-//   'gulp watch-src'
+//   'gulp watch-css'
 //
 // *************************************
 
@@ -77,7 +77,7 @@ const access  = require('gulp-accessibility');
 // stylelint-order: Stylelint plugin
 // -------------------------------------
 const annotateBlock = require('css-annotation-block'),
-  browserSync       = require('browser-sync').create(),
+  browserSync       = require('browser-sync').create('localDocServer'),
   del               = require('del'),
   fs                = require('fs'),
   glob              = require('glob'),
@@ -216,13 +216,65 @@ gulp.task('compile:src', function () {
   return gulp.src(`${sourcePath.packages}/fnd-components-webapp/*.css`)
     .pipe(postcss(plugins, postcssOptions))
     .pipe(rename({ extname: `_${packageData.version}.css` }))
-    .pipe(gulp.dest(destPath.dist))
+    // .pipe(gulp.dest(destPath.dist))
     .pipe(postcss([
       require('cssnano')({ autoprefixer: false })
     ], postcssOptions))
     .pipe(rename({ extname: '.min.css' }))
     .pipe(gulp.dest(destPath.dist));
 });
+
+
+// -------------------------------------
+//   Task: Demo Css
+//   Compile Foundation source css
+// -------------------------------------
+gulp.task('demo:css', function () {
+  // const packageData = require('./package.json')
+
+  // Note: plugin order matters
+  const plugins = [
+    atImport,
+    commas,
+    atVariables,
+    atFor,
+    lost,
+    // Possible in the future to preserve the css vars to others' use
+    // cssnext({ features: { customProperties: { preserve: true, appendVariables: true }}})
+    cssnext
+  ];
+
+  const postcssOptions = {
+    map: true
+  };
+
+  return gulp.src(`${sourcePath.packages}/**/*.css`)
+    .pipe(postcss(plugins, postcssOptions))
+    .pipe(postcss([
+      require('cssnano')({ autoprefixer: false })
+    ], postcssOptions))
+    .pipe(rename({ extname: '.min.css' }))
+    .pipe(gulp.dest(`${destPath.demo}`));
+});
+
+
+
+gulp.task('demo:serve', function () {
+  let demoServer = require('browser-sync').create('demoServer');
+
+  demoServer.init({
+    codesync: false,
+    injectChanges: false,
+    open: false,
+    server: {
+      baseDir: [destPath.demo]
+    },
+    logLevel: 'info',
+    logPrefix: 'Soho-Fnd',
+    ui: false
+  });
+});
+
 
 
 // -------------------------------------
@@ -307,16 +359,18 @@ gulp.task('serve', () => {
     injectChanges: false,
     open: false,
     server: {
-      baseDir: destPath.www
+      baseDir: [destPath.www, destPath.demo]
     },
     logLevel: 'info',
-    logPrefix: 'Soho-Fnd'
+    logPrefix: 'Soho-Fnd',
+    ui: false
   });
 
 
   const srcDocs = [
     `${sourcePath.docs}/*.md`,
-    `${sourcePath.templates}/**/*`
+    `${sourcePath.templates}/**/*`,
+    `${sourcePath.packages}/**/*.md`
   ];
 
   const siteCss = [
@@ -340,7 +394,7 @@ gulp.task('serve', () => {
     });
 
   gulp
-    .watch(srcCss, ['watch-src'])
+    .watch(srcCss, ['watch-css'])
     .on('change', (evt) => {
       changeEvent(evt);
     });
@@ -421,10 +475,10 @@ gulp.task('watch-site', ['compile:site'], (done) => {
 
 
 // -------------------------------------
-//   Task: watch-src
+//   Task: watch-css
 //   Guarantees reload is last task
 // -------------------------------------
-gulp.task('watch-src', ['compile:src', 'compile:docs', 'compile:site'], (done) => {
+gulp.task('watch-css', ['compile:src', 'compile:docs', 'compile:site'], (done) => {
   browserSync.reload();
   done();
 });
@@ -467,7 +521,7 @@ function createCssAnnotations() {
   let content, blocks, cssVarAnnotations = {};
 
   // Parse the defaults first
-  const defaultVarsObj = parseCss(`${sourcePath.packages}/fnd-base/variables.css`);
+  const defaultVarsObj = parseCss(`${sourcePath.packages}/fnd-base/_variables.css`);
 
   const themes = [
     { name: 'themeDark',         path: `${sourcePath.packages}/fnd-theme/theme-dark.css` },

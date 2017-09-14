@@ -1,6 +1,7 @@
-/*
- * Adaptive Styles
- */
+@import '../fnd-base/base';
+@import '../fnd-typography/typography';
+@import '../fnd-form/form';
+@import '../fnd-button/button';
 
 .adaptive--touch {
   & .btn,

@@ -1,3 +1,7 @@
+@import '../fnd-base/base';
+@import '../fnd-button/button';
+@import '../fnd-typography/typography';
+
 .form-control {
   background-clip: padding-box;
   background-color: var(--input-bg);

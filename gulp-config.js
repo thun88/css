@@ -16,7 +16,8 @@ module.exports = {
     destinations: {
       www:  'site/www',
       css:  'site/www/css',
-      dist: 'site/www/dist'
+      dist: 'site/www/dist',
+      demo: 'demo'
     }
   }
 };

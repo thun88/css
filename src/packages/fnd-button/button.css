@@ -1,8 +1,12 @@
+@import '../fnd-base/base';
+@import '../fnd-typography/typography';
+
 /*
   Note: Leave .btn without color styling so that
   it can be easily extended for custom
   colored buttons
  */
+
 .btn {
   border: 0;
   border-radius: 2px;
