@@ -250,7 +250,7 @@ gulp.task('build:demo', () => {
     map: true
   };
 
-  return gulp.src(`${sourcePath.packages}/**/*.css`)
+  return gulp.src(`${sourcePath.packages}/**/[^_]*.css`)
     .pipe(postcss(plugins, postcssOptions))
     .pipe(postcss([
       require('cssnano')({ autoprefixer: false })
