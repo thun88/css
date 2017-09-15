@@ -2,5 +2,5 @@
 @import '../fnd-components-webapp/soho-foundation.css';
 
 /* Modify with themed variable values */
-@import '../fnd-theme/theme-high-contrast.css';
+@import '../fnd-theme-high-contrast/theme-high-contrast.css';
 
