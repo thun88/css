@@ -188,15 +188,32 @@ gulp.task('build:site:json', () => {
     const markdownToJSON = require('gulp-markdown-to-json');
     const marked = require('marked');
 
+    const packageData = require('./package.json')
+    let templateData = createCssAnnotations();
+
+    if (ICONS_ARR.length === 0) {
+      ICONS_ARR = parseIcons();;
+    }
+    templateData.svgIcons = ICONS_ARR;
+    templateData.packageData = packageData;
+
+
+    let hbStream = hb()
+      .partials(`${sourcePath.templates}/partials/*.hbs`)
+      .data(templateData);
+
+
     marked.setOptions({
       pedantic: true,
       smartypants: true
     });
+
     gulp.src(`${sourcePath.packages}/**/README.md`)
       .pipe(rename((path) => {
         // Rename filename of readme to folder name
         path.basename = path.dirname.replace('fnd-', '');
       }))
+      .pipe(hbStream)
       .pipe(markdownToJSON(marked))
       .pipe(flatten())
       .pipe(gulp.dest(destPath.dist));

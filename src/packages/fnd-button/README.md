@@ -1,6 +1,16 @@
 ---
 title: Buttons
 description: This page describes how the buttons and button styles are used in foundation.
+specs: [
+    {{> specColorMd title="Default Button Color" spec=default.btnDefaultBg }},
+    {{> specColorMd title="Default Button Label Color" spec=default.btnDefaultColor }},
+    {{> specColorMd title="Default Button Hover Color" spec=default.btnDefaultHover }},
+    {{> specValueMd title="Default Disabled State Opacity" spec=default.btnDisabledOpacity }},
+    {{> specColorMd title="Primary Background Color" spec=default.btnPrimaryBg }},
+    {{> specColorMd title="Primary Label Color" spec=default.btnPrimaryColor }},
+    {{> specColorMd title="Primary Hover Color" spec=default.btnPrimaryHover }},
+    {{> specValueMd title="Primary Disabled State Opacity" spec=default.btnDisabledOpacity }}
+]
 ---
 
 ## Specs
