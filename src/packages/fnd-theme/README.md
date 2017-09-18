@@ -1,7 +1,11 @@
 ---
-title: Colors
-description: These are color swatches for foundation.
+title: Themes
+description: These document how to utilize the themes in foundation.
 ---
+
+## Soho Theme
+
+{{> themeDetails spec=default }}
 
 ## Color swatches
 

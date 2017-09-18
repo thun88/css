@@ -1,5 +1,5 @@
 @import '../fnd-base/base';
-@import '../fnd-layout-grid/grid';
+@import '../fnd-grid/grid';
 @import '../fnd-typography/typography';
 
 .fnd-tabs--list-horizontal {

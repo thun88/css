@@ -6,7 +6,6 @@ module.exports = {
     },
     sources: {
       root:      'src',
-      docs:      'src/docs',
       packages:  'src/packages',
       icons:     'src/icons',
       templates: 'site/templates',
@@ -14,9 +13,7 @@ module.exports = {
       siteCss:   'site/css'
     },
     destinations: {
-      www:  'site/www',
-      css:  'site/www/css',
-      dist: 'site/www/dist',
+      site:  'site/www',
       demo: 'demo'
     }
   }

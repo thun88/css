@@ -44,6 +44,7 @@ const gulp   = require('gulp'),
 // gulp-accessibility: Access Standards
 // gulp-concat       : Concatenate files
 // gulp-gitmodified  : List modified files
+// gulp-hb           : Handlebars parser
 // gulp-pandoc       : File converter
 // gulp-postcss      : Transform styles with JS
 // gulp-rename       : Rename files
@@ -72,12 +73,11 @@ const access  = require('gulp-accessibility');
 //   Utility NPM Plugins
 // -------------------------------------
 // annotateBlock  : Parse css for comment blocks
+// browserSync    : Method of serving sites
 // del            : Delete files
 // fs             : Read/sync file stream
 // glob           : File pattern matching
-// hb             : Handlebars Template parser
 // is-color       : Validate hex colors
-// stylelint-order: Stylelint plugin
 // -------------------------------------
 const annotateBlock = require('css-annotation-block'),
   browserSync       = require('browser-sync').create('localDocServer'),
@@ -111,7 +111,7 @@ const atFor    = require('postcss-for'),
 //   Global Variables
 // -------------------------------------
 let ICONS_ARR = [];
-let SVG_HTML = fs.readFileSync(`${sourcePath.root}/icons/icons.svg`, 'utf-8');
+let SVG_HTML = fs.readFileSync(`${sourcePath.icons}/icons.svg`, 'utf-8');
 
 
 // -------------------------------------
@@ -152,7 +152,7 @@ gulp.task('build:site:html', () => {
     .partials(`${sourcePath.templates}/partials/*.hbs`)
     .data(templateData);
 
-  return gulp.src([`${sourcePath.docs}/*.md`, `${sourcePath.packages}/**/*.md`])
+  return gulp.src(`${sourcePath.packages}/**/README.md`)
     // Parse any handlebar templates in the markdown
     .pipe(hbStream)
 
@@ -170,8 +170,12 @@ gulp.task('build:site:html', () => {
         '--variable=lang:en'
       ]
     }))
+    .pipe(rename((path) => {
+      // Rename filename of readme to folder name
+      path.basename = path.dirname.replace('fnd-', '');
+    }))
     .pipe(flatten())
-    .pipe(gulp.dest(destPath.www));
+    .pipe(gulp.dest(destPath.site));
 });
 
 
@@ -201,10 +205,10 @@ gulp.task('build:site:css', () => {
     cssnano({ autoprefixer: false })
   ];
 
-  return gulp.src(`${sourcePath.siteCss}/site.css`)
+  return gulp.src(`${sourcePath.site}/css/site.css`)
     .pipe(postcss(plugins, { map: true }))
     .pipe(rename({ extname: '.min.css' }))
-    .pipe(gulp.dest(`${destPath.css}`));
+    .pipe(gulp.dest(`${destPath.site}/css`));
 });
 
 
@@ -227,7 +231,7 @@ gulp.task('build:site:packages', () => {
   return gulp.src(`${sourcePath.packages}/fnd-components-webapp/soho-foundation.css`)
     .pipe(postcss(plugins, { map: true }))
     .pipe(rename({ extname: '.min.css' }))
-    .pipe(gulp.dest(`${destPath.dist}`));
+    .pipe(gulp.dest(`${destPath.site}/dist`));
 });
 
 
@@ -266,8 +270,8 @@ gulp.task('build:demo', () => {
 // -------------------------------------
 gulp.task('clean', () => {
   return del([
-    `${destPath.www}/**`,
-    `!${destPath.www}`,
+    `${destPath.site}/**`,
+    `!${destPath.site}`,
     `${destPath.demo}/**/*.min.css`,
     `log`
   ]);
@@ -362,10 +366,11 @@ gulp.task('serve:demo', () => {
 gulp.task('serve', () => {
   browserSync.init({
     codesync: false,
+    index: 'base.html',
     injectChanges: false,
     open: false,
     server: {
-      baseDir: [destPath.www, destPath.demo]
+      baseDir: [destPath.site, destPath.demo]
     },
     logLevel: 'info',
     logPrefix: 'Soho-Fnd',
@@ -374,7 +379,6 @@ gulp.task('serve', () => {
 
 
   const srcMarkdown = [
-    `${sourcePath.docs}/*.md`,
     `${sourcePath.templates}/**/*`,
     `${sourcePath.packages}/**/*.md`
   ];
@@ -429,7 +433,7 @@ gulp.task('svg:store', () => {
     .pipe(svgstore({ inlineSvg: true }))
     .pipe(rename('icons.svg'))
     .pipe(gulp.dest(sourcePath.icons))
-    .pipe(gulp.dest(destPath.www));
+    .pipe(gulp.dest(destPath.site));
 });
 
 
@@ -441,7 +445,7 @@ gulp.task('test', ['build'], () => {
 
   del(['log/accessibility']);
 
-  return gulp.src(`${destPath.www}/*.html`)
+  return gulp.src(`${destPath.site}/*.html`)
     .pipe(access({
       accessibilityLevel: 'WCAG2A',
       force: true,
