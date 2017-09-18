@@ -118,7 +118,7 @@ let SVG_HTML = fs.readFileSync(`${sourcePath.root}/icons/icons.svg`, 'utf-8');
 //   Task: Default
 //   Does a build and serves the website
 // -------------------------------------
-gulp.task('default', ['build', 'serve:site']);
+gulp.task('default', ['clean', 'build', 'serve']);
 
 
 // -------------------------------------
@@ -233,7 +233,7 @@ gulp.task('build:site:packages', () => {
 
 // -------------------------------------
 //   Task: Build Demo
-//   Compile Foundation source css
+//   Build demo css
 // -------------------------------------
 gulp.task('build:demo', () => {
   // Note: plugin order matters
@@ -252,14 +252,12 @@ gulp.task('build:demo', () => {
 
   return gulp.src(`${sourcePath.packages}/**/[^_]*.css`)
     .pipe(postcss(plugins, postcssOptions))
-    .pipe(postcss([
-      require('cssnano')({ autoprefixer: false })
-    ], postcssOptions))
-    .pipe(rename({ extname: '.min.css' }))
+    // .pipe(postcss([
+    //   require('cssnano')({ autoprefixer: false })
+    // ], postcssOptions))
+    .pipe(rename({ suffix: '-demo' }))
     .pipe(gulp.dest(`${destPath.demo}`));
 });
-
-
 
 
 // -------------------------------------
@@ -359,10 +357,9 @@ gulp.task('serve:demo', () => {
 
 
 // -------------------------------------
-//   Task: Serve Site
-//   Serve and watch files
+//   Task: Serve Demo & site
 // -------------------------------------
-gulp.task('serve:site', () => {
+gulp.task('serve', () => {
   browserSync.init({
     codesync: false,
     injectChanges: false,
