@@ -72,7 +72,13 @@
 
         <div class="fnd-row fnd-row--gutter">
           <section class="fnd-row--col-md-9">
-            <div class="use-site-styles">$body$</div>
+            <div class="use-site-styles">
+              <h2>Specs</h2>
+              $for(specs)$
+                $specs.title$: $specs.value$
+              $endfor$
+              $body$
+            </div>
           </section>
           <nav class="fnd-row--col-md-3">
             <div class="site-main--toc">

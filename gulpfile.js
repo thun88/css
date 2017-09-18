@@ -300,7 +300,7 @@ gulp.task('build:demo', () => {
 //   Task: Clean
 //   Delete built files
 // -------------------------------------
-gulp.task('clean', () => {
+gulp.task('clean', ['clean:site:json'], () => {
   return del([
     `${destPath.site}/**`,
     `!${destPath.site}`,

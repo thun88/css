@@ -2,30 +2,17 @@
 title: Buttons
 description: This page describes how the buttons and button styles are used in foundation.
 specs: [
-    {{> specColorMd title="Default Button Color" spec=default.btnDefaultBg }},
-    {{> specColorMd title="Default Button Label Color" spec=default.btnDefaultColor }},
-    {{> specColorMd title="Default Button Hover Color" spec=default.btnDefaultHover }},
-    {{> specValueMd title="Default Disabled State Opacity" spec=default.btnDisabledOpacity }},
-    {{> specColorMd title="Primary Background Color" spec=default.btnPrimaryBg }},
-    {{> specColorMd title="Primary Label Color" spec=default.btnPrimaryColor }},
-    {{> specColorMd title="Primary Hover Color" spec=default.btnPrimaryHover }},
-    {{> specValueMd title="Primary Disabled State Opacity" spec=default.btnDisabledOpacity }}
+    {{> specMd title="Default Button Color" spec=default.btnDefaultBg }},
+    {{> specMd title="Default Button Label Color" spec=default.btnDefaultColor }},
+    {{> specMd title="Default Button Hover Color" spec=default.btnDefaultHover }},
+    {{> specMd title="Default Disabled State Opacity" spec=default.btnDisabledOpacity }},
+    {{> specMd title="Primary Background Color" spec=default.btnPrimaryBg }},
+    {{> specMd title="Primary Label Color" spec=default.btnPrimaryColor }},
+    {{> specMd title="Primary Hover Color" spec=default.btnPrimaryHover }},
+    {{> specMd title="Primary Disabled State Opacity" spec=default.btnDisabledOpacity }}
 ]
+version: {{packageData.version}}
 ---
-
-## Specs
-
-**Default Button**:
-{{> specColor title="Default Button Color" spec=default.btnDefaultBg }}
-{{> specColor title="Default Button Label Color" spec=default.btnDefaultColor }}
-{{> specColor title="Default Button Hover Color" spec=default.btnDefaultHover }}
-{{> specValue title="Disabled State Opacity" spec=default.btnDisabledOpacity }}
-
-**Primary Button**
-{{> specColor title="Background Color" spec=default.btnPrimaryBg }}
-{{> specColor title="Label Color" spec=default.btnPrimaryColor }}
-{{> specColor title="Hover Color" spec=default.btnPrimaryHover }}
-{{> specValue title="Disabled State Opacity" spec=default.btnDisabledOpacity }}
 
 ## Button Tags
 
