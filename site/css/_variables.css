@@ -10,7 +10,7 @@
   --link-color: var(--brand-primary);
   --link-color-hover: var(--link-color);
 
-  --font-family-base: proxima nova, arial;
+  --font-family-base: arial;
   --font-family-mono: menlo, monaco, consolas, 'courier new', monospace;
   --font-size-base: 1.6rem;
   --line-height-base: 1.5;
