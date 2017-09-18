@@ -1,9 +1,3 @@
-/* Variables */
-@import '../fnd-base/variables';
-
-/*  Reset */
-@import '../fnd-base/reset';
-
 /* Components */
 @import '../fnd-base/base';
 @import '../fnd-button/button';
@@ -14,5 +8,4 @@
 @import '../fnd-typography/typography';
 
 /* Utilities */
-@import '../fnd-base/utility';
 @import '../fnd-adaptive/adaptive';

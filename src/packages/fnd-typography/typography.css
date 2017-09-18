@@ -1,3 +1,6 @@
+@import '../fnd-base/base';
+@import '../fnd-typography/typography';
+
 html[lang='ar-EG'],
 html[lang='ar-SA'] {
   font-family: 'Helvetica', 'Arial', 'Tahoma', 'DejaVu';
@@ -24,11 +27,8 @@ html {
 }
 
 body {
-  background-color: var(--body-bg);
-  color: var(--body-color);
   font-family: var(--font-family-base);
   font-size: var(--font-size-base);
-  height: 100%;
 }
 
 h1,

@@ -7,21 +7,24 @@
 // Available tasks:
 //   'gulp default'
 //   'gulp build'
-//      'gulp compile:docs'
-//      'gulp compile:site'
-//      'gulp compile:src'
+//      'gulp build:site'
+//        'gulp build:site:css'
+//        'gulp build:site:html'
+//        'gulp build:site:json'
+//        'gulp build:site:packages'
+//      'gulp build:demo'
 //   'gulp clean'
-//   'gulp lint'
-//      'gulp lint:css'
-//      'gulp lint:site'
+//   'gulp stylelint'
+//      'gulp stylelint:packages'
+//      'gulp stylelint:site'
 //   `gulp pre-commit'
-//   'gulp serve'
+//   'gulp serve:site'
 //   'gulp svg:optimize'
 //   'gulp svg:store'
 //   `gulp test`
-//   'gulp watch-docs'
+//   'gulp watch-md'
 //   'gulp watch-site'
-//   'gulp watch-src'
+//   'gulp watch-packages'
 //
 // *************************************
 
@@ -77,7 +80,7 @@ const access  = require('gulp-accessibility');
 // stylelint-order: Stylelint plugin
 // -------------------------------------
 const annotateBlock = require('css-annotation-block'),
-  browserSync       = require('browser-sync').create(),
+  browserSync       = require('browser-sync').create('localDocServer'),
   del               = require('del'),
   fs                = require('fs'),
   glob              = require('glob'),
@@ -115,20 +118,26 @@ let SVG_HTML = fs.readFileSync(`${sourcePath.root}/icons/icons.svg`, 'utf-8');
 //   Task: Default
 //   Does a build and serves the website
 // -------------------------------------
-gulp.task('default', ['build', 'serve']);
+gulp.task('default', ['build', 'serve:site']);
 
 
 // -------------------------------------
 //   Task: Build
 // -------------------------------------
-gulp.task('build', ['svg:store', 'compile:src', 'compile:docs', 'compile:site']);
+gulp.task('build', ['svg:store', 'build:demo', 'build:site']);
 
 
 // -------------------------------------
-//   Task: Compile Docs
-//   Compile foundation markdown files
+//   Task: Build:Site
 // -------------------------------------
-gulp.task('compile:docs', () => {
+gulp.task('build:site', ['build:site:html', 'build:site:css', 'build:site:packages']);
+
+
+// -------------------------------------
+//   Task: Build Docs
+//   Build foundation documentation files
+// -------------------------------------
+gulp.task('build:site:html', () => {
   const packageData = require('./package.json')
   let templateData = createCssAnnotations();
 
@@ -167,10 +176,19 @@ gulp.task('compile:docs', () => {
 
 
 // -------------------------------------
-//   Task: Compile Site
+//   Task: Build docs json
+//   Build foundation documentation files
+// -------------------------------------
+gulp.task('build:site:json', () => {
+
+});
+
+
+// -------------------------------------
+//   Task: Build Site
 //   Compile the website css
 // -------------------------------------
-gulp.task('compile:site', function () {
+gulp.task('build:site:css', () => {
 
   // Note: plugin order matters
   const plugins = [
@@ -191,11 +209,9 @@ gulp.task('compile:site', function () {
 
 
 // -------------------------------------
-//   Task: Compile Src
-//   Compile Foundation source css
+//   Task: Build Site Packages
 // -------------------------------------
-gulp.task('compile:src', function () {
-  const packageData = require('./package.json')
+gulp.task('build:site:packages', () => {
 
   // Note: plugin order matters
   const plugins = [
@@ -204,8 +220,29 @@ gulp.task('compile:src', function () {
     atVariables,
     atFor,
     lost,
-    // Possible in the future to preserve the css vars to others' use
-    // cssnext({ features: { customProperties: { preserve: true, appendVariables: true }}})
+    cssnext,
+    cssnano({ autoprefixer: false })
+  ];
+
+  return gulp.src(`${sourcePath.packages}/fnd-components-webapp/soho-foundation.css`)
+    .pipe(postcss(plugins, { map: true }))
+    .pipe(rename({ extname: '.min.css' }))
+    .pipe(gulp.dest(`${destPath.dist}`));
+});
+
+
+// -------------------------------------
+//   Task: Build Demo
+//   Compile Foundation source css
+// -------------------------------------
+gulp.task('build:demo', () => {
+  // Note: plugin order matters
+  const plugins = [
+    atImport,
+    commas,
+    atVariables,
+    atFor,
+    lost,
     cssnext
   ];
 
@@ -213,29 +250,27 @@ gulp.task('compile:src', function () {
     map: true
   };
 
-  return gulp.src(`${sourcePath.packages}/fnd-components-webapp/*.css`)
+  return gulp.src(`${sourcePath.packages}/**/[^_]*.css`)
     .pipe(postcss(plugins, postcssOptions))
-    .pipe(rename({ extname: `_${packageData.version}.css` }))
-    .pipe(gulp.dest(destPath.dist))
     .pipe(postcss([
       require('cssnano')({ autoprefixer: false })
     ], postcssOptions))
     .pipe(rename({ extname: '.min.css' }))
-    .pipe(gulp.dest(destPath.dist));
+    .pipe(gulp.dest(`${destPath.demo}`));
 });
+
+
 
 
 // -------------------------------------
 //   Task: Clean
-//   Delete contents of '/www'
-//   but not '/www/examples'
+//   Delete built files
 // -------------------------------------
-gulp.task('clean', function () {
+gulp.task('clean', () => {
   return del([
     `${destPath.www}/**`,
     `!${destPath.www}`,
-    `!${destPath.www}/examples/**`,
-    `!${destPath.www}/img/**`,
+    `${destPath.demo}/**/*.min.css`,
     `log`
   ]);
 });
@@ -244,14 +279,14 @@ gulp.task('clean', function () {
 // -------------------------------------
 //   Task: Lint
 // -------------------------------------
-gulp.task('lint', ['lint:css', 'lint:site']);
+gulp.task('stylelint', ['stylelint:packages', 'stylelint:site']);
 
 
 // -------------------------------------
-//   Task: Lint:css
+//   Task: Lint:packages:css
 //   Lint the foundation source css
 // -------------------------------------
-gulp.task('lint:css', () => {
+gulp.task('stylelint:packages', () => {
   return gulp.src(`${sourcePath.packages}/**/*.css`)
     .pipe(stylelint({
       failAfterError: true,
@@ -263,10 +298,10 @@ gulp.task('lint:css', () => {
 });
 
 // -------------------------------------
-//   Task: Lint:site
+//   Task: Lint:site:css
 //   Lint the website css
 // -------------------------------------
-gulp.task('lint:site', () => {
+gulp.task('stylelint:site', () => {
   return gulp.src(`${sourcePath.siteCss}/**/*.css`)
     .pipe(stylelint({
       failAfterError: true,
@@ -294,41 +329,69 @@ gulp.task('pre-commit', () => {
         console: true
       }]
     }));
-})
+});
 
 
 // -------------------------------------
-//   Task: Serve
+//   Task: Serve Demo
+// -------------------------------------
+gulp.task('serve:demo', () => {
+  let demoServer = require('browser-sync').create('demoServer');
+
+  demoServer.init({
+    codesync: false,
+    injectChanges: false,
+    open: false,
+    server: {
+      baseDir: [destPath.demo]
+    },
+    logLevel: 'info',
+    logPrefix: 'Soho-Fnd',
+    ui: false
+  });
+
+  gulp
+    .watch(`${sourcePath.packages}/**/*.css`, ['watch-packages'])
+    .on('change', (evt) => {
+      changeEvent(evt);
+    });
+});
+
+
+// -------------------------------------
+//   Task: Serve Site
 //   Serve and watch files
 // -------------------------------------
-gulp.task('serve', () => {
+gulp.task('serve:site', () => {
   browserSync.init({
     codesync: false,
     injectChanges: false,
     open: false,
     server: {
-      baseDir: destPath.www
+      baseDir: [destPath.www, destPath.demo]
     },
     logLevel: 'info',
-    logPrefix: 'Soho-Fnd'
+    logPrefix: 'Soho-Fnd',
+    ui: false
   });
 
 
-  const srcDocs = [
+  const srcMarkdown = [
     `${sourcePath.docs}/*.md`,
-    `${sourcePath.templates}/**/*`
+    `${sourcePath.templates}/**/*`,
+    `${sourcePath.packages}/**/*.md`
   ];
 
   const siteCss = [
     `${sourcePath.siteCss}/**/*.css`
   ];
 
-  const srcCss = [
+  const packagesCss = [
     `${sourcePath.packages}/**/*.css`
   ];
 
   gulp
-    .watch(srcDocs, ['watch-docs'])
+    .watch(srcMarkdown, ['watch-md'])
     .on('change', (evt) => {
       changeEvent(evt);
     });
@@ -340,7 +403,7 @@ gulp.task('serve', () => {
     });
 
   gulp
-    .watch(srcCss, ['watch-src'])
+    .watch(packagesCss, ['watch-packages'])
     .on('change', (evt) => {
       changeEvent(evt);
     });
@@ -401,10 +464,10 @@ gulp.task('test', ['build'], () => {
 
 
 // -------------------------------------
-//   Task: watch-docs
+//   Task: watch-md
 //   Guarantees reload is last task
 // -------------------------------------
-gulp.task('watch-docs', ['compile:docs', 'compile:site'], (done) => {
+gulp.task('watch-md', ['build:site:html', 'build:site'], (done) => {
   browserSync.reload();
   done();
 });
@@ -414,17 +477,17 @@ gulp.task('watch-docs', ['compile:docs', 'compile:site'], (done) => {
 //   Task: watch-site
 //   Guarantees reload is last task
 // -------------------------------------
-gulp.task('watch-site', ['compile:site'], (done) => {
+gulp.task('watch-site', ['build:site'], (done) => {
   browserSync.reload();
   done();
 });
 
 
 // -------------------------------------
-//   Task: watch-src
+//   Task: watch-packages
 //   Guarantees reload is last task
 // -------------------------------------
-gulp.task('watch-src', ['compile:src', 'compile:docs', 'compile:site'], (done) => {
+gulp.task('watch-packages', ['build:demo', 'build:site:html', 'build:site'], (done) => {
   browserSync.reload();
   done();
 });
@@ -467,11 +530,11 @@ function createCssAnnotations() {
   let content, blocks, cssVarAnnotations = {};
 
   // Parse the defaults first
-  const defaultVarsObj = parseCss(`${sourcePath.packages}/fnd-base/variables.css`);
+  const defaultVarsObj = parseCss(`${sourcePath.packages}/fnd-base/_variables.css`);
 
   const themes = [
-    { name: 'themeDark',         path: `${sourcePath.packages}/fnd-theme/theme-dark.css` },
-    { name: 'themeHighContrast', path: `${sourcePath.packages}/fnd-theme/theme-high-contrast.css` }
+    { name: 'themeDark',         path: `${sourcePath.packages}/fnd-theme-dark/theme-dark.css` },
+    { name: 'themeHighContrast', path: `${sourcePath.packages}/fnd-theme-high-contrast/theme-high-contrast.css` }
   ];
 
   cssVarAnnotations = {

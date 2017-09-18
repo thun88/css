@@ -5,6 +5,7 @@
 !/site/www/examples/
 !/site/www/img/
 log/
+/demo/**/*.css
 
 # Packages #
 ############
