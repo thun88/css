@@ -6,6 +6,7 @@
 !/site/www/img/
 log/
 /demo/**/*.css
+/dist
 
 # Packages #
 ############

@@ -14,6 +14,7 @@
 //        'gulp build:site:packages'
 //      'gulp build:demo'
 //   'gulp clean'
+//     'gulp clean:site:json'
 //   'gulp stylelint'
 //      'gulp stylelint:packages'
 //      'gulp stylelint:site'
@@ -184,7 +185,21 @@ gulp.task('build:site:html', () => {
 //   Build foundation documentation files
 // -------------------------------------
 gulp.task('build:site:json', () => {
+    const markdownToJSON = require('gulp-markdown-to-json');
+    const marked = require('marked');
 
+    marked.setOptions({
+      pedantic: true,
+      smartypants: true
+    });
+    gulp.src(`${sourcePath.packages}/**/README.md`)
+      .pipe(rename((path) => {
+        // Rename filename of readme to folder name
+        path.basename = path.dirname.replace('fnd-', '');
+      }))
+      .pipe(markdownToJSON(marked))
+      .pipe(flatten())
+      .pipe(gulp.dest(destPath.dist));
 });
 
 
@@ -208,7 +223,7 @@ gulp.task('build:site:css', () => {
   return gulp.src(`${sourcePath.site}/css/site.css`)
     .pipe(postcss(plugins, { map: true }))
     .pipe(rename({ extname: '.min.css' }))
-    .pipe(gulp.dest(`${destPath.site}/css`));
+    .pipe(gulp.dest(`${destPath.site}/dist`));
 });
 
 
@@ -274,6 +289,16 @@ gulp.task('clean', () => {
     `!${destPath.site}`,
     `${destPath.demo}/**/*.min.css`,
     `log`
+  ]);
+});
+
+// -------------------------------------
+//   Task: Clean JSON files only
+//   Delete dist json files
+// -------------------------------------
+gulp.task('clean:site:json', () => {
+  return del([
+    `${destPath.dist}`
   ]);
 });
 
