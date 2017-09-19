@@ -2,11 +2,11 @@
 @import '../iux-grid/grid';
 @import '../iux-typography/typography';
 
-.fnd-tabs--list-horizontal {
+.iux-tabs--list-horizontal {
   border-bottom: solid 1px var(--graphite03);
   display: block;
 
-  & .fnd-tabs--list-link {
+  & .iux-tabs--list-link {
     color: inherit;
     display: block;
     max-width: 150px;
@@ -21,7 +21,7 @@
     }
   }
 
-  & .fnd-tabs--list-item {
+  & .iux-tabs--list-item {
     color: var(--graphite06);
     display: inline-block;
     margin: 0 10px 0 0;
@@ -60,25 +60,25 @@
     &.is-disabled {
       color: var(--graphite04);
 
-      & .fnd-tabs--list-link:hover {
+      & .iux-tabs--list-link:hover {
         cursor: not-allowed;
       }
     }
   }
 }
 
-.fnd-tabs--list-vertical {
+.iux-tabs--list-vertical {
   background-color: var(--graphite01);
   display: block;
 
-  & .fnd-tabs--list-link {
+  & .iux-tabs--list-link {
     color: inherit;
     display: block;
     padding: 10px 30px;
     text-decoration: none;
   }
 
-  & .fnd-tabs--list-item {
+  & .iux-tabs--list-item {
     &:hover:not(.is-disabled) {
       background-color: var(--graphite02);
     }
@@ -91,7 +91,7 @@
     &.is-disabled {
       color: var(--graphite04);
 
-      & .fnd-tabs--list-link:hover {
+      & .iux-tabs--list-link:hover {
         cursor: not-allowed;
       }
     }

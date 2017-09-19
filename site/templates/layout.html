@@ -36,7 +36,7 @@
     <main class="site-main">
 
       <!-- Leave this below to mimic other doc sites -->
-      <nav class="site-main--sidebar fnd-container">
+      <nav class="site-main--sidebar iux-container">
         <h2 class="site-sidebar--heading">Version $releaseversion$</h2>
         <ul class="list-plain site-sidebar--nav">
           <li><a href="/grid.html">Responsive Grid</a></li>
@@ -51,7 +51,7 @@
         </ul>
       </nav>
 
-      <div class="site-main--content fnd-container">
+      <div class="site-main--content iux-container">
         $if(title)$
           <div id="$idprefix$header" class="hero">
             <h1 class="page-title">$title$</h1>
@@ -70,8 +70,8 @@
           </div>
         $endif$
 
-        <div class="fnd-row fnd-row--gutter">
-          <section class="fnd-row--col-md-9">
+        <div class="iux-row iux-row--gutter">
+          <section class="iux-row--col-md-9">
             <div class="use-site-styles">
               <h2>Specs</h2>
               $for(specs)$
@@ -80,7 +80,7 @@
               $body$
             </div>
           </section>
-          <nav class="fnd-row--col-md-3">
+          <nav class="iux-row--col-md-3">
             <div class="site-main--toc">
               <h3>Contents</h3>
               $if(toc)$

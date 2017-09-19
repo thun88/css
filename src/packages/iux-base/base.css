@@ -35,12 +35,12 @@ body {
   height: 100%;
 }
 
-.fnd-container {
+.iux-container {
   padding: var(--container-padding-sm);
 }
 
 @media (--viewport-md) {
-  .fnd-container {
+  .iux-container {
     padding: var(--container-padding-lg);
   }
 }
