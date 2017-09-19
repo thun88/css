@@ -74,9 +74,16 @@
           <section class="iux-row--col-md-9">
             <div class="use-site-styles">
               <h2>Specs</h2>
-              $for(specs)$
-                $specs.title$: $specs.value$
-              $endfor$
+              <table>
+                <tbody>
+                  $for(specs)$
+                    <tr>
+                      <td>$specs.title$:</td>
+                      <td>$specs.value$</td>
+                    </tr>
+                  $endfor$
+                </tbody>
+              </table>
               $body$
             </div>
           </section>

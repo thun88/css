@@ -1,27 +1,20 @@
 ---
 title: Typography
 description: These are typical type classes you'll have available in foundation.
+specs: [
+    {{> specMd title="Secondary Header Font Size" spec=default.headerSecondaryFontSize }},
+    {{> specMd title="Base Font Size" spec=default.fontSizeBase }},
+    {{> specMd title="Small Font Size" spec=default.textSmall }},
+    {{> specMd title="Default Text Color" spec=default.bodyColor }},
+    {{> specMd title="Descriptive Text Color" spec=default.textDescriptive }},
+    {{> specMd title="Muted Text Color" spec=default.textMuted }},
+    {{> specMd title="Link Text Color" spec=default.linkColor }},
+    {{> specMd title="Alert Text Color" spec=default.textAlert }}
+]
 ---
-
-{{> specValue title="Base Font Family" spec=default.fontFamilyBase }}
-{{> specValue title="Primary Header Font Size" spec=default.headerPrimaryFontSize }}
-{{> specValue title="Secondary Header Font Size" spec=default.headerSecondaryFontSize }}
-{{> specValue title="Base Font Size" spec=default.fontSizeBase }}
-{{> specValue title="Small Font Size" spec=default.textSmall }}
-{{> specColor title="Default Text Color" spec=default.bodyColor }}
-{{> specColor title="Descriptive Text Color" spec=default.textDescriptive }}
-{{> specColor title="Muted Text Color" spec=default.textMuted }}
-{{> specColor title="Link Text Color" spec=default.linkColor }}
-{{> specColor title="Alert Text Color" spec=default.textAlert }}
 
 ## Standard Type Settings
 
-<div class="example">
-    <h1>SoHo Primary Header</h1>
-    <h2>SoHo Secondary Header</h2>
-    <div>Default Base Text</div>
-    <small>Small Text</small>
-</div>
 ```html
 <h1>SoHo Primary Header</h1>
 <h2>SoHo Secondary Header</h2>

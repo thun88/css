@@ -1,6 +1,7 @@
 ---
 title: Icons
 description: Soho Foundation Styleguide
+specs: []
 ---
 
 

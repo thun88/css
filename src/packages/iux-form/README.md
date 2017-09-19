@@ -1,19 +1,19 @@
 ---
 title: Form Controls
 description: Some text about using form-controls.
+specs: [
+    {{> specMd title="Border Color" spec=default.inputBorderColor }},
+    {{> specMd title="Border Color (Hover)" spec=default.inputBorderColorHover }},
+    {{> specMd title="Border Color (Focus)" spec=default.inputBorderColorFocus }},
+    {{> specMd title="Input Text Color" spec=default.inputColor }},
+    {{> specMd title="Input Placeholder Text Color" spec=default.inputColorPlaceholder }},
+    {{> specMd title="Input Label Text Color" spec=default.inputLabelColor }},
+    {{> specMd title="Info Block Text Color" spec=default.inputInfoBlockColor }},
+    {{> specMd title="Input Height" spec=default.inputHeight }},
+    {{> specMd title="Corner Radius" spec=default.inputBorderRadius }}
+]
 ---
 
-## Specs
-
-{{> specColor title="Border Color" spec=default.inputBorderColor }}
-{{> specColor title="Border Color (Hover)" spec=default.inputBorderColorHover }}
-{{> specColor title="Border Color (Focus)" spec=default.inputBorderColorFocus }}
-{{> specColor title="Input Text Color" spec=default.inputColor }}
-{{> specColor title="Input Placeholder Text Color" spec=default.inputColorPlaceholder }}
-{{> specColor title="Input Label Text Color" spec=default.inputLabelColor }}
-{{> specColor title="Info Block Text Color" spec=default.inputInfoBlockColor }}
-{{> specValue title="Input Height" spec=default.inputHeight }}
-{{> specValue title="Corner Radius" spec=default.inputBorderRadius }}
 
 ## Basic Example
 

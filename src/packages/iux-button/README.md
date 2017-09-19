@@ -11,8 +11,8 @@ specs: [
     {{> specMd title="Primary Hover Color" spec=default.btnPrimaryHover }},
     {{> specMd title="Primary Disabled State Opacity" spec=default.btnDisabledOpacity }}
 ]
-version: {{packageData.version}}
 ---
+
 
 ## Button Tags
 
