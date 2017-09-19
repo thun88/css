@@ -1,13 +1,13 @@
 {
-  "name": "fnd-components-web",
+  "name": "iux-components-web",
   "version": "1.0.0",
-  "description": "Soho Foundation Components for the web",
+  "description": "Infor UX Components for the web",
   "repository": {
     "type": "git",
     "url": "https://github.com/hookandloop/soho-foundation.git"
   },
   "keywords": [
-    "soho-foundation",
+    "infor-ux",
     "components"
   ],
   "author": "Hook & Loop",

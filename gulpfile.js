@@ -136,7 +136,7 @@ gulp.task('build:site', ['build:site:html', 'build:site:css', 'build:site:packag
 
 // -------------------------------------
 //   Task: Build Docs
-//   Build foundation documentation files
+//   Build html documentation files
 // -------------------------------------
 gulp.task('build:site:html', () => {
   const packageData = require('./package.json')
@@ -182,7 +182,7 @@ gulp.task('build:site:html', () => {
 
 // -------------------------------------
 //   Task: Build docs json
-//   Build foundation documentation files
+//   Build json documentation files
 // -------------------------------------
 gulp.task('build:site:json', () => {
     const markdownToJSON = require('gulp-markdown-to-json');
@@ -327,7 +327,7 @@ gulp.task('stylelint', ['stylelint:packages', 'stylelint:site']);
 
 // -------------------------------------
 //   Task: Lint:packages:css
-//   Lint the foundation source css
+//   Lint the source css
 // -------------------------------------
 gulp.task('stylelint:packages', () => {
   return gulp.src(`${sourcePath.packages}/**/*.css`)
@@ -389,7 +389,7 @@ gulp.task('serve:demo', () => {
       baseDir: [destPath.demo]
     },
     logLevel: 'info',
-    logPrefix: 'Soho-Fnd',
+    logPrefix: 'IUX Demo',
     ui: false
   });
 
@@ -414,7 +414,7 @@ gulp.task('serve', () => {
       baseDir: [destPath.site, destPath.demo]
     },
     logLevel: 'info',
-    logPrefix: 'Soho-Fnd',
+    logPrefix: 'IUX',
     ui: false
   });
 

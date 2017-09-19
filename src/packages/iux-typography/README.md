@@ -1,6 +1,6 @@
 ---
 title: Typography
-description: These are typical type classes you'll have available in foundation.
+description: These are typical type classes you'll have available.
 specs: [
     {{> specMd title="Secondary Header Font Size" spec=default.headerSecondaryFontSize }},
     {{> specMd title="Base Font Size" spec=default.fontSizeBase }},
@@ -16,9 +16,9 @@ specs: [
 ## Standard Type Settings
 
 ```html
-<h1>SoHo Primary Header</h1>
-<h2>SoHo Secondary Header</h2>
-<div>Default Base Text</div>
+<h1>Primary Header</h1>
+<h2>Secondary Header</h2>
+<div>Base Text</div>
 <small>Small Text</small>
 ```
 

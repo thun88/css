@@ -1,7 +1,7 @@
 {
   "name": "@soho-foundation/tab",
   "version": "1.0.0",
-  "description": "Tab classes, mixins, and variables for Soho Foundation Components for the web",
+  "description": "Tab classes, mixins, and variables for Infor UX Components for the web",
   "repository": {
     "type": "git",
     "url": "https://github.com/hookandloop/soho-foundation.git"

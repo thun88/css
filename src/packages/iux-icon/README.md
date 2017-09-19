@@ -1,6 +1,6 @@
 ---
 title: Icons
-description: Soho Foundation Styleguide
+description: Infor UX Styleguide
 specs: []
 ---
 

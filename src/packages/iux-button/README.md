@@ -1,6 +1,6 @@
 ---
 title: Buttons
-description: This page describes how the buttons and button styles are used in foundation.
+description: This page describes how the buttons and button styles are used.
 specs: [
     {{> specMd title="Default Button Color" spec=default.btnDefaultBg }},
     {{> specMd title="Default Button Label Color" spec=default.btnDefaultColor }},

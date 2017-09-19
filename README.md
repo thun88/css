@@ -1,6 +1,6 @@
-# [Soho Foundation](#)
+# [Infor UX](#)
 
-Foundation is a sleek, intuitive, and powerful front-end framework for faster and easier web development.
+Infor UX is a sleek, intuitive, and powerful front-end framework for faster and easier web development.
 
 ## Table of contents
 - [Dev Quick start](#dev-quick-start)
@@ -17,7 +17,7 @@ Foundation is a sleek, intuitive, and powerful front-end framework for faster an
 
 ## Basic Gulp Tasks
 
-- `$ gulp` - Build the site, run the webserver, start a watch
+- `$ gulp` - Clean built files, Build the site, run the webserver, start a watch
 - `$ gulp serve` - Run the webserver and watch
 - `$ gulp build` - Build the files
 - `$ gulp clean` - Remove all generated/static files
@@ -37,13 +37,13 @@ For building the icons
 
 ## Lint Styles
 
-- `$ gulp lint` Lints the **source** and **site** css raw files
+- `$ gulp stylelint` Lints the **src** and **site** css raw files
 
 ## Site Directory
 
-- `src` The raw files for foundation's css, documentation, and icons.
+- `src` The raw files for components, documentation, and icons.
 - `site/www` The generated files for the served website.
-- `site/www/dist` The distributed/downloadable versions of the stylesheets.
+- `site/www/dist` Minified stylesheets used for the site docs.
 - `site/css` The CSS for the site only
-- `site/templates` The templates for generating the site html
-- `site/examples` [Temp] Currently holds a few static, stand-alone examples.
+- `site/templates` The templates for generating the site in html
+- `demo` Demo of each package.

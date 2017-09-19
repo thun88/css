@@ -151,7 +151,7 @@ Block level help text for form controls.
 
 ### Validation States
 
-Soho Foundation includes validation styles for errors on form controls. To use, add `.has-error` to the parent element. Any `.form-control` and `.info-block` within that element will receive the validation styles.
+Infor UX includes validation styles for errors on form controls. To use, add `.has-error` to the parent element. Any `.form-control` and `.info-block` within that element will receive the validation styles.
 
 <div class="example">
     <div class="form-group has-error">

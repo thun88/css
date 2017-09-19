@@ -1,8 +1,8 @@
 {
-  "name": "@infor/soho_foundation",
-  "shortname": "sohofoundation",
+  "name": "@infor/infor_ux",
+  "shortname": "iux",
   "version": "0.4.0",
-  "description": "Hook & Loop - Soho Foundation styles",
+  "description": "Hook & Loop - Infor UX styles",
   "author": "Hook & Loop",
   "license": "UNLICENSED",
   "main": "server.js",

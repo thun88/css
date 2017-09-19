@@ -2,7 +2,7 @@
 module.exports = {
   paths: {
     base: {
-      root: 'soho-foundation'
+      root: 'infor-ux'
     },
     sources: {
       root:      'src',
