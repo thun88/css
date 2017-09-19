@@ -1,4 +1,4 @@
-# [Soho Foundation](https://github.com/hookandloop/soho-foundation)
+# [Soho Foundation](#)
 
 Foundation is a sleek, intuitive, and powerful front-end framework for faster and easier web development.
 

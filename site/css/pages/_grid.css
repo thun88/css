@@ -3,7 +3,7 @@
  */
 
 .example--grid {
-  & .fnd-row > [class^='fnd-row--'] {
+  & .iux-row > [class^='iux-row--'] {
     outline: solid 1px #ccc;
     padding-bottom: 0.75rem;
     padding-top: 0.75rem;

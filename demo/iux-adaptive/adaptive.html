@@ -1,0 +1,82 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Hook & Loop">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adaptive States - Demo Infor SoHo Foundation</title>
+
+  <link rel="stylesheet" type="text/css" href="adaptive-demo.css" id="soho-theme">
+</head>
+
+<body>
+  <header class="site-nav">
+    <h1 class="site-nav--brand">
+      Foundation Components Catalog
+    </h1>
+    <ul>
+      <li><a href="/iux-button/button.html">button</a></li>
+      <li><a href="/iux-form/form.html">form</a></li>
+      <li><a href="/iux-grid/grid.html">grid</a></li>
+
+      <li><a href="/iux-tab/tab.html">tab</a></li>
+      <li><a href="/iux-typography/typography.html">typography</a></li>
+      <li><a href="/iux-adaptive/adaptive.html">adaptive</a></li>
+    </ul>
+  </header>
+  <main class="iux-container">
+    <div id="header" class="hero">
+      <h1 class="page-title">Adaptive States</h1>
+      <p class="page-description">This is a page dedicated to showcase adaptive states. Adaptive states can be defined within any scope of the DOM to modify style of supported elements for different environment factors like touch input.</p>
+    </div>
+
+    <h3 id="forms-and-form-controls">Forms and Form Controls</h3>
+    <div class="adaptive--touch">
+      <input type="text" class="form-control" placeholder="Text" aria-label="Adaptive text input">
+      <div class="form-checkbox">
+        <input type="checkbox" id="exampleCheckbox1" value="0" aria-label="Adaptive checkbox" />
+        <label for="exampleCheckbox1" class="example-padding">
+          Checkbox
+        </label>
+      </div>
+    </div>
+
+    <div class="adaptive--touch">
+      <form>
+        <div class="form-group">
+          <label for="adaptive-textarea">Adaptive Text area</label>
+          <textarea class="form-control" id="adaptive-textarea" placeholder="Placeholder" rows="3"></textarea>
+        </div>
+        <fieldset class="form-group">
+          <legend>Example adaptive radio buttons</legend>
+          <div class="form-radio">
+            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+            <label for="optionsRadios1" class="example-padding">
+              Option one is this and that&mdash;be sure to include why it's great
+            </label>
+          </div>
+          <div class="form-radio">
+            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+            <label for="optionsRadios2" class="example-padding">
+              Option two can be something else and selecting it will deselect option one
+            </label>
+          </div>
+        </fieldset>
+        <div class="form-group">
+          <label for="select-normal-1">Label</label>
+          <select id="select-normal-1" class="form-control">
+            <option selected>Option 1</option>
+            <option>Option 2</option>
+            <option>Option 3</option>
+          </select>
+          <div class="info-block">Some info text</div>
+        </div>
+        <input type="submit" class="btn btn--primary btn--block" onclick="return false;" value="save">
+      </form>
+    </div>
+  </main>
+</body>
+
+</html>

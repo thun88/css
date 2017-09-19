@@ -150,7 +150,7 @@
     "selector-list-comma-space-before": "never",
     "selector-max-compound-selectors": 4,
     "selector-max-empty-lines": 0,
-    "selector-no-id": true,
+    "selector-max-id": 1,
     "selector-pseudo-class-case": "lower",
     "selector-pseudo-class-no-unknown": true,
     "selector-pseudo-class-parentheses-space-inside": "never",

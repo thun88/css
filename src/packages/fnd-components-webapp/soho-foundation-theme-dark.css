@@ -1,5 +1,0 @@
-/* Include regular soho foundation */
-@import '../fnd-components-webapp/soho-foundation.css';
-
-/* Modify with themed variable values */
-@import '../fnd-theme-dark/theme-dark.css';

@@ -14,7 +14,8 @@ module.exports = {
     },
     destinations: {
       site:  'site/www',
-      demo: 'demo'
+      demo: 'demo',
+      dist: 'dist'
     }
   }
 };
