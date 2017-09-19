@@ -1,0 +1,99 @@
+@import '../iux-base/_variables';
+@import '../iux-base/_reset';
+
+/*
+  Base Styles
+
+  1. Change from `box-sizing: content-box` so that `width` is not affected by `padding` or `border`.
+  2. Change the default font family in all browsers.
+  3. Correct the line height in all browsers.
+  4. Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.
+  5. Setting @viewport causes scrollbars to overlap content in IE11 and Edge, so
+     we force a non-overlapping, non-auto-hiding scrollbar to counteract.
+  6. Change the default tap highlight to be completely transparent in iOS.
+*/
+
+html {
+  box-sizing: border-box;
+  font-family: sans-serif;
+  line-height: 1.15;
+  -ms-overflow-style: scrollbar;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  background-color: var(--body-bg);
+  color: var(--body-color);
+  height: 100%;
+}
+
+.fnd-container {
+  padding: var(--container-padding-sm);
+}
+
+@media (--viewport-md) {
+  .fnd-container {
+    padding: var(--container-padding-lg);
+  }
+}
+
+/*
+ * Helpers
+ */
+.text--center {
+  text-align: center;
+}
+
+.text--left {
+  text-align: left;
+}
+
+.text--right {
+  text-align: right;
+}
+
+/* Hide only visually, but have it available for screen readers:
+ * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ *
+ * 1. For long content, line feeds are not interpreted as spaces and small width
+ *    causes content to wrap 1 word per line:
+ *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+ */
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap; /* 1 */
+  width: 1px;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+  clip: auto;
+  clip-path: none;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  white-space: inherit;
+  width: auto;
+}
+

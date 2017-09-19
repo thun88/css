@@ -173,7 +173,7 @@ gulp.task('build:site:html', () => {
     }))
     .pipe(rename((path) => {
       // Rename filename of readme to folder name
-      path.basename = path.dirname.replace('fnd-', '');
+      path.basename = path.dirname.replace('iux-', '');
     }))
     .pipe(flatten())
     .pipe(gulp.dest(destPath.site));
@@ -202,7 +202,6 @@ gulp.task('build:site:json', () => {
       .partials(`${sourcePath.templates}/partials/*.hbs`)
       .data(templateData);
 
-
     marked.setOptions({
       pedantic: true,
       smartypants: true
@@ -211,7 +210,7 @@ gulp.task('build:site:json', () => {
     gulp.src(`${sourcePath.packages}/**/README.md`)
       .pipe(rename((path) => {
         // Rename filename of readme to folder name
-        path.basename = path.dirname.replace('fnd-', '');
+        path.basename = path.dirname.replace('iux-', '');
       }))
       .pipe(hbStream)
       .pipe(markdownToJSON(marked))
@@ -260,7 +259,7 @@ gulp.task('build:site:packages', () => {
     cssnano({ autoprefixer: false })
   ];
 
-  return gulp.src(`${sourcePath.packages}/fnd-components-webapp/soho-foundation.css`)
+  return gulp.src(`${sourcePath.packages}/iux-components-webapp/iux.css`)
     .pipe(postcss(plugins, { map: true }))
     .pipe(rename({ extname: '.min.css' }))
     .pipe(gulp.dest(`${destPath.site}/dist`));
@@ -304,7 +303,7 @@ gulp.task('clean', ['clean:site:json'], () => {
   return del([
     `${destPath.site}/**`,
     `!${destPath.site}`,
-    `${destPath.demo}/**/*.min.css`,
+    `${destPath.demo}/**/*-demo.css`,
     `log`
   ]);
 });
@@ -573,11 +572,11 @@ function createCssAnnotations() {
   let content, blocks, cssVarAnnotations = {};
 
   // Parse the defaults first
-  const defaultVarsObj = parseCss(`${sourcePath.packages}/fnd-base/_variables.css`);
+  const defaultVarsObj = parseCss(`${sourcePath.packages}/iux-base/_variables.css`);
 
   const themes = [
-    { name: 'themeDark',         path: `${sourcePath.packages}/fnd-theme-dark/theme-dark.css` },
-    { name: 'themeHighContrast', path: `${sourcePath.packages}/fnd-theme-high-contrast/theme-high-contrast.css` }
+    { name: 'themeDark',         path: `${sourcePath.packages}/iux-theme-dark/theme-dark.css` },
+    { name: 'themeHighContrast', path: `${sourcePath.packages}/iux-theme-high-contrast/theme-high-contrast.css` }
   ];
 
   cssVarAnnotations = {

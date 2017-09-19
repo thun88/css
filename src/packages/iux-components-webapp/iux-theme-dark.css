@@ -1,0 +1,5 @@
+/* Include regular soho foundation */
+@import '../iux-components-webapp/iux.css';
+
+/* Modify with themed variable values */
+@import '../iux-theme-dark/theme-dark.css';
