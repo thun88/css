@@ -1,9 +1,8 @@
-// *************************************
+// **************************************************************************
 //
 //   Gulpfile
 //
-// *************************************
-//
+// **************************************************************************
 // Available tasks:
 //   'gulp default'
 //   'gulp build'
@@ -11,10 +10,13 @@
 //        'gulp build:site:css'
 //        'gulp build:site:html'
 //        'gulp build:site:json'
-//        'gulp build:site:packages'
-//      'gulp build:demo'
+//      'gulp build:packages'
+//        'gulp build:packages:css'
+//        'gulp build:packages:js'
 //   'gulp clean'
+//     'gulp clean:site'
 //     'gulp clean:site:json'
+//     'gulp clean:dist'
 //   'gulp stylelint'
 //      'gulp stylelint:packages'
 //      'gulp stylelint:site'
@@ -26,22 +28,21 @@
 //   'gulp watch-md'
 //   'gulp watch-site'
 //   'gulp watch-packages'
-//
 // *************************************
 
-// -------------------------------------
+// --------------------------------------------------------------------------
 // Load gulp & config
 // gulp: The streaming build system
-// -------------------------------------
+// --------------------------------------------------------------------------
 const gulp   = require('gulp'),
   gConfig    = require('./gulp-config.js'),
   basePath   = gConfig.paths.base.root;
-  sourcePath = gConfig.paths.sources,
+  srcPath = gConfig.paths.sources,
   destPath   = gConfig.paths.destinations;
 
-// -------------------------------------
+// --------------------------------------------------------------------------
 // Load "gulp-" plugins
-// -------------------------------------
+// --------------------------------------------------------------------------
 // gulp-accessibility: Access Standards
 // gulp-concat       : Concatenate files
 // gulp-gitmodified  : List modified files
@@ -70,9 +71,9 @@ const access  = require('gulp-accessibility');
   gutil       = require('gulp-util');
 
 
-// -------------------------------------
+// --------------------------------------------------------------------------
 //   Utility NPM Plugins
-// -------------------------------------
+// --------------------------------------------------------------------------
 // annotateBlock  : Parse css for comment blocks
 // browserSync    : Method of serving sites
 // del            : Delete files
@@ -85,12 +86,13 @@ const annotateBlock = require('css-annotation-block'),
   del               = require('del'),
   fs                = require('fs'),
   glob              = require('glob'),
-  isColor           = require('is-color');
+  isColor           = require('is-color'),
+  path              = require('path');
 
 
-// -------------------------------------
+// --------------------------------------------------------------------------
 //   PostCSS Plugins
-// -------------------------------------
+// --------------------------------------------------------------------------
 // postcss-for       : Allow at-for loops
 // postcss-variables : Allow at-vars in at-for loops
 // postcss-import    : Include css files with '@'
@@ -108,30 +110,30 @@ const atFor    = require('postcss-for'),
   lost         = require('lost');
 
 
-// -------------------------------------
+// --------------------------------------------------------------------------
 //   Global Variables
-// -------------------------------------
+// --------------------------------------------------------------------------
 let ICONS_ARR = [];
-let SVG_HTML = fs.readFileSync(`${sourcePath.icons}/icons.svg`, 'utf-8');
+let SVG_HTML = fs.readFileSync(`${srcPath.icons}/icons.svg`, 'utf-8');
 
 
-// -------------------------------------
+// --------------------------------------------------------------------------
 //   Task: Default
 //   Does a build and serves the website
-// -------------------------------------
+// --------------------------------------------------------------------------
 gulp.task('default', ['clean', 'build', 'serve']);
 
 
-// -------------------------------------
+// --------------------------------------------------------------------------
 //   Task: Build
-// -------------------------------------
-gulp.task('build', ['svg:store', 'build:demo', 'build:site']);
+// --------------------------------------------------------------------------
+gulp.task('build', ['svg:store', 'build:site']);
 
 
-// -------------------------------------
+// --------------------------------------------------------------------------
 //   Task: Build:Site
-// -------------------------------------
-gulp.task('build:site', ['build:site:html', 'build:site:css', 'build:site:packages']);
+// --------------------------------------------------------------------------
+gulp.task('build:site', ['build:packages', 'build:site:html', 'build:site:css']);
 
 
 // -------------------------------------
@@ -150,10 +152,10 @@ gulp.task('build:site:html', () => {
 
 
   let hbStream = hb()
-    .partials(`${sourcePath.templates}/partials/*.hbs`)
+    .partials(`${srcPath.templates}/partials/*.hbs`)
     .data(templateData);
 
-  return gulp.src(`${sourcePath.packages}/**/README.md`)
+  return gulp.src(`${srcPath.packages}/*/README.md`)
     // Parse any handlebar templates in the markdown
     .pipe(hbStream)
 
@@ -163,7 +165,7 @@ gulp.task('build:site:html', () => {
       to: 'html5+yaml_metadata_block',
       ext: '.html',
       args: [
-        `--data-dir=${sourcePath.site}`, // looks for template dir inside data-dir
+        `--data-dir=${srcPath.site}`, // looks for template dir inside data-dir
         '--template=layout.html',
         '--table-of-contents',
         `--variable=icons:${SVG_HTML}`,
@@ -171,14 +173,13 @@ gulp.task('build:site:html', () => {
         '--variable=lang:en'
       ]
     }))
-    .pipe(rename((path) => {
+    .pipe(rename((file) => {
       // Rename filename of readme to folder name
-      path.basename = path.dirname.replace('iux-', '');
+      file.basename = file.dirname.replace('iux-', '');
     }))
     .pipe(flatten())
     .pipe(gulp.dest(destPath.site));
 });
-
 
 // -------------------------------------
 //   Task: Build docs json
@@ -199,7 +200,7 @@ gulp.task('build:site:json', () => {
 
 
     let hbStream = hb()
-      .partials(`${sourcePath.templates}/partials/*.hbs`)
+      .partials(`${srcPath.templates}/partials/*.hbs`)
       .data(templateData);
 
     marked.setOptions({
@@ -207,17 +208,16 @@ gulp.task('build:site:json', () => {
       smartypants: true
     });
 
-    gulp.src(`${sourcePath.packages}/**/README.md`)
-      .pipe(rename((path) => {
+    gulp.src(`${srcPath.packages}/*/README.md`)
+      .pipe(rename((file) => {
         // Rename filename of readme to folder name
-        path.basename = path.dirname.replace('iux-', '');
+        file.basename = file.dirname.replace('iux-', '');
       }))
       .pipe(hbStream)
       .pipe(markdownToJSON(marked))
       .pipe(flatten())
-      .pipe(gulp.dest(destPath.dist));
+      .pipe(gulp.dest(destPath.json));
 });
-
 
 // -------------------------------------
 //   Task: Build Site
@@ -236,17 +236,22 @@ gulp.task('build:site:css', () => {
     cssnano({ autoprefixer: false })
   ];
 
-  return gulp.src(`${sourcePath.site}/css/site.css`)
+  return gulp.src(`${srcPath.site}/css/site.css`)
     .pipe(postcss(plugins, { map: true }))
     .pipe(rename({ extname: '.min.css' }))
     .pipe(gulp.dest(`${destPath.site}/dist`));
 });
 
 
+// --------------------------------------------------------------------------
+//   Task: Build Packages
+// --------------------------------------------------------------------------
+gulp.task('build:packages', ['build:packages:css', 'build:packages:js']);
+
 // -------------------------------------
-//   Task: Build Site Packages
+//   Task: Build Packages CSS
 // -------------------------------------
-gulp.task('build:site:packages', () => {
+gulp.task('build:packages:css', () => {
 
   // Note: plugin order matters
   const plugins = [
@@ -259,78 +264,86 @@ gulp.task('build:site:packages', () => {
     cssnano({ autoprefixer: false })
   ];
 
-  return gulp.src(`${sourcePath.packages}/iux-components-webapp/iux.css`)
-    .pipe(postcss(plugins, { map: true }))
-    .pipe(rename({ extname: '.min.css' }))
-    .pipe(gulp.dest(`${destPath.site}/dist`));
-});
-
-
-// -------------------------------------
-//   Task: Build Demo
-//   Build demo css
-// -------------------------------------
-gulp.task('build:demo', () => {
-  // Note: plugin order matters
-  const plugins = [
-    atImport,
-    commas,
-    atVariables,
-    atFor,
-    lost,
-    cssnext
-  ];
-
   const postcssOptions = {
     map: true
   };
 
-  return gulp.src(`${sourcePath.packages}/**/[^_]*.css`)
+  return gulp.src(`${srcPath.packages}/*/[^_]*.css`)
     .pipe(postcss(plugins, postcssOptions))
-    // .pipe(postcss([
-    //   require('cssnano')({ autoprefixer: false })
-    // ], postcssOptions))
-    .pipe(rename({ suffix: '-demo' }))
-    .pipe(gulp.dest(`${destPath.demo}`));
+    .pipe(rename((path) => {
+      path.dirname += '/dist';
+      path.extname = '.min.css';
+    }))
+    .pipe(gulp.dest(srcPath.packages))
+    .pipe(gulp.dest(destPath.demo));
 });
 
+// -------------------------------------
+//   Task: Build Packages JS
+// -------------------------------------
+gulp.task('build:packages:js', () => {
+  return gulp.src(`${srcPath.packages}/*/*.js`)
+    .pipe(rename((path) => {
+      path.dirname += '/dist';
+      path.extname = '.min.js';
+    }))
+    .pipe(gulp.dest(srcPath.packages))
+    .pipe(gulp.dest(destPath.demo));
+});
+
+
+// --------------------------------------------------------------------------
+//   Task: Clean
+//   Delete built files
+// --------------------------------------------------------------------------
+gulp.task('clean', ['clean:site', 'clean:site:json', 'clean:dist']);
 
 // -------------------------------------
 //   Task: Clean
 //   Delete built files
 // -------------------------------------
-gulp.task('clean', ['clean:site:json'], () => {
+gulp.task('clean:site', () => {
   return del([
     `${destPath.site}/**`,
     `!${destPath.site}`,
-    `${destPath.demo}/**/*-demo.css`,
     `log`
   ]);
 });
 
 // -------------------------------------
-//   Task: Clean JSON files only
+//   Task: Clean Output JSON
 //   Delete dist json files
 // -------------------------------------
 gulp.task('clean:site:json', () => {
   return del([
-    `${destPath.dist}`
+    `${destPath.json}`
+  ]);
+});
+
+// -------------------------------------
+//   Task: Clean Dist
+//   Delete dist files
+// -------------------------------------
+gulp.task('clean:dist', () => {
+  return del([
+    `${srcPath.packages}/*/dist`,
+    `${destPath.demo}/*/dist`
   ]);
 });
 
 
-// -------------------------------------
+// --------------------------------------------------------------------------
 //   Task: Lint
-// -------------------------------------
+// --------------------------------------------------------------------------
 gulp.task('stylelint', ['stylelint:packages', 'stylelint:site']);
-
 
 // -------------------------------------
 //   Task: Lint:packages:css
 //   Lint the source css
 // -------------------------------------
 gulp.task('stylelint:packages', () => {
-  return gulp.src(`${sourcePath.packages}/**/*.css`)
+  return gulp.src(`${srcPath.packages}/*/*.css`)
+    .pipe(gitmodified(['modified']))
     .pipe(stylelint({
       failAfterError: true,
       reporters: [{
@@ -345,7 +358,7 @@ gulp.task('stylelint:packages', () => {
 //   Lint the website css
 // -------------------------------------
 gulp.task('stylelint:site', () => {
-  return gulp.src(`${sourcePath.siteCss}/**/*.css`)
+  return gulp.src(`${srcPath.siteCss}/*/*.css`)
     .pipe(stylelint({
       failAfterError: true,
       reporters: [{
@@ -356,54 +369,16 @@ gulp.task('stylelint:site', () => {
 });
 
 
-// -------------------------------------
+// --------------------------------------------------------------------------
 //   Task: Pre-commit
 //   Run things before committing
-// -------------------------------------
-gulp.task('pre-commit', () => {
-
-  // Lint only modified css files
-  return gulp.src([`${sourcePath.packages}/**/*.css`, `${sourcePath.siteCss}/**/*.css`])
-    .pipe(gitmodified(['modified']))
-    .pipe(stylelint({
-      failAfterError: true,
-      reporters: [{
-        formatter: 'verbose',
-        console: true
-      }]
-    }));
-});
+// --------------------------------------------------------------------------
+gulp.task('pre-commit', ['stylelint:packages']);
 
 
-// -------------------------------------
-//   Task: Serve Demo
-// -------------------------------------
-gulp.task('serve:demo', () => {
-  let demoServer = require('browser-sync').create('demoServer');
-
-  demoServer.init({
-    codesync: false,
-    injectChanges: false,
-    open: false,
-    server: {
-      baseDir: [destPath.demo]
-    },
-    logLevel: 'info',
-    logPrefix: 'IUX Demo',
-    ui: false
-  });
-
-  gulp
-    .watch(`${sourcePath.packages}/**/*.css`, ['watch-packages'])
-    .on('change', (evt) => {
-      changeEvent(evt);
-    });
-});
-
-
-// -------------------------------------
+// --------------------------------------------------------------------------
 //   Task: Serve Demo & site
-// -------------------------------------
+// --------------------------------------------------------------------------
 gulp.task('serve', () => {
   browserSync.init({
     codesync: false,
@@ -419,69 +394,69 @@ gulp.task('serve', () => {
   });
 
 
-  const srcMarkdown = [
-    `${sourcePath.templates}/**/*`,
-    `${sourcePath.packages}/**/*.md`
+  const demoFiles = [
+    `${destPath.demo}/*/*.html`
   ];
 
-  const siteCss = [
-    `${sourcePath.siteCss}/**/*.css`
+  const siteFiles = [
+    `${srcPath.site}/css/**/*`,
+    `${srcPath.site}/templates/**/*`
   ];
 
-  const packagesCss = [
-    `${sourcePath.packages}/**/*.css`
+  const packageFiles = [
+    `${srcPath.packages}/*/+(*.css|*.js|*.md)`
   ];
 
   gulp
-    .watch(srcMarkdown, ['watch-md'])
+    .watch(demoFiles, ['watch-demo'])
     .on('change', (evt) => {
       changeEvent(evt);
     });
 
   gulp
-    .watch(siteCss, ['watch-site'])
+    .watch(siteFiles, ['watch-site'])
     .on('change', (evt) => {
       changeEvent(evt);
     });
 
   gulp
-    .watch(packagesCss, ['watch-packages'])
+    .watch(packageFiles, ['watch-packages'])
     .on('change', (evt) => {
       changeEvent(evt);
     });
 });
 
 
-// -------------------------------------
+// --------------------------------------------------------------------------
 //   Task: SVG Optimization
 //   Optimizes the svg icon markup
-// -------------------------------------
+// --------------------------------------------------------------------------
 gulp.task('svg:optimize', () => {
-  return gulp.src(`${sourcePath.icons}/svg/*.svg`)
+  return gulp.src(`${srcPath.icons}/svg/*.svg`)
     .pipe(svgmin())
-    .pipe(gulp.dest(`${sourcePath.icons}/svg`));
+    .pipe(gulp.dest(`${srcPath.icons}/svg`));
 });
 
 
-// -------------------------------------
+// --------------------------------------------------------------------------
 //   Task: SVG Store
 //   Creates and builds the svg icons
-// -------------------------------------
+// --------------------------------------------------------------------------
 gulp.task('svg:store', () => {
   ICONS_ARR = parseIcons(); // Refresh icons list
 
-  return gulp.src(`${sourcePath.icons}/svg/*.svg`)
+  return gulp.src(`${srcPath.icons}/svg/*.svg`)
     .pipe(svgstore({ inlineSvg: true }))
     .pipe(rename('icons.svg'))
-    .pipe(gulp.dest(sourcePath.icons))
+    .pipe(gulp.dest(srcPath.icons))
     .pipe(gulp.dest(destPath.site));
 });
 
 
-// -------------------------------------
+// --------------------------------------------------------------------------
 //   Task: Test
 //   Test accessibility level WCAG2A
-// -------------------------------------
+// --------------------------------------------------------------------------
 gulp.task('test', ['build'], () => {
 
   del(['log/accessibility']);
@@ -505,15 +480,20 @@ gulp.task('test', ['build'], () => {
 });
 
 
+// --------------------------------------------------------------------------
+//   Task: watch
+//   Guarantees reload is last task
+// --------------------------------------------------------------------------
+gulp.task('watch', ['watch-demo', 'watch-site', 'watch-packages']);
+
 // -------------------------------------
-//   Task: watch-md
+//   Task: watch-demo
 //   Guarantees reload is last task
 // -------------------------------------
-gulp.task('watch-md', ['build:site:html', 'build:site'], (done) => {
+gulp.task('watch-demo', (done) => {
   browserSync.reload();
   done();
 });
-
 
 // -------------------------------------
 //   Task: watch-site
@@ -524,19 +504,54 @@ gulp.task('watch-site', ['build:site'], (done) => {
   done();
 });
 
-
 // -------------------------------------
 //   Task: watch-packages
 //   Guarantees reload is last task
 // -------------------------------------
-gulp.task('watch-packages', ['build:demo', 'build:site:html', 'build:site'], (done) => {
+gulp.task('watch-packages', ['build'], (done) => {
   browserSync.reload();
   done();
 });
 
 
+// --------------------------------------------------------------------------
+// Task: Push
+// rsync www to soho site in branchName dir
+// --------------------------------------------------------------------------
+gulp.task('push', ['build'], () => {
+  let getGitBranchName = require('git-branch-name');
+  let dirPath = path.resolve(__dirname, '.');
+
+  return getGitBranchName(dirPath, (err, branchName) => {
+    let exec = require('child_process').exec;
+
+    let src = `${dirPath}/site/www/`,
+      dest = `~/Projects/mediawiki/data/static/foundation`;
+
+//    if (branchName.substr(branchName.length - 2) === '.x') {
+//      dest += `/${packageData.version}`;
+//    } else {
+//      dest += `/${branchName}`;
+//    }
+
+    return exec(`rsync -avz ${src} ${dest}`, function (err, stdout, stderr) {
+      gutil.log(`Deployed to ${branchName}/index.html`);
+
+      console.log(stdout);
+      console.log(stderr);
+    });
+  });
+
+});
+
+
+
+// --------------------------------------------------------------------------
+//   Functions
+// --------------------------------------------------------------------------
+
 // -------------------------------------
-//   Function: changeEvent()
+//   changeEvent()
 // -------------------------------------
 function changeEvent(evt) {
   gutil.log('File', gutil.colors.cyan(evt.path.replace(new RegExp('/.*(?=/' + basePath + ')/'), '')), 'was', gutil.colors.magenta(evt.type));
@@ -544,7 +559,7 @@ function changeEvent(evt) {
 
 
 // -------------------------------------
-//   Function: cloneSimpleObj()
+//   cloneSimpleObj()
 // -------------------------------------
 function cloneSimpleObj(obj) {
   return JSON.parse(JSON.stringify(obj));
@@ -552,7 +567,7 @@ function cloneSimpleObj(obj) {
 
 
 // -------------------------------------
-//   Function: cssVarToCamelCaseStr()
+//   cssVarToCamelCaseStr()
 // -------------------------------------
 function cssVarToCamelCaseStr(str) {
   // parse "var(--var-name)" into "--var-name"
@@ -566,17 +581,17 @@ function cssVarToCamelCaseStr(str) {
 }
 
 // -------------------------------------
-//   Function: createCssAnnotations()
+//   createCssAnnotations()
 // -------------------------------------
 function createCssAnnotations() {
   let content, blocks, cssVarAnnotations = {};
 
   // Parse the defaults first
-  const defaultVarsObj = parseCss(`${sourcePath.packages}/iux-base/_variables.css`);
+  const defaultVarsObj = parseCss(`${srcPath.packages}/iux-base/_variables.css`);
 
   const themes = [
-    { name: 'themeDark',         path: `${sourcePath.packages}/iux-theme-dark/theme-dark.css` },
-    { name: 'themeHighContrast', path: `${sourcePath.packages}/iux-theme-high-contrast/theme-high-contrast.css` }
+    { name: 'themeDark',         path: `${srcPath.packages}/iux-theme-dark/theme-dark.css` },
+    { name: 'themeHighContrast', path: `${srcPath.packages}/iux-theme-high-contrast/theme-high-contrast.css` }
   ];
 
   cssVarAnnotations = {
@@ -594,7 +609,7 @@ function createCssAnnotations() {
 
 
 // -------------------------------------
-//   Function: isCssVar()
+//   isCssVar()
 // -------------------------------------
 function isCssVar(str) {
   return str.substr(0, 3) === 'var';
@@ -602,7 +617,7 @@ function isCssVar(str) {
 
 
 // -------------------------------------
-//   Function: parseCss()
+//   parseCss()
 // -------------------------------------
 function parseCss(cssPath, themeAnnotationsObj = {}) {
   let content,
@@ -649,44 +664,11 @@ function parseCss(cssPath, themeAnnotationsObj = {}) {
 
 
 // -------------------------------------
-//   Function: parseIcons()
+//   parseIcons()
 // -------------------------------------
 function parseIcons() {
-  const iconFiles = glob.sync('*.svg', { cwd: `${sourcePath.icons}/svg` })
+  const iconFiles = glob.sync('*.svg', { cwd: `${srcPath.icons}/svg` })
   return iconSet = iconFiles.map(file => {
     return file.substring(0, file.lastIndexOf('.'));
   });
 };
-
-
-// -------------------------------------
-// Task: Push
-// rsync www to soho site in branchName dir
-// -------------------------------------
-gulp.task('push', ['build'], () => {
-  let path = require('path');
-
-  let getGitBranchName = require('git-branch-name');
-  let dirPath = path.resolve(__dirname, '.');
-
-  return getGitBranchName(dirPath, (err, branchName) => {
-    let exec = require('child_process').exec;
-
-    let src = `${dirPath}/site/www/`,
-      dest = `~/Projects/mediawiki/data/static/foundation`;
-
-//    if (branchName.substr(branchName.length - 2) === '.x') {
-//      dest += `/${packageData.version}`;
-//    } else {
-//      dest += `/${branchName}`;
-//    }
-
-    return exec(`rsync -avz ${src} ${dest}`, function (err, stdout, stderr) {
-      gutil.log(`Deployed to ${branchName}/index.html`);
-
-      console.log(stdout);
-      console.log(stderr);
-    });
-  });
-
-});

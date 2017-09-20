@@ -1,5 +1,5 @@
 {
-  "name": "@soho-foundation/theme",
+  "name": "@infor-ux/theme",
   "version": "1.0.0",
   "description": "Theme classes, mixins, and variables for Infor UX Components for the web",
   "repository": {

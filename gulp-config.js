@@ -2,7 +2,7 @@
 module.exports = {
   paths: {
     base: {
-      root: 'infor-ux'
+      root: './'
     },
     sources: {
       root:      'src',
@@ -15,7 +15,7 @@ module.exports = {
     destinations: {
       site:  'site/www',
       demo: 'demo',
-      dist: 'dist'
+      json: 'json'
     }
   }
 };

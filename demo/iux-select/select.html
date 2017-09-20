@@ -1,0 +1,93 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <meta name="author" content="Hook & Loop">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Select - Demo Infor UX</title>
+
+  <link rel="stylesheet" type="text/css" href="dist/select.min.css" id="soho-theme">
+</head>
+
+<body>
+  <header class="site-nav">
+    <h1 class="site-nav--brand">
+      Foundation Select
+    </h1>
+    <ul>
+      <li><a href="/iux-button/button.html">button</a></li>
+      <li><a href="/iux-form/form.html">form</a></li>
+      <li><a href="/iux-grid/grid.html">grid</a></li>
+
+      <li><a href="/iux-tab/tab.html">tab</a></li>
+      <li><a href="/iux-typography/typography.html">typography</a></li>
+      <li><a href="/iux-adaptive/adaptive.html">adaptive</a></li>
+    </ul>
+  </header>
+  <main class="iux-container">
+    <div id="header" class="hero">
+      <h1 class="page-title">Select Controls</h1>
+    </div>
+
+
+    <h2>Select</h2>
+    <div class="iux-select">
+      <input type="text" class="form-control iux-select--input" placeholder="Select one" />
+      <ul class="iux-select--menu">
+        <li class="is-selected" data-value="Option 1">Option 1</li>
+        <li data-value="Option 2">Option 2</li>
+        <li data-value="Option 3">Option 3</li>
+        <li data-value="Option 4">Option 4</li>
+      </ul>
+    </div>
+
+    <h2 id="select">Select Multiselect</h2>
+    <div class="iux-select">
+      <input type="text" class="form-control iux-select--input" placeholder="Select many" />
+      <ul class="iux-select--menu">
+        <li>
+          <div class="form-checkbox">
+            <input type="checkbox" id="selectCheck1" name="selectCheck1" value="Checkbox 1"/>
+            <label for="selectCheck1">
+              Checkbox 1
+            </label>
+          </div>
+        </li>
+        <li>
+          <div class="form-checkbox">
+            <input type="checkbox" id="selectCheck2" name="selectCheck2" value="Checkbox 2"/>
+            <label for="selectCheck2">
+              Checkbox 2
+            </label>
+          </div>
+        </li>
+        <li>
+          <div class="form-checkbox">
+            <input type="checkbox" id="selectCheck3" name="selectCheck3" value="Checkbox 3"/>
+            <label for="selectCheck3">
+              Checkbox 3
+            </label>
+          </div>
+        </li>
+        <li>
+          <div class="form-checkbox">
+            <input type="checkbox" id="selectCheck4" name="selectCheck4" value="Checkbox 4"/>
+            <label for="selectCheck4">
+              Checkbox 4
+            </label>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </main>
+</body>
+
+<script type="text/javascript" src="dist/index.min.js"></script>
+<script type="text/javascript">
+  let singleSelect = new IUXSelect(document.getElementsByClassName('iux-select')[0]);
+  let multiSelect = new IUXMultiSelect(document.getElementsByClassName('iux-select')[1]);
+</script>
+
+</html>

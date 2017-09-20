@@ -1,17 +1,14 @@
 # Compiled #
 ############
-/site/dist
-/site/www/*
-!/site/www/examples/
-!/site/www/img/
-log/
-/demo/**/*.css
-/dist
+site/www/
+demo/**/dist/*
+dist
 
 # Packages #
 ############
 node_modules/
 npm-debug.log
+log/
 
 # OS generated files #
 ############

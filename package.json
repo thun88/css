@@ -1,8 +1,6 @@
 {
-  "name": "@infor/infor_ux",
-  "shortname": "iux",
-  "version": "0.4.0",
-  "description": "Hook & Loop - Infor UX styles",
+  "version": "1.0.0",
+  "description": "Infor UX",
   "author": "Hook & Loop",
   "license": "UNLICENSED",
   "main": "server.js",

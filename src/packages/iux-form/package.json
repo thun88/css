@@ -1,5 +1,5 @@
 {
-  "name": "@soho-foundation/form",
+  "name": "@infor-ux/form",
   "version": "1.0.0",
   "description": "Form classes, mixins, and variables for Infor UX Components for the web",
   "repository": {
