@@ -45,6 +45,7 @@ const gulp   = require('gulp'),
 // --------------------------------------------------------------------------
 // gulp-accessibility: Access Standards
 // gulp-concat       : Concatenate files
+// gulp-documentation: Document JS files with documentationjs
 // gulp-gitmodified  : List modified files
 // gulp-hb           : Handlebars parser
 // gulp-pandoc       : File converter
@@ -58,6 +59,7 @@ const gulp   = require('gulp'),
 // -------------------------------------
 const access  = require('gulp-accessibility');
   concat      = require('gulp-concat'),
+  docjs       = require('gulp-documentation');
   flatten     = require('gulp-flatten'),
   gitmodified = require('gulp-gitmodified'),
   hb          = require('gulp-hb'),
@@ -138,7 +140,7 @@ gulp.task('build:site', ['build:packages', 'build:site:html', 'build:site:css'])
 
 // -------------------------------------
 //   Task: Build Docs
-//   Build html documentation files
+//   Build html files
 // -------------------------------------
 gulp.task('build:site:html', () => {
   const packageData = require('./package.json')
@@ -186,37 +188,36 @@ gulp.task('build:site:html', () => {
 //   Build json documentation files
 // -------------------------------------
 gulp.task('build:site:json', () => {
-    const markdownToJSON = require('gulp-markdown-to-json');
-    const marked = require('marked');
+  const markdownToJSON = require('gulp-markdown-to-json'),
+    marked = require('marked'),
+    packageData = require('./package.json');
 
-    const packageData = require('./package.json')
-    let templateData = createCssAnnotations();
+  let templateData = createCssAnnotations();
 
-    if (ICONS_ARR.length === 0) {
-      ICONS_ARR = parseIcons();;
-    }
-    templateData.svgIcons = ICONS_ARR;
-    templateData.packageData = packageData;
+  if (ICONS_ARR.length === 0) {
+    ICONS_ARR = parseIcons();;
+  }
+  templateData.svgIcons = ICONS_ARR;
+  templateData.packageData = packageData;
 
+  let hbStream = hb()
+    .partials(`${srcPath.templates}/partials/*.hbs`)
+    .data(templateData);
 
-    let hbStream = hb()
-      .partials(`${srcPath.templates}/partials/*.hbs`)
-      .data(templateData);
+  marked.setOptions({
+    pedantic: true,
+    smartypants: true
+  });
 
-    marked.setOptions({
-      pedantic: true,
-      smartypants: true
-    });
-
-    gulp.src(`${srcPath.packages}/*/README.md`)
-      .pipe(rename((file) => {
-        // Rename filename of readme to folder name
-        file.basename = file.dirname.replace('iux-', '');
-      }))
-      .pipe(hbStream)
-      .pipe(markdownToJSON(marked))
-      .pipe(flatten())
-      .pipe(gulp.dest(destPath.json));
+  gulp.src(`${srcPath.packages}/*/README.md`)
+    .pipe(rename((file) => {
+      // Rename filename of readme to folder name
+      file.basename = file.dirname.replace('iux-', '');
+    }))
+    .pipe(hbStream)
+    .pipe(markdownToJSON(marked))
+    .pipe(flatten())
+    .pipe(gulp.dest(destPath.json));
 });
 
 // -------------------------------------
@@ -329,6 +330,16 @@ gulp.task('clean:dist', () => {
     `${srcPath.packages}/*/dist`,
     `${destPath.demo}/*/dist`
   ]);
+});
+
+
+// --------------------------------------------------------------------------
+//   Task: docjs
+// --------------------------------------------------------------------------
+gulp.task('docjs', () => {
+  return gulp.src(`${srcPath.packages}/**/*.js`)
+    .pipe(docjs('md'))
+    .pipe(gulp.dest(destPath.json));
 });
 
 
@@ -518,57 +529,45 @@ gulp.task('watch-packages', ['build'], (done) => {
 // Task: Push
 // rsync www to soho site in branchName dir
 // --------------------------------------------------------------------------
-gulp.task('push', ['build'], () => {
-  let getGitBranchName = require('git-branch-name');
-  let dirPath = path.resolve(__dirname, '.');
+gulp.task('deploy', ['build:site:json', 'docjs'], () => {
+  const zipFolder = require('zip-folder');
 
-  return getGitBranchName(dirPath, (err, branchName) => {
-    let exec = require('child_process').exec;
-
-    let src = `${dirPath}/site/www/`,
-      dest = `~/Projects/mediawiki/data/static/foundation`;
-
-//    if (branchName.substr(branchName.length - 2) === '.x') {
-//      dest += `/${packageData.version}`;
-//    } else {
-//      dest += `/${branchName}`;
-//    }
-
-    return exec(`rsync -avz ${src} ${dest}`, function (err, stdout, stderr) {
-      gutil.log(`Deployed to ${branchName}/index.html`);
-
-      console.log(stdout);
-      console.log(stderr);
-    });
+  return zipFolder(destPath.json, 'iux-json.zip', (err) => {
+    if (err) {
+      gutil.log(`An error occured zipping the JSON files: ${err}`);
+    } else {
+      return postJson();
+    }
   });
-
 });
-
 
 
 // --------------------------------------------------------------------------
 //   Functions
 // --------------------------------------------------------------------------
 
-// -------------------------------------
-//   changeEvent()
-// -------------------------------------
+/**
+ * Log which files were changed/edited
+ * @param  {event} evt
+ */
 function changeEvent(evt) {
   gutil.log('File', gutil.colors.cyan(evt.path.replace(new RegExp('/.*(?=/' + basePath + ')/'), '')), 'was', gutil.colors.magenta(evt.type));
 }
 
-
-// -------------------------------------
-//   cloneSimpleObj()
-// -------------------------------------
+/**
+ * Clone an object
+ * @param  {object} obj The original objet
+ * @return {object}     A new object
+ */
 function cloneSimpleObj(obj) {
   return JSON.parse(JSON.stringify(obj));
 }
 
-
-// -------------------------------------
-//   cssVarToCamelCaseStr()
-// -------------------------------------
+/**
+ * [cssVarToCamelCaseStr description]
+ * @param  {[type]} str [description]
+ * @return {[type]}     [description]
+ */
 function cssVarToCamelCaseStr(str) {
   // parse "var(--var-name)" into "--var-name"
   str = str.replace('var(', '').replace(')', '')
@@ -580,9 +579,10 @@ function cssVarToCamelCaseStr(str) {
   });
 }
 
-// -------------------------------------
-//   createCssAnnotations()
-// -------------------------------------
+/**
+ * [createCssAnnotations description]
+ * @return {[type]} [description]
+ */
 function createCssAnnotations() {
   let content, blocks, cssVarAnnotations = {};
 
@@ -608,17 +608,22 @@ function createCssAnnotations() {
 };
 
 
-// -------------------------------------
-//   isCssVar()
-// -------------------------------------
+/**
+ * Check to see if the string is a css variable
+ * @param  {String}  str The string to check
+ * @return {Boolean}
+ */
 function isCssVar(str) {
   return str.substr(0, 3) === 'var';
 }
 
 
-// -------------------------------------
-//   parseCss()
-// -------------------------------------
+/**
+ * Parse our the variables and values from CSS
+ * @param  {String} cssPath             The path to the css files
+ * @param  {Object} themeAnnotationsObj Object of themes
+ * @return {Object}
+ */
 function parseCss(cssPath, themeAnnotationsObj = {}) {
   let content,
       blocks;
@@ -662,13 +667,37 @@ function parseCss(cssPath, themeAnnotationsObj = {}) {
   return themeAnnotationsObj;
 };
 
-
-// -------------------------------------
-//   parseIcons()
-// -------------------------------------
+/**
+ * Parse the names of the icons
+ * @return {object}
+ */
 function parseIcons() {
   const iconFiles = glob.sync('*.svg', { cwd: `${srcPath.icons}/svg` })
   return iconSet = iconFiles.map(file => {
     return file.substring(0, file.lastIndexOf('.'));
   });
 };
+
+/**
+ * Post zip file to server
+ */
+function postJson() {
+  const formData = require('form-data');
+  const url = 'http://docs-site-staging.us-east-1.elasticbeanstalk.com/api/docs/';
+  const packageData = require('./package.json');
+
+  let form = new formData();
+  form.append('file', fs.createReadStream('iux-json.zip'));
+  form.append('root_path', packageData.version);
+
+
+  form.submit(url, (err, res) => {
+    if (err) {
+      gutil.log(`Deploy failed: ${err}`);
+    } else {
+      gutil.log('Deploy succeeded!');
+      gutil.log(res.statusCode);
+    }
+    res.resume();
+  });
+}
