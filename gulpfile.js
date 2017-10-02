@@ -34,11 +34,13 @@
 // Load gulp & config
 // gulp: The streaming build system
 // --------------------------------------------------------------------------
-const gulp   = require('gulp'),
-  gConfig    = require('./gulp-config.js'),
-  basePath   = gConfig.paths.base.root;
-  srcPath = gConfig.paths.sources,
-  destPath   = gConfig.paths.destinations;
+const gulp    = require('gulp'),
+  gConfig     = require('./gulp-config.js'),
+  basePath    = gConfig.paths.base.root,
+  srcPath     = gConfig.paths.sources,
+  destPath    = gConfig.paths.destinations,
+  packageJson = require('./package.json');
+
 
 // --------------------------------------------------------------------------
 // Load "gulp-" plugins
@@ -143,14 +145,13 @@ gulp.task('build:site', ['build:packages', 'build:site:html', 'build:site:css'])
 //   Build html files
 // -------------------------------------
 gulp.task('build:site:html', () => {
-  const packageData = require('./package.json')
   let templateData = createCssAnnotations();
 
   if (ICONS_ARR.length === 0) {
     ICONS_ARR = parseIcons();;
   }
   templateData.svgIcons = ICONS_ARR;
-  templateData.packageData = packageData;
+  templateData.packageJson = packageJson;
 
 
   let hbStream = hb()
@@ -171,7 +172,7 @@ gulp.task('build:site:html', () => {
         '--template=layout.html',
         '--table-of-contents',
         `--variable=icons:${SVG_HTML}`,
-        `--variable=releaseversion:${packageData.version}`,
+        `--variable=releaseversion:${packageJson.version}`,
         '--variable=lang:en'
       ]
     }))
@@ -189,8 +190,7 @@ gulp.task('build:site:html', () => {
 // -------------------------------------
 gulp.task('build:site:json', () => {
   const markdownToJSON = require('gulp-markdown-to-json'),
-    marked = require('marked'),
-    packageData = require('./package.json');
+    marked = require('marked');
 
   let templateData = createCssAnnotations();
 
@@ -198,7 +198,7 @@ gulp.task('build:site:json', () => {
     ICONS_ARR = parseIcons();;
   }
   templateData.svgIcons = ICONS_ARR;
-  templateData.packageData = packageData;
+  templateData.packageJson = packageJson;
 
   let hbStream = hb()
     .partials(`${srcPath.templates}/partials/*.hbs`)
@@ -338,7 +338,9 @@ gulp.task('clean:dist', () => {
 // --------------------------------------------------------------------------
 gulp.task('docjs', () => {
   return gulp.src(`${srcPath.packages}/**/*.js`)
-    .pipe(docjs('md'))
+    .pipe(docjs('md', {}, {
+      version: packageJson.version
+    }))
     .pipe(gulp.dest(destPath.json));
 });
 
@@ -684,11 +686,10 @@ function parseIcons() {
 function postJson() {
   const formData = require('form-data');
   const url = 'http://docs-site-staging.us-east-1.elasticbeanstalk.com/api/docs/';
-  const packageData = require('./package.json');
 
   let form = new formData();
   form.append('file', fs.createReadStream('iux-json.zip'));
-  form.append('root_path', packageData.version);
+  form.append('root_path', packageJson.version);
 
 
   form.submit(url, (err, res) => {
