@@ -158,6 +158,11 @@ gulp.task('build:site:html', ['build:packages'], () => {
     .partials(`${srcPath.templates}/partials/*.hbs`)
     .data(templateData);
 
+  // Copy compiled styles into site/www/dist
+  gulp.src(`${srcPath.packages}/iux-components-webapp/dist/*.css`)
+    .pipe(gulp.dest(`${destPath.site}/dist`));
+
+  // Build the site html files
   return gulp.src(`${srcPath.packages}/*/README.md`)
     // Parse any handlebar templates in the markdown
     .pipe(hbStream)
