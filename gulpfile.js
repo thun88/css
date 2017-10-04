@@ -144,7 +144,7 @@ gulp.task('build:site', ['build:packages', 'build:site:html', 'build:site:css'])
 //   Task: Build Docs
 //   Build html files
 // -------------------------------------
-gulp.task('build:site:html', () => {
+gulp.task('build:site:html', ['build:packages'], () => {
   let templateData = createCssAnnotations();
 
   if (ICONS_ARR.length === 0) {
@@ -188,7 +188,7 @@ gulp.task('build:site:html', () => {
 //   Task: Build docs json
 //   Build json documentation files
 // -------------------------------------
-gulp.task('build:site:json', () => {
+gulp.task('build:site:json', ['build:packages'], () => {
   const markdownToJSON = require('gulp-markdown-to-json'),
     marked = require('marked');
 
