@@ -1,6 +1,0 @@
-/* Include default styles */
-@import '../iux-components-webapp/iux.css';
-
-/* Modify with themed variable values */
-@import '../iux-theme-high-contrast/theme-high-contrast.css';
-

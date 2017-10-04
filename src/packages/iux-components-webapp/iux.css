@@ -1,11 +1,3 @@
 /* Components */
-@import '../iux-base/base';
-@import '../iux-button/button';
-@import '../iux-form/form';
-@import '../iux-grid/grid';
-@import '../iux-icon/icon';
-@import '../iux-tab/tab';
-@import '../iux-typography/typography';
+@import '../iux-theme/theme';
 
-/* Utilities */
-@import '../iux-adaptive/adaptive';
