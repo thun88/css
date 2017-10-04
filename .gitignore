@@ -3,7 +3,7 @@
 site/www/
 demo/**/dist/*
 src/packages/**/dist/*
-json
+dist
 
 # Packages #
 ############
