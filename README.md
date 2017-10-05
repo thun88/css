@@ -25,6 +25,7 @@ Infor UX is a sleek, intuitive, and powerful front-end framework for faster and 
 - `$ gulp stylelint` Lints the **src** and **site** css raw files
 
 > The website is served at `http://localhost:3000/`
+>
 > Demos are at `http://localhost:3000/iux-{package}/{package}`
 > (it follows the folder pattern under `demo/`)
 
