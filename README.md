@@ -14,6 +14,7 @@ Infor UX is a sleek, intuitive, and powerful front-end framework for faster and 
 1. `$ npm install`
 1. `$ npm start`
 
+
 ## Basic Gulp Tasks
 
 - `$ gulp` - Clean and Build the site and packages
@@ -24,7 +25,9 @@ Infor UX is a sleek, intuitive, and powerful front-end framework for faster and 
 - `$ gulp stylelint` Lints the **src** and **site** css raw files
 
 > The website is served at `http://localhost:3000/`
-> Demos are at `http://localhost:3000/iux-{package}/{package}` (it follows the folder pattern under `demo/`)
+> Demos are at `http://localhost:3000/iux-{package}/{package}`
+> (it follows the folder pattern under `demo/`)
+
 
 ## SVG Icons
 
@@ -35,7 +38,6 @@ To add an icon start with these steps, then proceed to building (below):
 For building the icons
 1. `$ gulp svg:store`
 2. `$ gulp`
-
 
 
 ## Site Directory

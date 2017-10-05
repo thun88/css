@@ -73,7 +73,6 @@ require(`${paths.tasks}/svg-store.js`)(gulp, paths, arrOfIcons);
 require(`${paths.tasks}/test.js`)(gulp, paths);
 
 
-
 // -------------------------------------
 //   Common Tasks
 // -------------------------------------
@@ -82,7 +81,7 @@ gulp.task('default', () => {
 });
 
 gulp.task('dev', () => {
-  runSequence('build', 'serve');
+  runSequence('clean', 'build', 'serve');
 });
 
 gulp.task('deploy', () => {
