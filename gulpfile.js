@@ -75,52 +75,44 @@ require(`${paths.tasks}/test.js`)(gulp, paths);
 
 
 // -------------------------------------
-//   Task: Default (sync)
+//   Common Tasks
 // -------------------------------------
 gulp.task('default', () => {
   runSequence('clean', 'build');
 });
 
-// -------------------------------------
-//   Task: Build
-// -------------------------------------
-gulp.task('build', ['svg:store', 'build:packages', 'build:site']);
-
-// -------------------------------------
-//   Task: Build
-// -------------------------------------
-gulp.task('build:site', ['build:site:css', 'build:site:html']);
-
-// -------------------------------------
-//   Task: Build
-// -------------------------------------
-gulp.task('build:packages', ['build:packages:css', 'build:packages:js']);
-
-// -------------------------------------
-//   Task: Dev (sync)
-// -------------------------------------
 gulp.task('dev', () => {
   runSequence('build', 'serve');
 });
 
-// -------------------------------------
-//   Task: Pre-commit
-// -------------------------------------
-gulp.task('pre-commit', ['stylelint:packages']);
-
-// -------------------------------------
-//   Task: Clean
-// -------------------------------------
-gulp.task('clean', ['clean:site', 'clean:dist', 'clean:zip']);
-
-// -------------------------------------
-//   Task: Stylelint
-// -------------------------------------
-gulp.task('stylelint', ['stylelint:packages', 'stylelint:site']);
-
-// -------------------------------------
-//   Task: Deploy
-// -------------------------------------
 gulp.task('deploy', () => {
   runSequence('clean:zip', 'build:zip', 'publish:zip');
 });
+
+
+// -------------------------------------
+//   Build Task Combos
+// -------------------------------------
+gulp.task('build', ['svg:store', 'build:packages', 'build:site']);
+
+gulp.task('build:site', ['build:site:css', 'build:site:html']);
+
+gulp.task('build:packages', ['build:packages:css', 'build:packages:js']);
+
+
+// -------------------------------------
+//   Clean All
+// -------------------------------------
+gulp.task('clean', ['clean:site', 'clean:dist', 'clean:zip']);
+
+
+// -------------------------------------
+//   Stylelint All
+// -------------------------------------
+gulp.task('stylelint', ['stylelint:packages', 'stylelint:site']);
+
+
+// -------------------------------------
+//   Automated Pre-commit Task
+// -------------------------------------
+gulp.task('pre-commit', ['stylelint:packages']);

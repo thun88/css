@@ -6,7 +6,6 @@ Infor UX is a sleek, intuitive, and powerful front-end framework for faster and 
 - [Dev Quick start](#dev-quick-start)
 - [Gulp Tasks](#other-useful-gulp-tasks)
 - [SVG Icons](#edit-icons)
-- [Lint Styles](#lint-styles)
 - [Site Directory](#site-directory)
 
 ## Dev Quick start
@@ -17,13 +16,15 @@ Infor UX is a sleek, intuitive, and powerful front-end framework for faster and 
 
 ## Basic Gulp Tasks
 
-- `$ gulp` - Clean built files, Build the site, run the webserver, start a watch
-- `$ gulp serve` - Run the webserver and watch
-- `$ gulp build` - Build the files
-- `$ gulp clean` - Remove all generated/static files
+- `$ gulp` - Clean and Build the site and packages
+- `$ gulp dev` - Clean, build (site & packages), and start the server
+- `$ gulp deploy` - Build the markdown docs into json, zip it, then post to the server
+- `$ gulp clean` - Remove all built files
 - `$ gulp test` - Build, then run the accessibility tests on the built html files (reports are in `log/accessibility`)
+- `$ gulp stylelint` Lints the **src** and **site** css raw files
 
 > The website is served at `http://localhost:3000/`
+> Demos are at `http://localhost:3000/iux-{package}/{package}` (it follows the folder pattern under `demo/`)
 
 ## SVG Icons
 
@@ -35,15 +36,15 @@ For building the icons
 1. `$ gulp svg:store`
 2. `$ gulp`
 
-## Lint Styles
 
-- `$ gulp stylelint` Lints the **src** and **site** css raw files
 
 ## Site Directory
 
-- `src` The raw files for components, documentation, and icons.
+- `src` The raw files for components and icons.
+- `src/packages` The individual components (while compiled each will have it's own `dist/`)
 - `site/www` The generated files for the served website.
-- `site/www/dist` Minified stylesheets used for the site docs.
+- `site/www/dist` Minified stylesheets used for the site.
 - `site/css` The CSS for the site only
-- `site/templates` The templates for generating the site in html
+- `site/templates` The templates for generating the site html files
 - `demo` Demo of each package.
+- `gulp` Contains the gulp tasks
