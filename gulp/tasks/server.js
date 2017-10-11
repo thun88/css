@@ -5,9 +5,13 @@
 
 module.exports = (gulp, paths) => {
 
+  const browserSync = require('browser-sync').create('localDocServer');
+
   gulp.task('serve', () => {
 
-    const browserSync = require('browser-sync').create('localDocServer');
+    const
+      gutil = require('gulp-util'),
+      path = require('path');
 
     browserSync.init({
       codesync: false,
@@ -37,31 +41,41 @@ module.exports = (gulp, paths) => {
       `${paths.src.packages}/*/+(*.css|*.js|*.md)`
     ];
 
+    const changeEvent = (evt) => {
+      gutil.log('File', gutil.colors.cyan(evt.path.replace(new RegExp('/.*(?=/' + paths.root + ')/'), '')), 'was', gutil.colors.magenta(evt.type));
+    };
+
     gulp
-      .watch(demoFiles, (done) => {
-        browserSync.reload();
-        done();
-      })
+      .watch(demoFiles, ['watch-demo'])
       .on('change', (evt) => {
         changeEvent(evt);
       });
 
     gulp
-      .watch(siteFiles, ['build:site'], (done) => {
-        browserSync.reload();
-        done();
-      })
+      .watch(siteFiles, ['watch-site'])
       .on('change', (evt) => {
         changeEvent(evt);
       });
 
     gulp
-      .watch(packageFiles, ['build:packages'], (done) => {
-        browserSync.reload();
-        done();
-      })
+      .watch(packageFiles, ['watch-packages'])
       .on('change', (evt) => {
         changeEvent(evt);
       });
+  });
+
+  gulp.task('watch-demo', (done) => {
+    browserSync.reload();
+    done();
+  });
+
+  gulp.task('watch-site', ['build:site'], (done) => {
+    browserSync.reload();
+    done();
+  });
+
+  gulp.task('watch-packages', ['build'], (done) => {
+    browserSync.reload();
+    done();
   });
 }
