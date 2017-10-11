@@ -1,14 +1,6 @@
 let helperFns = {
 
   /**
-   * Log which files were changed/edited
-   * @param  {event} evt
-   */
-  changeEvent: (evt) => {
-    gutil.log('File', gutil.colors.cyan(evt.path.replace(new RegExp('/.*(?=/' + paths.root + ')/'), '')), 'was', gutil.colors.magenta(evt.type));
-  },
-
-  /**
    * Clone an object
    * @param  {object} obj The original objet
    * @return {object}     A new object

@@ -7,7 +7,11 @@ module.exports = (gulp, paths) => {
 
   gulp.task('serve', () => {
 
-    const browserSync = require('browser-sync').create('localDocServer');
+    const
+      browserSync = require('browser-sync').create('localDocServer'),
+      gutil = require('gulp-util'),
+      helperFns = require('../functions.js'),
+      path = require('path');
 
     browserSync.init({
       codesync: false,
@@ -37,28 +41,31 @@ module.exports = (gulp, paths) => {
       `${paths.src.packages}/*/+(*.css|*.js|*.md)`
     ];
 
+    const changeEvent = (evt) => {
+      gutil.log('File', gutil.colors.cyan(evt.path.replace(new RegExp('/.*(?=/' + paths.root + ')/'), '')), 'was', gutil.colors.magenta(evt.type));
+    };
+
+
+
     gulp
-      .watch(demoFiles, (done) => {
+      .watch(demoFiles, () => {
         browserSync.reload();
-        done();
       })
       .on('change', (evt) => {
         changeEvent(evt);
       });
 
     gulp
-      .watch(siteFiles, ['build:site'], (done) => {
+      .watch(siteFiles, ['build:site'], () => {
         browserSync.reload();
-        done();
       })
       .on('change', (evt) => {
         changeEvent(evt);
       });
 
     gulp
-      .watch(packageFiles, ['build:packages'], (done) => {
+      .watch(packageFiles, ['build:packages'], () => {
         browserSync.reload();
-        done();
       })
       .on('change', (evt) => {
         changeEvent(evt);
