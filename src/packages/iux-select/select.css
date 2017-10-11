@@ -26,7 +26,7 @@
       outline: none;
     }
 
-    & > li.is-selected {
+    & > li.iux-select--menu--selected {
       background-color: var(--azure06);
       color: var(--white);
     }

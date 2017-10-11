@@ -74,7 +74,7 @@ module.exports = (gulp, paths) => {
     done();
   });
 
-  gulp.task('watch-packages', ['build'], (done) => {
+  gulp.task('watch-packages', ['build:packages', 'build:site'], (done) => {
     browserSync.reload();
     done();
   });

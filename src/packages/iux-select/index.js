@@ -1,6 +1,6 @@
 const cssClasses = {
   OPEN: 'iux-select--open',
-  SELECTED: 'is-selected'
+  SELECTED: 'iux-select--menu--selected'
 };
 
 'use strict';
@@ -11,7 +11,7 @@ const cssClasses = {
 class IUXSelect {
 
   /**
-   * consructor
+   * constructor
    * @param  {object} root - The root element of the select
    */
   constructor(root) {

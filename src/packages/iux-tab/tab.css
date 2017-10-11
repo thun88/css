@@ -2,31 +2,22 @@
 @import '../iux-grid/grid';
 @import '../iux-typography/typography';
 
-.iux-tabs--list-horizontal {
+.iux-tabs--horizontal {
   border-bottom: solid 1px var(--graphite03);
   display: block;
 
-  & .iux-tabs--list-link {
-    color: inherit;
-    display: block;
+  & .iux-tabs--tab {
+    color: var(--graphite06);
+    display: inline-block;
+    margin: 0 10px 0 0;
     max-width: 150px;
     min-width: 40px;
     overflow: hidden;
     padding: 12px 11px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-
-    &:hover {
-      text-decoration: none;
-    }
-  }
-
-  & .iux-tabs--list-item {
-    color: var(--graphite06);
-    display: inline-block;
-    margin: 0 10px 0 0;
     position: relative;
+    text-overflow: ellipsis;
     vertical-align: top;
+    white-space: nowrap;
 
     &::before {
       background-color: transparent;
@@ -34,13 +25,15 @@
       content: '';
       display: block;
       height: 3px;
+      left: 0;
       position: absolute;
       transition: background-color 0.25s ease;
       width: 0;
     }
 
-    &:hover:not(.is-disabled) {
+    &:hover:not(.iux-tabs--tab--disabled) {
       color: var(--graphite10);
+      text-decoration: none;
 
       &::before {
         background-color: var(--graphite10);
@@ -48,50 +41,48 @@
       }
     }
 
-    &.is-active {
+    &.iux-tabs--tab--active {
       color: var(--azure06);
+
+      &::before {
+        background-color: var(--azure06);
+        width: 100%;
+      }
     }
 
-    &.is-active::before {
-      background-color: var(--azure06);
-      width: 100%;
-    }
-
-    &.is-disabled {
+    &.iux-tabs--tab--disabled {
       color: var(--graphite04);
 
-      & .iux-tabs--list-link:hover {
+      &:hover {
         cursor: not-allowed;
       }
     }
   }
 }
 
-.iux-tabs--list-vertical {
+.iux-tabs--vertical {
   background-color: var(--graphite01);
   display: block;
 
-  & .iux-tabs--list-link {
+  & .iux-tabs--tab {
     color: inherit;
     display: block;
     padding: 10px 30px;
     text-decoration: none;
-  }
 
-  & .iux-tabs--list-item {
-    &:hover:not(.is-disabled) {
+    &:hover:not(.iux-tabs--tab--disabled) {
       background-color: var(--graphite02);
     }
 
-    &.is-active {
+    &.iux-tabs--tab--active {
       background-color: var(--azure06);
       color: #fff;
     }
 
-    &.is-disabled {
+    &.iux-tabs--tab--disabled {
       color: var(--graphite04);
 
-      & .iux-tabs--list-link:hover {
+      &:hover {
         cursor: not-allowed;
       }
     }
