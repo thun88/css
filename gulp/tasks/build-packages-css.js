@@ -16,8 +16,7 @@ module.exports = (gulp, paths, postCssPlugins) => {
       postCssPlugins.atVariables,
       postCssPlugins.atFor,
       postCssPlugins.lost,
-      postCssPlugins.cssnext,
-      postCssPlugins.cssnano({ autoprefixer: false })
+      postCssPlugins.cssnext
     ];
 
     const postcssOptions = {
@@ -25,12 +24,22 @@ module.exports = (gulp, paths, postCssPlugins) => {
     };
 
     return gulp.src(`${paths.src.packages}/*/[^_]*.css`)
+
+      // compile
       .pipe(postcss(plugins, postcssOptions))
       .pipe(rename((path) => {
         path.dirname += '/dist';
+      }))
+      .pipe(gulp.dest(paths.dest.demo))
+      .pipe(gulp.dest(paths.src.packages))
+
+      // minify
+      .pipe(postcss([postCssPlugins.cssnano({
+        autoprefixer: false
+      })], postcssOptions))
+      .pipe(rename((path) => {
         path.extname = '.min.css';
       }))
-      .pipe(gulp.dest(paths.src.packages))
-      .pipe(gulp.dest(paths.dest.demo));
+      .pipe(gulp.dest(paths.src.packages));
   });
 }
