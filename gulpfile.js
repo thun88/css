@@ -107,9 +107,3 @@ gulp.task('clean', ['clean:site', 'clean:dist', 'clean:zip']);
 //   Stylelint All
 // -------------------------------------
 gulp.task('stylelint', ['stylelint:packages', 'stylelint:site']);
-
-
-// -------------------------------------
-//   Automated Pre-commit Task
-// -------------------------------------
-gulp.task('pre-commit', ['stylelint:packages']);
