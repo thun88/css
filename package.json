@@ -12,6 +12,7 @@
   "devDependencies": {
     "@angular/cli": "^1.2.1",
     "browser-sync": "^2.18.8",
+    "cp-file": "^5.0.0",
     "css-annotation-block": "git+http://clepore@git.infor.com/scm/~clepore/css-annotation-block.git",
     "del": "^2.2.2",
     "documentation": "^5.3.2",
@@ -49,12 +50,14 @@
     "postcss-for": "^2.1.1",
     "postcss-import": "^9.1.0",
     "run-sequence": "^2.2.0",
-    "stylelint-order": "^0.4.3"
+    "stylelint-order": "^0.4.3",
+    "webpack": "^3.7.1"
   },
   "scripts": {
     "preinstall": "npm install -g pandoc-bin gulp-cli",
     "postinstall": "guppy pre-commit",
-    "start": "gulp"
+    "start": "gulp",
+    "build": "webpack && node scripts/cp-pkgs.js"
   },
   "browserslist": [
     "> 1%",
