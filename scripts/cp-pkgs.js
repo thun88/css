@@ -8,7 +8,7 @@ const fs = require('fs');
 const cpFile = require('cp-file');
 const {sync: globSync} = require('glob');
 
-const PKG_RE = /(?:infor\-ux)|(?:iux\-[a-zA-Z\-]+)/;
+const PKG_RE = /(?:infor\-ux)|(?:iux\-[a-zA-Z\-]+(min)?)/;
 
 const isValidCwd = (
   path.basename(process.cwd()) === 'infor-ux' &&

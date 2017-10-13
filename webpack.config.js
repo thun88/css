@@ -3,24 +3,13 @@
 const path = require('path');
 const glob = require('glob');
 const webpack = require('webpack');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const UglifyJSPlugin = require('uglifyjs-webpack-plugin')
+
+const MinifyPlugin = require("babel-minify-webpack-plugin");
+
 
 const OUT_PATH = path.resolve('./build');
 
-const cssFiles = {
-  'adaptive': path.resolve('./src/packages/iux-adaptive/adaptive.css'),
-  'base': path.resolve('./src/packages/iux-base/base.css'),
-  'button': path.resolve('./src/packages/iux-button/button.css'),
-  'form': path.resolve('./src/packages/iux-form/form.css'),
-  'grid': path.resolve('./src/packages/iux-grid/grid.css'),
-  // 'icon': path.resolve('./src/packages/iux-icon/icon.css'),
-  'select': path.resolve('./src/packages/iux-select/select.css'),
-  'tab': path.resolve('./src/packages/iux-tab/tab.css'),
-  'theme': path.resolve('./src/packages/iux-theme/theme.css'),
-  'theme-dark': path.resolve('./src/packages/iux-theme-dark/theme-dark.css'),
-  'theme-high-contrast': path.resolve('./src/packages/iux-theme-high-contrast/theme-high-contrast.css'),
-  'typography': path.resolve('./src/packages/iux-typography/typography.css')
-}
 
 const jsFiles = {
   select: path.resolve('./src/packages/iux-select/index.js'),
@@ -42,7 +31,6 @@ const createBannerPlugin = () => new webpack.BannerPlugin({
 });
 
 
-
 module.exports = [
   // Javascripts
   {
@@ -54,6 +42,20 @@ module.exports = [
       path: OUT_PATH,
       filename: 'iux-[name].js',
       library: ['iux', '[name]'],
+      libraryTarget: 'umd'
+    }
+  },
+  // Javascripts - minify
+  {
+    entry: jsFiles,
+    plugins: [
+      new MinifyPlugin(),
+      createBannerPlugin()
+    ],
+    output: {
+      path: OUT_PATH,
+      filename: 'iux-[name].min.js',
+      library: ['iux', '[name].min'],
       libraryTarget: 'umd'
     }
   }
