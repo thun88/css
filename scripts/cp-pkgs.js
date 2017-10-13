@@ -29,8 +29,8 @@ function getAssetEntry(asset) {
   return [entryName][0];
 }
 
-function cpAsset(asset) {
-  const assetPkg = path.join('src/packages', getAssetEntry(asset));
+function cpAsset(asset, dest) {
+  const assetPkg = path.join(dest, getAssetEntry(asset));
   if (!fs.existsSync(assetPkg)) {
     Promise.reject(new Error(`Non-existent asset package path ${assetPkg} for ${asset}`));
   }
@@ -38,7 +38,11 @@ function cpAsset(asset) {
   return cpFile(asset, destDir).then(() => console.log(`cp ${asset} -> ${destDir}`));
 }
 
-Promise.all(globSync('build/*.{css,js}').map(cpAsset)).catch((err) => {
-  console.error(`Error encountered copying assets: ${err}`);
-  process.exit(1);
-});
+Promise
+  .all(globSync('build/*.{css,js}').map((asset) => {
+    return cpAsset(asset, 'src/packages') && cpAsset(asset, 'demo');
+  }))
+  .catch((err) => {
+    console.error(`Error encountered copying assets: ${err}`);
+    process.exit(1);
+  });

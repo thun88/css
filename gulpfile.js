@@ -48,7 +48,6 @@ let compiledSvgHtml = fs.readFileSync(`${paths.src.icons}/icons.svg`, 'utf-8');
 //   Load Tasks
 // -------------------------------------
 require(`${paths.tasks}/build-packages-css.js`)(gulp, paths, postCssPlugins);
-require(`${paths.tasks}/build-packages-js.js`)(gulp, paths, postCssPlugins);
 require(`${paths.tasks}/build-packages-docjs.js`)(gulp, paths);
 
 require(`${paths.tasks}/build-site-css.js`)(gulp, paths, postCssPlugins);
