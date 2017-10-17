@@ -93,7 +93,7 @@ gulp.task('deploy', () => {
 // -------------------------------------
 gulp.task('build:site', ['build:site:css', 'build:site:html']);
 
-gulp.task('build:packages', ['build:packages:css', 'build:packages:js']);
+gulp.task('build:packages', ['build:packages:css']);
 
 
 // -------------------------------------

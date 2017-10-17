@@ -14,7 +14,7 @@ module.exports = (gulp, paths) => {
       path = require('path');
 
     browserSync.init({
-      codesync: false,
+      codesync: false, // keep this false and use watches
       index: 'base.html',
       injectChanges: false,
       open: false,
