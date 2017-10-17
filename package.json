@@ -61,7 +61,7 @@
     "clean": "del-cli build/** && gulp clean",
     "build": "webpack --progress --config webpack.dev.js",
     "build:min": "webpack --progress --config webpack.prod.js",
-    "dist": "npm run clean && npm run build && npm run build:min && node scripts/cp-pkgs.js",
+    "dist": "gulp && npm run build && npm run build:min && node scripts/cp-pkgs.js",
     "lint:css": "gulp stylelint"
   },
   "browserslist": [
