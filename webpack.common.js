@@ -27,8 +27,21 @@ module.exports = {
   plugins: [
     createBannerPlugin()
   ],
+  // module: {
+  //   loaders: [
+  //     {
+  //       test: /\.js$/,
+  //       loader: 'babel-loader',
+  //       query: {
+  //         presets: ['es2015']
+  //       }
+  //     }
+  //   ]
+  // },
+  devtool: 'source-map',
   output: {
     path: path.resolve(outPath),
+    library: 'IUX',
     libraryTarget: 'umd'
   }
 }

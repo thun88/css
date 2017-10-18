@@ -12,7 +12,6 @@ const PKG_RE = /(?:infor\-ux)|(?:iux\-[a-zA-Z\-]+(min)?)/;
 
 const isValidCwd = (
   path.basename(process.cwd()) === 'infor-ux' &&
-  fs.existsSync('src/packages') &&
   fs.existsSync('build')
 );
 
@@ -22,6 +21,10 @@ if (!isValidCwd) {
     'and that you have run `npm run dist`'
   );
   process.exit(0);
+}
+
+function isMinified(asset) {
+  return (asset.indexOf('.min.') > -1)
 }
 
 function getAssetEntry(asset) {
@@ -40,7 +43,13 @@ function cpAsset(asset, dest) {
 
 Promise
   .all(globSync('build/*.{css,js}').map((asset) => {
+    console.log(asset);
+
+    if (isMinified(asset)) {
+      return cpAsset(asset, 'src/packages');
+    }
     return cpAsset(asset, 'src/packages') && cpAsset(asset, 'demo');
+
   }))
   .catch((err) => {
     console.error(`Error encountered copying assets: ${err}`);

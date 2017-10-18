@@ -3,12 +3,10 @@ const cssClasses = {
   SELECTED: 'iux-select--menu--selected'
 };
 
-'use strict';
-
 /**
  * Class IUXSelect
  */
-class IUXSelect {
+export class IUXSelect {
 
   /**
    * constructor
@@ -71,7 +69,7 @@ class IUXSelect {
  * Class for IUXSelectMulti
  * @extends IUXSelect
  */
-class IUXMultiSelect extends IUXSelect {
+export class IUXMultiSelect extends IUXSelect {
 
   /**
    * Select a select item checkbox
