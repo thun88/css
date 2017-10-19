@@ -1,0 +1,1010 @@
+[
+  {
+    "description": {
+      "type": "root",
+      "children": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value": "Class IUXSelect",
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 1,
+                  "column": 16,
+                  "offset": 15
+                },
+                "indent": []
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 16,
+              "offset": 15
+            },
+            "indent": []
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 1,
+          "offset": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 16,
+          "offset": 15
+        }
+      }
+    },
+    "tags": [],
+    "loc": {
+      "start": {
+        "line": 6,
+        "column": 0
+      },
+      "end": {
+        "line": 8,
+        "column": 3
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 9,
+          "column": 0
+        },
+        "end": {
+          "line": 65,
+          "column": 1
+        }
+      },
+      "file": "/Users/clepore/HookandLoop/git/github/infor-ux/src/packages/iux-select/index.js"
+    },
+    "augments": [],
+    "examples": [],
+    "params": [
+      {
+        "title": "param",
+        "name": "root",
+        "lineNumber": 15
+      }
+    ],
+    "properties": [],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "constructorComment": {
+      "description": {
+        "type": "root",
+        "children": [
+          {
+            "type": "paragraph",
+            "children": [
+              {
+                "type": "text",
+                "value": "constructor",
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 12,
+                    "offset": 11
+                  },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": {
+                "line": 1,
+                "column": 1,
+                "offset": 0
+              },
+              "end": {
+                "line": 1,
+                "column": 12,
+                "offset": 11
+              },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": {
+            "line": 1,
+            "column": 1,
+            "offset": 0
+          },
+          "end": {
+            "line": 1,
+            "column": 12,
+            "offset": 11
+          }
+        }
+      },
+      "tags": [
+        {
+          "title": "param",
+          "description": "The root element of the select",
+          "lineNumber": 2,
+          "type": {
+            "type": "NameExpression",
+            "name": "object"
+          },
+          "name": "root"
+        }
+      ],
+      "loc": {
+        "start": {
+          "line": 11,
+          "column": 2
+        },
+        "end": {
+          "line": 14,
+          "column": 5
+        }
+      },
+      "context": {
+        "loc": {
+          "start": {
+            "line": 15,
+            "column": 2
+          },
+          "end": {
+            "line": 30,
+            "column": 3
+          }
+        },
+        "file": "/Users/clepore/HookandLoop/git/github/infor-ux/src/packages/iux-select/index.js",
+        "sortKey": "!/Users/clepore/HookandLoop/git/github/infor-ux/src/packages/iux-select/index.js 00000015",
+        "code": "{\n\n  /**\n   * constructor\n   * @param  {object} root - The root element of the select\n   */\n  constructor(root) {\n    this.rootEl_ = root;\n    this.inputEl_ = this.rootEl_.querySelector('.iux-select--input');\n    this.menuEl_ = this.rootEl_.querySelector('.iux-select--menu');\n\n    this.inputEl_.addEventListener('click', (e) => {\n      this.toggle();\n    });\n\n    this.menuEl_.addEventListener('click', (e) => {\n      this.selectItem(e.target);\n      this.toggle();\n    });\n\n    return root;\n  }\n\n  /**\n   * Toggle select class\n   */\n  toggle() {\n    this.rootEl_.classList.toggle(cssClasses.OPEN);\n  }\n\n  /**\n   * Remove select open class\n   */\n  close() {\n    this.rootEl_.classList.remove(cssClasses.OPEN);\n  }\n\n  /**\n   * Select a select item\n   * @param  {object} el - DOM element selected\n   */\n  selectItem(el) {\n    this.clearSelection();\n    this.inputEl_.value = el.dataset.value;\n    el.classList.add(cssClasses.SELECTED);\n  }\n\n  /**\n   * Remove all selected classes\n   */\n  clearSelection() {\n    let selected = this.menuEl_.querySelectorAll('.' + cssClasses.SELECTED);\n    selected.forEach(el => {\n      el.classList.remove(cssClasses.SELECTED);\n    });\n  }\n}"
+      },
+      "augments": [],
+      "errors": [],
+      "examples": [],
+      "params": [
+        {
+          "title": "param",
+          "name": "root",
+          "lineNumber": 2,
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "The root element of the select",
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 31,
+                        "offset": 30
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 31,
+                    "offset": 30
+                  },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": {
+                "line": 1,
+                "column": 1,
+                "offset": 0
+              },
+              "end": {
+                "line": 1,
+                "column": 31,
+                "offset": 30
+              }
+            }
+          },
+          "type": {
+            "type": "NameExpression",
+            "name": "object"
+          }
+        }
+      ],
+      "properties": [],
+      "returns": [],
+      "sees": [],
+      "throws": [],
+      "todos": []
+    },
+    "name": "IUXSelect",
+    "kind": "class",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [
+        {
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "Toggle select class",
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 20,
+                        "offset": 19
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 20,
+                    "offset": 19
+                  },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": {
+                "line": 1,
+                "column": 1,
+                "offset": 0
+              },
+              "end": {
+                "line": 1,
+                "column": 20,
+                "offset": 19
+              }
+            }
+          },
+          "tags": [],
+          "loc": {
+            "start": {
+              "line": 32,
+              "column": 2
+            },
+            "end": {
+              "line": 34,
+              "column": 5
+            }
+          },
+          "context": {
+            "loc": {
+              "start": {
+                "line": 35,
+                "column": 2
+              },
+              "end": {
+                "line": 37,
+                "column": 3
+              }
+            },
+            "file": "/Users/clepore/HookandLoop/git/github/infor-ux/src/packages/iux-select/index.js"
+          },
+          "augments": [],
+          "examples": [],
+          "params": [],
+          "properties": [],
+          "returns": [],
+          "sees": [],
+          "throws": [],
+          "todos": [],
+          "name": "toggle",
+          "kind": "function",
+          "memberof": "IUXSelect",
+          "scope": "instance",
+          "members": {
+            "global": [],
+            "inner": [],
+            "instance": [],
+            "events": [],
+            "static": []
+          },
+          "path": [
+            {
+              "name": "IUXSelect",
+              "kind": "class"
+            },
+            {
+              "name": "toggle",
+              "kind": "function",
+              "scope": "instance"
+            }
+          ],
+          "namespace": "IUXSelect#toggle"
+        },
+        {
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "Remove select open class",
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 25,
+                        "offset": 24
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 25,
+                    "offset": 24
+                  },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": {
+                "line": 1,
+                "column": 1,
+                "offset": 0
+              },
+              "end": {
+                "line": 1,
+                "column": 25,
+                "offset": 24
+              }
+            }
+          },
+          "tags": [],
+          "loc": {
+            "start": {
+              "line": 39,
+              "column": 2
+            },
+            "end": {
+              "line": 41,
+              "column": 5
+            }
+          },
+          "context": {
+            "loc": {
+              "start": {
+                "line": 42,
+                "column": 2
+              },
+              "end": {
+                "line": 44,
+                "column": 3
+              }
+            },
+            "file": "/Users/clepore/HookandLoop/git/github/infor-ux/src/packages/iux-select/index.js"
+          },
+          "augments": [],
+          "examples": [],
+          "params": [],
+          "properties": [],
+          "returns": [],
+          "sees": [],
+          "throws": [],
+          "todos": [],
+          "name": "close",
+          "kind": "function",
+          "memberof": "IUXSelect",
+          "scope": "instance",
+          "members": {
+            "global": [],
+            "inner": [],
+            "instance": [],
+            "events": [],
+            "static": []
+          },
+          "path": [
+            {
+              "name": "IUXSelect",
+              "kind": "class"
+            },
+            {
+              "name": "close",
+              "kind": "function",
+              "scope": "instance"
+            }
+          ],
+          "namespace": "IUXSelect#close"
+        },
+        {
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "Select a select item",
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 21,
+                        "offset": 20
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 21,
+                    "offset": 20
+                  },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": {
+                "line": 1,
+                "column": 1,
+                "offset": 0
+              },
+              "end": {
+                "line": 1,
+                "column": 21,
+                "offset": 20
+              }
+            }
+          },
+          "tags": [
+            {
+              "title": "param",
+              "description": "DOM element selected",
+              "lineNumber": 2,
+              "type": {
+                "type": "NameExpression",
+                "name": "object"
+              },
+              "name": "el"
+            }
+          ],
+          "loc": {
+            "start": {
+              "line": 46,
+              "column": 2
+            },
+            "end": {
+              "line": 49,
+              "column": 5
+            }
+          },
+          "context": {
+            "loc": {
+              "start": {
+                "line": 50,
+                "column": 2
+              },
+              "end": {
+                "line": 54,
+                "column": 3
+              }
+            },
+            "file": "/Users/clepore/HookandLoop/git/github/infor-ux/src/packages/iux-select/index.js"
+          },
+          "augments": [],
+          "examples": [],
+          "params": [
+            {
+              "title": "param",
+              "name": "el",
+              "lineNumber": 2,
+              "description": {
+                "type": "root",
+                "children": [
+                  {
+                    "type": "paragraph",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "DOM element selected",
+                        "position": {
+                          "start": {
+                            "line": 1,
+                            "column": 1,
+                            "offset": 0
+                          },
+                          "end": {
+                            "line": 1,
+                            "column": 21,
+                            "offset": 20
+                          },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 21,
+                        "offset": 20
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 21,
+                    "offset": 20
+                  }
+                }
+              },
+              "type": {
+                "type": "NameExpression",
+                "name": "object"
+              }
+            }
+          ],
+          "properties": [],
+          "returns": [],
+          "sees": [],
+          "throws": [],
+          "todos": [],
+          "name": "selectItem",
+          "kind": "function",
+          "memberof": "IUXSelect",
+          "scope": "instance",
+          "members": {
+            "global": [],
+            "inner": [],
+            "instance": [],
+            "events": [],
+            "static": []
+          },
+          "path": [
+            {
+              "name": "IUXSelect",
+              "kind": "class"
+            },
+            {
+              "name": "selectItem",
+              "kind": "function",
+              "scope": "instance"
+            }
+          ],
+          "namespace": "IUXSelect#selectItem"
+        },
+        {
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "Remove all selected classes",
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 28,
+                        "offset": 27
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 28,
+                    "offset": 27
+                  },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": {
+                "line": 1,
+                "column": 1,
+                "offset": 0
+              },
+              "end": {
+                "line": 1,
+                "column": 28,
+                "offset": 27
+              }
+            }
+          },
+          "tags": [],
+          "loc": {
+            "start": {
+              "line": 56,
+              "column": 2
+            },
+            "end": {
+              "line": 58,
+              "column": 5
+            }
+          },
+          "context": {
+            "loc": {
+              "start": {
+                "line": 59,
+                "column": 2
+              },
+              "end": {
+                "line": 64,
+                "column": 3
+              }
+            },
+            "file": "/Users/clepore/HookandLoop/git/github/infor-ux/src/packages/iux-select/index.js"
+          },
+          "augments": [],
+          "examples": [],
+          "params": [],
+          "properties": [],
+          "returns": [],
+          "sees": [],
+          "throws": [],
+          "todos": [],
+          "name": "clearSelection",
+          "kind": "function",
+          "memberof": "IUXSelect",
+          "scope": "instance",
+          "members": {
+            "global": [],
+            "inner": [],
+            "instance": [],
+            "events": [],
+            "static": []
+          },
+          "path": [
+            {
+              "name": "IUXSelect",
+              "kind": "class"
+            },
+            {
+              "name": "clearSelection",
+              "kind": "function",
+              "scope": "instance"
+            }
+          ],
+          "namespace": "IUXSelect#clearSelection"
+        }
+      ],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "IUXSelect",
+        "kind": "class"
+      }
+    ],
+    "namespace": "IUXSelect"
+  },
+  {
+    "description": {
+      "type": "root",
+      "children": [
+        {
+          "type": "paragraph",
+          "children": [
+            {
+              "type": "text",
+              "value": "Class for IUXSelectMulti",
+              "position": {
+                "start": {
+                  "line": 1,
+                  "column": 1,
+                  "offset": 0
+                },
+                "end": {
+                  "line": 1,
+                  "column": 25,
+                  "offset": 24
+                },
+                "indent": []
+              }
+            }
+          ],
+          "position": {
+            "start": {
+              "line": 1,
+              "column": 1,
+              "offset": 0
+            },
+            "end": {
+              "line": 1,
+              "column": 25,
+              "offset": 24
+            },
+            "indent": []
+          }
+        }
+      ],
+      "position": {
+        "start": {
+          "line": 1,
+          "column": 1,
+          "offset": 0
+        },
+        "end": {
+          "line": 1,
+          "column": 25,
+          "offset": 24
+        }
+      }
+    },
+    "tags": [
+      {
+        "title": "extends",
+        "description": null,
+        "lineNumber": 2,
+        "type": null,
+        "name": "IUXSelect"
+      }
+    ],
+    "loc": {
+      "start": {
+        "line": 68,
+        "column": 0
+      },
+      "end": {
+        "line": 71,
+        "column": 3
+      }
+    },
+    "context": {
+      "loc": {
+        "start": {
+          "line": 72,
+          "column": 0
+        },
+        "end": {
+          "line": 90,
+          "column": 1
+        }
+      },
+      "file": "/Users/clepore/HookandLoop/git/github/infor-ux/src/packages/iux-select/index.js"
+    },
+    "augments": [
+      {
+        "title": "extends",
+        "description": null,
+        "lineNumber": 2,
+        "type": null,
+        "name": "IUXSelect"
+      }
+    ],
+    "examples": [],
+    "params": [],
+    "properties": [],
+    "returns": [],
+    "sees": [],
+    "throws": [],
+    "todos": [],
+    "name": "IUXMultiSelect",
+    "kind": "class",
+    "members": {
+      "global": [],
+      "inner": [],
+      "instance": [
+        {
+          "description": {
+            "type": "root",
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "Select a select item checkbox",
+                    "position": {
+                      "start": {
+                        "line": 1,
+                        "column": 1,
+                        "offset": 0
+                      },
+                      "end": {
+                        "line": 1,
+                        "column": 30,
+                        "offset": 29
+                      },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": {
+                    "line": 1,
+                    "column": 1,
+                    "offset": 0
+                  },
+                  "end": {
+                    "line": 1,
+                    "column": 30,
+                    "offset": 29
+                  },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": {
+                "line": 1,
+                "column": 1,
+                "offset": 0
+              },
+              "end": {
+                "line": 1,
+                "column": 30,
+                "offset": 29
+              }
+            }
+          },
+          "tags": [],
+          "loc": {
+            "start": {
+              "line": 74,
+              "column": 2
+            },
+            "end": {
+              "line": 76,
+              "column": 5
+            }
+          },
+          "context": {
+            "loc": {
+              "start": {
+                "line": 77,
+                "column": 2
+              },
+              "end": {
+                "line": 88,
+                "column": 3
+              }
+            },
+            "file": "/Users/clepore/HookandLoop/git/github/infor-ux/src/packages/iux-select/index.js"
+          },
+          "augments": [],
+          "examples": [],
+          "params": [],
+          "properties": [],
+          "returns": [],
+          "sees": [],
+          "throws": [],
+          "todos": [],
+          "name": "selectItem",
+          "kind": "function",
+          "memberof": "IUXMultiSelect",
+          "scope": "instance",
+          "members": {
+            "global": [],
+            "inner": [],
+            "instance": [],
+            "events": [],
+            "static": []
+          },
+          "path": [
+            {
+              "name": "IUXMultiSelect",
+              "kind": "class"
+            },
+            {
+              "name": "selectItem",
+              "kind": "function",
+              "scope": "instance"
+            }
+          ],
+          "namespace": "IUXMultiSelect#selectItem"
+        }
+      ],
+      "events": [],
+      "static": []
+    },
+    "path": [
+      {
+        "name": "IUXMultiSelect",
+        "kind": "class"
+      }
+    ],
+    "namespace": "IUXMultiSelect"
+  }
+]

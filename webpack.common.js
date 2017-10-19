@@ -22,26 +22,32 @@ const createBannerPlugin = () => new webpack.BannerPlugin({
   entryOnly: true,
 });
 
+const documentation = require('documentation-loader');
+
 module.exports = {
   entry: jsFiles,
   plugins: [
     createBannerPlugin()
   ],
-  // module: {
-  //   loaders: [
-  //     {
-  //       test: /\.js$/,
-  //       loader: 'babel-loader',
-  //       query: {
-  //         presets: ['es2015']
-  //       }
-  //     }
-  //   ]
-  // },
   devtool: 'source-map',
   output: {
     path: path.resolve(outPath),
     library: 'IUX',
     libraryTarget: 'umd'
+  },
+  module: {
+    rules: [
+      {
+        test: [/\.js$/],
+        exclude: /(node_modules|bower_components)/,
+        loader: 'documentation-loader',
+        options: {
+          entry: 'src/packages/**/*.js',
+          format: 'html',
+          output: './build'
+
+        }
+      }
+    ]
   }
 }
