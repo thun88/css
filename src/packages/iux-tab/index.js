@@ -9,7 +9,7 @@ const cssClasses = {
 /**
  * Class IUXTab
  */
-class IUXTab {
+export class IUXTab {
 
   /**
    * constructor
