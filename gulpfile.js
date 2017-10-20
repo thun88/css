@@ -77,11 +77,11 @@ require(`${paths.tasks}/test.js`)(gulp, paths);
 //   Common Tasks
 // -------------------------------------
 gulp.task('default', () => {
-  runSequence('clean', 'svg:store', 'build:packages', 'build:site');
+  runSequence('clean', 'svg:store', 'build:src', 'build:site');
 });
 
 gulp.task('dev', () => {
-  runSequence('clean', 'svg:store', 'build:packages', 'build:site', 'serve');
+  runSequence('clean', 'svg:store', 'build:src', 'build:site', 'serve');
 });
 
 gulp.task('deploy', () => {
@@ -92,7 +92,7 @@ gulp.task('deploy', () => {
 // -------------------------------------
 //   Build Task Combos
 // -------------------------------------
-gulp.task('build:packages', ['build:packages:css', 'build:packages:js']);
+gulp.task('build:src', ['build:packages:css', 'build:packages:js']);
 
 gulp.task('build:site', ['build:site:css', 'build:site:html']);
 

@@ -59,13 +59,7 @@
     "webpack-stream": "^4.0.0"
   },
   "scripts": {
-    "preinstall": "npm install -g pandoc-bin gulp-cli",
-    "start": "gulp",
-    "clean": "del-cli build/** && gulp clean",
-    "build": "webpack --progress --config webpack.dev.js",
-    "build:min": "webpack --progress --config webpack.prod.js",
-    "dist": "gulp && npm run build && npm run build:min && node scripts/cp-pkgs.js",
-    "lint:css": "gulp stylelint"
+    "preinstall": "npm install -g pandoc-bin gulp-cli"
   },
   "browserslist": [
     "> 1%",
