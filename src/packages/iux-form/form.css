@@ -1,6 +1,7 @@
 @import '../iux-base/base';
 @import '../iux-button/button';
 @import '../iux-typography/typography';
+@import '../iux-icon/icon';
 
 .form-control {
   background-clip: padding-box;

@@ -10,8 +10,8 @@ module.exports = (gulp, paths) => {
   gulp.task('clean:dist', () => {
     return del([
       paths.dest.dist,
-      `${paths.src.packages}/*/dist`,
-      `${paths.dest.demo}/*/dist`
+      `${paths.src.packages}/*/dist/**`,
+      `${paths.dest.demo}/*/dist/**`
     ]);
   });
 }

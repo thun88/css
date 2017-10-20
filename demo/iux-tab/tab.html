@@ -7,7 +7,7 @@
   <meta name="author" content="Hook & Loop">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tabs Demo - IUX</title>
-  <link rel="stylesheet" type="text/css" href="dist/tab.css">
+  <link rel="stylesheet" type="text/css" href="/iux-tab/dist/tab.css">
   <link rel="stylesheet" type="text/css" href="/demo.css">
 </head>
 
@@ -24,7 +24,7 @@
         <a href="#" class="iux-tabs--tab iux-tabs--tab-disabled">Tab 4 (disabled)</a>
       </div>
       <div class="iux-container">
-        <p>"Tab 1" example body text to show how the content of a tab could line up beside the tabs.</p>
+        <p>Example content area</p>
       </div>
     </div>
   </div>
@@ -42,16 +42,16 @@
           </div>
         </div>
         <div class="iux-row--col-md-9 iux-container">
-          <p id="vertical-tab1">"Tab 1" example body text to show how the content of a tab could line up beside the tabs.</p>
+          <p id="vertical-tab1">Example content area</p>
         </div>
       </div>
     </div>
   </div>
 
-<script type="text/javascript" src="dist/tab.js"></script>
+<script type="text/javascript" src="/iux-tab/dist/iux-tab.js"></script>
 <script type="text/javascript">
-  let horizTab = new IUXTab(document.getElementsByClassName('iux-tabs--horizontal')[0]);
-  let vertTab = new IUXTab(document.getElementsByClassName('iux-tabs--vertical')[0]);
+  let horizTab = new iux.tab.IUXTab(document.getElementsByClassName('iux-tabs--horizontal')[0]);
+  let vertTab = new iux.tab.IUXTab(document.getElementsByClassName('iux-tabs--vertical')[0]);
 </script>
 
 </body>

@@ -48,7 +48,7 @@ let compiledSvgHtml = fs.readFileSync(`${paths.src.icons}/icons.svg`, 'utf-8');
 //   Load Tasks
 // -------------------------------------
 require(`${paths.tasks}/build-packages-css.js`)(gulp, paths, postCssPlugins);
-require(`${paths.tasks}/build-packages-js.js`)(gulp, paths, postCssPlugins);
+require(`${paths.tasks}/build-packages-js.js`)(gulp, paths);
 require(`${paths.tasks}/build-packages-docjs.js`)(gulp, paths);
 
 require(`${paths.tasks}/build-site-css.js`)(gulp, paths, postCssPlugins);
@@ -77,11 +77,11 @@ require(`${paths.tasks}/test.js`)(gulp, paths);
 //   Common Tasks
 // -------------------------------------
 gulp.task('default', () => {
-  runSequence('clean', 'svg:store', 'build:packages', 'build:site');
+  runSequence('clean', 'svg:store', 'build:src', 'build:site');
 });
 
 gulp.task('dev', () => {
-  runSequence('clean', 'svg:store', 'build:packages', 'build:site', 'serve');
+  runSequence('clean', 'svg:store', 'build:src', 'build:site', 'serve');
 });
 
 gulp.task('deploy', () => {
@@ -92,9 +92,9 @@ gulp.task('deploy', () => {
 // -------------------------------------
 //   Build Task Combos
 // -------------------------------------
-gulp.task('build:site', ['build:site:css', 'build:site:html']);
+gulp.task('build:src', ['build:packages:css', 'build:packages:js']);
 
-gulp.task('build:packages', ['build:packages:css', 'build:packages:js']);
+gulp.task('build:site', ['build:site:css', 'build:site:html']);
 
 
 // -------------------------------------
@@ -107,9 +107,3 @@ gulp.task('clean', ['clean:site', 'clean:dist', 'clean:zip']);
 //   Stylelint All
 // -------------------------------------
 gulp.task('stylelint', ['stylelint:packages', 'stylelint:site']);
-
-
-// -------------------------------------
-//   Automated Pre-commit Task
-// -------------------------------------
-gulp.task('pre-commit', ['stylelint:packages']);
