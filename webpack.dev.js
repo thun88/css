@@ -3,7 +3,7 @@ const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
   output: {
-    filename: 'iux-[name].js',
+    filename: '[name].js',
     library: ['iux', '[name]'],
   }
 });

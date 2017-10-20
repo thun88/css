@@ -8,7 +8,7 @@ module.exports = merge(common, {
     new MinifyPlugin(),
   ],
   output: {
-    filename: 'iux-[name].min.js',
+    filename: '[name].min.js',
     library: ['iux', '[name].min'],
   }
 });

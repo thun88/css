@@ -48,6 +48,7 @@ let compiledSvgHtml = fs.readFileSync(`${paths.src.icons}/icons.svg`, 'utf-8');
 //   Load Tasks
 // -------------------------------------
 require(`${paths.tasks}/build-packages-css.js`)(gulp, paths, postCssPlugins);
+require(`${paths.tasks}/build-packages-js.js`)(gulp, paths);
 require(`${paths.tasks}/build-packages-docjs.js`)(gulp, paths);
 
 require(`${paths.tasks}/build-site-css.js`)(gulp, paths, postCssPlugins);
@@ -91,9 +92,9 @@ gulp.task('deploy', () => {
 // -------------------------------------
 //   Build Task Combos
 // -------------------------------------
-gulp.task('build:site', ['build:site:css', 'build:site:html']);
+gulp.task('build:packages', ['build:packages:css', 'build:packages:js']);
 
-gulp.task('build:packages', ['build:packages:css']);
+gulp.task('build:site', ['build:site:css', 'build:site:html']);
 
 
 // -------------------------------------
