@@ -85,7 +85,12 @@ gulp.task('dev', () => {
 });
 
 gulp.task('deploy', () => {
-  runSequence('clean:zip', 'build:zip', 'publish:zip');
+  runSequence(
+    'build:packages:docjs',
+    'clean:zip',
+    'build:zip',
+    'publish:zip'
+  );
 });
 
 gulp.task('lint', ['stylelint']);
