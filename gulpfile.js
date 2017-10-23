@@ -81,12 +81,14 @@ gulp.task('default', () => {
 });
 
 gulp.task('dev', () => {
-  runSequence('clean', 'svg:store', 'build:src', 'build:site', 'serve');
+  runSequence('default', 'serve');
 });
 
 gulp.task('deploy', () => {
   runSequence('clean:zip', 'build:zip', 'publish:zip');
 });
+
+gulp.task('lint', ['stylelint']);
 
 
 // -------------------------------------

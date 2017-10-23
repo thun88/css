@@ -11,24 +11,21 @@ Infor UX is a sleek, intuitive, and powerful front-end framework for faster and 
 ## Dev Quick start
 1. Pull the repo
 1. `cd` into the repo
-1. `$ npm install`
-1. `$ npm start`
-
+1. `npm install -g pandoc-bin gulp-cli && npm install`
+1. `gulp dev` to build and serve
 
 ## Basic Gulp Tasks
 
 - `$ gulp` - Clean and Build the site and packages
 - `$ gulp dev` - Clean, build (site & packages), and start the server
 - `$ gulp deploy` - Build the markdown docs into json, zip it, then post to the server
+- `$ gulp lint` Lints the **src** and **site** css raw files
 - `$ gulp clean` - Remove all built files
-- `$ gulp test` - Build, then run the accessibility tests on the built html files (reports are in `log/accessibility`)
-- `$ gulp stylelint` Lints the **src** and **site** css raw files
 
 > The website is served at `http://localhost:3000/`
 >
 > Demos are at `http://localhost:3000/iux-{package}/{package}`
 > (it follows the folder pattern under `demo/`)
-
 
 ## SVG Icons
 
@@ -39,7 +36,6 @@ To add an icon start with these steps, then proceed to building (below):
 For building the icons
 1. `$ gulp svg:store`
 2. `$ gulp`
-
 
 ## Site Directory
 

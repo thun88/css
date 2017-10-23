@@ -58,9 +58,7 @@
     "webpack-merge": "^4.1.0",
     "webpack-stream": "^4.0.0"
   },
-  "scripts": {
-    "preinstall": "npm install -g pandoc-bin gulp-cli"
-  },
+  "scripts": {},
   "browserslist": [
     "> 1%",
     "last 2 versions"
