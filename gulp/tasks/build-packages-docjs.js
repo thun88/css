@@ -18,12 +18,16 @@ module.exports = (gulp, paths) => {
           .then(output => {
             // output is a string of JSON data
 
-            var dir = './dist';
+
+
+            const theFolder = 'iux-' + path.parse(file.path).name;
+
+            var dir = `./dist/${theFolder}`;
             if (!fs.existsSync(dir)){
               fs.mkdirSync(dir);
             }
 
-            const thePath = `${dir}/${path.parse(file.path).base}-js.json`;
+            const thePath = `${dir}/API.json`;
             fs.writeFileSync(thePath, output);
           });
       }));

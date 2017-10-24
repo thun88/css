@@ -1,10 +1,10 @@
 # Compiled #
 ############
 site/www/
+dist
 demo/**/dist/*
 src/packages/**/dist/*
-dist
-build
+.zip
 
 # Packages #
 ############
