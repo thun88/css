@@ -20,7 +20,13 @@ module.exports = (gulp, paths) => {
         .then(docjs.formats.json)
         .then(output => {
           // output is a string of JSON data
-          const thePath = `dist/${path.parse(file.path).base}-js.json`;
+
+          var dir = './dist';
+          if (!fs.existsSync(dir)){
+            fs.mkdirSync(dir);
+          }
+
+          const thePath = `${dir}/${path.parse(file.path).base}-js.json`;
           fs.writeFileSync(thePath, output);
         });
       }));
