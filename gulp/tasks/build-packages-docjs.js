@@ -13,22 +13,19 @@ module.exports = (gulp, paths) => {
   gulp.task('build:packages:docjs', () => {
     return gulp.src(`${paths.src.packages}/*/*.js`)
       .pipe(tap((file, t) => {
-        return docjs.build(file.path, {
-          // only output comments with an explicit @public tag
-          access: []
-        })
-        .then(docjs.formats.json)
-        .then(output => {
-          // output is a string of JSON data
+        return docjs.build(file.path, {})
+          .then(docjs.formats.json)
+          .then(output => {
+            // output is a string of JSON data
 
-          var dir = './dist';
-          if (!fs.existsSync(dir)){
-            fs.mkdirSync(dir);
-          }
+            var dir = './dist';
+            if (!fs.existsSync(dir)){
+              fs.mkdirSync(dir);
+            }
 
-          const thePath = `${dir}/${path.parse(file.path).base}-js.json`;
-          fs.writeFileSync(thePath, output);
-        });
+            const thePath = `${dir}/${path.parse(file.path).base}-js.json`;
+            fs.writeFileSync(thePath, output);
+          });
       }));
   });
 }
