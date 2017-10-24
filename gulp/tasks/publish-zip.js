@@ -8,21 +8,20 @@ module.exports = (gulp, paths) => {
     fs          = require('fs'),
     formData    = require('form-data'),
     gutil       = require('gulp-util'),
-    packageJson = require('../../package.json'),
-    url = 'http://docs-site-staging.us-east-1.elasticbeanstalk.com/api/docs/';
+    packageJson = require('../../package.json');
 
-  gulp.task('publish:zip', ['build:zip'], () => {
+  return gulp.task('publish:zip', () => {
 
     let form = new formData();
     form.append('file', fs.createReadStream(`${paths.dest.dist}/${paths.dest.zipFile}`));
     form.append('root_path', packageJson.version);
 
-    form.submit(url, (err, res) => {
+    form.submit(paths.urls.staging, (err, res) => {
       if (err) {
         gutil.log(err);
       } else {
         if (res.statusCode == 200) {
-          gutil.log(`Status ${res.statusCode}: published to '${url}'`);
+          gutil.log(`Status ${res.statusCode}: published to '${paths.urls.staging}'`);
         } else {
           gutil.log(`Status ${res.statusCode}`);
         }

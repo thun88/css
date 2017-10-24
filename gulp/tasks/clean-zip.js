@@ -7,7 +7,7 @@ module.exports = (gulp) => {
 
   const del = require('del');
 
-  gulp.task('clean:zip', () => {
+  return gulp.task('clean:zip', () => {
     return del(['./*.zip']);
   });
 }
