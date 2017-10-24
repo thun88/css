@@ -11,7 +11,10 @@ module.exports = {
   dest: {
     site:  'site/www',
     demo: 'demo',
-    dist: 'dist',
-    zipFile: 'iux-publish.zip'
+    dist: 'publish',
+    zipFile: 'iux.zip'
+  },
+  urls: {
+    staging: 'http://docs-site-staging.us-east-1.elasticbeanstalk.com/api/docs/'
   }
 };
