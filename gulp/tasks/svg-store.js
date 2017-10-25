@@ -7,6 +7,7 @@ module.exports = (gulp, paths, arrOfIcons) => {
 
   const fns = require('../functions.js');
   const svgstore = require('gulp-svgstore');
+  const rename = require('gulp-rename');
 
   //   Creates and builds the svg icons
   gulp.task('svg:store', () => {
