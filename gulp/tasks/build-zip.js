@@ -39,7 +39,7 @@ module.exports = (gulp, paths) => {
       .partials(`${paths.src.templates}/partials/*.hbs`)
       .data(templateData);
 
-    return gulp.src(`${paths.src.packages}/*/README.md`)
+    gulp.src(`${paths.src.packages}/*/README.md`)
       .pipe(hbStream)
       .pipe(mdToJson(marked))
       .pipe(tap((file) => {
@@ -62,7 +62,7 @@ module.exports = (gulp, paths) => {
   const documentPackageJS = new Promise((resolve, reject) => {
     const docjs = require('documentation');
 
-    return gulp.src(`${paths.src.packages}/*/*.js`)
+    gulp.src(`${paths.src.packages}/*/*.js`)
       .pipe(tap((file, t) => {
         docjs.build(file.path, {})
           .then(docjs.formats.json)
