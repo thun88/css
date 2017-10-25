@@ -6,7 +6,7 @@ module.exports = (gulp, paths, postCssPlugins) => {
 
   const rename = require('gulp-rename');
 
-  gulp.task('build:packages:css', () => {
+  gulp.task('src:css:compile', () => {
     const postcss = require('gulp-postcss');
 
     // Note: plugin order matters
@@ -38,7 +38,7 @@ module.exports = (gulp, paths, postCssPlugins) => {
         autoprefixer: false
       })], postcssOptions))
       .pipe(rename((path) => {
-        path.extname = '.min.css';
+        path.suffix = '.min';
       }))
       .pipe(gulp.dest(paths.src.packages));
   });

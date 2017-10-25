@@ -5,7 +5,7 @@
 
 module.exports = (gulp, paths, postCssPlugins, arrIcons, svgHtml) => {
 
-  gulp.task('build:site:html', () => {
+  gulp.task('site:html:compile', () => {
 
     const helperFns = require('../functions.js');
     const pkgJson  = require('../../package.json');

@@ -1,5 +1,6 @@
 /* gulp-config.js */
 module.exports = {
+  project: 'iux',
   root: './',
   tasks: './gulp/tasks',
   src: {
@@ -11,8 +12,7 @@ module.exports = {
   dest: {
     site:  'site/www',
     demo: 'demo',
-    dist: 'publish',
-    zipFile: 'iux.zip'
+    dist: 'publish'
   },
   urls: {
     staging: 'http://docs-site-staging.us-east-1.elasticbeanstalk.com/api/docs/'

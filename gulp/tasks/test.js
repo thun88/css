@@ -10,9 +10,7 @@ module.exports = (gulp, paths) => {
     del     = require('del'),
     rename  = require('gulp-rename');
 
-
-  //   Test accessibility level WCAG2A
-  gulp.task('test', ['build:site', 'build:packages'], () => {
+  gulp.task('test', ['src:compile', 'site:compile'], () => {
 
     del(['log/accessibility']);
 

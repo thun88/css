@@ -66,6 +66,16 @@ let helperFns = {
     return str.substr(0, 3) === 'var';
   },
 
+  /**
+   * Returns the last folder in the path
+   * @param  {String} filePath - The full dir path without the file
+   * @return {String}          - The last folder in the path
+   */
+  getFolderName: (filePath) => {
+    let pathArr = filePath.split('/');
+    let str = pathArr[pathArr.length - 1].replace('iux-', '');
+    return str;
+  },
 
   /**
    * Parse our the variables and values from CSS

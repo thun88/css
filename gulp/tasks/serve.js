@@ -27,8 +27,8 @@ module.exports = (gulp, paths) => {
     });
 
     const demoFiles = [
-      `${paths.dest.demo}/*/*.html`,
-      `${paths.dest.demo}/demo.css`
+      `${paths.dest.demo}/demo.css`,
+      `${paths.dest.demo}/*/base.html`
     ];
 
     const siteFiles = [
@@ -37,7 +37,6 @@ module.exports = (gulp, paths) => {
     ];
 
     const packageFiles = [
-      `!${paths.src.packages}/*/dist`,
       `${paths.src.packages}/*/+(*.css|*.js|*.md)`
     ];
 
@@ -69,12 +68,12 @@ module.exports = (gulp, paths) => {
     done();
   });
 
-  gulp.task('watch-site', ['build:site'], (done) => {
+  gulp.task('watch-site', ['site:compile'], (done) => {
     browserSync.reload();
     done();
   });
 
-  gulp.task('watch-packages', ['build:packages', 'build:site'], (done) => {
+  gulp.task('watch-packages', ['src:compile', 'site:compile'], (done) => {
     browserSync.reload();
     done();
   });

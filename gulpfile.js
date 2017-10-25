@@ -40,6 +40,7 @@ const postCssPlugins = {
 // -------------------------------------
 //   Global Variables
 // -------------------------------------
+let publishDocObj = {};
 let arrOfIcons = [];
 let compiledSvgHtml = fs.readFileSync(`${paths.src.icons}/icons.svg`, 'utf-8');
 
@@ -47,68 +48,44 @@ let compiledSvgHtml = fs.readFileSync(`${paths.src.icons}/icons.svg`, 'utf-8');
 // -------------------------------------
 //   Load Tasks
 // -------------------------------------
-require(`${paths.tasks}/build-packages-css.js`)(gulp, paths, postCssPlugins);
-require(`${paths.tasks}/build-packages-js.js`)(gulp, paths);
-
-require(`${paths.tasks}/build-site-css.js`)(gulp, paths, postCssPlugins);
-require(`${paths.tasks}/build-site-html.js`)(gulp, paths, postCssPlugins, arrOfIcons, compiledSvgHtml);
-
-require(`${paths.tasks}/build-zip.js`)(gulp, paths);
-
-require(`${paths.tasks}/clean-dist.js`)(gulp, paths);
-require(`${paths.tasks}/clean-site.js`)(gulp, paths);
-require(`${paths.tasks}/clean-zip.js`)(gulp);
-
-require(`${paths.tasks}/publish-zip.js`)(gulp, paths);
-
-require(`${paths.tasks}/server.js`)(gulp, paths);
-
-require(`${paths.tasks}/stylelint-packages.js`)(gulp, paths);
-require(`${paths.tasks}/stylelint-site.js`)(gulp, paths);
-
+require(`${paths.tasks}/build.js`)(gulp, paths, publishDocObj);
+require(`${paths.tasks}/clean.js`)(gulp, paths);
+require(`${paths.tasks}/css-lint.js`)(gulp, paths);
+require(`${paths.tasks}/json-js-compile.js`)(gulp, paths, publishDocObj);
+require(`${paths.tasks}/json-md-compile.js`)(gulp, paths, publishDocObj);
+require(`${paths.tasks}/publish.js`)(gulp, paths);
+require(`${paths.tasks}/serve.js`)(gulp, paths);
+require(`${paths.tasks}/site-css-compile.js`)(gulp, paths, postCssPlugins);
+require(`${paths.tasks}/site-html-compile.js`)(gulp, paths, postCssPlugins, arrOfIcons, compiledSvgHtml);
+require(`${paths.tasks}/src-css-compile.js`)(gulp, paths, postCssPlugins);
+require(`${paths.tasks}/src-js-compile.js`)(gulp, paths);
 require(`${paths.tasks}/svg-optimize.js`)(gulp, paths, arrOfIcons);
 require(`${paths.tasks}/svg-store.js`)(gulp, paths, arrOfIcons);
-
 require(`${paths.tasks}/test.js`)(gulp, paths);
 
 
 // -------------------------------------
 //   Common Tasks
 // -------------------------------------
-gulp.task('default', () => {
-  runSequence('clean', 'svg:store', 'build:src', 'build:site');
+gulp.task('default', ['clean', 'svg:store'], () => {
+  runSequence('src:compile', 'site:compile');
 });
 
-gulp.task('dev', () => {
-  runSequence('default', 'serve');
+gulp.task('dev', ['clean', 'svg:store'], () => {
+  runSequence('src:compile', 'site:compile', 'serve');
 });
 
 gulp.task('publish', () => {
   runSequence(
-    'clean:zip',
-    'build:zip',
-    'publish:zip'
+    'clean',
+    'build',
+    'publish'
   );
 });
-
-gulp.task('lint', ['stylelint']);
 
 
 // -------------------------------------
 //   Build Task Combos
 // -------------------------------------
-gulp.task('build:src', ['build:packages:css', 'build:packages:js']);
-
-gulp.task('build:site', ['build:site:css', 'build:site:html']);
-
-
-// -------------------------------------
-//   Clean All
-// -------------------------------------
-gulp.task('clean', ['clean:site', 'clean:dist', 'clean:zip']);
-
-
-// -------------------------------------
-//   Stylelint All
-// -------------------------------------
-gulp.task('stylelint', ['stylelint:packages', 'stylelint:site']);
+gulp.task('src:compile', ['src:css:compile', 'src:js:compile']);
+gulp.task('site:compile', ['site:css:compile', 'site:html:compile']);

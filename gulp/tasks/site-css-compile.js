@@ -6,7 +6,7 @@
 module.exports = (gulp, paths, postCssPlugins) => {
 
   //   Task: Build Site Css
-  gulp.task('build:site:css', () => {
+  gulp.task('site:css:compile', () => {
     const
       pkgJson  = require('../../package.json'),
       flatten  = require('gulp-flatten'),
@@ -27,7 +27,7 @@ module.exports = (gulp, paths, postCssPlugins) => {
 
     return gulp.src(`${paths.src.site}/css/site.css`)
       .pipe(postcss(plugins, { map: true }))
-      .pipe(rename({ extname: '.min.css' }))
+      .pipe(rename({ suffix: '.min' }))
       .pipe(gulp.dest(`${paths.dest.site}/dist`));
   });
 }
