@@ -39,7 +39,7 @@ module.exports = (gulp, paths) => {
       .partials(`${paths.src.templates}/partials/*.hbs`)
       .data(templateData);
 
-    gulp.src(`${paths.src.packages}/*/README.md`)
+    return gulp.src(`${paths.src.packages}/*/README.md`)
       .pipe(hbStream)
       .pipe(mdToJson(marked))
       .pipe(tap((file) => {
@@ -62,7 +62,7 @@ module.exports = (gulp, paths) => {
   const documentPackageJS = new Promise((resolve, reject) => {
     const docjs = require('documentation');
 
-    gulp.src(`${paths.src.packages}/*/*.js`)
+    return gulp.src(`${paths.src.packages}/*/*.js`)
       .pipe(tap((file, t) => {
         docjs.build(file.path, {})
           .then(docjs.formats.json)
@@ -87,8 +87,9 @@ module.exports = (gulp, paths) => {
    * @return {String}          - The last folder in the path
    */
   const getFolderName = (filePath) => {
-    const pathArr = path.dirname(filePath).split('/');
-    return (pathArr[pathArr.length - 1]);
+    let pathArr = path.dirname(filePath).split('/');
+    let str = pathArr[pathArr.length - 1].replace('iux-', '');
+    return str;
   };
 
   /**
