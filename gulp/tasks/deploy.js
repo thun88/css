@@ -10,7 +10,7 @@ module.exports = (gulp, paths) => {
     gutil       = require('gulp-util'),
     packageJson = require('../../package.json');
 
-  return gulp.task('publish', () => {
+  return gulp.task('deploy', () => {
 
     let form = new formData();
     form.append('file', fs.createReadStream(`${paths.dest.dist}/${paths.project}.zip`));
