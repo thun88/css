@@ -78,8 +78,7 @@ gulp.task('dev', ['clean', 'svg:store'], () => {
 gulp.task('publish', () => {
   runSequence(
     'clean',
-    'build',
-    'publish'
+    'build'
   );
 });
 
