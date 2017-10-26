@@ -4,8 +4,6 @@ const cssClasses = {
   TAB: 'iux-tabs--tab'
 };
 
-'use strict';
-
 /**
  * Class IUXTab
  */

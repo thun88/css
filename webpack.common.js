@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const BabelPlugin = require("babel-webpack-plugin");
 
 const outPath = path.resolve('./build');
 
@@ -19,7 +20,13 @@ const createBannerPlugin = () => new webpack.BannerPlugin({
 
 module.exports = {
   plugins: [
-    createBannerPlugin()
+    createBannerPlugin(),
+    new BabelPlugin({
+      test: /\.js$/,
+      presets: ['es2015'],
+      sourceMaps: false,
+      compact: false
+    })
   ],
   // devtool: 'source-map',
   output: {

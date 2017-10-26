@@ -10,7 +10,7 @@ module.exports = (gulp, paths) => {
     del     = require('del'),
     rename  = require('gulp-rename');
 
-  gulp.task('test', ['src:compile', 'site:compile'], () => {
+  gulp.task('accessibility', ['src:compile', 'site:compile'], () => {
 
     del(['log/accessibility']);
 
