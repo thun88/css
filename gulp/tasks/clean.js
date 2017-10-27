@@ -11,15 +11,15 @@ module.exports = (gulp, paths) => {
 
     return del([
       // distributed files
-      paths.dest.dist,
+      paths.dist,
 
       // package files
       `${paths.src.packages}/*/dist/**`,
-      `${paths.dest.demo}/*/dist/**`,
+      `${paths.demo}/*/dist/**`,
 
       // site files
-      `${paths.dest.site}/**`,
-      `!${paths.dest.site}`,
+      `${paths.site.www}/**`,
+      `!${paths.site.www}`,
       `log`
     ]);
   });

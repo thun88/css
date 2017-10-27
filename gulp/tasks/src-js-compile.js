@@ -19,7 +19,7 @@ module.exports = (gulp, paths) => {
       .pipe(rename((path) => {
         path.dirname += `/iux-${path.basename}/dist`;
       }))
-      .pipe(gulp.dest(paths.dest.demo))
+      .pipe(gulp.dest(paths.demo))
       .pipe(gulp.dest(paths.src.packages));
   });
 

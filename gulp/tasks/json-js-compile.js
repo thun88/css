@@ -1,6 +1,5 @@
 // -------------------------------------
-//   Promise for documenting the package js files
-//   @return {Promise}
+//   Document js packages into json
 // -------------------------------------
 
 module.exports = (gulp, paths, publishDocObj) => {

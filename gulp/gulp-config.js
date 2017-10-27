@@ -2,18 +2,20 @@
 module.exports = {
   project: 'iux',
   root: './',
-  tasks: './gulp/tasks',
+  demo: 'demo',
+  dist: 'publish',
   src: {
-    packages:  'src/packages',
-    icons:     'src/icons',
+    root: 'src',
+    icons: 'src/icons',
+    packages: 'src/packages',
+  },
+  site: {
+    root: 'site',
+    css: 'site/css',
     templates: 'site/templates',
-    site:      'site',
+    www: 'site/www'
   },
-  dest: {
-    site:  'site/www',
-    demo: 'demo',
-    dist: 'publish'
-  },
+  tasks: './gulp/tasks',
   urls: {
     staging: 'http://docs-site-staging.us-east-1.elasticbeanstalk.com/api/docs/'
   }

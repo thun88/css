@@ -19,7 +19,7 @@ module.exports = (gulp, paths) => {
       injectChanges: false,
       open: false,
       server: {
-        baseDir: [paths.dest.site, paths.dest.demo]
+        baseDir: [paths.site.www, paths.demo]
       },
       logLevel: 'info',
       logPrefix: 'IUX',
@@ -27,13 +27,13 @@ module.exports = (gulp, paths) => {
     });
 
     const demoFiles = [
-      `${paths.dest.demo}/demo.css`,
-      `${paths.dest.demo}/*/base.html`
+      `${paths.demo}/demo.css`,
+      `${paths.demo}/*/base.html`
     ];
 
     const siteFiles = [
-      `${paths.src.site}/css/**/*`,
-      `${paths.src.site}/templates/**/*`
+      `${paths.site.css}/**/*`,
+      `${paths.site.templates}/**/*`
     ];
 
     const packageFiles = [

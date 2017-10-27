@@ -25,9 +25,9 @@ module.exports = (gulp, paths, postCssPlugins) => {
       postCssPlugins.cssnano({ autoprefixer: false })
     ];
 
-    return gulp.src(`${paths.src.site}/css/site.css`)
+    return gulp.src(`${paths.site.root}/css/site.css`)
       .pipe(postcss(plugins, { map: true }))
       .pipe(rename({ suffix: '.min' }))
-      .pipe(gulp.dest(`${paths.dest.site}/dist`));
+      .pipe(gulp.dest(`${paths.site.www}/dist`));
   });
 }

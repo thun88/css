@@ -17,6 +17,6 @@ module.exports = (gulp, paths, arrOfIcons) => {
       .pipe(svgstore({ inlineSvg: true }))
       .pipe(rename('icons.svg'))
       .pipe(gulp.dest(paths.src.icons))
-      .pipe(gulp.dest(paths.dest.site));
+      .pipe(gulp.dest(paths.site.www));
   });
 }

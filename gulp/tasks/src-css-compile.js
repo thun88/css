@@ -30,7 +30,7 @@ module.exports = (gulp, paths, postCssPlugins) => {
       .pipe(rename((path) => {
         path.dirname += '/dist';
       }))
-      .pipe(gulp.dest(paths.dest.demo))
+      .pipe(gulp.dest(paths.demo))
       .pipe(gulp.dest(paths.src.packages))
 
       // minify

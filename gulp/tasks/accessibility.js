@@ -14,7 +14,7 @@ module.exports = (gulp, paths) => {
 
     del(['log/accessibility']);
 
-    return gulp.src(`${paths.dest.site}/*.html`)
+    return gulp.src(`${paths.site.www}/*.html`)
       .pipe(access({
         accessibilityLevel: 'WCAG2A',
         force: true,
