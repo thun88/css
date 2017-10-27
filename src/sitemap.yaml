@@ -1,0 +1,34 @@
+Page Structure:
+  - name: Adaptive
+    slug: adaptive
+  - name: Responsive Grid
+    slug: grid
+
+Identity:
+  # Maybe combine to an themes-all package; leave separate in case of individual use
+  #- name: theme-dark
+  #- name: theme-high-contrast
+  - name: Themes
+    slug: theme
+  - name: Icons
+    slug: icon
+  - name: Typography
+    slug: typography
+
+Elements:
+  - name: Buttons
+    slug: button
+  - name: Select Box
+    slug: select
+  # Do we need to break Form up into individual pieces? Maybe keep a bundled package if people want them all
+  #- name: form
+
+Blocks:
+  - name: Tabs
+    slug: tab
+
+Utilities:
+  - name: Base Styles
+    slug: base
+  - name: All Components
+    slug: components-webapp

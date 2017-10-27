@@ -1,6 +1,5 @@
 // -------------------------------------
-//   Task: Build JSON
-//   Build json documentation files
+//   Build MD files into json
 // -------------------------------------
 
 module.exports = (gulp, paths, publishDocObj) => {
@@ -28,7 +27,7 @@ module.exports = (gulp, paths, publishDocObj) => {
     templateData.pkgJson = pkgJson;
 
     let hbStream = hb()
-      .partials(`${paths.src.templates}/partials/*.hbs`)
+      .partials(`${paths.site.templates}/partials/*.hbs`)
       .data(templateData);
 
     return gulp.src(`${paths.src.packages}/*/README.md`)

@@ -10,11 +10,11 @@ module.exports = (gulp, paths) => {
     del     = require('del'),
     rename  = require('gulp-rename');
 
-  gulp.task('test', ['src:compile', 'site:compile'], () => {
+  gulp.task('accessibility', ['src:compile', 'site:compile'], () => {
 
     del(['log/accessibility']);
 
-    return gulp.src(`${paths.dest.site}/*.html`)
+    return gulp.src(`${paths.site.www}/*.html`)
       .pipe(access({
         accessibilityLevel: 'WCAG2A',
         force: true,

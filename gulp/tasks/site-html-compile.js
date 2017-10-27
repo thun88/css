@@ -27,12 +27,12 @@ module.exports = (gulp, paths, postCssPlugins, arrIcons, svgHtml) => {
 
 
     let hbStream = hb()
-      .partials(`${paths.src.templates}/partials/*.hbs`)
+      .partials(`${paths.site.templates}/partials/*.hbs`)
       .data(templateData);
 
     // Copy compiled styles into site/www/dist
     gulp.src(`${paths.src.packages}/iux-components-webapp/dist/*.css`)
-      .pipe(gulp.dest(`${paths.dest.site}/dist`));
+      .pipe(gulp.dest(`${paths.site.www}/dist`));
 
     // Build the site html files
     return gulp.src(`${paths.src.packages}/*/README.md`)
@@ -45,7 +45,7 @@ module.exports = (gulp, paths, postCssPlugins, arrIcons, svgHtml) => {
         to: 'html5+yaml_metadata_block',
         ext: '.html',
         args: [
-          `--data-dir=${paths.src.site}`, // looks for template dir inside data-dir
+          `--data-dir=${paths.site.root}`, // looks for template dir inside data-dir
           '--template=layout.html',
           '--table-of-contents',
           `--variable=icons:${svgHtml}`,
@@ -55,9 +55,9 @@ module.exports = (gulp, paths, postCssPlugins, arrIcons, svgHtml) => {
       }))
       .pipe(rename((file) => {
         // Rename filename of readme to folder name
-        file.basename = file.dirname.replace('iux-', '');
+        file.basename = file.dirname.replace(paths.project.prefix, '');
       }))
       .pipe(flatten())
-      .pipe(gulp.dest(paths.dest.site));
+      .pipe(gulp.dest(paths.site.www));
   });
 }

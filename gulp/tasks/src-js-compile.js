@@ -17,9 +17,9 @@ module.exports = (gulp, paths) => {
       .pipe(named())
       .pipe(webpackStream(devConfig), webpack)
       .pipe(rename((path) => {
-        path.dirname += `/iux-${path.basename}/dist`;
+        path.dirname += `/${paths.project.prefix}${path.basename}/dist`;
       }))
-      .pipe(gulp.dest(paths.dest.demo))
+      .pipe(gulp.dest(paths.demo))
       .pipe(gulp.dest(paths.src.packages));
   });
 
@@ -30,7 +30,7 @@ module.exports = (gulp, paths) => {
   //     .pipe(named())
   //     .pipe(webpackStream(prodConfig), webpack)
   //     .pipe(rename((path) => {
-  //       path.dirname += `/iux-${path.basename}/dist`;
+  //       path.dirname += `/${paths.project.prefix}${path.basename}/dist`;
   //     }))
   //     .pipe(gulp.dest(paths.src.packages));
   // });
