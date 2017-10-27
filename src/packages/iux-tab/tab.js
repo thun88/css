@@ -14,19 +14,19 @@ export class IUXTab {
    * @param  {object} root - The tabs container
    */
   constructor(root) {
-    this.rootEl_ = root;
-    this.activeTabIndex_ = -1;
-    this.tabs = this.rootEl_.querySelectorAll(`.${cssClasses.TAB}:not(.${cssClasses.DISABLED}`);
+    // this.rootEl_ = root;
+    // this.activeTabIndex_ = -1;
+    // this.tabs = this.rootEl_.querySelectorAll(`.${cssClasses.TAB}:not(.${cssClasses.DISABLED}`);
 
-    this.tabs.forEach(el => {
-      el.addEventListener('click', (e) => {
-        this.setActiveTab(e.target);
-      });
+    // this.tabs.forEach(el => {
+    //   el.addEventListener('click', (e) => {
+    //     this.setActiveTab(e.target);
+    //   });
 
-      if (el.classList.contains(cssClasses.SELECTED) > 0) {
-        this.activeTabIndex_ = this.getTabIndex(el);
-      }
-    });
+    //   if (el.classList.contains(cssClasses.SELECTED) > 0) {
+    //     this.activeTabIndex_ = this.getTabIndex(el);
+    //   }
+    // });
 
     return root;
   }
