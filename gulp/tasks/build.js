@@ -23,7 +23,7 @@ module.exports = (gulp, paths, publishDocObj) => {
 
     // Zip the files
     return gulp.src(`${paths.dist}/*`)
-      .pipe(zip(`${paths.project}.zip`))
+      .pipe(zip(`${paths.project.name}.zip`))
       .pipe(gulp.dest(paths.dist))
   });
 }

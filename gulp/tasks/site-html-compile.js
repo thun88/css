@@ -55,7 +55,7 @@ module.exports = (gulp, paths, postCssPlugins, arrIcons, svgHtml) => {
       }))
       .pipe(rename((file) => {
         // Rename filename of readme to folder name
-        file.basename = file.dirname.replace('iux-', '');
+        file.basename = file.dirname.replace(paths.project.prefix, '');
       }))
       .pipe(flatten())
       .pipe(gulp.dest(paths.site.www));

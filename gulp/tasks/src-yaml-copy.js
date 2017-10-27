@@ -4,7 +4,7 @@
 
 module.exports = (gulp, paths) => {
   gulp.task('src:yaml:copy', () => {
-    return gulp.src(`${paths.src.root}/*.yml`)
+    return gulp.src(`${paths.src.root}/*.yaml`)
       .pipe(gulp.dest(`${paths.dist}`));
   });
 }

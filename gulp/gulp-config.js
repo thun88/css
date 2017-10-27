@@ -1,6 +1,9 @@
 /* gulp-config.js */
 module.exports = {
-  project: 'iux',
+  project: {
+    prefix: 'iux-',
+    name: 'iux'
+  },
   root: './',
   demo: 'demo',
   dist: 'publish',
