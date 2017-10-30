@@ -1,14 +1,29 @@
 import { IUXTab } from '../../../src/packages/iux-tab/tab.js';
 
-describe("Tab", function() {
+describe("Initiating a tab", () => {
+  let tab;
+  let htmlFixture = document.createElement('div');
 
-  it('The getTabIndex should return the index of a tab', () => {
-    const myTab = new IUXTab([]);
+  for (var i = 0; i < 3; i++) {
+    let el = document.createElement('a');
+    el.classList.add('iux-tabs--tab');
+    htmlFixture.appendChild(el);
+  }
 
-    const arr = [ {id:1}, {id:2}];
+  beforeEach(function() {
+    tab = new IUXTab(htmlFixture);
+  });
 
-    expect(myTab.getTabIndex({id:2})).toEqual(1);
+  it('should return the root element', () => {
+    expect(tab).toBeDefined();
+  });
+
+  it('should set vars', () => {
+      // console.log(tab.tabs);
+  //   expect(tab.setActiveTab).toHaveBeenCalled();
+  });
 
 
-  })
+
+
 });

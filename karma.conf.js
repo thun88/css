@@ -30,7 +30,9 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'spec/unit/**/*spec.js': ['webpack']
+      'spec/unit/**/*spec.js': ['webpack'],
+      'src/packages/*/*.js': ['webpack'],
+      'src/packages/*/*.js': ['coverage']
     },
 
     webpack: webpackConfig,
@@ -60,8 +62,15 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['PhantomJS'],
+    browsers: ['Chrome'],
 
+    plugins: [
+      'karma-chrome-launcher',
+      'karma-coverage',
+      'karma-jasmine',
+      'karma-phantomjs-launcher',
+      'karma-webpack'
+    ],
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
