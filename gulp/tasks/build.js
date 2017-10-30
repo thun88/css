@@ -9,7 +9,7 @@ module.exports = (gulp, paths, publishDocObj) => {
   const zip = require('gulp-zip');
 
 
-  gulp.task('build', ['src:yaml:copy','json:md:compile','json:js:compile'], () => {
+  gulp.task('build', ['json:yaml:compile','json:md:compile','json:js:compile'], () => {
     // Create folder if needed
     if (!fs.existsSync(paths.dist)){
       fs.mkdirSync(paths.dist);
