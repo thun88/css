@@ -14,7 +14,7 @@ module.exports = (gulp, paths) => {
 
     let form = new formData();
     form.append('file', fs.createReadStream(`${paths.dist}/${paths.project.name}.zip`));
-    form.append('root_path', packageJson.version);
+    form.append('root_path', `${paths.project.name}/${packageJson.version}`);
 
     form.submit(paths.urls.staging, (err, res) => {
       if (err) {
