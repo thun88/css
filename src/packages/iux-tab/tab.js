@@ -15,8 +15,8 @@ export class IUXTab {
    */
   constructor(root) {
     this.rootEl_ = root;
-    this.activeTabIndex_ = -1;
-    this.tabs = this.rootEl_.querySelectorAll(`.${cssClasses.TAB}:not(.${cssClasses.DISABLED}`);
+    this.activeTabIndex_ = 0;
+    this.tabs = this.rootEl_.querySelectorAll(`.${cssClasses.TAB}:not(.${cssClasses.DISABLED})`);
 
     this.tabs.forEach(el => {
       el.addEventListener('click', (e) => {
@@ -28,7 +28,7 @@ export class IUXTab {
       }
     });
 
-    return root;
+    return this;
   }
 
   /**
