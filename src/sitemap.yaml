@@ -1,7 +1,7 @@
-Sections:
+sections:
 - name: Page Structure
   slug: page-structure
-  Pages:
+  pages:
   - name: Adaptive
     slug: adaptive
   - name: Responsive Grid
@@ -11,7 +11,7 @@ Sections:
   # Maybe combine to an themes-all package; leave separate in case of individual use
   #- name: theme-dark
   #- name: theme-high-contrast
-  Pages:
+  pages:
   - name: Themes
     slug: theme
   - name: Icons
@@ -20,7 +20,7 @@ Sections:
     slug: typography
 - name: Elements
   slug: elements
-  Pages:
+  pages:
   - name: Buttons
     slug: button
   - name: Select Box
