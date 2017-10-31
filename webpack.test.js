@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const BabelPlugin = require("babel-webpack-plugin");
 
 module.exports = {
+  devtool: 'source-map',
   plugins: [
     new BabelPlugin({
       test: /\.js$/,

@@ -31,7 +31,6 @@ module.exports = function(config) {
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
       'spec/unit/**/*spec.js': ['webpack'],
-      'src/packages/*/*.js': ['webpack'],
       'src/packages/*/*.js': ['coverage']
     },
 
@@ -68,7 +67,6 @@ module.exports = function(config) {
       'karma-chrome-launcher',
       'karma-coverage',
       'karma-jasmine',
-      'karma-phantomjs-launcher',
       'karma-webpack'
     ],
 
