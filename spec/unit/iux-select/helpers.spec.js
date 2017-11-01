@@ -3,7 +3,7 @@ export class Helpers {
   constructor() {
     this.cssClasses = {
       OPEN: 'iux-select--open',
-      SELECTED: 'iux-select--menu--selected',
+      SELECTED: 'iux-select--menu--selected'
     };
     return this;
   }

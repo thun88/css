@@ -1,26 +1,11 @@
+import { Helpers } from "./helpers.spec.js";
 import { IUXTab } from "../../../src/packages/iux-tab/tab.js";
-
-const cssClasses = {
-  SELECTED: 'iux-tabs--tab--active',
-  DISABLED: 'iux-tabs--tab--disabled',
-  TAB: 'iux-tabs--tab'
-};
-
-const createHtml = (numChildren) => {
-  let div = document.createElement("div");
-
-  for (var i = 0; i < numChildren; i++) {
-    let el = document.createElement("a");
-    el.classList.add(cssClasses.TAB);
-    div.appendChild(el);
-  }
-  return div;
-};
 
 
 describe("A Tab", () => {
+  const helpers = new Helpers();
   const numChildren = 2;
-  const mockHtml = createHtml(numChildren);
+  const mockHtml = helpers.createTabFixture(numChildren);
 
   /**
    * constructor
@@ -42,7 +27,7 @@ describe("A Tab", () => {
 
       it("to the tab element with active class", () => {
         const tmpFixture = mockHtml;
-        tmpFixture.children[activeIdx].classList.add(cssClasses.SELECTED);
+        tmpFixture.children[activeIdx].classList.add(helpers.cssClasses.SELECTED);
         const iuxTab = new IUXTab(tmpFixture);
         expect(iuxTab.activeTabIndex_).toBe(activeIdx);
       });
@@ -81,7 +66,7 @@ describe("A Tab", () => {
     let iuxTab;
     const oldIdx = 0;
     const tmpFixture = mockHtml;
-    tmpFixture.children[oldIdx].classList.add(cssClasses.SELECTED);
+    tmpFixture.children[oldIdx].classList.add(helpers.cssClasses.SELECTED);
 
     describe("and the index is already the active tab", () => {
       it("returns", () => {
@@ -119,5 +104,3 @@ describe("A Tab", () => {
     });
   });
 });
-
-
