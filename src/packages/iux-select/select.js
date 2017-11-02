@@ -26,7 +26,7 @@ export class IUXSelect {
       this.toggle();
     });
 
-    return root;
+    return this;
   }
 
   /**
