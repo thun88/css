@@ -58,7 +58,7 @@ describe("A Select class", () => {
   /**
    * selectItem
    */
-  describe('when and item is selected', function() {
+  describe('when an item is selected', function() {
     let iuxSelect;
 
     beforeEach(function() {

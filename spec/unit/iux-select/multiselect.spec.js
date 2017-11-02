@@ -21,7 +21,7 @@ describe("A MultiSelect class", () => {
   /**
    * selectItem
    */
-  describe('when and item is selected', function() {
+  describe('when an item is selected', function() {
     let iuxMulti;
 
     beforeEach(function() {
