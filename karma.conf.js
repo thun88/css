@@ -18,7 +18,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'spec/unit/*/*spec.js'
+      './spec/unit/*/*spec.js'
     ],
 
 
@@ -30,8 +30,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'spec/unit/**/*spec.js': ['webpack'],
-      'src/packages/*/*.js': ['coverage']
+      './spec/unit/**/*spec.js': ['webpack']
     },
 
     webpack: webpackConfig,
@@ -65,7 +64,6 @@ module.exports = function(config) {
 
     plugins: [
       'karma-chrome-launcher',
-      'karma-coverage',
       'karma-jasmine',
       'karma-mocha-reporter',
       'karma-webpack'

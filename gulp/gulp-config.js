@@ -5,18 +5,18 @@ module.exports = {
     name: 'iux'
   },
   root: './',
-  demo: 'demo',
-  dist: 'publish',
+  demo: './demo',
+  dist: './publish',
   src: {
-    root: 'src',
-    icons: 'src/icons',
-    packages: 'src/packages',
+    root:     './src',
+    icons:    './src/icons',
+    packages: './src/packages',
   },
   site: {
-    root: 'site',
-    css: 'site/css',
-    templates: 'site/templates',
-    www: 'site/www'
+    root:      './site',
+    css:       './site/css',
+    templates: './site/templates',
+    www:       './site/www'
   },
   tasks: './gulp/tasks',
   urls: {
