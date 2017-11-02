@@ -1,4 +1,4 @@
-import { Helpers } from "./helpers.spec.js"
+import { Helpers } from "./helpers.js"
 import { IUXSelect } from "../../../src/packages/iux-select/select.js";
 import { IUXMultiSelect } from "../../../src/packages/iux-select/select.js";
 

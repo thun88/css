@@ -1,4 +1,4 @@
-import { Helpers } from "./helpers.spec.js";
+import { Helpers } from "./helpers.js";
 import { IUXTab } from "../../../src/packages/iux-tab/tab.js";
 
 
