@@ -58,7 +58,7 @@ require(`${paths.tasks}/json-yaml-compile.js`)(gulp, paths);
 require(`${paths.tasks}/deploy.js`)(gulp, paths);
 require(`${paths.tasks}/serve.js`)(gulp, paths);
 require(`${paths.tasks}/site-css-compile.js`)(gulp, paths, postCssPlugins);
-require(`${paths.tasks}/site-html-compile.js`)(gulp, paths, postCssPlugins, arrOfIcons, compiledSvgHtml);
+require(`${paths.tasks}/src-md-compile.js`)(gulp, paths, postCssPlugins, arrOfIcons, compiledSvgHtml);
 require(`${paths.tasks}/src-css-compile.js`)(gulp, paths, postCssPlugins);
 require(`${paths.tasks}/src-js-compile.js`)(gulp, paths);
 require(`${paths.tasks}/svg-optimize.js`)(gulp, paths, arrOfIcons);
@@ -89,4 +89,4 @@ gulp.task('publish', () => {
 //   Build Task Combos
 // -------------------------------------
 gulp.task('src:compile', ['src:css:compile', 'src:js:compile']);
-gulp.task('site:compile', ['site:css:compile', 'site:html:compile']);
+gulp.task('site:compile', ['site:css:compile', 'src:md:compile']);
