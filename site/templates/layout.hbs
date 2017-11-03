@@ -56,20 +56,8 @@
           </div>
         {{/if}}
 
-        <div class="iux-row iux-row--gutter">
-          <section class="iux-row--col-md-9">
-            <div class="use-site-styles">
-              {{{ contents }}}
-            </div>
-          </section>
-          <nav class="iux-row--col-md-3">
-            <div class="site-main--toc">
-              <h3>table of contents</h3>
-              {{#if toc}}
-                {{toc}}
-              {{/if}}
-            </div>
-          </nav>
+        <div class="iux-row iux-row--gutter use-site-styles">
+          {{{ contents }}}
         </div>
       </div>
 

@@ -66,57 +66,57 @@ module.exports = (gulp, paths, postCssPlugins, arrIcons, svgHtml) => {
 
   gulp.task('src:md:compile', () => {
 
-    const flatten = require('gulp-flatten');
-    const frontMatter = require('gulp-front-matter');
-    const handlebars = require('Handlebars');
-    const markdown = require('gulp-markdown');
-    const rename  = require('gulp-rename');
-    const tap = require('gulp-tap');
+  const flatten = require('gulp-flatten');
+  const frontMatter = require('gulp-front-matter');
+  const handlebars = require('Handlebars');
+  const markdown = require('gulp-markdown');
+  const rename  = require('gulp-rename');
+  const tap = require('gulp-tap');
 
-    // Copy compiled styles into site/www/dist (async)
-    gulp.src(`${paths.src.packages}/iux-components-webapp/dist/*.min.css`)
-      .pipe(gulp.dest(`${paths.site.www}/dist`));
+  // Copy compiled styles into site/www/dist (async)
+  gulp.src(`${paths.src.packages}/iux-components-webapp/dist/*.min.css`)
+    .pipe(gulp.dest(`${paths.site.www}/dist`));
 
 
-    // read the template from page.hbs
-    return gulp.src(`${paths.site.templates}/layout.hbs`)
-      .pipe(tap(function(file) {
+  // read the template from page.hbs
+  return gulp.src(`${paths.site.templates}/layout.hbs`)
+    .pipe(tap(function(file) {
 
-        // file is page.hbs so generate template from file
-        var template = handlebars.compile(file.contents.toString());
+      // file is page.hbs so generate template from file
+      var template = handlebars.compile(file.contents.toString());
 
-        // now read all the pages from the pages directory
-        return gulp.src(`${paths.src.packages}/iux-adaptive/README.md`)
+      // now read all the pages from the pages directory
+      return gulp.src(`${paths.src.packages}/*/README.md`)
 
-          // get meta data
-          .pipe(frontMatter({
-            property: 'data.frontMatter'
-          }))
+        // get meta data
+        .pipe(frontMatter({
+          property: 'data.frontMatter'
+        }))
 
-          // convert from markdown
-          .pipe(markdown())
+        // convert from markdown
+        .pipe(markdown())
 
-          .pipe(tap(function(file) {
-            // file is the converted HTML from the markdown
-            // set the contents to the contents property on data
-            var data = {
-              contents: file.contents.toString(),
-              meta: file.data.frontMatter
-            };
+        .pipe(tap(function(file) {
+          // file is the converted HTML from the markdown
+          // set the contents to the contents property on data
+          var data = {
+            contents: file.contents.toString(),
+            meta: file.data.frontMatter
+          };
 
-            // we will pass data to the Handlebars template to create the actual HTML to use
-            var html = template(data);
+          // we will pass data to the Handlebars template to create the actual HTML to use
+          var html = template(data);
 
-            // replace the file contents with the new HTML created from the Handlebars template + data object that contains the HTML made from the markdown conversion
-            file.contents = new Buffer(html, "utf-8");
-          }))
+          // replace the file contents with the new HTML created from the Handlebars template + data object that contains the HTML made from the markdown conversion
+          file.contents = new Buffer(html, "utf-8");
+        }))
 
-          // Rename filename of readme to folder name
-          .pipe(rename((file) => {
-            file.basename = file.dirname.replace(paths.project.prefix, '');
-          }))
-          .pipe(flatten())
-          .pipe(gulp.dest(paths.site.www));
-        }));
-      });
+        // Rename filename of readme to folder name
+        .pipe(rename((file) => {
+          file.basename = file.dirname.replace(paths.project.prefix, '');
+        }))
+        .pipe(flatten())
+        .pipe(gulp.dest(paths.site.www));
+      }));
+    });
 }
