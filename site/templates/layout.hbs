@@ -1,4 +1,4 @@
-<html xmlns="http://www.w3.org/1999/xhtml"$if(lang)$ lang="$lang$" xml:lang="$lang$"$endif$>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="Content-Style-Type" content="text/css" />
@@ -6,38 +6,23 @@
     <meta name="author" content="Hook & Loop">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    $if(date-meta)$
-      <meta name="date" content="$date-meta$" />
-    $endif$
+    <title>{{pagetitle}} - Infor UX</title>
 
-    <title>$pagetitle$ - Infor UX</title>
-
-    $if(highlighting-css)$
-      <style type="text/css">
-        $highlighting-css$
-      </style>
-    $endif$
-
-
-    $if(stylesheet)$
-      <link rel="stylesheet" type="text/css" href="/css/$stylesheet$">
-    $else$
-      <link rel="stylesheet" type="text/css" href="/dist/iux.min.css">
-    $endif$
+    <link rel="stylesheet" type="text/css" href="/dist/iux.min.css">
     <link rel="stylesheet" type="text/css" href="/dist/site.min.css">
   </head>
 
   <body>
 
     <div class="visuallyhidden">
-      $icons$
+      {{icons}}
     </div>
 
     <main class="site-main">
 
       <!-- Leave this below to mimic other doc sites -->
       <nav class="site-main--sidebar iux-container">
-        <h2 class="site-sidebar--heading">Version $releaseversion$</h2>
+        <h2 class="site-sidebar--heading">Version {{data.frontMatter.version}}</h2>
         <ul class="list-plain site-sidebar--nav">
           <li><a href="/adaptive.html">Adaptive States</a></li>
           <li><a href="/button.html">Buttons</a></li>
@@ -53,36 +38,36 @@
       </nav>
 
       <div class="site-main--content iux-container">
-        $if(title)$
+        {{#if title}}
           <div id="$idprefix$header" class="hero">
             <h1 class="page-title">$title$</h1>
-            $if(subtitle)$
+            {{#if subtitle}}
               <h1 class="page-subtitle">$subtitle$</h1>
-            $endif$
-            $for(author)$
+            {{/if}}
+            {{#for author}}
               <h2 class="page-author">$author$</h2>
-            $endfor$
-            $if(date)$
+            {{/for}}
+            {{#if date}}
               <h3 class="page-date">$date$</h3>
-            $endif$
-            $if(description)$
+            {{/if}}
+            {{#if description}}
               <p class="page-description">$description$</p>
-            $endif$
+            {{/if}}
           </div>
-        $endif$
+        {{/if}}
 
         <div class="iux-row iux-row--gutter">
           <section class="iux-row--col-md-9">
             <div class="use-site-styles">
-              $body$
+              {{{ contents }}}
             </div>
           </section>
           <nav class="iux-row--col-md-3">
             <div class="site-main--toc">
-              <h3>Contents</h3>
-              $if(toc)$
-                $toc$
-              $endif$
+              <h3>table of contents</h3>
+              {{#if toc}}
+                {{toc}}
+              {{/if}}
             </div>
           </nav>
         </div>

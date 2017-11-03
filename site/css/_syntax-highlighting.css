@@ -1,81 +1,83 @@
 /*
- * Pandoc code highlight styles - customized
- * https://github.com/jgm/highlighting-kate/blob/master/css/hk-pyg.css
- */
 
-table.sourceCode,
-tr.sourceCode,
-td.lineNumbers,
-td.sourceCode,
-table.sourceCode pre {
-  border: none;
-  border: 0;
-  margin: 0;
-  padding: 0;
-  vertical-align: baseline;
+Monokai Sublime style. Derived from Monokai by noformnocontent http://nn.mit-license.org/
+
+*/
+
+.hljs {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #23241f;
 }
 
-td.lineNumbers {
-  border-right: 1px solid #aaa;
-  color: #aaa;
-  padding-left: 5px;
-  padding-right: 5px;
-  text-align: right;
+.hljs,
+.hljs-tag,
+.hljs-subst {
+  color: #f8f8f2;
 }
 
-td.sourceCode {
-  padding-left: 5px;
+.hljs-strong,
+.hljs-emphasis {
+  color: #a8a8a2;
 }
 
-/* pre.sourceCode {} */
-
-code.sourceCode span.kw {
-  color: #069;
+.hljs-bullet,
+.hljs-quote,
+.hljs-number,
+.hljs-regexp,
+.hljs-literal,
+.hljs-link {
+  color: #ae81ff;
 }
 
-code.sourceCode span.dt {
-  color: #902000;
+.hljs-code,
+.hljs-title,
+.hljs-section,
+.hljs-selector-class {
+  color: #a6e22e;
 }
 
-code.sourceCode span.dv {
-  color: #40a070;
+.hljs-strong {
+  font-weight: bold;
 }
 
-code.sourceCode span.bn {
-  color: #40a070;
-}
-
-code.sourceCode span.fl {
-  color: #40a070;
-}
-
-code.sourceCode span.ch {
-  color: #4070a0;
-}
-
-code.sourceCode span.st {
-  color: #d44950;
-}
-
-code.sourceCode span.co {
-  color: #60a0b0;
+.hljs-emphasis {
   font-style: italic;
 }
 
-code.sourceCode span.ot {
-  color: #4f9fcf;
+.hljs-keyword,
+.hljs-selector-tag,
+.hljs-name,
+.hljs-attr {
+  color: #f92672;
 }
 
-code.sourceCode span.al {
-  color: #f00;
+.hljs-symbol,
+.hljs-attribute {
+  color: #66d9ef;
 }
 
-code.sourceCode span.fu {
-  color: #06287e;
+.hljs-params,
+.hljs-class .hljs-title {
+  color: #f8f8f2;
 }
 
-/* code.sourceCode span.re {} */
+.hljs-string,
+.hljs-type,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-selector-id,
+.hljs-selector-attr,
+.hljs-selector-pseudo,
+.hljs-addition,
+.hljs-variable,
+.hljs-template-variable {
+  color: #e6db74;
+}
 
-code.sourceCode span.er {
-  color: #f00;
+.hljs-comment,
+.hljs-deletion,
+.hljs-meta {
+  color: #75715e;
 }

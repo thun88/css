@@ -1,7 +1,7 @@
 ---
 title: Tabs
 description: Description here
-specs: []
+specs:
 ---
 
 ## Basic Tabs

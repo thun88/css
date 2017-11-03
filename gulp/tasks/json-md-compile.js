@@ -7,12 +7,14 @@ module.exports = (gulp, paths, publishDocObj) => {
   const hb = require('gulp-hb');
   const helperFns = require('../functions.js');
   const highlightjs = require('highlight.js');
-  const marked = require('marked');
-  const mdToJson = require('gulp-markdown-to-json');
   const path = require('path');
   const pkgJson  = require('../../package.json');
   const tap = require('gulp-tap');
 
+   // Use the same engine gulp-markdown uses in src:md:compile
+   // to keep results the same
+  const marked = require('marked');
+  const mdToJson = require('gulp-markdown-to-json');
   // -------------------------------------
   //   Promise for converting package README.md files to json
   //   @return {Promise}

@@ -37,9 +37,7 @@ module.exports = (gulp, paths, postCssPlugins) => {
       .pipe(postcss([postCssPlugins.cssnano({
         autoprefixer: false
       })], postcssOptions))
-      .pipe(rename((path) => {
-        path.suffix = '.min';
-      }))
+      .pipe(rename({ suffix: '.min' }))
       .pipe(gulp.dest(paths.src.packages));
   });
 }

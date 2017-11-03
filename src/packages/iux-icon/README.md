@@ -1,7 +1,7 @@
 ---
 title: Icons
 description: Infor UX Styleguide
-specs: []
+specs:
 ---
 
 

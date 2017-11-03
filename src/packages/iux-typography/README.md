@@ -1,16 +1,23 @@
 ---
 title: Typography
 description: These are typical type classes you'll have available.
-specs: [
-    {{> specMd title="Secondary Header Font Size" spec=default.headerSecondaryFontSize }},
-    {{> specMd title="Base Font Size" spec=default.fontSizeBase }},
-    {{> specMd title="Small Font Size" spec=default.textSmall }},
-    {{> specMd title="Default Text Color" spec=default.bodyColor }},
-    {{> specMd title="Descriptive Text Color" spec=default.textDescriptive }},
-    {{> specMd title="Muted Text Color" spec=default.textMuted }},
-    {{> specMd title="Link Text Color" spec=default.linkColor }},
-    {{> specMd title="Alert Text Color" spec=default.textAlert }}
-]
+specs:
+- title: "Secondary Header Font Size"
+  spec: "default.headerSecondaryFontSize"
+- title: "Base Font Size"
+  spec: "default.fontSizeBase"
+- title: "Small Font Size"
+  spec: "default.textSmall"
+- title: "Default Text Color"
+  spec: "default.bodyColor"
+- title: "Descriptive Text Color"
+  spec: "default.textDescriptive"
+- title: "Muted Text Color"
+  spec: "default.textMuted"
+- title: "Link Text Color"
+  spec: "default.linkColor"
+- title: "Alert Text Color"
+  spec: "default.textAlert"
 ---
 
 ## Standard Type Settings

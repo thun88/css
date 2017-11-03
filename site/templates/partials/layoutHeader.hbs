@@ -1,0 +1,61 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta name="generator" content="pandoc" />
+    <meta name="author" content="Hook & Loop">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{pagetitle}} - Infor UX</title>
+
+    <link rel="stylesheet" type="text/css" href="/dist/iux.min.css">
+    <link rel="stylesheet" type="text/css" href="/dist/site.min.css">
+  </head>
+
+  <body>
+
+    <div class="visuallyhidden">
+      {{icons}}
+    </div>
+
+    <main class="site-main">
+
+      <!-- Leave this below to mimic other doc sites -->
+      <nav class="site-main--sidebar iux-container">
+        <h2 class="site-sidebar--heading">Version {{data.frontMatter.version}}</h2>
+        <ul class="list-plain site-sidebar--nav">
+          <li><a href="/adaptive.html">Adaptive States</a></li>
+          <li><a href="/button.html">Buttons</a></li>
+          <li><a href="/form.html">Forms</a></li>
+          <li><a href="/grid.html">Responsive Grid</a></li>
+          <li><a href="/select.html">Selects</a></li>
+          <li><a href="/tab.html">Tabs</a></li>
+          <li><a href="/theme.html">Themes &amp; Colors</a></li>
+          <li><a href="/theme-dark.html">&ndash; Dark</a></li>
+          <li><a href="/theme-high-contrast.html">&ndash; High Contrast</a></li>
+          <li><a href="/typography.html">Typography</a></li>
+        </ul>
+      </nav>
+
+      <div class="site-main--content iux-container">
+        {{#if title}}
+          <div id="$idprefix$header" class="hero">
+            <h1 class="page-title">$title$</h1>
+            {{#if subtitle}}
+              <h1 class="page-subtitle">$subtitle$</h1>
+            {{/if}}
+            {{#for author}}
+              <h2 class="page-author">$author$</h2>
+            {{/for}}
+            {{#if date}}
+              <h3 class="page-date">$date$</h3>
+            {{/if}}
+            {{#if description}}
+              <p class="page-description">$description$</p>
+            {{/if}}
+          </div>
+        {{/if}}
+
+        <div class="iux-row iux-row--gutter">
+          <section class="iux-row--col-md-9">
+            <div class="use-site-styles">
