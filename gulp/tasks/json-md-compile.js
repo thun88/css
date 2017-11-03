@@ -6,6 +6,7 @@ module.exports = (gulp, paths, publishDocObj) => {
 
   const hb = require('gulp-hb');
   const helperFns = require('../functions.js');
+  const highlightjs = require('highlight.js');
   const marked = require('marked');
   const mdToJson = require('gulp-markdown-to-json');
   const path = require('path');
@@ -20,7 +21,11 @@ module.exports = (gulp, paths, publishDocObj) => {
 
     marked.setOptions({
       pedantic: true,
-      smartypants: true
+      smartypants: true,
+      // Synchronous highlighting with highlight.js
+      highlight: function (code) {
+        return highlightjs.highlightAuto(code).value;
+      }
     });
 
     let templateData = helperFns.createCssAnnotations(paths.src.packages);
