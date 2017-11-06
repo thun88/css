@@ -5,77 +5,18 @@
 
 module.exports = (gulp, paths, postCssPlugins, arrIcons, svgHtml) => {
 
-  // gulp.task('src:md:compile', () => {
-
-  //   const helperFns = require('../functions.js');
-  //   const pkgJson  = require('../../package.json');
-  //   const flatten  = require('gulp-flatten');
-  //   const hb       = require('gulp-hb');
-  //   const rename   = require('gulp-rename');
-  //   const highlightjs = require('highlight.js');
-  //   var markdownIt = require('gulp-markdown-it');
-  //   var frontMatter = require('gulp-front-matter');
-  //   const tap = require('gulp-tap');
-
-  //   var Handlebars = require('Handlebars');
-
-
-
-  //   let templateData = helperFns.createCssAnnotations(paths.src.packages);
-  //   if (arrIcons.length === 0) {
-  //     arrIcons = helperFns.parseIcons(`${paths.src.icons}/svg/*.svg`);
-  //   }
-  //   templateData.svgIcons = arrIcons;
-  //   templateData.version = pkgJson.version;
-
-
-  //   let hbStream = hb()
-  //     .partials(`${paths.site.templates}/partials/*.hbs`)
-  //     .data(templateData);
-
-  //   // Copy compiled styles into site/www/dist
-  //   gulp.src(`${paths.src.packages}/iux-components-webapp/dist/*.min.css`)
-  //     .pipe(gulp.dest(`${paths.site.www}/dist`));
-
-  //   // Build the site html files
-  //   return gulp.src(`${paths.src.packages}/*/README.md`)
-  //     .pipe(frontMatter({
-  //       property: 'data.frontMatter'
-  //     }))
-
-  //     .pipe(markdownIt())
-
-  //     .pipe(tap((file) => {
-  //       const contents = file.contents.toString();
-  //     }));
-
-  //     // Parse any handlebar templates in the markdown
-  //     .pipe(hbStream)
-
-  //     // Parse front matter from post file.
-
-
-  //     // Rename filename of readme to folder name
-  //     .pipe(rename((file) => {
-  //       file.basename = file.dirname.replace(paths.project.prefix, '');
-  //     }))
-  //     .pipe(flatten())
-  //     .pipe(gulp.dest(paths.site.www));
-  // });
-
-
   gulp.task('src:md:compile', () => {
 
-  const pkgJson  = require('../../package.json');
   const flatten = require('gulp-flatten');
   const frontMatter = require('gulp-front-matter');
+  const fs   = require('fs');
   const handlebars = require('Handlebars');
-  const markdown = require('gulp-markdown');
+  const highlightjs = require('pygmentize-bundled');
+  const markdown = require('gulp-markdown'); // base engine is marked to match json-md-compile
+  const pkgJson  = require('../../package.json');
   const rename  = require('gulp-rename');
   const tap = require('gulp-tap');
-  const highlightjs = require('pygmentize-bundled');
   const yaml = require('js-yaml');
-  const fs   = require('fs');
 
   // Load sitemap for sidebar
   const sitemap = yaml.safeLoad(
@@ -85,7 +26,6 @@ module.exports = (gulp, paths, postCssPlugins, arrIcons, svgHtml) => {
   // Copy compiled styles into site/www/dist (async)
   gulp.src(`${paths.src.packages}/iux-components-webapp/dist/*.min.css`)
     .pipe(gulp.dest(`${paths.site.www}/dist`));
-
 
   // read the template from page.hbs
   return gulp.src(`${paths.site.templates}/layout.hbs`)
@@ -102,7 +42,7 @@ module.exports = (gulp, paths, postCssPlugins, arrIcons, svgHtml) => {
           property: 'data.frontMatter'
         }))
 
-        // convert from markdown
+        // convert from markdown and add syntax highlighting
         .pipe(markdown({
           gfm: true,
           highlight: function (code, lang, callback) {

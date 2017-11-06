@@ -7,26 +7,21 @@ module.exports = (gulp, paths, publishDocObj) => {
   const hb = require('gulp-hb');
   const helperFns = require('../functions.js');
   const highlightjs = require('highlight.js');
+  const mdToJson = require('gulp-markdown-to-json');
   const path = require('path');
   const pkgJson  = require('../../package.json');
   const tap = require('gulp-tap');
 
    // Use the same engine gulp-markdown uses in src:md:compile
-   // to keep results the same
+   // to keep ouput the same
   const marked = require('marked');
-  const mdToJson = require('gulp-markdown-to-json');
-  // -------------------------------------
-  //   Promise for converting package README.md files to json
-  //   @return {Promise}
-  // -------------------------------------
+
   gulp.task('json:md:compile', () => {
 
     marked.setOptions({
-      pedantic: true,
-      smartypants: true,
-      // Synchronous highlighting with highlight.js
-      highlight: function (code) {
-        return highlightjs.highlightAuto(code).value;
+      gfm: true,
+      highlight: function (code, lang, callback) {
+        return require('pygmentize-bundled')({ lang: lang, format: 'html' }, code, (err, result) => {});
       }
     });
 
