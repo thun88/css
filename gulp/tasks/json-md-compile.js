@@ -21,7 +21,9 @@ module.exports = (gulp, paths, publishDocObj) => {
     marked.setOptions({
       gfm: true,
       highlight: function (code, lang, callback) {
-        return require('pygmentize-bundled')({ lang: lang, format: 'html' }, code, (err, result) => {});
+        require('pygmentize-bundled')({ lang: lang, format: 'html' }, code, (err, result) => {
+          // callback(err, result.toString());
+        });
       }
     });
 
