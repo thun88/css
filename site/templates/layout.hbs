@@ -6,7 +6,7 @@
     <meta name="author" content="Hook & Loop">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>{{pagetitle}} - Infor UX</title>
+    <title>{{meta.title}} - Infor UX</title>
 
     <link rel="stylesheet" type="text/css" href="/dist/iux.min.css">
     <link rel="stylesheet" type="text/css" href="/dist/site.min.css">
@@ -22,7 +22,7 @@
 
       <!-- Leave this below to mimic other doc sites -->
       <nav class="site-main--sidebar iux-container">
-        <h2 class="site-sidebar--heading">Version {{data.frontMatter.version}}</h2>
+        <h2 class="site-sidebar--heading">Version {{meta.version}}</h2>
         <ul class="list-plain site-sidebar--nav">
           <li><a href="/adaptive.html">Adaptive States</a></li>
           <li><a href="/button.html">Buttons</a></li>
@@ -38,20 +38,11 @@
       </nav>
 
       <div class="site-main--content iux-container">
-        {{#if title}}
+        {{#if meta.title}}
           <div id="$idprefix$header" class="hero">
-            <h1 class="page-title">$title$</h1>
-            {{#if subtitle}}
-              <h1 class="page-subtitle">$subtitle$</h1>
-            {{/if}}
-            {{#for author}}
-              <h2 class="page-author">$author$</h2>
-            {{/for}}
-            {{#if date}}
-              <h3 class="page-date">$date$</h3>
-            {{/if}}
-            {{#if description}}
-              <p class="page-description">$description$</p>
+            <h1 class="page-title">{{meta.title}}</h1>
+            {{#if meta.description}}
+              <p class="page-description">{{meta.description}}</p>
             {{/if}}
           </div>
         {{/if}}
