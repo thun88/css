@@ -72,7 +72,7 @@ module.exports = (gulp, paths, postCssPlugins, arrIcons, svgHtml) => {
   const markdown = require('gulp-markdown');
   const rename  = require('gulp-rename');
   const tap = require('gulp-tap');
-  const highlightjs = require('highlight.js');
+  const highlightjs = require('pygmentize-bundled');
 
   // Copy compiled styles into site/www/dist (async)
   gulp.src(`${paths.src.packages}/iux-components-webapp/dist/*.min.css`)
@@ -96,8 +96,11 @@ module.exports = (gulp, paths, postCssPlugins, arrIcons, svgHtml) => {
 
         // convert from markdown
         .pipe(markdown({
-          highlight: function(code) {
-            return require('highlight.js').highlightAuto(code).value;
+          gfm: true,
+          highlight: function (code, lang, callback) {
+            return require('pygmentize-bundled')({ lang: lang, format: 'html' }, code, function (err, result) {
+              callback(err, result.toString());
+            });
           }
         }))
 

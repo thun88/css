@@ -14,11 +14,10 @@ Use the class `adaptive--touch` to trigger the "touch" adaptive state to the inn
 
 The <span class="example-padding">dashed outline around the check box and radio controls</span> simply shows the increased touch target area around the control for better accessibility.
 
-
 ```html
 <div class="adaptive--touch">
     <!-- This input and checkbox will have a larger touch point since it's in an adaptive parent -->
-    <input type="text" class="form-control" placeholder="Text" aria-label="Adaptive text input example">
+    <input type="text" class="form-control" placeholder="Text" aria-label="Adaptive text input example"/>
     <div class="form-checkbox">
         <input type="checkbox" id="exampleCheckbox1" value="" aria-label="Adaptive checkbox example"/>
         <label for="exampleCheckbox1">

@@ -130,45 +130,22 @@ code {
   padding: 2px 4px;
 }
 
-.example,
-pre {
-  border: 1px solid var(--example-border-color);
-  border-radius: 0.25rem 0.25rem 0 0;
-  padding: 15px;
-}
-
-.example {
+pre > code {
+  background-color: transparent;
+  font-size: inherit;
   line-height: 1.4;
-  overflow-x: scroll;
-  position: relative;
-
-  & .example--info {
-    display: block;
-    margin-top: 20px;
-  }
-
-  & .example--inner-frame {
-    border: solid 1px var(--example-border-color);
-  }
-}
-
-pre {
-  background-color: #f7f7f9;
-  font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
-  font-size: 1.3rem;
-  line-height: 2rem;
+  padding: 0;
+  margin: 0;
+  white-space: pre-wrap;
   margin-bottom: 20px;
 
-  & code {
-    background-color: transparent;
-    border-radius: 0;
-    font-size: inherit;
-    line-height: 1.4;
-    padding: 0;
-    white-space: pre-wrap;
+  & pre {
+    border: 1px solid var(--example-border-color);
+    border-radius: 0.25rem 0.25rem 0 0;
+    padding: 15px;
+    background-color: #f7f7f9;
+    font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;
+    font-size: 1.3rem;
+    line-height: 2rem;
   }
-}
-
-.example + pre {
-  border-top: none;
 }
