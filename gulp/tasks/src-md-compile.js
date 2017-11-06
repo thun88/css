@@ -9,9 +9,8 @@ module.exports = (gulp, paths, postCssPlugins, arrIcons, svgHtml) => {
 
   const flatten = require('gulp-flatten');
   const frontMatter = require('gulp-front-matter');
-  const fs   = require('fs');
+  const fs = require('fs');
   const handlebars = require('Handlebars');
-  const highlightjs = require('pygmentize-bundled');
   const markdown = require('gulp-markdown'); // base engine is marked to match json-md-compile
   const pkgJson  = require('../../package.json');
   const rename  = require('gulp-rename');
@@ -37,7 +36,7 @@ module.exports = (gulp, paths, postCssPlugins, arrIcons, svgHtml) => {
       // now read all the pages from the pages directory
       return gulp.src(`${paths.src.packages}/*/README.md`)
 
-        // get meta data
+        // extract/remove yaml from MD
         .pipe(frontMatter({
           property: 'data.frontMatter'
         }))
