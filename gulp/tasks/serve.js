@@ -33,6 +33,7 @@ module.exports = (gulp, paths) => {
 
     const siteFiles = [
       `${paths.site.css}/**/*`,
+      `${paths.src.root}/sitemap.yaml`,
       `${paths.site.templates}/**/*`
     ];
 

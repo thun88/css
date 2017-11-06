@@ -25,8 +25,8 @@ sections:
     slug: button
   - name: Select Box
     slug: select
-  # Do we need to break Form up into individual pieces? Maybe keep a bundled package if people want them all
-  #- name: form
+  - name: Forms
+    slug: form
 - name: Blocks
   slug: blocks
   pages:
