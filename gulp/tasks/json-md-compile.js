@@ -49,7 +49,7 @@ module.exports = (gulp, paths, publishDocObj) => {
       .pipe(tap((file) => {
         const propName = helperFns.getFolderName(path.dirname(file.path));
         const tmpObj = JSON.parse(file.contents.toString());
-        const mergedObj = { ...tmpObj, ...publishDocObj[propName] };
+        const mergedObj = { ...file.data.frontMatter, ...tmpObj, ...publishDocObj[propName] };
         publishDocObj[propName] = mergedObj;
       }));
   });
