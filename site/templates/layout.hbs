@@ -21,20 +21,17 @@
     <main class="site-main">
 
       <!-- Leave this below to mimic other doc sites -->
+
       <nav class="site-main--sidebar iux-container">
-        <h2 class="site-sidebar--heading">Version {{meta.version}}</h2>
+        <h2 class="site-sidebar--heading">Version {{package.version}}</h2>
+        {{#each sitemap.sections}}
+        <h2 class="site-sidebar--heading">{{this.name}}</h2>
         <ul class="list-plain site-sidebar--nav">
-          <li><a href="/adaptive.html">Adaptive States</a></li>
-          <li><a href="/button.html">Buttons</a></li>
-          <li><a href="/form.html">Forms</a></li>
-          <li><a href="/grid.html">Responsive Grid</a></li>
-          <li><a href="/select.html">Selects</a></li>
-          <li><a href="/tab.html">Tabs</a></li>
-          <li><a href="/theme.html">Themes &amp; Colors</a></li>
-          <li><a href="/theme-dark.html">&ndash; Dark</a></li>
-          <li><a href="/theme-high-contrast.html">&ndash; High Contrast</a></li>
-          <li><a href="/typography.html">Typography</a></li>
+          {{#each this.pages}}
+          <li><a href="/{{slug}}.html">{{this.name}}</a></li>
+          {{/each}}
         </ul>
+        {{/each}}
       </nav>
 
       <div class="site-main--content iux-container">

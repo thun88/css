@@ -66,6 +66,7 @@ module.exports = (gulp, paths, postCssPlugins, arrIcons, svgHtml) => {
 
   gulp.task('src:md:compile', () => {
 
+  const pkgJson  = require('../../package.json');
   const flatten = require('gulp-flatten');
   const frontMatter = require('gulp-front-matter');
   const handlebars = require('Handlebars');
@@ -73,6 +74,13 @@ module.exports = (gulp, paths, postCssPlugins, arrIcons, svgHtml) => {
   const rename  = require('gulp-rename');
   const tap = require('gulp-tap');
   const highlightjs = require('pygmentize-bundled');
+  const yaml = require('js-yaml');
+  const fs   = require('fs');
+
+  // Load sitemap for sidebar
+  const sitemap = yaml.safeLoad(
+    fs.readFileSync(`${paths.src.root}/sitemap.yaml`, 'utf8')
+  );
 
   // Copy compiled styles into site/www/dist (async)
   gulp.src(`${paths.src.packages}/iux-components-webapp/dist/*.min.css`)
@@ -109,7 +117,9 @@ module.exports = (gulp, paths, postCssPlugins, arrIcons, svgHtml) => {
           // set the contents to the contents property on data
           var data = {
             contents: file.contents.toString(),
-            meta: file.data.frontMatter
+            meta: file.data.frontMatter,
+            package: pkgJson,
+            sitemap: sitemap
           };
 
           // we will pass data to the Handlebars template to create the actual HTML to use
