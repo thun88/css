@@ -118,7 +118,7 @@ module.exports = (gulp, paths, postCssPlugins, arrIcons, svgHtml) => {
           var data = {
             contents: file.contents.toString(),
             meta: file.data.frontMatter,
-            package: pkgJson,
+            pkgJson: pkgJson,
             sitemap: sitemap
           };
 
