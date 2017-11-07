@@ -1,17 +1,22 @@
 {
-  "name": "@infor-ux/form",
+  "name": "@infor/form",
   "version": "1.0.0",
-  "description": "Form classes, mixins, and variables for Infor UX Components for the web",
+  "description": "Hook & Loop alpha testing UX individual packages.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/hookandloop/soho-foundation.git"
+    "url": "git+https://github.com/hookandloop/soho-foundation.git"
   },
   "keywords": [
-    "form",
-    "font",
     "infor-ux",
     "components"
   ],
   "author": "Hook & Loop",
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/hookaandloop/soho-foundation/issues"
+  },
+  "homepage": "https://github.com/hookandloop/soho-foundation#readme",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
 }
