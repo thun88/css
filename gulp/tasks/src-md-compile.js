@@ -41,7 +41,7 @@ module.exports = (gulp, paths, postCssPlugins, arrIcons, svgHtml) => {
     .pipe(tap(function(file) {
 
       // file is page.hbs so generate template from file
-      var template = handlebars.compile(file.contents.toString());
+      const template = handlebars.compile(file.contents.toString());
 
       // now read all the pages from the pages directory
       return gulp.src(`${paths.src.packages}/*/README.md`)
@@ -64,7 +64,7 @@ module.exports = (gulp, paths, postCssPlugins, arrIcons, svgHtml) => {
         .pipe(tap(function(file) {
           // file is the converted HTML from the markdown
           // set the contents to the contents property on data
-          var data = {
+          const data = {
             contents: file.contents.toString(),
             meta: file.data.frontMatter,
             pkgJson: pkgJson,
@@ -73,7 +73,7 @@ module.exports = (gulp, paths, postCssPlugins, arrIcons, svgHtml) => {
           };
 
           // we will pass data to the Handlebars template to create the actual HTML to use
-          var html = template(data);
+          const html = template(data);
 
           // replace the file contents with the new HTML created from the Handlebars template + data object that contains the HTML made from the markdown conversion
           file.contents = new Buffer(html, "utf-8");
