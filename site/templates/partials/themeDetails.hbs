@@ -31,13 +31,13 @@
 {{/with}}
 
 {{#if showColors}}
-{{#with (lookup annotations spec) }}
-<div class="color-swatches">
-{{#each this}}
-{{#if this.isColor}}
-{{> colorSwatch colorData=this title=this.originalDeclaration}}
-{{/if}}
-{{/each}}
-</div>
-{{/with}}
+  {{#with (lookup annotations spec) }}
+    <div class="color-swatches">
+      {{#each this}}
+        {{#if this.isColor}}
+          {{> colorSwatch colorData=this title=this.originalDeclaration}}
+        {{/if}}
+      {{/each}}
+    </div>
+  {{/with}}
 {{/if}}
