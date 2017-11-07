@@ -26,6 +26,12 @@ module.exports = (gulp, paths, postCssPlugins, arrIcons, svgHtml) => {
 
   const cssAnnotations = helperFns.createCssAnnotations(paths.src.packages);
 
+  registrar(handlebars, {
+    partials: [
+      `${paths.site.templates}/partials/*.{hbs,js}`
+    ]
+  });
+
   // Copy compiled styles into site/www/dist (async)
   gulp.src(`${paths.src.packages}/iux-components-webapp/dist/*.min.css`)
     .pipe(gulp.dest(`${paths.site.www}/dist`));
@@ -33,12 +39,6 @@ module.exports = (gulp, paths, postCssPlugins, arrIcons, svgHtml) => {
   // read the template from page.hbs
   return gulp.src(`${paths.site.templates}/layout.hbs`)
     .pipe(tap(function(file) {
-
-      registrar(handlebars, {
-        partials: [
-          `${paths.site.templates}/partials/*.{hbs,js}`
-        ]
-      });
 
       // file is page.hbs so generate template from file
       var template = handlebars.compile(file.contents.toString());
