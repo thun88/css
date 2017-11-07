@@ -45,6 +45,15 @@
         {{/if}}
 
         <div class="use-site-styles">
+          {{#if meta.specs}}
+          {{#each meta.specs}}
+            {{#if valueType}}
+              {{> specValue annotations=../annotations title=title spec=spec}}
+            {{else}}
+              {{> specColor annotations=../annotations title=title spec=spec}}
+            {{/if}}
+          {{/each}}
+          {{/if}}
           {{{ contents }}}
         </div>
       </div>

@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.0-rc",
   "description": "Infor UX",
   "author": "Hook & Loop",
   "license": "UNLICENSED",
@@ -42,6 +42,7 @@
     "gulp-yaml": "^1.0.1",
     "gulp-zip": "^4.0.0",
     "handlebars": "^4.0.11",
+    "handlebars-registrar": "^1.5.2",
     "is-color": "^0.2.0",
     "jasmine": "^2.8.0",
     "js-yaml": "^3.10.0",

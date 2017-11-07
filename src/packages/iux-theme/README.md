@@ -6,10 +6,13 @@ specs:
 
 ## Soho Theme
 
+<!---
 {{> themeDetails spec=default }}
+-->
 
 ## Color swatches
 
+<!---
 <div class="color-swatches">
 {{#each default}}
 {{#if this.isColor}}
@@ -17,3 +20,4 @@ specs:
 {{/if}}
 {{/each}}
 </div>
+-->

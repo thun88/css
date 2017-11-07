@@ -2,16 +2,21 @@
 title: Responsive Grid
 description: A 12-column grid is the base infrastructure of modern, responsive application. On this page, you'll learn how to use the responsive grid to build page layouts and how to adjust your layouts on different browser-width breakpoints.
 specs:
-- title: "Extra Small"
-  spec: "default.breakpointXs"
-- title: "Small"
-  spec: "default.breakpointSm"
-- title: "Medium"
-  spec: "default.breakpointMd"
-- title: "Large"
-  spec: "default.breakpointLg"
-- title: "Extra Large"
-  spec: "default.breakpointXl"
+- title: Extra Small
+  spec: breakpointXs
+  valueType: true
+- title: Small
+  spec: breakpointSm
+  valueType: true
+- title: Medium
+  spec: breakpointMd
+  valueType: true
+- title: Large
+  spec: breakpointLg
+  valueType: true
+- title: Extra Large
+  spec: breakpointXl
+  valueType: true
 ---
 
 

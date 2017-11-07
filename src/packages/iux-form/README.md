@@ -2,24 +2,26 @@
 title: Form Controls
 description: Some text about using form-controls.
 specs:
-- title: "Border Color"
-  spec: "default.inputBorderColor"
-- title: "Border Color (Hover)"
-  spec: "default.inputBorderColorHover"
-- title: "Border Color (Focus)"
-  spec: "default.inputBorderColorFocus"
-- title: "Input Text Color"
-  spec: "default.inputColor"
-- title: "Input Placeholder Text Color"
-  spec: "default.inputColorPlaceholder"
-- title: "Input Label Text Color"
-  spec: "default.inputLabelColor"
-- title: "Info Block Text Color"
-  spec: "default.inputInfoBlockColor"
-- title: "Input Height"
-  spec: "default.inputHeight"
-- title: "Corner Radius"
-  spec: "default.inputBorderRadius"
+- title: Border Color
+  spec: inputBorderColor
+- title: Border Color (Hover)
+  spec: inputBorderColorHover
+- title: Border Color (Focus)
+  spec: inputBorderColorFocus
+- title: Input Text Color
+  spec: inputColor
+- title: Input Placeholder Text Color
+  spec: inputColorPlaceholder
+- title: Input Label Text Color
+  spec: inputLabelColor
+- title: Info Block Text Color
+  spec: inputInfoBlockColor
+- title: Input Height
+  spec: inputHeight
+  valueType: true
+- title: Corner Radius
+  spec: inputBorderRadius
+  valueType: true
 ---
 
 

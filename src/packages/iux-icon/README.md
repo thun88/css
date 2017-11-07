@@ -1,7 +1,6 @@
 ---
 title: Icons
 description: Infor UX Styleguide
-specs:
 ---
 
 
@@ -50,6 +49,7 @@ To be able to x:link the icons into your app, you will need to copy `dist/icons.
 
 The examples below are shown in buttons, as that is their most common use.
 
+<!---
 <div class='iux-row'>
     {{#each svgIcons}}
         <div class="iux-row--col-md-2 text--center">
@@ -64,3 +64,4 @@ The examples below are shown in buttons, as that is their most common use.
         </div>
     {{/each}}
 </div>
+-->
