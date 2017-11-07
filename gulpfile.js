@@ -11,7 +11,6 @@ const
   gulp        = require('gulp'),
   paths       = require('./gulp/gulp-config.js'),
   fs          = require('fs'),
-  helperFns   = require('./gulp/functions.js'),
   runSequence = require('run-sequence');
 
 

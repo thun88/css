@@ -5,9 +5,7 @@
 module.exports = (gulp, paths, publishDocObj) => {
 
   const fs = require('fs');
-  const helperFns = require('../functions.js');
   const zip = require('gulp-zip');
-
 
   gulp.task('build', ['json:yaml:compile','json:md:compile','json:js:compile'], () => {
     // Create folder if needed
