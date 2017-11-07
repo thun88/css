@@ -2,8 +2,9 @@
 title: Adaptive States
 description: This is a page dedicated to showcase adaptive states. Adaptive states can be defined within any scope of the DOM to modify style of supported elements for different environment factors like touch input.
 specs:
-- title: "Touch Input Height"
-  spec: "default.inputHeightAdaptiveTouch"
+- title: Touch Input Height
+  spec: inputHeightAdaptiveTouch
+  valueType: true
 ---
 
 ## Touch Adaptive State

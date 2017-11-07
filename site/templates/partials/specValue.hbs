@@ -1,4 +1,6 @@
 <div class="site-spec">
   <div class="site-spec--title">{{ title }}:</div>
-  <div class="site-spec--value"><code>{{spec.originalValue}}</code></div>
+  {{#with (lookup (lookup annotations 'default') spec)}}
+  <div class="site-spec--value"><code>{{originalValue}}</code></div>
+  {{/with}}
 </div>

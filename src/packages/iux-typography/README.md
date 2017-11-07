@@ -2,22 +2,25 @@
 title: Typography
 description: These are typical type classes you'll have available.
 specs:
-- title: "Secondary Header Font Size"
-  spec: "default.headerSecondaryFontSize"
-- title: "Base Font Size"
-  spec: "default.fontSizeBase"
-- title: "Small Font Size"
-  spec: "default.textSmall"
-- title: "Default Text Color"
-  spec: "default.bodyColor"
-- title: "Descriptive Text Color"
-  spec: "default.textDescriptive"
-- title: "Muted Text Color"
-  spec: "default.textMuted"
-- title: "Link Text Color"
-  spec: "default.linkColor"
-- title: "Alert Text Color"
-  spec: "default.textAlert"
+- title: Secondary Header Font Size
+  spec: headerSecondaryFontSize
+  valueType: true
+- title: Base Font Size
+  spec: fontSizeBase
+  valueType: true
+- title: Small Font Size
+  spec: textSmall
+  valueType: true
+- title: Default Text Color
+  spec: bodyColor
+- title: Descriptive Text Color
+  spec: textDescriptive
+- title: Muted Text Color
+  spec: textMuted
+- title: Link Text Color
+  spec: linkColor
+- title: Alert Text Color
+  spec: textAlert
 ---
 
 ## Standard Type Settings

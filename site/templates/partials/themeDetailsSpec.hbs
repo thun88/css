@@ -4,17 +4,17 @@
       <div class="theme-spec--swatch" style="background: {{data.value}}; border-color: {{border.value}}" title="{{data.value}}">&nbsp;</div>
     </div>
     <div class="iux-row--col-9 theme-spec--details" style="color: {{spec.bodyColor.value}};">
-      <div>{{title}}</div>
-      <div>Background: {{data.originalValue}}</div>
-      <div>Border: {{border.originalValue}}</div>
+      <div style="color: {{textColor}}">{{title}}</div>
+      <div style="color: {{textColor}}">Background: {{data.originalValue}}</div>
+      <div style="color: {{textColor}}">Border: {{border.originalValue}}</div>
     </div>
   {{else}}
     <div class="iux-row--col-3">
       <div class="theme-spec--swatch" style="background: {{data.value}};" title="{{data.value}}">&nbsp;</div>
     </div>
     <div class="iux-row--col-9 theme-spec--details" style="color: {{spec.bodyColor.value}};">
-      <div>{{title}}</div>
-      <div>{{data.originalValue}}</div>
+      <div style="color: {{textColor}}">{{title}}</div>
+      <div style="color: {{textColor}}">{{data.originalValue}}</div>
     </div>
   {{/if}}
 </div>

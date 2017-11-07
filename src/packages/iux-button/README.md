@@ -2,22 +2,23 @@
 title: Buttons
 description: This page describes how the buttons and button styles are used.
 specs:
-- title: "Default Button Color"
-  spec: "default.btnDefaultBg"
-- title: "Default Button Label Color"
-  spec: "default.btnDefaultColor"
-- title: "Default Button Hover Color"
-  spec: "default.btnDefaultHover"
-- title: "Default Disabled State Opacity"
-  spec: "default.btnDisabledOpacity"
-- title: "Primary Background Color"
-  spec: "default.btnPrimaryBg"
-- title: "Primary Label Color"
-  spec: "default.btnPrimaryColor"
-- title: "Primary Hover Color"
-  spec: "default.btnPrimaryHover"
-- title: "Primary Disabled State Opacity"
-  spec: "default.btnDisabledOpacity"
+- title: Default Button Color
+  spec: btnDefaultBg
+- title: Default Button Label Color
+  spec: btnDefaultColor
+- title: Default Button Hover Color
+  spec: btnDefaultHover
+- title: Default Disabled State Opacity
+  spec: btnDisabledOpacity
+- title: Primary Background Color
+  spec: btnPrimaryBg
+- title: Primary Label Color
+  spec: btnPrimaryColor
+- title: Primary Hover Color
+  spec: btnPrimaryHover
+- title: Primary Disabled State Opacity
+  valueType: true
+  spec: btnDisabledOpacity
 ---
 
 

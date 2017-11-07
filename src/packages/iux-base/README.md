@@ -1,10 +1,7 @@
 ---
 title: Home
 description: SoHo unifies the CloudSuite experience by standardizing the universal design elements like colors, text, and buttons. Infor-UX is a simple CSS library to help implement SoHo design principles with easy-to-follow and easy-to-implement rules and code.
-specs:
 ---
-
-<style>#TOC {display: none;}</style>
 
 ## Getting Started
 

@@ -1,9 +1,7 @@
 ---
-title: Themes
+title: Dark Theme
 description: These document how to utilize the themes in foundation.
 specs:
+  - name: themeDark
+    themeType: true
 ---
-
-## Dark
-
-{{> themeDetails spec=themeDark }}
