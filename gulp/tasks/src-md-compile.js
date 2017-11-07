@@ -7,38 +7,38 @@ module.exports = (gulp, paths, postCssPlugins, arrIcons, svgHtml) => {
 
   gulp.task('src:md:compile', () => {
 
-  const helperFns = require('../functions.js');
-  const flatten = require('gulp-flatten');
-  const frontMatter = require('gulp-front-matter');
-  const fs = require('fs');
-  const handlebars = require('Handlebars');
-  const registrar = require('handlebars-registrar');
-  const markdown = require('gulp-markdown'); // base engine is marked to match json-md-compile
-  const pkgJson  = require('../../package.json');
-  const rename  = require('gulp-rename');
-  const tap = require('gulp-tap');
-  const yaml = require('js-yaml');
+    const helperFns = require('../functions.js');
+    const flatten = require('gulp-flatten');
+    const frontMatter = require('gulp-front-matter');
+    const fs = require('fs');
+    const handlebars = require('Handlebars');
+    const registrar = require('handlebars-registrar');
+    const markdown = require('gulp-markdown'); // base engine is marked to match json-md-compile
+    const pkgJson  = require('../../package.json');
+    const rename  = require('gulp-rename');
+    const tap = require('gulp-tap');
+    const yaml = require('js-yaml');
 
-  // Load sitemap for sidebar
-  const sitemap = yaml.safeLoad(
-    fs.readFileSync(`${paths.src.root}/sitemap.yaml`, 'utf8')
-  );
+    // Load sitemap for sidebar
+    const sitemap = yaml.safeLoad(
+      fs.readFileSync(`${paths.src.root}/sitemap.yaml`, 'utf8')
+    );
 
-  const cssAnnotations = helperFns.createCssAnnotations(paths.src.packages);
+    const cssAnnotations = helperFns.createCssAnnotations(paths.src.packages);
 
-  registrar(handlebars, {
-    partials: [
-      `${paths.site.templates}/partials/*.{hbs,js}`
-    ]
-  });
+    registrar(handlebars, {
+      partials: [
+        `${paths.site.templates}/partials/*.{hbs,js}`
+      ]
+    });
 
-  // Copy compiled styles into site/www/dist (async)
-  gulp.src(`${paths.src.packages}/iux-components-webapp/dist/*.min.css`)
-    .pipe(gulp.dest(`${paths.site.www}/dist`));
+    // Copy compiled styles into site/www/dist (async)
+    gulp.src(`${paths.src.packages}/iux-components-webapp/dist/*.min.css`)
+      .pipe(gulp.dest(`${paths.site.www}/dist`));
 
-  // read the template from page.hbs
-  return gulp.src(`${paths.site.templates}/layout.hbs`)
-    .pipe(tap(function(file) {
+    // read the template from page.hbs
+    return gulp.src(`${paths.site.templates}/layout.hbs`)
+      .pipe(tap(function(file) {
 
       // file is page.hbs so generate template from file
       const template = handlebars.compile(file.contents.toString());
