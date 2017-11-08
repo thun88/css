@@ -1,6 +1,9 @@
 ---
 title: Form Controls
 description: Some text about using form-controls.
+demo:
+  local:
+    path: /iux-form/form.html
 specs:
 - title: Border Color
   spec: inputBorderColor
