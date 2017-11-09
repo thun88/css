@@ -18,8 +18,8 @@ module.exports = (gulp, gconfig) => {
       `${gconfig.paths.demo}/*/dist/**`,
 
       // site files
-      `${gconfig.paths.site.www}/**`,
-      `!${gconfig.paths.site.www}`,
+      `${gconfig.paths.site.www}/*.html`,
+      `${gconfig.paths.site.www}/dist`,
       `log`
     ]);
   });
