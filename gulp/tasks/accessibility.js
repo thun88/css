@@ -3,7 +3,7 @@
 //   Test accessibility level WCAG2A
 // --------------------------------------------------------------------------
 
-module.exports = (gulp, paths) => {
+module.exports = (gulp, gconfig) => {
 
   const
     access  = require('gulp-accessibility'),
@@ -14,7 +14,7 @@ module.exports = (gulp, paths) => {
 
     del(['log/accessibility']);
 
-    return gulp.src(`${paths.site.www}/*.html`)
+    return gulp.src(`${gconfig.paths.site.www}/*.html`)
       .pipe(access({
         accessibilityLevel: 'WCAG2A',
         force: true,

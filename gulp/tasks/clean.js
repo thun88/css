@@ -3,7 +3,7 @@
 //   Delete any dist/ files
 // -------------------------------------
 
-module.exports = (gulp, paths) => {
+module.exports = (gulp, gconfig) => {
 
   const del = require('del');
 
@@ -11,15 +11,15 @@ module.exports = (gulp, paths) => {
 
     return del([
       // distributed files
-      paths.dist,
+      gconfig.paths.dist,
 
       // package files
-      `${paths.src.packages}/*/dist/**`,
-      `${paths.demo}/*/dist/**`,
+      `${gconfig.paths.src.packages}/*/dist/**`,
+      `${gconfig.paths.demo}/*/dist/**`,
 
       // site files
-      `${paths.site.www}/**`,
-      `!${paths.site.www}`,
+      `${gconfig.paths.site.www}/**`,
+      `!${gconfig.paths.site.www}`,
       `log`
     ]);
   });

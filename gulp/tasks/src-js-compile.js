@@ -2,7 +2,7 @@
 //   Task: Build Packages JS
 // -------------------------------------
 
-module.exports = (gulp, paths) => {
+module.exports = (gulp, gconfig) => {
 
   const rename = require('gulp-rename');
   const path = require('path');
@@ -11,27 +11,27 @@ module.exports = (gulp, paths) => {
   const webpackStream = require('webpack-stream');
 
   gulp.task('src:js:compile', () => {
-    const devConfig = require(path.resolve(`${paths.root}/webpack.dev.js`));
+    const devConfig = require(path.resolve(`${gconfig.paths.root}/webpack.dev.js`));
 
-    return gulp.src([`${paths.src.packages}/*/*.js`])
+    return gulp.src([`${gconfig.paths.src.packages}/*/*.js`])
       .pipe(named())
       .pipe(webpackStream(devConfig), webpack)
       .pipe(rename((path) => {
-        path.dirname += `/${paths.project.prefix}${path.basename}/dist`;
+        path.dirname += `/${gconfig.project.prefix}-${path.basename}/dist`;
       }))
-      .pipe(gulp.dest(paths.demo))
-      .pipe(gulp.dest(paths.src.packages));
+      .pipe(gulp.dest(gconfig.paths.demo))
+      .pipe(gulp.dest(gconfig.paths.src.packages));
   });
 
   // gulp.task('src-jsprod', () => {
-  //   const prodConfig = require(path.resolve(`${paths.root}/webpack.prod.js`));
+  //   const prodConfig = require(path.resolve(`${gconfig.paths.root}/webpack.prod.js`));
 
-  //   return gulp.src([`${paths.src.packages}/**/tab.js`,`${paths.src.packages}/**/select.js`])
+  //   return gulp.src([`${gconfig.paths.src.packages}/**/tab.js`,`${gconfig.paths.src.packages}/**/select.js`])
   //     .pipe(named())
   //     .pipe(webpackStream(prodConfig), webpack)
   //     .pipe(rename((path) => {
-  //       path.dirname += `/${paths.project.prefix}${path.basename}/dist`;
+  //       path.dirname += `/${gconfig.project.prefix}-${path.basename}/dist`;
   //     }))
-  //     .pipe(gulp.dest(paths.src.packages));
+  //     .pipe(gulp.dest(gconfig.paths.src.packages));
   // });
 }

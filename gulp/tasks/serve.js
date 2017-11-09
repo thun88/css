@@ -3,7 +3,7 @@
 //   then watch
 // -------------------------------------
 
-module.exports = (gulp, paths) => {
+module.exports = (gulp, gconfig) => {
 
   const browserSync = require('browser-sync').create('localDocServer');
 
@@ -19,7 +19,7 @@ module.exports = (gulp, paths) => {
       injectChanges: false,
       open: false,
       server: {
-        baseDir: [paths.site.www, paths.demo]
+        baseDir: [gconfig.paths.site.www, gconfig.paths.demo]
       },
       logLevel: 'info',
       logPrefix: 'IUX',
@@ -27,22 +27,23 @@ module.exports = (gulp, paths) => {
     });
 
     const demoFiles = [
-      `${paths.demo}/demo.css`,
-      `${paths.demo}/*/*.html`
+      `${gconfig.paths.demo}/demo.css`,
+      `${gconfig.paths.demo}/*/*.html`
     ];
 
     const siteFiles = [
-      `${paths.site.css}/**/*`,
-      `${paths.site.templates}/**/*`
+      `${gconfig.paths.site.css}/**/*`,
+      `${gconfig.paths.site.templates}/**/*`
     ];
 
     const packageFiles = [
-      `${paths.src.root}/sitemap.yaml`,
-      `${paths.src.packages}/*/+(*.css|*.js|*.md)`
+      `${gconfig.paths.src.root}/sitemap.yaml`,
+      `${gconfig.paths.src.root}/**/*.md`,
+      `${gconfig.paths.src.packages}/*/+(*.css|*.js)`
     ];
 
     const changeEvent = (evt) => {
-      gutil.log('File', gutil.colors.cyan(evt.path.replace(new RegExp('/.*(?=/' + paths.root + ')/'), '')), 'was', gutil.colors.magenta(evt.type));
+      gutil.log('File', gutil.colors.cyan(evt.path.replace(new RegExp('/.*(?=/' + gconfig.paths.root + ')/'), '')), 'was', gutil.colors.magenta(evt.type));
     };
 
     gulp

@@ -7,11 +7,10 @@
 // -------------------------------------
 // Load gulp, config, & plugins
 // -------------------------------------
-const
-  gulp        = require('gulp'),
-  paths       = require('./gulp/gulp-config.js'),
-  fs          = require('fs'),
-  runSequence = require('run-sequence');
+const gulp = require('gulp');
+const gconfig = require('./gulp/gulp-config.js');
+const fs = require('fs');
+const runSequence = require('run-sequence');
 
 
 // -------------------------------------
@@ -41,32 +40,40 @@ const postCssPlugins = {
 // -------------------------------------
 let publishDocObj = {};
 let arrOfIcons = [];
-let compiledSvgHtml = fs.readFileSync(`${paths.src.icons}/icons.svg`, 'utf-8');
+let compiledSvgHtml = fs.readFileSync(`${gconfig.paths.src.icons}/icons.svg`, 'utf-8');
 
 
 // -------------------------------------
 //   Load Tasks
 // -------------------------------------
-require(`${paths.tasks}/accessibility.js`)(gulp, paths);
-require(`${paths.tasks}/build.js`)(gulp, paths, publishDocObj);
-require(`${paths.tasks}/clean.js`)(gulp, paths);
-require(`${paths.tasks}/css-lint.js`)(gulp, paths);
-require(`${paths.tasks}/json-js-compile.js`)(gulp, paths, publishDocObj);
-require(`${paths.tasks}/json-md-compile.js`)(gulp, paths, publishDocObj);
-require(`${paths.tasks}/json-yaml-compile.js`)(gulp, paths);
-require(`${paths.tasks}/deploy.js`)(gulp, paths);
-require(`${paths.tasks}/serve.js`)(gulp, paths);
-require(`${paths.tasks}/site-css-compile.js`)(gulp, paths, postCssPlugins);
-require(`${paths.tasks}/src-md-compile.js`)(gulp, paths, postCssPlugins, arrOfIcons, compiledSvgHtml);
-require(`${paths.tasks}/src-css-compile.js`)(gulp, paths, postCssPlugins);
-require(`${paths.tasks}/src-js-compile.js`)(gulp, paths);
-require(`${paths.tasks}/svg-optimize.js`)(gulp, paths, arrOfIcons);
-require(`${paths.tasks}/svg-store.js`)(gulp, paths, arrOfIcons);
+require(`${gconfig.paths.tasks}/accessibility.js`)(gulp, gconfig);
+require(`${gconfig.paths.tasks}/build.js`)(gulp, gconfig, publishDocObj);
+require(`${gconfig.paths.tasks}/clean.js`)(gulp, gconfig);
+require(`${gconfig.paths.tasks}/css-lint.js`)(gulp, gconfig);
+require(`${gconfig.paths.tasks}/json-js-compile.js`)(gulp, gconfig, publishDocObj);
+require(`${gconfig.paths.tasks}/json-md-compile.js`)(gulp, gconfig, publishDocObj);
+require(`${gconfig.paths.tasks}/json-yaml-compile.js`)(gulp, gconfig);
+require(`${gconfig.paths.tasks}/deploy.js`)(gulp, gconfig);
+require(`${gconfig.paths.tasks}/serve.js`)(gulp, gconfig);
+require(`${gconfig.paths.tasks}/site-css-compile.js`)(gulp, gconfig, postCssPlugins);
+require(`${gconfig.paths.tasks}/src-md-compile.js`)(gulp, gconfig, postCssPlugins, arrOfIcons, compiledSvgHtml);
+require(`${gconfig.paths.tasks}/src-css-compile.js`)(gulp, gconfig, postCssPlugins);
+require(`${gconfig.paths.tasks}/src-js-compile.js`)(gulp, gconfig);
+require(`${gconfig.paths.tasks}/svg-optimize.js`)(gulp, gconfig, arrOfIcons);
+require(`${gconfig.paths.tasks}/svg-store.js`)(gulp, gconfig, arrOfIcons);
 
 
 // -------------------------------------
 //   Common Tasks
 // -------------------------------------
+// gulp default
+// gulp dev
+// gulp publish
+// gulp css:lint
+//
+// npm run test (package json)
+// -------------------------------------
+
 gulp.task('default', ['clean', 'svg:store'], () => {
   runSequence('src:compile', 'site:compile');
 });

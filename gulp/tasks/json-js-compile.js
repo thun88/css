@@ -2,7 +2,7 @@
 //   Document js packages into json
 // -------------------------------------
 
-module.exports = (gulp, paths, publishDocObj) => {
+module.exports = (gulp, gconfig, publishDocObj) => {
 
   const documentation = require('documentation');
   const helperFns = require('../functions.js');
@@ -11,18 +11,20 @@ module.exports = (gulp, paths, publishDocObj) => {
 
   gulp.task('json:js:compile', () => {
 
-    return gulp.src(`${paths.src.packages}/*/*.js`)
+    return gulp.src(`${gconfig.paths.src.packages}/*/*.js`)
       .pipe(tap((file, t) => {
-        documentation.build(file.path, {})
+        return documentation.build(file.path, {})
           .then(documentation.formats.json)
           .then(output => {
             // output is a string of JSON data
-            const propName = helperFns.getFolderName(path.dirname(file.path));
+
+            // Merge data back to global object to add converted markdown content
+            // Note: will be written to a file later in the flow
+            const fileName = helperFns.createFileNameFromFolder(path.dirname(file.path));
             const tmpObj = { api: JSON.parse(output)}
-            const mergedObj = { ...tmpObj, ...publishDocObj[propName] };
-            publishDocObj[propName] = mergedObj;
+            const mergedObj = { ...tmpObj, ...publishDocObj[fileName] };
+            publishDocObj[fileName] = mergedObj;
           });
       }))
   });
-
 }
