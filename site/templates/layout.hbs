@@ -38,6 +38,9 @@
         {{#if meta.title}}
           <div id="$idprefix$header" class="hero">
             <h1 class="page-title">{{meta.title}}</h1>
+            {{#if meta.demo }}
+              <a href="{{meta.demo.local.path}}" title="Demo for {{meta.title}}">View Live Demo</a>
+            {{/if}}
             {{#if meta.description}}
               <p class="page-description">{{meta.description}}</p>
             {{/if}}
