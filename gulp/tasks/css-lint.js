@@ -3,16 +3,16 @@
 //   Lint the package source css
 // -------------------------------------
 
-module.exports = (gulp, paths) => {
+module.exports = (gulp, gconfig) => {
 
-  const
-    stylelint   = require('gulp-stylelint'),
-    gitmodified = require('gulp-gitmodified');
+  gulp.task('css:lint', () => {
 
-  //   Lint the source css
-  gulp.task('stylelint:packages', () => {
-    return gulp.src(`${paths.src.packages}/*/*.css`)
-      .pipe(gitmodified(['modified']))
+    const stylelint = require('gulp-stylelint');
+
+    return gulp.src([
+      `${gconfig.paths.src.packages}/*/*.css`,
+      `${gconfig.paths.site.css}/*/*.css`
+      ])
       .pipe(stylelint({
         failAfterError: true,
         reporters: [{

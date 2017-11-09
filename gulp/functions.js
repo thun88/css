@@ -71,7 +71,7 @@ let helperFns = {
    * @param  {String} filePath - The full dir path without the file
    * @return {String}          - The last folder in the path
    */
-  getFolderName: (filePath) => {
+  createFileNameFromFolder: (filePath) => {
     let pathArr = filePath.split('/');
     let str = pathArr[pathArr.length - 1].replace('iux-', '');
     return str;

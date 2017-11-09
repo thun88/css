@@ -3,7 +3,7 @@
 //   Compile the website css
 // -------------------------------------
 
-module.exports = (gulp, paths, postCssPlugins) => {
+module.exports = (gulp, gconfig, postCssPlugins) => {
 
   //   Task: Build Site Css
   gulp.task('site:css:compile', () => {
@@ -25,9 +25,9 @@ module.exports = (gulp, paths, postCssPlugins) => {
       postCssPlugins.cssnano({ autoprefixer: false })
     ];
 
-    return gulp.src(`${paths.site.root}/css/site.css`)
+    return gulp.src(`${gconfig.paths.site.root}/css/site.css`)
       .pipe(postcss(plugins, { map: true }))
       .pipe(rename({ suffix: '.min' }))
-      .pipe(gulp.dest(`${paths.site.www}/dist`));
+      .pipe(gulp.dest(`${gconfig.paths.site.www}/dist`));
   });
 }

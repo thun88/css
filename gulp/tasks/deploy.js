@@ -2,26 +2,25 @@
 //   Task: Publish Zip (file)
 // -------------------------------------
 
-module.exports = (gulp, paths) => {
-
-  const
-    fs          = require('fs'),
-    formData    = require('form-data'),
-    gutil       = require('gulp-util'),
-    packageJson = require('../../package.json');
+module.exports = (gulp, gconfig) => {
 
   return gulp.task('deploy', () => {
 
-    let form = new formData();
-    form.append('file', fs.createReadStream(`${paths.dist}/${paths.project.name}.zip`));
-    form.append('root_path', `${paths.project.name}/${packageJson.version}`);
+    const fs = require('fs');
+    const formData = require('form-data');
+    const gutil = require('gulp-util');
+    const packageJson = require('../../package.json');
 
-    form.submit(paths.urls.staging, (err, res) => {
+    let form = new formData();
+    form.append('file', fs.createReadStream(`${gconfig.paths.dist}/${packageJson.name}.zip`));
+    form.append('root_path', `${packageJson.name}/${packageJson.version}`);
+
+    form.submit(gconfig.urls.staging, (err, res) => {
       if (err) {
         gutil.log(err);
       } else {
         if (res.statusCode == 200) {
-          gutil.log(`Status ${res.statusCode}: published to '${paths.urls.staging}'`);
+          gutil.log(`Status ${res.statusCode}: published to '${gconfig.urls.staging}'`);
         } else {
           gutil.log(`Status ${res.statusCode}`);
         }

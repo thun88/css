@@ -2,26 +2,29 @@
 //   Task: Build & zip publish files
 // -------------------------------------
 
-module.exports = (gulp, paths, publishDocObj) => {
+module.exports = (gulp, gconfig, publishDocObj) => {
 
   const fs = require('fs');
+  const packageJson = require('../../package.json');
   const zip = require('gulp-zip');
+
+
 
   gulp.task('build', ['json:yaml:compile','json:md:compile','json:js:compile'], () => {
     // Create folder if needed
-    if (!fs.existsSync(paths.dist)){
-      fs.mkdirSync(paths.dist);
+    if (!fs.existsSync(gconfig.paths.dist)){
+      fs.mkdirSync(gconfig.paths.dist);
     }
 
     // Loop through each "file" property and create the json file
     for (let pkgName of Object.keys(publishDocObj)) {
-      const thePath = `${paths.dist}/${pkgName}.json`;
+      const thePath = `${gconfig.paths.dist}/${pkgName}.json`;
       fs.writeFileSync(thePath, JSON.stringify(publishDocObj[pkgName]));
     }
 
     // Zip the files
-    return gulp.src(`${paths.dist}/*`)
-      .pipe(zip(`${paths.project.name}.zip`))
-      .pipe(gulp.dest(paths.dist))
+    return gulp.src(`${gconfig.paths.dist}/*`)
+      .pipe(zip(`${packageJson.name}.zip`))
+      .pipe(gulp.dest(gconfig.paths.dist))
   });
 }
