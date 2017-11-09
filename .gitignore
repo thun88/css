@@ -1,6 +1,7 @@
 # Compiled #
 ############
-site/www/
+site/www/*.html
+site/www/dist
 publish
 demo/**/dist/*
 src/packages/**/dist/*
@@ -16,3 +17,6 @@ log/
 .DS_Store
 .vscode
 *.swp
+
+# Editor Files #
+*.sublime*
