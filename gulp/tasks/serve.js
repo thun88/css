@@ -15,7 +15,7 @@ module.exports = (gulp, gconfig) => {
 
     browserSync.init({
       codesync: false, // keep this false and use watches
-      index: 'base.html',
+      index: 'index.html',
       injectChanges: false,
       open: false,
       server: {
