@@ -12,8 +12,6 @@ sections:
   #- name: theme-dark
   #- name: theme-high-contrast
   pages:
-  - name: Identity
-    slug: identity
   - name: Themes
     slug: theme
   - name: Icons
