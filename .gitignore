@@ -20,3 +20,5 @@ log/
 
 # Editor Files #
 *.sublime*
+.vscode
+*.code-*
