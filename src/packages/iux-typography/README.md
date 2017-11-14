@@ -40,3 +40,32 @@ You can also use the classes `header--primary` and `header--secondary` to emulat
 ## Type Utility Clases
 
 Text utility classes are provided to emulate certain type styles by applying classes. `.text-descriptive` changes the <span class="text-descriptive">color of descriptive text to a shade lighter</span>, `.text-muted` makes the <span class="text-muted">color of text muted</span>, and `.text-alert` makes text <span class="text-alert">Alert Red</span>. `.text-link` allows you to <span class="text-link">make text a link style</span> even when it's not in an `<a>` tag. Use `.text-strong` to make text <span class="text-strong">strong</span>, `.text-emphasis` to makes it <span class="text-emphasis">emphasized</span> and `.text-small` makes it <span class="text-small">smaller</small>.
+
+## Lists
+
+### Plain List
+```html
+<ul class="iux-list--plain">
+  <li>One</li>
+  <li>Two</li>
+  <li>Three</li>
+</ul>
+```
+
+### Ordered List
+```html
+<ol>
+  <li>One</li>
+  <li>Two</li>
+  <li>Three</li>
+</ol>
+```
+
+### Unordered List
+```html
+<ul>
+  <li>One</li>
+  <li>Two</li>
+  <li>Three</li>
+</ul>
+```
