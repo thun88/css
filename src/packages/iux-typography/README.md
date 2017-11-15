@@ -35,8 +35,12 @@ specs:
 <small>Small Text</small>
 ```
 
-You can also use the classes `header--primary` and `header--secondary` to emulate `<h1>` and `<h2>` styles without using those specific tags. `<strong>`, `<em`, and `<small>` all behave as you would expect.
+You can also use the classes `header--primary` and `header--secondary` to emulate `<h1>` and `<h2>` styles without using those specific tags. `<strong>`, `<em>`, and `<small>` all behave as you would expect.
 
 ## Type Utility Clases
 
 Text utility classes are provided to emulate certain type styles by applying classes. `.text-descriptive` changes the <span class="text-descriptive">color of descriptive text to a shade lighter</span>, `.text-muted` makes the <span class="text-muted">color of text muted</span>, and `.text-alert` makes text <span class="text-alert">Alert Red</span>. `.text-link` allows you to <span class="text-link">make text a link style</span> even when it's not in an `<a>` tag. Use `.text-strong` to make text <span class="text-strong">strong</span>, `.text-emphasis` to makes it <span class="text-emphasis">emphasized</span> and `.text-small` makes it <span class="text-small">smaller</small>.
+
+## Lists
+
+For `<ol>` and `<ul>`, the default is to show the default `decimal` or `disc` `list-style-type`. If you want a plain ordered or un-ordered list without the list indicator, use `.iux-list--plain`.
