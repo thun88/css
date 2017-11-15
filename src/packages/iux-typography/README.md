@@ -35,7 +35,7 @@ specs:
 <small>Small Text</small>
 ```
 
-You can also use the classes `header--primary` and `header--secondary` to emulate `<h1>` and `<h2>` styles without using those specific tags. `<strong>`, `<em`, and `<small>` all behave as you would expect.
+You can also use the classes `header--primary` and `header--secondary` to emulate `<h1>` and `<h2>` styles without using those specific tags. `<strong>`, `<em>`, and `<small>` all behave as you would expect.
 
 ## Type Utility Clases
 
@@ -43,29 +43,4 @@ Text utility classes are provided to emulate certain type styles by applying cla
 
 ## Lists
 
-### Plain List
-```html
-<ul class="iux-list--plain">
-  <li>One</li>
-  <li>Two</li>
-  <li>Three</li>
-</ul>
-```
-
-### Ordered List
-```html
-<ol>
-  <li>One</li>
-  <li>Two</li>
-  <li>Three</li>
-</ol>
-```
-
-### Unordered List
-```html
-<ul>
-  <li>One</li>
-  <li>Two</li>
-  <li>Three</li>
-</ul>
-```
+For `<ol>` and `<ul>`, the default is to show the default `decimal` or `disc` `list-style-type`. If you want a plain ordered or un-ordered list without the list indicator, use `.iux-list--plain`.
