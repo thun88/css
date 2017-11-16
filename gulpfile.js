@@ -9,7 +9,6 @@
 // -------------------------------------
 const gulp = require('gulp');
 const gconfig = require('./gulp/gulp-config.js');
-const fs = require('fs');
 const runSequence = require('run-sequence');
 
 
@@ -40,7 +39,6 @@ const postCssPlugins = {
 // -------------------------------------
 let publishDocObj = {};
 let arrOfIcons = [];
-let compiledSvgHtml = fs.readFileSync(`${gconfig.paths.src.icons}/icons.svg`, 'utf-8');
 
 
 // -------------------------------------
@@ -50,17 +48,19 @@ require(`${gconfig.paths.tasks}/accessibility.js`)(gulp, gconfig);
 require(`${gconfig.paths.tasks}/build.js`)(gulp, gconfig, publishDocObj);
 require(`${gconfig.paths.tasks}/clean.js`)(gulp, gconfig);
 require(`${gconfig.paths.tasks}/css-lint.js`)(gulp, gconfig);
+require(`${gconfig.paths.tasks}/deploy.js`)(gulp, gconfig);
 require(`${gconfig.paths.tasks}/json-js-compile.js`)(gulp, gconfig, publishDocObj);
 require(`${gconfig.paths.tasks}/json-md-compile.js`)(gulp, gconfig, publishDocObj);
 require(`${gconfig.paths.tasks}/json-yaml-compile.js`)(gulp, gconfig);
-require(`${gconfig.paths.tasks}/deploy.js`)(gulp, gconfig);
 require(`${gconfig.paths.tasks}/serve.js`)(gulp, gconfig);
 require(`${gconfig.paths.tasks}/site-css-compile.js`)(gulp, gconfig, postCssPlugins);
-require(`${gconfig.paths.tasks}/src-md-compile.js`)(gulp, gconfig, postCssPlugins, arrOfIcons, compiledSvgHtml);
 require(`${gconfig.paths.tasks}/src-css-compile.js`)(gulp, gconfig, postCssPlugins);
 require(`${gconfig.paths.tasks}/src-js-compile.js`)(gulp, gconfig);
-require(`${gconfig.paths.tasks}/svg-optimize.js`)(gulp, gconfig, arrOfIcons);
-require(`${gconfig.paths.tasks}/svg-store.js`)(gulp, gconfig, arrOfIcons);
+require(`${gconfig.paths.tasks}/src-md-compile.js`)(gulp, gconfig, postCssPlugins);
+
+require(`${gconfig.paths.tasks}/sketch-to-svgs.js`)(gulp, gconfig);
+require(`${gconfig.paths.tasks}/svg-store.js`)(gulp, gconfig);
+
 
 
 // -------------------------------------
@@ -74,12 +74,12 @@ require(`${gconfig.paths.tasks}/svg-store.js`)(gulp, gconfig, arrOfIcons);
 // npm run test (package json)
 // -------------------------------------
 
-gulp.task('default', ['clean', 'svg:store'], () => {
-  runSequence('src:compile', 'site:compile');
+gulp.task('default', ['clean', ], () => {
+  runSequence('svg:store', 'src:compile', 'site:compile');
 });
 
-gulp.task('dev', ['clean', 'svg:store'], () => {
-  runSequence('src:compile', 'site:compile', 'serve');
+gulp.task('dev', ['clean'], () => {
+  runSequence('svg:store', 'src:compile', 'site:compile', 'serve');
 });
 
 gulp.task('publish', () => {
