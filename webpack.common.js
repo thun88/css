@@ -31,7 +31,7 @@ module.exports = {
   // devtool: 'source-map',
   output: {
     path: path.resolve(outPath),
-    library: 'IUX',
+    library: 'iux',
     libraryTarget: 'umd'
   }
 }
