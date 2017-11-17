@@ -5,6 +5,7 @@ site/www/dist
 publish
 demo/**/dist/*
 src/packages/**/dist/*
+coverage/*
 
 # Packages #
 ############
