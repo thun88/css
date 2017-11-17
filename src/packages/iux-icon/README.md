@@ -1,28 +1,25 @@
 ---
 title: Icons
-description: Infor UX Styleguide
+description: Basic icons for IUX.
 ---
 
-
-# Standard Icons
-
-To be able to x:link the icons into your app, you will need to copy `dist/icons.svg` contents into the top of your `<body>` tag for your html pages.
+To be able to x:link the icons into your app, you will need to copy `dist/inline-icons.svg` contents into the top of your `<body>` tag for your html pages. You can hide it with a class we proivde: `visuallyhidden`.
 
 ## Examples of icon use:
 
 ### As a standalone icon:
 
 <div class="example">
-    <div title="star-filled icon">
+    <div title="icon_star icon">
         <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-            <use xlink:href="#star-filled"></use>
+            <use xlink:href="#icon_star"></use>
         </svg>
     </div>
 </div>
 ```html
-<div title="star-filled icon">
+<div title="icon_star icon">
     <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-        <use xlink:href="#star-filled"></use>
+        <use xlink:href="#icon_star"></use>
     </svg>
 </div>
 ```
@@ -30,17 +27,17 @@ To be able to x:link the icons into your app, you will need to copy `dist/icons.
 
 <div class="example">
     This icon
-    <span title="star-filled icon">
+    <span title="icon_star icon">
         <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-            <use xlink:href="#star-filled"></use>
+            <use xlink:href="#icon_star"></use>
         </svg>
     </span>
     has text around it.
 </div>
 ```html
-<span title="star-filled icon">
+<span title="icon_star icon">
     <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-        <use xlink:href="#star-filled"></use>
+        <use xlink:href="#icon_star"></use>
     </svg>
 </span>
 ```
@@ -49,19 +46,50 @@ To be able to x:link the icons into your app, you will need to copy `dist/icons.
 
 The examples below are shown in buttons, as that is their most common use.
 
-<!---
-<div class='iux-row'>
-    {{#each svgIcons}}
-        <div class="iux-row--col-md-2 text--center">
-            <div class="example">
-                <button type="button" class="btn btn-link" title="{{this}}">
-                <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
-                    <use xlink:href="#{{this}}"></use>
-                </svg>
-                </button>
-                {{this}}
-            </div>
-        </div>
-    {{/each}}
-</div>
--->
+<button type="button" class="btn btn-link" title="icon_close">
+  <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+      <use xlink:href="#icon_close"></use>
+  </svg>
+</button>
+
+<button type="button" class="btn btn-link" title="icon_expand">
+  <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+      <use xlink:href="#icon_expand"></use>
+  </svg>
+</button>
+
+<button type="button" class="btn btn-link" title="icon_folder">
+  <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+      <use xlink:href="#icon_folder"></use>
+  </svg>
+</button>
+
+<button type="button" class="btn btn-link" title="icon_lookup">
+  <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+      <use xlink:href="#icon_lookup"></use>
+  </svg>
+</button>
+
+<button type="button" class="btn btn-link" title="icon_minus">
+  <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+      <use xlink:href="#icon_minus"></use>
+  </svg>
+</button>
+
+<button type="button" class="btn btn-link" title="icon_plus">
+  <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+      <use xlink:href="#icon_plus"></use>
+  </svg>
+</button>
+
+<button type="button" class="btn btn-link" title="icon_search">
+  <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+      <use xlink:href="#icon_search"></use>
+  </svg>
+</button>
+
+<button type="button" class="btn btn-link" title="icon_star">
+  <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+      <use xlink:href="#icon_star"></use>
+  </svg>
+</button>

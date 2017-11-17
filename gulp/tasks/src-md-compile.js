@@ -3,7 +3,7 @@
 //   Build html files from markdown/hbs
 // -------------------------------------
 
-module.exports = (gulp, gconfig, postCssPlugins, arrIcons, svgHtml) => {
+module.exports = (gulp, gconfig, postCssPlugins, svgHtml) => {
 
   gulp.task('src:md:compile', () => {
 
@@ -25,6 +25,7 @@ module.exports = (gulp, gconfig, postCssPlugins, arrIcons, svgHtml) => {
     );
 
     const cssAnnotations = helperFns.createCssAnnotations(gconfig.paths.src.packages);
+    const inlineIcons = fs.readFileSync(`${gconfig.paths.src.icons}/dist/inline-icons.svg`, 'utf-8');
 
     registrar(handlebars, {
       partials: [
@@ -62,7 +63,8 @@ module.exports = (gulp, gconfig, postCssPlugins, arrIcons, svgHtml) => {
               meta: file.data.frontMatter,
               pkgJson: pkgJson,
               sitemap: sitemap,
-              annotations: cssAnnotations
+              annotations: cssAnnotations,
+              inlineIcons: inlineIcons
             };
 
             // we will pass data to the Handlebars template to create the actual HTML to use

@@ -9,8 +9,8 @@ module.exports = {
     dist: './publish',
     src: {
       root:     './src',
-      icons:    './src/icons',
       packages: './src/packages',
+      icons:    './src/packages/iux-icon'
     },
     site: {
       root:      './site',
