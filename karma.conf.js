@@ -30,7 +30,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      './spec/unit/**/*spec.js': ['webpack']
+      './spec/unit/**/*spec.js': ['webpack', 'coverage']
     },
 
     webpack: webpackConfig,
@@ -38,7 +38,7 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['mocha'],
+    reporters: ['mocha', 'coverage'],
 
 
     // web server port
@@ -66,7 +66,8 @@ module.exports = function(config) {
       'karma-chrome-launcher',
       'karma-jasmine',
       'karma-mocha-reporter',
-      'karma-webpack'
+      'karma-webpack',
+      'karma-coverage'
     ],
 
     // Continuous Integration mode
@@ -75,6 +76,13 @@ module.exports = function(config) {
 
     // Concurrency level
     // how many browser should be started simultaneous
-    concurrency: Infinity
+    concurrency: Infinity,
+
+    coverageReporter: {
+      reporters:[
+        {type: 'html', dir:'coverage/'},
+        {type: 'text-summary'}
+      ],
+    }
   })
 }
