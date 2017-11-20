@@ -1,7 +1,8 @@
 ---
-title: Infor UX WebApp Components
-description: This is how you get all the web components
+title: Infor UX Components
+description: Infor's UX component for the web
 ---
 
+## This is a package for all of the indidvidual IUX components together
 
-## All the things!
+Note: This is currently an alpha testing package and is unsupported outside of internal Hook & Loop systems, but a sign of things to come :)

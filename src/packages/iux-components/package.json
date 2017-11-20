@@ -1,6 +1,6 @@
 {
   "name": "@infor/iux-components",
-  "version": "0.1.0-alpha",
+  "version": "0.1.1-alpha",
   "description": "Hook & Loop alpha testing UX individual packages.",
   "repository": {
     "type": "git",
@@ -18,5 +18,8 @@
   "homepage": "https://github.com/hookandloop/soho-foundation#readme",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
-  }
+  },
+  "files": [
+    "dist"
+  ]
 }
