@@ -2,30 +2,6 @@
  * Common Styles for Demos
  */
 
-html {
-  font-family:   font-family: 'Helvetica', 'Arial', 'Tahoma', 'DejaVu';
-  font-size: 62.5%;
-}
-
-body {
-  font-size: 1.4rem;
-}
-
-h1 {
-  font-size: 18px;
-  font-size: 1.8rem;
-  margin-bottom: 10px;
-  margin-top: 20px;
-}
-
-h2,
-h3 {
-  font-size: 16px;
-  font-size: 1.6rem;
-  margin-bottom: 10px;
-  margin-top: 20px;
-}
-
 .example {
   background: #fff;
   border: 1px solid #e1e8e8;

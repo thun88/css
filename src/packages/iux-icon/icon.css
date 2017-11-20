@@ -1,4 +1,6 @@
 @import '../iux-base/base';
+@import '../iux-typography/typography';
+@import '../iux-button/button';
 
 .icon {
   color: inherit;

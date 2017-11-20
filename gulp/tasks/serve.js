@@ -28,7 +28,7 @@ module.exports = (gulp, gconfig) => {
 
     const demoFiles = [
       `${gconfig.paths.demo}/demo.css`,
-      `${gconfig.paths.demo}/*/*.html`
+      `${gconfig.paths.demo}/*/+(*.html|index.js)`
     ];
 
     const siteFiles = [

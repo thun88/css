@@ -3,12 +3,11 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta http-equiv="Content-Style-Type" content="text/css" />
-  <meta name="generator" content="pandoc" />
   <meta name="author" content="Hook & Loop">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Select Demo - IUX</title>
-
-  <link rel="stylesheet" type="text/css" href="/iux-select/dist/select.css">
+  <link rel="stylesheet" type="text/css" href="./dist/select.css">
+  <link rel="stylesheet" type="text/css" href="../demo.css">
 </head>
 
 <body class="iux-container">
@@ -17,7 +16,7 @@
   <h2>Select</h2>
   <div class="iux-select">
     <input type="text" class="form-control iux-select--input" placeholder="Select one" />
-    <ul class="iux-select--menu">
+    <ul class="iux-select--menu iux-list--plain">
       <li class="is-selected" data-value="Option 1">Option 1</li>
       <li data-value="Option 2">Option 2</li>
       <li data-value="Option 3">Option 3</li>
@@ -28,7 +27,7 @@
   <h2 id="select">Select Multiselect</h2>
   <div class="iux-select">
     <input type="text" class="form-control iux-select--input" placeholder="Select many" />
-    <ul class="iux-select--menu">
+    <ul class="iux-select--menu iux-list--plain">
       <li>
         <div class="form-checkbox">
           <input type="checkbox" id="selectCheck1" name="selectCheck1" value="Checkbox 1"/>
@@ -63,12 +62,6 @@
       </li>
     </ul>
   </div>
+  <script data-main="./index.js" src="../lib/require.js"></script>
 </body>
-
-<script type="text/javascript" src="/iux-select/dist/select.js"></script>
-<script type="text/javascript">
-  let singleSelect = new iux.select.IUXSelect(document.getElementsByClassName('iux-select')[0]);
-  let multiSelect = new iux.select.IUXMultiSelect(document.getElementsByClassName('iux-select')[1]);
-</script>
-
 </html>
