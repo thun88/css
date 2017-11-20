@@ -1,17 +1,17 @@
 {
+  "private": true,
   "version": "1.0.0",
   "name": "iux",
   "description": "Infor UX",
   "author": "Hook & Loop",
   "license": "UNLICENSED",
-  "main": "server.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/hookandloop/soho-foundation.git"
   },
   "dependencies": {
-    "scripts": "^0.1.0",
-    "@infor/documentation-css": "^0.1.4"
+    "@infor/documentation-css": "^0.1.4",
+    "scripts": "^0.1.0"
   },
   "devDependencies": {
     "babel-webpack-plugin": "^0.1.1",
