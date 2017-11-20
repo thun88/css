@@ -5,7 +5,6 @@
   "description": "Infor UX",
   "author": "Hook & Loop",
   "license": "UNLICENSED",
-  "main": "server.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/hookandloop/soho-foundation.git"
