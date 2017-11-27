@@ -1,0 +1,49 @@
+@import '../iux-components/iux.css';
+
+/* stylelint-disable comment-empty-line-before, custom-property-empty-line-before */
+
+/* @start cssVariables */
+:root {
+  --status-green: var(--emerald10);
+
+  --body-bg: var(--graphite03);
+  --body-bg-secondary: var(--graphite02);
+  --body-color: var(--black);
+  --link-color: var(--azure09);
+  --link-color-hover: var(--link-color);
+
+  --text-disabled: var(--graphite04);
+
+  --headings-color: var(--body-color);
+
+  --btn-default-bg: var(--graphite07);
+  --btn-default-color: var(--slate10);
+  --btn-default-hover: var(--slate04);
+
+  --btn-primary-bg: var(--azure06);
+  --btn-primary-hover: var(--azure10);
+
+  --btn-link-color: var(--graphite09);
+  --btn-link-hover: var(--black);
+
+  --icon-fill: var(--slate03);
+
+  --input-info-block-color: var(--graphite05);
+  --input-label-color: var(--graphite09);
+
+  --input-bg: var(--white);
+  --input-border-color: var(--graphite04);
+  --input-color: var(--body-color);
+
+  --input-bg: var(--white);
+  --input-border-color-disabled: var(--graphite04);
+
+  --input-bg: var(--white);
+  --input-border-color-hover: var(--graphite10);
+
+  --input-bg: var(--white);
+  --input-border-color-focus: var(--azure07);
+}
+/* @end cssVariables */
+
+/* stylelint-enable comment-empty-line-before, custom-property-empty-line-before */

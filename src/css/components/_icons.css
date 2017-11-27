@@ -1,9 +1,0 @@
-.icon {
-  color: inherit;
-  display: inline-block;
-  fill: var(--icon-fill);
-  height: var(--icon-height);
-  position: relative;
-  vertical-align: text-bottom;
-  width: var(--icon-width);
-}

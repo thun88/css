@@ -1,18 +1,25 @@
 # Compiled #
 ############
-/site/dist
-/site/www/*
-!/site/www/examples/
-!/site/www/img/
-log/
+site/www/*.html
+site/www/dist
+publish
+demo/**/dist/*
+src/packages/**/dist/*
+coverage/*
 
 # Packages #
 ############
 node_modules/
 npm-debug.log
+log/
 
 # OS generated files #
 ############
 .DS_Store
 .vscode
 *.swp
+
+# Editor Files #
+*.sublime*
+.vscode
+*.code-*

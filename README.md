@@ -1,29 +1,35 @@
-# [Soho Foundation](https://github.com/hookandloop/soho-foundation)
+# [Infor UX](#)
 
-Foundation is a sleek, intuitive, and powerful front-end framework for faster and easier web development.
+Infor UX is a sleek, intuitive, and powerful front-end framework for faster and easier web development.
 
 ## Table of contents
 - [Dev Quick start](#dev-quick-start)
 - [Gulp Tasks](#other-useful-gulp-tasks)
+- [Unit Tests](#unit-tests)
 - [SVG Icons](#edit-icons)
-- [Lint Styles](#lint-styles)
 - [Site Directory](#site-directory)
 
 ## Dev Quick start
 1. Pull the repo
 1. `cd` into the repo
-1. `$ npm install`
-1. `$ npm start`
+1. `npm install -g pandoc-bin gulp-cli && npm install`
+1. `gulp dev` to build and serve
 
 ## Basic Gulp Tasks
 
-- `$ gulp` - Build the site, run the webserver, start a watch
-- `$ gulp serve` - Run the webserver and watch
-- `$ gulp build` - Build the files
-- `$ gulp clean` - Remove all generated/static files
-- `$ gulp test` - Build, then run the accessibility tests on the built html files (reports are in `log/accessibility`)
+- `$ gulp` - Clean and Build the site and packages
+- `$ gulp dev` - Clean, build (site & packages), and start the server
+- `$ gulp publish` - Build the markdown docs into json, zip it, then post to the server
+- `$ gulp lint` Lints the **src** and **site** css raw files
+- `$ gulp clean` - Remove all built files
 
 > The website is served at `http://localhost:3000/`
+>
+> Demos are at `http://localhost:3000/iux-{package}/{package}`
+> (it follows the folder pattern under `demo/`)
+
+## Unit Tests
+You can run unit tests by doing `npm test` and they served out of the `spec` directory.
 
 ## SVG Icons
 
@@ -35,15 +41,15 @@ For building the icons
 1. `$ gulp svg:store`
 2. `$ gulp`
 
-## Lint Styles
-
-- `$ gulp lint` Lints the **source** and **site** css raw files
-
 ## Site Directory
 
-- `src` The raw files for foundation's css, documentation, and icons.
+- `src` The raw files for components and icons.
+- `src/packages` The individual components (while compiled each will have it's own `dist/`)
 - `site/www` The generated files for the served website.
-- `site/www/dist` The distributed/downloadable versions of the stylesheets.
 - `site/css` The CSS for the site only
-- `site/templates` The templates for generating the site html
-- `site/examples` [Temp] Currently holds a few static, stand-alone examples.
+- `site/templates` The templates for generating the site html files
+- `site/www/dist` Minified stylesheets used for the site.
+- `demo` Demo of each package.
+- `gulp` Contains the gulp tasks
+- `spec` The unit config/tests
+- `publish` The directory the deploy/publish is done from

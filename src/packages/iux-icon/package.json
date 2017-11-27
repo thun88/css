@@ -1,0 +1,23 @@
+{
+  "private": true,
+  "name": "@infor/iux-icon",
+  "version": "1.0.0",
+  "description": "Hook & Loop alpha testing UX individual packages.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hookandloop/soho-foundation.git"
+  },
+  "keywords": [
+    "infor-ux",
+    "components"
+  ],
+  "author": "Hook & Loop",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/hookaandloop/soho-foundation/issues"
+  },
+  "homepage": "https://github.com/hookandloop/soho-foundation#readme",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

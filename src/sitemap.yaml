@@ -1,0 +1,41 @@
+sections:
+- name: Page Structure
+  slug: page-structure
+  pages:
+  - name: Adaptive
+    slug: adaptive
+  - name: Responsive Grid
+    slug: grid
+- name: Identity
+  slug: identity
+  # Maybe combine to an themes-all package; leave separate in case of individual use
+  #- name: theme-dark
+  #- name: theme-high-contrast
+  pages:
+  - name: Themes
+    slug: theme
+  - name: Icons
+    slug: icon
+  - name: Typography
+    slug: typography
+- name: Elements
+  slug: elements
+  pages:
+  - name: Buttons
+    slug: button
+  - name: Select Box
+    slug: select
+  - name: Forms
+    slug: form
+- name: Blocks
+  slug: blocks
+  pages:
+  - name: Tabs
+    slug: tab
+- name: Utilities
+  slug: utilities
+  pages:
+  - name: Base Styles
+    slug: base
+  - name: All Components
+    slug: components-webapp
