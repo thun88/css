@@ -20,7 +20,7 @@
 </head>
 
 <body class="iux-container">
-  <h1>Responsive Grid</h1>
+  <h1>IUX Grid</h1>
 
   <h2 id="basic-grid-fixed">Basic Grid (Fixed)</h2>
   <div class="example example--grid">
@@ -46,34 +46,7 @@
         <div class="iux-row--col-1 iux-row--offset-1">col-2 offset-1</div>
       </div>
       <div class="iux-row">
-        <div class="iux-row--col-1 iux-row--offset-2">col-3 offset-2</div>
-      </div>
-      <div class="iux-row">
-        <div class="iux-row--col-1 iux-row--offset-3">col-4 offset-3</div>
-      </div>
-      <div class="iux-row">
-        <div class="iux-row--col-1 iux-row--offset-4">col-5 offset-4</div>
-      </div>
-      <div class="iux-row">
-        <div class="iux-row--col-1 iux-row--offset-5">col-6 offset-5</div>
-      </div>
-      <div class="iux-row">
-        <div class="iux-row--col-1 iux-row--offset-6">col-7 offset-6</div>
-      </div>
-      <div class="iux-row">
-        <div class="iux-row--col-1 iux-row--offset-7">col-8 offset-7</div>
-      </div>
-      <div class="iux-row">
-        <div class="iux-row--col-1 iux-row--offset-8">col-9 offset-8</div>
-      </div>
-      <div class="iux-row">
-        <div class="iux-row--col-1 iux-row--offset-9">col-10 offset-9</div>
-      </div>
-      <div class="iux-row">
-        <div class="iux-row--col-1 iux-row--offset-10">col-11 offset-10</div>
-      </div>
-      <div class="iux-row">
-        <div class="iux-row--col-1 iux-row--offset-11">col-12 offset-11</div>
+        <div class="iux-row--col-8 iux-row--offset-2">col-10 offset-2</div>
       </div>
     </div>
 
@@ -93,28 +66,30 @@
   <h2 id="changing-layout-at-breakpoints">Changing Layout at Breakpoints</h2>
   <div class="example example--grid">
     <div class="iux-row">
-      <div class="iux-row--col-sm-4 iux-row--col-lg-3">Column 1</div>
-      <div class="iux-row--col-sm-8 iux-row--col-lg-9">Column 2</div>
+      <div class="iux-row--col-sm-6 iux-row--col-lg-1">Column 1</div>
+      <div class="iux-row--col-sm-6 iux-row--col-lg-11">Column 2</div>
     </div>
     <small class="example--info">Note: Resize your browser to different widths to see the columns flow based on different breakpoints.</small>
   </div>
 
   <h2 id="grid-with-gutters">Grid with Gutters</h2>
   <div class="example example--grid">
-    <div class="iux-row iux-row--gutter">
-      <div class="iux-row--col-sm-3 iux-row--col-md-3">col-3</div>
-      <div class="iux-row--col-sm-9 iux-row--col-md-9">col-9</div>
+    <div class="iux-row--gutter">
+      <div class="iux-row--col-sm-3">col-3</div>
+      <div class="iux-row--col-sm-9">col-9</div>
     </div>
     <br>
     <div class="iux-row iux-row--gutter">
-      <div class="iux-row--col-sm-6 iux-row--col-md-6">col-6</div>
-      <div class="iux-row--col-sm-6 iux-row--col-md-6">col-6</div>
+      <div class="iux-row--col-sm-6">col-6</div>
+      <div class="iux-row--col-sm-6">col-6</div>
     </div>
     <br>
     <div class="iux-row iux-row--gutter">
-      <div class="iux-row--col-sm-12 iux-row--col-md-12">col-12</div>
+      <div class="iux-row--col-sm-12">col-12</div>
     </div>
+    <small class="example--info">Note: Resize your browser to different widths the gutters shrink going MD to SM breakpoints.</small>
   </div>
+
 
   </body>
 </html>
