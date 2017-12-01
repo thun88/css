@@ -1,6 +1,7 @@
 @import '../iux-base/base';
 
 @lost flexbox flex;
+@lost gutter 0;
 
 .iux-row {
   lost-center: 100%;
@@ -17,6 +18,7 @@
   }
 }
 
+/* Use a larger gutter for medium and above */
 @media (--viewport-md) {
   .iux-row.iux-row--gutter {
     margin-left: calc(-1 * var(--grid-gutter-lg) / 2);
@@ -29,11 +31,27 @@
   }
 }
 
+
+/* Non responsive columns */
 @for $i from 1 to 12 {
   .iux-row .iux-row--col-$i {
     lost-column: $(i)/12 0 0;
   }
+}
 
+/* Non-responsive offsets (only need 11) */
+@for $i from 1 to 11 {
+  .iux-row .iux-row--offset-$i {
+    lost-offset: $(i)/12
+  }
+}
+
+/*
+  Make all media columns default to full width
+  and then they can be manipulated using the
+  classes generated per media size below.
+*/
+@for $i from 1 to 12 {
   .iux-row--col-$i,
   .iux-row--col-sm-$i,
   .iux-row--col-md-$i,
@@ -43,34 +61,54 @@
   }
 }
 
+/* Apply to cols from media small and larger */
 @media (--viewport-sm) {
   @for $i from 1 to 12 {
     .iux-row .iux-row--col-sm-$i {
       lost-column: $(i)/12 0 0;
     }
+
+    .iux-row .iux-row--offset-sm-$i {
+      lost-offset: 1/$(i)
+    }
   }
 }
 
+/* Apply to cols from media med and larger */
 @media (--viewport-md) {
   @for $i from 1 to 12 {
     .iux-row .iux-row--col-md-$i {
       lost-column: $(i)/12 0 0;
     }
+
+    .iux-row .iux-row--offset-sm-$i {
+      lost-offset: 1/$(i)
+    }
   }
 }
 
+/* Apply to cols from media large and larger */
 @media (--viewport-lg) {
   @for $i from 1 to 12 {
     .iux-row .iux-row--col-lg-$i {
       lost-column: $(i)/12 0 0;
     }
+
+    .iux-row .iux-row--offset-sm-$i {
+      lost-offset: 1/$(i)
+    }
   }
 }
 
+/* Apply to cols from media x-large and larger */
 @media (--viewport-xl) {
   @for $i from 1 to 12 {
     .iux-row .iux-row--col-xl-$i {
       lost-column: $(i)/12 0 0;
+    }
+
+    .iux-row .iux-row--offset-sm-$i {
+      lost-offset: 1/$(i)
     }
   }
 }
