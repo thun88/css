@@ -15,6 +15,7 @@
       padding-bottom: 0.75rem;
       padding-top: 0.75rem;
       text-align: left;
+      overflow: hidden;
     }
   </style>
 </head>
@@ -40,15 +41,21 @@
     </div>
   </div>
 
-    <h2 id="basic-grid-fixed">Basic Grid (Fixed) w/ Offset</h2>
-    <div class="example example--grid">
-      <div class="iux-row">
-        <div class="iux-row--col-1 iux-row--offset-1">col-2 offset-1</div>
-      </div>
-      <div class="iux-row">
-        <div class="iux-row--col-8 iux-row--offset-2">col-10 offset-2</div>
-      </div>
+  <h2 id="basic-grid-fixed">Basic Grid (Fixed) w/ Offset</h2>
+  <div class="example example--grid">
+    <div class="iux-row">
+      <div class="iux-row--col-1 iux-row--offset-1">col-2 offset-1</div>
     </div>
+    <br>
+    <div class="iux-row">
+      <div class="iux-row--col-8 iux-row--offset-2">col-8 offset-2</div>
+    </div>
+    <br>
+    <div class="iux-row">
+      <div class="iux-row--col-4 iux-row--offset-1">col-4 offset-1</div>
+      <div class="iux-row--col-4 iux-row--offset-2">col-4 offset-2</div>
+    </div>
+  </div>
 
   <h2 id="responsive-grid">Responsive Grid</h2>
   <div class="example example--grid">
@@ -60,8 +67,14 @@
       <div class="iux-row--col-sm-2">col-2</div>
       <div class="iux-row--col-sm-2">col-2</div>
     </div>
+    <br>
+    <div class="iux-row">
+      <div class="iux-row--col-sm-4 iux-row--offset-sm-1">col-4 offset-1</div>
+      <div class="iux-row--col-sm-4 iux-row--offset-sm-2">col-4 offset-2</div>
+    </div>
     <small class="example--info">Note: Resize your browser width to see the layout change at the SM breakpoint.</small>
   </div>
+
 
   <h2 id="changing-layout-at-breakpoints">Changing Layout at Breakpoints</h2>
   <div class="example example--grid">
