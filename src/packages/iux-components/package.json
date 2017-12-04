@@ -1,6 +1,6 @@
 {
   "name": "@infor/iux-components",
-  "version": "0.1.1-alpha",
+  "version": "0.10.0-alpha",
   "description": "Hook & Loop alpha testing UX individual packages.",
   "repository": {
     "type": "git",
