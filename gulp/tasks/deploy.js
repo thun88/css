@@ -9,10 +9,9 @@ module.exports = (gulp, gconfig) => {
     const fs = require('fs');
     const formData = require('form-data');
     const gutil = require('gulp-util');
-    const packageJson = require('../../package.json');
 
     let form = new formData();
-    form.append('file', fs.createReadStream(`${gconfig.paths.dist}/${packageJson.name}.zip`));
+    form.append('file', fs.createReadStream(`${gconfig.paths.dist.root}.zip`));
     form.append('root_path', `${packageJson.name}/${packageJson.version}`);
 
     form.submit(gconfig.urls.staging, (err, res) => {
