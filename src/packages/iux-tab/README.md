@@ -2,8 +2,7 @@
 title: Tabs
 description: Description here
 demo:
-  local:
-    path: /iux-tab/tab.html
+  path: /iux-tab/tab.html
 ---
 
 ## Basic Tabs
