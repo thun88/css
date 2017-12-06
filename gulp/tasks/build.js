@@ -10,7 +10,7 @@ module.exports = (gulp, gconfig, publishDocObj) => {
   const zip = require('gulp-zip');
   const runSequence = require('run-sequence');
 
-  gulp.task('build', ['json:yaml:compile','json:md:compile','json:js:compile'], () => {
+  gulp.task('build', ['json:yaml:compile','json:md:compile','json:js:compile'], (done) => {
 
     // Create folders if needed
     if (!fs.existsSync(gconfig.paths.dist.root)){
@@ -27,7 +27,7 @@ module.exports = (gulp, gconfig, publishDocObj) => {
       fs.writeFileSync(thePath, JSON.stringify(publishDocObj[pkgName]));
     }
 
-    runSequence('copy:demo', 'zip');
+    runSequence('copy:demo', 'zip', done);
   });
 
   // -------------------------------------
@@ -36,9 +36,9 @@ module.exports = (gulp, gconfig, publishDocObj) => {
   // -------------------------------------
   gulp.task('copy:demo', ['src:compile'], () => {
     return gulp.src(`${gconfig.paths.demo}/**/*`, {
-      base: gconfig.paths.root
-    })
-    .pipe(gulp.dest(gconfig.paths.dist.root))
+        base: gconfig.paths.root
+      })
+      .pipe(gulp.dest(gconfig.paths.dist.root))
   });
 
   // -------------------------------------

@@ -2,6 +2,7 @@
 module.exports = {
   project: {
     prefix: 'iux',
+    zipName: 'publish'
   },
   paths: {
     root: './',
