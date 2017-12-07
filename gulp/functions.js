@@ -142,31 +142,6 @@ let helperFns = {
     return iconSet = iconFiles.map(file => {
       return file.substring(0, file.lastIndexOf('.'));
     });
-  },
-
-  /**
-   * Post zip file to server
-   */
-  postJson: () => {
-    const packageJson = require('../package.json');
-    const gutil = require('gulp-util');
-    const formData = require('form-data');
-    const url = 'http://docs-site-staging.us-east-1.elasticbeanstalk.com/api/docs/';
-
-    let form = new formData();
-    form.append('file', fs.createReadStream('iux-json.zip'));
-    form.append('root_path', packageJson.version);
-
-
-    form.submit(url, (err, res) => {
-      if (err) {
-        gutil.log(`Deploy failed: ${err}`);
-      } else {
-        gutil.log('Deploy succeeded to \n\n ${url}');
-        gutil.log(res.statusCode);
-      }
-      res.resume();
-    });
   }
 };
 
