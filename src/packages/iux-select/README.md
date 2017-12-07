@@ -1,6 +1,8 @@
 ---
 title: IUX Select
 description: This page describes how the buttons and button styles are used.
+demo:
+  path: /iux-select/select.html
 ---
 
 ## Select

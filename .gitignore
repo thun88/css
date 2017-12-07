@@ -6,6 +6,7 @@ publish
 demo/**/dist/*
 src/packages/**/dist/*
 coverage/*
+*.zip
 
 # Packages #
 ############

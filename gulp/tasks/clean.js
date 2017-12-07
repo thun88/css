@@ -11,7 +11,8 @@ module.exports = (gulp, gconfig) => {
 
     return del([
       // distributed files
-      gconfig.paths.dist,
+      gconfig.paths.dist.root,
+      `${gconfig.project.zipName}.zip`,
 
       // package files
       `${gconfig.paths.src.packages}/*/dist/**`,

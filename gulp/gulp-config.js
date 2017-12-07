@@ -2,11 +2,16 @@
 module.exports = {
   project: {
     prefix: 'iux',
+    zipName: 'publish'
   },
   paths: {
     root: './',
     demo: './demo',
-    dist: './publish',
+    dist: {
+      root: './publish',
+      docs: './publish/docs',
+      demo: './publish/demo'
+    },
     src: {
       root:     './src',
       packages: './src/packages',

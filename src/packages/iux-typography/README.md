@@ -2,8 +2,7 @@
 title: Typography
 description: These are typical type classes you'll have available.
 demo:
-  local:
-    path: /iux-typography/typography.html
+  path: /iux-typography/typography.html
 specs:
 - title: Secondary Header Font Size
   spec: headerSecondaryFontSize

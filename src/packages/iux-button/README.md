@@ -2,8 +2,7 @@
 title: Buttons
 description: This page describes how the buttons and button styles are used.
 demo:
-  local:
-    path: /iux-button/button.html
+  path: /iux-button/button.html
 specs:
 - title: Default Button Color
   spec: btnDefaultBg
