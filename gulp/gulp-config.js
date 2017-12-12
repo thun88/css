@@ -26,7 +26,9 @@ module.exports = {
     tasks: './gulp/tasks'
   },
   urls: {
-    staging: 'http://docs-site-staging.us-east-1.elasticbeanstalk.com/api/docs/'
+    local: 'http://localhost/api/docs/',
+    localDebug: 'http://localhost:9002/api/docs/',
+    pool: 'http://usalvlhlpool1.infor.com/docs/api/docs/'
   },
   options: {
     marked: {
