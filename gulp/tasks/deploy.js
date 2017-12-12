@@ -10,7 +10,7 @@ module.exports = (gulp, gconfig) => {
     const formData = require('form-data');
     const gutil = require('gulp-util');
     const packageJson = require('../../package.json');
-    const argv = require('yargs').argv
+    const argv = require('yargs').argv;
 
     let url = gconfig.urls.local;
     if (argv.site) {
