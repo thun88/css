@@ -27,7 +27,9 @@ module.exports = {
   },
   urls: {
     local: 'http://localhost/api/docs/',
-    staging: 'http://docs-site-staging.us-east-1.elasticbeanstalk.com/api/docs/'
+    localdev: 'http://localhost:9200/api/docs/',
+    staging: 'http://docs-site-staging.us-east-1.elasticbeanstalk.com/api/docs/',
+    pool: 'http://usalvlhlpool1.infor.com/docs/api/docs/'
   },
   options: {
     marked: {

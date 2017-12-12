@@ -23,7 +23,7 @@ module.exports = (gulp, gconfig) => {
 
     gutil.log(`Attempting to publish to '${url}'`);
 
-    form.submit(gconfig.urls.staging, (err, res) => {
+    form.submit(url, (err, res) => {
       if (err) {
         gutil.log(err);
       } else {
