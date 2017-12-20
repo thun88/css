@@ -39,7 +39,13 @@ module.exports = (gulp, gconfig, publishDocObj) => {
 
             // Create values object for each theme for the spec
             arrOfCssThemes.forEach(theme => {
-              spec.themes.push({...{ theme: theme }, ...cssAnnotations[theme][spec.spec]});
+              if (theme === 'default') {
+                // Merge 'default' theme to top level
+                Object.assign(spec, cssAnnotations[theme][spec.spec]);
+              } else {
+                // Other theme values go in the themes array
+                spec.themes.push({...{ theme: theme }, ...cssAnnotations[theme][spec.spec]});
+              }
             });
           });
         }
