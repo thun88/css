@@ -19,6 +19,9 @@ module.exports = (gulp, gconfig, publishDocObj) => {
 
   gulp.task('json:md:compile', () => {
 
+    const cssAnnotations = helperFns.createCssAnnotations(gconfig.paths.src.packages);
+    let arrOfCssThemes = Object.keys(cssAnnotations);
+
     marked.setOptions(gconfig.options.marked);
 
     return gulp.src(`${gconfig.paths.src.root}/**/*.md`)
@@ -26,6 +29,20 @@ module.exports = (gulp, gconfig, publishDocObj) => {
       // Extract/remove yaml from markdown
       .pipe(frontMatter({
         property: 'data.frontMatter'
+      }))
+
+      .pipe(tap((file) => {
+        // Get the css values for the meta specs
+        if (file.data.frontMatter.specs) {
+          file.data.frontMatter.specs.forEach(spec => {
+            spec.themes = [];
+
+            // Create values object for each theme for the spec
+            arrOfCssThemes.forEach(theme => {
+              spec.themes.push({...{ theme: theme }, ...cssAnnotations[theme][spec.spec]});
+            });
+          });
+        }
       }))
 
       // Parse and highlight
