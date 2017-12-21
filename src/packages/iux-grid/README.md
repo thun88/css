@@ -47,7 +47,7 @@ By default, the grid is fixed so that each column is 1/`N`th of the parent conta
 
 The grid is responsive based on the breakpoints applied. When you apply a breakpoint `col` class, such as `.iux-row--col-md-1`, that column will change from the fixed default to become 100% full width of the parent container from the smallest breakpoint, until the browser gets wider and hits the `medium` breakpoint. At that point, it will then become its respective percentage of the width.
 
-Below, if you change your browser width you should see the columns stack when the browser width is smaller than {{default.breakpointSm.value}} and then become 1/6th width when the browser is {{default.breakpointSm.value}} wide or wider.
+Below, if you change your browser width you should see the columns stack when the browser width is smaller than `breakpoint-sm` and then become 1/6th width when the browser is as wide or wider than the SM breakpoint.
 
 ```html
 <div class="iux-row">

@@ -1,5 +1,5 @@
 ---
-title: IUX Change Log
+title: Release Notes
 ---
 
 For more details, see [IUX releases on Github](https://github.com/hookandloop/soho-foundation/releases).
