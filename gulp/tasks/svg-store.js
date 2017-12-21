@@ -11,10 +11,12 @@ module.exports = (gulp, gconfig) => {
   gulp.task('svg:store', ['sketch:to:svgs'], () => {
 
     const curPkg = `${gconfig.paths.src.packages}/iux-icon`;
+    const allComponentsPkg = `${gconfig.paths.src.packages}/iux-components`;
 
     return gulp.src(`${curPkg}/dist/svgs/*.svg`)
       .pipe(svgstore({ inlineSvg: true }))
       .pipe(rename('inline-icons.svg'))
-      .pipe(gulp.dest(`${curPkg}/dist`));
+      .pipe(gulp.dest(`${curPkg}/dist`))
+      .pipe(gulp.dest(`${allComponentsPkg}/dist`));
   });
 }
