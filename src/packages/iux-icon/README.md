@@ -23,6 +23,7 @@ To be able to x:link the icons into your app, you will need to copy `dist/inline
     </svg>
 </div>
 ```
+
 ### As an inline icon:
 
 <div class="example">
