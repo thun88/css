@@ -31,7 +31,11 @@ module.exports = (gulp, gconfig, publishDocObj) => {
         property: 'data.frontMatter'
       }))
 
+      // Parse and highlight
+      .pipe(markdown(gconfig.options.marked))
+
       .pipe(tap((file) => {
+        let ob = {};
         // Get the css values for the meta specs
         if (file.data.frontMatter.specs) {
           file.data.frontMatter.specs.forEach(spec => {
@@ -48,14 +52,17 @@ module.exports = (gulp, gconfig, publishDocObj) => {
               }
             });
           });
+
+          ob = file.data.frontMatter;
         }
+        ob.body = file.contents.toString();
+
+        file.contents = new Buffer(JSON.stringify(ob), "utf-8");
       }))
 
-      // Parse and highlight
-      .pipe(markdown(gconfig.options.marked))
 
       // Convert to JSON
-      .pipe(mdToJson(marked))
+      // .pipe(mdToJson(marked))
 
       // Rename filename of package/*/readme.md files to folder name
       .pipe(rename(file => {
