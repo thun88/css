@@ -31,7 +31,6 @@
     "gulp-hb": "^6.0.2",
     "gulp-markdown": "^1.2.0",
     "gulp-markdown-it": "^0.1.1",
-    "gulp-markdown-to-json": "^1.0.3",
     "gulp-pandoc": "^0.2.2",
     "gulp-post": "^1.0.2",
     "gulp-postcss": "^6.3.0",
