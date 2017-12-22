@@ -5,7 +5,7 @@
 
 module.exports = (gulp, gconfig, postCssPlugins, svgHtml) => {
 
-  gulp.task('src:md:compile', () => {
+  gulp.task('src:md:compile', ['svg:store'], () => {
 
     const flatten = require('gulp-flatten');
     const frontMatter = require('gulp-front-matter');
