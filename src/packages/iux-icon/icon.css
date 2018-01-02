@@ -2,7 +2,7 @@
 @import '../iux-typography/typography';
 @import '../iux-button/button';
 
-.icon {
+.iux-icon {
   color: inherit;
   display: inline-block;
   fill: var(--icon-fill);

@@ -9,7 +9,7 @@ demo:
 
 ```html
 <div class="iux-select">
-    <input type="text" class="form-control iux-select--input" placeholder="Select one" />
+    <input type="text" class="iux-form-control iux-select--input" placeholder="Select one" />
     <ul class="iux-select--menu">
         <li class="is-selected" data-value="Option 1">Option 1</li>
         <li data-value="Option 2">Option 2</li>
@@ -23,10 +23,10 @@ demo:
 
 ```html
 <div class="iux-select">
-  <input type="text" class="form-control iux-select--input" placeholder="Select many" />
+  <input type="text" class="iux-form-control iux-select--input" placeholder="Select many" />
   <ul class="iux-select--menu">
     <li>
-      <div class="form-checkbox">
+      <div class="iux-form-checkbox">
         <input type="checkbox" id="selectCheck1" name="selectCheck1" value="Checkbox 1"/>
         <label for="selectCheck1">
           Checkbox 1
@@ -34,7 +34,7 @@ demo:
       </div>
     </li>
     <li>
-      <div class="form-checkbox">
+      <div class="iux-form-checkbox">
         <input type="checkbox" id="selectCheck2" name="selectCheck2" value="Checkbox 2"/>
         <label for="selectCheck2">
           Checkbox 2
@@ -42,7 +42,7 @@ demo:
       </div>
     </li>
     <li>
-      <div class="form-checkbox">
+      <div class="iux-form-checkbox">
         <input type="checkbox" id="selectCheck3" name="selectCheck3" value="Checkbox 3"/>
         <label for="selectCheck3">
           Checkbox 3
@@ -50,7 +50,7 @@ demo:
       </div>
     </li>
     <li>
-      <div class="form-checkbox">
+      <div class="iux-form-checkbox">
         <input type="checkbox" id="selectCheck4" name="selectCheck4" value="Checkbox 4"/>
         <label for="selectCheck4">
           Checkbox 4

@@ -3,7 +3,7 @@
 @import '../iux-typography/typography';
 @import '../iux-icon/icon';
 
-.form-control {
+.iux-form-control {
   background-clip: padding-box;
   background-color: var(--input-bg);
 
@@ -56,14 +56,14 @@
     outline-color: transparent;
   }
 
-  &.form-control--xs { width: var(--input-size-xs); }
-  &.form-control--sm { width: var(--input-size-sm); }
-  &.form-control--md { width: var(--input-size-md); }
-  &.form-control--lg { width: var(--input-size-lg); }
+  &.iux-form-control--xs { width: var(--input-size-xs); }
+  &.iux-form-control--sm { width: var(--input-size-sm); }
+  &.iux-form-control--md { width: var(--input-size-md); }
+  &.iux-form-control--lg { width: var(--input-size-lg); }
 }
 
-select.form-control {
-  &:not([size]):not([multiple]).form-control {
+select.iux-form-control {
+  &:not([size]):not([multiple]).iux-form-control {
     appearance: none;
     background-image: var(--select-bg-caret);
     background-position: calc(100% - 10px) center;
@@ -90,12 +90,8 @@ select.form-control {
   }
 }
 
-.form-control-file,
-.form-control-range {
+.iux-form-file {
   display: block;
-}
-
-.form-control-file {
   position: relative;
 
   & [type=file] {
@@ -111,19 +107,19 @@ select.form-control {
     }
   }
 
-  & .icon {
+  & .iux-icon {
     position: absolute;
     right: var(--input-padding-x);
     top: calc(50% - 8px);
   }
 }
 
-.form-group {
+.iux-form-group {
   margin-bottom: 20px;
 
   & > label,
   & > legend,
-  & .info-block {
+  & .iux-info-block {
     display: block;
     font-size: var(--text-small);
     line-height: 1.3rem;
@@ -149,18 +145,18 @@ select.form-control {
     margin-top: 0;
   }
 
-  & .info-block {
+  & .iux-info-block {
     color: var(--input-info-block-color);
     margin-top: 5px;
   }
 
   &.has-error {
-    & .form-control,
-    & .info-block {
+    & .iux-form-control,
+    & .iux-info-block {
       color: var(--status-red);
     }
 
-    & .form-control {
+    & .iux-form-control {
       border-color: var(--status-red);
     }
 
@@ -188,8 +184,8 @@ select.form-control {
   }
 }
 
-.form-checkbox,
-.form-radio {
+.iux-form-checkbox,
+.iux-form-radio {
   display: block;
   margin: 10px 0;
   position: relative;
@@ -215,7 +211,7 @@ select.form-control {
   }
 }
 
-.form-checkbox {
+.iux-form-checkbox {
   & label {
     padding-left: calc(var(--checkbox-box-w) + 5);
 
@@ -273,7 +269,7 @@ select.form-control {
     }
   }
 
-  &.form-checkbox--partial input:checked + label::after {
+  &.iux-form-checkbox--partial input:checked + label::after {
     animation: none;
     border-width: 0 0 2px;
     height: 2px;
@@ -300,7 +296,7 @@ select.form-control {
   }
 }
 
-.form-radio {
+.iux-form-radio {
   & label {
     padding-left: calc(var(--radio-outer-w) + 5);
 
