@@ -6,6 +6,7 @@
   <meta name="author" content="Hook & Loop">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Form Controls Demo - IUX</title>
+  <link rel="stylesheet" type="text/css" href="./dist/reset.css">
   <link rel="stylesheet" type="text/css" href="./dist/form.css">
   <link rel="stylesheet" type="text/css" href="./dist/form.css.map">
   <link rel="stylesheet" type="text/css" href="../demo.css">
@@ -15,61 +16,61 @@
 <body class="iux-container">
   <h1 class="page-title">Form Controls</h1>
   <form>
-    <div class="form-group">
+    <div class="iux-form-group">
       <label for="exampleInputEmail1">Email address</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" name="exampleInputEmail1" placeholder="Email">
+      <input type="email" class="iux-form-control" id="exampleInputEmail1" name="exampleInputEmail1" placeholder="Email">
     </div>
 
-    <div class="form-group has-error">
+    <div class="iux-form-group has-error">
       <label for="text-info-2" class="is-required">Input with Error</label>
-      <input type="text" id="text-info-2" class="form-control" placeholder="Placeholder">
-      <div class="info-block">(!) Required</div>
+      <input type="text" id="text-info-2" class="iux-form-control" placeholder="Placeholder">
+      <div class="iux-info-block">(!) Required</div>
     </div>
 
-    <div class="form-group">
+    <div class="iux-form-group">
       <label for="exampleInputPassword1">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1" name="exampleInputPassword1" placeholder="Password">
+      <input type="password" class="iux-form-control" id="exampleInputPassword1" name="exampleInputPassword1" placeholder="Password">
     </div>
 
-    <div class="form-group">
+    <div class="iux-form-group">
       <label for="text-normal-3">Disabled</label>
-      <input type="text" id="text-normal-3" class="form-control" value="Some Text" disabled>
+      <input type="text" id="text-normal-3" class="iux-form-control" value="Some Text" disabled>
     </div>
 
-    <div class="form-group">
+    <div class="iux-form-group">
       <label for="text-normal-2">Read Only</label>
-      <input type="text" id="text-normal-2" class="form-control" value="Some Text" readonly>
+      <input type="text" id="text-normal-2" class="iux-form-control" value="Some Text" readonly>
     </div>
 
-    <div class="form-group form-control-file">
+    <div class="iux-form-group iux-form-file">
       <label for="exampleInputFile">File input</label>
       <input type="file" id="exampleInputFile" name="exampleInputFile">
-      <svg class="icon" focusable="false" aria-hidden="true" role="presentation">
+      <svg class="iux-icon" focusable="false" aria-hidden="true" role="presentation">
         <use xlink:href="#folder"></use>
       </svg>
-      <div class="info-block">Example block-level help text here.</div>
+      <div class="iux-info-block">Example block-level help text here.</div>
     </div>
 
-    <div class="form-group">
+    <div class="iux-form-group">
       <label for="exPlaceholder">Text Area</label>
-      <textarea class="form-control" id="exPlaceholder" placeholder="Placeholder" rows="3" aria-label="Example multirow text area"></textarea>
+      <textarea class="iux-form-control" id="exPlaceholder" placeholder="Placeholder" rows="3" aria-label="Example multirow text area"></textarea>
     </div>
 
-    <fieldset class="form-group">
+    <fieldset class="iux-form-group">
       <legend>A group of radio buttons</legend>
-      <div class="form-radio">
+      <div class="iux-form-radio">
         <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
         <label for="optionsRadios1">
           Option one is this and that&mdash;be sure to include why it"s great
         </label>
       </div>
-      <div class="form-radio">
+      <div class="iux-form-radio">
         <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
         <label for="optionsRadios2">
           Option two can be something else and selecting it will de-select option one
         </label>
       </div>
-      <div class="form-radio is-disabled">
+      <div class="iux-form-radio is-disabled">
         <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
         <label for="optionsRadios3">
           Option three is disabled
@@ -77,39 +78,39 @@
       </div>
     </fieldset>
 
-    <fieldset class="form-group">
+    <fieldset class="iux-form-group">
       <legend>Group of checkboxes</legend>
-      <div class="form-checkbox">
+      <div class="iux-form-checkbox">
         <input type="checkbox" id="exampleCheckbox1" value="" />
         <label for="exampleCheckbox1">
           Empty
         </label>
       </div>
-      <div class="form-checkbox form-checkbox--partial">
+      <div class="iux-form-checkbox iux-form-checkbox--partial">
         <input type="checkbox" value="" id="exampleCheckbox2" checked/>
         <label for="exampleCheckbox2">
           Partially Check
         </label>
       </div>
-      <div class="form-checkbox">
+      <div class="iux-form-checkbox">
         <input type="checkbox" id="exampleCheckbox3" value="" checked/>
         <label for="exampleCheckbox3">
           Checked
         </label>
       </div>
-      <div class="form-checkbox is-disabled">
+      <div class="iux-form-checkbox is-disabled">
         <input type="checkbox" value="" id="exampleCheckbox4" disabled/>
         <label for="exampleCheckbox4">
           Empty Disabled
         </label>
       </div>
-      <div class="form-checkbox form-checkbox--partial is-disabled">
+      <div class="iux-form-checkbox iux-form-checkbox--partial is-disabled">
         <input type="checkbox" value="" id="exampleCheckbox5" checked disabled/>
         <label for="exampleCheckbox5">
           Partially Checked &amp; Disabled
         </label>
       </div>
-      <div class="form-checkbox is-disabled">
+      <div class="iux-form-checkbox is-disabled">
         <input type="checkbox" value="" id="exampleCheckbox6" checked disabled/>
         <label for="exampleCheckbox6">
           Checked and Disabled
@@ -117,8 +118,8 @@
       </div>
     </fieldset>
 
-    <button type="submit" class="btn btn--primary" onclick="return false;">Submit</button>
-    <button type="reset" class="btn btn--default">Reset</button>
+    <button type="submit" class="iux-btn iux-btn--primary" onclick="return false;">Submit</button>
+    <button type="reset" class="iux-btn iux-btn--default">Reset</button>
   </form>
 
 </body>

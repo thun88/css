@@ -34,11 +34,11 @@ specs:
 <small>Small Text</small>
 ```
 
-You can also use the classes `header--primary` and `header--secondary` to emulate `<h1>` and `<h2>` styles without using those specific tags. `<strong>`, `<em>`, and `<small>` all behave as you would expect.
+You can also use the classes `iux-header--primary` and `iux-header--secondary` to emulate `<h1>` and `<h2>` styles without using those specific tags. `<strong>`, `<em>`, and `<small>` all behave as you would expect.
 
 ## Type Utility Clases
 
-Text utility classes are provided to emulate certain type styles by applying classes. `.text-descriptive` changes the <span class="text-descriptive">color of descriptive text to a shade lighter</span>, `.text-muted` makes the <span class="text-muted">color of text muted</span>, and `.text-alert` makes text <span class="text-alert">Alert Red</span>. `.text-link` allows you to <span class="text-link">make text a link style</span> even when it's not in an `<a>` tag. Use `.text-strong` to make text <span class="text-strong">strong</span>, `.text-emphasis` to makes it <span class="text-emphasis">emphasized</span> and `.text-small` makes it <span class="text-small">smaller</small>.
+Text utility classes are provided to emulate certain type styles by applying classes. `.iux-text-descriptive` changes the <span class="iux-text-descriptive">color of descriptive text to a shade lighter</span>, `.iux-text-muted` makes the <span class="iux-text-muted">color of text muted</span>, and `.iux-text-alert` makes text <span class="iux-text-alert">Alert Red</span>. `.iux-text-link` allows you to <span class="iux-text-link">make text a link style</span> even when it's not in an `<a>` tag. Use `.iux-text-strong` to make text <span class="iux-text-strong">strong</span>, `.iux-text-emphasis` to makes it <span class="iux-text-emphasis">emphasized</span> and `.iux-text-small` makes it <span class="iux-text-small">smaller</small>.
 
 ## Lists
 

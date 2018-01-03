@@ -3,13 +3,13 @@
 @import '../iux-form/form';
 @import '../iux-button/button';
 
-.adaptive--touch {
-  & .btn,
-  & input.form-control {
+.iux-adaptive--touch {
+  & .iux-btn,
+  & input.iux-form-control {
     line-height: var(--input-line-height-adaptive-touch);
   }
 
-  & select:not([size]):not([multiple]).form-control {
+  & select:not([size]):not([multiple]).iux-form-control {
     height: var(--input-height-adaptive-touch);
   }
 
@@ -18,8 +18,8 @@
     margin-top: var(--input-padding-adaptive-touch);
   }
 
-  & .form-checkbox,
-  & .form-radio {
+  & .iux-form-checkbox,
+  & .iux-form-radio {
     margin-bottom: var(--input-padding-adaptive-touch);
 
     & label {
@@ -28,7 +28,7 @@
     }
   }
 
-  & .form-radio {
+  & .iux-form-radio {
     & label {
       padding-left: calc(var(--radio-outer-w-adaptive-touch) + 5);
 
