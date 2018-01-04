@@ -1,13 +1,13 @@
 {
-  "name": "@infor/ids-components",
+  "name": "@infor/ids-web",
   "version": "0.11.4-alpha",
-  "description": "Hook & Loop alpha testing UX individual packages.",
+  "description": "Infor Design System (IDS) Compnonents for the web",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hookandloop/soho-foundation.git"
   },
   "keywords": [
-    "infor-ux",
+    "ids",
     "components"
   ],
   "author": "Hook & Loop",

@@ -111,7 +111,7 @@ Block level help text for form controls.
 
 ### Validation States
 
-Infor UX includes validation styles for errors on form controls. To use, add `.has-error` to the parent element. Any `.ids-form-control` and `.ids-info-block` within that element will receive the validation styles.
+Infor Design System includes validation styles for errors on form controls. To use, add `.has-error` to the parent element. Any `.ids-form-control` and `.ids-info-block` within that element will receive the validation styles.
 
 ```html
 <div class="ids-form-group has-error">

@@ -31,7 +31,7 @@ let helperFns = {
    * @return {Object}            - Key/value pair of css props/specs
    */
   createCssAnnotations: (packageDir) => {
-    const gconfig = require('./gulp/gulp-config.js');
+    const gconfig = require('./gulp-config.js');
 
     let content,
       blocks,
@@ -74,7 +74,7 @@ let helperFns = {
    * @return {String}          - The last folder in the path
    */
   createFileNameFromFolder: (filePath) => {
-    const gconfig = require('./gulp/gulp-config.js');
+    const gconfig = require('./gulp-config.js');
 
     let pathArr = filePath.split('/');
     let str = pathArr[pathArr.length - 1].replace(gconfig.project.prefix, '');

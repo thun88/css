@@ -21,7 +21,7 @@ module.exports = (gulp, gconfig) => {
       server: {
         baseDir: [gconfig.paths.site.www, gconfig.paths.demo]
       },
-      logLevel: 'info'
+      logLevel: 'info',
       ui: false
     });
 

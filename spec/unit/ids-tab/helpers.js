@@ -2,9 +2,9 @@ export class Helpers {
 
   constructor() {
     this.cssClasses = {
-      SELECTED: 'iux-tabs--tab--active',
-      DISABLED: 'iux-tabs--tab--disabled',
-      TAB: 'iux-tabs--tab'
+      SELECTED: 'ids-tabs--tab--active',
+      DISABLED: 'ids-tabs--tab--disabled',
+      TAB: 'ids-tabs--tab'
     };
     return this;
   }

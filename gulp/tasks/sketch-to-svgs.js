@@ -11,14 +11,14 @@ module.exports = (gulp, gconfig) => {
   const helperFns = require('../functions.js');
 
   gulp.task('sketch:to:svgs', () => {
-    return gulp.src(`${gconfig.paths.packages}/${gconfig.project.prefix}-icon/sketch/*.sketch`)
+    return gulp.src(`${gconfig.paths.src.packages}/${gconfig.project.prefix}-icon/sketch/*.sketch`)
       .pipe(sketch({
         export: 'artboards',
         formats: 'svg',
         clean: 'yes'
       }))
       .pipe(svgmin())
-      .pipe(gulp.dest(`${gconfig.paths.packages}/${gconfig.project.prefix}-icon/dist/svgs`));
+      .pipe(gulp.dest(`${gconfig.paths.src.packages}/${gconfig.project.prefix}-icon/dist/svgs`));
   });
 }
 

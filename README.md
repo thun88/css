@@ -1,6 +1,6 @@
-# [Infor UX](#)
+# [Infor Design System](#)
 
-Infor UX is a sleek, intuitive, and powerful front-end framework for faster and easier web development.
+Infor Design System is a sleek, intuitive, and powerful front-end framework for faster and easier web development.
 
 ## Table of contents
 - [Dev Quick start](#dev-quick-start)

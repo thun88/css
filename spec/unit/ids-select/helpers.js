@@ -2,8 +2,8 @@ export class Helpers {
 
   constructor() {
     this.cssClasses = {
-      OPEN: 'iux-select--open',
-      SELECTED: 'iux-select--menu--selected'
+      OPEN: 'ids-select--open',
+      SELECTED: 'ids-select--menu--selected'
     };
     return this;
   }
@@ -22,7 +22,7 @@ export class Helpers {
     container.append(list);
 
     let input = document.createElement('input');
-    input.classList.add('iux-select--input');
+    input.classList.add('ids-select--input');
     container.append(input);
 
     return container;
@@ -37,7 +37,7 @@ export class Helpers {
    */
   createSelectList_(numOptions, isMultiSelect) {
     let list = document.createElement('ul');
-    list.classList.add('iux-select--menu');
+    list.classList.add('ids-select--menu');
 
     for (var i = 0; i < numOptions; i++) {
       if (isMultiSelect) {

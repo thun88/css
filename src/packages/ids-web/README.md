@@ -1,6 +1,6 @@
 ---
-title: Infor UX Components
-description: Infor's UX component for the web
+title: Infor Design System Components
+description: Infor Design System components for the web
 ---
 
 ## This is a package for all of the indidvidual IDS components together
