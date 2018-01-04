@@ -34,8 +34,10 @@ module.exports = (gulp, gconfig, postCssPlugins, svgHtml) => {
     });
 
     // Copy compiled styles into site/www/dist (async)
-    gulp.src(`${gconfig.paths.src.packages}/iux-components/dist/*.min.css`)
-      .pipe(gulp.dest(`${gconfig.paths.site.www}/dist`));
+    gulp.src([
+      `${gconfig.paths.src.packages}/iux-components/dist/*.min.css`,
+      `${gconfig.paths.src.packages}/iux-components/dist/*.min.css.map`
+    ]).pipe(gulp.dest(`${gconfig.paths.site.www}/dist`));
 
     // read the template from page.hbs
     return gulp.src(`${gconfig.paths.site.templates}/layout.hbs`)

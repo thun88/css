@@ -10,7 +10,7 @@
     "url": "git://github.com/hookandloop/soho-foundation.git"
   },
   "dependencies": {
-    "@infor/documentation-css": "^0.1.4",
+    "@infor/documentation-css": "^0.1.11",
     "scripts": "^0.1.0"
   },
   "devDependencies": {

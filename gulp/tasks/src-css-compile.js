@@ -26,7 +26,7 @@ module.exports = (gulp, gconfig, postCssPlugins) => {
       // compile
       .pipe(sourcemaps.init())
         .pipe(postcss(plugins))
-      .pipe(sourcemaps.write('.', {addComment: false}))
+      .pipe(sourcemaps.write('.'))
       .pipe(rename((path) => {
         path.dirname += '/dist';
       }))
@@ -38,7 +38,7 @@ module.exports = (gulp, gconfig, postCssPlugins) => {
       .pipe(rename({ suffix: '.min' }))
       .pipe(sourcemaps.init())
         .pipe(postcss([postCssPlugins.cssnano({ autoprefixer: false })]))
-      .pipe(sourcemaps.write('.', {addComment: false}))
+      .pipe(sourcemaps.write('.'))
       .pipe(gulp.dest(gconfig.paths.src.packages));
   });
 }
