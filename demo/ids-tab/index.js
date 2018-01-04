@@ -4,7 +4,7 @@ requirejs.config({
 });
 
 // Files are the arr list]
-requirejs(['tab'], function(iux) {
-  var horizTab = new iux.IUXTab(document.getElementsByClassName('iux-tabs--horizontal')[0]);
-  var vertTab = new iux.IUXTab(document.getElementsByClassName('iux-tabs--vertical')[0]);
+requirejs(['tab'], function(ids) {
+  var horizTab = new ids.IDSTab(document.getElementsByClassName('ids-tabs--horizontal')[0]);
+  var vertTab = new ids.IDSTab(document.getElementsByClassName('ids-tabs--vertical')[0]);
 });

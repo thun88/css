@@ -4,7 +4,7 @@ requirejs.config({
 });
 
 // Files are the arr list]
-requirejs(['select'], (iux) => {
-  let singleSelect = new iux.IUXSelect(document.getElementsByClassName('iux-select')[0]);
-  let multiSelect = new iux.IUXMultiSelect(document.getElementsByClassName('iux-select')[1]);
+requirejs(['select'], (ids) => {
+  let singleSelect = new ids.IDSSelect(document.getElementsByClassName('ids-select')[0]);
+  let multiSelect = new ids.IDSMultiSelect(document.getElementsByClassName('ids-select')[1]);
 });
