@@ -31,16 +31,18 @@ let helperFns = {
    * @return {Object}            - Key/value pair of css props/specs
    */
   createCssAnnotations: (packageDir) => {
+    const gconfig = require('./gulp/gulp-config.js');
+
     let content,
       blocks,
       cssVarAnnotations = {};
 
     // Parse the defaults first
-    const defaultVarsObj = helperFns.parseCss(`${packageDir}/iux-base/_variables.css`);
+    const defaultVarsObj = helperFns.parseCss(`${packageDir}/${gconfig.project.prefix}-base/_variables.css`);
 
     const themes = [
-      { name: 'themeDark',         path: `${packageDir}/iux-theme-dark/theme-dark.css` },
-      { name: 'themeHighContrast', path: `${packageDir}/iux-theme-high-contrast/theme-high-contrast.css` }
+      { name: 'themeDark',         path: `${packageDir}/${gconfig.project.prefix}-theme-dark/theme-dark.css` },
+      { name: 'themeHighContrast', path: `${packageDir}/${gconfig.project.prefix}-theme-high-contrast/theme-high-contrast.css` }
     ];
 
     cssVarAnnotations = {
@@ -72,8 +74,10 @@ let helperFns = {
    * @return {String}          - The last folder in the path
    */
   createFileNameFromFolder: (filePath) => {
+    const gconfig = require('./gulp/gulp-config.js');
+
     let pathArr = filePath.split('/');
-    let str = pathArr[pathArr.length - 1].replace('iux-', '');
+    let str = pathArr[pathArr.length - 1].replace(gconfig.project.prefix, '');
     return str;
   },
 
