@@ -1,15 +1,15 @@
-@import '../iux-base/base';
-@import '../iux-typography/typography';
-@import '../iux-form/form';
-@import '../iux-button/button';
+@import '../ids-base/base';
+@import '../ids-typography/typography';
+@import '../ids-form/form';
+@import '../ids-button/button';
 
-.iux-adaptive--touch {
-  & .iux-btn,
-  & input.iux-form-control {
+.ids-adaptive--touch {
+  & .ids-btn,
+  & input.ids-form-control {
     line-height: var(--input-line-height-adaptive-touch);
   }
 
-  & select:not([size]):not([multiple]).iux-form-control {
+  & select:not([size]):not([multiple]).ids-form-control {
     height: var(--input-height-adaptive-touch);
   }
 
@@ -18,8 +18,8 @@
     margin-top: var(--input-padding-adaptive-touch);
   }
 
-  & .iux-form-checkbox,
-  & .iux-form-radio {
+  & .ids-form-checkbox,
+  & .ids-form-radio {
     margin-bottom: var(--input-padding-adaptive-touch);
 
     & label {
@@ -28,7 +28,7 @@
     }
   }
 
-  & .iux-form-radio {
+  & .ids-form-radio {
     & label {
       padding-left: calc(var(--radio-outer-w-adaptive-touch) + 5);
 

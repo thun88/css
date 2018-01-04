@@ -1,12 +1,12 @@
 /* Components */
-@import '../iux-base/base';
-@import '../iux-button/button';
-@import '../iux-form/form';
-@import '../iux-grid/grid';
+@import '../ids-base/base';
+@import '../ids-button/button';
+@import '../ids-form/form';
+@import '../ids-grid/grid';
 
-/* @import '../iux-icon/icon'; */
-@import '../iux-tab/tab';
-@import '../iux-typography/typography';
+/* @import '../ids-icon/icon'; */
+@import '../ids-tab/tab';
+@import '../ids-typography/typography';
 
 /* Utilities */
-@import '../iux-adaptive/adaptive';
+@import '../ids-adaptive/adaptive';

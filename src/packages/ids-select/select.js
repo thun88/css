@@ -1,12 +1,12 @@
 const cssClasses = {
-  OPEN: 'iux-select--open',
-  SELECTED: 'iux-select--menu--selected'
+  OPEN: 'ids-select--open',
+  SELECTED: 'ids-select--menu--selected'
 };
 
 /**
- * Class IUXSelect
+ * Class IDSSelect
  */
-export class IUXSelect {
+export class IDSSelect {
 
   /**
    * constructor
@@ -14,8 +14,8 @@ export class IUXSelect {
    */
   constructor(root) {
     this.rootEl_ = root;
-    this.inputEl_ = this.rootEl_.querySelector('.iux-select--input');
-    this.menuEl_ = this.rootEl_.querySelector('.iux-select--menu');
+    this.inputEl_ = this.rootEl_.querySelector('.ids-select--input');
+    this.menuEl_ = this.rootEl_.querySelector('.ids-select--menu');
 
     this.inputEl_.addEventListener('click', (e) => {
       this.toggle();
@@ -66,10 +66,10 @@ export class IUXSelect {
 
 
 /**
- * Class for IUXSelectMulti
- * @extends IUXSelect
+ * Class for IDSSelectMulti
+ * @extends IDSSelect
  */
-export class IUXMultiSelect extends IUXSelect {
+export class IDSMultiSelect extends IDSSelect {
 
   /**
    * Select a select item checkbox

@@ -1,8 +1,8 @@
 {
   "private": true,
   "version": "0.11.1",
-  "name": "iux",
-  "description": "Infor UX",
+  "name": "ids",
+  "description": "Infor Design System",
   "author": "Hook & Loop",
   "license": "UNLICENSED",
   "repository": {

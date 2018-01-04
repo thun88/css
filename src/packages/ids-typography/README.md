@@ -2,7 +2,7 @@
 title: Typography
 description: These are typical type classes you'll have available.
 demo:
-  path: /iux-typography/typography.html
+  path: /ids-typography/typography.html
 specs:
 - title: Secondary Header Font Size
   spec: headerSecondaryFontSize
@@ -34,12 +34,12 @@ specs:
 <small>Small Text</small>
 ```
 
-You can also use the classes `iux-header--primary` and `iux-header--secondary` to emulate `<h1>` and `<h2>` styles without using those specific tags. `<strong>`, `<em>`, and `<small>` all behave as you would expect.
+You can also use the classes `ids-header--primary` and `ids-header--secondary` to emulate `<h1>` and `<h2>` styles without using those specific tags. `<strong>`, `<em>`, and `<small>` all behave as you would expect.
 
 ## Type Utility Clases
 
-Text utility classes are provided to emulate certain type styles by applying classes. `.iux-text-descriptive` changes the <span class="iux-text-descriptive">color of descriptive text to a shade lighter</span>, `.iux-text-muted` makes the <span class="iux-text-muted">color of text muted</span>, and `.iux-text-alert` makes text <span class="iux-text-alert">Alert Red</span>. `.iux-text-link` allows you to <span class="iux-text-link">make text a link style</span> even when it's not in an `<a>` tag. Use `.iux-text-strong` to make text <span class="iux-text-strong">strong</span>, `.iux-text-emphasis` to makes it <span class="iux-text-emphasis">emphasized</span> and `.iux-text-small` makes it <span class="iux-text-small">smaller</small>.
+Text utility classes are provided to emulate certain type styles by applying classes. `.ids-text-descriptive` changes the <span class="ids-text-descriptive">color of descriptive text to a shade lighter</span>, `.ids-text-muted` makes the <span class="ids-text-muted">color of text muted</span>, and `.ids-text-alert` makes text <span class="ids-text-alert">Alert Red</span>. `.ids-text-link` allows you to <span class="ids-text-link">make text a link style</span> even when it's not in an `<a>` tag. Use `.ids-text-strong` to make text <span class="ids-text-strong">strong</span>, `.ids-text-emphasis` to makes it <span class="ids-text-emphasis">emphasized</span> and `.ids-text-small` makes it <span class="ids-text-small">smaller</small>.
 
 ## Lists
 
-For `<ol>` and `<ul>`, the default is to show the default `decimal` or `disc` `list-style-type`. If you want a plain ordered or un-ordered list without the list indicator, use `.iux-list--plain`.
+For `<ol>` and `<ul>`, the default is to show the default `decimal` or `disc` `list-style-type`. If you want a plain ordered or un-ordered list without the list indicator, use `.ids-list--plain`.

@@ -1,4 +1,4 @@
-@import '../iux-base/_variables';
+@import '../ids-base/_variables';
 
 /*
   Base Styles
@@ -34,12 +34,12 @@ body {
   height: 100%;
 }
 
-.iux-container {
+.ids-container {
   padding: var(--container-padding-sm);
 }
 
 @media (--viewport-md) {
-  .iux-container {
+  .ids-container {
     padding: var(--container-padding-lg);
   }
 }
@@ -47,15 +47,15 @@ body {
 /*
  * Helpers
  */
-.iux-text--center {
+.ids-text--center {
   text-align: center;
 }
 
-.iux-text--left {
+.ids-text--left {
   text-align: left;
 }
 
-.iux-text--right {
+.ids-text--right {
   text-align: right;
 }
 
@@ -66,7 +66,7 @@ body {
  *    causes content to wrap 1 word per line:
  *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
  */
-.iux-visuallyhidden {
+.ids-visuallyhidden {
   border: 0;
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
@@ -84,8 +84,8 @@ body {
  * to be focusable when navigated to via the keyboard:
  * https://www.drupal.org/node/897638
  */
-.iux-visuallyhidden.focusable:active,
-.iux-visuallyhidden.focusable:focus {
+.ids-visuallyhidden.focusable:active,
+.ids-visuallyhidden.focusable:focus {
   clip: auto;
   clip-path: none;
   height: auto;

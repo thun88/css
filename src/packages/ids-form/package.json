@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "@infor/iux-form",
+  "name": "@infor/ids-form",
   "version": "1.0.0",
   "description": "Hook & Loop alpha testing UX individual packages.",
   "repository": {

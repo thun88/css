@@ -1,8 +1,8 @@
-@import '../iux-base/base';
-@import '../iux-typography/typography';
-@import '../iux-button/button';
+@import '../ids-base/base';
+@import '../ids-typography/typography';
+@import '../ids-button/button';
 
-.iux-icon {
+.ids-icon {
   color: inherit;
   display: inline-block;
   fill: var(--icon-fill);

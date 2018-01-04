@@ -1,11 +1,11 @@
-@import '../iux-base/base';
-@import '../iux-typography/typography';
-@import '../iux-form/form';
+@import '../ids-base/base';
+@import '../ids-typography/typography';
+@import '../ids-form/form';
 
-.iux-select {
+.ids-select {
   position: relative;
 
-  & .iux-select--menu {
+  & .ids-select--menu {
     background-color: var(--white);
     color: var(--graphite10);
     display: none;
@@ -26,21 +26,21 @@
       outline: none;
     }
 
-    & > li.iux-select--menu--selected {
+    & > li.ids-select--menu--selected {
       background-color: var(--azure06);
       color: var(--white);
     }
   }
 
-  &.iux-select--open {
+  &.ids-select--open {
     box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
 
-    & .iux-select--input {
+    & .ids-select--input {
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
     }
 
-    & .iux-select--menu {
+    & .ids-select--menu {
       border-bottom: var(--input-border-width) solid var(--input-border-color-focus);
       border-bottom-left-radius: var(--input-border-radius);
       border-bottom-right-radius: var(--input-border-radius);

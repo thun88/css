@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "@infor/iux-adaptive",
+  "name": "@infor/ids-adaptive",
   "version": "1.0.0",
   "description": "Hook & Loop alpha testing UX individual packages.",
   "repository": {

@@ -1,4 +1,4 @@
-@import '../iux-base/base';
+@import '../ids-base/base';
 
 html[lang='ar-EG'],
 html[lang='ar-SA'] {
@@ -31,7 +31,7 @@ body {
 }
 
 h1,
-.iux-header--primary {
+.ids-header--primary {
   font-size: var(--header-primary-font-size);
   margin-bottom: 10px;
   margin-top: 20px;
@@ -42,7 +42,7 @@ h3,
 h4,
 h5,
 h6,
-.iux-header--secondary {
+.ids-header--secondary {
   font-size: var(--header-secondary-font-size);
   margin-bottom: 10px;
   margin-top: 20px;
@@ -55,27 +55,27 @@ p {
 }
 
 strong,
-.iux-text-strong {
+.ids-text-strong {
   font-weight: var(--text-strong);
 }
 
 em,
-.iux-text-emphasis {
+.ids-text-emphasis {
   font-style: italic;
 }
 
 small,
-.iux-text-small {
+.ids-text-small {
   font-size: var(--text-small);
   font-weight: var(--font-weight-normal);
 }
 
-.iux-text-descriptive { color: var(--text-descriptive); }
-.iux-text-muted { color: var(--text-muted); }
-.iux-text-alert { color: var(--text-alert); }
+.ids-text-descriptive { color: var(--text-descriptive); }
+.ids-text-muted { color: var(--text-muted); }
+.ids-text-alert { color: var(--text-alert); }
 
 a,
-.iux-text-link {
+.ids-text-link {
   color: var(--link-color);
   cursor: pointer;
   text-decoration: none;
@@ -89,7 +89,7 @@ a,
     color: var(--link-color-disabled);
     cursor: not-allowed;
 
-    & .iux-icon {
+    & .ids-icon {
       fill: var(--link-color-disabled);
     }
   }
@@ -104,12 +104,12 @@ a,
   &:visited {
     color: var(--link-color-visited);
 
-    & .iux-icon {
+    & .ids-icon {
       fill: var(--link-color-visited);
     }
   }
 
-  & .iux-icon {
+  & .ids-icon {
     fill: var(--link-color-hover);
   }
 }
@@ -143,16 +143,16 @@ ul ol {
   margin-left: 15px;
 }
 
-ol.iux-list--plain,
-ul.iux-list--plain {
+ol.ids-list--plain,
+ul.ids-list--plain {
   list-style-type: none;
 }
 
 /* counter the "ul ul" and "ol ol" styles above */
-ol.iux-list--plain ol.iux-list--plain,
-ol.iux-list--plain ul.iux-list--plain,
-ul.iux-list--plain ul.iux-list--plain,
-ul.iux-list--plain ol.iux-list--plain {
+ol.ids-list--plain ol.ids-list--plain,
+ol.ids-list--plain ul.ids-list--plain,
+ul.ids-list--plain ul.ids-list--plain,
+ul.ids-list--plain ol.ids-list--plain {
   list-style-type: none;
   margin-left: 0;
 }

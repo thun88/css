@@ -1,13 +1,13 @@
-@import '../iux-base/base';
-@import '../iux-typography/typography';
+@import '../ids-base/base';
+@import '../ids-typography/typography';
 
 /*
-  Note: Leave .iux-btn without color styling so that
+  Note: Leave .ids-btn without color styling so that
   it can be easily extended for custom
   colored buttons
  */
 
-.iux-btn {
+.ids-btn {
   border: 0;
   border-radius: 2px;
   cursor: pointer;
@@ -36,7 +36,7 @@
     outline: 0;
   }
 
-  &.iux-btn--default {
+  &.ids-btn--default {
     background-color: var(--btn-default-bg);
     color: var(--btn-default-color);
 
@@ -49,7 +49,7 @@
     }
   }
 
-  &.iux-btn--primary {
+  &.ids-btn--primary {
     background-color: var(--btn-primary-bg);
     color: var(--btn-primary-color);
 
@@ -62,14 +62,14 @@
     }
   }
 
-  &.iux-btn--link {
+  &.ids-btn--link {
     background-color: var(--btn-link-bg);
     color: var(--btn-link-color);
 
     &:hover {
       color: var(--btn-link-hover);
 
-      & .iux-icon {
+      & .ids-icon {
         fill: var(--btn-link-hover);
       }
 
@@ -88,17 +88,17 @@
     &.is-active {
       color: var(--btn-link-active);
 
-      & .iux-icon {
+      & .ids-icon {
         fill: var(--btn-link-active);
       }
     }
 
-    & .iux-icon {
+    & .ids-icon {
       fill: var(--btn-link-color);
     }
   }
 
-  &.iux-btn--block {
+  &.ids-btn--block {
     display: block;
     width: 100%;
   }
