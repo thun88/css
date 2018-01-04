@@ -47,15 +47,15 @@ body {
 /*
  * Helpers
  */
-.text--center {
+.iux-text--center {
   text-align: center;
 }
 
-.text--left {
+.iux-text--left {
   text-align: left;
 }
 
-.text--right {
+.iux-text--right {
   text-align: right;
 }
 
@@ -66,7 +66,7 @@ body {
  *    causes content to wrap 1 word per line:
  *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
  */
-.visuallyhidden {
+.iux-visuallyhidden {
   border: 0;
   clip: rect(0 0 0 0);
   clip-path: inset(50%);
@@ -84,8 +84,8 @@ body {
  * to be focusable when navigated to via the keyboard:
  * https://www.drupal.org/node/897638
  */
-.visuallyhidden.focusable:active,
-.visuallyhidden.focusable:focus {
+.iux-visuallyhidden.focusable:active,
+.iux-visuallyhidden.focusable:focus {
   clip: auto;
   clip-path: none;
   height: auto;
