@@ -2,7 +2,7 @@
 title: IDS Select
 description: This page describes how the buttons and button styles are used.
 demo:
-  path: /ids-select/select.html
+  path: /ids-select/index.html
 ---
 
 ## Select

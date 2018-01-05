@@ -2,7 +2,7 @@
 title: Buttons
 description: This page describes how the buttons and button styles are used.
 demo:
-  path: /ids-button/ids-button.html
+  path: /ids-button/index.html
 specs:
 - title: Default Button Color
   spec: btnDefaultBg

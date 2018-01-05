@@ -2,7 +2,7 @@
 title: Tabs
 description: Description here
 demo:
-  path: /ids-tab/ids-tab.html
+  path: /ids-tab/index.html
 ---
 
 ## Basic Tabs
