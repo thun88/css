@@ -2,7 +2,7 @@
 title: Release Notes
 ---
 
-For more details, see [IUX releases on Github](https://github.com/hookandloop/soho-foundation/releases).
+For more details, see [IDS releases on Github](https://github.com/hookandloop/soho-foundation/releases).
 
 ## v0.3 - Themes and Typography
 

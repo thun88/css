@@ -1,0 +1,52 @@
+@import '../ids-base/base';
+@import '../ids-typography/typography';
+@import '../ids-form/form';
+
+.ids-select {
+  position: relative;
+
+  & .ids-select--menu {
+    background-color: var(--white);
+    color: var(--graphite10);
+    display: none;
+    font-size: 1.4rem;
+    height: auto;
+    line-height: 32px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 5px 0;
+    position: absolute;
+    text-indent: 10px;
+    width: 100%;
+    z-index: 1000;
+
+    & > li:hover {
+      background-color: var(--graphite02);
+      cursor: pointer;
+      outline: none;
+    }
+
+    & > li.ids-select--menu--selected {
+      background-color: var(--azure06);
+      color: var(--white);
+    }
+  }
+
+  &.ids-select--open {
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+
+    & .ids-select--input {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+
+    & .ids-select--menu {
+      border-bottom: var(--input-border-width) solid var(--input-border-color-focus);
+      border-bottom-left-radius: var(--input-border-radius);
+      border-bottom-right-radius: var(--input-border-radius);
+      border-left: var(--input-border-width) solid var(--input-border-color-focus);
+      border-right: var(--input-border-width) solid var(--input-border-color-focus);
+      display: block;
+    }
+  }
+}

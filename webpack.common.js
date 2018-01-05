@@ -6,7 +6,7 @@ const outPath = path.resolve('./build');
 
 const banner = [
   '/*!',
-  ' Infor UX Components for webapps',
+  ' Infor Design System Components for webapps',
   ` Copyright (c) ${new Date().getFullYear()} Infor Inc.`,
   ' License: Unlicensed',
   '*/',
@@ -31,7 +31,7 @@ module.exports = {
   // devtool: 'source-map',
   output: {
     path: path.resolve(outPath),
-    library: 'iux',
+    library: 'ids',
     libraryTarget: 'umd'
   }
 }
