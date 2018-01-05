@@ -25,7 +25,7 @@ module.exports = (gulp, gconfig, postCssPlugins, svgHtml) => {
     );
 
     const cssAnnotations = helperFns.createCssAnnotations(gconfig.paths.src.packages);
-    const inlineIcons = fs.readFileSync(`${gconfig.paths.src.packages}/${gconfig.project.prefix}-icon/dist/inline-icons.svg`, 'utf-8');
+    const inlineIcons = fs.readFileSync(`${gconfig.paths.src.packages}/${gconfig.project.prefix}-icon/dist/${gconfig.project.prefix}-icons.svg`, 'utf-8');
 
     registrar(handlebars, {
       partials: [

@@ -3,7 +3,7 @@ title: Icons
 description: Basic icons for IDS.
 ---
 
-To be able to x:link the icons into your app, you will need to copy `dist/inline-icons.svg` contents into the top of your `<body>` tag for your html pages. You can hide it with a class we proivde: `visuallyhidden`.
+To be able to x:link the icons into your app, you will need to copy `dist/ids-icons.svg` contents into the top of your `<body>` tag for your html pages. You can hide it with a class we proivde: `visuallyhidden`.
 
 ## Examples of icon use:
 

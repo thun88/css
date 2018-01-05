@@ -15,7 +15,7 @@ module.exports = (gulp, gconfig) => {
 
     return gulp.src(`${curPkg}/dist/svgs/*.svg`)
       .pipe(svgstore({ inlineSvg: true }))
-      .pipe(rename('inline-icons.svg'))
+      .pipe(rename(`${gconfig.project.prefix}-icons.svg`))
       .pipe(gulp.dest(`${curPkg}/dist`))
       .pipe(gulp.dest(`${allComponentsPkg}/dist`));
   });
