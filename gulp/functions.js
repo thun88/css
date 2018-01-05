@@ -41,8 +41,8 @@ let helperFns = {
     const defaultVarsObj = helperFns.parseCss(`${packageDir}/${gconfig.project.prefix}-base/_variables.css`);
 
     const themes = [
-      { name: 'themeDark',         path: `${packageDir}/${gconfig.project.prefix}-theme-dark/theme-dark.css` },
-      { name: 'themeHighContrast', path: `${packageDir}/${gconfig.project.prefix}-theme-high-contrast/theme-high-contrast.css` }
+      { name: 'themeDark',         path: `${packageDir}/${gconfig.project.prefix}-theme-dark/ids-theme-dark.css` },
+      { name: 'themeHighContrast', path: `${packageDir}/${gconfig.project.prefix}-theme-high-contrast/ids-theme-high-contrast.css` }
     ];
 
     cssVarAnnotations = {

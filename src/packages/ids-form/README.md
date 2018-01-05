@@ -2,7 +2,7 @@
 title: Form Controls
 description: Some text about using ids-form-controls.
 demo:
-  path: /ids-form/form.html
+  path: /ids-form/ids-form.html
 specs:
 - title: Border Color
   spec: inputBorderColor

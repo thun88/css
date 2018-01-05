@@ -2,7 +2,7 @@
 title: Responsive Grid
 description: A 12-column grid is the base infrastructure of modern, responsive application. On this page, you'll learn how to use the responsive grid to build page layouts and how to adjust your layouts on different browser-width breakpoints.
 demo:
-  path: /ids-grid/grid.html
+  path: /ids-grid/ids-grid.html
 specs:
 - title: Extra Small
   spec: breakpointXs

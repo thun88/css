@@ -1,6 +1,6 @@
-@import '../ids-base/base';
-@import '../ids-typography/typography';
-@import '../ids-button/button';
+@import '../ids-base/ids-base';
+@import '../ids-typography/ids-typography';
+@import '../ids-button/ids-button';
 
 .ids-icon {
   color: inherit;

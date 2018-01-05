@@ -1,4 +1,4 @@
-@import '../ids-base/base';
+@import '../ids-base/ids-base';
 
 /**
 NOTE: lost grid doesn't accept variables inside of its "lost-column"

@@ -2,7 +2,7 @@
 title: Typography
 description: These are typical type classes you'll have available.
 demo:
-  path: /ids-typography/typography.html
+  path: /ids-typography/ids-typography.html
 specs:
 - title: Secondary Header Font Size
   spec: headerSecondaryFontSize
