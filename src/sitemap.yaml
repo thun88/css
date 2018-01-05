@@ -1,4 +1,11 @@
 sections:
+- name: IDS Web Components
+  slug: index
+  pages:
+    - name: Home
+      slug: index
+    - name: Release Notes
+      slug: release-notes
 - name: Page Structure
   slug: page-structure
   pages:
@@ -8,9 +15,6 @@ sections:
     slug: grid
 - name: Identity
   slug: identity
-  # Maybe combine to an themes-all package; leave separate in case of individual use
-  #- name: theme-dark
-  #- name: theme-high-contrast
   pages:
   - name: Themes
     slug: theme
@@ -27,15 +31,5 @@ sections:
     slug: select
   - name: Forms
     slug: form
-- name: Blocks
-  slug: blocks
-  pages:
   - name: Tabs
     slug: tab
-- name: Utilities
-  slug: utilities
-  pages:
-  - name: Base Styles
-    slug: base
-  - name: All Components
-    slug: components-webapp

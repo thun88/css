@@ -6,7 +6,6 @@ module.exports = (gulp, gconfig, publishDocObj) => {
 
   const helperFns = require('../functions.js');
   const markdown = require('gulp-markdown'); // base engine is marked to match json-md-compile
-  const mdToJson = require('gulp-markdown-to-json');
   const rename  = require('gulp-rename');
   const path = require('path');
   const pkgJson  = require('../../package.json');
@@ -19,9 +18,19 @@ module.exports = (gulp, gconfig, publishDocObj) => {
 
   gulp.task('json:md:compile', () => {
 
+    const cssAnnotations = helperFns.createCssAnnotations(gconfig.paths.src.packages);
+    let arrOfCssThemes = Object.keys(cssAnnotations);
+
     marked.setOptions(gconfig.options.marked);
 
     return gulp.src(`${gconfig.paths.src.root}/**/*.md`)
+
+      // Rename filename of package/*/readme.md files to folder name
+      .pipe(rename(file => {
+        if (file.basename.toLowerCase() === 'readme') {
+          file.basename = helperFns.createFileNameFromFolder(file.dirname);
+        }
+      }))
 
       // Extract/remove yaml from markdown
       .pipe(frontMatter({
@@ -31,24 +40,34 @@ module.exports = (gulp, gconfig, publishDocObj) => {
       // Parse and highlight
       .pipe(markdown(gconfig.options.marked))
 
-      // Convert to JSON
-      .pipe(mdToJson(marked))
-
-      // Rename filename of package/*/readme.md files to folder name
-      .pipe(rename(file => {
-        if (file.basename.toLowerCase() === 'readme') {
-          file.basename = helperFns.createFileNameFromFolder(file.dirname);
-        }
-      }))
-
-      // Merge data back to global object to add converted markdown content
-      // Note: will be written to a file later in the flow
+      // Build out the json
       .pipe(tap((file) => {
-        const fileName = path.parse(file.path).name;
-        const tmpObj = JSON.parse(file.contents.toString());
-        const mergedObj = { ...file.data.frontMatter, ...tmpObj, ...publishDocObj[fileName] };
-        publishDocObj[fileName] = mergedObj;
-      }));
-  });
+        let jsonObj = file.data.frontMatter;
+        jsonObj.body = file.contents.toString();
 
+        // Get the css values for the meta specs
+        if (jsonObj.specs) {
+          jsonObj.specs.forEach(spec => {
+            spec.themes = [];
+
+            // Create values object for each theme for the spec
+            arrOfCssThemes.forEach(theme => {
+              if (theme === 'default') {
+                // Merge 'default' theme properties at the top level
+                Object.assign(spec, cssAnnotations[theme][spec.spec]);
+              } else {
+                // Other theme values go in the themes array
+                spec.themes.push({...{ theme: theme }, ...cssAnnotations[theme][spec.spec]});
+              }
+            });
+          });
+        }
+
+        // Merge converted markdown content data back to global object.
+        // Note: will be written to a file later in the flow
+        const fileName = path.parse(file.path).name;
+        const mergedObj = { ...jsonObj, ...publishDocObj[fileName] };
+        publishDocObj[fileName] = mergedObj;
+      }))
+  });
 }

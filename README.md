@@ -1,6 +1,6 @@
-# [Infor UX](#)
+# [Infor Design System](#)
 
-Infor UX is a sleek, intuitive, and powerful front-end framework for faster and easier web development.
+Infor Design System is a sleek, intuitive, and powerful front-end framework for faster and easier web development.
 
 ## Table of contents
 - [Dev Quick start](#dev-quick-start)
@@ -20,12 +20,13 @@ Infor UX is a sleek, intuitive, and powerful front-end framework for faster and 
 - `$ gulp` - Clean and Build the site and packages
 - `$ gulp dev` - Clean, build (site & packages), and start the server
 - `$ gulp publish` - Build the markdown docs into json, zip it, then post to the server
+    - `gulp publish --site=[local|localDebug|pool]` = (Optional) The default is "local"
 - `$ gulp lint` Lints the **src** and **site** css raw files
 - `$ gulp clean` - Remove all built files
 
 > The website is served at `http://localhost:3000/`
 >
-> Demos are at `http://localhost:3000/iux-{package}/{package}`
+> Demos are at `http://localhost:3000/ids-{package}/{package}`
 > (it follows the folder pattern under `demo/`)
 
 ## Unit Tests

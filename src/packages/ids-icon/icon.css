@@ -1,0 +1,13 @@
+@import '../ids-base/base';
+@import '../ids-typography/typography';
+@import '../ids-button/button';
+
+.ids-icon {
+  color: inherit;
+  display: inline-block;
+  fill: var(--icon-fill);
+  height: var(--icon-height);
+  position: relative;
+  vertical-align: text-bottom;
+  width: var(--icon-width);
+}

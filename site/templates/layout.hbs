@@ -5,34 +5,34 @@
     <meta name="author" content="Hook & Loop">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>{{meta.title}} - Infor UX Developer</title>
-
-    <link rel="stylesheet" type="text/css" href="/dist/iux.min.css">
+    <title>{{meta.title}} - Infor Design System Developer</title>
+    <link rel="stylesheet" type="text/css" href="/dist/reset.min.css">
+    <link rel="stylesheet" type="text/css" href="/dist/web.min.css">
     <link rel="stylesheet" type="text/css" href="/dist/documentation.min.css">
     <link rel="stylesheet" type="text/css" href="/assets/site.css">
   </head>
 
-  <body class="iux-container">
+  <body class="ids-container">
 
-    <div class="visuallyhidden">
+    <div class="ids-visuallyhidden">
       {{{inlineIcons}}}
     </div>
 
     <header class="site-header">
       <a class="logo" routerlink="/" href="/">
         <img alt="" src="http://docs-site-staging.us-east-1.elasticbeanstalk.com/assets/logo.svg">
-        <span>Infor UX - <em>Developer Site: v{{pkgJson.version}}</em></span>
+        <span>Infor Design System - <em>Developer Site: v{{pkgJson.version}}</em></span>
       </a>
     </header>
 
-    <main class="iux-row">
-      <aside class="sidebar iux-row--col-sm-3">
+    <main class="ids-row">
+      <aside class="sidebar ids-row--col-sm-3">
         <nav class="sidebar-nav">
-          <ul class="iux-list--plain">
+          <ul class="ids-list--plain">
             {{#each sitemap.sections}}
               <li class="sidebar-nav__group">
                 <a href="/{{slug}}.html" class="sidebar-nav__child-item">{{this.name}}</a>
-                <ul class="iux-list--plain">
+                <ul class="ids-list--plain">
                   {{#each this.pages}}
                     <li><a href="/{{slug}}.html" class="sidebar-nav__grandchild-item">{{this.name}}</a></li>
                   {{/each}}
@@ -43,7 +43,7 @@
         </nav>
       </aside>
 
-      <div class="iux-row--col-sm-9">
+      <div class="ids-row--col-sm-9">
         {{#if meta.title}}
           <div class="hero">
             <h1>{{meta.title}}</h1>
@@ -57,7 +57,7 @@
         {{/if}}
 
         {{#if meta.specs}}
-          <ul class="iux-list--plain">
+          <ul class="ids-list--plain">
             {{#each meta.specs}}
               {{#if valueType}}
                 <li class="site-spec">{{> specValue annotations=../annotations title=title spec=spec}}</li>

@@ -1,6 +1,6 @@
 {{#with (lookup annotations spec) }}
-<div class="iux-row iux-row--gutter theme-spec--group" style="background-color: {{bodyBg.value}};">
-  <div class="iux-row--col-lg-4">
+<div class="ids-row ids-row--gutter theme-spec--group" style="background-color: {{bodyBg.value}};">
+  <div class="ids-row--col-lg-4">
     <h2 style="color: {{bodyColor.value}};">Background Colors</h2>
     {{> themeDetailsSpec title="Body Background" data=bodyBg altBg=bodyBgSecondary textColor=bodyColor.value }}
     {{> themeDetailsSpec title="Body Background (Secondary)" data=bodyBgSecondary textColor=bodyColor.value }}
@@ -11,7 +11,7 @@
     {{> themeDetailsSpec title="Status Yellow" data=statusYellow textColor=bodyColor.value }}
     {{> themeDetailsSpec title="Status Red" data=statusRed textColor=bodyColor.value }}
   </div>
-  <div class="iux-row--col-lg-4">
+  <div class="ids-row--col-lg-4">
     <h2 style="color: {{bodyColor.value}};">Buttons</h2>
     {{> themeDetailsSpec title="Default Button Background" data=btnDefaultBg textColor=bodyColor.value }}
     {{> themeDetailsSpec title="Default Button Text" data=btnDefaultColor textColor=bodyColor.value }}
@@ -20,7 +20,7 @@
     {{> themeDetailsSpec title="Primary Button Text" data=btnPrimaryColor textColor=bodyColor.value }}
     {{> themeDetailsSpec title="Primary Button Hover Color" data=btnPrimaryHover textColor=bodyColor.value }}
   </div>
-  <div class="iux-row--col-lg-4">
+  <div class="ids-row--col-lg-4">
     <h2 style="color: {{bodyColor.value}};">Forms</h2>
     {{> themeDetailsSpec title="Input Field" data=inputBg border=inputBorderColor textColor=bodyColor.value }}
     {{> themeDetailsSpec title="Input Field (Hover)" data=inputBgHover border=inputBorderColorHover textColor=bodyColor.value }}

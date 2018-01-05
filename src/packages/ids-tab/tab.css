@@ -1,0 +1,90 @@
+@import '../ids-base/base';
+@import '../ids-grid/grid';
+@import '../ids-typography/typography';
+
+.ids-tabs--horizontal {
+  border-bottom: solid 1px var(--graphite03);
+  display: block;
+
+  & .ids-tabs--tab {
+    color: var(--graphite06);
+    display: inline-block;
+    margin: 0 10px 0 0;
+    max-width: 150px;
+    min-width: 40px;
+    overflow: hidden;
+    padding: 12px 11px;
+    position: relative;
+    text-overflow: ellipsis;
+    vertical-align: top;
+    white-space: nowrap;
+
+    &::before {
+      background-color: transparent;
+      bottom: 0;
+      content: '';
+      display: block;
+      height: 3px;
+      left: 0;
+      position: absolute;
+      transition: background-color 0.25s ease;
+      width: 0;
+    }
+
+    &:hover:not(.ids-tabs--tab--disabled) {
+      color: var(--graphite10);
+      text-decoration: none;
+
+      &::before {
+        background-color: var(--graphite10);
+        width: 100%;
+      }
+    }
+
+    &.ids-tabs--tab--active {
+      color: var(--azure06);
+
+      &::before {
+        background-color: var(--azure06);
+        width: 100%;
+      }
+    }
+
+    &.ids-tabs--tab--disabled {
+      color: var(--graphite04);
+
+      &:hover {
+        cursor: not-allowed;
+      }
+    }
+  }
+}
+
+.ids-tabs--vertical {
+  background-color: var(--graphite01);
+  display: block;
+
+  & .ids-tabs--tab {
+    color: inherit;
+    display: block;
+    padding: 10px 30px;
+    text-decoration: none;
+
+    &:hover:not(.ids-tabs--tab--disabled) {
+      background-color: var(--graphite02);
+    }
+
+    &.ids-tabs--tab--active {
+      background-color: var(--azure06);
+      color: #fff;
+    }
+
+    &.ids-tabs--tab--disabled {
+      color: var(--graphite04);
+
+      &:hover {
+        cursor: not-allowed;
+      }
+    }
+  }
+}

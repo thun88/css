@@ -9,6 +9,6 @@ module.exports = merge(common, {
   ],
   output: {
     filename: '[name].min.js',
-    library: ['iux', '[name].min'],
+    library: ['ids', '[name].min'],
   }
 });

@@ -4,7 +4,9 @@
 
 module.exports = (gulp, gconfig, postCssPlugins) => {
 
+  const filter = require('gulp-filter');
   const rename = require('gulp-rename');
+  const sourcemaps = require('gulp-sourcemaps');
 
   gulp.task('src:css:compile', () => {
     const postcss = require('gulp-postcss');
@@ -19,25 +21,24 @@ module.exports = (gulp, gconfig, postCssPlugins) => {
       postCssPlugins.cssnext
     ];
 
-    const postcssOptions = {
-      map: true
-    };
-
     return gulp.src(`${gconfig.paths.src.packages}/*/[^_]*.css`)
 
       // compile
-      .pipe(postcss(plugins, postcssOptions))
+      .pipe(sourcemaps.init())
+        .pipe(postcss(plugins))
+      .pipe(sourcemaps.write('.'))
       .pipe(rename((path) => {
         path.dirname += '/dist';
       }))
       .pipe(gulp.dest(gconfig.paths.demo))
       .pipe(gulp.dest(gconfig.paths.src.packages))
 
-      // minify
-      .pipe(postcss([postCssPlugins.cssnano({
-        autoprefixer: false
-      })], postcssOptions))
+      // minify css (only .css, not .maps)
+      .pipe(filter('**/*.css'))
       .pipe(rename({ suffix: '.min' }))
+      .pipe(sourcemaps.init())
+        .pipe(postcss([postCssPlugins.cssnano({ autoprefixer: false })]))
+      .pipe(sourcemaps.write('.'))
       .pipe(gulp.dest(gconfig.paths.src.packages));
   });
 }
