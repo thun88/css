@@ -18,7 +18,11 @@ module.exports = (gulp, gconfig, postCssPlugins) => {
       postCssPlugins.atVariables,
       postCssPlugins.atFor,
       postCssPlugins.lost,
-      postCssPlugins.cssnext
+      postCssPlugins.cssnext({
+        features: {
+          customProperties: { preserve: "computed" } // preserve custom properties & var() usage in output
+        }
+      })
     ];
 
     return gulp.src(`${gconfig.paths.src.packages}/*/[^_]*.css`)
