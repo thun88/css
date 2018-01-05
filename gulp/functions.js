@@ -77,7 +77,7 @@ let helperFns = {
     const gconfig = require('./gulp-config.js');
 
     let pathArr = filePath.split('/');
-    let str = pathArr[pathArr.length - 1].replace(gconfig.project.prefix, '');
+    let str = pathArr[pathArr.length - 1].replace(`${gconfig.project.prefix}-`, '');
     return str;
   },
 
