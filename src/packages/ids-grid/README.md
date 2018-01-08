@@ -72,7 +72,7 @@ You can also use the breakpoint `col` classes `.ids-row--col-[xs|sm|md|lg|xl]-*`
 
 ## Grid with Gutters
 
-A grid with gutters helps you layout content and maintain consistent spacing between elements. Use grid class `.ids-row ids-row--gutter` to create a layout row with a gutter. There are two different sizes of gutters (Small and Large) which are automatic based on the breakpoint size classes you're using. Below are standard, recommended SoHo layouts which will provide the best flexibility and content structure for most applications.
+A grid with gutters helps you layout content and maintain consistent spacing between elements. Use grid class `.ids-row ids-row--gutter` to create a layout row with a gutter. There are two different sizes of gutters (Small and Large) which are automatic based on the breakpoint size classes you're using. Below are standard, recommended IDS layouts which will provide the best flexibility and content structure for most applications.
 
 ```html
 <div class="ids-row ids-row--gutter">

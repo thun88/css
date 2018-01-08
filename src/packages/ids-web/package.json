@@ -4,7 +4,7 @@
   "description": "Infor Design System (IDS) Compnonents for the web",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hookandloop/soho-foundation.git"
+    "url": "git+https://github.com/infor-design/ids-web.git"
   },
   "keywords": [
     "ids",
@@ -13,9 +13,9 @@
   "author": "Hook & Loop",
   "license": "UNLICENSED",
   "bugs": {
-    "url": "https://github.com/hookaandloop/soho-foundation/issues"
+    "url": "https://github.com/infor-design/ids-web/issues"
   },
-  "homepage": "https://github.com/hookandloop/soho-foundation#readme",
+  "homepage": "https://github.com/infor-design/ids-web/blob/0.x/src/packages/ids-adaptive#readme",
   "scripts": {
     "prepublishOnly": "gulp",
     "test": "echo \"Error: no test specified\" && exit 1"

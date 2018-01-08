@@ -7,7 +7,7 @@
   "license": "UNLICENSED",
   "repository": {
     "type": "git",
-    "url": "git://github.com/hookandloop/soho-foundation.git"
+    "url": "git://github.com/infor-design/ids-web.git"
   },
   "dependencies": {
     "@infor/documentation-css": "^0.1.12",

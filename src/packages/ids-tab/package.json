@@ -5,7 +5,7 @@
   "description": "Hook & Loop alpha testing UX individual packages.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hookandloop/soho-foundation.git"
+    "url": "git+https://github.com/infor-design/ids-web.git"
   },
   "keywords": [
     "adaptive",
@@ -15,9 +15,9 @@
   "author": "Hook & Loop",
   "license": "UNLICENSED",
   "bugs": {
-    "url": "https://github.com/hookaandloop/soho-foundation/issues"
+    "url": "https://github.com/infor-design/ids-web/issues"
   },
-  "homepage": "https://github.com/hookandloop/soho-foundation#readme",
+  "homepage": "https://github.com/infor-design/ids-web#readme",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

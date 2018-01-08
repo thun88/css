@@ -2,7 +2,7 @@
 title: Release Notes
 ---
 
-For more details, see [IDS releases on Github](https://github.com/hookandloop/soho-foundation/releases).
+For more details, see [IDS releases on Github](https://github.com/infor-design/ids-web/releases).
 
 ## v0.3 - Themes and Typography
 

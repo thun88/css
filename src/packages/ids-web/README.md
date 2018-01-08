@@ -1,5 +1,5 @@
 ---
-title: Infor Design System Components
+title: Infor Design System Web Components
 description: Infor Design System components for the web
 ---
 
