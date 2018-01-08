@@ -1,6 +1,6 @@
-@import '../ids-base/base';
-@import '../ids-grid/grid';
-@import '../ids-typography/typography';
+@import '../ids-base/ids-base';
+@import '../ids-grid/ids-grid';
+@import '../ids-typography/ids-typography';
 
 .ids-tabs--horizontal {
   border-bottom: solid 1px var(--graphite03);

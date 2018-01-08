@@ -1,7 +1,7 @@
-@import '../ids-base/base';
-@import '../ids-button/button';
-@import '../ids-typography/typography';
-@import '../ids-icon/icon';
+@import '../ids-base/ids-base';
+@import '../ids-button/ids-button';
+@import '../ids-typography/ids-typography';
+@import '../ids-icon/ids-icon';
 
 .ids-form-control {
   background-clip: padding-box;

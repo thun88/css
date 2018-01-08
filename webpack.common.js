@@ -6,7 +6,7 @@ const outPath = path.resolve('./build');
 
 const banner = [
   '/*!',
-  ' Infor Design System Components for webapps',
+  ' Infor Design System Components for the web',
   ` Copyright (c) ${new Date().getFullYear()} Infor Inc.`,
   ' License: Unlicensed',
   '*/',
