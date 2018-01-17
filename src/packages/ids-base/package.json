@@ -1,8 +1,7 @@
 {
-  "private": true,
   "name": "@infor/ids-base",
-  "version": "1.0.0",
-  "description": "Hook & Loop alpha testing UX individual packages.",
+  "version": "0.1.0",
+  "description": "Infor Design System (IDS) Base custom properties for the web",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/infor-design/ids-web.git"
@@ -16,8 +15,12 @@
   "bugs": {
     "url": "https://github.com/infor-design/ids-web/issues"
   },
-  "homepage": "https://github.com/infor-design/ids-web#readme",
+  "homepage": "https://github.com/infor-design/ids-web/blob/0.x/src/packages/ids-base#readme",
   "scripts": {
+    "prepublishOnly": "gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
-  }
+  },
+  "files": [
+    "dist"
+  ]
 }
