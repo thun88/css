@@ -83,28 +83,44 @@ A grid with gutters helps you layout content and maintain consistent spacing bet
 
 ## Basic Page Layout
 
-### Full Width Page
+### Add padding to a section
+
+You can add padding (size dictated responsively) to a container element by using the class `.ids-container`.
 
 ```html
-<body>
-    <div class="ids-container">
-        <!--- main body contents here will be inside a page margin -->
-    </div>
-</body>
+<div class="ids-container">
+    <!--- contents here will be surrounded by padding -->
+</div>
 ```
 
-### Responsive List/Detail
+You can use this inside of a grid cell to pad the cell contents. When using the grid as a page layout, this is preferred.
 
 ```html
 <body>
-    <div><!--- your header here --></div>
     <div class="ids-row">
         <div class="ids-row--col-sm-4 ids-row--col-lg-3">
             <!--- left column contents here -->
         </div>
         <div class="ids-row--col-sm-8 ids-row--col-lg-9">
             <div class="ids-container">
-                <!--- main body contents here will be inside a page margin -->
+                <!--- main body contents here will be surrounded by padding -->
+            </div>
+        </div>
+    </div>
+</body>
+```
+
+Or you can wrap the entire grid with `.ids-container` to pad the grid itself. This is best applied when the grid is a part of the content.
+
+ ```html
+<body>
+    <div class="ids-container">
+        <div class="ids-row">
+            <div class="ids-row--col-sm-4 ids-row--col-lg-3">
+                <!--- left column contents here -->
+            </div>
+            <div class="ids-row--col-sm-8 ids-row--col-lg-9">
+                    <!--- main body contents here will be surrounded by padding -->
             </div>
         </div>
     </div>
