@@ -2,8 +2,8 @@
 title: Buttons
 description: This page describes how the buttons and button styles are used.
 system:
-- category: elements
-- name: buttons
+  category: elements
+  name: buttons
 demo:
   path: /ids-button/index.html
 specs:
