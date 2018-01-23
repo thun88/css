@@ -89,7 +89,7 @@ let helperFns = {
    */
   parseCss: (cssPath, themeAnnotationsObj = {}) => {
     const
-      annotateBlock = require('css-annotation-block'),
+      annotateBlock = require('@infor/css-annotation-block-custom'),
       isColor = require('is-color'),
       fs = require('fs');
 

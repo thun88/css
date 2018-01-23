@@ -54,10 +54,6 @@ module.exports = (gulp, gconfig, postCssPlugins, svgHtml) => {
             property: 'data.frontMatter'
           }))
 
-          .pipe(tap(file => {
-            console.log(file.path);
-          }))
-
           // convert from markdown and add syntax highlighting
           .pipe(markdown(gconfig.options.marked))
 

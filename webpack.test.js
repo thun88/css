@@ -3,12 +3,14 @@ const webpack = require('webpack');
 const BabelPlugin = require("babel-webpack-plugin");
 
 module.exports = {
-  devtool: 'source-map',
+  devtool: 'inline-source-map', // in-line source maps instead of the default
   plugins: [
     new BabelPlugin({
       test: /\.js$/,
-      presets: ['es2015'],
-      sourceMaps: false,
+      presets: [
+        ["env", { "modules": false }]
+      ],
+      sourceMaps: true,
       compact: false
     })
   ]

@@ -1,5 +1,5 @@
 import { Helpers } from "./helpers.js";
-import { IDSTab } from "../../../src/packages/ids-tab/ids-tab.js";
+import { IDSTab } from "../../../src/packages/ids-tab/tab.js";
 
 
 describe("A Tab", () => {

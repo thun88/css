@@ -23,7 +23,9 @@ module.exports = {
     createBannerPlugin(),
     new BabelPlugin({
       test: /\.js$/,
-      presets: ['es2015'],
+      presets: [
+        ["env", { "modules": false }]
+      ],
       sourceMaps: false,
       compact: false
     })
