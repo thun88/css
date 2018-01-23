@@ -14,7 +14,11 @@ module.exports = {
     },
     src: {
       root:     './src',
-      packages: './src/packages'
+      packages: './src/packages',
+      mdFiles: [
+        './src/*.md',
+        './src/packages/*/README.md'
+      ]
     },
     site: {
       root:      './site',

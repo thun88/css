@@ -36,8 +36,8 @@ module.exports = (gulp, gconfig) => {
     ];
 
     const packageFiles = [
+      gconfig.paths.src.mdFiles,
       `${gconfig.paths.src.root}/sitemap.yaml`,
-      `${gconfig.paths.src.root}/**/*.md`,
       `${gconfig.paths.src.packages}/*/+(*.css|*.js)`
     ];
 

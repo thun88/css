@@ -23,7 +23,7 @@ module.exports = (gulp, gconfig, publishDocObj) => {
 
     marked.setOptions(gconfig.options.marked);
 
-    return gulp.src(`${gconfig.paths.src.root}/**/*.md`)
+    return gulp.src(gconfig.paths.src.mdFiles)
 
       // Rename filename of package/*/readme.md files to folder name
       .pipe(rename(file => {

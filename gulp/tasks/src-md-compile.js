@@ -47,11 +47,15 @@ module.exports = (gulp, gconfig, postCssPlugins, svgHtml) => {
         const template = handlebars.compile(file.contents.toString());
 
         // read all src markdown files
-        return gulp.src(`${gconfig.paths.src.root}/**/*.md`)
+        return gulp.src(gconfig.paths.src.mdFiles)
 
           // extract/remove yaml from MD
           .pipe(frontMatter({
             property: 'data.frontMatter'
+          }))
+
+          .pipe(tap(file => {
+            console.log(file.path);
           }))
 
           // convert from markdown and add syntax highlighting
