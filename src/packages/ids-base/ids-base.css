@@ -1,4 +1,4 @@
-@import '../ids-base/_variables';
+@import '../../../node_modules/@infor/ids-web-tokens/theme-default.custom-properties.css';
 
 /*
   Base Styles
@@ -96,3 +96,13 @@ body {
   width: auto;
 }
 
+/*
+ * Media Definitions
+ */
+:root {
+  @custom-media --viewport-xs (min-width: var(--breakpoint-xs));
+  @custom-media --viewport-sm (min-width: var(--breakpoint-sm));
+  @custom-media --viewport-md (min-width: var(--breakpoint-md));
+  @custom-media --viewport-lg (min-width: var(--breakpoint-lg));
+  @custom-media --viewport-xl (min-width: var(--breakpoint-xl));
+}

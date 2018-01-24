@@ -38,11 +38,12 @@ let helperFns = {
       cssVarAnnotations = {};
 
     // Parse the defaults first
-    const defaultVarsObj = helperFns.parseCss(`${packageDir}/${gconfig.project.prefix}-base/_variables.css`);
+
+    const defaultVarsObj = helperFns.parseCss('./node_modules/@infor/ids-web-tokens/theme-default.custom-properties.css');
 
     const themes = [
-      { name: 'themeDark',         path: `${packageDir}/${gconfig.project.prefix}-theme-dark/ids-theme-dark.css` },
-      { name: 'themeHighContrast', path: `${packageDir}/${gconfig.project.prefix}-theme-high-contrast/ids-theme-high-contrast.css` }
+      { name: 'themeDark',         path: './node_modules/@infor/ids-web-tokens/theme-dark.custom-properties.css' },
+      { name: 'themeHighContrast', path: './node_modules/@infor/ids-web-tokens/theme-high-contrast.custom-properties.css' }
     ];
 
     cssVarAnnotations = {

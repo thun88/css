@@ -131,7 +131,7 @@ select.ids-form-control {
     margin-bottom: 5px;
 
     &.is-required::after {
-      color: var(--status-red);
+      color: var(--text-alert);
       content: '*';
       display: inline;
       font-size: var(--font-size-base);
@@ -153,15 +153,15 @@ select.ids-form-control {
   &.has-error {
     & .ids-form-control,
     & .ids-info-block {
-      color: var(--status-red);
+      color: var(--text-alert);
     }
 
     & .ids-form-control {
-      border-color: var(--status-red);
+      border-color: var(--text-alert);
     }
 
     &:focus {
-      border-color: var(--status-red);
+      border-color: var(--text-alert);
       color: var(--input-color);
     }
   }
@@ -247,7 +247,7 @@ select.ids-form-control {
   }
 
   & input:disabled + label {
-    color: var(--graphite04);
+    color: var(--text-muted);
 
     &::before {
       background-color: var(--checkbox-bg-disabled);
