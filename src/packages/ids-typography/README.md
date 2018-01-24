@@ -3,6 +3,9 @@ title: Typography
 description: These are typical type classes you'll have available.
 demo:
   path: /ids-typography/index.html
+system:
+  category: identity
+  name: fonts-colors
 specs:
 - title: Secondary Header Font Size
   spec: headerSecondaryFontSize

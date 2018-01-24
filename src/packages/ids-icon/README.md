@@ -1,6 +1,9 @@
 ---
 title: Icons
 description: Basic icons for IDS.
+system:
+  category: identity
+  name: icons
 ---
 
 To be able to x:link the icons into your app, you will need to copy `dist/ids-icons.svg` contents into the top of your `<body>` tag for your html pages. You can hide it with a class we proivde: `visuallyhidden`.
