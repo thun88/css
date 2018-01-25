@@ -10,12 +10,18 @@
   <link rel="stylesheet" type="text/css" href="./dist/ids-select.css">
   <link rel="stylesheet" type="text/css" href="./dist/ids-select.css.map">
   <link rel="stylesheet" type="text/css" href="../demo.css">
+
+  <style>
+    .example-open {
+      margin-bottom: 150px;
+    }
+  </style>
 </head>
 
 <body class="ids-container">
   <h1>Select Controls</h1>
 
-  <h2>Select</h2>
+  <h2>Select Closed</h2>
   <div class="ids-select">
     <input type="text" class="ids-form-control ids-select--input" placeholder="Select one" />
     <ul class="ids-select--menu ids-list--plain">
@@ -26,13 +32,24 @@
     </ul>
   </div>
 
-  <h2 id="select">Select Multiselect</h2>
-  <div class="ids-select">
+  <h2>Select Open</h2>
+  <div class="ids-select ids-select--open example-open">
+    <input type="text" class="ids-form-control ids-select--input" placeholder="Select one" />
+    <ul class="ids-select--menu ids-list--plain">
+      <li class="is-selected" data-value="Option 1">Option 1</li>
+      <li data-value="Option 2">Option 2</li>
+      <li data-value="Option 3">Option 3</li>
+      <li data-value="Option 4">Option 4</li>
+    </ul>
+  </div>
+
+  <h2>Select Multiselect Open</h2>
+  <div class="ids-select ids-select--open example-open">
     <input type="text" class="ids-form-control ids-select--input" placeholder="Select many" />
     <ul class="ids-select--menu ids-list--plain">
       <li>
-        <div class="ids-form-checkbox">
-          <input type="checkbox" id="selectCheck1" name="selectCheck1" value="Checkbox 1"/>
+        <div class="ids-form-checkbox is-selected">
+          <input type="checkbox" id="selectCheck1" name="selectCheck1" value="Checkbox 1" checked/>
           <label for="selectCheck1">
             Checkbox 1
           </label>
@@ -47,8 +64,8 @@
         </div>
       </li>
       <li>
-        <div class="ids-form-checkbox">
-          <input type="checkbox" id="selectCheck3" name="selectCheck3" value="Checkbox 3"/>
+        <div class="ids-form-checkbox is-selected">
+          <input type="checkbox" id="selectCheck3" name="selectCheck3" value="Checkbox 3" checked/>
           <label for="selectCheck3">
             Checkbox 3
           </label>
@@ -64,6 +81,5 @@
       </li>
     </ul>
   </div>
-  <script data-main="./index.js" src="../lib/require.js"></script>
 </body>
 </html>

@@ -10,7 +10,7 @@ module.exports = (gulp, gconfig, publishDocObj) => {
   const zip = require('gulp-zip');
   const runSequence = require('run-sequence');
 
-  gulp.task('build', ['json:yaml:compile','json:md:compile','json:js:compile'], (done) => {
+  gulp.task('build', ['json:yaml:compile','json:md:compile'], (done) => {
 
     // Create folders if needed
     if (!fs.existsSync(gconfig.paths.dist.root)){

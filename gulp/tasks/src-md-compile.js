@@ -5,7 +5,7 @@
 
 module.exports = (gulp, gconfig, postCssPlugins, svgHtml) => {
 
-  gulp.task('src:md:compile', ['svg:store'], () => {
+  gulp.task('src:md:compile', () => {
 
     const flatten = require('gulp-flatten');
     const frontMatter = require('gulp-front-matter');
@@ -28,6 +28,8 @@ module.exports = (gulp, gconfig, postCssPlugins, svgHtml) => {
     const inlineIcons = fs.readFileSync(`${gconfig.paths.src.packages}/${gconfig.project.prefix}-icon/dist/${gconfig.project.prefix}-icons.svg`, 'utf-8');
 
     registrar(handlebars, {
+      bustCache: true,
+      helpers: `${gconfig.paths.site.templates}/helpers/*.js`,
       partials: [
         `${gconfig.paths.site.templates}/partials/*.{hbs,js}`
       ]
