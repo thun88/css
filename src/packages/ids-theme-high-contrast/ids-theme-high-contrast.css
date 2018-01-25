@@ -2,4 +2,4 @@
 @import '../ids-theme/ids-theme.css';
 
 /* High Contrast Theme */
-@import '../../../node_modules/@infor/ids-web-tokens/theme-high-contrast.custom-properties.css';
+@import '../../../node_modules/@infor/ids-tokens/platforms/web/theme-high-contrast.custom-properties.css';

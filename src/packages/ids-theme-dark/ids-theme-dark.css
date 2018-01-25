@@ -2,4 +2,4 @@
 @import '../ids-theme/ids-theme.css';
 
 /* Dark Theme */
-@import '../../../node_modules/@infor/ids-web-tokens/theme-dark.custom-properties.css';
+@import '../../../node_modules/@infor/ids-tokens/platforms/web/theme-dark.custom-properties.css';
