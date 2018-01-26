@@ -1,5 +1,5 @@
 {{#with (lookup annotations spec) }}
-<div class="ids-row ids-row--gutter theme-spec--group" style="background-color: {{bodyBg.value}};">
+<div class="ids-row ids-row--gutter theme-spec--group" style="background-color: {{lookup (lookup . 'BODY-BG') 'value'}};">
   <div class="ids-row--col-lg-4">
     <h2 style="color: {{bodyColor.value}};">Background Colors</h2>
     {{> themeDetailsSpec title="Body Background" data=bodyBg altBg=bodyBgSecondary textColor=bodyColor.value }}
