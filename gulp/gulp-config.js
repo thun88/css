@@ -31,7 +31,7 @@ module.exports = {
   urls: {
     local: 'http://localhost/api/docs/',
     localDebug: 'http://localhost:9002/api/docs/',
-    pool: 'http://usalvlhlpool1.infor.com/docs/api/docs/'
+    staging: 'http://staging.design.infor.com/docs/api/docs/'
   },
   options: {
     marked: {
