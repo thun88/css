@@ -135,7 +135,6 @@ ol {
   list-style-type: decimal;
 }
 
-
 ul ul,
 ol ul {
   list-style-type: circle;
@@ -161,4 +160,3 @@ ul.ids-list--plain ol.ids-list--plain {
   list-style-type: none;
   margin-left: 0;
 }
-
