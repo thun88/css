@@ -1,71 +1,20 @@
 let helperFns = {
 
   /**
-   * Clone an object
-   * @param  {object} obj The original objet
-   * @return {object}     A new object
-   */
-  cloneSimpleObj: (obj) => {
-    return JSON.parse(JSON.stringify(obj));
-  },
-
-  /**
-   * [cssVarToCamelCaseStr description]
-   * @param  {[type]} str [description]
-   * @return {[type]}     [description]
-   */
-  cssVarToCamelCaseStr: (str) => {
-    // parse "var(--var-name)" into "--var-name"
-    str = str.replace('var(', '').replace(')', '')
-    str = str.substr(str.indexOf('--') + 2);
-
-    // parse "var-name" into "varName"
-    return str.replace(/-([a-z])/g, function (g) {
-      return g[1].toUpperCase();
-    });
-  },
-
-  /**
    * Create objects of CSS values documentation
    * @param  {String} packageDir - The path to the packages dir
    * @return {Object}            - Key/value pair of css props/specs
    */
-  createCssAnnotations: (packageDir) => {
-    const gconfig = require('./gulp-config.js');
+  createCssAnnotations: packageDir => {
+    const objDefault = require(`${process.cwd()}/node_modules/@infor/ids-tokens/platforms/web/theme-default.raw.json`);
+    const objDark = require(`${process.cwd()}/node_modules/@infor/ids-tokens/platforms/web/theme-dark.raw.json`);
+    const objHighContrast = require(`${process.cwd()}/node_modules/@infor/ids-tokens/platforms/web/theme-high-contrast.raw.json`);
 
-    let content,
-      blocks,
-      cssVarAnnotations = {};
-
-    // Parse the defaults first
-    const defaultVarsObj = helperFns.parseCss(`${packageDir}/${gconfig.project.prefix}-base/_variables.css`);
-
-    const themes = [
-      { name: 'themeDark',         path: `${packageDir}/${gconfig.project.prefix}-theme-dark/ids-theme-dark.css` },
-      { name: 'themeHighContrast', path: `${packageDir}/${gconfig.project.prefix}-theme-high-contrast/ids-theme-high-contrast.css` }
-    ];
-
-    cssVarAnnotations = {
-      default: helperFns.cloneSimpleObj(defaultVarsObj),
+    return {
+      themeDefault: objDefault.props,
+      themeDark: objDark.props,
+      themeHighContrast: objHighContrast.props
     };
-
-    // Build the theme objects
-    themes.forEach(theme => {
-      cssVarAnnotations[theme.name] = helperFns.cloneSimpleObj(cssVarAnnotations['default']);
-      helperFns.parseCss(theme.path, cssVarAnnotations[theme.name]);
-    });
-
-    return cssVarAnnotations;
-  },
-
-
-  /**
-   * Check to see if the string is a css variable
-   * @param  {String}  str - The string to check
-   * @return {Boolean}
-   */
-  isCssVar: (str) => {
-    return str.substr(0, 3) === 'var';
   },
 
   /**
@@ -73,79 +22,12 @@ let helperFns = {
    * @param  {String} filePath - The full dir path without the file
    * @return {String}          - The last folder in the path
    */
-  createFileNameFromFolder: (filePath) => {
+  createFileNameFromFolder: filePath => {
     const gconfig = require('./gulp-config.js');
 
     let pathArr = filePath.split('/');
     let str = pathArr[pathArr.length - 1].replace(`${gconfig.project.prefix}-`, '');
     return str;
-  },
-
-  /**
-   * Parse our the variables and values from CSS
-   * @param  {String} cssPath             - The path to the css files
-   * @param  {Object} themeAnnotationsObj - Object of themes
-   * @return {Object}
-   */
-  parseCss: (cssPath, themeAnnotationsObj = {}) => {
-    const
-      annotateBlock = require('@infor/css-annotation-block-custom'),
-      isColor = require('is-color'),
-      fs = require('fs');
-
-    let content, blocks;
-
-    content = fs.readFileSync(cssPath, 'utf-8').trim();
-    blocks = annotateBlock(content);
-
-    blocks.forEach(block => {
-      block.nodes.forEach(node => {
-        node.walkDecls(decl => {
-
-          let propStr = helperFns.cssVarToCamelCaseStr(decl.prop);
-
-          themeAnnotationsObj[propStr] = {
-            originalDeclaration: decl.prop,
-            originalValue: decl.value,
-            value: decl.value
-          };
-
-          if (block.name === 'colorPalette') {
-            themeAnnotationsObj[propStr].isColor = true;
-          }
-        });
-      });
-    });
-
-    // Replace all values that are variables with actual values
-    let val,
-      varNameToLookUp = '';
-
-    for (let cssProp in themeAnnotationsObj) {
-      val = themeAnnotationsObj[cssProp].value;
-      if (helperFns.isCssVar(val)) {
-
-        varNameToLookUp = helperFns.cssVarToCamelCaseStr(val);
-
-        // Set the current prop value of the variable
-        themeAnnotationsObj[cssProp].value = themeAnnotationsObj[varNameToLookUp].value;
-      }
-    }
-    return themeAnnotationsObj;
-  },
-
-  /**
-   * Parse the names of the icons
-   * @return {object}
-   */
-  parseIcons: (dir) => {
-    const glob = require('glob');
-
-    const iconFiles = glob.sync('*.svg', { cwd: dir });
-
-    return iconSet = iconFiles.map(file => {
-      return file.substring(0, file.lastIndexOf('.'));
-    });
   }
 };
 

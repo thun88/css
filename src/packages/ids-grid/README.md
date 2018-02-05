@@ -8,19 +8,19 @@ system:
   name: grid
 specs:
 - title: Extra Small
-  spec: breakpointXs
+  spec: BREAKPOINT-XS
   valueType: true
 - title: Small
-  spec: breakpointSm
+  spec: BREAKPOINT-SM
   valueType: true
 - title: Medium
-  spec: breakpointMd
+  spec: BREAKPOINT-MD
   valueType: true
 - title: Large
-  spec: breakpointLg
+  spec: BREAKPOINT-LG
   valueType: true
 - title: Extra Large
-  spec: breakpointXl
+  spec: BREAKPOINT-XL
   valueType: true
 ---
 

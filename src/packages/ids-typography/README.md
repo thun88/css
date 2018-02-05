@@ -8,24 +8,24 @@ system:
   name: fonts-colors
 specs:
 - title: Secondary Header Font Size
-  spec: headerSecondaryFontSize
+  spec: HEADER-SECONDARY-FONT-SIZE
   valueType: true
 - title: Base Font Size
-  spec: fontSizeBase
+  spec: FONT-SIZE-BASE
   valueType: true
 - title: Small Font Size
-  spec: textSmall
+  spec: TEXT-SMALL
   valueType: true
 - title: Default Text Color
-  spec: bodyColor
+  spec: BODY-COLOR
 - title: Descriptive Text Color
-  spec: textDescriptive
+  spec: TEXT-DESCRIPTIVE
 - title: Muted Text Color
-  spec: textMuted
+  spec: TEXT-MUTED
 - title: Link Text Color
-  spec: linkColor
+  spec: LINK-COLOR
 - title: Alert Text Color
-  spec: textAlert
+  spec: TEXT-ALERT
 ---
 
 ## Standard Type Settings

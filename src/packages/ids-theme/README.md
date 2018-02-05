@@ -5,7 +5,7 @@ system:
   category: identity
   name: fonts-colors
 specs:
-  - name: default
+  - name: themeDefault
     themeType: true
     showColors: true
 ---

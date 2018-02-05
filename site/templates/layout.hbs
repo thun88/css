@@ -59,12 +59,10 @@
         {{#if meta.specs}}
           <ul class="ids-list--plain">
             {{#each meta.specs}}
-              {{#if valueType}}
-                <li class="site-spec">{{> specValue annotations=../annotations title=title spec=spec}}</li>
-              {{else if themeType}}
+              {{#if themeType}}
                 <li class="site-spec">{{> themeDetails annotations=../annotations spec=name showColors=showColors}}</li>
               {{else}}
-                <li class="site-spec">{{> specColor annotations=../annotations title=title spec=spec}}</li>
+                <li class="site-spec">{{> specValue annotations=../annotations title=title spec=spec}}</li>
               {{/if}}
             {{/each}}
           </ul>

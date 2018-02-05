@@ -3,11 +3,11 @@
 @import '../ids-typography/ids-typography';
 
 .ids-tabs--horizontal {
-  border-bottom: solid 1px var(--graphite03);
+  border-bottom: solid 1px var(--btn-default-bg);
   display: block;
 
   & .ids-tabs--tab {
-    color: var(--graphite06);
+    color: var(--btn-link-color);
     display: inline-block;
     margin: 0 10px 0 0;
     max-width: 150px;
@@ -32,26 +32,26 @@
     }
 
     &:hover:not(.ids-tabs--tab--disabled) {
-      color: var(--graphite10);
+      color: var(--btn-link-hover);
       text-decoration: none;
 
       &::before {
-        background-color: var(--graphite10);
+        background-color: var(--btn-link-hover);
         width: 100%;
       }
     }
 
     &.ids-tabs--tab--active {
-      color: var(--azure06);
+      color: var(--btn-default-focus);
 
       &::before {
-        background-color: var(--azure06);
+        background-color: var(--btn-default-focus);
         width: 100%;
       }
     }
 
     &.ids-tabs--tab--disabled {
-      color: var(--graphite04);
+      color: var(--text-muted);
 
       &:hover {
         cursor: not-allowed;
@@ -61,7 +61,7 @@
 }
 
 .ids-tabs--vertical {
-  background-color: var(--graphite01);
+  background-color: var(--body-bg);
   display: block;
 
   & .ids-tabs--tab {
@@ -71,16 +71,16 @@
     text-decoration: none;
 
     &:hover:not(.ids-tabs--tab--disabled) {
-      background-color: var(--graphite02);
+      background-color: var(--input-bg-readonly);
     }
 
     &.ids-tabs--tab--active {
-      background-color: var(--azure06);
+      background-color: var(--btn-default-focus);
       color: #fff;
     }
 
     &.ids-tabs--tab--disabled {
-      color: var(--graphite04);
+      color: var(--text-muted);
 
       &:hover {
         cursor: not-allowed;
