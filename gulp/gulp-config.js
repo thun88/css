@@ -27,7 +27,7 @@ module.exports = {
       www:       './site/www'
     },
     tokens: {
-      theme: `${process.cwd()}/node_modules/@infor/ids-tokens/platforms/web/theme-default.custom-properties`,
+      theme: `${process.cwd()}/node_modules/@infor/ids-tokens/platforms/web/theme-default.custom-properties.css`,
       themeJson: `${process.cwd()}/node_modules/@infor/ids-tokens/platforms/web/theme-default.raw.json`
     },
     tasks: './gulp/tasks'
