@@ -18,8 +18,7 @@ module.exports = (gulp, gconfig, publishDocObj) => {
 
   gulp.task('json:md:compile', () => {
 
-    const cssAnnotations = helperFns.createCssAnnotations(gconfig.paths.src.packages);
-    let arrOfCssThemes = Object.keys(cssAnnotations);
+    const designTokens = require(gconfig.paths.tokens.themeJson).props;
 
     marked.setOptions(gconfig.options.marked);
 
@@ -45,21 +44,11 @@ module.exports = (gulp, gconfig, publishDocObj) => {
         let jsonObj = file.data.frontMatter;
         jsonObj.body = file.contents.toString();
 
-        // Get the css values for the meta specs
+        // Get the css values for the specs listed in
+        // the front-matter meta property
         if (jsonObj.specs) {
           jsonObj.specs.forEach(spec => {
-            spec.themes = [];
-
-            // Create values object for each theme for the spec
-            arrOfCssThemes.forEach(theme => {
-              if (theme === 'default') {
-                // Merge 'default' theme properties at the top level
-                Object.assign(spec, cssAnnotations[theme][spec.spec]);
-              } else {
-                // Other theme values go in the themes array
-                spec.themes.push({...{ theme: theme }, ...cssAnnotations[theme][spec.spec]});
-              }
-            });
+            Object.assign(spec, designTokens[spec.spec.toUpperCase()].value);
           });
         }
 
