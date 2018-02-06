@@ -213,7 +213,7 @@ select.ids-form-control {
 
 .ids-form-checkbox {
   & label {
-    padding-left: calc(var(--checkbox-box-w) + 5);
+    padding-left: calc(var(--checkbox-box-w) + 5px);
 
     &::before {
       background-color: var(--checkbox-bg);
