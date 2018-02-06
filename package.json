@@ -1,6 +1,7 @@
 {
   "private": true,
   "version": "1.0.0-alpha.1",
+  "name": "ids-web",
   "description": "Infor Design System for the Web",
   "author": "Hook & Loop",
   "license": "UNLICENSED",
