@@ -16,8 +16,6 @@ sections:
 - name: Identity
   slug: identity
   pages:
-  - name: Themes
-    slug: theme
   - name: Icons
     slug: icon
   - name: Typography

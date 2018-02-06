@@ -1,7 +1,0 @@
-<span class="site-spec--title">{{ title }}:</span>
-{{#with (lookup (lookup annotations 'themeDefault') spec)}}
-  {{#equal type 'color'}}
-    <div class="site-spec--color" style="background-color: {{value}}" title="{{value}}"></div>
-  {{/equal}}
-  <code>{{value}}</code>
-{{/with}}

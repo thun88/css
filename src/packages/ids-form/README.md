@@ -7,7 +7,7 @@ specs:
 - title: Border Color
   spec: INPUT-BORDER-COLOR
 - title: Border Color (Hover)
-  spec: INPUT-BORDER-COLORHOVER
+  spec: INPUT-BORDER-COLOR-HOVER
 - title: Border Color (Focus)
   spec: INPUT-BORDER-COLOR-FOCUS
 - title: Input Text Color
