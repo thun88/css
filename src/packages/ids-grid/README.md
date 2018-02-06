@@ -7,19 +7,19 @@ system:
   category: page-structure
   name: grid
 specs:
-- title: Extra Small
+- title: Extra Small (min width)
   spec: BREAKPOINT-XS
   valueType: true
-- title: Small
+- title: Small (min width)
   spec: BREAKPOINT-SM
   valueType: true
-- title: Medium
+- title: Medium (min width)
   spec: BREAKPOINT-MD
   valueType: true
-- title: Large
+- title: Large (min width)
   spec: BREAKPOINT-LG
   valueType: true
-- title: Extra Large
+- title: Extra Large (min width)
   spec: BREAKPOINT-XL
   valueType: true
 ---
