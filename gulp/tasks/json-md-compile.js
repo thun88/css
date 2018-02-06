@@ -4,13 +4,14 @@
 
 module.exports = (gulp, gconfig, publishDocObj) => {
 
+  const frontMatter = require('gulp-front-matter');
+  const fs = require('fs');
   const helperFns = require('../functions.js');
   const markdown = require('gulp-markdown'); // base engine is marked to match json-md-compile
   const rename  = require('gulp-rename');
   const path = require('path');
   const pkgJson  = require('../../package.json');
   const tap = require('gulp-tap');
-  const frontMatter = require('gulp-front-matter');
 
    // Use the same engine gulp-markdown uses in src:md:compile
    // to keep ouput the same
@@ -21,6 +22,15 @@ module.exports = (gulp, gconfig, publishDocObj) => {
     const designTokens = require(gconfig.paths.tokens.themeJson).props;
 
     marked.setOptions(gconfig.options.marked);
+
+        // Create folders if needed
+    if (!fs.existsSync(gconfig.paths.dist.root)){
+      fs.mkdirSync(gconfig.paths.dist.root);
+    }
+
+    if (!fs.existsSync(gconfig.paths.dist.docs)){
+      fs.mkdirSync(gconfig.paths.dist.docs);
+    }
 
     return gulp.src(gconfig.paths.src.mdFiles)
 
@@ -36,7 +46,7 @@ module.exports = (gulp, gconfig, publishDocObj) => {
         property: 'data.frontMatter'
       }))
 
-      // Parse and highlight
+      // Parse and highlight code snippets
       .pipe(markdown(gconfig.options.marked))
 
       // Build out the json
@@ -44,19 +54,17 @@ module.exports = (gulp, gconfig, publishDocObj) => {
         let jsonObj = file.data.frontMatter;
         jsonObj.body = file.contents.toString();
 
-        // Get the css values for the specs listed in
-        // the front-matter meta property
+        // Look up token values for css specs in
+        // the front-matter "meta" property
         if (jsonObj.specs) {
           jsonObj.specs.forEach(spec => {
             Object.assign(spec, designTokens[spec.spec.toUpperCase()].value);
           });
         }
 
-        // Merge converted markdown content data back to global object.
-        // Note: will be written to a file later in the flow
+        // Write the file
         const fileName = path.parse(file.path).name;
-        const mergedObj = { ...jsonObj, ...publishDocObj[fileName] };
-        publishDocObj[fileName] = mergedObj;
+        fs.writeFileSync(`${gconfig.paths.dist.docs}/${fileName}.json`, JSON.stringify(jsonObj));
       }))
   });
 }
