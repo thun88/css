@@ -298,7 +298,7 @@ select.ids-form-control {
 
 .ids-form-radio {
   & label {
-    padding-left: calc(var(--radio-outer-w) + 5);
+    padding-left: calc(var(--radio-outer-w) + 5px);
 
     &::before {
       background-color: var(--radio-bg);
