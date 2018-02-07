@@ -5,19 +5,19 @@ demo:
   path: /ids-form/index.html
 specs:
 - title: Border Color
-  spec: INPUT-BORDER-COLOR
+  spec: TEXT-MUTED
 - title: Border Color (Hover)
-  spec: INPUT-BORDER-COLOR-HOVER
+  spec: TEXT-MUTED-HOVER
 - title: Border Color (Focus)
-  spec: INPUT-BORDER-COLOR-FOCUS
+  spec: TEXT-MUTED-FOCUS
 - title: Input Text Color
-  spec: INPUT-COLOR
+  spec: BODY-COLOR
 - title: Input Placeholder Text Color
-  spec: INPUT-COLOR-PLACEHOLDER
+  spec: TEXT-MUTED
 - title: Input Label Text Color
   spec: INPUT-LABEL-COLOR
 - title: Info Block Text Color
-  spec: INPUT-INFO-BLOCK-COLOR
+  spec: TEXT-MUTED
 - title: Input Height
   spec: INPUT-HEIGHT
   valueType: true

@@ -32,20 +32,20 @@
     }
 
     &:hover:not(.ids-tabs--tab--disabled) {
-      color: var(--btn-link-hover);
+      color: var(--body-color);
       text-decoration: none;
 
       &::before {
-        background-color: var(--btn-link-hover);
+        background-color: var(--body-color);
         width: 100%;
       }
     }
 
     &.ids-tabs--tab--active {
-      color: var(--btn-default-focus);
+      color: var(--primary-color);
 
       &::before {
-        background-color: var(--btn-default-focus);
+        background-color: var(--primary-color);
         width: 100%;
       }
     }
@@ -75,7 +75,7 @@
     }
 
     &.ids-tabs--tab--active {
-      background-color: var(--btn-default-focus);
+      background-color: var(--primary-color);
       color: #fff;
     }
 

@@ -7,7 +7,7 @@
 
   & .ids-select--menu {
     background-color: var(--body-bg-secondary);
-    color: var(--input-color);
+    color: var(--body-color);
     display: none;
     font-size: 1.4rem;
     height: auto;
@@ -41,11 +41,11 @@
     }
 
     & .ids-select--menu {
-      border-bottom: var(--input-border-width) solid var(--input-border-color-focus);
+      border-bottom: var(--input-border-width) solid var(--primary-color);
       border-bottom-left-radius: var(--input-border-radius);
       border-bottom-right-radius: var(--input-border-radius);
-      border-left: var(--input-border-width) solid var(--input-border-color-focus);
-      border-right: var(--input-border-width) solid var(--input-border-color-focus);
+      border-left: var(--input-border-width) solid var(--primary-color);
+      border-right: var(--input-border-width) solid var(--primary-color);
       display: block;
     }
   }

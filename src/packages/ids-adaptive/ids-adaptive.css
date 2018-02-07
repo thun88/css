@@ -30,19 +30,21 @@
 
   & .ids-form-radio {
     & label {
-      padding-left: calc(var(--radio-outer-w-adaptive-touch) + 5);
+      padding-left: calc(24px + 5px);
 
       &::before {
-        height: var(--radio-outer-h-adaptive-touch);
-        top: calc(50% - 0.5 * var(--radio-outer-h-adaptive-touch));
-        width: var(--radio-outer-w-adaptive-touch);
+        /* 24px by 24px */
+        height: 24px;
+        top: calc(50% - (0.5 * 24px));
+        width: 24px;
       }
 
       &::after {
-        height: var(--radio-inner-h-adaptive-touch);
-        left: calc(var(--radio-outer-w-adaptive-touch) / 2 - var(--radio-inner-w-adaptive-touch) / 2);
-        top: calc(50% - 0.5 * var(--radio-inner-h-adaptive-touch));
-        width: var(--radio-inner-w-adaptive-touch);
+        /* 16px by 16px */
+        height: 16px;
+        left: calc(24px / 2 - 16px / 2);
+        top: calc(50% - (0.5 * 16px));
+        width: 16px;
       }
     }
   }

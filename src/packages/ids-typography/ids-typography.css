@@ -70,7 +70,6 @@ small,
   font-weight: var(--font-weight-normal);
 }
 
-.ids-text-descriptive { color: var(--text-descriptive); }
 .ids-text-muted { color: var(--text-muted); }
 .ids-text-alert { color: var(--text-alert); }
 

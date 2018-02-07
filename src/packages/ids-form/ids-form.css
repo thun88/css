@@ -5,18 +5,17 @@
 
 .ids-form-control {
   background-clip: padding-box;
-  background-color: var(--input-bg);
+  background-color: transparent;
 
   /* Reset unusual Firefox-on-Android default style background-image */
   background-image: none;
-  border: var(--input-border-width) solid var(--input-border-color);
+  border: var(--input-border-width) solid var(--text-muted);
   border-radius: var(--input-border-radius);
   box-shadow: none;
-  color: var(--input-color);
+  color: var(--body-color);
   display: block;
   font-family: var(--font-family-base);
   font-size: var(--font-size-base);
-  line-height: var(--input-line-height);
   padding: var(--input-padding-y) var(--input-padding-x);
   resize: none;
   text-align: left;
@@ -24,25 +23,25 @@
   width: 100%;
 
   &::placeholder {
-    color: var(--input-color-placeholder);
+    color: var(--text-muted);
     opacity: 1; /* Override Firefox's unusual default opacity */
   }
 
   &:hover {
-    border-color: var(--input-border-color-hover);
+    border-color: var(--body-color);
   }
 
   &:disabled {
-    background-color: var(--input-bg-disabled);
+    background-color: transparent;
     border: solid 1px var(--input-border-color-disabled);
-    color: var(--input-color-disabled);
+    color: var(--text-muted);
     cursor: not-allowed;
   }
 
   &[readonly] {
     background-color: var(--input-bg-readonly);
-    border-color: var(--input-border-color-readonly);
-    color: var(--input-color-readonly);
+    border-color: var(--input-border-color-disabled);
+    color: var(--text-muted);
   }
 
   &:disabled,
@@ -51,7 +50,7 @@
   }
 
   &:focus {
-    border: 1px solid var(--input-border-color-focus);
+    border: 1px solid var(--primary-color);
     outline: 0;
     outline-color: transparent;
   }
@@ -95,13 +94,13 @@ select.ids-form-control {
   position: relative;
 
   & [type=file] {
-    border: var(--input-border-width) solid var(--input-border-color);
+    border: var(--input-border-width) solid var(--text-muted);
     border-radius: var(--input-border-radius);
     padding: var(--input-padding-y) var(--input-padding-x);
     width: 100%;
 
     &:focus {
-      border: 1px solid var(--input-border-color-focus);
+      border: 1px solid var(--primary-color);
       outline: 0;
       outline-color: transparent;
     }
@@ -146,7 +145,7 @@ select.ids-form-control {
   }
 
   & .ids-info-block {
-    color: var(--input-info-block-color);
+    color: var(--text-muted);
     margin-top: 5px;
   }
 
@@ -162,7 +161,7 @@ select.ids-form-control {
 
     &:focus {
       border-color: var(--text-alert);
-      color: var(--input-color);
+      color: var(--body-color);
     }
   }
 }
