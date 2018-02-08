@@ -2,23 +2,23 @@
 
 html[lang='ar-EG'],
 html[lang='ar-SA'] {
-  font-family: 'Helvetica', 'Arial', 'Tahoma', 'DejaVu';
+  font-family: 'Source Sans Pro', 'Helvetica', 'Arial', 'Tahoma', 'DejaVu';
 }
 
 html[lang='ja-JP'] {
-  font-family: 'Helvetica', 'Arial', 'MS PGothic';
+  font-family: 'Source Sans Pro', 'Helvetica', 'Arial', 'MS PGothic';
 }
 
 html[lang='ko-KR'] {
-  font-family: 'Helvetica', 'Arial', 'Batang', 'Gulim';
+  font-family: 'Source Sans Pro', 'Helvetica', 'Arial', 'Batang', 'Gulim';
 }
 
 html[lang='zh-CN'] {
-  font-family: 'Helvetica', 'Arial', 'Microsoft YaHei New', '微软雅黑', '宋体', 'SimSun', 'STXihei', '华文细黑';
+  font-family: 'Source Sans Pro', 'Helvetica', 'Arial', 'Microsoft YaHei New', '微软雅黑', '宋体', 'SimSun', 'STXihei', '华文细黑';
 }
 
 html[lang='zh-tw'] {
-  font-family: 'Helvetica', 'Arial', 'MingLiU';
+  font-family: 'Source Sans Pro', 'Helvetica', 'Arial', 'MingLiU';
 }
 
 html {

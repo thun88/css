@@ -1,6 +1,6 @@
 {
   "private": true,
-  "version": "1.0.0-alpha.1",
+  "version": "1.0.0-alpha.2",
   "name": "ids-web",
   "description": "Infor Design System for the Web",
   "author": "Hook & Loop",
@@ -11,7 +11,7 @@
   },
   "devDependencies": {
     "@infor/documentation-css": "^1.0.0-alpha.2",
-    "@infor/ids-tokens": "^1.0.0-alpha.6",
+    "@infor/ids-tokens": "^1.0.0-alpha.8",
     "ajv": "^5.5.2",
     "browser-sync": "^2.23.5",
     "cssnano": "^3.10.0",
