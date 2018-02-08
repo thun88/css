@@ -90,7 +90,7 @@ to a grid row and include gutter increases for the larger breakponts.
     }
 
     .ids-row .ids-row--offset-md-$i {
-    lost-offset: $(i)/12;
+      lost-offset: $(i)/12;
     }
 
     /* Update the "sm" columns to use the "large" gutter
@@ -115,7 +115,7 @@ to a grid row and include gutter increases for the larger breakponts.
     }
 
     .ids-row .ids-row--offset-lg-$i {
-    lost-offset: $(i)/12;
+      lost-offset: $(i)/12;
     }
 
     .ids-row--gutter .ids-row--col-lg-$i {
@@ -132,7 +132,7 @@ to a grid row and include gutter increases for the larger breakponts.
     }
 
     .ids-row .ids-row--offset-xl-$i {
-    lost-offset: $(i)/12;
+      lost-offset: $(i)/12;
     }
 
     .ids-row--gutter .ids-row--col-xl-$i {

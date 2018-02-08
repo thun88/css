@@ -27,7 +27,7 @@ module.exports = (gulp, gconfig) => {
 
     const demoFiles = [
       `${gconfig.paths.demo}/demo.css`,
-      `${gconfig.paths.demo}/*/+(*.html|index.js)`
+      `${gconfig.paths.demo}/*/*.html`
     ];
 
     const siteFiles = [
@@ -36,9 +36,9 @@ module.exports = (gulp, gconfig) => {
     ];
 
     const packageFiles = [
+      gconfig.paths.src.mdFiles,
       `${gconfig.paths.src.root}/sitemap.yaml`,
-      `${gconfig.paths.src.root}/**/*.md`,
-      `${gconfig.paths.src.packages}/*/+(*.css|*.js)`
+      `${gconfig.paths.src.packages}/*/*.css`
     ];
 
     const changeEvent = (evt) => {

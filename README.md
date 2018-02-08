@@ -20,7 +20,7 @@ Infor Design System is a sleek, intuitive, and powerful front-end framework for 
 - `$ gulp` - Clean and Build the site and packages
 - `$ gulp dev` - Clean, build (site & packages), and start the server
 - `$ gulp publish` - Build the markdown docs into json, zip it, then post to the server
-    - `gulp publish --site=[local|localDebug|pool]` = (Optional) The default is "local"
+    - `gulp publish --site=[local|localDebug|staging]` = (Optional) The default is "local"
 - `$ gulp lint` Lints the **src** and **site** css raw files
 - `$ gulp clean` - Remove all built files
 

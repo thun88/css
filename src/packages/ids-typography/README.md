@@ -3,26 +3,27 @@ title: Typography
 description: These are typical type classes you'll have available.
 demo:
   path: /ids-typography/index.html
+system:
+  category: identity
+  name: fonts-colors
 specs:
 - title: Secondary Header Font Size
-  spec: headerSecondaryFontSize
+  spec: HEADER-SECONDARY-FONT-SIZE
   valueType: true
 - title: Base Font Size
-  spec: fontSizeBase
+  spec: FONT-SIZE-BASE
   valueType: true
 - title: Small Font Size
-  spec: textSmall
+  spec: TEXT-SMALL
   valueType: true
 - title: Default Text Color
-  spec: bodyColor
-- title: Descriptive Text Color
-  spec: textDescriptive
+  spec: BODY-COLOR
 - title: Muted Text Color
-  spec: textMuted
+  spec: TEXT-MUTED
 - title: Link Text Color
-  spec: linkColor
+  spec: LINK-COLOR
 - title: Alert Text Color
-  spec: textAlert
+  spec: TEXT-ALERT
 ---
 
 ## Standard Type Settings
@@ -38,7 +39,7 @@ You can also use the classes `ids-header--primary` and `ids-header--secondary` t
 
 ## Type Utility Clases
 
-Text utility classes are provided to emulate certain type styles by applying classes. `.ids-text-descriptive` changes the <span class="ids-text-descriptive">color of descriptive text to a shade lighter</span>, `.ids-text-muted` makes the <span class="ids-text-muted">color of text muted</span>, and `.ids-text-alert` makes text <span class="ids-text-alert">Alert Red</span>. `.ids-text-link` allows you to <span class="ids-text-link">make text a link style</span> even when it's not in an `<a>` tag. Use `.ids-text-strong` to make text <span class="ids-text-strong">strong</span>, `.ids-text-emphasis` to makes it <span class="ids-text-emphasis">emphasized</span> and `.ids-text-small` makes it <span class="ids-text-small">smaller</small>.
+Text utility classes are provided to emulate certain type styles by applying classes. `.ids-text-muted` makes the <span class="ids-text-muted">color of text muted</span>, and `.ids-text-alert` makes text <span class="ids-text-alert">Alert Red</span>. `.ids-text-link` allows you to <span class="ids-text-link">make text a link style</span> even when it's not in an `<a>` tag. Use `.ids-text-strong` to make text <span class="ids-text-strong">strong</span>, `.ids-text-emphasis` to makes it <span class="ids-text-emphasis">emphasized</span> and `.ids-text-small` makes it <span class="ids-text-small">smaller</small>.
 
 ## Lists
 

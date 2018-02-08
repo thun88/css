@@ -70,7 +70,6 @@ small,
   font-weight: var(--font-weight-normal);
 }
 
-.ids-text-descriptive { color: var(--text-descriptive); }
 .ids-text-muted { color: var(--text-muted); }
 .ids-text-alert { color: var(--text-alert); }
 
@@ -135,7 +134,6 @@ ol {
   list-style-type: decimal;
 }
 
-
 ul ul,
 ol ul {
   list-style-type: circle;
@@ -161,4 +159,3 @@ ul.ids-list--plain ol.ids-list--plain {
   list-style-type: none;
   margin-left: 0;
 }
-

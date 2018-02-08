@@ -59,19 +59,20 @@
         {{#if meta.specs}}
           <ul class="ids-list--plain">
             {{#each meta.specs}}
-              {{#if valueType}}
-                <li class="site-spec">{{> specValue annotations=../annotations title=title spec=spec}}</li>
-              {{else if themeType}}
-                <li class="site-spec">{{> themeDetails annotations=../annotations spec=name showColors=showColors}}</li>
-              {{else}}
-                <li class="site-spec">{{> specColor annotations=../annotations title=title spec=spec}}</li>
-              {{/if}}
+              <li class="site-spec">
+                <span class="site-spec--title">{{ title }}:</span>
+                {{#with (lookup ../designTokens spec)}}
+                  {{#equal type 'color'}}
+                    <div class="site-spec--color" style="background-color: {{value}}" title="{{value}}"></div>
+                  {{/equal}}
+                  <code>{{value}}</code>
+                {{/with}}
+              </li>
             {{/each}}
           </ul>
         {{/if}}
         {{{ contents }}}
       </div>
-
     </main>
   </body>
 </html>

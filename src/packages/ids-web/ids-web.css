@@ -1,3 +1,11 @@
 /* Components */
-@import '../ids-theme/ids-theme';
+@import '../ids-base/ids-base';
+@import '../ids-button/ids-button';
+@import '../ids-form/ids-form';
+@import '../ids-grid/ids-grid';
+@import '../ids-icon/ids-icon';
+@import '../ids-tab/ids-tab';
+@import '../ids-typography/ids-typography';
 
+/* Utilities */
+@import '../ids-adaptive/ids-adaptive';

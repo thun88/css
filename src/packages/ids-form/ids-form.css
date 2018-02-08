@@ -5,44 +5,43 @@
 
 .ids-form-control {
   background-clip: padding-box;
-  background-color: var(--input-bg);
+  background-color: transparent;
 
   /* Reset unusual Firefox-on-Android default style background-image */
   background-image: none;
-  border: var(--input-border-width) solid var(--input-border-color);
+  border: var(--input-border-width) solid var(--text-muted);
   border-radius: var(--input-border-radius);
   box-shadow: none;
-  color: var(--input-color);
+  color: var(--body-color);
   display: block;
   font-family: var(--font-family-base);
   font-size: var(--font-size-base);
-  line-height: var(--input-line-height);
   padding: var(--input-padding-y) var(--input-padding-x);
   resize: none;
   text-align: left;
-  transition: var(--input-transition);
+  transition: border 300ms ease 0s, box-shadow 300ms ease 0s;
   width: 100%;
 
   &::placeholder {
-    color: var(--input-color-placeholder);
+    color: var(--text-muted);
     opacity: 1; /* Override Firefox's unusual default opacity */
   }
 
   &:hover {
-    border-color: var(--input-border-color-hover);
+    border-color: var(--body-color);
   }
 
   &:disabled {
-    background-color: var(--input-bg-disabled);
+    background-color: transparent;
     border: solid 1px var(--input-border-color-disabled);
-    color: var(--input-color-disabled);
+    color: var(--text-muted);
     cursor: not-allowed;
   }
 
   &[readonly] {
     background-color: var(--input-bg-readonly);
-    border-color: var(--input-border-color-readonly);
-    color: var(--input-color-readonly);
+    border-color: var(--input-border-color-disabled);
+    color: var(--text-muted);
   }
 
   &:disabled,
@@ -51,7 +50,7 @@
   }
 
   &:focus {
-    border: 1px solid var(--input-border-color-focus);
+    border: 1px solid var(--primary-color);
     outline: 0;
     outline-color: transparent;
   }
@@ -65,7 +64,7 @@
 select.ids-form-control {
   &:not([size]):not([multiple]).ids-form-control {
     appearance: none;
-    background-image: var(--select-bg-caret);
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHZpZXdCb3g9IjAgMCAxOCAxOCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+ZHJvcGRvd248L3RpdGxlPjxwYXRoIGQ9Ik00IDZsNSA2IDUtNkg0eiIvPjwvc3ZnPg==});
     background-position: calc(100% - 10px) center;
     background-repeat: no-repeat;
     height: var(--input-height);
@@ -95,13 +94,13 @@ select.ids-form-control {
   position: relative;
 
   & [type=file] {
-    border: var(--input-border-width) solid var(--input-border-color);
+    border: var(--input-border-width) solid var(--text-muted);
     border-radius: var(--input-border-radius);
     padding: var(--input-padding-y) var(--input-padding-x);
     width: 100%;
 
     &:focus {
-      border: 1px solid var(--input-border-color-focus);
+      border: 1px solid var(--primary-color);
       outline: 0;
       outline-color: transparent;
     }
@@ -131,7 +130,7 @@ select.ids-form-control {
     margin-bottom: 5px;
 
     &.is-required::after {
-      color: var(--status-red);
+      color: var(--text-alert);
       content: '*';
       display: inline;
       font-size: var(--font-size-base);
@@ -146,23 +145,23 @@ select.ids-form-control {
   }
 
   & .ids-info-block {
-    color: var(--input-info-block-color);
+    color: var(--text-muted);
     margin-top: 5px;
   }
 
   &.has-error {
     & .ids-form-control,
     & .ids-info-block {
-      color: var(--status-red);
+      color: var(--text-alert);
     }
 
     & .ids-form-control {
-      border-color: var(--status-red);
+      border-color: var(--text-alert);
     }
 
     &:focus {
-      border-color: var(--status-red);
-      color: var(--input-color);
+      border-color: var(--text-alert);
+      color: var(--body-color);
     }
   }
 }
@@ -213,7 +212,7 @@ select.ids-form-control {
 
 .ids-form-checkbox {
   & label {
-    padding-left: calc(var(--checkbox-box-w) + 5);
+    padding-left: calc(var(--checkbox-box-w) + 5px);
 
     &::before {
       background-color: var(--checkbox-bg);
@@ -247,7 +246,7 @@ select.ids-form-control {
   }
 
   & input:disabled + label {
-    color: var(--graphite04);
+    color: var(--text-muted);
 
     &::before {
       background-color: var(--checkbox-bg-disabled);
@@ -298,7 +297,7 @@ select.ids-form-control {
 
 .ids-form-radio {
   & label {
-    padding-left: calc(var(--radio-outer-w) + 5);
+    padding-left: calc(var(--radio-outer-w) + 5px);
 
     &::before {
       background-color: var(--radio-bg);

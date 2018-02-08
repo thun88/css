@@ -5,13 +5,12 @@
 
 module.exports = (gulp, gconfig, postCssPlugins, svgHtml) => {
 
-  gulp.task('src:md:compile', ['svg:store'], () => {
+  gulp.task('src:md:compile', () => {
 
     const flatten = require('gulp-flatten');
     const frontMatter = require('gulp-front-matter');
     const fs = require('fs');
     const handlebars = require('Handlebars');
-    const helperFns = require('../functions.js');
     const markdown = require('gulp-markdown'); // base engine is marked to match json-md-compile
     const pkgJson  = require('../../package.json');
     const registrar = require('handlebars-registrar');
@@ -24,13 +23,12 @@ module.exports = (gulp, gconfig, postCssPlugins, svgHtml) => {
       fs.readFileSync(`${gconfig.paths.src.root}/sitemap.yaml`, 'utf8')
     );
 
-    const cssAnnotations = helperFns.createCssAnnotations(gconfig.paths.src.packages);
+    const designTokens = require(gconfig.paths.tokens.themeJson).props;
     const inlineIcons = fs.readFileSync(`${gconfig.paths.src.packages}/${gconfig.project.prefix}-icon/dist/${gconfig.project.prefix}-icons.svg`, 'utf-8');
 
     registrar(handlebars, {
-      partials: [
-        `${gconfig.paths.site.templates}/partials/*.{hbs,js}`
-      ]
+      bustCache: true,
+      helpers: `${gconfig.paths.site.templates}/helpers/*.js`
     });
 
     // Copy compiled styles into site/www/dist (async)
@@ -47,7 +45,7 @@ module.exports = (gulp, gconfig, postCssPlugins, svgHtml) => {
         const template = handlebars.compile(file.contents.toString());
 
         // read all src markdown files
-        return gulp.src(`${gconfig.paths.src.root}/**/*.md`)
+        return gulp.src(gconfig.paths.src.mdFiles)
 
           // extract/remove yaml from MD
           .pipe(frontMatter({
@@ -65,14 +63,15 @@ module.exports = (gulp, gconfig, postCssPlugins, svgHtml) => {
               meta: file.data.frontMatter,
               pkgJson: pkgJson,
               sitemap: sitemap,
-              annotations: cssAnnotations,
+              designTokens: designTokens,
               inlineIcons: inlineIcons
             };
 
             // we will pass data to the Handlebars template to create the actual HTML to use
             const html = template(data);
 
-            // replace the file contents with the new HTML created from the Handlebars template + data object that contains the HTML made from the markdown conversion
+            // replace the file contents with the new HTML created from the Handlebars
+            // template + data object that contains the HTML made from the markdown conversion
             file.contents = new Buffer(html, "utf-8");
           }))
 
@@ -81,6 +80,7 @@ module.exports = (gulp, gconfig, postCssPlugins, svgHtml) => {
             if (file.basename.toLowerCase() === 'readme') {
               file.basename = file.dirname.replace(`${gconfig.project.prefix}-`, '');
             }
+            file.extname = ".html";
           }))
 
           // Flatten the directory structure

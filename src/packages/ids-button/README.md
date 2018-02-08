@@ -1,26 +1,29 @@
 ---
 title: Buttons
 description: This page describes how the buttons and button styles are used.
+system:
+  category: elements
+  name: buttons
 demo:
   path: /ids-button/index.html
 specs:
 - title: Default Button Color
-  spec: btnDefaultBg
+  spec: BTN-DEFAULT-BG
 - title: Default Button Label Color
-  spec: btnDefaultColor
+  spec: BTN-DEFAULT-COLOR
 - title: Default Button Hover Color
-  spec: btnDefaultHover
+  spec: BTN-DEFAULT-HOVER
 - title: Default Disabled State Opacity
-  spec: btnDisabledOpacity
+  spec: BTN-DISABLED-OPACITY
 - title: Primary Background Color
-  spec: btnPrimaryBg
+  spec: BTN-PRIMARY-BG
 - title: Primary Label Color
-  spec: btnPrimaryColor
+  spec: BTN-PRIMARY-COLOR
 - title: Primary Hover Color
-  spec: btnPrimaryHover
+  spec: BTN-PRIMARY-HOVER
 - title: Primary Disabled State Opacity
   valueType: true
-  spec: btnDisabledOpacity
+  spec: BTN-DISABLED-OPACITY
 ---
 
 

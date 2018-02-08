@@ -5,24 +5,24 @@ demo:
   path: /ids-form/index.html
 specs:
 - title: Border Color
-  spec: inputBorderColor
+  spec: TEXT-MUTED
 - title: Border Color (Hover)
-  spec: inputBorderColorHover
+  spec: TEXT-MUTED-HOVER
 - title: Border Color (Focus)
-  spec: inputBorderColorFocus
+  spec: TEXT-MUTED-FOCUS
 - title: Input Text Color
-  spec: inputColor
+  spec: BODY-COLOR
 - title: Input Placeholder Text Color
-  spec: inputColorPlaceholder
+  spec: TEXT-MUTED
 - title: Input Label Text Color
-  spec: inputLabelColor
+  spec: INPUT-LABEL-COLOR
 - title: Info Block Text Color
-  spec: inputInfoBlockColor
+  spec: TEXT-MUTED
 - title: Input Height
-  spec: inputHeight
+  spec: INPUT-HEIGHT
   valueType: true
 - title: Corner Radius
-  spec: inputBorderRadius
+  spec: INPUT-BORDER-RADIUS
   valueType: true
 ---
 

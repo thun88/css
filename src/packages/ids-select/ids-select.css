@@ -6,8 +6,8 @@
   position: relative;
 
   & .ids-select--menu {
-    background-color: var(--white);
-    color: var(--graphite10);
+    background-color: var(--body-bg-secondary);
+    color: var(--body-color);
     display: none;
     font-size: 1.4rem;
     height: auto;
@@ -21,14 +21,14 @@
     z-index: 1000;
 
     & > li:hover {
-      background-color: var(--graphite02);
+      background-color: var(--btn-default-bg);
       cursor: pointer;
       outline: none;
     }
 
     & > li.ids-select--menu--selected {
-      background-color: var(--azure06);
-      color: var(--white);
+      background-color: var(--btn-link-active);
+      color: var(--btn-primary-color);
     }
   }
 
@@ -41,11 +41,11 @@
     }
 
     & .ids-select--menu {
-      border-bottom: var(--input-border-width) solid var(--input-border-color-focus);
+      border-bottom: var(--input-border-width) solid var(--primary-color);
       border-bottom-left-radius: var(--input-border-radius);
       border-bottom-right-radius: var(--input-border-radius);
-      border-left: var(--input-border-width) solid var(--input-border-color-focus);
-      border-right: var(--input-border-width) solid var(--input-border-color-focus);
+      border-left: var(--input-border-width) solid var(--primary-color);
+      border-right: var(--input-border-width) solid var(--primary-color);
       display: block;
     }
   }

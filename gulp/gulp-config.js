@@ -14,7 +14,11 @@ module.exports = {
     },
     src: {
       root:     './src',
-      packages: './src/packages'
+      packages: './src/packages',
+      mdFiles: [
+        './src/*.md',
+        './src/packages/*/README.md'
+      ]
     },
     site: {
       root:      './site',
@@ -22,12 +26,16 @@ module.exports = {
       templates: './site/templates',
       www:       './site/www'
     },
+    tokens: {
+      theme: `${process.cwd()}/node_modules/@infor/ids-tokens/platforms/web/theme-default.custom-properties.css`,
+      themeJson: `${process.cwd()}/node_modules/@infor/ids-tokens/platforms/web/theme-default.raw.json`
+    },
     tasks: './gulp/tasks'
   },
   urls: {
     local: 'http://localhost/api/docs/',
     localDebug: 'http://localhost:9002/api/docs/',
-    pool: 'http://usalvlhlpool1.infor.com/docs/api/docs/'
+    staging: 'http://staging.design.infor.com/api/docs/'
   },
   options: {
     marked: {

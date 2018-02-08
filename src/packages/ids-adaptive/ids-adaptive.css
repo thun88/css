@@ -3,6 +3,11 @@
 @import '../ids-form/ids-form';
 @import '../ids-button/ids-button';
 
+:root {
+  --radio-outer-adaptive-touch: calc(var(--radio-outer-h) * 1.3);
+  --radio-inner-adaptive-touch: calc(var(--radio-outer-adaptive-touch) - 8px);
+}
+
 .ids-adaptive--touch {
   & .ids-btn,
   & input.ids-form-control {
@@ -30,19 +35,19 @@
 
   & .ids-form-radio {
     & label {
-      padding-left: calc(var(--radio-outer-w-adaptive-touch) + 5);
+      padding-left: calc(var(--radio-outer-adaptive-touch) + 5px);
 
       &::before {
-        height: var(--radio-outer-h-adaptive-touch);
-        top: calc(50% - 0.5 * var(--radio-outer-h-adaptive-touch));
-        width: var(--radio-outer-w-adaptive-touch);
+        height: var(--radio-outer-adaptive-touch);
+        top: calc(50% - 0.5 * var(--radio-outer-adaptive-touch));
+        width: var(--radio-outer-adaptive-touch);
       }
 
       &::after {
-        height: var(--radio-inner-h-adaptive-touch);
-        left: calc(var(--radio-outer-w-adaptive-touch) / 2 - var(--radio-inner-w-adaptive-touch) / 2);
-        top: calc(50% - 0.5 * var(--radio-inner-h-adaptive-touch));
-        width: var(--radio-inner-w-adaptive-touch);
+        height: var(--radio-inner-adaptive-touch);
+        left: calc(var(--radio-outer-adaptive-touch) / 2 - var(--radio-inner-adaptive-touch) / 2);
+        top: calc(50% - 0.5 * var(--radio-inner-adaptive-touch));
+        width: var(--radio-inner-adaptive-touch);
       }
     }
   }

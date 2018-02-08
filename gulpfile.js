@@ -37,7 +37,6 @@ const postCssPlugins = {
 // -------------------------------------
 //   Global Variables
 // -------------------------------------
-let publishDocObj = {};
 let arrOfIcons = [];
 
 
@@ -45,22 +44,19 @@ let arrOfIcons = [];
 //   Load Tasks
 // -------------------------------------
 require(`${gconfig.paths.tasks}/accessibility.js`)(gulp, gconfig);
-require(`${gconfig.paths.tasks}/build.js`)(gulp, gconfig, publishDocObj);
+require(`${gconfig.paths.tasks}/build.js`)(gulp, gconfig);
 require(`${gconfig.paths.tasks}/clean.js`)(gulp, gconfig);
 require(`${gconfig.paths.tasks}/css-lint.js`)(gulp, gconfig);
 require(`${gconfig.paths.tasks}/deploy.js`)(gulp, gconfig);
-require(`${gconfig.paths.tasks}/json-js-compile.js`)(gulp, gconfig, publishDocObj);
-require(`${gconfig.paths.tasks}/json-md-compile.js`)(gulp, gconfig, publishDocObj);
+require(`${gconfig.paths.tasks}/json-md-compile.js`)(gulp, gconfig);
 require(`${gconfig.paths.tasks}/json-yaml-compile.js`)(gulp, gconfig);
 require(`${gconfig.paths.tasks}/serve.js`)(gulp, gconfig);
 require(`${gconfig.paths.tasks}/site-css-compile.js`)(gulp, gconfig, postCssPlugins);
 require(`${gconfig.paths.tasks}/src-css-compile.js`)(gulp, gconfig, postCssPlugins);
-require(`${gconfig.paths.tasks}/src-js-compile.js`)(gulp, gconfig);
 require(`${gconfig.paths.tasks}/src-md-compile.js`)(gulp, gconfig, postCssPlugins);
 
 require(`${gconfig.paths.tasks}/sketch-to-svgs.js`)(gulp, gconfig);
 require(`${gconfig.paths.tasks}/svg-store.js`)(gulp, gconfig);
-
 
 
 // -------------------------------------
@@ -69,9 +65,8 @@ require(`${gconfig.paths.tasks}/svg-store.js`)(gulp, gconfig);
 // gulp default
 // gulp dev
 // gulp publish
-// gulp css:lint
 //
-// npm run test (package json)
+// npm test (package json)
 // -------------------------------------
 
 gulp.task('default', ['clean', ], (done) => {
@@ -90,5 +85,5 @@ gulp.task('publish', (done) => {
 // -------------------------------------
 //   Build Task Combos
 // -------------------------------------
-gulp.task('src:compile', ['src:css:compile', 'src:js:compile']);
+gulp.task('src:compile', ['src:css:compile']);
 gulp.task('site:compile', ['site:css:compile', 'src:md:compile']);
