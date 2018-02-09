@@ -46,7 +46,7 @@ var(--grid-gutter-lg) = 20px
   }
 }
 
-@media (--viewport-xl) {
+@media (--viewport-lg) {
   @for $i from 1 to 12 {
     .ids-row--gutter .ids-row--col-$i {
       lost-column: $(i)/12 0 24px;
@@ -126,7 +126,19 @@ to a grid row and include gutter increases for the larger breakponts.
     }
 
     .ids-row--gutter .ids-row--col-lg-$i {
-      lost-column: $(i)/12 0 16px;
+      lost-column: $(i)/12 0 24px;
+    }
+
+    .ids-row--gutter .ids-row--col-sm-$i {
+      lost-column: $(i)/12 0 24px;
+    }
+
+    .ids-row--gutter .ids-row--col-md-$i {
+      lost-column: $(i)/12 0 24px;
+    }
+
+    .ids-row--gutter .ids-row--col-xl-$i {
+      lost-column: $(i)/12 0 24px;
     }
   }
 }
@@ -140,22 +152,6 @@ to a grid row and include gutter increases for the larger breakponts.
 
     .ids-row .ids-row--offset-xl-$i {
       lost-offset: $(i)/12;
-    }
-
-    .ids-row--gutter .ids-row--col-sm-$i {
-      lost-column: $(i)/12 0 24px;
-    }
-
-    .ids-row--gutter .ids-row--col-md-$i {
-      lost-column: $(i)/12 0 24px;
-    }
-
-    .ids-row--gutter .ids-row--col-lg-$i {
-      lost-column: $(i)/12 0 24px;
-    }
-
-    .ids-row--gutter .ids-row--col-xl-$i {
-      lost-column: $(i)/12 0 24px;
     }
   }
 }
