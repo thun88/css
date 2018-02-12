@@ -10,7 +10,7 @@
     "url": "git://github.com/infor-design/ids-web.git"
   },
   "devDependencies": {
-    "@infor/documentation-css": "^1.0.0-alpha.2",
+    "@infor/documentation-css": "^1.0.0",
     "@infor/ids-tokens": "^1.0.0-alpha.8",
     "ajv": "^5.5.2",
     "browser-sync": "^2.23.5",
@@ -44,7 +44,7 @@
     "postcss-commas": "^1.0.0",
     "postcss-cssnext": "^3.1.0",
     "postcss-for": "^2.1.1",
-    "postcss-import": "^11.0.0",
+    "postcss-import": "^11.1.0",
     "pygmentize-bundled": "^2.3.0",
     "run-sequence": "^2.2.1",
     "stylelint": "^8.4.0",

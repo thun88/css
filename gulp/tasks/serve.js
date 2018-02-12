@@ -38,7 +38,8 @@ module.exports = (gulp, gconfig) => {
     const packageFiles = [
       gconfig.paths.src.mdFiles,
       `${gconfig.paths.src.root}/sitemap.yaml`,
-      `${gconfig.paths.src.packages}/*/*.css`
+      `${gconfig.paths.src.packages}/*/*.css`,
+      `${gconfig.paths.src.packages}/*/css/*.css`
     ];
 
     const changeEvent = (evt) => {

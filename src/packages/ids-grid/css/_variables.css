@@ -1,0 +1,11 @@
+@lost flexbox flex;
+@lost gutter 0;
+
+:root {
+  --grid-cols: 12;
+}
+
+.ids-row,
+.ids-row--gutter {
+  lost-center: 100%;
+}

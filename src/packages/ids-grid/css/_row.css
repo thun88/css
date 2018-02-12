@@ -1,0 +1,94 @@
+/****************************************************************
+ ** !! NOTE: Preseve individual loops for cascading reasons !! **
+ ****************************************************************/
+
+/* Non-responsive basic columns */
+@for $i from 1 to var(--grid-cols) {
+  .ids-row .ids-row--col-$i {
+    lost-column: $(i)/var(--grid-cols) 0 0;
+  }
+}
+
+/* Column Offsets */
+@for $i from 1 to var(--grid-cols) {
+  .ids-row .ids-row--offset-$i {
+    lost-offset: $(i)/var(--grid-cols);
+  }
+}
+
+/* Default responsive columns to full-width */
+@for $i from 1 to var(--grid-cols) {
+  .ids-row--col-sm-$i,
+  .ids-row--col-md-$i,
+  .ids-row--col-lg-$i,
+  .ids-row--col-xl-$i {
+    lost-column: 1;
+  }
+}
+
+/*
+Media Queries
+
+The media queries set when the columns will go from single stack
+to a grid row and include gutter increases for the larger breakponts.
+*/
+
+/* Media "small" and up */
+@media (--viewport-sm) {
+  @for $i from 1 to var(--grid-cols) {
+    .ids-row {
+      & .ids-row--col-sm-$i {
+        lost-column: $(i)/var(--grid-cols);
+      }
+
+      & .ids-row--offset-sm-$i {
+        lost-offset: $(i)/var(--grid-cols);
+      }
+    }
+  }
+}
+
+/* Media "medium" and larger */
+@media (--viewport-md) {
+  @for $i from 1 to var(--grid-cols) {
+    .ids-row {
+      & .ids-row--col-md-$i {
+        lost-column: $(i)/var(--grid-cols);
+      }
+
+      & .ids-row--offset-md-$i {
+        lost-offset: $(i)/var(--grid-cols);
+      }
+    }
+  }
+}
+
+/* Media "large" and up */
+@media (--viewport-lg) {
+  @for $i from 1 to var(--grid-cols) {
+    .ids-row {
+      & .ids-row--col-lg-$i {
+        lost-column: $(i)/var(--grid-cols);
+      }
+
+      & .ids-row--offset-lg-$i {
+        lost-offset: $(i)/var(--grid-cols);
+      }
+    }
+  }
+}
+
+/* Media x-large and up */
+@media (--viewport-xl) {
+  @for $i from 1 to var(--grid-cols) {
+    .ids-row {
+      & .ids-row--col-xl-$i {
+        lost-column: $(i)/var(--grid-cols);
+      }
+
+      & .ids-row--offset-xl-$i {
+        lost-offset: $(i)/var(--grid-cols);
+      }
+    }
+  }
+}
