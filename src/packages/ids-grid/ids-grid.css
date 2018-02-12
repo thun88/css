@@ -30,14 +30,14 @@ var(--grid-gutter-lg) = 20px
   }
 }
 
-/* Non-responsive columns with normal gutters */
+/* Non-responsive columns default to small gutters for all viewports */
 @for $i from 1 to 12 {
   .ids-row--gutter .ids-row--col-$i {
     lost-column: $(i)/12 0 8px;
   }
 }
 
-/* Non-responsive columns with larger gutters */
+/* Non-responsive columns get medium gutters for medium viewports */
 @media (--viewport-md) {
   @for $i from 1 to 12 {
     .ids-row--gutter .ids-row--col-$i {
@@ -46,13 +46,15 @@ var(--grid-gutter-lg) = 20px
   }
 }
 
-@media (--viewport-xl) {
+/* Non-responsive columns get larger gutters for large viewports */
+@media (--viewport-lg) {
   @for $i from 1 to 12 {
     .ids-row--gutter .ids-row--col-$i {
       lost-column: $(i)/12 0 24px;
     }
   }
 }
+
 /*
 Make all responsive columns default to full width
 and then they can are manipulated using the
@@ -100,7 +102,7 @@ to a grid row and include gutter increases for the larger breakponts.
       lost-offset: $(i)/12;
     }
 
-    /* Update the "sm" columns to use the "large" gutter
+    /* Update the "sm" columns to use a larger gutter
     size for media "medium" and higher. Also make sure this
     rule comes before the "md" one below it for cascading
     resons. */
@@ -108,6 +110,7 @@ to a grid row and include gutter increases for the larger breakponts.
       lost-column: $(i)/12 0 16px;
     }
 
+    /* Setup medium columns with a gutter */
     .ids-row--gutter .ids-row--col-md-$i {
       lost-column: $(i)/12 0 16px;
     }
@@ -125,9 +128,22 @@ to a grid row and include gutter increases for the larger breakponts.
       lost-offset: $(i)/12;
     }
 
-    .ids-row--gutter .ids-row--col-lg-$i {
-      lost-column: $(i)/12 0 16px;
+    /* Update the "sm" and "md" columns to use a larger gutter
+    size for media "large" and higher. Also make sure this
+    rules go sm -> lg in order to cascade */
+    .ids-row--gutter .ids-row--col-sm-$i {
+      lost-column: $(i)/12 0 24px;
     }
+
+    .ids-row--gutter .ids-row--col-md-$i {
+      lost-column: $(i)/12 0 24px;
+    }
+
+    /* Setup large columns with a gutter */
+    .ids-row--gutter .ids-row--col-lg-$i {
+      lost-column: $(i)/12 0 24px;
+    }
+
   }
 }
 
@@ -142,18 +158,7 @@ to a grid row and include gutter increases for the larger breakponts.
       lost-offset: $(i)/12;
     }
 
-    .ids-row--gutter .ids-row--col-sm-$i {
-      lost-column: $(i)/12 0 24px;
-    }
-
-    .ids-row--gutter .ids-row--col-md-$i {
-      lost-column: $(i)/12 0 24px;
-    }
-
-    .ids-row--gutter .ids-row--col-lg-$i {
-      lost-column: $(i)/12 0 24px;
-    }
-
+    /* Setup large columns with a gutter */
     .ids-row--gutter .ids-row--col-xl-$i {
       lost-column: $(i)/12 0 24px;
     }
