@@ -10,7 +10,7 @@
     "url": "git://github.com/infor-design/ids-web.git"
   },
   "devDependencies": {
-    "@infor/documentation-css": "^1.0.0",
+    "@infor/documentation-css": "^1.0.0-alpha.5",
     "@infor/ids-tokens": "^1.0.0-alpha.9",
     "ajv": "^5.5.2",
     "browser-sync": "^2.23.5",
