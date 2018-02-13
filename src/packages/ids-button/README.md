@@ -22,7 +22,6 @@ specs:
 - title: Primary Hover Color
   spec: BTN-PRIMARY-HOVER
 - title: Primary Disabled State Opacity
-  valueType: true
   spec: BTN-DISABLED-OPACITY
 ---
 

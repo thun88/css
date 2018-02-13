@@ -11,7 +11,8 @@ module.exports = (gulp, gconfig) => {
 
     return gulp.src([
       `${gconfig.paths.src.packages}/*/*.css`,
-      `${gconfig.paths.site.css}/*/*.css`
+      `${gconfig.paths.src.packages}/*/css/*.css`,
+      `${gconfig.paths.site.css}/*/*.css`,
       ])
       .pipe(stylelint({
         failAfterError: true,

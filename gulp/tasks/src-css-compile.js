@@ -17,12 +17,12 @@ module.exports = (gulp, gconfig, postCssPlugins) => {
       postCssPlugins.commas,
       postCssPlugins.atVariables,
       postCssPlugins.atFor,
-      postCssPlugins.lost,
       postCssPlugins.cssnext({
         features: {
           customProperties: { preserve: "computed" } // preserve custom properties & var() usage in output
         }
-      })
+      }),
+      postCssPlugins.lost
     ];
 
     return gulp.src(`${gconfig.paths.src.packages}/*/[^_]*.css`)
