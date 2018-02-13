@@ -11,7 +11,7 @@
   },
   "devDependencies": {
     "@infor/documentation-css": "^1.0.0",
-    "@infor/ids-tokens": "^1.0.0-alpha.8",
+    "@infor/ids-tokens": "^1.0.0-alpha.9",
     "ajv": "^5.5.2",
     "browser-sync": "^2.23.5",
     "cssnano": "^3.10.0",
