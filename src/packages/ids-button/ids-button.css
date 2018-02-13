@@ -15,7 +15,7 @@
   font-family: var(--font-family-base);
   font-size: var(--font-size-base);
   -webkit-font-smoothing: antialiased;
-  font-weight: var(--text-strong);
+  font-weight: var(--font-weight-bold);
   padding: var(--btn-padding-y) var(--btn-padding-x);
   text-align: center;
   text-decoration: none;
@@ -26,44 +26,44 @@
 
   &[disabled] {
     cursor: default;
-    opacity: var(--btn-disabled-opacity);
+    opacity: var(--disabled-opacity);
   }
 
   &:focus,
   &.has-focus {
-    box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--primary-color);
+    box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--theme-primary);
     outline: 0;
   }
 
   &.ids-btn--default {
-    background-color: var(--btn-default-bg);
-    color: var(--btn-default-color);
+    background-color: var(--theme-default);
+    color: var(--theme-default-accent);
 
     &:hover {
-      background-color: var(--text-muted);
+      background-color: var(--theme-muted);
 
       &[disabled] {
-        background-color: var(--btn-default-bg);
+        background-color: var(--theme-default);
       }
     }
   }
 
   &.ids-btn--primary {
-    background-color: var(--btn-primary-bg);
-    color: var(--btn-primary-color);
+    background-color: var(--theme-primary);
+    color: var(--theme-primary-accent);
 
     &:hover {
-      background-color: var(--btn-primary-hover);
+      background-color: var(--theme-primary-dark);
 
       &[disabled] {
-        background-color: var(--btn-primary-bg);
+        background-color: var(--theme-primary);
       }
     }
   }
 
   &.ids-btn--link {
     background-color: transparent;
-    color: var(--btn-link-color);
+    color: var(--theme-info);
 
     &:hover {
       color: var(--body-color);
@@ -73,27 +73,27 @@
       }
 
       &[disabled] {
-        color: var(--btn-link-color);
+        color: var(--theme-info);
       }
     }
 
     &:focus,
     &.has-focus {
-      box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--primary-color);
+      box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--theme-primary);
       outline: 0;
     }
 
     &:active,
     &.is-active {
-      color: var(--primary-color);
+      color: var(--theme-primary);
 
       & .ids-icon {
-        fill: var(--primary-color);
+        fill: var(--theme-primary);
       }
     }
 
     & .ids-icon {
-      fill: var(--btn-link-color);
+      fill: var(--theme-info);
     }
   }
 

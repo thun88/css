@@ -32,7 +32,7 @@ body {
 
 h1,
 .ids-header--primary {
-  font-size: var(--header-primary-font-size);
+  font-size: var(--font-size-xl);
   margin-bottom: 10px;
   margin-top: 20px;
 }
@@ -43,7 +43,7 @@ h4,
 h5,
 h6,
 .ids-header--secondary {
-  font-size: var(--header-secondary-font-size);
+  font-size: var(--font-size-lg);
   margin-bottom: 10px;
   margin-top: 20px;
 }
@@ -56,7 +56,7 @@ p {
 
 strong,
 .ids-text-strong {
-  font-weight: var(--text-strong);
+  font-weight: var(--font-weight-bold);
 }
 
 em,
@@ -66,50 +66,50 @@ em,
 
 small,
 .ids-text-small {
-  font-size: var(--text-small);
+  font-size: var(--font-size-sm);
   font-weight: var(--font-weight-normal);
 }
 
-.ids-text-muted { color: var(--text-muted); }
-.ids-text-alert { color: var(--text-alert); }
+.ids-text-muted { color: var(--theme-muted); }
+.ids-text-alert { color: var(--theme-danger); }
 
 a,
 .ids-text-link {
-  color: var(--link-color);
+  color: var(--theme-primary);
   cursor: pointer;
   text-decoration: none;
 
   &:hover {
-    color: var(--link-color-hover);
+    color: var(--link-hover-color);
     text-decoration: underline;
   }
 
   &[disabled] {
-    color: var(--link-color-disabled);
+    color: var(--theme-default-dark);
     cursor: not-allowed;
 
     & .ids-icon {
-      fill: var(--link-color-disabled);
+      fill: var(--theme-default-dark);
     }
   }
 
   &:focus,
   &.has-focus {
     border-radius: 2px;
-    box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--btn-link-focus);
+    box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--theme-primary);
     outline: 0;
   }
 
   &:visited {
-    color: var(--link-color-visited);
+    color: var(--link-visited-color);
 
     & .ids-icon {
-      fill: var(--link-color-visited);
+      fill: var(--link-visited-color);
     }
   }
 
   & .ids-icon {
-    fill: var(--link-color-hover);
+    fill: var(--link-hover-color);
   }
 }
 

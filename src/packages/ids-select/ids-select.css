@@ -6,7 +6,7 @@
   position: relative;
 
   & .ids-select--menu {
-    background-color: var(--body-bg-secondary);
+    background-color: var(--theme-primary-accent);
     color: var(--body-color);
     display: none;
     font-size: 1.4rem;
@@ -21,14 +21,14 @@
     z-index: 1000;
 
     & > li:hover {
-      background-color: var(--btn-default-bg);
+      background-color: var(--theme-default);
       cursor: pointer;
       outline: none;
     }
 
     & > li.ids-select--menu--selected {
-      background-color: var(--btn-link-active);
-      color: var(--btn-primary-color);
+      background-color: var(--theme-primary);
+      color: var(--theme-primary-accent);
     }
   }
 
@@ -41,11 +41,11 @@
     }
 
     & .ids-select--menu {
-      border-bottom: var(--input-border-width) solid var(--primary-color);
-      border-bottom-left-radius: var(--input-border-radius);
-      border-bottom-right-radius: var(--input-border-radius);
-      border-left: var(--input-border-width) solid var(--primary-color);
-      border-right: var(--input-border-width) solid var(--primary-color);
+      border-bottom: var(--border-width) solid var(--theme-primary);
+      border-bottom-left-radius: var(--border-radius);
+      border-bottom-right-radius: var(--border-radius);
+      border-left: var(--border-width) solid var(--theme-primary);
+      border-right: var(--border-width) solid var(--theme-primary);
       display: block;
     }
   }

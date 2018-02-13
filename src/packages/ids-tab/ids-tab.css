@@ -3,11 +3,11 @@
 @import '../ids-typography/ids-typography';
 
 .ids-tabs--horizontal {
-  border-bottom: solid 1px var(--btn-default-bg);
+  border-bottom: solid 1px var(--theme-default);
   display: block;
 
   & .ids-tabs--tab {
-    color: var(--btn-link-color);
+    color: var(--theme-info);
     display: inline-block;
     margin: 0 10px 0 0;
     max-width: 150px;
@@ -42,16 +42,16 @@
     }
 
     &.ids-tabs--tab--active {
-      color: var(--primary-color);
+      color: var(--theme-primary);
 
       &::before {
-        background-color: var(--primary-color);
+        background-color: var(--theme-primary);
         width: 100%;
       }
     }
 
     &.ids-tabs--tab--disabled {
-      color: var(--text-muted);
+      color: var(--theme-muted);
 
       &:hover {
         cursor: not-allowed;
@@ -71,16 +71,16 @@
     text-decoration: none;
 
     &:hover:not(.ids-tabs--tab--disabled) {
-      background-color: var(--input-bg-readonly);
+      background-color: var(--theme-readonly);
     }
 
     &.ids-tabs--tab--active {
-      background-color: var(--primary-color);
+      background-color: var(--theme-primary);
       color: #fff;
     }
 
     &.ids-tabs--tab--disabled {
-      color: var(--text-muted);
+      color: var(--theme-muted);
 
       &:hover {
         cursor: not-allowed;
