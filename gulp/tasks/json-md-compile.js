@@ -58,7 +58,11 @@ module.exports = (gulp, gconfig, publishDocObj) => {
         // the front-matter "meta" property
         if (jsonObj.specs) {
           jsonObj.specs.forEach(spec => {
-            Object.assign(spec, designTokens[spec.spec.toUpperCase()].value);
+            if (designTokens[spec.spec.toUpperCase()]) {
+              Object.assign(spec, designTokens[spec.spec.toUpperCase()].value);
+            } else {
+              console.log(`Cannot find token: "${spec.spec.toUpperCase()}", skipping...`);
+            }
           });
         }
 

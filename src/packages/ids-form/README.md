@@ -7,10 +7,6 @@ specs:
 - title: Border Color
   spec: TEXT-MUTED
 - title: Border Color (Hover)
-  spec: TEXT-MUTED-HOVER
-- title: Border Color (Focus)
-  spec: TEXT-MUTED-FOCUS
-- title: Input Text Color
   spec: BODY-COLOR
 - title: Input Placeholder Text Color
   spec: TEXT-MUTED
@@ -20,10 +16,8 @@ specs:
   spec: TEXT-MUTED
 - title: Input Height
   spec: INPUT-HEIGHT
-  valueType: true
 - title: Corner Radius
   spec: INPUT-BORDER-RADIUS
-  valueType: true
 ---
 
 
