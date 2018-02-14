@@ -6,7 +6,6 @@ demo:
 specs:
 - title: Touch Input Height
   spec: INPUT-HEIGHT-ADAPTIVE-TOUCH
-  valueType: true
 ---
 
 ## Touch Adaptive State
