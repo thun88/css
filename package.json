@@ -1,14 +1,5 @@
 {
   "private": true,
-  "version": "1.0.0-alpha.2",
-  "name": "ids-web",
-  "description": "Infor Design System for the Web",
-  "author": "Hook & Loop",
-  "license": "UNLICENSED",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/infor-design/ids-web.git"
-  },
   "devDependencies": {
     "@infor/ids-tokens": "^1.0.0-alpha.10",
     "ajv": "^5.5.2",
