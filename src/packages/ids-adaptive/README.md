@@ -5,8 +5,7 @@ demo:
   path: /ids-adaptive/index.html
 specs:
 - title: Touch Input Height
-  spec: INPUT-HEIGHT-ADAPTIVE-TOUCH
-  valueType: true
+  spec: input-height-adaptive-touch
 ---
 
 ## Touch Adaptive State

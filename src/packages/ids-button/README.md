@@ -8,21 +8,19 @@ demo:
   path: /ids-button/index.html
 specs:
 - title: Default Button Color
-  spec: BTN-DEFAULT-BG
-- title: Default Button Label Color
-  spec: BTN-DEFAULT-COLOR
-- title: Default Button Hover Color
-  spec: BTN-DEFAULT-HOVER
-- title: Default Disabled State Opacity
-  spec: BTN-DISABLED-OPACITY
-- title: Primary Background Color
-  spec: BTN-PRIMARY-BG
-- title: Primary Label Color
-  spec: BTN-PRIMARY-COLOR
-- title: Primary Hover Color
-  spec: BTN-PRIMARY-HOVER
-- title: Primary Disabled State Opacity
-  spec: BTN-DISABLED-OPACITY
+  spec: color-default
+- title: default button text color
+  spec: color-default-contrast
+- title: default button hover color
+  spec: color-default-alt
+- title: primary background color
+  spec: color-primary
+- title: primary button text color
+  spec: color-primary-contrast
+- title: primary hover color
+  spec: color-primary-alt
+- title: disabled state opacity
+  spec: button-disabled-opacity
 ---
 
 
