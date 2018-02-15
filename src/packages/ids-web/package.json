@@ -1,6 +1,7 @@
 {
   "name": "@infor/ids-web",
-  "version": "1.0.0-alpha.4",
+  "slug": "ids-web",
+  "version": "1.0.0-alpha.5",
   "description": "Infor Design System (IDS) Compnonents for the web",
   "repository": {
     "type": "git",
@@ -8,7 +9,8 @@
   },
   "keywords": [
     "ids",
-    "components"
+    "infor design system",
+    "styles"
   ],
   "author": "Hook & Loop",
   "license": "UNLICENSED",

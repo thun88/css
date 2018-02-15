@@ -9,7 +9,7 @@ module.exports = (gulp, gconfig) => {
     const fs = require('fs');
     const formData = require('form-data');
     const gutil = require('gulp-util');
-    const packageJson = require('../../package.json');
+    const idsWebPackageJson = require(gconfig.paths.src.webPackageJson);
     const argv = require('yargs').argv;
 
     let url = gconfig.urls.local;
@@ -19,7 +19,7 @@ module.exports = (gulp, gconfig) => {
 
     let form = new formData();
     form.append('file', fs.createReadStream(`${gconfig.paths.dist.root}.zip`));
-    form.append('root_path', `${packageJson.name}/${packageJson.version}`);
+    form.append('root_path', `${idsWebPackageJson.slug}/${idsWebPackageJson.version}`);
 
     gutil.log(`Attempting to publish to '${url}'`);
 
