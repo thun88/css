@@ -46,13 +46,14 @@ let arrOfIcons = [];
 require(`${gconfig.paths.tasks}/accessibility.js`)(gulp, gconfig);
 require(`${gconfig.paths.tasks}/build.js`)(gulp, gconfig);
 require(`${gconfig.paths.tasks}/clean.js`)(gulp, gconfig);
-require(`${gconfig.paths.tasks}/css-lint.js`)(gulp, gconfig);
 require(`${gconfig.paths.tasks}/deploy.js`)(gulp, gconfig);
 require(`${gconfig.paths.tasks}/json-md-compile.js`)(gulp, gconfig);
 require(`${gconfig.paths.tasks}/json-yaml-compile.js`)(gulp, gconfig);
 require(`${gconfig.paths.tasks}/serve.js`)(gulp, gconfig);
 require(`${gconfig.paths.tasks}/site-css-compile.js`)(gulp, gconfig);
+require(`${gconfig.paths.tasks}/site-css-lint.js`)(gulp, gconfig);
 require(`${gconfig.paths.tasks}/src-css-compile.js`)(gulp, gconfig, postCssPlugins);
+require(`${gconfig.paths.tasks}/src-css-lint.js`)(gulp, gconfig);
 require(`${gconfig.paths.tasks}/src-md-compile.js`)(gulp, gconfig);
 
 require(`${gconfig.paths.tasks}/sketch-to-svgs.js`)(gulp, gconfig);
@@ -69,7 +70,7 @@ require(`${gconfig.paths.tasks}/svg-store.js`)(gulp, gconfig);
 // npm test (package json)
 // -------------------------------------
 
-gulp.task('default', ['clean', ], (done) => {
+gulp.task('default', ['clean', 'css:lint'], (done) => {
   runSequence('svg:store', 'src:compile', 'site:compile', done);
 });
 
@@ -78,12 +79,13 @@ gulp.task('dev', ['clean'], (done) => {
 });
 
 gulp.task('publish', (done) => {
-  runSequence('clean', 'build', 'deploy', done);
+  runSequence('clean', 'src:css:lint', 'build', 'deploy', done);
 });
 
 
 // -------------------------------------
 //   Build Task Combos
 // -------------------------------------
+gulp.task('css:lint', ['src:css:lint', 'site:css:lint']);
 gulp.task('src:compile', ['src:css:compile']);
 gulp.task('site:compile', ['site:css:compile', 'src:md:compile']);

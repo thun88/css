@@ -5,7 +5,7 @@
 
 module.exports = (gulp, gconfig) => {
 
-  gulp.task('css:lint', () => {
+  gulp.task('site:css:lint', () => {
 
     const stylelint = require('gulp-stylelint');
 
@@ -14,12 +14,6 @@ module.exports = (gulp, gconfig) => {
       `${gconfig.paths.src.packages}/*/css/*.css`,
       `${gconfig.paths.site.css}/*/*.css`,
       ])
-      .pipe(stylelint({
-        failAfterError: true,
-        reporters: [{
-          formatter: 'verbose',
-          console: true
-        }]
-      }))
+      .pipe(stylelint(gconfig.options.stylelint));
   });
 }

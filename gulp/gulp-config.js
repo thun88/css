@@ -45,6 +45,13 @@ module.exports = {
           callback(err, result.toString());
         });
       }
+    },
+    stylelint: {
+      failAfterError: true,
+      reporters: [{
+        formatter: 'verbose',
+        console: true
+      }]
     }
   }
 };
