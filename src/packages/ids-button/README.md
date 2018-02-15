@@ -67,22 +67,22 @@ Can be used with `<a>` or `<button>` tags.
 ```html
 <a href="#" class="ids-btn ids-btn--link">Button</a>
 <a href="#" class="ids-btn ids-btn--link" disabled>Button</a>
-<button type="button" class="ids-btn ids-btn--link" title="link icon">
-    <svg class="ids-icon" focusable="false" aria-hidden="true" role="presentation">
-        <use xlink:href="#link"></use>
-    </svg>
-    <span>Button</span>
-</button>
-<button type="button" class="ids-btn ids-btn--link" title="save icon">
-    <svg class="ids-icon" focusable="false" aria-hidden="true" role="presentation">
-        <use xlink:href="#save"></use>
-    </svg>
-</button>
 ```
 
-## Hyperlinks
+## Buttons and Icons
+
+You can add icons into the button content as well with text or by itself.
 
 ```html
-<a href="#">Hyperlink</a>
-<a href="#" disabled>Disabled Hyperlink</a>
+<button type="button" class="ids-btn ids" title="Star icon beside text button">
+    <svg class="ids-icon" focusable="false" aria-hidden="true" role="presentation">
+        <use xlink:href="#icon_star"></use>
+    </svg>
+    <span>Star Icon left of button Text</span>
+</button>
+<button type="button" class="ids-btn" title="Star icon button">
+    <svg class="ids-icon" focusable="false" aria-hidden="true" role="presentation">
+        <use xlink:href="#icon_star"></use>
+    </svg>
+</button>
 ```
