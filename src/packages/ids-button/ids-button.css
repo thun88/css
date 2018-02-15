@@ -16,7 +16,7 @@
   font-size: var(--font-size-base);
   -webkit-font-smoothing: antialiased;
   font-weight: var(--font-weight-bold);
-  padding: var(--btn-padding-y) var(--btn-padding-x);
+  padding: var(--button-padding-y) var(--button-padding-x);
   text-align: center;
   text-decoration: none;
   text-transform: capitalize;
@@ -26,74 +26,74 @@
 
   &[disabled] {
     cursor: default;
-    opacity: var(--disabled-opacity);
+    opacity: var(--button-disabled-opacity);
   }
 
   &:focus,
   &.has-focus {
-    box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--theme-primary);
+    box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--color-primary);
     outline: 0;
   }
 
   &.ids-btn--default {
-    background-color: var(--theme-default);
-    color: var(--theme-default-accent);
+    background-color: var(--button-default-bg-color);
+    color: var(--button-default-text-color);
 
     &:hover {
-      background-color: var(--theme-muted);
+      background-color: var(--button-default-hover-bg-color);
 
       &[disabled] {
-        background-color: var(--theme-default);
+        background-color: var(--button-default-bg-color);
       }
     }
   }
 
   &.ids-btn--primary {
-    background-color: var(--theme-primary);
-    color: var(--theme-primary-accent);
+    background-color: var(--button-primary-bg-color);
+    color: var(--button-primary-text-color);
 
     &:hover {
-      background-color: var(--theme-primary-dark);
+      background-color: var(--button-primary-hover-bg-color);
 
       &[disabled] {
-        background-color: var(--theme-primary);
+        background-color: var(--button-primary-bg-color);
       }
     }
   }
 
   &.ids-btn--link {
     background-color: transparent;
-    color: var(--theme-info);
+    color: var(--button-link-text-color);
 
     &:hover {
-      color: var(--body-color);
+      color: var(--body-text-color);
 
       & .ids-icon {
-        fill: var(--body-color);
+        fill: var(--body-text-color);
       }
 
       &[disabled] {
-        color: var(--theme-info);
+        color: var(--button-link-text-color);
       }
     }
 
     &:focus,
     &.has-focus {
-      box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--theme-primary);
+      box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--color-primary);
       outline: 0;
     }
 
     &:active,
     &.is-active {
-      color: var(--theme-primary);
+      color: var(--color-primary);
 
       & .ids-icon {
-        fill: var(--theme-primary);
+        fill: var(--color-primary);
       }
     }
 
     & .ids-icon {
-      fill: var(--theme-info);
+      fill: var(--button-link-text-color);
     }
   }
 

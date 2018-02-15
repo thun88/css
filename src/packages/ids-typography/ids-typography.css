@@ -70,12 +70,12 @@ small,
   font-weight: var(--font-weight-normal);
 }
 
-.ids-text-muted { color: var(--theme-muted); }
-.ids-text-alert { color: var(--theme-danger); }
+.ids-text-muted { color: var(--color-muted); }
+.ids-text-alert { color: var(--color-danger); }
 
 a,
 .ids-text-link {
-  color: var(--theme-primary);
+  color: var(--color-primary);
   cursor: pointer;
   text-decoration: none;
 
@@ -85,18 +85,18 @@ a,
   }
 
   &[disabled] {
-    color: var(--theme-default-dark);
+    color: var(--color-default-alt);
     cursor: not-allowed;
 
     & .ids-icon {
-      fill: var(--theme-default-dark);
+      fill: var(--color-default-alt);
     }
   }
 
   &:focus,
   &.has-focus {
     border-radius: 2px;
-    box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--theme-primary);
+    box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--color-primary);
     outline: 0;
   }
 

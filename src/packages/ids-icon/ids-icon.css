@@ -5,7 +5,7 @@
 .ids-icon {
   color: inherit;
   display: inline-block;
-  fill: var(--theme-default-dark);
+  fill: var(--color-default-alt);
   height: var(--icon-height);
   position: relative;
   vertical-align: text-bottom;

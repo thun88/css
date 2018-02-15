@@ -7,22 +7,22 @@ system:
   category: identity
   name: fonts-colors
 specs:
-- title: X-Large Header Font Size
-  spec: FONT-SIZE-XL
-- title: Large Header Font Size
-  spec: FONT-SIZE-LG
-- title: Base Font Size
-  spec: FONT-SIZE-BASE
-- title: Small Font Size
-  spec: FONT-SIZE-SM
-- title: Default Text Color
-  spec: BODY-COLOR
-- title: Muted Text Color
-  spec: THEME-MUTED
-- title: Link Text Color
-  spec: THEME-PRIMARY
-- title: Alert Text Color
-  spec: THEME-DANGER
+- title: x-large header font size
+  spec: font-size-xl
+- title: large header font size
+  spec: font-size-lg
+- title: base font size
+  spec: font-size-base
+- title: small font size
+  spec: font-size-sm
+- title: default text color
+  spec: body-text-color
+- title: muted text color
+  spec: color-muted
+- title: link text color
+  spec: color-primary
+- title: alert text color
+  spec: color-danger
 ---
 
 ## Standard Type Settings

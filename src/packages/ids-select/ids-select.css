@@ -6,8 +6,8 @@
   position: relative;
 
   & .ids-select--menu {
-    background-color: var(--theme-primary-accent);
-    color: var(--body-color);
+    background-color: var(--color-primary-contrast);
+    color: var(--body-text-color);
     display: none;
     font-size: 1.4rem;
     height: auto;
@@ -21,14 +21,14 @@
     z-index: 1000;
 
     & > li:hover {
-      background-color: var(--theme-default);
+      background-color: var(--color-default);
       cursor: pointer;
       outline: none;
     }
 
     & > li.ids-select--menu--selected {
-      background-color: var(--theme-primary);
-      color: var(--theme-primary-accent);
+      background-color: var(--color-primary);
+      color: var(--color-primary-contrast);
     }
   }
 
@@ -41,11 +41,11 @@
     }
 
     & .ids-select--menu {
-      border-bottom: var(--border-width) solid var(--theme-primary);
-      border-bottom-left-radius: var(--border-radius);
-      border-bottom-right-radius: var(--border-radius);
-      border-left: var(--border-width) solid var(--theme-primary);
-      border-right: var(--border-width) solid var(--theme-primary);
+      border-bottom: var(--input-border-width) solid var(--color-primary);
+      border-bottom-left-radius: var(--input-border-radius);
+      border-bottom-right-radius: var(--input-border-radius);
+      border-left: var(--input-border-width) solid var(--color-primary);
+      border-right: var(--input-border-width) solid var(--color-primary);
       display: block;
     }
   }

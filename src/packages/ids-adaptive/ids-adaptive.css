@@ -12,7 +12,7 @@
 .ids-adaptive--touch {
   & .ids-btn,
   & input.ids-form-control {
-    line-height: calc(var(--input-height-adaptive-touch) - (2 * var(--input-padding-y)) - (2 * var(--border-width)));
+    line-height: calc(var(--input-height-adaptive-touch) - (2 * var(--input-padding-y)) - (2 * var(--input-border-width)));
   }
 
   & select:not([size]):not([multiple]).ids-form-control {

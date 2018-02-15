@@ -29,8 +29,8 @@ html {
 }
 
 body {
-  background-color: var(--body-bg);
-  color: var(--body-color);
+  background-color: var(--body-bg-color);
+  color: var(--body-text-color);
   height: 100%;
 }
 

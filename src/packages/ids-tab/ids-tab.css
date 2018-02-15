@@ -3,11 +3,11 @@
 @import '../ids-typography/ids-typography';
 
 .ids-tabs--horizontal {
-  border-bottom: solid 1px var(--theme-default);
+  border-bottom: solid 1px var(--color-default);
   display: block;
 
   & .ids-tabs--tab {
-    color: var(--theme-info);
+    color: var(--color-info);
     display: inline-block;
     margin: 0 10px 0 0;
     max-width: 150px;
@@ -32,26 +32,26 @@
     }
 
     &:hover:not(.ids-tabs--tab--disabled) {
-      color: var(--body-color);
+      color: var(--body-text-color);
       text-decoration: none;
 
       &::before {
-        background-color: var(--body-color);
+        background-color: var(--body-text-color);
         width: 100%;
       }
     }
 
     &.ids-tabs--tab--active {
-      color: var(--theme-primary);
+      color: var(--color-primary);
 
       &::before {
-        background-color: var(--theme-primary);
+        background-color: var(--color-primary);
         width: 100%;
       }
     }
 
     &.ids-tabs--tab--disabled {
-      color: var(--theme-muted);
+      color: var(--color-muted);
 
       &:hover {
         cursor: not-allowed;
@@ -61,7 +61,7 @@
 }
 
 .ids-tabs--vertical {
-  background-color: var(--body-bg);
+  background-color: var(--body-bg-color);
   display: block;
 
   & .ids-tabs--tab {
@@ -71,16 +71,16 @@
     text-decoration: none;
 
     &:hover:not(.ids-tabs--tab--disabled) {
-      background-color: var(--theme-readonly);
+      background-color: var(--color-readonly);
     }
 
     &.ids-tabs--tab--active {
-      background-color: var(--theme-primary);
+      background-color: var(--color-primary);
       color: #fff;
     }
 
     &.ids-tabs--tab--disabled {
-      color: var(--theme-muted);
+      color: var(--color-muted);
 
       &:hover {
         cursor: not-allowed;

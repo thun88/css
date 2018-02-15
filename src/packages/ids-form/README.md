@@ -5,19 +5,19 @@ demo:
   path: /ids-form/index.html
 specs:
 - title: Border Color
-  spec: THEME-MUTED
-- title: Border Color (Hover)
-  spec: BODY-COLOR
-- title: Input Placeholder Text Color
-  spec: THEME-MUTED
-- title: Input Label Text Color
-  spec: THEME-INFO
-- title: Info Block Text Color
-  spec: THEME-MUTED
-- title: Input Height
-  spec: INPUT-HEIGHT
-- title: Corner Radius
-  spec: BORDER-RADIUS
+  spec: input-border-color
+- title: border color (hover)
+  spec: body-text-color
+- title: input placeholder text color
+  spec: input-placeholder-text-color
+- title: input label text color
+  spec: input-label-text-color
+- title: info block text color
+  spec: input-info-block-text-color
+- title: input height
+  spec: input-height
+- title: corner radius
+  spec: input-border-radius
 ---
 
 

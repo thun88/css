@@ -9,10 +9,10 @@
 
   /* Reset unusual Firefox-on-Android default style background-image */
   background-image: none;
-  border: var(--border-width) solid var(--theme-muted);
-  border-radius: var(--border-radius);
-  box-shadow: none;
-  color: var(--body-color);
+  border: var(--input-border-width) solid var(--input-border-color);
+  border-radius: var(--input-border-radius);
+  box-shadow: var(--input-box-shadow);
+  color: var(--input-text-color);
   display: block;
   font-family: var(--font-family-base);
   font-size: var(--font-size-base);
@@ -23,25 +23,25 @@
   width: 100%;
 
   &::placeholder {
-    color: var(--theme-muted);
+    color: var(--color-muted);
     opacity: 1; /* Override Firefox's unusual default opacity */
   }
 
   &:hover {
-    border-color: var(--body-color);
+    border-color: var(--input-hover-border-color);
   }
 
   &:disabled {
-    background-color: transparent;
-    border: solid 1px var(--theme-disabled);
-    color: var(--theme-muted);
+    background-color: var(--input-disabled-bg-color);
+    border: solid 1px var(--input-disabled-border-color);
+    color: var(--input-disabled-text-color);
     cursor: not-allowed;
   }
 
   &[readonly] {
-    background-color: var(--theme-readonly);
-    border-color: var(--theme-disabled);
-    color: var(--theme-muted);
+    background-color: var(--input-readonly-bg-color);
+    border-color: var(--input-readonly-border-color);
+    color: var(--input-readonly-text-color);
   }
 
   &:disabled,
@@ -50,7 +50,7 @@
   }
 
   &:focus {
-    border: 1px solid var(--theme-primary);
+    border: 1px solid var(--color-primary);
     outline: 0;
     outline-color: transparent;
   }
@@ -84,8 +84,8 @@ select.ids-form-control {
        in IE and (under certain conditions) Edge, as it looks bad and cannot be made to
        match the appearance of the native widget.
     */
-    background-color: $input-bg;
-    color: $input-color;
+    background-color: var(--input-bg-color);
+    color: var(--input-text-color);
   }
 }
 
@@ -94,13 +94,13 @@ select.ids-form-control {
   position: relative;
 
   & [type=file] {
-    border: var(--border-width) solid var(--theme-muted);
-    border-radius: var(--border-radius);
+    border: var(--input-border-width) solid var(--input-border-color);
+    border-radius: var(--input-border-radius);
     padding: var(--input-padding-y) var(--input-padding-x);
     width: 100%;
 
     &:focus {
-      border: 1px solid var(--theme-primary);
+      border: 1px solid var(--input-focus-border-color);
       outline: 0;
       outline-color: transparent;
     }
@@ -126,11 +126,11 @@ select.ids-form-control {
 
   & > label,
   & > legend {
-    color: var(--theme-info);
+    color: var(--input-label-text-color);
     margin-bottom: 5px;
 
     &.is-required::after {
-      color: var(--theme-danger);
+      color: var(--color-danger);
       content: '*';
       display: inline;
       font-size: var(--font-size-base);
@@ -145,23 +145,23 @@ select.ids-form-control {
   }
 
   & .ids-info-block {
-    color: var(--theme-muted);
+    color: var(--input-info-block-text-color);
     margin-top: 5px;
   }
 
   &.has-error {
     & .ids-form-control,
     & .ids-info-block {
-      color: var(--theme-danger);
+      color: var(--color-danger);
     }
 
     & .ids-form-control {
-      border-color: var(--theme-danger);
+      border-color: var(--color-danger);
     }
 
     &:focus {
-      border-color: var(--theme-danger);
-      color: var(--body-color);
+      border-color: var(--color-danger);
+      color: var(--body-text-color);
     }
   }
 }
@@ -215,8 +215,8 @@ select.ids-form-control {
     padding-left: calc(var(--checkbox-box-size) + 5px);
 
     &::before {
-      background-color: var(--theme-primary-accent);
-      border: 1px solid var(--theme-default-dark);
+      background-color: var(--checkbox-bg-color);
+      border: 1px solid var(--checkbox-border-color);
       border-radius: 2px;
       content: '';
       display: block;
@@ -228,7 +228,7 @@ select.ids-form-control {
     }
 
     &::after {
-      border-color: var(--theme-primary-accent) var(--theme-primary-accent) var(--theme-primary-accent) transparent;
+      border-color: var(--checkbox-arrow-color) var(--checkbox-arrow-color) var(--checkbox-arrow-color) transparent;
       border-style: solid;
       border-width: 2px 2px 0 0;
       content: '';
@@ -242,22 +242,22 @@ select.ids-form-control {
   }
 
   & input:focus + label::before {
-    box-shadow: var(--focus-shadow);
+    box-shadow: var(--checkbox-focus-shadow);
   }
 
   & input:disabled + label {
-    color: var(--theme-muted);
+    color: var(--input-disabled-text-color);
 
     &::before {
-      background-color: var(--theme-primary-accent);
-      border-color: var(--theme-disabled);
+      background-color: var(--checkbox-disabled-bg-color);
+      border-color: var(--checkbox-disabled-border-color);
     }
   }
 
   & input:checked + label {
     &::before {
-      background-color: var(--theme-primary);
-      border-color: var(--theme-primary);
+      background-color: var(--checkbox-checked-bg-color);
+      border-color: var(--checkbox-border-color);
     }
 
     &::after {
@@ -281,17 +281,17 @@ select.ids-form-control {
 
   & input:disabled:checked + label {
     &::before {
-      background-color: var(--theme-disabled);
-      border-color: var(--theme-disabled);
+      background-color: var(--checkbox-disabled-checked-bg-color);
+      border-color: var(--checkbox-disabled-checked-bg-color);
     }
 
     &::after {
-      border-color: #f4f4f4 #f4f4f4 #f4f4f4 transparent;
+      border-color: var(--checkbox-disabled-arrow-color) var(--checkbox-disabled-arrow-color) var(--checkbox-disabled-arrow-color) transparent;
     }
   }
 
   & input:focus + label::before {
-    box-shadow: var(--focus-shadow);
+    box-shadow: var(--checkbox-focus-shadow);
   }
 }
 
@@ -300,8 +300,8 @@ select.ids-form-control {
     padding-left: calc(var(--radio-outer-w) + 5px);
 
     &::before {
-      background-color: var(--theme-primary-accent);
-      border: 1px solid var(--theme-default-dark);
+      background-color: var(--radio-bg-color);
+      border: 1px solid var(--radio-border-color);
       border-radius: 50%;
       content: '';
       display: block;
@@ -313,8 +313,8 @@ select.ids-form-control {
     }
 
     &::after {
-      background-color: var(--theme-primary-accent);
-      border: 2px solid var(--theme-primary-accent);
+      background-color: var(--radio-color);
+      border: 2px solid var(--radio-color);
       border-radius: 50%;
       content: '';
       height: var(--radio-inner-h);
@@ -328,17 +328,17 @@ select.ids-form-control {
 
   & input:focus + label::before {
     border-radius: 50%;
-    box-shadow: var(--focus-shadow);
+    box-shadow: var(--radio-focus-shadow);
   }
 
   & input:disabled + label::before {
-    background-color: var(--theme-primary-accent);
-    border-color: var(--theme-disabled);
+    background-color: var(--radio-disabled-bg-color);
+    border-color: var(--radio-disabled-border-color);
   }
 
   & input:checked + label {
     &::before {
-      background-color: var(--theme-primary);
+      background-color: var(--radio-bg-checked-color);
     }
 
     &::after {
@@ -349,13 +349,13 @@ select.ids-form-control {
 
   & input:disabled:checked + label {
     &::before {
-      background-color: var(--theme-disabled);
-      border-color: var(--theme-disabled);
+      background-color: var(--radio-disabled-border-color);
+      border-color: var(--radio-disabled-border-color);
     }
 
     &::after {
-      background-color: var(--theme-disabled);
-      border: 2px solid var(--theme-disabled);
+      background-color: var(--radio-disabled-checked-bg-color);
+      border: 2px solid var(--radio-disabled-checked-bg-color);
     }
   }
 }

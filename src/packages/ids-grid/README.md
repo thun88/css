@@ -8,20 +8,15 @@ system:
   name: grid
 specs:
 - title: Extra Small (min width)
-  spec: BREAKPOINT-XS
-  valueType: true
-- title: Small (min width)
-  spec: BREAKPOINT-SM
-  valueType: true
-- title: Medium (min width)
-  spec: BREAKPOINT-MD
-  valueType: true
-- title: Large (min width)
-  spec: BREAKPOINT-LG
-  valueType: true
-- title: Extra Large (min width)
-  spec: BREAKPOINT-XL
-  valueType: true
+  spec: breakpoint-xs
+- title: small (min width)
+  spec: breakpoint-sm
+- title: medium (min width)
+  spec: breakpoint-md
+- title: large (min width)
+  spec: breakpoint-lg
+- title: extra large (min width)
+  spec: breakpoint-xl
 ---
 
 

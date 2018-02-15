@@ -8,19 +8,19 @@ demo:
   path: /ids-button/index.html
 specs:
 - title: Default Button Color
-  spec: THEME-DEFAULT
-- title: Default Button Text Color
-  spec: THEME-DEFAULT-ACCENT
-- title: Default Button Hover Color
-  spec: THEME-DEFAULT-DARK
-- title: Primary Background Color
-  spec: THEME-PRIMARY
-- title: Primary Button Text Color
-  spec: THEME-PRIMARY-ACCENT
-- title: Primary Hover Color
-  spec: THEME-PRIMARY-DARK
-- title: Disabled State Opacity
-  spec: DISABLED-OPACITY
+  spec: color-default
+- title: default button text color
+  spec: color-default-contrast
+- title: default button hover color
+  spec: color-default-alt
+- title: primary background color
+  spec: color-primary
+- title: primary button text color
+  spec: color-primary-contrast
+- title: primary hover color
+  spec: color-primary-alt
+- title: disabled state opacity
+  spec: button-disabled-opacity
 ---
 
 
