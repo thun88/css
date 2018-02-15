@@ -51,9 +51,9 @@ require(`${gconfig.paths.tasks}/deploy.js`)(gulp, gconfig);
 require(`${gconfig.paths.tasks}/json-md-compile.js`)(gulp, gconfig);
 require(`${gconfig.paths.tasks}/json-yaml-compile.js`)(gulp, gconfig);
 require(`${gconfig.paths.tasks}/serve.js`)(gulp, gconfig);
-require(`${gconfig.paths.tasks}/site-css-compile.js`)(gulp, gconfig, postCssPlugins);
+require(`${gconfig.paths.tasks}/site-css-compile.js`)(gulp, gconfig);
 require(`${gconfig.paths.tasks}/src-css-compile.js`)(gulp, gconfig, postCssPlugins);
-require(`${gconfig.paths.tasks}/src-md-compile.js`)(gulp, gconfig, postCssPlugins);
+require(`${gconfig.paths.tasks}/src-md-compile.js`)(gulp, gconfig);
 
 require(`${gconfig.paths.tasks}/sketch-to-svgs.js`)(gulp, gconfig);
 require(`${gconfig.paths.tasks}/svg-store.js`)(gulp, gconfig);
