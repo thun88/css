@@ -1,9 +1,13 @@
+/* Tokens */
+@import '../../../node_modules/@infor/ids-tokens/platforms/web/theme-default.custom-properties.css';
+
 /* Components */
 @import '../ids-base/ids-base';
 @import '../ids-button/ids-button';
 @import '../ids-form/ids-form';
 @import '../ids-grid/ids-grid';
 @import '../ids-icon/ids-icon';
+@import '../ids-select/ids-select';
 @import '../ids-tab/ids-tab';
 @import '../ids-typography/ids-typography';
 
