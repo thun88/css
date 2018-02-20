@@ -33,12 +33,12 @@ body {
 }
 
 .ids-container {
-  padding: var(--container-padding-sm);
+  padding: calc(var(--spacing-base) * 2);
 }
 
 @media (--viewport-md) {
   .ids-container {
-    padding: var(--container-padding-lg);
+    padding: calc(var(--spacing-base) * 3);
   }
 }
 
