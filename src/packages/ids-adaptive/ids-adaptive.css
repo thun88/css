@@ -1,8 +1,3 @@
-@import '../ids-base/ids-base';
-@import '../ids-typography/ids-typography';
-@import '../ids-form/ids-form';
-@import '../ids-button/ids-button';
-
 :root {
   --adaptive-touch-spacing: calc(var(--input-height-adaptive-touch) - (var(--line-height-base) / 2));
   --radio-outer-adaptive-touch: calc(var(--radio-outer-h) * 1.3);

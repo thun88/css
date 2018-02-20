@@ -1,7 +1,3 @@
-@import '../ids-base/ids-base';
-@import '../ids-typography/ids-typography';
-@import '../ids-form/ids-form';
-
 .ids-select {
   position: relative;
 

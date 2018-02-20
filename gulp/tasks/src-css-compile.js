@@ -25,7 +25,7 @@ module.exports = (gulp, gconfig, postCssPlugins) => {
       postCssPlugins.lost
     ];
 
-    return gulp.src(`${gconfig.paths.src.packages}/*/[^_]*.css`)
+    return gulp.src(`${gconfig.paths.src.idsWeb}/[^_]*.css`)
 
       // compile
       .pipe(sourcemaps.init())
@@ -34,8 +34,7 @@ module.exports = (gulp, gconfig, postCssPlugins) => {
       .pipe(rename((path) => {
         path.dirname += '/dist';
       }))
-      .pipe(gulp.dest(gconfig.paths.demo))
-      .pipe(gulp.dest(gconfig.paths.src.packages))
+      .pipe(gulp.dest(gconfig.paths.src.idsWeb))
 
       // minify css (only .css, not .maps)
       .pipe(filter('**/*.css'))
@@ -43,6 +42,6 @@ module.exports = (gulp, gconfig, postCssPlugins) => {
       .pipe(sourcemaps.init())
         .pipe(postcss([postCssPlugins.cssnano({ autoprefixer: false })]))
       .pipe(sourcemaps.write('.'))
-      .pipe(gulp.dest(gconfig.paths.src.packages));
+      .pipe(gulp.dest(gconfig.paths.src.idsWeb));
   });
 }

@@ -1,5 +1,3 @@
-@import '../ids-base/ids-base';
-
 /* Grid Components */
 @import './css/_variables.css';
 @import './css/_row.css';

@@ -46,6 +46,7 @@ let arrOfIcons = [];
 require(`${gconfig.paths.tasks}/accessibility.js`)(gulp, gconfig);
 require(`${gconfig.paths.tasks}/build.js`)(gulp, gconfig);
 require(`${gconfig.paths.tasks}/clean.js`)(gulp, gconfig);
+require(`${gconfig.paths.tasks}/demo-css-compile.js`)(gulp, gconfig);
 require(`${gconfig.paths.tasks}/deploy.js`)(gulp, gconfig);
 require(`${gconfig.paths.tasks}/json-md-compile.js`)(gulp, gconfig);
 require(`${gconfig.paths.tasks}/json-yaml-compile.js`)(gulp, gconfig);
@@ -71,7 +72,11 @@ require(`${gconfig.paths.tasks}/svg-store.js`)(gulp, gconfig);
 // -------------------------------------
 
 gulp.task('default', ['clean', 'css:lint'], (done) => {
-  runSequence('svg:store', 'src:compile', 'site:compile', done);
+  runSequence(
+    'svg:store',
+    'src:compile',
+    ['site:compile', 'demo:css:compile'],
+    done);
 });
 
 gulp.task('dev', ['clean'], (done) => {
