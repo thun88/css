@@ -24,7 +24,6 @@ module.exports = {
     },
     site: {
       root:      './site',
-      css:       './site/css',
       templates: './site/templates',
       www:       './site/www'
     },
