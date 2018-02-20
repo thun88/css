@@ -34,6 +34,13 @@ specs:
 <small>Small Text</small>
 ```
 
+## Hyperlinks
+
+```html
+<a href="#">Hyperlink</a>
+<a href="#" disabled>Disabled Hyperlink</a>
+```
+
 You can also use the classes `ids-header--primary` and `ids-header--secondary` to emulate `<h1>` and `<h2>` styles without using those specific tags. `<strong>`, `<em>`, and `<small>` all behave as you would expect.
 
 ## Type Utility Clases

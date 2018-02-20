@@ -18,7 +18,8 @@ module.exports = {
       mdFiles: [
         './src/*.md',
         './src/packages/*/README.md'
-      ]
+      ],
+      webPackageJson: './src/packages/ids-web/package.json'
     },
     site: {
       root:      './site',
@@ -45,6 +46,13 @@ module.exports = {
           callback(err, result.toString());
         });
       }
+    },
+    stylelint: {
+      failAfterError: true,
+      reporters: [{
+        formatter: 'verbose',
+        console: true
+      }]
     }
   }
 };

@@ -10,13 +10,13 @@ module.exports = (gulp, gconfig) => {
 
   gulp.task('svg:store', ['sketch:to:svgs'], () => {
 
-    const curPkg = `${gconfig.paths.src.packages}/${gconfig.project.prefix}-icon`;
-    const allComponentsPkg = `${gconfig.paths.src.packages}/${gconfig.project.prefix}-web`;
+    const iconPkg = `${gconfig.paths.src.packages}/${gconfig.project.prefix}-icon`;
+    const webPkg = `${gconfig.paths.src.packages}/${gconfig.project.prefix}-web`;
 
-    return gulp.src(`${curPkg}/dist/svgs/*.svg`)
+    return gulp.src(`${iconPkg}/dist/svgs/*.svg`)
       .pipe(svgstore({ inlineSvg: true }))
       .pipe(rename(`${gconfig.project.prefix}-icons.svg`))
-      .pipe(gulp.dest(`${curPkg}/dist`))
-      .pipe(gulp.dest(`${allComponentsPkg}/dist`));
+      .pipe(gulp.dest(`${iconPkg}/dist`))
+      .pipe(gulp.dest(`${webPkg}/dist`));
   });
 }
