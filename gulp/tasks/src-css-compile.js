@@ -15,6 +15,7 @@ module.exports = (gulp, gconfig, postCssPlugins) => {
     const plugins = [
       postCssPlugins.atImport,
       postCssPlugins.commas,
+      postCssPlugins.mixins,
       postCssPlugins.atVariables,
       postCssPlugins.atFor,
       postCssPlugins.cssnext({
@@ -26,7 +27,6 @@ module.exports = (gulp, gconfig, postCssPlugins) => {
     ];
 
     return gulp.src(`${gconfig.paths.src.idsWeb}/[^_]*.css`)
-
       // compile
       .pipe(sourcemaps.init())
         .pipe(postcss(plugins))

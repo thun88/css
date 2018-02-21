@@ -20,6 +20,7 @@ const runSequence = require('run-sequence');
 // postcss-import    : Include css files with '@'
 // postcss-commas    : Allow lists of properties per value
 // postcss-cssnext   : Collection of future proof plugins
+// postcss-mixins    : Use mixins
 // cssnano           : CSS minify
 // lost              : Grid system
 // -------------------------------------
@@ -28,9 +29,9 @@ const postCssPlugins = {
   atImport   : require('postcss-import'),
   atVariables: require('postcss-at-rules-variables'),
   commas     : require('postcss-commas'),
-  mixins     : require('postcss-mixins'),
   cssnext    : require('postcss-cssnext'),
   cssnano    : require('cssnano'),
+  mixins     : require('postcss-mixins'),
   lost       : require('lost')
 };
 
