@@ -27,7 +27,15 @@ sections:
     slug: button
   - name: Select Box
     slug: select
-  - name: Forms
-    slug: form
+  - name: Form Fields
+    slug: formfield
+  - name: Text Field
+    slug: textfield
+  - name: Checkboxes
+    slug: checkbox
+  - name: Radio Buttons
+    slug: radio
+  - name: File Upload
+    slug: fileupload
   - name: Tabs
     slug: tab
