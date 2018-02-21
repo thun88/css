@@ -1,0 +1,25 @@
+@define-mixin checkboxGroupSetup {
+  display: block;
+  margin: 10px 0;
+  position: relative;
+
+  & label,
+  & input {
+    cursor: pointer;
+  }
+
+  & label {
+    display: inline-block;
+    position: relative;
+  }
+
+  & input {
+    position: absolute;
+    top: calc(50% - 9px);
+  }
+
+  &.is-disabled label,
+  & input:disabled {
+    cursor: not-allowed;
+  }
+}
