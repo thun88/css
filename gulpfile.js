@@ -28,6 +28,7 @@ const postCssPlugins = {
   atImport   : require('postcss-import'),
   atVariables: require('postcss-at-rules-variables'),
   commas     : require('postcss-commas'),
+  mixins     : require('postcss-mixins'),
   cssnext    : require('postcss-cssnext'),
   cssnano    : require('cssnano'),
   lost       : require('lost')
