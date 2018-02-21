@@ -37,3 +37,8 @@ sections:
     slug: fileupload
   - name: Tabs
     slug: tab
+- name: Blocks
+  slug: blocks
+  pages:
+  - name: List
+    slug: list

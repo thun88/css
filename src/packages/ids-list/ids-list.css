@@ -1,0 +1,51 @@
+@import '../ids-base/ids-base';
+@import '../ids-typography/ids-typography';
+
+.ids-list--plain {
+  background-color: #ffffff;
+  list-style-type: none;
+
+  & .ids-list--item {
+    display: block;
+    padding: calc(8*2px) calc(8*1px);
+  }
+
+  & a:hover.ids-list--item {
+    background-color: var(--body-bg-color);
+  }
+
+  & .ids-list--heading {
+    color: var(--input-disabled-text-color);
+    padding: calc(8*2px) calc(8*1px);
+  }
+
+  & .ids-list--item--selected {
+    background-color: #CBEBF4;
+  }
+
+  &.ids-list--plain--dividers {
+    & li {
+      border-bottom: 1px solid var(--input-readonly-border-color);
+    }
+
+    & li:last-child {
+      border-bottom: none;
+    }
+  }
+
+  /* Support nesting up to 3 lists deep */
+
+  & .ids-list--plain {
+      margin-left: 0;
+
+    & .ids-list--item {
+      padding-left: calc(8*3px);
+    }
+
+    & .ids-list--plain {
+      & .ids-list--item {
+        padding-left: calc(8*4px);
+      }
+    }
+  }
+}
