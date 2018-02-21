@@ -10,7 +10,7 @@
     padding: calc(8*2px) calc(8*1px);
   }
 
-  & .ids-list--item:hover {
+  &a.ids-list--item:hover {
     background-color: var(--body-bg-color);
   }
 
