@@ -1,0 +1,23 @@
+.ids-form-file {
+  display: block;
+  position: relative;
+
+  & [type=file] {
+    border: var(--input-border-width) solid var(--input-border-color);
+    border-radius: var(--input-border-radius);
+    padding: var(--input-padding-y) var(--input-padding-x);
+    width: 100%;
+
+    &:focus {
+      border: 1px solid var(--input-focus-border-color);
+      outline: 0;
+      outline-color: transparent;
+    }
+  }
+
+  & .ids-icon {
+    position: absolute;
+    right: var(--input-padding-x);
+    top: calc(50% - 8px);
+  }
+}

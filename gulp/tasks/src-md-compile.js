@@ -3,7 +3,7 @@
 //   Build html files from markdown/hbs
 // -------------------------------------
 
-module.exports = (gulp, gconfig, postCssPlugins, svgHtml) => {
+module.exports = (gulp, gconfig) => {
 
   gulp.task('src:md:compile', () => {
 
@@ -11,8 +11,8 @@ module.exports = (gulp, gconfig, postCssPlugins, svgHtml) => {
     const frontMatter = require('gulp-front-matter');
     const fs = require('fs');
     const handlebars = require('Handlebars');
+    const idsWebPackageJson = require(`../../${gconfig.paths.src.webPackageJson}`);
     const markdown = require('gulp-markdown'); // base engine is marked to match json-md-compile
-    const pkgJson  = require('../../package.json');
     const registrar = require('handlebars-registrar');
     const rename  = require('gulp-rename');
     const tap = require('gulp-tap');
@@ -61,7 +61,7 @@ module.exports = (gulp, gconfig, postCssPlugins, svgHtml) => {
             const data = {
               contents: file.contents.toString(),
               meta: file.data.frontMatter,
-              pkgJson: pkgJson,
+              pkgJson: idsWebPackageJson,
               sitemap: sitemap,
               designTokens: designTokens,
               inlineIcons: inlineIcons

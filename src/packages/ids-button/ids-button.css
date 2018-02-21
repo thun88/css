@@ -1,6 +1,3 @@
-@import '../ids-base/ids-base';
-@import '../ids-typography/ids-typography';
-
 /*
   Note: Leave .ids-btn without color styling so that
   it can be easily extended for custom

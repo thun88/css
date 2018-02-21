@@ -1,0 +1,89 @@
+@import '_mixins.css';
+@import '_keyframes.css';
+
+.ids-form-checkbox {
+  @mixin checkboxGroupSetup;
+
+  & label {
+    padding-left: calc(var(--checkbox-box-size) + 5px);
+
+    &::before {
+      background-color: var(--checkbox-bg-color);
+      border: 1px solid var(--checkbox-border-color);
+      border-radius: 2px;
+      content: '';
+      display: block;
+      height: var(--checkbox-box-size);
+      left: 0;
+      position: absolute;
+      top: calc(50% - 0.5 * var(--checkbox-box-size));
+      width: var(--checkbox-box-size);
+    }
+
+    &::after {
+      border-color: var(--checkbox-arrow-color) var(--checkbox-arrow-color) var(--checkbox-arrow-color) transparent;
+      border-style: solid;
+      border-width: 2px 2px 0 0;
+      content: '';
+      display: none;
+      height: var(--checkbox-check-h);
+      left: 3px;
+      position: absolute;
+      top: 53%;
+      width: var(--checkbox-check-w);
+    }
+  }
+
+  & input:focus + label::before {
+    box-shadow: var(--checkbox-focus-shadow);
+  }
+
+  & input:disabled + label {
+    color: var(--input-disabled-text-color);
+
+    &::before {
+      background-color: var(--checkbox-disabled-bg-color);
+      border-color: var(--checkbox-disabled-border-color);
+    }
+  }
+
+  & input:checked + label {
+    &::before {
+      background-color: var(--checkbox-checked-bg-color);
+      border-color: var(--checkbox-border-color);
+    }
+
+    &::after {
+      animation: check 0.15s;
+      display: block;
+      transform: scaleX(-1) rotate(135deg);
+      transform-origin: left top 0;
+    }
+  }
+
+  &.ids-form-checkbox--partial input:checked + label::after {
+    animation: none;
+    border-width: 0 0 2px;
+    height: 2px;
+    left: 2px;
+    margin-left: 1px;
+    top: calc(50% - (0.5 * 2px));
+    transform: none;
+    width: 11px;
+  }
+
+  & input:disabled:checked + label {
+    &::before {
+      background-color: var(--checkbox-disabled-checked-bg-color);
+      border-color: var(--checkbox-disabled-checked-bg-color);
+    }
+
+    &::after {
+      border-color: var(--checkbox-disabled-arrow-color) var(--checkbox-disabled-arrow-color) var(--checkbox-disabled-arrow-color) transparent;
+    }
+  }
+
+  & input:focus + label::before {
+    box-shadow: var(--checkbox-focus-shadow);
+  }
+}

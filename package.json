@@ -35,6 +35,7 @@
     "postcss-cssnext": "^3.1.0",
     "postcss-for": "^2.1.1",
     "postcss-import": "^11.1.0",
+    "postcss-mixins": "^6.2.0",
     "pygmentize-bundled": "^2.3.0",
     "run-sequence": "^2.2.1",
     "stylelint": "^8.4.0",

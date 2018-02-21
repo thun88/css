@@ -20,6 +20,7 @@ const runSequence = require('run-sequence');
 // postcss-import    : Include css files with '@'
 // postcss-commas    : Allow lists of properties per value
 // postcss-cssnext   : Collection of future proof plugins
+// postcss-mixins    : Use mixins
 // cssnano           : CSS minify
 // lost              : Grid system
 // -------------------------------------
@@ -30,6 +31,7 @@ const postCssPlugins = {
   commas     : require('postcss-commas'),
   cssnext    : require('postcss-cssnext'),
   cssnano    : require('cssnano'),
+  mixins     : require('postcss-mixins'),
   lost       : require('lost')
 };
 
@@ -46,6 +48,7 @@ let arrOfIcons = [];
 require(`${gconfig.paths.tasks}/accessibility.js`)(gulp, gconfig);
 require(`${gconfig.paths.tasks}/build.js`)(gulp, gconfig);
 require(`${gconfig.paths.tasks}/clean.js`)(gulp, gconfig);
+require(`${gconfig.paths.tasks}/demo-css-compile.js`)(gulp, gconfig);
 require(`${gconfig.paths.tasks}/deploy.js`)(gulp, gconfig);
 require(`${gconfig.paths.tasks}/json-md-compile.js`)(gulp, gconfig);
 require(`${gconfig.paths.tasks}/json-yaml-compile.js`)(gulp, gconfig);
@@ -71,7 +74,11 @@ require(`${gconfig.paths.tasks}/svg-store.js`)(gulp, gconfig);
 // -------------------------------------
 
 gulp.task('default', ['clean', 'css:lint'], (done) => {
-  runSequence('svg:store', 'src:compile', 'site:compile', done);
+  runSequence(
+    'svg:store',
+    'src:compile',
+    ['site:compile', 'demo:css:compile'],
+    done);
 });
 
 gulp.task('dev', ['clean'], (done) => {

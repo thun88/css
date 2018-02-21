@@ -1,7 +1,3 @@
-@import '../ids-base/ids-base';
-@import '../ids-typography/ids-typography';
-@import '../ids-button/ids-button';
-
 .ids-icon {
   color: inherit;
   display: inline-block;
