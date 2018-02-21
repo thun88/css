@@ -143,3 +143,35 @@ ul ol {
   list-style-type: lower-latin;
   margin-left: 15px;
 }
+
+/*
+ * Pre & Code
+ */
+
+code,
+pre {
+  font-family: "Source Code Pro", monospace;
+}
+
+code {
+  background-color: #f0f1f5;
+  border-radius: 4px;
+  color: #6b6e76;
+  font-family: "Source Code Pro", monospace;
+  padding: 0 4px;
+}
+
+pre > code {
+  background-color: transparent;
+  font-size: inherit;
+  padding: 0;
+}
+
+pre > code pre {
+  background-color: #f7f7f9;
+  border: 1px solid #e1e8e8;
+  border-radius: .25rem .25rem 0 0;
+  line-height: 32px;
+  line-height: 2rem;
+  padding: 15px;
+}
