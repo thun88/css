@@ -49,4 +49,4 @@ Text utility classes are provided to emulate certain type styles by applying cla
 
 ## Lists
 
-For `<ol>` and `<ul>`, the default is to show the default `decimal` or `disc` `list-style-type`. If you want a plain ordered or un-ordered list without the list indicator, use `.ids-list--plain`.
+For `<ol>` and `<ul>`, the default is to show the default `decimal` or `disc` `list-style-type`.
