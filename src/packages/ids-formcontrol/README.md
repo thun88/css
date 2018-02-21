@@ -1,8 +1,8 @@
 ---
-title: Form Fields
-description: Some text about using ids-form-fields.
+title: Form Controls
+description: Some text about using ids-form-controls.
 demo:
-  path: /ids-formfield/index.html
+  path: /ids-formcontrol/index.html
 specs:
 - title: Border Color
   spec: input-border-color
@@ -23,7 +23,7 @@ specs:
 
 ## Basic Example
 
-Individual form fields automatically receive some global styling. All textual `<input>`, `<textarea>`, and `<select>` elements with `.ids-form-control` are set to `width: 100%;` by default. Wrap labels and controls in `.ids-form-group` for optimum spacing.
+Individual form controls automatically receive some global styling. All textual `<input>`, `<textarea>`, and `<select>` elements with `.ids-form-control` are set to `width: 100%;` by default. Wrap labels and controls in `.ids-form-group` for optimum spacing.
 
 ```html
 <form>

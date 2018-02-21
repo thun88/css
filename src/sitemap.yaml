@@ -27,10 +27,8 @@ sections:
     slug: button
   - name: Select Box
     slug: select
-  - name: Form Fields
-    slug: formfield
-  - name: Text Field
-    slug: textfield
+  - name: Form Controls
+    slug: formcontrol
   - name: Checkboxes
     slug: checkbox
   - name: Radio Buttons
