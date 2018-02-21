@@ -1,6 +1,7 @@
 @import '../ids-base/ids-base';
 @import '../ids-typography/ids-typography';
 
+<<<<<<< HEAD
 /* TODO replace these with tokens */
 :root {
   --list-hover-color: #cbebf4; /* azure01 */
@@ -16,12 +17,24 @@
 }
 
 .ids-list {
+=======
+.ids-list--plain {
+  background-color: #fff;
+>>>>>>> SAVEPOINT
   list-style-type: none;
   margin: 0;
 
   & .ids-list--item {
     display: block;
+<<<<<<< HEAD
     padding: calc(var(--spacing-base) * 2);
+=======
+    padding: calc(var(--spacing-base) * 2) calc(var(--spacing-base) * 1);
+  }
+
+  & .ids-list--heading {
+    color: var(--color-muted);
+>>>>>>> SAVEPOINT
   }
 
   & a.ids-list--item:hover:not(.ids-list--item--selected) {
@@ -35,7 +48,7 @@
 
   &.ids-list--dividers {
     & li {
-      border-bottom: 1px solid var(--input-readonly-border-color);
+      border-bottom: 1px solid var(--color-disabled);
     }
 
     & li:last-child {
