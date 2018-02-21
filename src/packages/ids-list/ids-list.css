@@ -33,7 +33,7 @@
     }
   }
 
-  /* Support nestin up to 3 lists deep */
+  /* Support nesting up to 3 lists deep */
 
   & .ids-list--plain {
       margin-left: 0;
