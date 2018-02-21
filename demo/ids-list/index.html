@@ -30,22 +30,26 @@
   <br>
   <h1>List Plain with Nesting</h1>
   <div class="list-example">
+    <h1 class="ids-list--heading">Heading 1</h1>
     <ul class="ids-list--plain">
-      <li class="ids-list--heading">Heading 1</li>
       <li><a class="ids-list--item ids-list--item--selected">Selected Item</a></li>
       <li><a class="ids-list--item">Two</a></li>
       <!--- Nested list -->
-      <li class="ids-list--heading">Heading 2</li>
-      <ul class="ids-list--plain">
-        <li><a class="ids-list--item">Sub One</a></li>
-        <li><a class="ids-list--item">Sub Two</a></li>
-        <!--- Nested list -->
-        <li class="ids-list--heading">Heading 3</li>
+      <li>
+        <h2 class="ids-list--heading">Heading 2</h2>
         <ul class="ids-list--plain">
           <li><a class="ids-list--item">Sub One</a></li>
           <li><a class="ids-list--item">Sub Two</a></li>
+          <!--- Nested list -->
+          <li>
+            <h3 class="ids-list--heading">Heading 3</h3>
+            <ul class="ids-list--plain">
+              <li><a class="ids-list--item">Sub One</a></li>
+              <li><a class="ids-list--item">Sub Two</a></li>
+            </ul>
+          </li>
         </ul>
-      </ul>
+      </li>
     </ul>
   </div>
 </body>

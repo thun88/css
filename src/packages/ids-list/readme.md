@@ -26,15 +26,19 @@ Lists can also be nested up to 3 levels deep:
   <li><a class="ids-list--item">Two</a></li>
   <!--- Nested list -->
   <li class="ids-list--heading">Heading 2</li>
-  <ul class="ids-list--plain">
-    <li><a class="ids-list--item">Sub One</a></li>
-    <li><a class="ids-list--item">Sub Two</a></li>
-    <!--- Nested list -->
-    <li class="ids-list--heading">Heading 3</li>
+  <li>
     <ul class="ids-list--plain">
       <li><a class="ids-list--item">Sub One</a></li>
       <li><a class="ids-list--item">Sub Two</a></li>
+      <!--- Nested list -->
+      <li class="ids-list--heading">Heading 3</li>
+      <li>
+        <ul class="ids-list--plain">
+          <li><a class="ids-list--item">Sub One</a></li>
+          <li><a class="ids-list--item">Sub Two</a></li>
+        </ul>
+      </li>
     </ul>
-  </ul>
+  </li>
 </ul>
 ```
