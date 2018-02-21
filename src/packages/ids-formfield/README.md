@@ -1,8 +1,8 @@
 ---
-title: Form Controls
-description: Some text about using ids-form-controls.
+title: Form Fields
+description: Some text about using ids-form-fields.
 demo:
-  path: /ids-form/index.html
+  path: /ids-formfield/index.html
 specs:
 - title: Border Color
   spec: input-border-color
@@ -23,7 +23,7 @@ specs:
 
 ## Basic Example
 
-Individual form controls automatically receive some global styling. All textual `<input>`, `<textarea>`, and `<select>` elements with `.ids-form-control` are set to `width: 100%;` by default. Wrap labels and controls in `.ids-form-group` for optimum spacing.
+Individual form fields automatically receive some global styling. All textual `<input>`, `<textarea>`, and `<select>` elements with `.ids-form-control` are set to `width: 100%;` by default. Wrap labels and controls in `.ids-form-group` for optimum spacing.
 
 ```html
 <form>
@@ -123,95 +123,3 @@ Infor Design System includes validation styles for errors on form controls. To u
     <div class="ids-info-block">Required</div>
 </div>
 ```
-
-## Check boxes and Radios
-
-Checkboxes are for selecting one or several options in a list, while radios are for selecting one option from many.
-
-Disabled checkboxes and radios are supported, but to provide a "not-allowed" cursor on hover of the parent <label>, you'll need to add the `.is-disabled` class to the parent `.ids-form-radio` or `.ids-form-checkbox`.
-
-### Checkboxes
-
-```html
-<fieldset class="ids-form-group">
-    <legend>Group of checkboxes</legend>
-    <div class="ids-form-checkbox">
-        <input type="checkbox" id="exampleCheckbox1" value=""/>
-        <label for="exampleCheckbox1">
-            Empty
-        </label>
-    </div>
-    <div class="ids-form-checkbox form-checkbox--partial">
-        <input type="checkbox" value="" id="exampleCheckbox2" checked/>
-        <label for="exampleCheckbox2">
-            Partially Check
-        </label>
-    </div>
-    <div class="ids-form-checkbox">
-        <input type="checkbox" id="exampleCheckbox3" value="" checked/>
-        <label for="exampleCheckbox3">
-            Checked
-        </label>
-    </div>
-    <div class="ids-form-checkbox is-disabled">
-        <input type="checkbox" value="" id="exampleCheckbox4" disabled/>
-        <label for="exampleCheckbox4">
-            Empty Disabled
-        </label>
-    </div>
-    <div class="ids-form-checkbox form-checkbox--partial">
-        <input type="checkbox" value="" id="exampleCheckbox5" checked disabled/>
-        <label for="exampleCheckbox5">
-            Partially Checked &amp; Disabled
-        </label>
-    </div>
-    <div class="ids-form-checkbox is-disabled">
-        <input type="checkbox" value="" id="exampleCheckbox6" checked disabled/>
-        <label for="exampleCheckbox6">
-            Checked and Disabled
-        </label>
-    </div>
-</fieldset>
-```
-
-### Radio Buttons
-
-```html
-<fieldset class="ids-form-group">
-    <legend>A group of radio buttons</legend>
-    <div class="ids-form-radio">
-        <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
-        <label for="optionsRadios1">
-            Option one is this and that&mdash;be sure to include why it's great
-        </label>
-    </div>
-    <div class="ids-form-radio">
-        <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
-        <label for="optionsRadios2">
-            Option two can be something else and selecting it will deselect option one
-        </label>
-    </div>
-    <div class="ids-form-radio is-disabled">
-        <input type="radio" name="optionsRadios" id="optionsRadios3" value="option3" disabled>
-        <label for="optionsRadios3">
-            Option three is disabled
-        </label>
-    </div>
-</fieldset>
-```
-
-## Select
-
-```html
-<div class="ids-form-group">
-    <label for="select-normal-1">Normal State</label>
-    <select id="select-normal-1" class="ids-form-control">
-        <option selected>Option</option>
-        <option>Option 1</option>
-        <option>Option 2</option>
-    </select>
-    <div class="ids-info-block">Some passive text</div>
-</div>
-```
-
-`<select multiple>` is also supported to select one or more items from a list.

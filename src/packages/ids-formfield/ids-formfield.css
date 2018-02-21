@@ -1,0 +1,138 @@
+.ids-form-control {
+  background-clip: padding-box;
+  background-color: transparent;
+
+  /* Reset unusual Firefox-on-Android default style background-image */
+  background-image: none;
+  border: var(--input-border-width) solid var(--input-border-color);
+  border-radius: var(--input-border-radius);
+  box-shadow: var(--input-box-shadow);
+  color: var(--input-text-color);
+  display: block;
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  padding: var(--input-padding-y) var(--input-padding-x);
+  resize: none;
+  text-align: left;
+  transition: border 300ms ease 0s, box-shadow 300ms ease 0s;
+  width: 100%;
+
+  &::placeholder {
+    color: var(--color-muted);
+    opacity: 1; /* Override Firefox's unusual default opacity */
+  }
+
+  &:hover {
+    border-color: var(--input-hover-border-color);
+  }
+
+  &:disabled {
+    background-color: var(--input-disabled-bg-color);
+    border: solid 1px var(--input-disabled-border-color);
+    color: var(--input-disabled-text-color);
+    cursor: not-allowed;
+  }
+
+  &[readonly] {
+    background-color: var(--input-readonly-bg-color);
+    border-color: var(--input-readonly-border-color);
+    color: var(--input-readonly-text-color);
+  }
+
+  &:disabled,
+  &[readonly] {
+    opacity: 1; /* iOS fix for unreadable disabled/readonly content */
+  }
+
+  &:focus {
+    border: 1px solid var(--color-primary);
+    outline: 0;
+    outline-color: transparent;
+  }
+
+  &.ids-form-control--xs { width: var(--input-width-xs); }
+  &.ids-form-control--sm { width: var(--input-width-sm); }
+  &.ids-form-control--md { width: var(--input-width-md); }
+  &.ids-form-control--lg { width: var(--input-width-lg); }
+}
+
+select.ids-form-control {
+  &:not([size]):not([multiple]).ids-form-control {
+    appearance: none;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHZpZXdCb3g9IjAgMCAxOCAxOCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+ZHJvcGRvd248L3RpdGxlPjxwYXRoIGQ9Ik00IDZsNSA2IDUtNkg0eiIvPjwvc3ZnPg==);
+    background-position: calc(100% - 10px) center;
+    background-repeat: no-repeat;
+    height: var(--input-height);
+    padding-right: calc(var(--input-padding-x) + 25px);
+  }
+
+  /* Unstyle the caret on `<select>`s in IE10+. */
+  &::-ms-expand {
+    background-color: transparent;
+    border: 0;
+    display: none;
+  }
+
+  &:focus::-ms-value {
+    /* Suppress the nested default white text on blue background highlight given to
+       the selected option text when the (still closed) <select> receives focus
+       in IE and (under certain conditions) Edge, as it looks bad and cannot be made to
+       match the appearance of the native widget.
+    */
+    background-color: var(--input-bg-color);
+    color: var(--input-text-color);
+  }
+}
+
+.ids-form-group {
+  margin-bottom: 20px;
+
+  & > label,
+  & > legend,
+  & .ids-info-block {
+    display: block;
+    font-size: var(--font-size-sm);
+    line-height: 1.3rem;
+  }
+
+  & > label,
+  & > legend {
+    color: var(--input-label-text-color);
+    margin-bottom: 5px;
+
+    &.is-required::after {
+      color: var(--color-danger);
+      content: '*';
+      display: inline;
+      font-size: var(--font-size-base);
+      left: 2px;
+      position: relative;
+      top: 2px;
+    }
+  }
+
+  & > legend + div {
+    margin-top: 0;
+  }
+
+  & .ids-info-block {
+    color: var(--input-info-block-text-color);
+    margin-top: 5px;
+  }
+
+  &.has-error {
+    & .ids-form-control,
+    & .ids-info-block {
+      color: var(--color-danger);
+    }
+
+    & .ids-form-control {
+      border-color: var(--color-danger);
+    }
+
+    &:focus {
+      border-color: var(--color-danger);
+      color: var(--body-text-color);
+    }
+  }
+}
