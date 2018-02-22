@@ -10,8 +10,8 @@ module.exports = (gulp, gconfig) => {
     const stylelint = require('gulp-stylelint');
 
     return gulp.src([
-      `${gconfig.paths.src.packages}/*/*.css`,
-      `${gconfig.paths.src.packages}/*/css/*.css`
+        `${gconfig.paths.src.packages}/*/*.css`,
+        `${gconfig.paths.src.packages}/*/css/*.css`
       ])
       .pipe(stylelint(gconfig.options.stylelint));
   });

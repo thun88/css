@@ -3,33 +3,37 @@
 
 /* TODO replace these with tokens */
 :root {
-  --list-link-hover-color: #cbebf4; /* azure01 */
+  --list-hover-color: #cbebf4; /* azure01 */
   --spacing-base: 8px;
 }
 
-.ids-list--plain {
-  background-color: #fff;
+.ids-list--heading {
+  color: var(--input-disabled-text-color);
+  display: block;
+  font-size: var(--font-size-base);
+  margin: 0;
+  padding: calc(var(--spacing-base) * 2) calc(var(--spacing-base) * 1);
+}
+
+.ids-list {
   list-style-type: none;
+  margin: 0;
 
-  & .ids-list--item,
-  & .ids-list--heading {
+  & .ids-list--item {
     display: block;
-    padding: calc(var(--spacing-base) * 2) calc(var(--spacing-base) * 1);
+    padding: calc(var(--spacing-base) * 2);
   }
 
-  & .ids-list--heading {
-    color: var(--input-disabled-text-color);
+  & a.ids-list--item:hover:not(.ids-list--item--selected) {
+    background-color: var(--list-hover-color);
   }
 
-  & a.ids-list--item:hover {
-    background-color: var(--body-bg-color);
+  & a.ids-list--item--selected {
+    background-color: var(--color-primary);
+    color: var(--color-primary-contrast);
   }
 
-  & .ids-list--item--selected {
-    background-color: var(--list-link-hover-color);
-  }
-
-  &.ids-list--plain--dividers {
+  &.ids-list--dividers {
     & li {
       border-bottom: 1px solid var(--input-readonly-border-color);
     }
@@ -38,19 +42,24 @@
       border-bottom: none;
     }
   }
+}
 
-  /* Support nesting up to 3 lists deep */
-  & .ids-list--plain {
-    margin-left: 0;
+/* Left in longhand for ease of reading */
 
-    & .ids-list--item {
-      padding-left: calc(var(--spacing-base) * 3);
-    }
+/* Level 2 nesting */
+.ids-list .ids-list--heading {
+  padding-left: calc(var(--spacing-base) * 2);
+}
 
-    & .ids-list--plain {
-      & .ids-list--item {
-        padding-left: calc(var(--spacing-base) * 4);
-      }
-    }
-  }
+.ids-list .ids-list .ids-list--item {
+  padding-left: calc(var(--spacing-base) * 3);
+}
+
+/* Level 3 nesting */
+.ids-list .ids-list .ids-list--heading {
+  padding-left: calc(var(--spacing-base) * 3);
+}
+
+.ids-list .ids-list .ids-list .ids-list--item {
+  padding-left: calc(var(--spacing-base) * 4);
 }
