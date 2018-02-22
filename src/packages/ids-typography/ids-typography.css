@@ -119,6 +119,20 @@ a,
 }
 
 /*
+ * Tables
+ */
+
+table {
+  margin-top: calc( var(--spacing-base) * 2);
+  margin-bottom: calc( var(--spacing-base) * 2);
+}
+
+table td,
+table th {
+  white-space: pre-line;
+}
+
+/*
  * Lists
  */
 

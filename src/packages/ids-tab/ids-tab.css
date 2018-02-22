@@ -12,6 +12,7 @@
     padding: 12px 11px;
     position: relative;
     text-overflow: ellipsis;
+    text-decoration: none;
     vertical-align: top;
     white-space: nowrap;
 
