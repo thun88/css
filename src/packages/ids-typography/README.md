@@ -50,3 +50,13 @@ Text utility classes are provided to emulate certain type styles by applying cla
 ## Lists
 
 For `<ol>` and `<ul>`, the default is to show the default `decimal` or `disc` `list-style-type`.
+
+- Apples
+- Oranges
+- Bananas
+
+An `<ol>` example:
+
+1. First Place
+2. Second Place
+3. Third Place

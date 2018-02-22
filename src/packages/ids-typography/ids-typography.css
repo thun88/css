@@ -26,30 +26,37 @@ html {
 body {
   font-family: var(--font-family-base);
   font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
 }
 
 h1,
 .ids-header--primary {
   font-size: var(--font-size-xl);
-  margin-bottom: 10px;
-  margin-top: 20px;
+  margin-bottom: calc( var(--spacing-base) * 3);
+  margin-top: calc( var(--spacing-base) * 4);
 }
 
 h2,
+.ids-header--secondary {
+  font-size: var(--font-size-lg);
+  margin-bottom: calc( var(--spacing-base) * 2);
+  margin-top: calc( var(--spacing-base) * 3);
+}
+
 h3,
 h4,
 h5,
-h6,
-.ids-header--secondary {
-  font-size: var(--font-size-lg);
-  margin-bottom: 10px;
-  margin-top: 20px;
+h6 {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: calc( var(--spacing-base) * 2);
+  margin-top: calc( var(--spacing-base) * 2);
 }
 
 p {
   line-height: var(--line-height-base);
-  margin-bottom: 10px;
-  margin-top: 0;
+  margin-top: calc( var(--spacing-base) * 2);
+  margin-bottom: calc( var(--spacing-base) * 2);
 }
 
 strong,
@@ -75,7 +82,7 @@ a,
 .ids-text-link {
   color: var(--color-primary);
   cursor: pointer;
-  text-decoration: none;
+  text-decoration: var(--link-decoration);
 
   &:hover {
     color: var(--link-hover-color);
@@ -118,6 +125,8 @@ a,
 ul,
 ol {
   list-style-position: inside;
+  margin-top: calc( var(--spacing-base) * 2);
+  margin-bottom: calc( var(--spacing-base) * 2);
 
   & li {
     line-height: var(--line-height-base);
@@ -151,6 +160,8 @@ ul ol {
 code,
 pre {
   font-family: 'Source Code Pro', monospace;
+  letter-spacing: -1px;
+  font-size: var(--font-size-sm);
 }
 
 code {
