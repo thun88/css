@@ -45,6 +45,7 @@
 }
 
 /* Left in longhand for ease of reading */
+
 /* Level 2 nesting */
 .ids-list .ids-list--heading {
   padding-left: calc(var(--spacing-base) * 2);
