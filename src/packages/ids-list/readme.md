@@ -5,10 +5,10 @@ demo:
   path: /ids-list/index.html
 ---
 
-To create a plain list, use `.ids-list--plain`. If you'd like dividers in between, also add `.ids-list--plain--dividers`.
+To create a plain list, use `.ids-list`. If you'd like dividers in between, also add `.ids-list--dividers`.
 
 ```html
-<ul class="ids-list--plain ids-list--plain--dividers">
+<ul class="ids-list ids-list--dividers">
   <li class="ids-list--heading">Heading 1</li>
   <li class="ids-list--item">One</li>
   <li class="ids-list--item">Two</li>
@@ -20,20 +20,20 @@ Use `.ids-list--item` to denote what should be the list item. It can be on any t
 Lists can also be nested up to 3 levels deep:
 
 ```html
-<ul class="ids-list--plain">
-  <li class="ids-list--heading">Heading 1</li>
+<h1 class="ids-list--heading">Heading 1</h1>
+<ul class="ids-list">
   <li><a class="ids-list--item ids-list--item--selected">Selected Item</a></li>
   <li><a class="ids-list--item">Two</a></li>
-  <!--- Nested list -->
-  <li class="ids-list--heading">Heading 2</li>
   <li>
-    <ul class="ids-list--plain">
+    <!--- Nested list -->
+    <h2 class="ids-list--heading">Heading 2</h2>
+    <ul class="ids-list">
       <li><a class="ids-list--item">Sub One</a></li>
       <li><a class="ids-list--item">Sub Two</a></li>
-      <!--- Nested list -->
-      <li class="ids-list--heading">Heading 3</li>
       <li>
-        <ul class="ids-list--plain">
+        <!--- Nested list -->
+        <div class="ids-list--heading">Heading 3</div>
+        <ul class="ids-list">
           <li><a class="ids-list--item">Sub One</a></li>
           <li><a class="ids-list--item">Sub Two</a></li>
         </ul>
@@ -42,3 +42,5 @@ Lists can also be nested up to 3 levels deep:
   </li>
 </ul>
 ```
+
+**Note:** Any tag using `.ids-list--heading` will look the same. This allows you to maintain tag hierarchy without affecting the style of the list.
