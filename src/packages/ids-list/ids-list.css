@@ -1,6 +1,3 @@
-@import '../ids-base/ids-base';
-@import '../ids-typography/ids-typography';
-
 .ids-list {
   list-style-type: none;
   margin: 0;
