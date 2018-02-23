@@ -28,7 +28,7 @@
 
     <main class="ids-row">
       <aside class="ids-row--col-sm-3">
-        <ul class="ids-list ids-container">
+        <ul class="ids-list ids-list--hover ids-container">
           {{#each sitemap.sections}}
             <li class="ids-list--heading">{{this.name}}</li>
               <ul class="ids-list">
@@ -41,7 +41,7 @@
         </ul>
       </aside>
 
-      <div class="ids-row--col-sm-9">
+      <div class="ids-row--col-sm-6">
         {{#if meta.title}}
           <div class="hero">
             <h1>{{meta.title}}</h1>
