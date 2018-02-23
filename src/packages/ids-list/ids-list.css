@@ -22,7 +22,7 @@
 
   & a.ids-list--item--selected {
     background-color: var(--color-primary);
-    color: var(--color-primary-contrast)
+    color: var(--color-primary-contrast);
   }
 
   &.ids-list--hover {

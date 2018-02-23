@@ -32,15 +32,15 @@ body {
 h1,
 .ids-header--primary {
   font-size: var(--font-size-xl);
-  margin-bottom: calc( var(--spacing-base) * 3);
-  margin-top: calc( var(--spacing-base) * 4);
+  margin-bottom: calc(var(--spacing-base) * 3);
+  margin-top: calc(var(--spacing-base) * 4);
 }
 
 h2,
 .ids-header--secondary {
   font-size: var(--font-size-lg);
-  margin-bottom: calc( var(--spacing-base) * 2);
-  margin-top: calc( var(--spacing-base) * 3);
+  margin-bottom: calc(var(--spacing-base) * 2);
+  margin-top: calc(var(--spacing-base) * 3);
 }
 
 h3,
@@ -49,14 +49,14 @@ h5,
 h6 {
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-bold);
-  margin-bottom: calc( var(--spacing-base) * 2);
-  margin-top: calc( var(--spacing-base) * 2);
+  margin-bottom: calc(var(--spacing-base) * 2);
+  margin-top: calc(var(--spacing-base) * 2);
 }
 
 p {
   line-height: var(--line-height-base);
-  margin-top: calc( var(--spacing-base) * 2);
-  margin-bottom: calc( var(--spacing-base) * 2);
+  margin-bottom: calc(var(--spacing-base) * 2);
+  margin-top: calc(var(--spacing-base) * 2);
 }
 
 strong,
@@ -123,8 +123,8 @@ a,
  */
 
 table {
-  margin-top: calc( var(--spacing-base) * 2);
-  margin-bottom: calc( var(--spacing-base) * 2);
+  margin-bottom: calc(var(--spacing-base) * 2);
+  margin-top: calc(var(--spacing-base) * 2);
 }
 
 table td,
@@ -139,8 +139,8 @@ table th {
 ul,
 ol {
   list-style-position: inside;
-  margin-top: calc( var(--spacing-base) * 2);
-  margin-bottom: calc( var(--spacing-base) * 2);
+  margin-bottom: calc(var(--spacing-base) * 2);
+  margin-top: calc(var(--spacing-base) * 2);
 
   & li {
     line-height: var(--line-height-base);
@@ -174,8 +174,8 @@ ul ol {
 code,
 pre {
   font-family: 'Source Code Pro', monospace;
-  letter-spacing: -1px;
   font-size: var(--font-size-sm);
+  letter-spacing: -1px;
 }
 
 code {

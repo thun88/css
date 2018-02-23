@@ -11,8 +11,8 @@
     overflow: hidden;
     padding: 12px 11px;
     position: relative;
-    text-overflow: ellipsis;
     text-decoration: none;
+    text-overflow: ellipsis;
     vertical-align: top;
     white-space: nowrap;
 
