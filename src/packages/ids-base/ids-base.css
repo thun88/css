@@ -27,7 +27,7 @@ html {
 }
 
 body {
-  background-color: var(--body-bg-color);
+  background-color: var(--body-bg-color-primary);
   color: var(--body-text-color);
   height: 100%;
 }

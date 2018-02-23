@@ -58,7 +58,7 @@
 }
 
 .ids-tabs--vertical {
-  background-color: var(--body-bg-color);
+  background-color: var(--body-bg-color-primary);
   display: block;
 
   & .ids-tabs--tab {
