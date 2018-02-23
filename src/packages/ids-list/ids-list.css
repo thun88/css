@@ -14,18 +14,24 @@
   margin: 0;
 
   & .ids-list--item {
+    color: var(--button-link-text-color);
     display: block;
     padding: calc(var(--spacing-base) * 2);
   }
 
+  & a.ids-list--item {
+    color: var(--button-link-text-color);
+    text-decoration: none;
+  }
 
   & a.ids-list--item--selected {
-    background-color: var(--color-primary-light);
+    background-color: var(--color-primary);
+    color: var(--color-primary-contrast)
   }
 
   &.ids-list--hover {
     & a.ids-list--item:hover:not(.ids-list--item--selected) {
-      background-color: var(--color-default-light);
+      background-color: var(--list-hover-color);
     }
   }
 
