@@ -1,14 +1,6 @@
 @import '../ids-base/ids-base';
 @import '../ids-typography/ids-typography';
 
-.ids-list--heading {
-  color: var(--input-disabled-text-color);
-  display: block;
-  font-size: var(--font-size-base);
-  margin: 0;
-  padding: calc(var(--spacing-base) * 2) calc(var(--spacing-base) * 1);
-}
-
 .ids-list {
   list-style-type: none;
   margin: 0;
@@ -17,6 +9,10 @@
     color: var(--button-link-text-color);
     display: block;
     padding: calc(var(--spacing-base) * 2);
+
+    &.ids-list--heading {
+      color: var(--input-disabled-text-color);
+    }
   }
 
   & a.ids-list--item {
@@ -44,6 +40,14 @@
       border-bottom: none;
     }
   }
+}
+
+.ids-list--heading {
+  color: var(--input-disabled-text-color);
+  display: block;
+  font-size: var(--font-size-base);
+  margin: 0;
+  padding: calc(var(--spacing-base) * 2) calc(var(--spacing-base) * 1);
 }
 
 /* Left in longhand for ease of reading */
