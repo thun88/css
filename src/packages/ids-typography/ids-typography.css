@@ -75,7 +75,7 @@ small,
   font-weight: var(--font-weight-normal);
 }
 
-.ids-text-muted { color: var(--color-muted); }
+.ids-text-muted { color: var(--text-color-muted); }
 .ids-text-alert { color: var(--color-danger); }
 
 a,

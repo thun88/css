@@ -18,7 +18,7 @@
   width: 100%;
 
   &::placeholder {
-    color: var(--color-muted);
+    color: var(--text-color-muted);
     opacity: 1; /* Override Firefox's unusual default opacity */
   }
 
