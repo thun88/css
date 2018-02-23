@@ -1,27 +1,23 @@
 sections:
-- name: IDS Web Components
-  slug: index
+- name: About
   pages:
-    - name: Home
+    - name: Getting Started
       slug: index
     - name: Release Notes
       slug: release-notes
 - name: Page Structure
-  slug: page-structure
   pages:
   - name: Adaptive
     slug: adaptive
   - name: Responsive Grid
     slug: grid
 - name: Identity
-  slug: identity
   pages:
   - name: Icons
     slug: icon
   - name: Typography
     slug: typography
 - name: Elements
-  slug: elements
   pages:
   - name: Buttons
     slug: button
@@ -38,7 +34,6 @@ sections:
   - name: Tabs
     slug: tab
 - name: Blocks
-  slug: blocks
   pages:
   - name: List
     slug: list

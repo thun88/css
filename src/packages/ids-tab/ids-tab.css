@@ -1,9 +1,13 @@
+:root {
+  --tabs-disabled-bg-color: #d8d8d8;
+}
+
 .ids-tabs--horizontal {
   border-bottom: solid 1px var(--color-default);
   display: block;
 
   & .ids-tabs--tab {
-    color: var(--color-info);
+    color: var(--text-color-info);
     display: inline-block;
     margin: 0 10px 0 0;
     max-width: 150px;
@@ -11,6 +15,7 @@
     overflow: hidden;
     padding: 12px 11px;
     position: relative;
+    text-decoration: none;
     text-overflow: ellipsis;
     vertical-align: top;
     white-space: nowrap;
@@ -47,7 +52,7 @@
     }
 
     &.ids-tabs--tab--disabled {
-      color: var(--color-muted);
+      color: var(--color-default-alt);
 
       &:hover {
         cursor: not-allowed;
@@ -57,7 +62,7 @@
 }
 
 .ids-tabs--vertical {
-  background-color: var(--body-bg-color);
+  background-color: var(--body-bg-color-primary);
   display: block;
 
   & .ids-tabs--tab {
@@ -67,7 +72,7 @@
     text-decoration: none;
 
     &:hover:not(.ids-tabs--tab--disabled) {
-      background-color: var(--color-readonly);
+      background-color: var(--tabs-disabled-bg-color);
     }
 
     &.ids-tabs--tab--active {
@@ -76,7 +81,7 @@
     }
 
     &.ids-tabs--tab--disabled {
-      color: var(--color-muted);
+      color: var(--color-default-alt);
 
       &:hover {
         cursor: not-allowed;
