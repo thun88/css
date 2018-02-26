@@ -19,14 +19,29 @@ html[lang='zh-tw'] {
   font-family: 'Source Sans Pro', 'Helvetica', 'Arial', 'MingLiU';
 }
 
-html {
-  font-size: 62.5%;
-}
+/*
+  Base Styles
+  - Change the default font family in all browsers.
+  -  Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.
+*/
 
 body {
+  background-color: var(--body-bg-color-primary);
+  color: var(--body-text-color);
   font-family: var(--font-family-base);
   font-size: var(--font-size-base);
+  height: 100%;
   line-height: var(--line-height-base);
+}
+
+.ids-container {
+  padding: calc(var(--spacing-base) * 2);
+}
+
+@media (--viewport-md) {
+  .ids-container {
+    padding: calc(var(--spacing-base) * 3);
+  }
 }
 
 h1,
@@ -60,26 +75,30 @@ p {
 }
 
 strong,
-.ids-text-strong {
+.ids-text--strong {
   font-weight: var(--font-weight-bold);
 }
 
 em,
-.ids-text-emphasis {
+.ids-text--emphasis {
   font-style: italic;
 }
 
 small,
-.ids-text-small {
+.ids-text--small {
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-normal);
 }
 
-.ids-text-muted { color: var(--text-color-muted); }
-.ids-text-alert { color: var(--color-danger); }
+.ids-text--center { text-align: center; }
+.ids-text--left { text-align: left; }
+.ids-text--right { text-align: right; }
+
+.ids-text--muted { color: var(--text-color-muted); }
+.ids-text--alert { color: var(--color-danger); }
 
 a,
-.ids-text-link {
+.ids-text--link {
   color: var(--color-primary);
   cursor: pointer;
   text-decoration: var(--link-decoration);
