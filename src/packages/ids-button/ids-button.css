@@ -36,6 +36,10 @@
     background-color: var(--button-default-bg-color);
     color: var(--button-default-text-color);
 
+    & .ids-icon {
+      fill: var(--button-default-text-color);
+    }
+
     &:hover {
       background-color: var(--button-default-hover-bg-color);
 
@@ -48,6 +52,10 @@
   &.ids-btn--primary {
     background-color: var(--button-primary-bg-color);
     color: var(--button-primary-text-color);
+
+    & .ids-icon {
+      fill: var(--button-primary-text-color);
+    }
 
     &:hover {
       background-color: var(--button-primary-hover-bg-color);
