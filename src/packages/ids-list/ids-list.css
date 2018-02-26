@@ -10,6 +10,11 @@
     &.ids-list--heading {
       color: var(--input-disabled-text-color);
     }
+
+    &.ids-form-checkbox {
+      margin-bottom: 0;
+      margin-top: 0;
+    }
   }
 
   & a.ids-list--item {
@@ -35,6 +40,12 @@
 
     & li:last-child {
       border-bottom: none;
+    }
+  }
+
+  &.ids-list--striped {
+    & li:nth-child(even) {
+      background-color: var(--list-hover-color);
     }
   }
 }
