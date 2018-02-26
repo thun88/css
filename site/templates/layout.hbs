@@ -55,19 +55,32 @@
         {{/if}}
 
         {{#if meta.specs}}
-          <ul class="ids-list">
+          <table>
+            <thead>
+              <th>Description</th>
+              <th>Value</th>
+              <th>Token</th>
+            </thead>
+            <tbody>
             {{#each meta.specs}}
-              <li class="site-spec">
-                <span class="site-spec--title">{{ title }}:</span>
+              <tr>
+                <td>
+                  {{title}}
+                </td>
+                <td>
                 {{#with (lookup ../designTokens spec)}}
                   {{#equal type 'color'}}
-                    <div class="site-spec--color" style="background-color: {{value}}" title="{{value}}"></div>
+                    <span class="site-spec--color" style="background-color: {{value}}" title="{{value}}"></div>
                   {{/equal}}
-                  <code>{{value}}</code>
+                  </td>
+                  <td>
+                    <code class="site-spec--code">var(--{{name}})</code>
                 {{/with}}
-              </li>
+                </td>
+              </tr>
             {{/each}}
-          </ul>
+            </tbody>
+          </table>
         {{/if}}
         {{{ contents }}}
       </div>

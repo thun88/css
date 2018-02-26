@@ -8,9 +8,9 @@ demo:
   path: /ids-button/index.html
 specs:
 - title: Default Button Color
-  spec: color-default
-- title: default button text color
-  spec: color-default-contrast
+  spec: button-default-bg-color
+- title: Default Button Text Color
+  spec: button-default-text-color
 - title: default button hover color
   spec: color-default-alt
 - title: primary background color
