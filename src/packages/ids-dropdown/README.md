@@ -1,16 +1,18 @@
 ---
-title: IDS Select
-description: This page describes how the buttons and button styles are used.
+title: IDS Dropdown
+description: This page describes how to use a dropdown.
 demo:
-  path: /ids-select/index.html
+  path: /ids-dropdown/index.html
 ---
 
-## Select
+## Dropdown
+
+Using `ids-list` and its class options inside of the dropdown menu is the easiest way to style your dropdown.
 
 ```html
-  <div class="ids-select">
-    <input type="text" class="ids-form-control ids-select--input" placeholder="Select one" />
-    <div class="ids-select--menu">
+  <div class="ids-dropdown">
+    <input type="text" class="ids-form-control ids-dropdown--input" placeholder="Select one" />
+    <div class="ids-dropdown--menu">
       <ul class="ids-list ids-list--hover">
         <li><a class="ids-list--item ids-list--item--selected" data-value="Option 1">Option 1</a></li>
         <li><a class="ids-list--item" data-value="Option 2">Option 2</a></li>
@@ -21,12 +23,12 @@ demo:
   </div>
 ```
 
-## Multi-select
+## Dropdown with checkboxes
 
 ```html
-<div class="ids-select ids-select--open example-open">
-    <input type="text" class="ids-form-control ids-select--input" placeholder="Select one" />
-    <div class="ids-select--menu">
+<div class="ids-dropdown ids-dropdown--open example-open">
+    <input type="text" class="ids-form-control ids-dropdown--input" placeholder="Check a few" />
+    <div class="ids-dropdown--menu">
       <ul class="ids-list ids-list--striped">
         <li>
           <div class="ids-list--item ids-form-checkbox is-selected">

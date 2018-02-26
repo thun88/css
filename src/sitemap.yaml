@@ -21,8 +21,8 @@ sections:
   pages:
   - name: Buttons
     slug: button
-  - name: Select Box
-    slug: select
+  - name: Dropdown
+    slug: dropdown
   - name: Form Controls
     slug: formcontrol
   - name: Checkboxes

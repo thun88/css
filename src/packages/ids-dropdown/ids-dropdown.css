@@ -1,7 +1,7 @@
-.ids-select {
+.ids-dropdown {
   position: relative;
 
-  & .ids-select--menu {
+  & .ids-dropdown--menu {
     background-color: var(--color-primary-contrast);
     display: none;
     height: auto;
@@ -12,13 +12,13 @@
     z-index: 1000;
   }
 
-  &.ids-select--open {
-    & .ids-select--input {
+  &.ids-dropdown--open {
+    & .ids-dropdown--input {
       border-bottom-left-radius: 0;
       border-bottom-right-radius: 0;
     }
 
-    & .ids-select--menu {
+    & .ids-dropdown--menu {
       border-bottom: var(--input-border-width) solid var(--color-primary);
       border-bottom-left-radius: var(--input-border-radius);
       border-bottom-right-radius: var(--input-border-radius);
