@@ -60,19 +60,31 @@
         {{/if}}
 
         {{#if meta.tokensCategory}}
-          <ul class="ids-list">
+          <table>
+            <thead>
+              <th>Description</th>
+              <th>Value</th>
+              <th>Token</th>
+            </thead>
+            <tbody>
             {{#each (lookup designTokens meta.tokensCategory)}}
-              <li class="site-spec">
-                <span class="site-spec--title">{{ this.description }}:</span>
-                {{#equal this.type 'color'}}
-                  <div class="site-spec--color" style="background-color: {{this.value}}" title="{{this.value}}"></div>
-                  <code>{{this.originalValue}}</code>
-                {{else}}
-                  <code>{{this.value}}</code>
-                {{/equal}}
-              </li>
+              <tr>
+                <td>{{this.description}}</td>
+                <td>
+                  {{#equal this.type 'color'}}
+                    <div class="site-spec--color" style="background-color: {{this.value}}" title="{{this.value}}"></div>
+                    <code>{{this.originalValue}}</code>
+                  {{else}}
+                    <code>{{this.value}}</code>
+                  {{/equal}}
+                  </td>
+                <td>
+                  <code class="site-spec--code">var(--{{name}})</code>
+                </td>
+              </tr>
             {{/each}}
-          </ul>
+            </tbody>
+          </table>
         {{/if}}
         {{{ contents }}}
       </div>
