@@ -26,6 +26,10 @@
       border-right: var(--input-border-width) solid var(--color-primary);
       box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
       display: block;
+
+      & .ids-list--item {
+        padding: calc(var(--spacing-base) * 1);
+      }
     }
   }
 }
