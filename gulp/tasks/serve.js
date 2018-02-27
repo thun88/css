@@ -6,9 +6,9 @@
 module.exports = (gulp, gconfig) => {
 
   const browserSync = require('browser-sync').create('localDocServer');
+  const runSequence = require('run-sequence');
 
   gulp.task('serve', () => {
-
     const
       gutil = require('gulp-util'),
       path = require('path');
@@ -43,7 +43,7 @@ module.exports = (gulp, gconfig) => {
     ];
 
     const changeEvent = (evt) => {
-      gutil.log('File', gutil.colors.cyan(evt.path.replace(new RegExp('/.*(?=/' + gconfig.paths.root + ')/'), '')), 'was', gutil.colors.magenta(evt.type));
+      gutil.log('File', gutil.colors.cyan(evt.path.replace(process.cwd(), '')), 'was', gutil.colors.magenta(evt.type));
     };
 
     gulp
@@ -66,16 +66,18 @@ module.exports = (gulp, gconfig) => {
   });
 
   gulp.task('watch-demo', (done) => {
-    browserSync.reload();
-    done();
+    runSequence('browser:reload', done);
   });
 
   gulp.task('watch-site', ['site:compile'], (done) => {
-    browserSync.reload();
-    done();
+    runSequence('site:compile', 'browser:reload', done);
   });
 
-  gulp.task('watch-packages', ['src:compile', 'site:compile'], (done) => {
+  gulp.task('watch-packages', (done) => {
+    runSequence('src:compile', 'site:compile', 'browser:reload', done);
+  });
+
+  gulp.task('browser:reload', (done) => {
     browserSync.reload();
     done();
   });
