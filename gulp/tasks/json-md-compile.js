@@ -19,16 +19,16 @@ module.exports = (gulp, gconfig, publishDocObj) => {
 
   gulp.task('json:md:compile', () => {
 
-    const designTokens = require(gconfig.paths.tokens.themeJson).props;
+    const idsTokensRawJsonProps = require(helperFns.getIdsTokensPath()).props;
 
     marked.setOptions(gconfig.options.marked);
 
         // Create folders if needed
-    if (!fs.existsSync(gconfig.paths.dist.root)){
+    if (!fs.existsSync(gconfig.paths.dist.root)) {
       fs.mkdirSync(gconfig.paths.dist.root);
     }
 
-    if (!fs.existsSync(gconfig.paths.dist.docs)){
+    if (!fs.existsSync(gconfig.paths.dist.docs)) {
       fs.mkdirSync(gconfig.paths.dist.docs);
     }
 
@@ -58,8 +58,8 @@ module.exports = (gulp, gconfig, publishDocObj) => {
         // the front-matter "meta" property
         if (jsonObj.specs) {
           jsonObj.specs.forEach(spec => {
-            if (designTokens[spec.spec]) {
-              Object.assign(spec, designTokens[spec.spec].value);
+            if (idsTokensRawJsonProps[spec.spec]) {
+              Object.assign(spec, idsTokensRawJsonProps[spec.spec].value);
             } else {
               console.log(`Cannot find token: "${spec.spec}", skipping...`);
             }

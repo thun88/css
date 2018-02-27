@@ -11,6 +11,7 @@ module.exports = (gulp, gconfig) => {
     const frontMatter = require('gulp-front-matter');
     const fs = require('fs');
     const handlebars = require('Handlebars');
+    const helperFns = require('../functions.js');
     const idsWebPackageJson = require(`../../${gconfig.paths.src.webPackageJson}`);
     const markdown = require('gulp-markdown'); // base engine is marked to match json-md-compile
     const registrar = require('handlebars-registrar');
@@ -23,9 +24,8 @@ module.exports = (gulp, gconfig) => {
       fs.readFileSync(`${gconfig.paths.src.root}/sitemap.yaml`, 'utf8')
     );
 
-    const idsTokens = require(gconfig.paths.tokens.themeJson).props;
-    const idsTokensByCategory = groupTokensByCategory(idsTokens);
-
+    const idsTokensRawJson = require(helperFns.getIdsTokensPath());
+    const idsTokensByCategory = groupTokensByCategory(idsTokensRawJson.props);
 
     const inlineIcons = fs.readFileSync(`${gconfig.paths.src.packages}/${gconfig.project.prefix}-icon/dist/${gconfig.project.prefix}-icons.svg`, 'utf-8');
 
@@ -67,7 +67,8 @@ module.exports = (gulp, gconfig) => {
               pkgJson: idsWebPackageJson,
               sitemap: sitemap,
               designTokens: idsTokensByCategory,
-              inlineIcons: inlineIcons
+              inlineIcons: inlineIcons,
+              currentTheme: gconfig.project.idsTokensThemeName
             };
 
             // we will pass data to the Handlebars template to create the actual HTML to use

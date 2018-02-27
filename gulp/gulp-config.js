@@ -2,7 +2,8 @@
 module.exports = {
   project: {
     prefix: 'ids',
-    zipName: 'publish'
+    zipName: 'publish',
+    idsTokensThemeName: 'theme-default'
   },
   paths: {
     root: './',
@@ -10,7 +11,8 @@ module.exports = {
     dist: {
       root: './publish',
       docs: './publish/docs',
-      demo: './publish/demo'
+      demo: './publish/demo',
+      idsTokens: './publish/ids-tokens'
     },
     src: {
       root:     './src',
@@ -27,9 +29,8 @@ module.exports = {
       templates: './site/templates',
       www:       './site/www'
     },
-    tokens: {
-      theme: `${process.cwd()}/node_modules/@infor/ids-tokens/platforms/web/theme-default.custom-properties.css`,
-      themeJson: `${process.cwd()}/node_modules/@infor/ids-tokens/platforms/web/theme-default.raw.json`
+    idsTokensWeb: {
+      root: `${process.cwd()}/node_modules/@infor/ids-tokens/platforms/web`
     },
     tasks: './gulp/tasks'
   },
