@@ -1,10 +1,8 @@
 sections:
-- name: About
-  pages:
-    - name: Getting Started
-      slug: index
-    - name: Release Notes
-      slug: release-notes
+- name: Getting Started
+  slug: index
+- name: Release Notes
+  slug: release-notes
 - name: Page Structure
   pages:
   - name: Adaptive

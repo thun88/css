@@ -30,7 +30,11 @@
       <aside class="ids-row--col-sm-3">
         <ul class="ids-list ids-list--hover ids-container">
           {{#each sitemap.sections}}
+            {{#if this.slug}}
+              <li><a href="/{{slug}}.html" class="ids-list--item">{{this.name}}</a></li>
+            {{else}}
             <li class="ids-list--heading">{{this.name}}</li>
+            {{/if}}
               <ul class="ids-list">
                 {{#each this.pages}}
                   <li><a href="/{{slug}}.html" class="ids-list--item">{{this.name}}</a></li>
