@@ -6,17 +6,7 @@ demo:
 system:
   category: page-structure
   name: grid
-specs:
-- title: Extra Small (min width)
-  spec: breakpoint-xs
-- title: small (min width)
-  spec: breakpoint-sm
-- title: medium (min width)
-  spec: breakpoint-md
-- title: large (min width)
-  spec: breakpoint-lg
-- title: extra large (min width)
-  spec: breakpoint-xl
+tokensCategory: grid
 ---
 
 

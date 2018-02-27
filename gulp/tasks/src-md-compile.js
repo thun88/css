@@ -23,7 +23,10 @@ module.exports = (gulp, gconfig) => {
       fs.readFileSync(`${gconfig.paths.src.root}/sitemap.yaml`, 'utf8')
     );
 
-    const designTokens = require(gconfig.paths.tokens.themeJson).props;
+    const idsTokens = require(gconfig.paths.tokens.themeJson).props;
+    const idsTokensByCategory = groupTokensByCategory(idsTokens);
+
+
     const inlineIcons = fs.readFileSync(`${gconfig.paths.src.packages}/${gconfig.project.prefix}-icon/dist/${gconfig.project.prefix}-icons.svg`, 'utf-8');
 
     registrar(handlebars, {
@@ -63,7 +66,7 @@ module.exports = (gulp, gconfig) => {
               meta: file.data.frontMatter,
               pkgJson: idsWebPackageJson,
               sitemap: sitemap,
-              designTokens: designTokens,
+              designTokens: idsTokensByCategory,
               inlineIcons: inlineIcons
             };
 
@@ -87,5 +90,31 @@ module.exports = (gulp, gconfig) => {
           .pipe(flatten())
           .pipe(gulp.dest(gconfig.paths.site.www));
         }));
-      });
+      }
+    );
+
+  function groupTokensByCategory(tokens) {
+    let grouped = {};
+
+    for (let key in tokens) {
+      let category = tokens[key].category;
+
+      tokens[key].description = toTitleCase(dashesToSpaces(tokens[key].name));
+
+      if (!grouped.hasOwnProperty(category)) {
+        grouped[category] = [];
+      }
+
+      grouped[category].push(tokens[key]);
+    }
+    return grouped;
+  }
+
+  function dashesToSpaces(str) {
+    return str.replace(/-/g, ' ')
+  }
+
+  function toTitleCase(str) {
+    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+  }
 }

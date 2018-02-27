@@ -6,21 +6,7 @@ system:
   name: buttons
 demo:
   path: /ids-button/index.html
-specs:
-- title: Default Button Color
-  spec: color-default
-- title: default button text color
-  spec: color-default-contrast
-- title: default button hover color
-  spec: color-default-alt
-- title: primary background color
-  spec: color-primary
-- title: primary button text color
-  spec: color-primary-contrast
-- title: primary hover color
-  spec: color-primary-alt
-- title: disabled state opacity
-  spec: button-disabled-opacity
+tokensCategory: buttons
 ---
 
 

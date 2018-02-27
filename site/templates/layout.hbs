@@ -58,17 +58,17 @@
           </div>
         {{/if}}
 
-        {{#if meta.specs}}
+        {{#if meta.tokensCategory}}
           <ul class="ids-list">
-            {{#each meta.specs}}
+            {{#each (lookup designTokens meta.tokensCategory)}}
               <li class="site-spec">
-                <span class="site-spec--title">{{ title }}:</span>
-                {{#with (lookup ../designTokens spec)}}
-                  {{#equal type 'color'}}
-                    <div class="site-spec--color" style="background-color: {{value}}" title="{{value}}"></div>
-                  {{/equal}}
-                  <code>{{value}}</code>
-                {{/with}}
+                <span class="site-spec--title">{{ this.description }}:</span>
+                {{#equal this.type 'color'}}
+                  <div class="site-spec--color" style="background-color: {{this.value}}" title="{{this.value}}"></div>
+                  <code>{{this.originalValue}}</code>
+                {{else}}
+                  <code>{{this.value}}</code>
+                {{/equal}}
               </li>
             {{/each}}
           </ul>

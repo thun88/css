@@ -3,6 +3,7 @@ title: Lists
 description: Some text about using ids-list.
 demo:
   path: /ids-list/index.html
+tokensCategory: lists
 ---
 
 To create a plain list, use `.ids-list`. If you'd like dividers in between, also add `.ids-list--dividers`.

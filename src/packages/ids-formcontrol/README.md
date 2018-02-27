@@ -3,21 +3,7 @@ title: Form Controls
 description: Some text about using ids-form-controls.
 demo:
   path: /ids-formcontrol/index.html
-specs:
-- title: Border Color
-  spec: input-border-color
-- title: border color (hover)
-  spec: body-text-color
-- title: input placeholder text color
-  spec: input-placeholder-text-color
-- title: input label text color
-  spec: input-label-text-color
-- title: info block text color
-  spec: input-info-block-text-color
-- title: input height
-  spec: input-height
-- title: corner radius
-  spec: input-border-radius
+tokensCategory: inputs
 ---
 
 

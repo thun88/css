@@ -6,23 +6,7 @@ demo:
 system:
   category: identity
   name: fonts-colors
-specs:
-- title: x-large header font size
-  spec: font-size-xl
-- title: large header font size
-  spec: font-size-lg
-- title: base font size
-  spec: font-size-base
-- title: small font size
-  spec: font-size-sm
-- title: default text color
-  spec: body-text-color
-- title: muted text color
-  spec: color-muted
-- title: link text color
-  spec: color-primary
-- title: alert text color
-  spec: color-danger
+tokensCategory: font
 ---
 
 ## Standard Type Settings
