@@ -15,23 +15,25 @@ sections:
     slug: icon
   - name: Typography
     slug: typography
-- name: Elements
+- name: Components
   pages:
-  - name: Buttons
-    slug: button
-  - name: Dropdown
-    slug: dropdown
-  - name: Form Controls
-    slug: formcontrol
-  - name: Checkboxes
-    slug: checkbox
-  - name: Radio Buttons
-    slug: radio
-  - name: File Upload
-    slug: fileupload
-  - name: Tabs
-    slug: tab
-- name: Blocks
-  pages:
-  - name: List
-    slug: list
+  - name: Elements
+    pages:
+    - name: Buttons
+      slug: button
+    - name: Dropdown
+      slug: dropdown
+    - name: Form Controls
+      slug: formcontrol
+    - name: Checkboxes
+      slug: checkbox
+    - name: Radio Buttons
+      slug: radio
+    - name: File Upload
+      slug: fileupload
+    - name: Tabs
+      slug: tab
+  - name: Blocks
+    pages:
+    - name: List
+      slug: list
