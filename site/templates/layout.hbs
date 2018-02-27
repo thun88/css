@@ -63,24 +63,30 @@
           <table>
             <thead>
               <th>Description</th>
-              <th>Value</th>
               <th>Token</th>
+              <th>Color</th>
+              <th>Value</th>
             </thead>
             <tbody>
             {{#each (lookup designTokens meta.tokensCategory)}}
               <tr>
                 <td>{{this.description}}</td>
                 <td>
-                  {{#equal this.type 'color'}}
-                    <div class="site-spec--color" style="background-color: {{this.value}}" title="{{this.value}}"></div>
-                    <code>{{this.originalValue}}</code>
-                  {{else}}
-                    <code>{{this.value}}</code>
-                  {{/equal}}
-                  </td>
-                <td>
-                  <code class="site-spec--code">var(--{{name}})</code>
+                  <code class="site-spec--code">{{name}}</code>
                 </td>
+                {{#equal this.type 'color'}}
+                  <td>
+                    <div class="site-spec--color" style="background-color: {{this.value}}" title="{{this.value}}"></div>
+                  </td>
+                  <td>
+                    <code>{{this.originalValue}}</code>
+                  </td>
+                {{else}}
+                  <td></td>
+                  <td>
+                    <code>{{this.value}}</code>
+                  </td>
+                {{/equal}}
               </tr>
             {{/each}}
             </tbody>
