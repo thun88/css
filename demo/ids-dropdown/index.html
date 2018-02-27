@@ -18,9 +18,52 @@
 </head>
 
 <body class="ids-container">
-  <h1>Dropdown Controls</h1>
+  <div class="ids-visuallyhidden">
+    <!-- Copy/paste src/packages/ids-icons/dist/ids-icons.svg -->
+    <svg xmlns="http://www.w3.org/2000/svg"><symbol id="icon_close" viewBox="0 0 576 576"><path d="M339.721 288.01L533.294 94.436c14.3-14.3 14.3-37.413 0-51.712-14.3-14.3-37.413-14.3-51.712 0L288.009 236.297 94.437 42.725c-14.3-14.3-37.413-14.3-51.712 0-14.3 14.299-14.3 37.412 0 51.712l193.572 193.572L42.725 481.582c-14.3 14.3-14.3 37.412 0 51.712a36.471 36.471 0 0 0 25.856 10.715 36.471 36.471 0 0 0 25.856-10.715L288.009 339.72l193.573 193.573a36.471 36.471 0 0 0 25.856 10.715 36.471 36.471 0 0 0 25.856-10.715c14.3-14.3 14.3-37.413 0-51.712L339.72 288.009" fill-rule="evenodd"/></symbol><symbol id="icon_expand" viewBox="0 0 576 576"><path d="M44.73 151.411c16.7-16.715 43.696-16.715 60.398 0L288.5 334.937l183.372-183.526c16.702-16.715 43.697-16.715 60.398 0 16.702 16.716 16.702 43.734 0 60.449L318.7 425.61c-16.701 16.715-43.697 16.715-60.398 0L44.73 211.86c-8.33-8.336-12.516-19.28-12.516-30.224 0-10.944 4.186-21.888 12.516-30.225z" fill-rule="evenodd"/></symbol><symbol id="icon_folder" viewBox="0 0 576 576"><path d="M32 248.113v224.946C32 504.49 57.508 530 89 530h399c31.493 0 57-25.51 57-56.941V245.294H32v2.819zM488 102.94H295.112L271.001 72.25C260.684 55.082 242.131 46 222.095 46H89c-31.493 0-57 25.51-57 56.941v85.412h513v-28.47c0-31.432-25.507-56.942-57-56.942z" fill-rule="evenodd"/></symbol><symbol id="icon_information" viewBox="0 0 576 576"><g transform="translate(32 32)" fill-rule="evenodd"><path d="M255.067 455.111c109.565 0 198.385-89.145 198.385-199.111S364.632 56.889 255.067 56.889 56.68 146.034 56.68 256s88.82 199.111 198.386 199.111zM256 512C114.615 512 0 397.385 0 256S114.615 0 256 0s256 114.615 256 256-114.615 256-256 256z" fill-rule="nonzero"/><path d="M256 199.111c15.71 0 28.444 12.735 28.444 28.445v142.222c0 15.71-12.735 28.444-28.444 28.444-15.71 0-28.444-12.735-28.444-28.444V227.556c0-15.71 12.735-28.445 28.444-28.445z"/><circle cx="256" cy="142.222" r="28.444"/></g></symbol><symbol id="icon_lookup" viewBox="0 0 576 576"><path d="M311.728 352.164c17.726-25.769 27.046-55.685 27.046-86.944 0-84.885-68.799-153.954-153.387-153.954S32 180.335 32 265.22c0 84.856 68.799 153.896 153.387 153.896 31.179 0 61.018-9.38 86.697-27.17L374.541 494.82c5.301 5.291 12.341 8.18 19.808 8.18 7.524 0 14.535-2.889 19.808-8.208 10.915-10.983 10.915-28.829 0-39.783l-102.43-102.845zm-126.341 10.725c-53.665 0-97.328-43.816-97.328-97.67 0-53.853 43.663-97.697 97.328-97.697 53.694 0 97.356 43.844 97.356 97.698 0 53.853-43.662 97.669-97.356 97.669zM516.5 131.2h-171c-15.675 0-28.5-12.87-28.5-28.6 0-15.73 12.825-28.6 28.5-28.6h171c15.675 0 28.5 12.87 28.5 28.6 0 15.73-12.825 28.6-28.5 28.6zm0 114.4h-114c-15.675 0-28.5-12.87-28.5-28.6 0-15.73 12.825-28.6 28.5-28.6h114c15.675 0 28.5 12.87 28.5 28.6 0 15.73-12.825 28.6-28.5 28.6zm0 114.4h-114c-15.675 0-28.5-12.87-28.5-28.6 0-15.73 12.825-28.6 28.5-28.6h114c15.675 0 28.5 12.87 28.5 28.6 0 15.73-12.825 28.6-28.5 28.6z" fill-rule="evenodd"/></symbol><symbol id="icon_minus" viewBox="0 0 576 576"><path d="M83.3 339.8h410.4c28.369 0 51.3-22.931 51.3-51.3 0-28.369-22.931-51.3-51.3-51.3H83.3c-28.369 0-51.3 22.931-51.3 51.3 0 28.369 22.931 51.3 51.3 51.3" fill-rule="evenodd"/></symbol><symbol id="icon_plus" viewBox="0 0 576 576"><path d="M493.7 237.2H339.8V83.3c0-28.318-22.982-51.3-51.3-51.3-28.318 0-51.3 22.982-51.3 51.3v153.9H83.3c-28.318 0-51.3 22.982-51.3 51.3 0 28.318 22.982 51.3 51.3 51.3h153.9v153.9c0 28.318 22.982 51.3 51.3 51.3 28.318 0 51.3-22.982 51.3-51.3V339.8h153.9c28.318 0 51.3-22.982 51.3-51.3 0-28.318-22.982-51.3-51.3-51.3" fill-rule="evenodd"/></symbol><symbol id="icon_search" viewBox="0 0 576 576"><path d="M391.067 350.744c24.965-33.317 39.927-74.528 39.927-119.244 0-110.01-89.517-199.5-199.497-199.5C121.517 32 32 121.49 32 231.5S121.517 431 231.497 431c44.716 0 85.955-14.991 119.271-39.957l145.576 145.606a28.421 28.421 0 0 0 20.15 8.351 28.421 28.421 0 0 0 20.148-8.35c11.144-11.144 11.144-29.156 0-40.3L391.067 350.745zM89 231c0-78.299 63.701-142 142-142s142 63.701 142 142-63.701 142-142 142S89 309.299 89 231z" fill-rule="evenodd"/></symbol><symbol id="icon_star" viewBox="0 0 576 576"><path d="M311.818 63.816l50.017 153.871h158.631c23.997 0 33.659 30.61 13.908 44.375l-127.252 88.407 49.276 149.055c7.496 22.771-18.325 41.78-37.591 27.73l-130.245-95.076L158.26 526c-19.323 13.908-45.002-5.3-37.449-27.987l49.22-147.573-127.453-88.407c-19.722-13.794-10.032-44.346 13.937-44.346h158.802L265.306 64.13c7.381-22.629 39.13-22.942 46.512-.313" fill-rule="evenodd"/></symbol></svg>
+  </div>
+
+  <h1>Dropdown Control as a NON-input dropdown menu</h1>
 
   <h2>Dropdown Closed</h2>
+  <div class="ids-dropdown">
+    <button class="ids-btn ids-btn--primary">
+      Dropdown of Links
+      <svg class="ids-icon" focusable="false" aria-hidden="true" role="presentation">
+        <use xlink:href="#icon_expand"></use>
+      </svg>
+    </button>
+    <div class="ids-dropdown--menu">
+      <ul class="ids-list">
+        <li><a href="#" class="ids-list--item">Link 1</a></li>
+        <li><a href="#" class="ids-list--item">Link 2</a></li>
+        <li><a href="#" class="ids-list--item">Link 3</a></li>
+        <li><a href="#" class="ids-list--item">Link 4</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Dropdown Open</h2>
+  <div class="ids-dropdown ids-dropdown--open example-open">
+    <button class="ids-btn ids-btn--primary">
+      Dropdown of Links
+      <svg class="ids-icon" focusable="false" aria-hidden="true" role="presentation">
+        <use xlink:href="#icon_expand"></use>
+      </svg>
+    </button>
+    <div class="ids-dropdown--menu">
+      <ul class="ids-list">
+        <li><a href="#" class="ids-list--item">Link 1</a></li>
+        <li><a href="#" class="ids-list--item">Link 2</a></li>
+        <li><a href="#" class="ids-list--item">Link 3</a></li>
+        <li><a href="#" class="ids-list--item">Link 4</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <h1>Dropdown Controls in a form</h1>
+
+  <h2>Dropdown Closed using a text input</h2>
   <div class="ids-dropdown">
     <input type="text" class="ids-form-control ids-dropdown--input" placeholder="Select one" />
     <div class="ids-dropdown--menu">
@@ -33,7 +76,7 @@
     </div>
   </div>
 
-  <h2>Dropdown Open</h2>
+  <h2>Dropdown Open using a text input</h2>
   <div class="ids-dropdown ids-dropdown--open example-open">
     <input type="text" class="ids-form-control ids-dropdown--input" placeholder="Select one" />
     <div class="ids-dropdown--menu">
@@ -46,7 +89,7 @@
     </div>
   </div>
 
-  <h2>Dropdown Open with checkboxes</h2>
+  <h2>Dropdown Open using a text input and with checkboxes</h2>
   <div class="ids-dropdown ids-dropdown--open example-open">
     <input type="text" class="ids-form-control ids-dropdown--input" placeholder="Check a few" />
     <div class="ids-dropdown--menu">
