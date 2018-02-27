@@ -43,7 +43,7 @@ module.exports = (gulp, gconfig) => {
     ];
 
     const changeEvent = (evt) => {
-      gutil.log('File', gutil.colors.cyan(evt.path.replace(new RegExp('/.*(?=/' + gconfig.paths.root + ')/'), '')), 'was', gutil.colors.magenta(evt.type));
+      gutil.log('File', gutil.colors.cyan(evt.path.replace(process.cwd(), '')), 'was', gutil.colors.magenta(evt.type));
     };
 
     gulp
