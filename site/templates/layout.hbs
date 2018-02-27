@@ -24,6 +24,7 @@
         <img alt="" src="/assets/logo.svg">
         <span>Infor Design System - <em>Developer Site: {{pkgJson.version}}</em></span>
       </a>
+      using theme <em>{{currentTheme}}</em>
     </header>
 
     <main class="ids-row">
@@ -73,20 +74,38 @@
           </div>
         {{/if}}
 
-        {{#if meta.specs}}
-          <ul class="ids-list">
-            {{#each meta.specs}}
-              <li class="site-spec">
-                <span class="site-spec--title">{{ title }}:</span>
-                {{#with (lookup ../designTokens spec)}}
-                  {{#equal type 'color'}}
-                    <div class="site-spec--color" style="background-color: {{value}}" title="{{value}}"></div>
-                  {{/equal}}
-                  <code>{{value}}</code>
-                {{/with}}
-              </li>
+        {{#if meta.tokensCategory}}
+          <table>
+            <thead>
+              <th>Description</th>
+              <th>Token</th>
+              <th>Color</th>
+              <th>Value</th>
+            </thead>
+            <tbody>
+            {{#each (lookup designTokens meta.tokensCategory)}}
+              <tr>
+                <td>{{this.description}}</td>
+                <td>
+                  <code class="site-spec--code">{{name}}</code>
+                </td>
+                {{#equal this.type 'color'}}
+                  <td>
+                    <div class="site-spec--color" style="background-color: {{this.value}}" title="{{this.value}}"></div>
+                  </td>
+                  <td>
+                    <code>{{this.originalValue}}</code>
+                  </td>
+                {{else}}
+                  <td></td>
+                  <td>
+                    <code>{{this.value}}</code>
+                  </td>
+                {{/equal}}
+              </tr>
             {{/each}}
-          </ul>
+            </tbody>
+          </table>
         {{/if}}
         {{{ contents }}}
       </div>

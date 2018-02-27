@@ -31,7 +31,7 @@ module.exports = (gulp, gconfig) => {
     ];
 
     const siteFiles = [
-      `${gconfig.paths.site.css}/**/*`,
+      `${gconfig.paths.site.www}/assets/*`,
       `${gconfig.paths.site.templates}/**/*`
     ];
 

@@ -3,6 +3,7 @@ title: Checkboxes
 description: Some text about using ids-checkboxes.
 demo:
   path: /ids-checkbox/index.html
+tokensCategory: checkboxes
 ---
 
 ## Check boxes and Radios
