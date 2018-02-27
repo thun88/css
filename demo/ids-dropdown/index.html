@@ -1,0 +1,82 @@
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="author" content="Hook & Loop">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dropdown Demo - IDS</title>
+  <link rel="stylesheet" type="text/css" href="../assets/reset.css">
+  <link rel="stylesheet" type="text/css" href="../dist/ids-web.min.css">
+  <link rel="stylesheet" type="text/css" href="../assets/demo.css">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600" rel="stylesheet">
+  <style>
+    .example-open {
+      height: 300px;
+    }
+  </style>
+</head>
+
+<body class="ids-container">
+  <h1>Dropdown Controls</h1>
+
+  <h2>Dropdown Closed</h2>
+  <div class="ids-dropdown">
+    <input type="text" class="ids-form-control ids-dropdown--input" placeholder="Select one" />
+    <div class="ids-dropdown--menu">
+      <ul class="ids-list ids-list--hover">
+        <li><a class="ids-list--item ids-list--item--selected" data-value="Option 1">Option 1</a></li>
+        <li><a class="ids-list--item" data-value="Option 2">Option 2</a></li>
+        <li><a class="ids-list--item" data-value="Option 3">Option 3</a></li>
+        <li><a class="ids-list--item" data-value="Option 4">Option 4</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Dropdown Open</h2>
+  <div class="ids-dropdown ids-dropdown--open example-open">
+    <input type="text" class="ids-form-control ids-dropdown--input" placeholder="Select one" />
+    <div class="ids-dropdown--menu">
+      <ul class="ids-list ids-list--hover">
+        <li><a class="ids-list--item ids-list--item--selected" data-value="Option 1">Option 1</a></li>
+        <li><a class="ids-list--item" data-value="Option 2">Option 2</a></li>
+        <li><a class="ids-list--item" data-value="Option 3">Option 3</a></li>
+        <li><a class="ids-list--item" data-value="Option 4">Option 4</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Dropdown Open with checkboxes</h2>
+  <div class="ids-dropdown ids-dropdown--open example-open">
+    <input type="text" class="ids-form-control ids-dropdown--input" placeholder="Check a few" />
+    <div class="ids-dropdown--menu">
+      <ul class="ids-list">
+        <li>
+          <div class="ids-list--item ids-form-checkbox is-selected">
+            <input type="checkbox" id="selectCheck1" name="selectCheck1" value="Checkbox 1" checked/>
+            <label for="selectCheck1">Checkbox 1</label>
+          </div>
+        </li>
+        <li>
+          <div class="ids-list--item ids-form-checkbox">
+            <input type="checkbox" id="selectCheck2" name="selectCheck2" value="Checkbox 2"/>
+            <label for="selectCheck2">Checkbox 2</label>
+          </div>
+        </li>
+        <li>
+          <div class="ids-list--item ids-form-checkbox is-selected">
+            <input type="checkbox" id="selectCheck3" name="selectCheck3" value="Checkbox 3" checked/>
+            <label for="selectCheck3">Checkbox 3</label>
+          </div>
+        </li>
+        <li>
+          <div class="ids-list--item ids-form-checkbox">
+            <input type="checkbox" id="selectCheck4" name="selectCheck4" value="Checkbox 4"/>
+            <label for="selectCheck4">Checkbox 4</label>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</body>
+</html>

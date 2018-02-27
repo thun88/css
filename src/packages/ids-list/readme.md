@@ -44,3 +44,7 @@ Lists can also be nested up to 3 levels deep:
 ```
 
 **Note:** Any tag using `.ids-list--heading` will look the same. This allows you to maintain tag hierarchy without affecting the style of the list.
+
+Some other helpful classes:
+- `ids-list--striped` Even rows will be lightly shaded
+- `ids-list--hover` Hovering over `.ids-list--item` (`<a>` and `<button>` tags only) will have a hover effect.

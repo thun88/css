@@ -10,6 +10,11 @@
     &.ids-list--heading {
       color: var(--input-disabled-text-color);
     }
+
+    &.ids-form-checkbox {
+      margin-bottom: 0;
+      margin-top: 0;
+    }
   }
 
   & a.ids-list--item {
@@ -37,14 +42,34 @@
       border-bottom: none;
     }
   }
+
+  &.ids-list--striped {
+    & li:nth-child(even) {
+      background-color: var(--list-hover-color);
+    }
+  }
 }
 
 .ids-list--heading {
-  color: var(--input-disabled-text-color);
+  color: var(--text-color-muted);
   display: block;
   font-size: var(--font-size-base);
   margin: 0;
   padding: calc(var(--spacing-base) * 2) calc(var(--spacing-base) * 1);
+}
+
+.ids-list--heading-accordion {
+  color: var(--text-color-info);
+  cursor: pointer;
+  display: block;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-bold);
+  margin: 0;
+  padding: calc(var(--spacing-base) * 2) calc(var(--spacing-base) * 1);
+
+  &:hover {
+    color: var(--text-color);
+  }
 }
 
 /* Left in longhand for ease of reading */

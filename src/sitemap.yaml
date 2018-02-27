@@ -1,10 +1,8 @@
 sections:
-- name: About
-  pages:
-    - name: Getting Started
-      slug: index
-    - name: Release Notes
-      slug: release-notes
+- name: Getting Started
+  slug: index
+- name: Release Notes
+  slug: release-notes
 - name: Page Structure
   pages:
   - name: Adaptive
@@ -21,8 +19,8 @@ sections:
   pages:
   - name: Buttons
     slug: button
-  - name: Select Box
-    slug: select
+  - name: Dropdown
+    slug: dropdown
   - name: Form Controls
     slug: formcontrol
   - name: Checkboxes
