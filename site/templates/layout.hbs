@@ -37,7 +37,22 @@
             {{/if}}
               <ul class="ids-list">
                 {{#each this.pages}}
-                  <li><a href="/{{slug}}.html" class="ids-list--item">{{this.name}}</a></li>
+                {{#if this.slug}}
+                <li><a href="/{{slug}}.html" class="ids-list--item">{{this.name}}</a></li>
+                {{else}}
+                <li class="ids-list--heading">{{this.name}}</li>
+                {{/if}}
+                  {{#if this.pages}}
+                    <ul class="ids-list">
+                      {{#each this.pages}}
+                        {{#if this.slug}}
+                          <li><a href="/{{slug}}.html" class="ids-list--item">{{this.name}}</a></li>
+                        {{else}}
+                          <li class="ids-list--heading">{{this.name}}</li>
+                        {{/if}}
+                      {{/each}}
+                    </ul>
+                  {{/if}}
                 {{/each}}
               </ul>
             </li>

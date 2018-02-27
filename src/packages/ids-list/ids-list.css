@@ -63,6 +63,7 @@
   cursor: pointer;
   display: block;
   font-size: var(--font-size-base);
+  -webkit-font-smoothing: antialiased;
   font-weight: var(--font-weight-bold);
   margin: 0;
   padding: calc(var(--spacing-base) * 2) calc(var(--spacing-base) * 1);
