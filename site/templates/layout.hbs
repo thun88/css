@@ -78,16 +78,16 @@
           <table>
             <thead>
               <th>Description</th>
-              <th>Token</th>
+              <th>Token Name</th>
               <th>Color</th>
-              <th>Value</th>
+              <th>Token Value</th>
             </thead>
             <tbody>
             {{#each (lookup designTokens meta.tokensCategory)}}
               <tr>
                 <td>{{this.description}}</td>
                 <td>
-                  <code class="site-spec--code">{{name}}</code>
+                  <code>{{name}}</code>
                 </td>
                 {{#equal this.type 'color'}}
                   <td>
