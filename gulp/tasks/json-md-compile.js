@@ -19,8 +19,6 @@ module.exports = (gulp, gconfig, publishDocObj) => {
 
   gulp.task('json:md:compile', () => {
 
-    const idsTokensRawJsonProps = require(helperFns.getIdsTokensPath()).props;
-
     marked.setOptions(gconfig.options.marked);
 
         // Create folders if needed
@@ -53,18 +51,6 @@ module.exports = (gulp, gconfig, publishDocObj) => {
       .pipe(tap((file) => {
         let jsonObj = file.data.frontMatter;
         jsonObj.body = file.contents.toString();
-
-        // Look up token values for css specs in
-        // the front-matter "meta" property
-        if (jsonObj.specs) {
-          jsonObj.specs.forEach(spec => {
-            if (idsTokensRawJsonProps[spec.spec]) {
-              Object.assign(spec, idsTokensRawJsonProps[spec.spec].value);
-            } else {
-              console.log(`Cannot find token: "${spec.spec}", skipping...`);
-            }
-          });
-        }
 
         // Write the file
         const fileName = path.parse(file.path).name;

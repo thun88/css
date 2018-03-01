@@ -24,8 +24,7 @@ module.exports = (gulp, gconfig) => {
       fs.readFileSync(`${gconfig.paths.src.root}/sitemap.yaml`, 'utf8')
     );
 
-    const idsTokensRawJson = require(helperFns.getIdsTokensPath());
-    const idsTokensByCategory = groupTokensByCategory(idsTokensRawJson.props);
+    const idsTokensByCategory = groupTokensByCategory(helperFns.getIdsTokensProperties());
 
     const inlineIcons = fs.readFileSync(`${gconfig.paths.src.packages}/${gconfig.project.prefix}-icon/dist/${gconfig.project.prefix}-icons.svg`, 'utf-8');
 
@@ -99,13 +98,11 @@ module.exports = (gulp, gconfig) => {
 
     for (let key in tokens) {
       let category = tokens[key].category;
-
       tokens[key].description = toTitleCase(dashesToSpaces(tokens[key].name));
 
       if (!grouped.hasOwnProperty(category)) {
         grouped[category] = [];
       }
-
       grouped[category].push(tokens[key]);
     }
     return grouped;
