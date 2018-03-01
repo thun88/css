@@ -198,7 +198,6 @@ code {
   border: 1px solid #e1e8e8;
   border-radius: 0.25rem 0.25rem 0 0;
   color: #6b6e76;
-  font-family: var(--font-family-monospace);
   padding: 0 4px;
 }
 
