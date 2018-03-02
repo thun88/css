@@ -15,10 +15,7 @@
   font-weight: var(--font-weight-bold);
   height: var(--button-height);
   line-height: 1;
-  padding-bottom: calc((var(--button-height) - var(--font-size-base)) / 2);
-  padding-left: var(--button-padding-x);
-  padding-right: var(--button-padding-x);
-  padding-top: calc((var(--button-height) - var(--font-size-base)) / 2);
+  padding: calc((var(--button-height) - var(--font-size-base)) / 2) var(--button-padding-x);
   text-align: center;
   text-decoration: none;
   text-transform: capitalize;
