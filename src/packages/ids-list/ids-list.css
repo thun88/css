@@ -24,12 +24,11 @@
   }
 
   & a.ids-list--item--selected {
-    background-color: var(--color-primary);
-    color: var(--color-primary-contrast);
+    background-color: var(--list-selected-color);
   }
 
   &.ids-list--hover {
-    & a.ids-list--item:hover:not(.ids-list--item--selected) {
+    & a.ids-list--item:hover {
       background-color: var(--list-hover-color);
     }
   }
