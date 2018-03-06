@@ -3,7 +3,7 @@
   display: inline-block;
   fill: var(--icon-fill);
   height: var(--icon-height);
-  padding: var(--icon-padding-y) var(--icon-padding-x);
+  padding: 0;
   position: relative;
   vertical-align: top;
   width: var(--icon-width);
