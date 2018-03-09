@@ -3,7 +3,7 @@ sections:
   slug: index
 - name: Release Notes
   slug: release-notes
-- name: Page Structure
+- name: Layout
   pages:
   - name: Adaptive
     slug: adaptive
