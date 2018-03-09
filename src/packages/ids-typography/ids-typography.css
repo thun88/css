@@ -214,5 +214,6 @@ pre > code pre {
   border-radius: 0.25rem 0.25rem 0 0;
   line-height: 32px;
   line-height: 2rem;
+  overflow-x: scroll;
   padding: 15px;
 }
