@@ -3,18 +3,18 @@ sections:
   slug: index
 - name: Release Notes
   slug: release-notes
-- name: Layout
-  pages:
-  - name: Adaptive
-    slug: adaptive
-  - name: Responsive Grid
-    slug: grid
 - name: Identity
   pages:
   - name: Icons
     slug: icon
   - name: Typography
     slug: typography
+- name: Layout
+  pages:
+  - name: Adaptive
+    slug: adaptive
+  - name: Responsive Grid
+    slug: grid
 - name: Components
   pages:
   - name: Elements
