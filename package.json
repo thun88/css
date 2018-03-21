@@ -1,7 +1,7 @@
 {
   "private": true,
   "devDependencies": {
-    "@infor/ids-tokens": "^1.0.0-beta.2",
+    "@infor/ids-tokens": "^1.0.0-beta.3",
     "ajv": "^5.5.2",
     "browser-sync": "^2.23.5",
     "cssnano": "^3.10.0",

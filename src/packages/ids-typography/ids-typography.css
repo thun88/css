@@ -54,15 +54,31 @@ h1,
 h2,
 .ids-header--secondary {
   font-size: var(--font-size-lg);
+  line-height: 1.5;
   margin-bottom: calc(var(--spacing-base) * 2);
   margin-top: calc(var(--spacing-base) * 3);
+}
+
+h3 {
+  font-size: var(--font-size-md);
+  line-height: 1.6;
+}
+
+h4 {
+  font-size: var(--font-size-base);
+  line-height: 1.5;
+}
+
+h5,
+h6 {
+  font-size: var(--font-size-sm);
+  line-height: 1.7;
 }
 
 h3,
 h4,
 h5,
 h6 {
-  font-size: var(--font-size-base);
   font-weight: var(--font-weight-bold);
   margin-bottom: calc(var(--spacing-base) * 2);
   margin-top: calc(var(--spacing-base) * 2);
