@@ -97,3 +97,11 @@ gulp.task('css:lint', ['src:css:lint', 'site:css:lint']);
 gulp.task('src:compile', ['src:css:compile']);
 gulp.task('site:compile', ['site:css:compile', 'src:md:compile']);
 gulp.task('demo:compile', ['demo:css:compile']);
+
+
+// -------------------------------------
+//   Mac/Sketch users should only use this
+//   when the sketch files have been
+//   updated or changed!
+// -------------------------------------
+gulp.task('generate:svgs', ['sketch:to:svgs']);
