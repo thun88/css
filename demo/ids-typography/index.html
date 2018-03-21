@@ -13,49 +13,27 @@
 </head>
 
 <body class="ids-container">
-  <h1>Primary Header</h1>
-  <h2>Secondary Header</h2>
-  <div>Base Text</div>
-  <small>Small Text</small>
+  <h1>h1.This is a header</h1>
+  <h2>h2.This is a header</h2>
+  <h3>h3.This is a header</h3>
+  <h4>h4.This is a header</h4>
+  <h5>h5.This is a header</h5>
+  <h6>h6.This is a header</h6>
+  <p>This is a simple paragraph</p>
+  <p>This is a paragraph with <small>small text inside of it</small>.</p>
 
-  <hr>
+  <p>This a long, multiline paragraph with lorem ipsum. Donec id elit non mi porta gravida at eget metus. Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Nullam id dolor id nibh ultricies vehicula ut id elit. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p>
 
-  <h2>Plain List</h2>
-  <ul class="ids-list--plain">
-    <li>One</li>
-    <li>Two</li>
-    <li>Nested (no indent)
-      <ul class="ids-list--plain">
-        <li>Sub One</li>
-        <li>Sub Two</li>
-      </ul>
-    </li></li>
-  </ul>
-
-  <h2>Ordered List</h2>
-  <ol>
-    <li>One</li>
-    <li>Two</li>
-    <li>
-      Nested
-      <ol>
-        <li>Sub One</li>
-        <li>Sub Two</li>
-      </ol>
-    </li>
-  </ol>
-
-  <h2>Unordered List</h2>
-  <ul>
-    <li>One</li>
-    <li>Two</li>
-    <li>
-      Nested
-      <ul>
-        <li>Sub One</li>
-        <li>Sub Two</li>
-      </ul>
-    </li>
-  </ul>
+  <script src="http://files.keyes.ie/things/baseliner/baseliner-latest.min.js"></script>
+  <script>
+    window.onload = () => {
+      baseliner = new Baseliner({
+        'gridColor': 'red',
+        'gridHeight': 8,
+        'gridOffset': 0,
+        'gridSpace': 5
+      });
+    }
+  </script>
 </body>
 </html>
