@@ -10,7 +10,7 @@ module.exports = (gulp, gconfig) => {
     const flatten = require('gulp-flatten');
     const frontMatter = require('gulp-front-matter');
     const fs = require('fs');
-    const handlebars = require('Handlebars');
+    const handlebars = require('handlebars');
     const helperFns = require('../functions.js');
     const idsWebPackageJson = require(`../../${gconfig.paths.src.webPackageJson}`);
     const markdown = require('gulp-markdown'); // base engine is marked to match json-md-compile
@@ -70,10 +70,10 @@ module.exports = (gulp, gconfig) => {
               currentTheme: gconfig.project.idsTokensThemeName
             };
 
-            // we will pass data to the Handlebars template to create the actual HTML to use
+            // we will pass data to the handlebars template to create the actual HTML to use
             const html = template(data);
 
-            // replace the file contents with the new HTML created from the Handlebars
+            // replace the file contents with the new HTML created from the handlebars
             // template + data object that contains the HTML made from the markdown conversion
             file.contents = new Buffer(html, "utf-8");
           }))
