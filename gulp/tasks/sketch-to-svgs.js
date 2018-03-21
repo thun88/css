@@ -11,6 +11,7 @@ module.exports = (gulp, gconfig) => {
   const helperFns = require('../functions.js');
 
   gulp.task('sketch:to:svgs', () => {
+    // !! Note: sketch only works with mac !!
     return gulp.src(`${gconfig.paths.src.packages}/${gconfig.project.prefix}-icon/sketch/*.sketch`)
       .pipe(sketch({
         export: 'artboards',
@@ -18,7 +19,7 @@ module.exports = (gulp, gconfig) => {
         clean: 'yes'
       }))
       .pipe(svgmin())
-      .pipe(gulp.dest(`${gconfig.paths.src.packages}/${gconfig.project.prefix}-icon/dist/svgs`));
+      .pipe(gulp.dest(`${gconfig.paths.src.packages}/${gconfig.project.prefix}-icon/svgs`));
   });
 }
 
