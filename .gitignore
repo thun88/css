@@ -20,6 +20,12 @@ log/
 *.swp
 
 # Editor Files #
+############
 *.sublime*
 .vscode
 *.code-*
+local
+
+# Local files #
+############
+scripts/local_set_dev_vars.sh
