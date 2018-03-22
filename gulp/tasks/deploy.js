@@ -20,6 +20,7 @@ module.exports = (gulp, gconfig) => {
     let form = new formData();
     form.append('file', fs.createReadStream(`${gconfig.paths.dist.root}.zip`));
     form.append('root_path', `${idsWebPackageJson.slug}/${idsWebPackageJson.version}`);
+    form.append('post_auth_key', process.env.DOCS_API_KEY ? process.env.DOCS_API_KEY : "");
 
     gutil.log(`Attempting to publish to '${url}'`);
 
