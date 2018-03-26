@@ -3,6 +3,8 @@ title: IDS Web Components
 description: SoHo unifies the CloudSuite experience by standardizing the universal design elements like colors, text, and buttons. Infor Design System is a simple CSS library to help implement SoHo design principles with easy-to-follow and easy-to-implement rules and code.
 ---
 
+<img src="https://ids-com.s3.amazonaws.com/images/css-lib.original.png" "IDS CSS Library" />
+
 ## Getting Started
 
 The easiest way to get the Infor Design System (IDS) Web components is through `npm`.
