@@ -2,17 +2,15 @@
 title: Release Notes
 ---
 
-For more details, see [IDS releases on Github](https://github.com/infor-design/ids-css/releases).
+For more details, see [IDS releases on Github](https://github.com/infor-design/css/releases).
 
-## v0.3 - Themes and Typography
+## 1.0 - Hello World!
 
-- Adds themes and typography plus documentation
-- Fixes grid bug from 0.2
-- Site styles
-- Gulp task to test accessibility of site and examples
-
-## v0.2 - Responsive, Adaptive, Forms and Buttons
-
-* Introduces responsive, 12-column grid
-* Adds concept of "adaptive states" (more to come)
-* Pretty buttons and forms
+- Initial release! This CSS library includes the following popular components, in a lightweight CSS library:
+  - Icons and typography
+  - 12 column responsive grid
+  - Buttons, dropdown, form controls
+  - Checkboxes and radio buttons
+  - File upload input
+  - Tabs and lists
+  - Adaptive states for advanced, context-based tweaking of your application components

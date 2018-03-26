@@ -5,7 +5,7 @@ demo:
   path: /ids-typography/index.html
 system:
   category: identity
-  name: fonts-colors
+  name: typography
 tokensCategory: font
 ---
 

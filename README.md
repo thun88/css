@@ -1,18 +1,26 @@
-# [Infor Design System](#)
+# Infor Design System CSS
 
-Infor Design System is a sleek, intuitive, and powerful front-end framework for faster and easier web development.
+Infor Design System is a set of use-case driven design practices, development tools, and support documentation to create a cohesive user experience across all Infor CloudSuite applications.
 
-## Table of contents
-- [Dev Quick start](#dev-quick-start)
-- [Gulp Tasks](#other-useful-gulp-tasks)
-- [Unit Tests](#unit-tests)
-- [SVG Icons](#edit-icons)
-- [Site Directory](#site-directory)
+Lightweight, modular, extensible, this CSS library allows you to easily maintain the identity of the Infor Design System, while building or using your own functional web components.
+
+For more information about IDS CSS and the Infor Design System, see our [getting started guide for developers](https://design.infor.com/about/getting-started/developers).
+
+## Getting Started
+
+The easiest way to get the Infor Design System CSS library in your project is through `npm`.
+
+```sh
+npm install --save-dev ids-css
+```
+
+This will download the latest version of all of the assets and install in `node_modules`. Include your desired file in the `<head>` of your application or using your build mechanism, like webpack.
 
 ## Dev Quick start
-1. Pull the repo
+
+1. `git clone` the repo
 1. `cd` into the repo
-1. `npm install -g pandoc-bin gulp-cli && npm install`
+1. `npm install -g gulp-cli && npm install`
 1. `gulp dev` to build and serve
 
 ## Basic Gulp Tasks
@@ -20,7 +28,7 @@ Infor Design System is a sleek, intuitive, and powerful front-end framework for 
 - `$ gulp` - Clean and Build the site and packages
 - `$ gulp dev` - Clean, build (site & packages), and start the server
 - `$ gulp publish` - Build the markdown docs into json, zip it, then post to the server
-    - `gulp publish --site=[local|localDebug|staging]` = (Optional) The default is "local"
+    - `gulp publish --site=[local|localDebug|staging|prod]` = (Optional) The default is "local". To publish to `staging` or `prod`, you'll need an API key
 - `$ gulp lint` Lints the **src** and **site** css raw files
 - `$ gulp clean` - Remove all built files
 
@@ -30,24 +38,15 @@ Infor Design System is a sleek, intuitive, and powerful front-end framework for 
 > (it follows the folder pattern under `demo/`)
 
 ## Unit Tests
+
 You can run unit tests by doing `npm test` and they served out of the `spec` directory.
-
-## SVG Icons
-
-To add an icon start with these steps, then proceed to building (below):
-1. Add the .svg file to `src/icons/svg` folder
-1. `$ gulp svg:optimize`
-
-For building the icons
-1. `$ gulp svg:store`
-2. `$ gulp`
 
 ## Site Directory
 
 - `src` The raw files for components and icons.
 - `src/packages` The individual components (while compiled each will have it's own `dist/`)
-- `site/www` The generated files for the served website.
-- `site/css` The CSS for the site only
+- `site/www` The generated files for the local docs website
+- `site/css` The CSS for the local docs site only
 - `site/templates` The templates for generating the site html files
 - `site/www/dist` Minified stylesheets used for the site.
 - `demo` Demo of each package.
