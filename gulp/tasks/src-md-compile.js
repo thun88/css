@@ -26,7 +26,7 @@ module.exports = (gulp, gconfig) => {
 
     const idsTokensByCategory = groupTokensByCategory(helperFns.getIdsTokensProperties());
 
-    const inlineIcons = fs.readFileSync(`${gconfig.paths.src.packages}/${gconfig.project.prefix}-web/dist/${gconfig.project.prefix}-icons.svg`, 'utf-8');
+    const inlineIcons = fs.readFileSync(`${gconfig.paths.src.packages}/${gconfig.project.prefix}-css/dist/${gconfig.project.prefix}-icons.svg`, 'utf-8');
 
     registrar(handlebars, {
       bustCache: true,
@@ -35,8 +35,8 @@ module.exports = (gulp, gconfig) => {
 
     // Copy compiled styles into site/www/dist (async)
     gulp.src([
-      `${gconfig.paths.src.packages}/${gconfig.project.prefix}-web/dist/*.min.css`,
-      `${gconfig.paths.src.packages}/${gconfig.project.prefix}-web/dist/*.min.css.map`
+      `${gconfig.paths.src.packages}/${gconfig.project.prefix}-css/dist/*.min.css`,
+      `${gconfig.paths.src.packages}/${gconfig.project.prefix}-css/dist/*.min.css.map`
     ]).pipe(gulp.dest(`${gconfig.paths.site.www}/dist`));
 
     // read the template from page.hbs

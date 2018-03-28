@@ -21,8 +21,8 @@ module.exports = {
         './src/*.md',
         './src/packages/*/README.md'
       ],
-      idsWeb: './src/packages/ids-web',
-      webPackageJson: './src/packages/ids-web/package.json'
+      idsWeb: './src/packages/ids-css',
+      webPackageJson: './src/packages/ids-css/package.json'
     },
     site: {
       root:      './site',
