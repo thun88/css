@@ -8,7 +8,7 @@ description: SoHo unifies the CloudSuite experience by standardizing the univers
 The easiest way to get the Infor Design System (IDS) Web components is through `npm`.
 
 ```
-npm install @infor/ids-web --save-dev
+npm install @infor/ids-css --save-dev
 ```
 
 This will download the latest version of all of the assets and install in `node_modules`. Include your desired file in the `<head>` of your application. The `*.min.css` version should be used in production due to its smaller file size but the `.css` version might be better in development for any necessary debugging. Also we recommend using the provided `ids-reset.css` for the more consistent styling.

@@ -11,7 +11,7 @@ Note: This is currently an alpha testing package and is unsupported outside of i
 
 ## Installation
 ```
-npm install @infor/ids-web
+npm install @infor/ids-css
 ```
 
 ## Usage
@@ -19,16 +19,16 @@ npm install @infor/ids-web
 1. Link to or include either the regular or minified files into your project.
 
 ```
-node_modules/@infor/ids-web/dist/ids-reset.min.css
-node_modules/@infor/ids-web/dist/ids-reset.min.css.map
-node_modules/@infor/ids-web/dist/ids-web.min.css
-node_modules/@infor/ids-web/dist/ids-web.min.css.map
+node_modules/@infor/ids-css/dist/ids-reset.min.css
+node_modules/@infor/ids-css/dist/ids-reset.min.css.map
+node_modules/@infor/ids-css/dist/ids-css.min.css
+node_modules/@infor/ids-css/dist/ids-css.min.css.map
 ```
 
 2. Insert the `ids-icons.svg` at the top of your `<body>` and wrap them in the included `visually-hidden` class.
 ```
 <div class="visually-hidden">
-  <!-- node_modules/@infor/ids-web/dist/ids-icons.svg -->
+  <!-- node_modules/@infor/ids-css/dist/ids-icons.svg -->
 </div>
 ```
 

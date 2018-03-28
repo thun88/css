@@ -6,7 +6,7 @@
 module.exports = (gulp, gconfig) => {
 
   gulp.task('site:css:compile', () => {
-   return gulp.src(`${gconfig.paths.src.packages}/ids-web/dist/*.min.css*`)
+   return gulp.src(`${gconfig.paths.src.packages}/ids-css/dist/*.min.css*`)
     .pipe(gulp.dest(`${gconfig.paths.site.www}/dist`));
   });
 }

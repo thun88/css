@@ -1,23 +1,22 @@
 {
-  "name": "@infor/ids-web",
-  "slug": "ids-web",
-  "version": "1.0.0-beta.8",
+  "name": "@infor/ids-css",
+  "slug": "ids-css",
+  "version": "1.0.0-alpha.1",
   "description": "Infor Design System (IDS) Compnonents for the web",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/infor-design/ids-web.git"
+    "url": "git+https://github.com/infor-design/ids-css.git"
   },
   "keywords": [
-    "ids",
     "infor design system",
-    "styles"
+    "infor design system css"
   ],
   "author": "Hook & Loop",
   "license": "UNLICENSED",
   "bugs": {
-    "url": "https://github.com/infor-design/ids-web/issues"
+    "url": "https://github.com/infor-design/ids-css/issues"
   },
-  "homepage": "https://github.com/infor-design/ids-web/blob/0.x/src/packages/ids-adaptive#readme",
+  "homepage": "https://github.com/infor-design/ids-css/blob/0.x/src/packages/ids-adaptive#readme",
   "scripts": {
     "prepublishOnly": "gulp",
     "test": "echo \"Error: no test specified\" && exit 1"

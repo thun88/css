@@ -14,7 +14,7 @@ module.exports = (gulp, gconfig) => {
 
   gulp.task('svg:store', () => {
     const svgIcons = gconfig.paths.idsIdentity.icons;
-    const webPkg = `${gconfig.paths.src.packages}/${gconfig.project.prefix}-web`;
+    const webPkg = `${gconfig.paths.src.packages}/${gconfig.project.prefix}-css`;
 
     const template = handlebars.compile(``);
     let iconsNameArr = [];
