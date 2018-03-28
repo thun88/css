@@ -42,6 +42,10 @@ module.exports = (gulp, gconfig) => {
       `${gconfig.paths.src.packages}/*/css/*.css`
     ];
 
+    const iconFiles = [
+      `${gconfig.paths.src.packages}/ids-icon/readme.hbs`,
+    ]
+
     const changeEvent = (evt) => {
       gutil.log('File', gutil.colors.cyan(evt.path.replace(process.cwd(), '')), 'was', gutil.colors.magenta(evt.type));
     };
@@ -63,6 +67,12 @@ module.exports = (gulp, gconfig) => {
       .on('change', (evt) => {
         changeEvent(evt);
       });
+
+    gulp
+      .watch(iconFiles, ['watch-icons'])
+      .on('change', (evt) => {
+        changeEvent(evt);
+      });
   });
 
   gulp.task('watch-demo', (done) => {
@@ -75,6 +85,10 @@ module.exports = (gulp, gconfig) => {
 
   gulp.task('watch-packages', (done) => {
     runSequence('src:compile', 'site:compile', 'browser:reload', done);
+  });
+
+  gulp.task('watch-icons', (done) => {
+    runSequence('svg:store', 'src:compile', 'site:compile', 'browser:reload', done);
   });
 
   gulp.task('browser:reload', (done) => {

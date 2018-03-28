@@ -14,12 +14,12 @@ module.exports.createFileNameFromFolder = filePath => {
 
 /**
  * Return the full path to a specific token type
- * @param  {String} format - Corresponding extension for ids-tokens
+ * @param  {String} format - Corresponding extension for ids-identity
  * @return {String} - The full path
  */
 module.exports.getIdsTokensPath = (format = 'raw.json') => {
   const gconfig = require('./gulp-config.js');
-  return `${gconfig.paths.idsTokensWeb.root}/${gconfig.project.idsTokensThemeName}.${format}`
+  return `${gconfig.paths.idsIdentity.tokens}/${gconfig.project.idsTokensThemeName}.${format}`
 };
 
 

@@ -219,6 +219,7 @@ pre > code {
   border: none;
   font-size: inherit;
   padding: 0;
+  white-space: normal;
 }
 
 pre > code pre {

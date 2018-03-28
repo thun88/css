@@ -58,8 +58,6 @@ require(`${gconfig.paths.tasks}/site-css-lint.js`)(gulp, gconfig);
 require(`${gconfig.paths.tasks}/src-css-compile.js`)(gulp, gconfig, postCssPlugins);
 require(`${gconfig.paths.tasks}/src-css-lint.js`)(gulp, gconfig);
 require(`${gconfig.paths.tasks}/src-md-compile.js`)(gulp, gconfig);
-
-require(`${gconfig.paths.tasks}/sketch-to-svgs.js`)(gulp, gconfig);
 require(`${gconfig.paths.tasks}/svg-store.js`)(gulp, gconfig);
 
 
@@ -86,7 +84,7 @@ gulp.task('dev', ['clean'], (done) => {
 });
 
 gulp.task('publish', (done) => {
-  runSequence('clean', 'src:css:lint', 'demo:compile', 'build', 'deploy', done);
+  runSequence('clean', 'src:css:lint', 'svg:store', 'demo:compile', 'build', 'deploy', done);
 });
 
 
@@ -97,11 +95,3 @@ gulp.task('css:lint', ['src:css:lint', 'site:css:lint']);
 gulp.task('src:compile', ['src:css:compile']);
 gulp.task('site:compile', ['site:css:compile', 'src:md:compile']);
 gulp.task('demo:compile', ['demo:css:compile']);
-
-
-// -------------------------------------
-//   Mac/Sketch users should only use this
-//   when the sketch files have been
-//   updated or changed!
-// -------------------------------------
-gulp.task('generate:svgs', ['sketch:to:svgs']);

@@ -12,7 +12,7 @@ module.exports = {
       root: './publish',
       docs: './publish/docs',
       demo: './publish/demo',
-      idsTokens: './publish/ids-tokens'
+      idsTokens: './publish/ids-identity'
     },
     src: {
       root:     './src',
@@ -29,8 +29,11 @@ module.exports = {
       templates: './site/templates',
       www:       './site/www'
     },
-    idsTokensWeb: {
-      root: `${process.cwd()}/node_modules/@infor/ids-tokens/platforms/web`
+    idsIdentity: {
+      root: `${process.cwd()}/node_modules/@infor/ids-identity/dist`,
+      tokens: `${process.cwd()}/node_modules/@infor/ids-identity/dist/tokens/web`,
+      icons: `${process.cwd()}/node_modules/@infor/ids-identity/dist/icons`,
+      font: `${process.cwd()}/node_modules/@infor/ids-identity/dist/font`
     },
     tasks: './gulp/tasks'
   },
