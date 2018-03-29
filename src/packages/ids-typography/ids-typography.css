@@ -59,7 +59,8 @@ h2,
   margin-top: calc(var(--spacing-base) * 3);
 }
 
-h3 {
+h3,
+.ids-header--tertiary {
   font-size: var(--font-size-md);
   line-height: 1.6;
 }

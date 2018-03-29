@@ -1,7 +1,6 @@
 {
   "private": true,
   "devDependencies": {
-    "@infor/ids-identity": "^1.0.0-beta.9",
     "ajv": "^5.5.2",
     "browser-sync": "^2.23.5",
     "cssnano": "^3.10.0",
@@ -28,6 +27,7 @@
     "gulp-zip": "^4.1.0",
     "handlebars": "^4.0.11",
     "handlebars-registrar": "^1.5.2",
+    "ids-identity": "^1.0.0",
     "lost": "^8.2.1",
     "marked": "^0.3.19",
     "postcss-at-rules-variables": "^0.1.4",
