@@ -1,18 +1,20 @@
----
-title: Infor Design System Web Components
-description: Infor Design System components for the web
----
+# Infor Design System CSS
 
-## Infor Design System Web Components
+Infor Design System is a set of use-case driven design practices, development tools, and support documentation to create a cohesive user experience across all Infor CloudSuite applications.
 
-This package contains the master library for Infor Design System Web Components. It simply wraps all of its sibling packages up into one all-inclusive library for convenience.
+Lightweight, modular, extensible, this CSS library allows you to easily maintain the identity of the Infor Design System, while building or using your own functional web components.
 
-## Installation
+For more information about IDS CSS and the Infor Design System, see our [getting started guide for developers](https://design.infor.com/about/getting-started/developers).
+
+## Getting Started
+
+The easiest way to get the Infor Design System CSS library in your project is through `npm`.
+
+```sh
+npm install --save-dev @infor/ids-css
 ```
-npm install @infor/ids-css
-```
 
-## Usage
+This will download the latest version of all of the assets and install in `node_modules/@infor/ids-css`. Include your desired file in the `<head>` of your application or using your build mechanism, like webpack.
 
 1. Link to or include either the regular or minified files into your project.
 
@@ -31,5 +33,3 @@ node_modules/@infor/ids-css/dist/ids-css.min.css.map
 ```
 
 We recommend you use the included `ids-reset.css` stylesheet, but you do not have to.
-
-If you use a compiler and want to take advantage of the IDS custom properties, they are included at the beginning of the unminified version. Note that custom properties aren't fully adopted by all browsers (cough IE) so its best to have them replace with their value in your compiling process. We use PostCSS CssNext to do so.
