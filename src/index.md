@@ -13,10 +13,10 @@ Check out the [CSS library on Github](https://github.com/infor-design/css).
 The easiest way to get the Infor Design System CSS library is through `npm`.
 
 ```sh
-npm install --save-dev ids-css
+npm install --save-dev @infor/ids-css
 ```
 
-This will download the latest version of all of the assets and install in `node_modules`. Include your desired file in the `<head>` of your application or using your build mechanism, like webpack. The `*.min.css` version should be used in production due to its smaller file size but the `.css` version might be better in development for any necessary debugging. Also we recommend using the provided `ids-reset.css` for the more consistent styling.
+This will download the latest version of all of the assets and install in `node_modules/@infor/ids-css`. Include your desired file in the `<head>` of your application or using your build mechanism, like webpack. The `*.min.css` version should be used in production due to its smaller file size but the `.css` version might be better in development for any necessary debugging. Also we recommend using the provided `ids-reset.css` for the more consistent styling.
 
 ## Recent Changes
 

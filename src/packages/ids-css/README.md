@@ -7,8 +7,6 @@ description: Infor Design System components for the web
 
 This package contains the master library for Infor Design System Web Components. It simply wraps all of its sibling packages up into one all-inclusive library for convenience.
 
-Note: This is currently an alpha testing package and is unsupported outside of internal Hook & Loop systems, but a sign of things to come :)
-
 ## Installation
 ```
 npm install @infor/ids-css
