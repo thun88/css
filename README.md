@@ -14,7 +14,7 @@ The easiest way to get the Infor Design System CSS library in your project is th
 npm install --save-dev ids-css
 ```
 
-This will download the latest version of all of the assets and install in `node_modules/@infor/ids-css`. Include your desired file in the `<head>` of your application or using your build mechanism, like webpack.
+This will download the latest version of all of the assets and install in `node_modules/ids-css`. Include your desired file in the `<head>` of your application or using your build mechanism, like webpack.
 
 ## Dev Quick start
 
