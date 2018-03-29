@@ -38,7 +38,7 @@ module.exports = (gulp, gconfig, publishDocObj) => {
 
     idsTokensRawJson.meta = {
       themeName: gconfig.project.idsTokensThemeName,
-      version: pkgJson.devDependencies["@infor/ids-identity"],
+      version: pkgJson.devDependencies["ids-identity"],
       publishedAt: new Date()
     }
 

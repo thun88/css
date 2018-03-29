@@ -30,10 +30,10 @@ module.exports = {
       www:       './site/www'
     },
     idsIdentity: {
-      root: `${process.cwd()}/node_modules/@infor/ids-identity/dist`,
-      tokens: `${process.cwd()}/node_modules/@infor/ids-identity/dist/tokens/web`,
-      icons: `${process.cwd()}/node_modules/@infor/ids-identity/dist/icons`,
-      font: `${process.cwd()}/node_modules/@infor/ids-identity/dist/font`
+      root: `${process.cwd()}/node_modules/ids-identity/dist`,
+      tokens: `${process.cwd()}/node_modules/ids-identity/dist/tokens/web`,
+      icons: `${process.cwd()}/node_modules/ids-identity/dist/icons`,
+      font: `${process.cwd()}/node_modules/ids-identity/dist/font`
     },
     tasks: './gulp/tasks'
   },
