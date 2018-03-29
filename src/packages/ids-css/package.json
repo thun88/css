@@ -1,5 +1,6 @@
 {
-  "name": "ids-css",
+  "name": "@infor/ids-css",
+  "slug": "ids-css",
   "version": "1.0.0",
   "description": "Infor Design System (IDS) Compnonents for the web",
   "repository": {
