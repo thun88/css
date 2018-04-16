@@ -20,8 +20,10 @@ This will download the latest version of all of the assets and install in `node_
 
 1. `git clone` the repo
 1. `cd` into the repo
+1. Switch to the branch you want to branch from
+    - this will typically be `develop`
 1. `npm install -g gulp-cli && npm install`
-1. `gulp dev` to build and serve
+1. `gulp dev` to build and serve on http://localhost:3000
 
 ## Basic Gulp Tasks
 
@@ -37,9 +39,9 @@ This will download the latest version of all of the assets and install in `node_
 > Demos are at `http://localhost:3000/ids-{package}/{package}`
 > (it follows the folder pattern under `demo/`)
 
-## Unit Tests
+## Testing/Linting
 
-You can run unit tests by doing `npm test` and they served out of the `spec` directory.
+You can run tests by doing `npm test`.
 
 ## Site Directory
 
