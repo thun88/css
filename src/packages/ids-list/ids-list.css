@@ -18,6 +18,13 @@
     }
   }
 
+  & .ids-list--heading {
+    background-color: transparent;
+    color: var(--text-color-muted);
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-normal);
+  }
+
   & a.ids-list--item {
     color: var(--button-link-text-color);
     text-decoration: none;
