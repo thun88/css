@@ -28,4 +28,4 @@ Visit the [release notes](./release-notes.html) for this release.
 
 Infor Design System (IDS) is a continuation of the SoHo user experience. By having standard colors, text, and basic elements like form fields and buttons, each Infor application can share an identity. This CSS library is styles-only, powered by CSS and using a very generic architecture so that it's easy for any Infor application to use.
 
-The IDS enterprise components (formerly known as SoHo) add functionality to the basics styles of SoHo giving you a lot of functionality out-of-the box. IDS is a lightweight implementation of the design system's basic design principles while the enterprise omponents are a more feature-rich toolkit of common patterns which you can "drop in" to your Infor application.
+The IDS enterprise components (formerly known as SoHo) add functionality to the basics styles of SoHo giving you a lot of functionality out-of-the box. IDS is a lightweight implementation of the design system's basic design principles while the enterprise components are a more feature-rich toolkit of common patterns which you can "drop in" to your Infor application.
