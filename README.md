@@ -25,14 +25,17 @@ This will download the latest version of all of the assets and install in `node_
 1. `npm install -g gulp-cli && npm install`
 1. `gulp dev` to build and serve on http://localhost:3000
 
+## NPM Tasks
+- `npm start` - Calls `gulp dev` but did this for consistency across repos
+
 ## Basic Gulp Tasks
 
-- `$ gulp` - Clean and Build the site and packages
-- `$ gulp dev` - Clean, build (site & packages), and start the server
-- `$ gulp publish` - Build the markdown docs into json, zip it, then post to the server
+- `gulp` - Clean and Build the site and packages
+- `gulp dev` - Clean, build (site & packages), and start the server
+- `gulp publish` - Build the markdown docs into json, zip it, then post to the server
     - `gulp publish --site=[local|localDebug|staging|prod]` = (Optional) The default is "local". To publish to `staging` or `prod`, you'll need an API key
-- `$ gulp lint` Lints the **src** and **site** css raw files
-- `$ gulp clean` - Remove all built files
+- `gulp lint` Lints the **src** and **site** css raw files
+- `gulp clean` - Remove all built files
 
 > The website is served at `http://localhost:3000/`
 >
