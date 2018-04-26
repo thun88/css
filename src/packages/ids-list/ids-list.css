@@ -59,7 +59,7 @@
 .ids-list--heading {
   background-color: var(--list-hover-color);
   display: block;
-  font-size: var(--font-size-base);
+  font-size: var(--font-size-sm);
   font-weight: var(--font-weight-bold);
   margin: 0;
   padding: calc(var(--spacing-base) * 2);
