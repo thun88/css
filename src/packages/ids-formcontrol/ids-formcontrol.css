@@ -135,3 +135,12 @@ select.ids-form-control {
     }
   }
 }
+
+.ids-form-controls--horizontal {
+  align-items: flex-start;
+  display: flex;
+
+  & .ids-form-control {
+    margin-right: calc(var(--spacing-base) * 2);
+  }
+}
