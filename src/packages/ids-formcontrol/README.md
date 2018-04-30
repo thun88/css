@@ -109,3 +109,15 @@ Infor Design System includes validation styles for errors on form controls. To u
     <div class="ids-info-block">Required</div>
 </div>
 ```
+
+### Horizontal
+
+```html
+<div class="ids-form-group">
+  <label for="text-normal-4">Horizontal Input and Button</label>
+  <div class="ids-form-controls--horizontal">
+    <input type="text" value="" class="ids-form-control" id="text-normal-4">
+    <button class="ids-btn ids-btn--primary">Submit</button>
+  </div>
+</div>
+```

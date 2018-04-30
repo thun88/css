@@ -137,10 +137,10 @@ select.ids-form-control {
 }
 
 .ids-form-controls--horizontal {
-  align-items: center;
+  align-items: flex-start;
   display: flex;
 
   & .ids-form-control {
-    margin-right: 16px;
+    margin-right: calc(var(--spacing-base) * 2);
   }
 }
