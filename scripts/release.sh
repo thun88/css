@@ -24,7 +24,7 @@ while getopts "v:bdnt" opt; do
       CAN_PUBLISH_TAG_TO_GITHUB='true'
       ;;
     *)
-      echo "Invalid falg: -$opt"
+      echo "Invalid flag: -$opt"
       ;;
   esac
 done

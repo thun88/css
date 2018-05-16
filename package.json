@@ -3,6 +3,7 @@
   "devDependencies": {
     "ajv": "^5.5.2",
     "browser-sync": "^2.23.5",
+    "browserslist": "^3.2.7",
     "cssnano": "^3.10.0",
     "del": "^3.0.0",
     "form-data": "^2.3.2",
@@ -37,14 +38,18 @@
     "postcss-import": "^11.1.0",
     "postcss-mixins": "^6.2.0",
     "pygmentize-bundled": "^2.3.0",
+    "release-it": "^7.4.5",
     "run-sequence": "^2.2.1",
     "stylelint": "^8.4.0",
     "stylelint-order": "^0.8.1",
     "vinyl-named": "^1.1.0"
   },
   "scripts": {
-    "start": "gulp dev",
-    "test": "gulp css:lint"
+    "build": "npx gulp",
+    "start": "npx gulp dev",
+    "test": "npx gulp css:lint",
+    "release": "release-it",
+    "publish-documentation": "npx gulp publish"
   },
   "browserslist": [
     "> 1%",
