@@ -18,7 +18,7 @@
   },
   "homepage": "https://github.com/infor-design/css",
   "scripts": {
-    "prepublishOnly": "gulp",
+    "prepublishOnly": "cd ../../../ && npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "files": [
