@@ -5,20 +5,20 @@
  */
 
 .ids-btn {
-  border: 0;
-  border-radius: 2px;
+  border: var(--button-border);
+  border-radius: var(--button-border-radius);
   cursor: pointer;
   display: inline-block;
-  font-family: var(--font-family-base);
-  font-size: var(--font-size-base);
+  font-family: var(--button-font-family);
+  font-size: var(--button-font-size);
   -webkit-font-smoothing: antialiased;
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--button-font-weight);
   height: var(--button-height);
-  line-height: 1;
+  line-height: var(--button-line-height);
   padding: calc((var(--button-height) - var(--font-size-base)) / 2) var(--button-padding-x);
-  text-align: center;
-  text-decoration: none;
-  text-transform: capitalize;
+  text-align: var(--button-text-align);
+  text-decoration: var(--button-text-decoration);
+  text-transform: var(--button-text-transform);
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
@@ -30,7 +30,7 @@
 
   &:focus,
   &.has-focus {
-    box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--color-primary);
+    box-shadow: var(--button-focus-box-shadow);
     outline: 0;
   }
 
@@ -81,10 +81,10 @@
     color: var(--button-link-text-color);
 
     &:hover {
-      color: var(--body-text-color);
+      color: var(--button-link-hover-text-color);
 
       & .ids-icon {
-        fill: var(--body-text-color);
+        fill: var(--button-link-hover-text-color);
       }
 
       &[disabled] {
@@ -94,7 +94,7 @@
 
     &:focus,
     &.has-focus {
-      box-shadow: 0 0 0 2px #f0f0f0, 0 0 0 3px var(--color-primary);
+      box-shadow: var(--button-focus-box-shadow);
       outline: 0;
     }
 
