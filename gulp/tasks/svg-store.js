@@ -31,7 +31,7 @@ module.exports = (gulp, gconfig) => {
           }))
           .pipe(svgstore({ inlineSvg: true }))
           .pipe(rename(`${gconfig.project.prefix}-icons.svg`))
-          .pipe(gulp.dest(`${gconfig.paths.idsCssPackage}/dist`));
+          .pipe(gulp.dest(`${gconfig.paths.idsCssPackage}`));
         }))
 
       // Run the array of icon names though the template

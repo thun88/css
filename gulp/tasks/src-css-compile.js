@@ -34,9 +34,6 @@ module.exports = (gulp, gconfig, postCssPlugins) => {
       .pipe(sourcemaps.init())
         .pipe(postcss(plugins))
       .pipe(sourcemaps.write('.'))
-      .pipe(rename((path) => {
-        path.dirname += '/dist';
-      }))
       .pipe(gulp.dest(gconfig.paths.idsCssPackage))
 
       // minify css (only .css, not .maps)

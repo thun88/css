@@ -3,7 +3,7 @@
 site/www/*.html
 site/www/dist
 demo/**/dist/*
-ids-css/dist
+dist
 publish
 src/packages/**/dist/*
 *.zip

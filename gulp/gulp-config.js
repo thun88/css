@@ -34,7 +34,7 @@ module.exports = {
       font: `${process.cwd()}/node_modules/ids-identity/dist/font`
     },
     tasks: './gulp/tasks',
-    idsCssPackage: './ids-css'
+    idsCssPackage: './dist'
   },
   urls: {
     local: 'http://localhost/api/docs/',

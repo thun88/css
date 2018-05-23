@@ -79,6 +79,6 @@
     "last 2 versions"
   ],
   "files": [
-    "src/package/ids-css/dist"
+    "dist"
   ]
 }

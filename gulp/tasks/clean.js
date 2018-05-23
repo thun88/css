@@ -8,7 +8,7 @@ module.exports = (gulp, gconfig) => {
   const del = require('del');
 
   gulp.task('clean:publish', () => {
-    // published files
+    // documetation/design.infor.com files
     return del([
       gconfig.paths.dist.root,
       `${gconfig.project.zipName}.zip`
@@ -18,7 +18,7 @@ module.exports = (gulp, gconfig) => {
   gulp.task('clean:src', () => {
     return del([
       // package dist files
-      `${gconfig.paths.root}/ids-css/dist/**`,
+      `${gconfig.paths.idsCssPackage}`,
       `${gconfig.paths.src.packages}/*/dist/**`,
       `${gconfig.paths.demo}/*/dist/**`,
     ]);
