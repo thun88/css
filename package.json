@@ -28,7 +28,7 @@
     "gulp-zip": "^4.1.0",
     "handlebars": "^4.0.11",
     "handlebars-registrar": "^1.5.2",
-    "ids-identity": "^1.0.0",
+    "ids-identity": "1.0.7",
     "lost": "^8.2.1",
     "marked": "^0.3.19",
     "postcss-at-rules-variables": "^0.1.4",
