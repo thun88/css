@@ -12,7 +12,7 @@ module.exports = (gulp, gconfig) => {
     const fs = require('fs');
     const handlebars = require('handlebars');
     const helperFns = require('../functions.js');
-    const idsWebPackageJson = require(`../../${gconfig.paths.src.webPackageJson}`);
+    const idsWebPackageJson = require(`../../package.json`);
     const markdown = require('gulp-markdown'); // base engine is marked to match json-md-compile
     const registrar = require('handlebars-registrar');
     const rename  = require('gulp-rename');
@@ -26,7 +26,7 @@ module.exports = (gulp, gconfig) => {
 
     const idsTokensByCategory = groupTokensByCategory(helperFns.getIdsTokensProperties());
 
-    const inlineIcons = fs.readFileSync(`${gconfig.paths.src.packages}/${gconfig.project.prefix}-css/dist/${gconfig.project.prefix}-icons.svg`, 'utf-8');
+    const inlineIcons = fs.readFileSync(`${gconfig.paths.idsCssPackage}/${gconfig.project.prefix}-icons.svg`, 'utf-8');
 
     registrar(handlebars, {
       bustCache: true,
