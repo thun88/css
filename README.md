@@ -21,16 +21,16 @@ This will download the latest version of all of the assets and install in `node_
 1. `git clone` the repo
 1. `cd` into the repo
 1. Switch to the branch you want to branch from
-    - this will typically be `develop`
-1. `npm install -g gulp-cli && npm install`
-1. `gulp dev` to build and serve on http://localhost:3000
+    - this will typically be `master`
+1. `npm install`
+1. `npm start` to build and serve on http://localhost:3000
 
 ## NPM Tasks
 - `npm start` - Calls `gulp dev` but did this for consistency across repos
-- `npm build` - Clean and Build the site and packages
+- `npm run build` - Clean and Build the site and packages
 - `npm test` - Lints the **src** and **site** css raw files
-- `npm publish{:env}` - Build the markdown docs into json, zip it, then post to the design.infor.com server for the specified environment
-- `npm release` - Run the release process
+- `npm run publish{:env}` - Build the markdown docs into json, zip it, then post to the design.infor.com server for the specified environment
+- `npm run release` - Run the release process
 
 > The website is served at `http://localhost:3000/`
 >
