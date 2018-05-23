@@ -49,7 +49,9 @@
     "start": "npx gulp dev",
     "test": "npx gulp css:lint",
     "release": "release-it",
-    "publish-documentation": "npx gulp publish"
+    "publish-docs": "npx gulp publish",
+    "publish-docs:staging": "npx gulp publish --site=staging",
+    "publish-docs:prod": "npx gulp publish --site=prod"
   },
   "browserslist": [
     "> 1%",

@@ -6,11 +6,13 @@ module.exports = (gulp, gconfig) => {
 
   return gulp.task('deploy', () => {
 
+
     const fs = require('fs');
     const formData = require('form-data');
     const gutil = require('gulp-util');
     const idsWebPackageJson = require(`../../${gconfig.paths.src.webPackageJson}`);
     const argv = require('yargs').argv;
+    console.log(argv.site)
 
     let url = gconfig.urls.local;
     if (argv.site) {
