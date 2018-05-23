@@ -13,10 +13,10 @@ module.exports = (gulp, gconfig) => {
   const handlebars = require('handlebars');
 
   gulp.task('svg:store', () => {
+    // Get the icons from identity in node_modules
     const svgIcons = gconfig.paths.idsIdentity.icons;
-    const webPkg = `${gconfig.paths.src.packages}/${gconfig.project.prefix}-css`;
 
-    const template = handlebars.compile(``);
+    const template = handlebars.compile('');
     let iconsNameArr = [];
 
     // Stream the icons readme.hbs template
@@ -31,7 +31,7 @@ module.exports = (gulp, gconfig) => {
           }))
           .pipe(svgstore({ inlineSvg: true }))
           .pipe(rename(`${gconfig.project.prefix}-icons.svg`))
-          .pipe(gulp.dest(`${webPkg}/dist`));
+          .pipe(gulp.dest(`${gconfig.paths.idsCssPackage}`));
         }))
 
       // Run the array of icon names though the template
@@ -46,6 +46,6 @@ module.exports = (gulp, gconfig) => {
         file.extname = '.md';
       }))
       // Save the file in the icons package folder
-      .pipe(gulp.dest(`${gconfig.paths.src.packages}/ids-icon`));
+      .pipe(gulp.dest(`${gconfig.paths.src.packages}/${gconfig.project.prefix}-icon`));
   });
 }
