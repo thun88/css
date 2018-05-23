@@ -1,8 +1,9 @@
 {
-  "non-interactive": false,
-  "dry-run": false,
+  "non-interactive": true,
+  "dry-run": true,
+  "requireCleanWorkingDir": false,
   "verbose": false,
-  "pkgFiles": ["src/packages/ids-css/package.json"],
+  "pkgFiles": ["package.json"],
   "increment": "patch",
   "buildCommand": "npm run build",
   "src": {
@@ -12,7 +13,6 @@
     "afterReleaseCommand": "npm run publish-docs:prod"
   },
   "npm": {
-    "publishPath": "src/packages/ids-css",
     "tag": "latest"
   },
   "github": {

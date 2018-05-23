@@ -2,17 +2,17 @@
 module.exports = {
   project: {
     prefix: 'ids',
-    zipName: 'publish',
+    zipName: 'documentation',
     idsTokensThemeName: 'theme-default'
   },
   paths: {
     root: './',
     demo: './demo',
     dist: {
-      root: './publish',
-      docs: './publish/docs',
-      demo: './publish/demo',
-      idsTokens: './publish/ids-identity'
+      root: './documentation',
+      docs: './documentation/docs',
+      demo: './documentation/demo',
+      idsTokens: './documentation/ids-identity'
     },
     src: {
       root:     './src',
@@ -20,9 +20,7 @@ module.exports = {
       mdFiles: [
         './src/*.md',
         './src/packages/*/README.md'
-      ],
-      idsWeb: './src/packages/ids-css',
-      webPackageJson: './src/packages/ids-css/package.json'
+      ]
     },
     site: {
       root:      './site',
@@ -35,7 +33,8 @@ module.exports = {
       icons: `${process.cwd()}/node_modules/ids-identity/dist/icons`,
       font: `${process.cwd()}/node_modules/ids-identity/dist/font`
     },
-    tasks: './gulp/tasks'
+    tasks: './gulp/tasks',
+    idsCssPackage: './ids-css'
   },
   urls: {
     local: 'http://localhost/api/docs/',

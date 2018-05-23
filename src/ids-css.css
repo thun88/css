@@ -1,0 +1,19 @@
+/* Tokens */
+@import '../node_modules/ids-identity/dist/tokens/web/theme-default.custom-properties.css';
+
+/* Components */
+@import 'packages/ids-base/ids-base';
+@import 'packages/ids-button/ids-button';
+@import 'packages/ids-checkbox/ids-checkbox';
+@import 'packages/ids-fileupload/ids-fileupload';
+@import 'packages/ids-formcontrol/ids-formcontrol';
+@import 'packages/ids-icon/ids-icon';
+@import 'packages/ids-list/ids-list';
+@import 'packages/ids-grid/ids-grid';
+@import 'packages/ids-radio/ids-radio';
+@import 'packages/ids-dropdown/ids-dropdown';
+@import 'packages/ids-tab/ids-tab';
+@import 'packages/ids-typography/ids-typography';
+
+/* Utilities */
+@import 'packages/ids-adaptive/ids-adaptive';

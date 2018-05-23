@@ -2,11 +2,11 @@
 ############
 site/www/*.html
 site/www/dist
-publish
 demo/**/dist/*
+ids-css/dist
+publish
 src/packages/**/dist/*
 *.zip
-src/packages/ids-css/package-lock.json
 
 # Packages #
 ############
@@ -26,7 +26,3 @@ log/
 .vscode
 *.code-*
 local
-
-# Local files #
-############
-scripts/local_set_dev_vars.sh
