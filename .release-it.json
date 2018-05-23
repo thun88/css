@@ -12,7 +12,7 @@
     "afterReleaseCommand": "npm run publish-docs:prod"
   },
   "npm": {
-    "publishPath": "./src/packages/ids-css",
+    "publishPath": "src/packages/ids-css",
     "tag": "latest"
   },
   "github": {
