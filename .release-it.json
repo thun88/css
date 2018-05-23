@@ -1,6 +1,6 @@
 {
   "non-interactive": false,
-  "dry-run": true,
+  "dry-run": false,
   "verbose": false,
   "pkgFiles": ["src/packages/ids-css/package.json"],
   "increment": "patch",
