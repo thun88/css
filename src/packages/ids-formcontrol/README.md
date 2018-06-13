@@ -6,7 +6,6 @@ demo:
 tokensCategory: inputs
 ---
 
-
 ## Basic Example
 
 Individual form controls automatically receive some global styling. All textual `<input>`, `<textarea>`, and `<select>` elements with `.ids-form-control` are set to `width: 100%;` by default. Wrap labels and controls in `.ids-form-group` for optimum spacing.

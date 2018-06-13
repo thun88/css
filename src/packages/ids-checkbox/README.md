@@ -10,7 +10,7 @@ tokensCategory: checkboxes
 
 Checkboxes are for selecting one or several options in a list.
 
-Disabled checkboxes are supported, but to provide a "not-allowed" cursor on hover of the parent <label>, you'll need to add the `.is-disabled` class to the parent `.ids-form-checkbox`.
+Disabled checkboxes are supported, but to provide a "not-allowed" cursor on hover of the parent `<label>`, you'll need to add the `.is-disabled` class to the parent `.ids-form-checkbox`.
 
 ### Checkboxes
 
