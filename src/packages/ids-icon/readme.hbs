@@ -14,12 +14,13 @@ tokensCategory: icons
   !!CHANGES TO README.MD WILL BE OVERWRITTEN!!
   --------------------------------------------->
 
-To be able to x:link the icons into your app, you will need to copy `dist/ids-icons.svg` contents into the top of your `<body>` tag for your html pages. You can hide it with a class we proivde: `visuallyhidden`.
+To be able to `x:link` the icons into your app, you will need to copy `dist/ids-icons.svg` contents into the top of your `<body>` tag for your html pages. You can hide it with a class we proivde: `visuallyhidden`.
 
-## Examples of icon use:
+## Examples of icon use
 
-### As a standalone icon:
+### As a standalone icon
 
+<!-- markdownlint-disable MD033 -->
 <div class="example">
   <div title="icon_star icon">
     <svg class="ids-icon" focusable="false" aria-hidden="true" role="presentation">
@@ -27,6 +28,7 @@ To be able to x:link the icons into your app, you will need to copy `dist/ids-ic
     </svg>
   </div>
 </div>
+<!-- markdownlint-enable MD033 -->
 
 ```html
 <div title="icon_star icon">
@@ -36,8 +38,9 @@ To be able to x:link the icons into your app, you will need to copy `dist/ids-ic
 </div>
 ```
 
-### As an inline icon:
+### As an inline icon
 
+<!-- markdownlint-disable MD033 -->
 <div class="example">
   This icon
   <span title="icon_star icon">
@@ -47,6 +50,7 @@ To be able to x:link the icons into your app, you will need to copy `dist/ids-ic
   </span>
   has text around it.
 </div>
+<!-- markdownlint-enable MD033 -->
 
 ```html
 <span title="icon_star icon">
@@ -60,6 +64,7 @@ To be able to x:link the icons into your app, you will need to copy `dist/ids-ic
 
 The examples below are shown in buttons, as that is their most common use.
 
+<!-- markdownlint-disable MD033 -->
 {{#each icons}}
   <button type="button" class="ids-btn ids-btn--link" title="{{this}}">
     <svg class="ids-icon" focusable="false" aria-hidden="true" role="presentation">
@@ -67,3 +72,4 @@ The examples below are shown in buttons, as that is their most common use.
     </svg>
   </button>
 {{/each}}
+<!-- markdownlint-enable MD033 -->

@@ -9,10 +9,11 @@ demo:
 tokensCategory: buttons
 ---
 
-
 ## Button Tags
 
-Use the button classes on and `<a>`, `<button>`, `<input>` elements. As a best practice, we highly recommend using the `<button>` element whenever possible to ensure matching cross-browser rendering. If the `<a>` elements are used to act as buttons – triggering in-page functionality, rather than navigating to another document or section within the current page – they should also be given an appropriate `role="button"`.
+Use the button classes on and `<a>`, `<button>`, `<input>` elements. As a best practice, we highly recommend using the `<button>` element whenever
+possible to ensure matching cross-browser rendering. If the `<a>` elements are used to act as buttons – triggering in-page functionality, rather
+than navigating to another document or section within the current page – they should also be given an appropriate `role="button"`.
 
 ```html
 <a class="ids-btn ids-btn--default" href="#" role="button">Link</a>
@@ -30,7 +31,8 @@ Use any of the available button classes to quickly create a styled button.
 <button type="button" class="ids-btn ids-btn--primary">Primary</button>
 ```
 
-By default, buttons are a dynamic width and the size will be as wide as the button text, with some additional padding. Buttons can be made to extend 100% of the width of their container by using the <code>ids-btn--block</code> class.
+By default, buttons are a dynamic width and the size will be as wide as the button text, with some additional padding.
+Buttons can be made to extend 100% of the width of their container by using the `ids-btn--block` class.
 
 ## Disabled State
 

@@ -5,7 +5,6 @@ demo:
   path: /ids-fileupload/index.html
 ---
 
-
 ## Basic Example
 
 ```html

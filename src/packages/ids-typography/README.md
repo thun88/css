@@ -29,7 +29,9 @@ You can also use the classes `ids-header--primary` and `ids-header--secondary` t
 
 ## Type Utility Clases
 
+<!-- markdownlint-disable MD033 -->
 Text utility classes are provided to emulate certain type styles by applying classes. `.ids-text--muted` makes the <span class="ids-text--muted">color of text muted</span>, and `.ids-text--alert` makes text <span class="ids-text--alert">Alert Red</span>. `.ids-text--link` allows you to <span class="ids-text--link">make text a link style</span> even when it's not in an `<a>` tag. Use `.ids-text--strong` to make text <span class="ids-text--strong">strong</span>, `.ids-text--emphasis` to makes it <span class="ids-text--emphasis">emphasized</span> and `.ids-text--small` makes it <span class="ids-text--small">smaller</small>.
+<!-- markdownlint-enable MD033 -->
 
 ## Lists
 

@@ -23,9 +23,10 @@ This will download the latest version of all of the assets and install in `node_
 1. Switch to the branch you want to branch from
     - this will typically be `master`
 1. `npm install`
-1. `npm start` to build and serve on http://localhost:3000
+1. `npm start` to build and serve on <http://localhost:3000>
 
 ## NPM Tasks
+
 - `npm start` - Calls `gulp dev` but did this for consistency across repos
 - `npm run build` - Clean and Build the site and packages
 - `npm test` - Lints the **src** and **site** css raw files and markdown files
@@ -44,12 +45,12 @@ You can run tests by doing `npm test`.
 ## Site Directory
 
 - `src/` The raw files for components and icons.
-  - `packages/` The individual components (while compiled each will have it's own `dist/`)
+    - `packages/` The individual components (while compiled each will have it's own `dist/`)
 - `site/`
-  - `www/` The generated files for the local docs website
-  - `css/` The CSS for the local docs site only
-  - `templates/` The templates for generating the site html files
-  - `www/dist/` Minified stylesheets used for the site.
+    - `www/` The generated files for the local docs website
+    - `css/` The CSS for the local docs site only
+    - `templates/` The templates for generating the site html files
+    - `www/dist/` Minified stylesheets used for the site.
 - `demo` Demo of each package.
 - `gulp` Contains the gulp tasks
 - `documentation` The tmp directory the website documentation deploy/publish is done from

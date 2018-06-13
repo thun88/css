@@ -16,20 +16,23 @@ The easiest way to get the Infor Design System CSS library is through `npm`.
 npm install --save-dev ids-css
 ```
 
-This will download the latest version of all of the assets and install in `node_modules/ids-css`. Include your desired file in the `<head>` of your application or using your build mechanism, like webpack. The `*.min.css` version should be used in production due to its smaller file size but the `.css` version might be better in development for any necessary debugging. Also we recommend using the provided `ids-reset.css` for the more consistent styling.
-
+This will download the latest version of all of the assets and install in `node_modules/ids-css`.
+Include your desired file in the `<head>` of your application or using your build mechanism, like webpack.
+The `*.min.css` version should be used in production due to its smaller file size but the `.css` version might
+be better in development for any necessary debugging. Also we recommend using the provided `ids-reset.css` for the more consistent styling.
 
 1. Link to or include either the regular or minified files into your project.
 
-```
-node_modules/ids-css/dist/ids-reset.min.css
-node_modules/ids-css/dist/ids-reset.min.css.map
-node_modules/ids-css/dist/ids-css.min.css
-node_modules/ids-css/dist/ids-css.min.css.map
-```
+    ```sh
+    node_modules/ids-css/dist/ids-reset.min.css
+    node_modules/ids-css/dist/ids-reset.min.css.map
+    node_modules/ids-css/dist/ids-css.min.css
+    node_modules/ids-css/dist/ids-css.min.css.map
+    ```
 
-2. Insert the `ids-icons.svg` at the top of your `<body>` and wrap them in the included `visually-hidden` class.
-```
+1. Insert the `ids-icons.svg` at the top of your `<body>` and wrap them in the included `visually-hidden` class.
+
+```html
 <div class="visually-hidden">
   <!-- node_modules/ids-css/dist/ids-icons.svg -->
 </div>

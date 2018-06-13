@@ -9,7 +9,6 @@ system:
 tokensCategory: grid
 ---
 
-
 ## Basic Grid (Fixed)
 
 By default, the grid is fixed so that each column is 1/`N`th of the parent container where `N` is the `ids-row--col-N` number from 1 to 12. Use `.ids-row` to create a layout row wrapper and then add your rows.
@@ -51,6 +50,7 @@ Below, if you change your browser width you should see the columns stack when th
 ## Changing Layout at Breakpoints
 
 You can also use the breakpoint `col` classes `.ids-row--col-[xs|sm|md|lg|xl]-*` to define different layouts between different breakpoints. For example, below, stacked columns on XS, at SM breakpoint it changes to a two column "4|8" layout and on LG and XL it's a "3|9" layout.
+
 ```html
 <div class="ids-row">
     <div class="ids-row--col-sm-4 ids-row--col-lg-3">Column 1</div>

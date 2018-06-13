@@ -12,7 +12,9 @@ Use the class `ids-adaptive--touch` to trigger the "touch" adaptive state to the
 
 ### Forms and Form Controls
 
+<!-- markdownlint-disable MD033 -->
 The <span class="example-padding">dashed outline around the check box and radio controls</span> simply shows the increased touch target area around the control for better accessibility.
+<!-- markdownlint-enable MD033 -->
 
 ```html
 <div class="ids-adaptive--touch">
@@ -28,6 +30,7 @@ The <span class="example-padding">dashed outline around the check box and radio 
 ```
 
 The elements `input`, `select`, `radio`, and `checkbox` all support the touch adaptive state.
+
 ```html
 <div class="ids-adaptive--touch">
     <form>
