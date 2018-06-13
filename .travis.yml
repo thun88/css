@@ -7,7 +7,9 @@ sudo: required
 cache:
   directories:
     - node_modules
-before_script:
+install:
   - npm install
+before_script:
+  - npm run test
 script:
-  - npx gulp
+  - npm run build
