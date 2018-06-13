@@ -28,7 +28,7 @@ This will download the latest version of all of the assets and install in `node_
 ## NPM Tasks
 - `npm start` - Calls `gulp dev` but did this for consistency across repos
 - `npm run build` - Clean and Build the site and packages
-- `npm test` - Lints the **src** and **site** css raw files
+- `npm test` - Lints the **src** and **site** css raw files and markdown files
 - `npm run publish{:env}` - Build the markdown docs into json, zip it, then post to the design.infor.com server for the specified environment
 - `npm run release` - Run the [release process](https://github.com/webpro/release-it) (it defaults to "patch" release)
 
