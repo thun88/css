@@ -20,7 +20,9 @@
   "scripts": {
     "build": "npx gulp",
     "start": "npx gulp dev",
-    "test": "npx gulp css:lint",
+    "test": "npm run lint:css && npm run lint:md",
+    "lint:css": "npx gulp css:lint",
+    "lint:md": "npx markdownlint README.md && npx markdownlint src/packages/**/*.md",
     "release": "release-it",
     "publish-docs": "npx gulp publish",
     "publish-docs:staging": "npx gulp publish --site=staging",
@@ -57,6 +59,7 @@
     "handlebars-registrar": "^1.5.2",
     "ids-identity": "^1.0.7",
     "lost": "^8.2.1",
+    "markdownlint-cli": "^0.10.0",
     "marked": "^0.3.19",
     "postcss-at-rules-variables": "^0.1.4",
     "postcss-commas": "^1.0.0",
