@@ -1,6 +1,6 @@
 # Release CSS
 
-## Dev Releases
+## Dev Release
 
 To do a dev release, publish a dated semever to npm.
 
@@ -14,7 +14,7 @@ To do a dev release, publish a dated semever to npm.
 
 ### Documentation
 
-- Verify the [changelog](docs/changelog) is up-to-date or the contents for the github release description
+Verify the [changelog](docs/changelog) is up-to-date or the contents for the github release description
 
 ### Make sure you have [credential] setup in .gitconfig  (Windows Users Only)
 
