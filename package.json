@@ -25,11 +25,13 @@
     "mdlint": "npm run mdlint:docs && npm run mdlint:src",
     "mdlint:docs": "npx markdownlint ./README.md",
     "mdlint:src": "npx markdownlint src/ --config=src/.markdownlintrc",
-    "release": "release-it",
     "publish-docs": "npx gulp publish",
     "publish-docs:staging": "npx gulp publish --site=staging",
     "publish-docs:prod": "npx gulp publish --site=prod",
-    "prepublishOnly": "npm run build"
+    "prepublishOnly": "npm run build",
+    "release:beta": "release-it minor --preRelease=beta",
+    "release:rc": "release-it minor --preRelease=rc",
+    "release:final": "release-it minor"
   },
   "devDependencies": {
     "ajv": "^5.5.2",
