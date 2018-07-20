@@ -5,6 +5,7 @@ site/www/dist
 demo/**/dist/*
 dist
 publish
+documentation
 src/packages/**/dist/*
 *.zip
 

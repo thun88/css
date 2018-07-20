@@ -12,7 +12,6 @@ module.exports = (gulp, gconfig) => {
     const gutil = require('gulp-util');
     const idsWebPackageJson = require(`../../package.json`);
     const argv = require('yargs').argv;
-    console.log(argv.site)
 
     let url = gconfig.urls.local;
     if (argv.site) {
@@ -33,7 +32,7 @@ module.exports = (gulp, gconfig) => {
         if (res.statusCode == 200) {
           gutil.log(`Success! Status ${res.statusCode}: published to '${url}'`);
         } else {
-          gutil.log(`Failed! Status ${res.statusCode}`);
+          gutil.log(`Failed! Status ${res.statusCode}: ${res.statusMessage}`);
         }
         res.resume();
       }
