@@ -6,6 +6,7 @@
 module.exports = (gulp, gconfig) => {
 
   const svgstore = require('gulp-svgstore');
+  const cheerio = require('gulp-cheerio');
   const rename = require('gulp-rename');
   const tap = require('gulp-tap');
   const path = require('path');
@@ -30,6 +31,12 @@ module.exports = (gulp, gconfig) => {
             iconsNameArr.push(path.parse(file.path).name);
           }))
           .pipe(svgstore({ inlineSvg: true }))
+          .pipe(cheerio({
+            run: function($) {
+              $('[fill]').removeAttr('fill');
+            },
+            parseOptions: { xmlMode: false }
+          }))
           .pipe(rename(`${gconfig.project.prefix}-icons.svg`))
           .pipe(gulp.dest(`${gconfig.paths.idsCssPackage}`));
         }))
