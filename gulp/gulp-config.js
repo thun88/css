@@ -3,7 +3,7 @@ module.exports = {
   project: {
     prefix: 'ids',
     zipName: 'documentation',
-    idsTokensThemeName: 'theme-default'
+    idsTokensThemeName: 'theme-soho'
   },
   paths: {
     root: './',

@@ -45,7 +45,7 @@ module.exports = (gulp, gconfig) => {
       .pipe(tap(file => {
         const template = handlebars.compile(file.contents.toString());
         const html = template({ icons: iconsNameArr });
-        file.contents = new Buffer(html, 'utf-8');
+        file.contents = new Buffer.from(html, 'utf-8');
       }))
       // Rename it as the README.md file
       .pipe(rename(file => {
