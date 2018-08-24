@@ -27,6 +27,7 @@ module.exports = (gulp, gconfig) => {
     const idsTokensByCategory = groupTokensByCategory(helperFns.getIdsTokensProperties());
 
     const inlineIcons = fs.readFileSync(`${gconfig.paths.idsCssPackage}/${gconfig.project.prefix}-icons.svg`, 'utf-8');
+
     registrar(handlebars, {
       bustCache: true,
       helpers: `${gconfig.paths.site.templates}/helpers/*.js`
