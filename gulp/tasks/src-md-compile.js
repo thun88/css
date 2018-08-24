@@ -75,7 +75,7 @@ module.exports = (gulp, gconfig) => {
 
             // replace the file contents with the new HTML created from the handlebars
             // template + data object that contains the HTML made from the markdown conversion
-            file.contents = new Buffer(html, "utf-8");
+            file.contents = new Buffer.from(html, "utf-8");
           }))
 
           // Rename filename of package/*/readme.md files to folder name

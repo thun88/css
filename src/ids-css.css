@@ -1,5 +1,5 @@
 /* Tokens */
-@import '../node_modules/ids-identity/dist/tokens/web/theme-default.custom-properties.css';
+@import '../node_modules/ids-identity/dist/tokens/web/theme-soho.custom-properties.css';
 
 /* Components */
 @import 'packages/ids-base/ids-base';
