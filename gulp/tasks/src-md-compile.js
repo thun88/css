@@ -33,6 +33,14 @@ module.exports = (gulp, gconfig) => {
       helpers: `${gconfig.paths.site.templates}/helpers/*.js`
     });
 
+    // Setup the renderer
+    const highlightjs = require('highlight.js');
+    const renderer = new markdown.marked.Renderer();
+    markdown.marked.setOptions({
+      gfm: true,
+      renderer: gconfig.options.markdownRenderer(renderer, highlightjs),
+    });
+
     // Copy compiled styles into site/www/dist (async)
     gulp.src([
       `${gconfig.paths.src.packages}/${gconfig.project.prefix}-css/dist/*.min.css`,
@@ -55,7 +63,7 @@ module.exports = (gulp, gconfig) => {
           }))
 
           // convert from markdown and add syntax highlighting
-          .pipe(markdown(gconfig.options.marked))
+          .pipe(markdown())
 
           .pipe(tap(file => {
             // file is the converted HTML from the markdown

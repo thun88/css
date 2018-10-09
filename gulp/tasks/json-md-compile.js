@@ -10,18 +10,18 @@ module.exports = (gulp, gconfig, publishDocObj) => {
   const markdown = require('gulp-markdown'); // base engine is marked to match json-md-compile
   const rename  = require('gulp-rename');
   const path = require('path');
-  const pkgJson  = require('../../package.json');
   const tap = require('gulp-tap');
 
-   // Use the same engine gulp-markdown uses in src:md:compile
-   // to keep ouput the same
-  const marked = require('marked');
+  // Setup the renderer
+  const highlightjs = require('highlight.js');
+  const renderer = new markdown.marked.Renderer();
+  markdown.marked.setOptions({
+    gfm: true,
+    renderer: gconfig.options.markdownRenderer(renderer, highlightjs),
+  });
 
   gulp.task('json:md:compile', () => {
-
-    marked.setOptions(gconfig.options.marked);
-
-        // Create folders if needed
+    // Create folders if needed
     if (!fs.existsSync(gconfig.paths.dist.root)) {
       fs.mkdirSync(gconfig.paths.dist.root);
     }
@@ -45,7 +45,7 @@ module.exports = (gulp, gconfig, publishDocObj) => {
       }))
 
       // Parse and highlight code snippets
-      .pipe(markdown(gconfig.options.marked))
+      .pipe(markdown())
 
       // Build out the json
       .pipe(tap((file) => {

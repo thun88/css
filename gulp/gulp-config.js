@@ -8,6 +8,7 @@ module.exports = {
   paths: {
     root: './',
     demo: './demo',
+    node_modules: `${process.cwd()}/node_modules`,
     dist: {
       root: './documentation',
       docs: './documentation/docs',
@@ -43,13 +44,16 @@ module.exports = {
     prod: 'https://design.infor.com/api/docs/'
   },
   options: {
-    marked: {
-      gfm: true,
-      highlight: function (code, lang, callback) {
-        return require('pygmentize-bundled')({ lang: lang, format: 'html' }, code, function (err, result) {
-          callback(err, result.toString());
-        });
-      }
+    markdownRenderer: (renderer, highlightjs) => {
+      renderer.code = (code, language) => {
+        // Check whether the given language is valid for highlight.js.
+        const validLang = !!(language && highlightjs.getLanguage(language));
+        // Highlight only if the language is valid.
+        const highlighted = validLang ? highlightjs.highlight(language, code).value : code;
+        // Render the highlighted code with `hljs` class.
+        return `<pre><code class="hljs ${language}">${highlighted}</code></pre>`;
+      };
+      return renderer;
     },
     stylelint: {
       failAfterError: true,
