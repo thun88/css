@@ -3,11 +3,11 @@
 }
 
 .ids-tabs--horizontal {
-  border-bottom: solid 1px var(--color-default);
+  border-bottom: solid 1px var(--color-brand-default-base);
   display: block;
 
   & .ids-tabs--tab {
-    color: var(--text-color-info);
+    color: var(--color-font-info);
     display: inline-block;
     margin: 0 10px 0 0;
     max-width: 150px;
@@ -33,26 +33,26 @@
     }
 
     &:hover:not(.ids-tabs--tab--disabled) {
-      color: var(--body-text-color);
+      color: var(--body-color-primary-font);
       text-decoration: none;
 
       &::before {
-        background-color: var(--body-text-color);
+        background-color: var(--body-color-primary-font);
         width: 100%;
       }
     }
 
     &.ids-tabs--tab--active {
-      color: var(--color-primary);
+      color: var(--color-brand-primary-base);
 
       &::before {
-        background-color: var(--color-primary);
+        background-color: var(--color-brand-primary-base);
         width: 100%;
       }
     }
 
     &.ids-tabs--tab--disabled {
-      color: var(--color-default-alt);
+      color: var(--color-brand-default-alt);
 
       &:hover {
         cursor: not-allowed;
@@ -62,7 +62,7 @@
 }
 
 .ids-tabs--vertical {
-  background-color: var(--body-bg-color-primary);
+  background-color: var(--body-color-primary-background);
   display: block;
 
   & .ids-tabs--tab {
@@ -76,12 +76,12 @@
     }
 
     &.ids-tabs--tab--active {
-      background-color: var(--color-primary);
+      background-color: var(--color-brand-primary-base);
       color: #fff;
     }
 
     &.ids-tabs--tab--disabled {
-      color: var(--color-default-alt);
+      color: var(--color-brand-default-alt);
 
       &:hover {
         cursor: not-allowed;

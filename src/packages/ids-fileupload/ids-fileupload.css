@@ -3,13 +3,13 @@
   position: relative;
 
   & [type=file] {
-    border: var(--input-border-width) solid var(--input-border-color);
-    border-radius: var(--input-border-radius);
-    padding: var(--input-padding-y) var(--input-padding-x);
+:   border: var(--input-size-border-width) solid var(--input-color-base-border);
+    border-radius: var(--input-size-border-radius);
+    padding: var(--input-size-padding-y) var(--input-size-padding-x);
     width: 100%;
 
     &:focus {
-      border: 1px solid var(--input-focus-border-color);
+      border: 1px solid var(--input-color-focus-border);
       outline: 0;
       outline-color: transparent;
     }
@@ -17,7 +17,7 @@
 
   & .ids-icon {
     position: absolute;
-    right: var(--input-padding-x);
+    right: var(--input-size-padding-x);
     top: calc(50% - 8px);
   }
 }

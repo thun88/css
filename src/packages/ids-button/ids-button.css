@@ -5,17 +5,17 @@
  */
 
 .ids-btn {
-  border: var(--button-border);
-  border-radius: var(--button-border-radius);
+  border: var(--button-size-border-width);
+  border-radius: var(--button-size-border-radius);
   cursor: pointer;
   display: inline-block;
   font-family: var(--button-font-family);
   font-size: var(--button-font-size);
   -webkit-font-smoothing: antialiased;
   font-weight: var(--button-font-weight);
-  height: var(--button-height);
-  line-height: var(--button-line-height);
-  padding: calc((var(--button-height) - var(--font-size-base)) / 2) var(--button-padding-x);
+  height: var(--button-size-height);
+  line-height: var(--button-size-line-height);
+  padding: calc((var(--button-size-height) - var(--size-font-base)) / 2) var(--button-size-padding-x);
   text-align: var(--button-text-align);
   text-decoration: var(--button-text-decoration);
   text-transform: var(--button-text-transform);
@@ -25,12 +25,12 @@
 
   &[disabled] {
     cursor: default;
-    opacity: var(--button-disabled-opacity);
+    opacity: var(--number-opacity-disabled);
   }
 
   &:focus,
   &.has-focus {
-    box-shadow: var(--button-focus-box-shadow);
+    box-shadow: var(--color-box-shadow-base);
     outline: 0;
   }
 
@@ -43,72 +43,72 @@
   }
 
   &.ids-btn--default {
-    background-color: var(--button-default-bg-color);
-    color: var(--button-default-text-color);
+    background-color: var(--button-color-default-base-background);
+    color: var(--button-color-default-base-font);
 
     & .ids-icon {
-      fill: var(--button-default-text-color);
+      fill: var(--button-color-default-base-font);
     }
 
     &:hover {
-      background-color: var(--button-default-hover-bg-color);
+      background-color: var(--button-color-default-hover-background);
 
       &[disabled] {
-        background-color: var(--button-default-bg-color);
+        background-color: var(--button-color-default-disabled-background);
       }
     }
   }
 
   &.ids-btn--primary {
-    background-color: var(--button-primary-bg-color);
-    color: var(--button-primary-text-color);
+    background-color: var(--button-color-primary-base-background);
+    color: var(--button-color-primary-base-font);
 
     & .ids-icon {
-      fill: var(--button-primary-text-color);
+      fill: var(--button-color-primary-base-icon);
     }
 
     &:hover {
-      background-color: var(--button-primary-hover-bg-color);
+      background-color: var(--button-color-primary-hover-background);
 
       &[disabled] {
-        background-color: var(--button-primary-bg-color);
+        background-color: var(--button-color-primary-disabled-background);
       }
     }
   }
 
   &.ids-btn--link {
-    background-color: transparent;
-    color: var(--button-link-text-color);
+    background-color: var(--button-color-link-base-background);
+    color: var(--button-color-link-base-font);
 
     &:hover {
-      color: var(--button-link-hover-text-color);
+      color: var(--button-color-link-hover-font);
 
       & .ids-icon {
-        fill: var(--button-link-hover-text-color);
+        fill: var(--button-color-link-base-icon);
       }
 
       &[disabled] {
-        color: var(--button-link-text-color);
+        color: var(--button-color-link-disabled-font);
       }
     }
 
     &:focus,
     &.has-focus {
-      box-shadow: var(--button-focus-box-shadow);
+      box-shadow: var(--color-box-shadow-base);
       outline: 0;
     }
 
     &:active,
     &.is-active {
-      color: var(--color-primary);
+      color: var(--button-color-link-active-font);
 
       & .ids-icon {
-        fill: var(--color-primary);
+        fill: var(--button-color-link-active-icon);
       }
     }
 
     & .ids-icon {
-      fill: var(--button-link-text-color);
+      fill: var(--button-color-link-base-icon);
     }
   }
 
