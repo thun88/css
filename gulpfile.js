@@ -80,7 +80,14 @@ gulp.task('default', ['clean', 'css:lint'], (done) => {
 });
 
 gulp.task('dev', ['clean'], (done) => {
-  runSequence('svg:store', 'src:compile', 'site:compile', 'serve', done);
+  runSequence(
+    'svg:store',
+    'src:compile',
+    'site:compile',
+    'demo:css:compile',
+    'serve',
+    done
+  );
 });
 
 gulp.task('publish', (done) => {
