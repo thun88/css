@@ -28,7 +28,7 @@
       display: block;
 
       & .ids-list--item {
-        padding: calc(var(--size-spacing-base) * 1);
+        padding: calc(var(--number-spacing-base) * 1);
       }
     }
   }

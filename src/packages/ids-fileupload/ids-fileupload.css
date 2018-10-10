@@ -3,7 +3,7 @@
   position: relative;
 
   & [type=file] {
-:   border: var(--input-size-border-width) solid var(--input-color-base-border);
+    border: var(--input-size-border-width) solid var(--input-color-base-border);
     border-radius: var(--input-size-border-radius);
     padding: var(--input-size-padding-y) var(--input-size-padding-x);
     width: 100%;

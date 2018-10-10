@@ -1,6 +1,6 @@
 :root {
   --adaptive-touch-spacing: calc(var(--input-size-height-adaptive) - (var(--size-line-height) / 2));
-  --radio-outer-adaptive-touch: calc(var(--radio-outer-h) * 1.3);
+  --radio-outer-adaptive-touch: calc(var(--radio-size-outer-height) * 1.3);
   --radio-inner-adaptive-touch: calc(var(--radio-outer-adaptive-touch) - 8px);
 }
 
