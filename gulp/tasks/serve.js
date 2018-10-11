@@ -10,8 +10,7 @@ module.exports = (gulp, gconfig) => {
 
   gulp.task('serve', () => {
     const
-      gutil = require('gulp-util'),
-      path = require('path');
+      gutil = require('gulp-util');
 
     browserSync.init({
       codesync: false, // keep this false and use watches
