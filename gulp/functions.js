@@ -11,7 +11,6 @@ module.exports.createFileNameFromFolder = filePath => {
   return str;
 };
 
-
 /**
  * Return the full path to a specific token type
  * @param  {String} format - Corresponding extension for ids-identity
@@ -22,13 +21,25 @@ module.exports.getIdsTokensPath = (format = 'json') => {
   return `${gconfig.paths.idsIdentity.tokens}/${gconfig.project.idsTokensThemeName}.${format}`
 };
 
-
 /**
- * Get the properties array from the raw tokens json
+ * Get the properties array from the tokens json
  */
 module.exports.getIdsTokensProperties = () => {
   const fs = require('fs');
   const path = this.getIdsTokensPath();
-  const idsTokensRawJson = JSON.parse(fs.readFileSync(path, 'utf8'));
-  return idsTokensRawJson.props;
+  const jsonObj = JSON.parse(fs.readFileSync(path, 'utf8'));
+  return jsonObj.props;
+}
+
+/**
+ * Create missing folders
+ */
+module.exports.checkDirs = arr => {
+  const fs = require('fs');
+
+  arr.forEach(n => {
+    if (!fs.existsSync(n)) {
+      fs.mkdirSync(n);
+    }
+  })
 }
