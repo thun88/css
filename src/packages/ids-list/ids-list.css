@@ -3,13 +3,13 @@
   margin: 0;
 
   & .ids-list--item {
-    color: var(--button-link-text-color);
+    color: var(--list-color-font-item);
     display: block;
-    padding: var(--spacing-base) calc(var(--spacing-base) * 2);
+    padding: var(--number-spacing-base) calc(var(--number-spacing-base) * 2);
 
     &.ids-list--heading {
-      color: var(--input-disabled-text-color);
-      padding: var(--spacing-base) calc(var(--spacing-base) * 2);
+      color: var(--list-color-font-heading);
+      padding: var(--number-spacing-base) calc(var(--number-spacing-base) * 2);
     }
 
     &.ids-form-checkbox {
@@ -20,29 +20,29 @@
 
   & .ids-list--heading {
     background-color: transparent;
-    color: var(--text-color-muted);
-    font-size: var(--font-size-base);
-    font-weight: var(--font-weight-normal);
+    color: var(--color-font-muted);
+    font-size: var(--size-font-base);
+    font-weight: var(--number-font-weight-normal);
   }
 
   & a.ids-list--item {
-    color: var(--button-link-text-color);
+    color: var(--list-color-font-item);
     text-decoration: none;
   }
 
   & a.ids-list--item--selected {
-    background-color: var(--list-selected-color);
+    background-color: var(--list-color-selected-background);
   }
 
   &.ids-list--hover {
     & a.ids-list--item:hover {
-      background-color: var(--list-hover-color);
+      background-color: var(--list-color-hover-background);
     }
   }
 
   &.ids-list--dividers {
     & li {
-      border-bottom: 1px solid var(--input-readonly-border-color);
+      border-bottom: 1px solid var(--list-color-divider-border);
     }
 
     & li:last-child {
@@ -52,34 +52,34 @@
 
   &.ids-list--striped {
     & li:nth-child(even) {
-      background-color: var(--list-hover-color);
+      background-color: var(--list-color-hover-background);
     }
   }
 }
 
 .ids-list--heading {
-  background-color: var(--list-hover-color);
+  background-color: var(--list-color-font-heading);
   display: block;
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-bold);
+  font-size: var(--size-font-sm);
+  font-weight: var(--number-font-weight-bold);
   margin: 0;
-  padding: calc(var(--spacing-base) * 2);
+  padding: calc(var(--number-spacing-base) * 2);
 }
 
 .ids-list--heading-accordion {
-  border-bottom: 1px solid var(--input-readonly-bg-color);
-  border-top: 1px solid var(--input-readonly-bg-color);
-  color: var(--text-color-info);
+  border-bottom: 1px solid var(--list-color-divider-border);
+  border-top: 1px solid var(--list-color-divider-border);
+  color: var(--color-font-info);
   cursor: pointer;
   display: block;
-  font-size: var(--font-size-base);
+  font-size: var(--size-font-base);
   -webkit-font-smoothing: antialiased;
-  font-weight: var(--font-weight-bold);
+  font-weight: var(--number-font-weight-bold);
   margin: 0;
-  padding: var(--spacing-base) calc(var(--spacing-base) * 2);
+  padding: var(--number-spacing-base) calc(var(--number-spacing-base) * 2);
 
   &:hover {
-    color: var(--text-color);
+    color: var(--list-color-accordion-hover);
   }
 }
 
@@ -87,18 +87,18 @@
 
 /* Level 2 nesting */
 .ids-list .ids-list--heading {
-  padding: var(--spacing-base) calc(var(--spacing-base) * 2);
+  padding: var(--number-spacing-base) calc(var(--number-spacing-base) * 2);
 }
 
 .ids-list .ids-list .ids-list--item {
-  padding-left: calc(var(--spacing-base) * 4);
+  padding-left: calc(var(--number-spacing-base) * 4);
 }
 
 /* Level 3 nesting */
 .ids-list .ids-list .ids-list--heading {
-  padding: var(--spacing-base) calc(var(--spacing-base) * 4);
+  padding: var(--number-spacing-base) calc(var(--number-spacing-base) * 4);
 }
 
 .ids-list .ids-list .ids-list .ids-list--item {
-  padding-left: calc(var(--spacing-base) * 6);
+  padding-left: calc(var(--number-spacing-base) * 6);
 }

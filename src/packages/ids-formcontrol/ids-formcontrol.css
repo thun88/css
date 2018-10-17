@@ -4,39 +4,39 @@
 
   /* Reset unusual Firefox-on-Android default style background-image */
   background-image: none;
-  border: var(--input-border-width) solid var(--input-border-color);
-  border-radius: var(--input-border-radius);
-  box-shadow: var(--input-box-shadow);
-  color: var(--input-text-color);
+  border: var(--input-size-border-width) solid var(--input-color-base-border);
+  border-radius: var(--input-size-border-radius);
+  box-shadow: var(--input-shadow-base-box);
+  color: var(--input-color-base-font);
   display: block;
   font-family: var(--font-family-base);
-  font-size: var(--font-size-base);
-  padding: var(--input-padding-y) var(--input-padding-x);
+  font-size: var(--size-font-base);
+  padding: var(--input-size-padding-y) var(--input-size-padding-x);
   resize: none;
   text-align: left;
   transition: border 300ms ease 0s, box-shadow 300ms ease 0s;
   width: 100%;
 
   &::placeholder {
-    color: var(--text-color-muted);
+    color: var(--color-font-muted);
     opacity: 1; /* Override Firefox's unusual default opacity */
   }
 
   &:hover {
-    border-color: var(--input-hover-border-color);
+    border-color: var(--input-color-hover-border);
   }
 
   &:disabled {
-    background-color: var(--input-disabled-bg-color);
-    border: solid 1px var(--input-disabled-border-color);
-    color: var(--input-disabled-text-color);
+    background-color: var(--input-color-disabled-background);
+    border: solid 1px var(--input-color-disabled-border);
+    color: var(--input-color-disabled-font);
     cursor: not-allowed;
   }
 
   &[readonly] {
-    background-color: var(--input-readonly-bg-color);
-    border-color: var(--input-readonly-border-color);
-    color: var(--input-readonly-text-color);
+    background-color: var(--input-color-readonly-background);
+    border-color: var(--input-color-readonly-border);
+    color: var(--input-color-readonly-font);
   }
 
   &:disabled,
@@ -45,15 +45,15 @@
   }
 
   &:focus {
-    border: 1px solid var(--color-primary);
+    border: var(--input-size-border-width) solid var(--input-color-focus-border);
     outline: 0;
     outline-color: transparent;
   }
 
-  &.ids-form-control--xs { width: var(--input-width-xs); }
-  &.ids-form-control--sm { width: var(--input-width-sm); }
-  &.ids-form-control--md { width: var(--input-width-md); }
-  &.ids-form-control--lg { width: var(--input-width-lg); }
+  &.ids-form-control--xs { width: var(--input-size-width-xs); }
+  &.ids-form-control--sm { width: var(--input-size-width-sm); }
+  &.ids-form-control--md { width: var(--input-size-width-md); }
+  &.ids-form-control--lg { width: var(--input-size-width-lg); }
 }
 
 select.ids-form-control {
@@ -62,7 +62,7 @@ select.ids-form-control {
     background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHZpZXdCb3g9IjAgMCAxOCAxOCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48dGl0bGU+ZHJvcGRvd248L3RpdGxlPjxwYXRoIGQ9Ik00IDZsNSA2IDUtNkg0eiIvPjwvc3ZnPg==);
     background-position: calc(100% - 10px) center;
     background-repeat: no-repeat;
-    padding-right: calc(var(--input-padding-x) + 25px);
+    padding-right: calc(var(--input-size-padding-x) + 25px);
   }
 
   /* Unstyle the caret on `<select>`s in IE10+. */
@@ -78,8 +78,8 @@ select.ids-form-control {
        in IE and (under certain conditions) Edge, as it looks bad and cannot be made to
        match the appearance of the native widget.
     */
-    background-color: var(--input-bg-color);
-    color: var(--input-text-color);
+    background-color: var(--input-color-base-background);
+    color: var(--input-color-base-font);
   }
 }
 
@@ -90,20 +90,20 @@ select.ids-form-control {
   & > legend,
   & .ids-info-block {
     display: block;
-    font-size: var(--font-size-sm);
+    font-size: var(--size-font-sm);
     line-height: 1.3rem;
   }
 
   & > label,
   & > legend {
-    color: var(--input-label-text-color);
+    color: var(--input-color-font-label-dark);
     margin-bottom: 5px;
 
     &.is-required::after {
-      color: var(--color-danger);
+      color: var(--color-brand-status-danger);
       content: '*';
       display: inline;
-      font-size: var(--font-size-base);
+      font-size: var(--size-font-base);
       left: 2px;
       position: relative;
       top: 2px;
@@ -115,23 +115,23 @@ select.ids-form-control {
   }
 
   & .ids-info-block {
-    color: var(--input-info-block-text-color);
+    color: var(--input-color-font-label-dark);
     margin-top: 5px;
   }
 
   &.has-error {
     & .ids-form-control,
     & .ids-info-block {
-      color: var(--color-danger);
+      color: var(--color-brand-status-danger);
     }
 
     & .ids-form-control {
-      border-color: var(--color-danger);
+      border-color: var(--color-brand-status-danger);
     }
 
     &:focus {
-      border-color: var(--color-danger);
-      color: var(--body-text-color);
+      border-color: var(--color-brand-status-danger);
+      color: var(--input-color-focus-border);
     }
   }
 }
@@ -141,6 +141,6 @@ select.ids-form-control {
   display: flex;
 
   & .ids-form-control {
-    margin-right: calc(var(--spacing-base) * 2);
+    margin-right: calc(var(--number-spacing-base) * 2);
   }
 }

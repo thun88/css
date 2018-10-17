@@ -6,7 +6,7 @@
 module.exports = (gulp, gconfig, publishDocObj) => {
 
 
-  gulp.task('build', ['json:yaml:compile','json:md:compile', 'copy:demo', 'copy:tokensraw'], (done) => {
+  gulp.task('build', ['json:yaml:compile','json:md:compile', 'copy:demo', 'copy:tokens'], (done) => {
     const zip = require('gulp-zip');
 
     return gulp.src(`${gconfig.paths.dist.root}/**/*`)
@@ -27,29 +27,40 @@ module.exports = (gulp, gconfig, publishDocObj) => {
 
   // -------------------------------------
   //   Local task:
-  //   - Add version to the tokens raw json
-  //   and add it to the publish folder
+  //   - Copy all token json data
   // -------------------------------------
-  gulp.task('copy:tokensraw', () => {
+  gulp.task('copy:tokens', () => {
     const fs = require('fs');
-    const helperFns = require('../functions.js');
     const pkgJson = require(`${process.cwd()}/package.json`);
-    const idsTokensRawJson = require(helperFns.getIdsTokensPath());
+    const idsIdentityPkgJson = require(`${gconfig.paths.idsIdentity.root}/package.json`);
+    const tap = require('gulp-tap');
+    const fns = require('../functions');
+    const path = require('path');
 
-    idsTokensRawJson.meta = {
-      themeName: gconfig.project.idsTokensThemeName,
-      version: pkgJson.devDependencies["ids-identity"],
-      publishedAt: new Date()
-    }
+    return gulp.src(`${gconfig.paths.idsIdentity.tokens}/theme-*.json`, {
+        base: gconfig.paths.root
+      })
+      .pipe(tap(file => {
+        const fileName = path.parse(file.path).name;
+        const obj = JSON.parse(file.contents);
 
-    if (!fs.existsSync(gconfig.paths.root)) {
-      fs.mkdirSync(gconfig.paths.dist.root);
-    }
+        obj.meta = {
+          "name": gconfig.project.idsTokensThemeName,
+          "version": idsIdentityPkgJson.version,
+          "publishDate": new Date(),
+          "library": {
+            "name": pkgJson.name,
+            "version": pkgJson.version
+          }
+        };
 
-    if (!fs.existsSync(gconfig.paths.dist.idsTokens)) {
-      fs.mkdirSync(gconfig.paths.dist.idsTokens);
-    }
+        fns.checkDirs([
+          gconfig.paths.root,
+          gconfig.paths.dist.root,
+          gconfig.paths.dist.idsTokens
+        ]);
 
-    fs.writeFileSync(`${gconfig.paths.dist.idsTokens}/${gconfig.project.idsTokensThemeName}.raw.json`, JSON.stringify(idsTokensRawJson, null, 2));
+        fs.writeFileSync(`${gconfig.paths.dist.idsTokens}/${fileName}.json`, JSON.stringify(obj, null, 4));
+      }));
   });
 }

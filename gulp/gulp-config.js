@@ -29,7 +29,7 @@ module.exports = {
       www:       './site/www'
     },
     idsIdentity: {
-      root: `${process.cwd()}/node_modules/ids-identity/dist`,
+      root: `${process.cwd()}/node_modules/ids-identity`,
       tokens: `${process.cwd()}/node_modules/ids-identity/dist/tokens/web`,
       icons: `${process.cwd()}/node_modules/ids-identity/dist/icons`,
       font: `${process.cwd()}/node_modules/ids-identity/dist/font`

@@ -71,16 +71,19 @@ require(`${gconfig.paths.tasks}/svg-store.js`)(gulp, gconfig);
 // npm test (package json)
 // -------------------------------------
 
-gulp.task('default', ['clean', 'css:lint'], (done) => {
+gulp.task('default', done => {
   runSequence(
+    'clean',
+    'css:lint',
     'svg:store',
     'src:compile',
     ['site:compile', 'demo:css:compile'],
     done);
 });
 
-gulp.task('dev', ['clean'], (done) => {
+gulp.task('dev', done => {
   runSequence(
+    'clean',
     'svg:store',
     'src:compile',
     'site:compile',
@@ -90,7 +93,7 @@ gulp.task('dev', ['clean'], (done) => {
   );
 });
 
-gulp.task('publish', (done) => {
+gulp.task('publish', done => {
   runSequence(
     'clean',
     'src:css:lint',

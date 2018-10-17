@@ -10,18 +10,16 @@ module.exports = (gulp, gconfig) => {
   const rename = require('gulp-rename');
   const tap = require('gulp-tap');
   const path = require('path');
-  const fs = require('fs');
   const handlebars = require('handlebars');
 
   gulp.task('svg:store', () => {
     // Get the icons from identity in node_modules
     const svgIcons = gconfig.paths.idsIdentity.icons;
 
-    const template = handlebars.compile('');
     let iconsNameArr = [];
 
     // Stream the icons readme.hbs template
-    gulp.src(`${gconfig.paths.src.packages}/ids-icon/readme.hbs`)
+    return gulp.src(`${gconfig.paths.src.packages}/ids-icon/readme.hbs`)
 
       // Loop through icons to "store" the icons as an svg for html use
       // and create an array of their names
