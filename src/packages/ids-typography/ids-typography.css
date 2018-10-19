@@ -118,7 +118,7 @@ a,
 .ids-text--link {
   color: var(--color-brand-primary-base);
   cursor: pointer;
-  text-decoration: var(--link-text-base-decoration);
+  text-decoration: var(--link-font-initial-decoration);
 
   &:hover {
     color: var(--link-color-hover-font);

@@ -3,12 +3,12 @@
   margin: 0;
 
   & .ids-list--item {
-    color: var(--list-color-font-item);
+    color: var(--list-color-initial-font-base);
     display: block;
     padding: var(--number-spacing-base) calc(var(--number-spacing-base) * 2);
 
     &.ids-list--heading {
-      color: var(--list-color-font-heading);
+      color: var(--list-color-initial-font-light);
       padding: var(--number-spacing-base) calc(var(--number-spacing-base) * 2);
     }
 
@@ -26,7 +26,7 @@
   }
 
   & a.ids-list--item {
-    color: var(--list-color-font-item);
+    color: var(--list-color-initial-font-base);
     text-decoration: none;
   }
 
@@ -42,7 +42,7 @@
 
   &.ids-list--dividers {
     & li {
-      border-bottom: 1px solid var(--list-color-divider-border);
+      border-bottom: 1px solid var(--list-color-initial-divider-border);
     }
 
     & li:last-child {
@@ -58,7 +58,7 @@
 }
 
 .ids-list--heading {
-  background-color: var(--list-color-font-heading);
+  background-color: var(--list-color-initial-font-light);
   display: block;
   font-size: var(--size-font-sm);
   font-weight: var(--number-font-weight-bold);
@@ -67,8 +67,8 @@
 }
 
 .ids-list--heading-accordion {
-  border-bottom: 1px solid var(--list-color-divider-border);
-  border-top: 1px solid var(--list-color-divider-border);
+  border-bottom: 1px solid var(--list-color-initial-divider-border);
+  border-top: 1px solid var(--list-color-initial-divider-border);
   color: var(--color-font-info);
   cursor: pointer;
   display: block;
@@ -79,7 +79,7 @@
   padding: var(--number-spacing-base) calc(var(--number-spacing-base) * 2);
 
   &:hover {
-    color: var(--list-color-accordion-hover);
+    color: var(--list-color-hover-background);
   }
 }
 

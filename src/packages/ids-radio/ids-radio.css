@@ -7,8 +7,8 @@
     padding-left: calc(var(--radio-size-outer-width) + 5px);
 
     &::before {
-      background-color: var(--radio-color-unchecked-base-background);
-      border: 1px solid var(--radio-color-unchecked-base-border);
+      background-color: var(--radio-color-unchecked-initial-background);
+      border: 1px solid var(--radio-color-unchecked-initial-border);
       border-radius: 50%;
       content: '';
       display: block;
@@ -20,8 +20,8 @@
     }
 
     &::after {
-      background-color: var(--radio-color-checked-base-fill);
-      border: 2px solid var(--radio-color-checked-base-fill);
+      background-color: var(--radio-color-checked-initial-fill);
+      border: 2px solid var(--radio-color-checked-initial-fill);
       border-radius: 50%;
       content: '';
       height: var(--radio-size-inner-height);
@@ -35,7 +35,7 @@
 
   & input:focus + label::before {
     border-radius: 50%;
-    box-shadow: var(--radio-shadow-focus-box);
+    box-shadow: var(--radio-shadow-default-focus-boxshadow);
   }
 
   & input:disabled + label::before {
@@ -45,7 +45,7 @@
 
   & input:checked + label {
     &::before {
-      background-color: var(--radio-color-checked-base-background);
+      background-color: var(--radio-color-checked-initial-background);
     }
 
     &::after {
@@ -61,8 +61,8 @@
     }
 
     &::after {
-      background-color: var(--radio-color-checked-base-background);
-      border: 2px solid var(--radio-color-checked-base-fill);
+      background-color: var(--radio-color-checked-initial-background);
+      border: 2px solid var(--radio-color-checked-initial-fill);
     }
   }
 }

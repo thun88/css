@@ -30,7 +30,7 @@
 
   &:focus,
   &.has-focus {
-    box-shadow: var(--color-box-shadow-base);
+    box-shadow: var(--color-boxshadow-base);
     outline: 0;
   }
 
@@ -43,11 +43,11 @@
   }
 
   &.ids-btn--default {
-    background-color: var(--button-color-default-base-background);
-    color: var(--button-color-default-base-font);
+    background-color: var(--button-color-default-initial-background);
+    color: var(--button-color-default-initial-font);
 
     & .ids-icon {
-      fill: var(--button-color-default-base-font);
+      fill: var(--button-color-default-initial-font);
     }
 
     &:hover {
@@ -60,11 +60,11 @@
   }
 
   &.ids-btn--primary {
-    background-color: var(--button-color-primary-base-background);
-    color: var(--button-color-primary-base-font);
+    background-color: var(--button-color-primary-initial-background);
+    color: var(--button-color-primary-initial-font);
 
     & .ids-icon {
-      fill: var(--button-color-primary-base-icon);
+      fill: var(--button-color-primary-initial-icon);
     }
 
     &:hover {
@@ -77,38 +77,38 @@
   }
 
   &.ids-btn--link {
-    background-color: var(--button-color-link-base-background);
-    color: var(--button-color-link-base-font);
+    background-color: var(--button-color-secondary-initial-background);
+    color: var(--button-color-secondary-initial-font);
 
     &:hover {
-      color: var(--button-color-link-hover-font);
+      color: var(--button-color-secondary-hover-font);
 
       & .ids-icon {
-        fill: var(--button-color-link-base-icon);
+        fill: var(--button-color-secondary-initial-icon);
       }
 
       &[disabled] {
-        color: var(--button-color-link-disabled-font);
+        color: var(--button-color-secondary-disabled-font);
       }
     }
 
     &:focus,
     &.has-focus {
-      box-shadow: var(--color-box-shadow-base);
+      box-shadow: var(--color-boxshadow-base);
       outline: 0;
     }
 
     &:active,
     &.is-active {
-      color: var(--button-color-link-active-font);
+      color: var(--button-color-secondary-active-font);
 
       & .ids-icon {
-        fill: var(--button-color-link-active-icon);
+        fill: var(--button-color-secondary-active-icon);
       }
     }
 
     & .ids-icon {
-      fill: var(--button-color-link-base-icon);
+      fill: var(--button-color-secondary-initial-icon);
     }
   }
 
