@@ -29,8 +29,8 @@
     "publish-docs:staging": "npx gulp publish --site=staging",
     "publish-docs:prod": "npx gulp publish --site=prod",
     "prepublishOnly": "npm run build",
-    "release:beta": "release-it minor --preRelease=beta",
-    "release:rc": "release-it minor --preRelease=rc",
+    "release:beta": "release-it minor --preRelease=beta --no-github.release",
+    "release:rc": "release-it minor --preRelease=rc --no-github.release",
     "release:final": "release-it minor"
   },
   "devDependencies": {
