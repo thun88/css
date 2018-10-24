@@ -1,6 +1,6 @@
 /* Specific Local Dev Site Styles */
 body {
-  background-color: #fff;
+  background-color: var(--color-base-white);
 }
 
 table th {
