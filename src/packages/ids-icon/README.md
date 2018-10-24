@@ -6,7 +6,7 @@ system:
   name: icons
 demo:
   path: /ids-icon/index.html
-tokensCategory: icons
+tokensCategory: icon
 ---
 
 <!---------------------------------------------

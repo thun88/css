@@ -3,7 +3,7 @@ title: Form Controls
 description: Some text about using ids-form-controls.
 demo:
   path: /ids-formcontrol/index.html
-tokensCategory: inputs
+tokensCategory: input
 ---
 
 ## Basic Example

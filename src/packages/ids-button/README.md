@@ -6,7 +6,7 @@ system:
   name: buttons
 demo:
   path: /ids-button/index.html
-tokensCategory: buttons
+tokensCategory: button
 ---
 
 ## Button Tags
