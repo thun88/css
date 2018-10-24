@@ -1,9 +1,5 @@
-:root {
-  --tabs-disabled-bg-color: #d8d8d8;
-}
-
 .ids-tabs--horizontal {
-  border-bottom: solid 1px var(--color-brand-default-base);
+  border-bottom: solid 1px var(--color-brand-secondary-base);
   display: block;
 
   & .ids-tabs--tab {
@@ -52,7 +48,7 @@
     }
 
     &.ids-tabs--tab--disabled {
-      color: var(--color-brand-default-alt);
+      color: var(--color-brand-secondary-alt);
 
       &:hover {
         cursor: not-allowed;
@@ -72,16 +68,16 @@
     text-decoration: none;
 
     &:hover:not(.ids-tabs--tab--disabled) {
-      background-color: var(--tabs-disabled-bg-color);
+      background-color: var(--color-base-graphite-20);
     }
 
     &.ids-tabs--tab--active {
       background-color: var(--color-brand-primary-base);
-      color: #fff;
+      color: var(--color-base-white);
     }
 
     &.ids-tabs--tab--disabled {
-      color: var(--color-brand-default-alt);
+      color: var(--color-brand-secondary-alt);
 
       &:hover {
         cursor: not-allowed;

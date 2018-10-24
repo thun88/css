@@ -7,35 +7,43 @@
     padding-left: calc(var(--radio-size-outer-width) + 5px);
 
     &::before {
-      background-color: var(--radio-color-unchecked-initial-background);
+      /* background-color: var(--radio-color-unchecked-initial-background); */
+      background-color: var(--color-base-white);
       border: 1px solid var(--radio-color-unchecked-initial-border);
       border-radius: 50%;
       content: '';
       display: block;
-      height: var(--radio-size-outer-height);
+
+      /* Add 2px to simulate an external border to match Enterprise */
+      height: calc(var(--radio-size-outer-height) + 2);
       left: 0;
       position: absolute;
       top: calc(50% - 0.5 * var(--radio-size-outer-height));
-      width: var(--radio-size-outer-width);
+
+      /* Add 2px to simulate an external border to match Enterprise */
+      width: calc(var(--radio-size-outer-width) + 2);
     }
 
     &::after {
       background-color: var(--radio-color-checked-initial-fill);
-      border: 2px solid var(--radio-color-checked-initial-fill);
       border-radius: 50%;
       content: '';
-      height: var(--radio-size-inner-height);
+
+      /* Add 2px to simulate an external border to match Enterprise */
+      height: calc(var(--radio-size-inner-height) + 2);
       left: calc(var(--radio-size-outer-width) / 2 - var(--radio-size-inner-width) / 2);
       opacity: 0;
       position: absolute;
       top: calc(50% - 0.5 * var(--radio-size-inner-height));
-      width: var(--radio-size-inner-width);
+
+      /* Add 2px to simulate an external border to match Enterprise */
+      width: calc(var(--radio-size-inner-width) + 2);
     }
   }
 
   & input:focus + label::before {
     border-radius: 50%;
-    box-shadow: var(--radio-shadow-default-focus-boxshadow);
+    box-shadow: var(--radio-shadow-focus-boxshadow);
   }
 
   & input:disabled + label::before {

@@ -126,11 +126,11 @@ a,
   }
 
   &[disabled] {
-    color: var(--color-brand-default-alt);
+    color: var(--color-brand-secondary-alt);
     cursor: not-allowed;
 
     & .ids-icon {
-      fill: var(--color-brand-default-alt);
+      fill: var(--color-brand-secondary-alt);
     }
   }
 

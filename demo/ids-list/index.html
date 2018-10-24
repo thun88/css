@@ -12,11 +12,12 @@
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600" rel="stylesheet">
   <style>
     .list-example {
-      border: 1px solid grey;
+      border: 1px solid #808080;
       margin-bottom: 40px;
     }
+
     .list-example--white {
-      background-color: #ffffff;
+      background-color: var(--color-base-white);
     }
   </style>
 </head>
@@ -58,10 +59,10 @@
   </div>
 
   <h2>List with Nesting, Hover, and Accordion Style Heading</h2>
-  <div class="list-example--white">
-    <h1 class="ids-list--heading">Heading 1</h1>
+  <div class="list-example list-example--white">
+    <h1 class="ids-list--heading">Heading 1 (selected)</h1>
     <ul class="ids-list ids-list--hover">
-      <li><a class="ids-list--item ids-list--item--selected">Selected Item</a></li>
+      <li><a class="ids-list--item ids-list--item--selected">One (selected)</a></li>
       <li><a class="ids-list--item">Two</a></li>
       <li>
         <!--- Nested list -->

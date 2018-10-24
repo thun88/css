@@ -83,7 +83,7 @@ module.exports = (gulp, gconfig) => {
   });
 
   gulp.task('watch-packages', (done) => {
-    runSequence('src:compile', 'site:compile', 'browser:reload', done);
+    runSequence('src:compile', 'site:compile', 'demo:css:compile', 'browser:reload', done);
   });
 
   gulp.task('watch-icons', (done) => {

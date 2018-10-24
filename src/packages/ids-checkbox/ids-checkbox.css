@@ -8,7 +8,8 @@
     padding-left: calc(var(--checkbox-size-box-width) + 5px);
 
     &::before {
-      background-color: var(--checkbox-color-unchecked-initial-background);
+      /* background-color: var(--checkbox-color-unchecked-initial-background); */
+      background-color: var(--color-base-white);
       border: 1px solid var(--checkbox-color-unchecked-initial-border);
       border-radius: var(--checkbox-size-border-radius);
       content: '';
@@ -21,7 +22,7 @@
     }
 
     &::after {
-      border-color: var(--checkbox-color-unchecked-initial-arrow) var(--checkbox-color-unchecked-initial-arrow) var(--checkbox-color-unchecked-initial-arrow) transparent;
+      border-color: var(--checkbox-color-checked-initial-arrow) var(--checkbox-color-checked-initial-arrow) var(--checkbox-color-checked-initial-arrow) transparent;
       border-style: solid;
       border-width: 2px 2px 0 0;
       content: '';
@@ -35,7 +36,7 @@
   }
 
   & input:focus + label::before {
-    box-shadow: var(--checkbox-shadow-default-focus-boxshadow);
+    box-shadow: var(--checkbox-shadow-focus-boxshadow);
   }
 
   & input:disabled + label {
@@ -84,6 +85,6 @@
   }
 
   & input:focus + label::before {
-    box-shadow: var(--checkbox-shadow-default-focus-boxshadow);
+    box-shadow: var(--checkbox-shadow-focus-boxshadow);
   }
 }
