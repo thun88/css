@@ -3,12 +3,12 @@
   margin: 0;
 
   & .ids-list--item {
-    color: var(--list-color-initial-font-base);
+    color: var(--list-color-item-initial-font);
     display: block;
     padding: var(--number-spacing-base) calc(var(--number-spacing-base) * 2);
 
     &.ids-list--heading {
-      color: var(--list-color-initial-font-light);
+      color: var(--list-color-heading-initial-font);
       padding: var(--number-spacing-base) calc(var(--number-spacing-base) * 2);
     }
 
@@ -26,23 +26,23 @@
   }
 
   & a.ids-list--item {
-    color: var(--list-color-initial-font-base);
+    color: var(--list-color-item-initial-font);
     text-decoration: none;
   }
 
   & a.ids-list--item--selected {
-    background-color: var(--list-color-selected-background);
+    background-color: var(--list-color-item-selected-background);
   }
 
   &.ids-list--hover {
     & a.ids-list--item:hover {
-      background-color: var(--list-color-hover-background);
+      background-color: var(--list-color-item-hover-background);
     }
   }
 
   &.ids-list--dividers {
     & li {
-      border-bottom: 1px solid var(--list-color-initial-divider-border);
+      border-bottom: 1px solid var(--list-color-divider-border);
     }
 
     & li:last-child {
@@ -52,13 +52,13 @@
 
   &.ids-list--striped {
     & li:nth-child(even) {
-      background-color: var(--list-color-hover-background);
+      background-color: var(--list-color-item-hover-background);
     }
   }
 }
 
 .ids-list--heading {
-  background-color: var(--list-color-initial-font-light);
+  background-color: var(--list-color-heading-initial-font);
   display: block;
   font-size: var(--size-font-sm);
   font-weight: var(--number-font-weight-bold);
@@ -67,8 +67,8 @@
 }
 
 .ids-list--heading-accordion {
-  border-bottom: 1px solid var(--list-color-initial-divider-border);
-  border-top: 1px solid var(--list-color-initial-divider-border);
+  border-bottom: 1px solid var(--list-color-divider-border);
+  border-top: 1px solid var(--list-color-divider-border);
   color: var(--color-font-info);
   cursor: pointer;
   display: block;
@@ -79,7 +79,7 @@
   padding: var(--number-spacing-base) calc(var(--number-spacing-base) * 2);
 
   &:hover {
-    color: var(--list-color-hover-background);
+    color: var(--list-color-item-hover-background);
   }
 }
 

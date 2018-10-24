@@ -6,8 +6,8 @@
   background-image: none;
   border: var(--input-size-border-width) solid var(--input-color-initial-border);
   border-radius: var(--input-size-border-radius);
-  box-shadow: var(--input-shadow-default-initial-boxshadow);
-  color: var(--input-color-initial-font-base);
+  box-shadow: var(--input-shadow-initial-boxshadow);
+  color: var(--input-color-initial-font);
   display: block;
   font-family: var(--font-family-base);
   font-size: var(--size-font-base);
@@ -79,7 +79,7 @@ select.ids-form-control {
        match the appearance of the native widget.
     */
     background-color: var(--input-color-initial-background);
-    color: var(--input-color-initial-font-base);
+    color: var(--input-color-initial-font);
   }
 }
 
@@ -96,7 +96,7 @@ select.ids-form-control {
 
   & > label,
   & > legend {
-    color: var(--input-color-initial-font-dark);
+    color: var(--input-color-initial-label);
     margin-bottom: 5px;
 
     &.is-required::after {
@@ -115,7 +115,7 @@ select.ids-form-control {
   }
 
   & .ids-info-block {
-    color: var(--input-color-initial-font-dark);
+    color: var(--input-color-initial-placeholder);
     margin-top: 5px;
   }
 

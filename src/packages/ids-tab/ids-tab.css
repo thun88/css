@@ -3,7 +3,7 @@
 }
 
 .ids-tabs--horizontal {
-  border-bottom: solid 1px var(--color-brand-default-base);
+  border-bottom: solid 1px var(--color-brand-secondary-base);
   display: block;
 
   & .ids-tabs--tab {
@@ -52,7 +52,7 @@
     }
 
     &.ids-tabs--tab--disabled {
-      color: var(--color-brand-default-alt);
+      color: var(--color-brand-secondary-alt);
 
       &:hover {
         cursor: not-allowed;
@@ -81,7 +81,7 @@
     }
 
     &.ids-tabs--tab--disabled {
-      color: var(--color-brand-default-alt);
+      color: var(--color-brand-secondary-alt);
 
       &:hover {
         cursor: not-allowed;

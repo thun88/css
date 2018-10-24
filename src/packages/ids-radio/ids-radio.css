@@ -35,7 +35,7 @@
 
   & input:focus + label::before {
     border-radius: 50%;
-    box-shadow: var(--radio-shadow-default-focus-boxshadow);
+    box-shadow: var(--radio-shadow-focus-boxshadow);
   }
 
   & input:disabled + label::before {

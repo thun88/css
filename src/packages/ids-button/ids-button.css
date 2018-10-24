@@ -15,10 +15,10 @@
   font-weight: var(--button-font-weight);
   height: var(--button-size-height);
   line-height: var(--button-size-line-height);
-  padding: calc((var(--button-size-height) - var(--size-font-base)) / 2) var(--button-size-padding-x);
-  text-align: var(--button-text-align);
-  text-decoration: var(--button-text-decoration);
-  text-transform: var(--button-text-transform);
+  padding: calc((var(--button-size-height) - var(--size-font-base))) var(--button-size-padding-x);
+  text-align: var(--button-font-align);
+  text-decoration: var(--button-font-decoration);
+  text-transform: var(--button-font-transform);
   user-select: none;
   vertical-align: middle;
   white-space: nowrap;
@@ -43,18 +43,18 @@
   }
 
   &.ids-btn--default {
-    background-color: var(--button-color-default-initial-background);
-    color: var(--button-color-default-initial-font);
+    background-color: var(--button-color-secondary-initial-background);
+    color: var(--button-color-secondary-initial-font);
 
     & .ids-icon {
-      fill: var(--button-color-default-initial-font);
+      fill: var(--button-color-secondary-initial-font);
     }
 
     &:hover {
-      background-color: var(--button-color-default-hover-background);
+      background-color: var(--button-color-secondary-hover-background);
 
       &[disabled] {
-        background-color: var(--button-color-default-disabled-background);
+        background-color: var(--button-color-secondary-disabled-background);
       }
     }
   }
@@ -81,7 +81,7 @@
     color: var(--button-color-secondary-initial-font);
 
     &:hover {
-      color: var(--button-color-secondary-hover-font);
+      color: var(--button-color-secondary-initial-font);
 
       & .ids-icon {
         fill: var(--button-color-secondary-initial-icon);
@@ -100,10 +100,10 @@
 
     &:active,
     &.is-active {
-      color: var(--button-color-secondary-active-font);
+      color: var(--button-color-secondary-initial-font);
 
       & .ids-icon {
-        fill: var(--button-color-secondary-active-icon);
+        fill: var(--button-color-secondary-initial-icon);
       }
     }
 

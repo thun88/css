@@ -1,10 +1,10 @@
 .ids-icon {
   color: inherit;
   display: inline-block;
-  fill: var(--icon-fill);
-  height: var(--icon-height);
+  fill: var(--icon-color-fill);
+  height: var(--icon-size-height);
   padding: 0;
   position: relative;
   vertical-align: top;
-  width: var(--icon-width);
+  width: var(--icon-size-width);
 }

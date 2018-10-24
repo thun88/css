@@ -1,5 +1,5 @@
 :root {
-  --adaptive-touch-spacing: calc(var(--input-size-height-adaptive) - (var(--size-line-height) / 2));
+  --adaptive-touch-spacing: calc((var(--input-size-height) + 1) - (var(--size-line-height) / 2));
   --radio-outer-adaptive-touch: calc(var(--radio-size-outer-height) * 1.3);
   --radio-inner-adaptive-touch: calc(var(--radio-outer-adaptive-touch) - 8px);
 }
@@ -7,11 +7,11 @@
 .ids-adaptive--touch {
   & .ids-btn,
   & input.ids-form-control {
-    line-height: calc(var(--input-size-height-adaptive) - (2 * var(--input-size-padding-y)) - (2 * var(--input-size-border-width)));
+    line-height: calc((var(--input-size-height) + 1) - (2 * var(--input-size-padding-y)) - (2 * var(--input-size-border-width)));
   }
 
   & select:not([size]):not([multiple]).ids-form-control {
-    height: var(--input-size-height-adaptive);
+    height: calc(var(--input-size-height) + 1);
   }
 
   & fieldset {
