@@ -79,7 +79,7 @@
   padding: var(--number-spacing-base) calc(var(--number-spacing-base) * 2);
 
   &:hover {
-    color: var(--list-color-item-hover-background);
+    background: var(--list-color-item-hover-background);
   }
 }
 
