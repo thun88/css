@@ -8,7 +8,7 @@
 
     &::before {
       /* background-color: var(--radio-color-unchecked-initial-background); */
-      background-color: var(--color-base-white);
+      background-color: var(--palette-white);
       border: 1px solid var(--radio-color-unchecked-initial-border);
       border-radius: 50%;
       content: '';

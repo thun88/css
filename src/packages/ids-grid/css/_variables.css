@@ -3,8 +3,8 @@
 
 :root {
   --grid-cols: 12;
-  --grid-gutter-sm: calc(var(--number-spacing-base) * 2);
-  --grid-gutter-lg: calc(var(--number-spacing-base) * 3);
+  --grid-gutter-sm: calc(var(--global-number-spacing-base) * 2);
+  --grid-gutter-lg: calc(var(--global-number-spacing-base) * 3);
 }
 
 .ids-row,

@@ -15,7 +15,7 @@
   font-weight: var(--button-font-weight);
   height: var(--button-size-height);
   line-height: var(--button-size-line-height);
-  padding: calc(var(--size-font-base) / 2) var(--button-size-padding-x);
+  padding: calc(var(--global-size-font-base) / 2) var(--button-size-padding-x);
   text-align: var(--button-font-align);
   text-decoration: var(--button-font-decoration);
   text-transform: var(--button-font-transform);
@@ -25,12 +25,12 @@
 
   &[disabled] {
     cursor: default;
-    opacity: var(--number-opacity-disabled);
+    opacity: var(--global-number-opacity-disabled);
   }
 
   &:focus,
   &.has-focus {
-    box-shadow: var(--color-boxshadow-base);
+    box-shadow: var(--global-color-boxshadow-base);
     outline: 0;
   }
 
@@ -94,7 +94,7 @@
 
     &:focus,
     &.has-focus {
-      box-shadow: var(--color-boxshadow-base);
+      box-shadow: var(--global-color-boxshadow-base);
       outline: 0;
     }
 

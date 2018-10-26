@@ -1,9 +1,9 @@
 .ids-tabs--horizontal {
-  border-bottom: solid 1px var(--color-brand-secondary-base);
+  border-bottom: solid 1px var(--global-color-secondary-base);
   display: block;
 
   & .ids-tabs--tab {
-    color: var(--color-font-info);
+    color: var(--global-color-font-info);
     display: inline-block;
     margin: 0 10px 0 0;
     max-width: 150px;
@@ -39,16 +39,16 @@
     }
 
     &.ids-tabs--tab--active {
-      color: var(--color-brand-primary-base);
+      color: var(--global-color-primary-base);
 
       &::before {
-        background-color: var(--color-brand-primary-base);
+        background-color: var(--global-color-primary-base);
         width: 100%;
       }
     }
 
     &.ids-tabs--tab--disabled {
-      color: var(--color-brand-secondary-alt);
+      color: var(--global-color-secondary-alt);
 
       &:hover {
         cursor: not-allowed;
@@ -68,16 +68,16 @@
     text-decoration: none;
 
     &:hover:not(.ids-tabs--tab--disabled) {
-      background-color: var(--color-base-graphite-20);
+      background-color: var(--palette-graphite-20);
     }
 
     &.ids-tabs--tab--active {
-      background-color: var(--color-brand-primary-base);
-      color: var(--color-base-white);
+      background-color: var(--global-color-primary-base);
+      color: var(--palette-white);
     }
 
     &.ids-tabs--tab--disabled {
-      color: var(--color-brand-secondary-alt);
+      color: var(--global-color-secondary-alt);
 
       &:hover {
         cursor: not-allowed;
