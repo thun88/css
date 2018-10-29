@@ -3,7 +3,7 @@
  */
 
 .example {
-  background: var(--palette-white);
+  background: var(--theme-color-palette-white);
   border: 1px solid #e1e8e8;
   border-radius: 0.25rem 0.25rem 0 0;
   padding: 15px;

@@ -1,9 +1,9 @@
 .ids-tabs--horizontal {
-  border-bottom: solid 1px var(--global-color-secondary-base);
+  border-bottom: solid 1px var(--theme-color-brand-secondary-base);
   display: block;
 
   & .ids-tabs--tab {
-    color: var(--global-color-font-info);
+    color: var(--theme-color-font-info);
     display: inline-block;
     margin: 0 10px 0 0;
     max-width: 150px;
@@ -39,16 +39,16 @@
     }
 
     &.ids-tabs--tab--active {
-      color: var(--global-color-primary-base);
+      color: var(--theme-color-brand-primary-base);
 
       &::before {
-        background-color: var(--global-color-primary-base);
+        background-color: var(--theme-color-brand-primary-base);
         width: 100%;
       }
     }
 
     &.ids-tabs--tab--disabled {
-      color: var(--global-color-secondary-alt);
+      color: var(--theme-color-brand-secondary-alt);
 
       &:hover {
         cursor: not-allowed;
@@ -68,16 +68,16 @@
     text-decoration: none;
 
     &:hover:not(.ids-tabs--tab--disabled) {
-      background-color: var(--palette-graphite-20);
+      background-color: var(--theme-color-palette-graphite-20);
     }
 
     &.ids-tabs--tab--active {
-      background-color: var(--global-color-primary-base);
-      color: var(--palette-white);
+      background-color: var(--theme-color-brand-primary-base);
+      color: var(--theme-color-palette-white);
     }
 
     &.ids-tabs--tab--disabled {
-      color: var(--global-color-secondary-alt);
+      color: var(--theme-color-brand-secondary-alt);
 
       &:hover {
         cursor: not-allowed;

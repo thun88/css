@@ -1,10 +1,10 @@
 /* Specific Local Dev Site Styles */
 body {
-  background-color: var(--palette-white);
+  background-color: var(--theme-color-palette-white);
 }
 
 table th {
-  font-weight: var(--global-font-weight-bold);
+  font-weight: var(--theme-font-weight-bold);
   text-align: left;
 }
 
@@ -23,7 +23,7 @@ table td:last-child {
   padding-right: 0;
 }
 
-.site-spec--global-color- {
+.site-spec--theme-color- {
   border: 1px solid #bdbdbd;
   border-radius: 18px;
   display: block;
