@@ -6,7 +6,7 @@ demo:
 system:
   category: identity
   name: typography
-tokensCategory: font
+tokensCategory: theme.color.font
 ---
 
 ## Standard Type Settings

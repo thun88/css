@@ -3,6 +3,7 @@ title: Radio Buttons
 description: Some text about using ids-radio.
 demo:
   path: /ids-radio/index.html
+tokensCategory: radio
 ---
 
 ## Basic Example
