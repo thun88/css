@@ -3,6 +3,7 @@ title: IDS Dropdown
 description: This page describes how to use a dropdown.
 demo:
   path: /ids-dropdown/index.html
+tokensCategory: dropdown
 ---
 
 ## Dropdown
