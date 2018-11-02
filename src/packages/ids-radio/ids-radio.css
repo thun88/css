@@ -4,7 +4,7 @@
   @mixin checkboxGroupSetup;
 
   & label {
-    padding-left: calc(var(--radio-size-outer-width) + 5px);
+    padding-left: calc(var(--theme-number-spacing-base) * 3);
 
     &::before {
       /* background-color: var(--radio-color-unchecked-initial-background); */
@@ -25,8 +25,8 @@
     }
 
     &::after {
-      background-color: var(--radio-color-checked-initial-fill);
-      border-radius: 50%;
+      background-color: var(--theme-color-palette-white);
+      border-radius: 4px;
       content: '';
 
       /* Add 2px to simulate an external border to match Enterprise */
@@ -46,14 +46,19 @@
     box-shadow: var(--radio-shadow-focus-boxshadow);
   }
 
-  & input:disabled + label::before {
-    background-color: var(--radio-color-unchecked-disabled-background);
-    border-color: var(--radio-color-unchecked-disabled-border);
+  & input:disabled + label {
+    color: var(--radio-color-unchecked-disabled-label);
+
+    &::before {
+      background-color: var(--radio-color-unchecked-disabled-background);
+      border-color: var(--radio-color-unchecked-disabled-border);
+    }
   }
 
   & input:checked + label {
     &::before {
-      background-color: var(--radio-color-checked-initial-background);
+      background-color: var(--radio-color-checked-initial-fill);
+      border: none;
     }
 
     &::after {
@@ -63,6 +68,8 @@
   }
 
   & input:disabled:checked + label {
+    color: var(--radio-color-unchecked-disabled-label);
+
     &::before {
       background-color: var(--radio-color-checked-disabled-background);
       border-color: var(--radio-color-checked-disabled-border);

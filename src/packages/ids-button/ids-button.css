@@ -30,7 +30,7 @@
 
   &:focus,
   &.has-focus {
-    box-shadow: var(--theme-color-boxshadow-base);
+    box-shadow: 0 0 0 2px var(--theme-color-boxshadow-base), 0 0 0 3px var(--button-color-primary-focus-border);
     outline: 0;
   }
 
@@ -77,7 +77,7 @@
   }
 
   &.ids-btn--link {
-    background-color: var(--button-color-secondary-initial-background);
+    background-color: transparent;
     color: var(--button-color-secondary-initial-font);
 
     &:hover {
