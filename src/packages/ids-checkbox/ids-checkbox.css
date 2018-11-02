@@ -74,6 +74,8 @@
   }
 
   & input:disabled:checked + label {
+    color: var(--checkbox-color-checked-disabled-font);
+
     &::before {
       background-color: var(--checkbox-color-checked-disabled-background);
       border-color: var(--checkbox-color-checked-disabled-border);
