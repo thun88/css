@@ -202,8 +202,7 @@ ol {
 code,
 pre {
   font-family: var(--theme-font-family-monospace);
-  font-size: var(--theme-size-font-sm);
-  letter-spacing: -1px;
+  font-size: calc(var(--theme-size-font-sm) - 0.2rem);
   line-height: var(--theme-size-line-height-base);
 }
 
