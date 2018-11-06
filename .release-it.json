@@ -1,7 +1,7 @@
 {
   "non-interactive": false,
   "dry-run": false,
-  "requireCleanWorkingDir": true,
+  "requireCleanWorkingDir": false,
   "verbose": false,
   "pkgFiles": ["package.json"],
   "increment": "patch",
@@ -9,8 +9,7 @@
   "src": {
     "commitMessage": "Release v%s",
     "tagAnnotation": "Release v%s",
-    "beforeStartCommand": "npm run test",
-    "afterReleaseCommand": "npm run publish-docs:prod"
+    "beforeStartCommand": "npm i && npm run test"
   },
   "npm": {
     "tag": "latest"
@@ -19,5 +18,15 @@
     "release": true,
     "releaseName": "v%s",
     "tokenRef": "GITHUB_ACCESS_TOKEN"
+  },
+  "prompt": {
+    "src": {
+      "status": true,
+      "commit": false,
+      "tag": false,
+      "push": false,
+      "release": false,
+      "publish": false
+    }
   }
 }
