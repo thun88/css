@@ -103,7 +103,7 @@ em,
 
 small,
 .ids-text--small {
-  font-size: var(--theme-size-font-sm);
+  font-size: var(--theme-size-font-xs);
   font-weight: var(--theme-number-font-weight-base);
 }
 
@@ -202,7 +202,7 @@ ol {
 code,
 pre {
   font-family: var(--theme-font-family-monospace);
-  font-size: calc(var(--theme-size-font-sm) - 0.2rem);
+  font-size: var(--theme-size-font-xs);
   line-height: var(--theme-size-line-height-base);
 }
 
@@ -241,7 +241,7 @@ kbd {
   color: #444d56;
   display: inline-block;
   font-family: var(--theme-font-family-monospace);
-  font-size: var(--theme-size-font-sm);
+  font-size: var(--theme-size-font-xs);
   line-height: 10px;
   padding: 5px 8px;
   vertical-align: middle;
