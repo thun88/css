@@ -90,7 +90,7 @@ select.ids-form-control {
   & > legend,
   & .ids-info-block {
     display: block;
-    font-size: var(--theme-size-font-sm);
+    font-size: var(--theme-size-font-xs);
     line-height: 1.3rem;
   }
 
