@@ -62,7 +62,7 @@
     "handlebars": "^4.0.12",
     "handlebars-registrar": "^1.5.2",
     "highlight.js": "^9.12.0",
-    "ids-identity": "^2.0.0-beta.3",
+    "ids-identity": "^2.0.0-beta.4",
     "lost": "^8.3.0",
     "markdownlint-cli": "^0.10.0",
     "marked": "^0.3.19",
