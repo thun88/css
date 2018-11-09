@@ -86,7 +86,7 @@ h6 {
 }
 
 p {
-  line-height: var(--theme-size-line-height-base);
+  line-height: var(--theme-size-font-line-height);
   margin-bottom: calc(var(--theme-number-spacing-base) * 2);
   margin-top: calc(var(--theme-number-spacing-base) * 2);
 }
@@ -173,7 +173,7 @@ ol {
   margin-top: calc(var(--theme-number-spacing-base) * 2);
 
   & li {
-    line-height: var(--theme-size-line-height-base);
+    line-height: var(--theme-size-font-line-height);
   }
 
   /* nested ul/ol */
@@ -203,7 +203,7 @@ code,
 pre {
   font-family: var(--theme-font-family-monospace);
   font-size: var(--theme-size-font-xs);
-  line-height: var(--theme-size-line-height-base);
+  line-height: var(--theme-size-font-line-height);
 }
 
 code {
