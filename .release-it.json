@@ -1,7 +1,7 @@
 {
   "non-interactive": false,
   "dry-run": false,
-  "requireCleanWorkingDir": false,
+  "requireCleanWorkingDir": true,
   "verbose": false,
   "pkgFiles": ["package.json"],
   "increment": "patch",
