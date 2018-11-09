@@ -9,7 +9,7 @@
   "src": {
     "commitMessage": "Release v%s",
     "tagAnnotation": "Release v%s",
-    "beforeStartCommand": "npm i && npm run test"
+    "beforeStartCommand": "npm run test"
   },
   "npm": {
     "tag": "latest"
@@ -18,15 +18,5 @@
     "release": true,
     "releaseName": "v%s",
     "tokenRef": "GITHUB_ACCESS_TOKEN"
-  },
-  "prompt": {
-    "src": {
-      "status": true,
-      "commit": false,
-      "tag": false,
-      "push": false,
-      "release": false,
-      "publish": false
-    }
   }
 }
